@@ -1,0 +1,18 @@
+.mesh_color {
+  color: #A69DFC;
+}
+
+h2 {
+  border-bottom: thick double #4051B5;
+}
+
+h3 {
+  background-color: #555973;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.md-typeset__table {
+  min-width: 100%;
+}

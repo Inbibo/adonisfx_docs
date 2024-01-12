@@ -1,0 +1,121 @@
+site_name: Adonis
+
+theme:
+  name: material
+  features:
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+  language: en
+  logo: img/adn_logo_small.png
+  favicon: img/adn_logo_small.png
+  palette:
+    scheme: slate
+    primary: indigo
+    accent: deep purple
+extra_css:
+  - /stylesheets/extra.css
+use_directory_urls: false
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/inbibo-ltd/
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@inbibo9227/featured
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/people/Inbibo/100064064923495/
+plugins:
+  - mkdocs-video:
+      is_video: True
+      video_muted: True
+      video_controls: True
+      css_style:
+        width: "75%"
+        
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.mark
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.tilde
+  - abbr
+  - attr_list
+  - md_in_html
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+copyright: |
+  &copy; 2023 <a href="https://www.inbibo.co.uk/"  target="_blank" rel="noopener">Inbibo LTD</a>
+
+# Page tree
+nav:
+  - Home: index.md
+  #- Simshape:
+  #  - How To Use: simshape/how_to_use.md
+  #  - Attributes: simshape/attributes.md
+  #  - Advanced: simshape/advanced.md
+  #- Skin:
+  #  - How To Use: skin/how_to_use.md
+  #  - Attributes: skin/attributes.md
+  #- Ribbon Muscle:
+  #  - How To Use: ribbon/how_to_use.md
+  #  - Attributes: ribbon/attributes.md
+  #  - Advanced: ribbon/advanced.md
+  #- Volumetric Muscle:
+  #  - How To Use: volumetric/how_to_use.md
+  #  - Attributes: volumetric/attributes.md
+  #  - Advanced: volumetric/advanced.md
+
+
+# MKDOCS local server #
+# From terminal and at your adonisfx folder
+# Run "mkdocs serve -f docs/config.yml"
+# Open a browser and go to "http://127.0.0.1:8000/"
+
+# Build MKDOCS, during compilation #
+# From terminal and at your adonisfx folder
+# Set enviroment variable: "set ADN_DOCS=1"
+# Run "build.bat" as usual
+
+# Build MKDOCS #
+# From terminal and at your adonisfx folder
+# Run "mkdocs build -f docs/config.yml -d path/to/custom/destination/folder"
