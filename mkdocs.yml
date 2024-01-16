@@ -1,14 +1,18 @@
 site_name: Adonis
 
 theme:
+#  name: mkdocs
   name: material
+#  name: readthedocs
   features:
     - navigation.footer
     - navigation.indexes
-    - navigation.sections
+#    - navigation.sections
     - navigation.tabs
     - navigation.top
     - navigation.tracking
+#    - navigation.expand
+    - navigation.path
     - toc.integrate
     - search.suggest
     - search.highlight
@@ -18,8 +22,8 @@ theme:
     - content.tabs.link
     - content.tooltips
   language: en
-  logo: img/adn_logo_small.png
-  favicon: img/adn_logo_small.png
+  logo: /images/adn_logo_small.svg
+  favicon: /images/adn_logo_small.svg
   palette:
     scheme: slate
     primary: indigo
@@ -72,6 +76,9 @@ markdown_extensions:
   - md_in_html
   - pymdownx.tabbed:
       alternate_style: true 
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
@@ -84,38 +91,28 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 copyright: |
-  &copy; 2023 <a href="https://www.inbibo.co.uk/"  target="_blank" rel="noopener">Inbibo LTD</a>
+  &copy; 2024 <a href="https://www.inbibo.co.uk/"  target="_blank" rel="noopener">Inbibo LTD</a>
 
 # Page tree
 nav:
-  - Home: index.md
-  #- Simshape:
-  #  - How To Use: simshape/how_to_use.md
-  #  - Attributes: simshape/attributes.md
-  #  - Advanced: simshape/advanced.md
-  #- Skin:
-  #  - How To Use: skin/how_to_use.md
-  #  - Attributes: skin/attributes.md
-  #- Ribbon Muscle:
-  #  - How To Use: ribbon/how_to_use.md
-  #  - Attributes: ribbon/attributes.md
-  #  - Advanced: ribbon/advanced.md
-  #- Volumetric Muscle:
-  #  - How To Use: volumetric/how_to_use.md
-  #  - Attributes: volumetric/attributes.md
-  #  - Advanced: volumetric/advanced.md
-
-
-# MKDOCS local server #
-# From terminal and at your adonisfx folder
-# Run "mkdocs serve -f docs/config.yml"
-# Open a browser and go to "http://127.0.0.1:8000/"
-
-# Build MKDOCS, during compilation #
-# From terminal and at your adonisfx folder
-# Set enviroment variable: "set ADN_DOCS=1"
-# Run "build.bat" as usual
-
-# Build MKDOCS #
-# From terminal and at your adonisfx folder
-# Run "mkdocs build -f docs/config.yml -d path/to/custom/destination/folder"
+  - Introduction: index.md
+  - Terminology: terminology.md
+  - Installation: installation.md
+  - Licensing: licensing.md
+  - Documentation:
+    - documentation/index.md
+    - Maya:
+      - 1.0.0: 
+        - documentation/maya/1.0.0/index.md
+        - UI Overview         : documentation/maya/1.0.0/ui_overview.md
+        - A simple Setup      : documentation/maya/1.0.0/simple_setup.md
+        - Locators            : documentation/maya/1.0.0/locators.md
+        - Sensors             : documentation/maya/1.0.0/sensors.md
+        - AdnSimshape         : documentation/maya/1.0.0/simshape.md
+        - AdnSkin             : documentation/maya/1.0.0/skin.md
+        - AdnRibbonMuscle     : documentation/maya/1.0.0/ribbon.md
+        - AdnVolumetricMuscle : documentation/maya/1.0.0/volumetric.md
+    - Houdini:
+      - 1.0.0: 
+        - documentation/houdini/1.0.0/index.md
+  - Release Notes: release_notes.md
