@@ -10,7 +10,7 @@ The Volumetric Muscle deformer requires the following inputs to be provided:
   - <b class="mesh_color"> Muscle Geometry </b> that the volumetric muscle deformer will be applied onto.
 
 !!! Notes
-    - It is not mandatory to select the attachments on creation of the volumetric muscle deformer. We can add and remove attachments after creating the deformer, check this [advanced section](advanced.md#how-to-add-and-remove-attachments) for further details.
+    - It is not mandatory to select the attachments on creation of the volumetric muscle deformer. We can add and remove attachments after creating the deformer, check this [advanced section](#how-to-add-and-remove-attachments) for further details.
 
 ## Create Volumetric Muscle
 
@@ -21,15 +21,15 @@ The Volumetric Muscle deformer requires the following inputs to be provided:
       B["Muscle\n"];
     ```
 2. Press the ![Volumetric Muscle button](/images/adn_muscle_sim.png) button in the AdonisFX shelf or press Volumetric Muscle in the AdonisFX menu. 
-3. Volumetric muscle is ready to simulate with default settings. Check [this page](attributes.md#attributes) to customize the configuration.
+3. Volumetric muscle is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the volumetric muscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](how_to_use.md#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the volumetric muscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
 - *Tendons*: floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. We recommend to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh.
 - *Attachment Constraints*: weight to indicate the influence of each attachment at each vertex of the muscle.
-- *Fibers*: the deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, we can use the paint tool to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](attributes.md#debug) option in the deformer 
+- *Fibers*: the deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, we can use the paint tool to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug) option in the deformer 
 - *Compression Resistance*: force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.
 - *Stretching Resistance*: force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
 
@@ -39,7 +39,7 @@ In order to provide more artistic control, some key parameters of the volumetric
 </figure>
 
 !!! Note
-    - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](how_to_use.md#adonisfx-paint-tool).
+    - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
     - We recommend to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
 
 ### AdonisFX Paint Tool
@@ -73,7 +73,7 @@ Following, we present the key aspects to keep in mind while painting each attrib
   2. Tendons
     1. We recommend to paint values of 1.0 wherever the tendon tissue is and values of 0.0 in the rest of the mesh. This painting will internally trigger an automatic estimation of fibers directions.
   3. Fibers
-    1. To visualise the fibers, enable the [Draw Fibers](attributes.md#debug) attribute in the deformer or go to the Adonis menu > Edit Muscle > Draw Fibers.
+    1. To visualise the fibers, enable the [Draw Fibers](#debug) attribute in the deformer or go to the Adonis menu > Edit Muscle > Draw Fibers.
     2. From the deformer Attribute Editor, it is also possible to scale the fibers vectors for debugging purposes.
     3. Comb the fibers towards the desired direction.
   4. Stretching and Compression Resistance

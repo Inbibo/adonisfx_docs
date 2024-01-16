@@ -18,11 +18,11 @@ The Skin deformer requires the following inputs to be provided:
       B["Skin Mesh\n"];
     ```
 2. Press ![Skin button](/images/adn_skin_sim.png) in the AdonisFX shelf or Skin in the AdonisFX menu.
-3. Skin is ready to simulate with default settings. Check [this page](attributes.md#attributes) to customize the configuration.
+3. Skin is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the skin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](how_to_use.md#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the skin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
 - *Hard Constraints*: weight to modulate the correction applied to the vertices to keep them at a constant transformation local to the closest point on the reference mesh at initialization. The recommendation for a biped or quadruped creature is to use a maximum value of 1.0 on the wrists, ankles and hips and a value of 0.2 on the rest of the body.
 - *Slide Constraints*: weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. In the example of a biped or quadruped, we recommend a value of 1.0 on the scapulas, shoulders, elbows and knees and a value of 0.2 on the rest of the body.

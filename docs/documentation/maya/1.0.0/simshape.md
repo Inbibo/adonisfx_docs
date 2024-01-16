@@ -28,7 +28,7 @@ The Simshape deformer requires the following inputs to be provided:
       classDef opt fill:#413E63,stroke-dasharray: 5 5
     ```
   2. Press the ![Simshape button](/images/adn_simshape_sim.png) in the AdonisFX shelf or press Simshape in AdonisFX menu.
-  3. Simshape is ready to simulate with default settings. Check [this page](attributes.md#attributes) to customize the configuration.
+  3. Simshape is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 In order to add or remove any of those optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape. In that submenu, we can find the options to manage each mesh type as we present in the Figure 1.
 
@@ -165,7 +165,7 @@ Simshape can emulate the behaviour of facial muscles by computing the muscle act
 
 !!! abstract "Activations Modes"
     === "Muscle Patches"
-        The data in the Adonis Muscle Patches (AMP) file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following [this section](advanced.md#generate-muscle-patches).
+        The data in the Adonis Muscle Patches (AMP) file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following [this section](#generate-muscle-patches).
 
         <h5>Requirements</h5>
 
@@ -257,7 +257,7 @@ Simshape supports an internal collider that has to be bound to the rig and combi
 
 ### Add Rest Collider
 
-The use of rest collider is recommended when the preroll simulation is not computed and the [initialization to the animated mesh](attributes.md#initialization-settings) is enabled. In order to allow the solver to build consistent collision data in those cases, we should provide both the [rest mesh](how_to_use.md#requirements) and the rest collider.
+The use of rest collider is recommended when the preroll simulation is not computed and the [initialization to the animated mesh](#initialization-settings) is enabled. In order to allow the solver to build consistent collision data in those cases, we should provide both the [rest mesh](#requirements) and the rest collider.
 
 1. Select the rest collider object.
 2. Select the mesh with the Simshape deformer.
@@ -275,7 +275,7 @@ The use of rest collider is recommended when the preroll simulation is not compu
 
 ### Collider Configuration
 
-Apart from [*Compute Collisions*](attributes.md#collision-settings), [*Keep Orientation*](attributes.md#collision-settings) and [*Max Sliding Distance*](attributes.md#collision-settings) parameters, it is possible to tweak the collision computation by painting the following attributes:
+Apart from [*Compute Collisions*](#collision-settings), [*Keep Orientation*](#collision-settings) and [*Max Sliding Distance*](#collision-settings) parameters, it is possible to tweak the collision computation by painting the following attributes:
 
 | Paintable Attribute            | Type  | Value | Range        | Description |
 | :------------                  | :---  | :---- | :----        | :---------- |
