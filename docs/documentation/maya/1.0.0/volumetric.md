@@ -20,7 +20,7 @@ The Volumetric Muscle deformer requires the following inputs to be provided:
       A["N Attachments\n"] --> B;
       B["Muscle\n"];
     ```
-2. Press the ![Volumetric Muscle button](/images/adn_muscle_sim.png) button in the AdonisFX shelf or press Volumetric Muscle in the AdonisFX menu. 
+2. Press the ![Volumetric Muscle button](../../../images/adn_muscle_sim.png) button in the AdonisFX shelf or press Volumetric Muscle in the AdonisFX menu. 
 3. Volumetric muscle is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights
@@ -34,7 +34,7 @@ In order to provide more artistic control, some key parameters of the volumetric
 - *Stretching Resistance*: force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
 
 <figure>
-  <img src="/images/volumetric_paint_example.png"> 
+  <img src="../../../images/volumetric_paint_example.png"> 
   <figcaption>Figure 1: Example of painted weights on a biceps. From left to right: Tendons weights, Attachment weight for the attachment at the top, Attachment weight for the attachment at the bottom; and Fibers directions at each vertex.</figcaption>
 </figure>
 
@@ -47,19 +47,19 @@ In order to provide more artistic control, some key parameters of the volumetric
 To configure the paintable attributes in the Volumetric Muscle deformer, the AdonisFX paint tool must be used. Apart from the standard functionalities that the Maya default paint context provides, this tool also processes the painted weights to guarantee that the requirements of solver are satisfied.
 
 <figure>
-  <img src="/images/paint_tool_volumetric.png"> 
+  <img src="../../../images/paint_tool_volumetric.png"> 
   <figcaption>Figure 2: AdonisFX Paint Tool</figcaption>
 </figure>
 
 Do the following to open the tool:
 
   1. Select the mesh with the Volumetric Muscle deformer applied to.
-  2. Press the paint tool ![paint tool](/images/adn_paint_tool.png) shelf button or go to AdonisFX menu > Paint Tool.
+  2. Press the paint tool ![paint tool](../../../images/adn_paint_tool.png) shelf button or go to AdonisFX menu > Paint Tool.
 
 The selected attribute in the combo box exposed at the top of the UI is the active attribute in the paint context. Now you can use the tool as it was the Artisan's tool from Maya, the behaviour of the different widgets/fields is the same.
 
 <figure style="margin-left:30%;" markdown> 
-  ![Pain Tool Skin Attributes example](/images/paint_tool_volumetric_attributes.png) 
+  ![Pain Tool Skin Attributes example](../../../images/paint_tool_volumetric_attributes.png) 
   <figcaption style="margin-right:30%"> Figure 3: AdonisFX paint tool displaying the paintable attributes of the deformer. </figcaption> 
 </figure>
 
@@ -160,12 +160,12 @@ table th:nth-of-type(5) {
 ## Attribute Editor Template
 
 <figure markdown>
-  ![Volumetric Muscle editor first part](/images/attribute_editor_part_one_volumetric.png) 
+  ![Volumetric Muscle editor first part](../../../images/attribute_editor_part_one_volumetric.png) 
   <figcaption>Figure 1: Volumetric Muscle Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
-  ![Volumetric Muscle editor second part](/images/attribute_editor_part_two_volumetric.png)
+  ![Volumetric Muscle editor second part](../../../images/attribute_editor_part_two_volumetric.png)
   <figcaption>Figure 2: Volumetric Muscle Attribute Editor (Advanced Settings)</figcaption>
 </figure>
 
@@ -178,8 +178,8 @@ Once the volumetric muscle deformer is created, it is possible to add and remove
 - **Add attachments**:  
     1. Select the transform nodes (one or more) that you want to assign as attachments to the Volumetric Muscle.
     2. Select the mesh that has the Volumetric Muscle deformer applied.
-    3. Press the ![Add Attachments button](/images/adn_add_attachment.png) button in the AdonisFX shelf or press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Add Attachments button](../../../images/adn_add_attachment.png) button in the AdonisFX shelf or press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove attachments**:
     1. Select one or more transform nodes that are assigned as attachments to the Volumetric Muscle.
     2. Select the mesh that has the Volumetric Muscle deformer applied.
-    3. Press the ![Remove Attachments button](/images/adn_remove_attachment.png) button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
+    3. Press the ![Remove Attachments button](../../../images/adn_remove_attachment.png) button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
