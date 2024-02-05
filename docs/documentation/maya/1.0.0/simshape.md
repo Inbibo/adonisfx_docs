@@ -27,13 +27,13 @@ The Simshape deformer requires the following inputs to be provided:
       B["Simulation Mesh\n <i style='font-size:12px;'>Required</i>"];
       classDef opt fill:#413E63,stroke-dasharray: 5 5
     ```
-  2. Press the ![Simshape button](/images/adn_simshape_sim.png) in the AdonisFX shelf or press Simshape in AdonisFX menu.
+  2. Press the ![Simshape button](../../../images/adn_simshape_sim.png) in the AdonisFX shelf or press Simshape in AdonisFX menu.
   3. Simshape is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 In order to add or remove any of those optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape. In that submenu, we can find the options to manage each mesh type as we present in the Figure 1.
 
 <figure style="width:45%" markdown>
-  ![Edit Simshape submenu](/images/simshape_menu.png)
+  ![Edit Simshape submenu](../../../images/simshape_menu.png)
   <figcaption>Figure 1: Edit Simshape submenu.</figcaption>
 </figure>
 
@@ -144,12 +144,12 @@ table th:nth-of-type(5) {
 ## Attribute Editor Template
 
 <figure markdown>
-  ![simshape editor first part](/images/attribute_editor_part_one_simshape.png) 
+  ![simshape editor first part](../../../images/attribute_editor_part_one_simshape.png) 
   <figcaption>Figure 1: Simshape Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
-  ![simshape editor second part](/images/attribute_editor_part_two_simshape.png)
+  ![simshape editor second part](../../../images/attribute_editor_part_two_simshape.png)
   <figcaption>Figure 2: Simshape Attribute Editor (Advanced Settings)</figcaption>
 </figure>
 
@@ -159,7 +159,7 @@ table th:nth-of-type(5) {
 Simshape can emulate the behaviour of facial muscles by computing the muscle activation directly on the vertices of the skin geometry. The activation of the vertices is an advanced and optional feature that can work in two modes: from muscle patches data or from plug values.
 
 <figure markdown>
-  ![Activation modes from attribute editor](/images/activation_modes.png)
+  ![Activation modes from attribute editor](../../../images/activation_modes.png)
   <figcaption>Figure 1: Activation Modes switch exposed in the Attribute Editor</figcaption>
 </figure>
 
@@ -193,11 +193,11 @@ Simshape can emulate the behaviour of facial muscles by computing the muscle act
 The AMP file is generated from the Learn Muscle Patches tool:
 
 <figure style="float: right; width: 40%; padding-left: 5px;">
-  <img src="/images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
+  <img src="../../../images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
   <figcaption>Figure 3: Learn Muscle Patches UI</figcaption>
 </figure>
 
-1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](/images/adn_simshape_learn.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Learn Muscle Patches UI**.
+1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](../../../images/adn_simshape_learn.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Learn Muscle Patches UI**.
 2. Add the neutral mesh.
 3. Add the target meshes.
 4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation.
@@ -207,7 +207,7 @@ The AMP file is generated from the Learn Muscle Patches tool:
 
 <br>
 <figure style="width: 25%;" markdown>
-  ![Simshape draw muscle patches example](/images/nassim_draw_muscle_patches.png)
+  ![Simshape draw muscle patches example](../../../images/nassim_draw_muscle_patches.png)
   <figcaption>Figure 2: Example of muscle patches generated with the Learn Muscle Patches UI</figcaption>
 </figure>
 
@@ -224,7 +224,7 @@ Additional custom settings for the learning algorithm:
 Simshape integrates a debug mode to visualize the activations during the simulation. If this mode is enabled, then Simshape will display a map of vertex colors from black to red on the simulation mesh where the black color is mapped to no activation and the red color is mapped to maximum activation.
 
 <figure style="width: 30%" markdown>
-  ![Learn Muscle Patches UI window](/images/nassim_debug.png)
+  ![Learn Muscle Patches UI window](../../../images/nassim_debug.png)
   <figcaption>Figure 4: Example of Simshape running in Debug mode</figcaption>
 </figure>
 
@@ -233,7 +233,7 @@ In order to toggle and untoggle the debug mode, follow these steps:
 
 1. Stop the simulation.
 2. Move to pre-roll frame or start frame.
-3. Press ![Simshape debug icon](/images/adn_simshape_debug.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Activations Debugger**.
+3. Press ![Simshape debug icon](../../../images/adn_simshape_debug.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Activations Debugger**.
 
 ## Colliders
 
@@ -243,7 +243,7 @@ Simshape supports an internal collider that has to be bound to the rig and combi
 
 1. Select the collider object.
 2. Select the mesh with the Simshape deformer.
-3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](/images/adn_add_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Add Collider**. 
+3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](../../../images/adn_add_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Add Collider**. 
 
 !!! Note
     - Avoid intersections between the collider and the rest/simulated mesh.
@@ -253,7 +253,7 @@ Simshape supports an internal collider that has to be bound to the rig and combi
 
 1. Select the collider object.
 2. Select the mesh with the Simshape deformer.
-3. Press the AdonisFX Shelf > Remove Collider Shelf Button ![Remove collider icon](/images/adn_remove_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Remove Collider**.
+3. Press the AdonisFX Shelf > Remove Collider Shelf Button ![Remove collider icon](../../../images/adn_remove_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Remove Collider**.
 
 ### Add Rest Collider
 
@@ -283,11 +283,11 @@ Apart from [*Compute Collisions*](#collision-settings), [*Keep Orientation*](#co
 | Collision Threshold Multiplier | Float | 1.0   | \[0.0, 1.0\] | Factor to scale the distance vertex-to-collider at rest. It is used to modulate the minimum distance to the collider allowed for each vertex. |
 
 <figure style="width:45%" markdown> 
-  ![Slide collision paint example](/images/slide_collision_paint_example.png) 
+  ![Slide collision paint example](../../../images/slide_collision_paint_example.png) 
   <figcaption>Figure 5: Slide Collision Constraints painted values.</figcaption> 
 </figure>
 
 <figure style="width:45%;" markdown> 
-  ![Collision threshold paint example](/images/collision_threshold_paint_example.png) 
+  ![Collision threshold paint example](../../../images/collision_threshold_paint_example.png) 
   <figcaption>Figure 6: Collision Threshold Multiplier painted values to 0.2 for the whole mesh.</figcaption> 
 </figure>

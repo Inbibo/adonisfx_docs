@@ -19,8 +19,8 @@ theme:
     - content.tabs.link
     - content.tooltips
   language: en
-  logo: /images/adn_logo_small.svg
-  favicon: /images/adn_logo_small.svg
+  logo: images/adn_logo_small.svg
+  favicon: images/adn_logo_small.svg
   palette:
     scheme: slate
     primary: light blue
