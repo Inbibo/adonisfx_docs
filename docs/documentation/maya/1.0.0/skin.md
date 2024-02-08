@@ -59,7 +59,7 @@ In order to provide more artistic control, some key parameters of the skin solve
 
 - <b class="paintable maps">Max Sliding Multiplier</b>:
 
-- <b class="paintable maps">Mass</b>:
+- <b class="paintable maps">Mass</b>: set individual mass values to each vertex of the simulated mesh.
 
 <figure>
   <img src="../../../images/skin_paint_example.png" caption="AdonisFX Paint Tool"> 
