@@ -138,6 +138,12 @@ table th:nth-of-type(5) {
     - *Range*: \[1e^-3^, 100.0\] [^1]
     - *Description*: Sets the scaling factor applied to the masses and/or the forces.
 
+- <b class="attributes">Space Scale Mode</b>
+    - *Type*: Enum
+    - *Default Option*: Masses + Forces
+    - *Options*: Masses, Forces, Masses + Forces
+    - *Description*: Determines if the spatial scaling affects the masses, the forces, or both.
+
 #### Gravity
 - <b class="attributes">Gravity</b>
     - *Type*: Float
@@ -165,13 +171,19 @@ table th:nth-of-type(5) {
     - *Description*: Sets the custom stiffness value.
 
 #### Dynamic Properties
+- <b class="attributes">Global Mass Multiplier</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[0.0, 10.0\] [^1]
+    - *Description*: Sets the scaling factor applied to the mass of every point.
+
 - <b class="attributes">Global Damping</b>
     - *Type*: Float
     - *Default Value*: 0.75
     - *Range*: \[0.0, 2.0\] [^1]
     - *Description*: Toggles the use of the Global Damping Attribute. If enabled, the system will attempt to retrieve the values from the source input at the given attribute name. If the attribute name is not found, then the numeric parameter will be used instead.
 
-- <b class="attributes">Inertia Damping</b>
+- <b class="attributes">Inertia Damper</b>
     - *Type*: Float
     - *Default Value*: 0.0
     - *Range*: \[0.0, 1.0\]
@@ -183,23 +195,35 @@ table th:nth-of-type(5) {
     - *Range*: \[0.0, 2.0\] [^1]
     - *Description*: Sets the scaling factor applied to the edge lengths at rest.
 
-- <b class="attributes">Stretching Resistance</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 1.0\]
-    - *Description*: Sets a uniform value for the stretching resistance of the edges. It is used if Stretching Resistance Attribute is not provided.
-
-- <b class="attributes">Compression Resistance</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 1.0\]
-    - *Description*: Sets a uniform value for the compression resistance of the edges. It is used if Compression Resistance Attribute is not provided.
-
 - <b class="attributes">Max Sliding Distance</b>
     - *Type*: Float
-    - *Default Value*: 0.0
+    - *Default Value*: 0.5
     - *Range*: \[0.0, 10.0\] [^1]
     - *Description*: Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. The higher this value is, the higher quality and the lower performance.
+
+- <b class="attributes">Compression Multiplier</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[0.0, 2.0\] [^1]
+    - *Description*: Sets the scaling factor applied to the compression resistance of every point.
+
+- <b class="attributes">Stretching Multiplier</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[0.0, 2.0\] [^1]
+    - *Description*: Sets the scaling factor applied to the stretching resistance of every point.
+
+- <b class="attributes">Attenuation Velocity factor</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[0.0, 1.0\]
+    - *Description*: Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
+
+- <b class="attributes">Sliding constraints mode</b>
+    - *Type*: Enum
+    - *Default Option*: Fast
+    - *Options*: Fast, Quality 
+    - *Description*: Defines the mode of execution for the sliding constraints: Quality is more accurate, recommended for final results; Fast provides higher performance, recommended for preview.
 
 #### Additional Properties
 
@@ -253,8 +277,8 @@ The elements that can be visualized with the debugger in the Skin deformer are:
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
 
 <figure markdown>
-  ![skin editor debug menu](../../../images/skin_debug_hard_constraint.png){ width="400" }
-  <figcaption>Figure 5: Hard Constraints debugger enabled. </figcaption>
+  ![skin editor debug menu](../../../images/skin_debug.png)
+  <figcaption>Figure 5: Debugger enabled displaying hard constraints, slide constraints and soft constraints with different configurations. </figcaption>
 </figure>
 
 The following paramenters can be modified to better customize the appereance of these lines:
