@@ -16,11 +16,9 @@ To create a Skin deformer within a Maya scene, the following inputs must be prov
 The process to create a Skin deformer must follow this procedure:
 
 1. Select the meshes in the following order:
-    ``` mermaid
-    graph LR
-      A["Reference Mesh\n"] --> B;
-      B["Skin Mesh\n"];
-    ```
+
+    <b class="mesh_color">Reference Mesh</b> &#8594 <b class="mesh_color">Skin Mesh</b>
+
 2. Press ![Skin button](../../../images/adn_skin.png) in the AdonisFX shelf or Skin in the AdonisFX menu, under the "Create" section.
     - If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed were a custom name and initial attribute values can be set.
 3. Skin is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
@@ -55,11 +53,11 @@ In order to provide more artistic control, some key parameters of the skin solve
 
     - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles. (unless that’s something you are looking for!)
 
-- <b class="paintable maps">Global Damping </b>:
+- <b class="paintable maps">Global Damping </b>: set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position.
 
-- <b class="paintable maps">Max Sliding Multiplier</b>:
+- <b class="paintable maps">Max Sliding Multiplier</b>: define the area per vertex in which they are able to slide. Greater values will allow for greater sliding but will have a greater computational cost. Use lower values in areas where sliding isn't necessary. Use higher values in areas where sliding constraints must have better quality.
 
-- <b class="paintable maps">Mass</b>: set individual mass values to each vertex of the simulated mesh.
+- <b class="paintable maps">Mass</b>: set individual mass values per vertex in the simulated mesh.
 
 <figure>
   <img src="../../../images/skin_paint_example.png" caption="AdonisFX Paint Tool"> 
@@ -95,65 +93,133 @@ table th:nth-of-type(5) {
 #### Solver Attributes
 - <b class="attributes">Iterations</b>
     - *Type*: Long
-    - *Value*: Leather
+    - *Default Value*: 3
     - *Range*: \[1, 10\] [^1]
-    - *Description*: Number of iterations that the solver will execute per simulation step.
+    - *Description*: Number of iterations that the solver will execute per simulation step. Greater values means greater computational cost.
 
-- <b class="attributes">Iterations</b>
-    - *Type*: Long
-    - *Value*: 3
-    - *Options*:<ul><li>Fat</li><li>Muscle</li><li>Rubber</li><li>Tendon</li><li>Leather</li><li>Wood</li><li>Concrete</li></ul>
-    - *Description*: Number of iterations that the solver will execute per simulation step.
+- <b class="attributes">Material</b>
+    - *Type*: Enum
+    - *Default Value*: Leather
+    - *Options*: Fat, Muscle, Rubber, Tendon, Leather, Wood, Concrete
+    - *Description*: Solver stiffness presets per material. The materials are listed from lowest to highest stiffness.
 
-| Attribute            | Type  | Value     | Range/Options     | Description                  |
-| :------------        | :---  | :----     | :------------     | :--------------------------- |
-| Iterations           | Long  | 3         | \[1, 10\] [^1]    | Number of iterations that the solver will execute per simulation step. |
-| Material             | Enum  | Leather   | <ul><li>Fat</li><li>Muscle</li><li>Rubber</li><li>Tendon</li><li>Leather</li><li>Wood</li><li>Concrete</li></ul> | Solver stiffness. The materials are listed from lowest to highest stiffness |
-| Stiffness Multiplier | Float | 1.0       | \[0.0, 2.0\] [^1] | Multiplier factor to scale up or down the material stiffness. |
+- <b class="attributes">Stiffness Multiplier</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[0.0, 2.0\] [^1]
+    - *Description*: Multiplier factor to scale up or down the material stiffness.
 
 #### Time Attributes
-| Attribute          | Type | Value         | Range/Options    | Description                  |
-| :---------------   | :--- | :----         | :----------      | :--------- |
-| Preroll Start Time | Time | Current frame || Frame to start the preroll. |
-| Start Time         | Time | Current frame || Frame to end the preroll and start the simulation. |
-| Current Time       | Time | Current frame || Current playback frame. |
+- <b class="attributes">Preroll Start Time</b>
+    - *Type*: Time
+    - *Default Value*: Current frame
+    - *Description*: Sets the frame at which the preroll begins. The preroll ends at Start Time.
+
+- <b class="attributes">Preroll Start Time</b>
+    - *Type*: Time
+    - *Default Value*: Current frame
+    - *Description*: Determines the frame at which the simulation starts.
+
+- <b class="attributes">Current Time</b>
+    - *Type*: Time
+    - *Default Value*: Current frame
+    - *Description*: Current playback frame.
 
 #### Scale Attributes
-| Attribute   | Type  | Value | Range/Options          | Description                  |
-| :---------- | :---  | :---- | :------------          | :--------------------------- |
-| Time Scale  | Float | 1.0   | \[1e^-3^, 10.0\] [^1]  | Scale to control the time step relative to the Dependency Graph time. |
-| Space Scale | Float | 1.0   | \[1e^-3^, 100.0\] [^1] | Scale to control the space relative to the scene units. |
+- <b class="attributes">Time Scale</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[1e^-3^, 10.0\] [^1]
+    - *Description*: Sets the scaling factor applied to the simulation time step.
+
+- <b class="attributes">Space Scale</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[1e^-3^, 100.0\] [^1]
+    - *Description*: Sets the scaling factor applied to the masses and/or the forces.
 
 #### Gravity
-| Attribute         | Type   | Value            | Range/Options       | Description               |
-| :------------     | :---   | :----            | :------------       | :------------------------ |
-| Gravity           | Float  | 0.0              | \[0.0, 100.0\] [^1] | Magnitude of the gravity. |
-| Gravity Direction | Float3 | (0.0, -1.0, 0.0) |                     | Direction of the gravity. |
+- <b class="attributes">Gravity</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[0.0, 100.0\] [^1]
+    - *Description*: Sets the magnitude of the gravity acceleration.
+
+- <b class="attributes">Gravity Direction</b>
+    - *Type*: Float
+    - *Default Value*: (0.0, -1.0, 0.0)
+    - *Description*: Sets the direction of the gravity acceleration.
 
 ### Advanced Settings
 
 #### Stiffness Settings
-| Attribute            | Type  | Value    | Range/Options | Description                  |
-| :------------        | :---  | :----    | :------------ | :--------------------------- |
-| Use Custom Stiffness | Bool  | False    || Flag that enables the custom stiffness. If we use custom stiffness, **Material** and **Stiffness Multiplier** will be disabled and **Stiffness** will be used instead. |
-| Stiffness            | Float | 10^5^    | \[0.0, inf\]  | Custom stiffness value. |
+- <b class="attributes">Use Custom Stiffness</b>
+    - *Type*: Bool
+    - *Default Value*: False
+    - *Description*: Toggles the use of a custom stiffness value. If enabled, the Material is ignored and the Stiffness parameter is used instead.
+
+- <b class="attributes">Stiffness</b>
+    - *Type*: Float
+    - *Default Value*: 10^5^
+    - *Range*: \[0.0, inf\]
+    - *Description*: Sets the custom stiffness value.
 
 #### Dynamic Properties
-| Attribute              | Type  | Value | Range/Options      | Description                  |
-| :------------          | :---  | :---- | :------------      | :--------------------------- |
-| Global Damping         | Float | 0.75  | \[0.0, 2.0\] [^1]  | Global damping introduced to the system. |
-| Inertia Damping        | Float | 0.0   | \[0.0, 1.0\]       | Damping affecting only the inertias in the system. |
-| Rest Length Multiplier | Float | 1.0   | \[0.0, 2.0\] [^1]  | Scaling factor of the edge rest lengths. |
-| Stretching Resistance  | Float | 1.0   | \[0.0, 1.0\]       | Force to correct the edge lengths if the current length is greater than the rest length. This attribute is paintable. | 
-| Compression Resistance | Float | 1.0   | \[0.0, 1.0\]       | Force to correct the edge lengths if the current length is smaller than the rest length. This attribute is paintable. |
-| Max Sliding Distance   | Float | 0.0   | \[0.0, 10.0\] [^1] | Maximum distance along the reference mesh that one vertex can slide on. |
+- <b class="attributes">Global Damping</b>
+    - *Type*: Float
+    - *Default Value*: 0.75
+    - *Range*: \[0.0, 2.0\] [^1]
+    - *Description*: Toggles the use of the Global Damping Attribute. If enabled, the system will attempt to retrieve the values from the source input at the given attribute name. If the attribute name is not found, then the numeric parameter will be used instead.
+
+- <b class="attributes">Inertia Damping</b>
+    - *Type*: Float
+    - *Default Value*: 0.0
+    - *Range*: \[0.0, 1.0\]
+    - *Description*: Sets the linear damping applied to the dynamics of every point.
+
+- <b class="attributes">Rest Length Multiplier</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[0.0, 2.0\] [^1]
+    - *Description*: Sets the scaling factor applied to the edge lengths at rest.
+
+- <b class="attributes">Stretching Resistance</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[0.0, 1.0\]
+    - *Description*: Sets a uniform value for the stretching resistance of the edges. It is used if Stretching Resistance Attribute is not provided.
+
+- <b class="attributes">Compression Resistance</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[0.0, 1.0\]
+    - *Description*: Sets a uniform value for the compression resistance of the edges. It is used if Compression Resistance Attribute is not provided.
+
+- <b class="attributes">Max Sliding Distance</b>
+    - *Type*: Float
+    - *Default Value*: 0.0
+    - *Range*: \[0.0, 10.0\] [^1]
+    - *Description*: Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. The higher this value is, the higher quality and the lower performance.
 
 #### Additional Properties
-| Attribute         | Type  | Value | Range/Options | Description                  |
-| :------------     | :---  | :---- | :------------ | :--------------------------- |
-| Hard constraints  | Float | 1.0   | \[0.0, 1.0\]  | Weight to modulate the correction applied to the vertices to keep them at a constant transformation, local to the closest point on the reference mesh at initialization. <br> This attribute is paintable and normalized together with *Slide Constraints* and *Soft Constraints*. |
-| Slide Constraints | Float | 0.0   | \[0.0, 1.0\]  | Weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. <br> This attribute is paintable and normalized together with *Hard Constraints* and *Soft Constraints*. |
-| Soft constraints  | Float | 0.0   | \[0.0, 1.0\]  | Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. <br> This attribute is paintable and normalized together with *Slide Constraints* and *Hard Constraints*. |
+
+- <b class="attributes">Hard constraints</b>
+    - *Type*: Float
+    - *Default Value*: 1.0
+    - *Range*: \[0.0, 1.0\]
+    - *Description*: Weight to modulate the correction applied to the vertices to keep them at a constant transformation, local to the closest point on the reference mesh at initialization. <br> This attribute is paintable and normalized together with *Slide Constraints* and *Soft Constraints*.
+
+- <b class="attributes">Rest Length Multiplier</b>
+    - *Type*: Float
+    - *Default Value*: 0.0
+    - *Range*: \[0.0, 1.0\]
+    - *Description*: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. <br> This attribute is paintable and normalized together with *Hard Constraints* and *Soft Constraints*.
+
+- <b class="attributes">Rest Length Multiplier</b>
+    - *Type*: Float
+    - *Default Value*: 0.0
+    - *Range*: \[0.0, 1.0\]
+    - *Description*: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. <br> This attribute is paintable and normalized together with *Slide Constraints* and *Hard Constraints*.
 
 ## Attribute Editor Template
 
@@ -173,7 +239,7 @@ To better visualize deformer constraints in the Maya viewport there is the optio
 
 <figure markdown>
   ![skin editor debug menu](../../../images/attribute_editor_skin_debug.png)
-  <figcaption>Figure 2: Skin Attribute Editor (Debug menu)</figcaption>
+  <figcaption>Figure 4: Skin Attribute Editor (Debug menu)</figcaption>
 </figure>
 
 To enable the debugger the "Debug" checkbox must marked.
@@ -184,7 +250,14 @@ The elements that can be visualized with the debugger in the Skin deformer are:
  - Soft Constraints
  - Slide Constraints
 
-Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. The following paramenters can be modified to better customize the appereance of these lines:
+Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
+
+<figure markdown>
+  ![skin editor debug menu](../../../images/skin_debug_hard_constraint.png){ width="400" }
+  <figcaption>Figure 5: Hard Constraints debugger enabled. </figcaption>
+</figure>
+
+The following paramenters can be modified to better customize the appereance of these lines:
 
  - Width Scale: Modifies the width of all lines.
  - Color: Selects the line color from a color wheel. Its saturation can be modified using the slider.
