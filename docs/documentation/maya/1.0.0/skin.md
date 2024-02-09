@@ -190,10 +190,10 @@ In order to provide more artistic control, some key parameters of the skin solve
 | Default Value| 1.0                                                               |
 | Description  | Sets the scaling factor applied to the edge lengths at<br/>rest.<br/>Has a range of \[0.0, 2.0\] [^1]|
 
-| Max Sliding Distance|                                                                  |
+| Max Sliding Distance|                                                            |
 | :----        | :-----------------------------------------------------------------|
 | Type         | Float                                                             |
-| Default Value| 0.5                                                              |
+| Default Value| 0.5                                                               |
 | Description  | Determines the size of the sliding area. It corresponds <br/>to themaximum distance to the closest point on the<br/>reference mesh computed on initialization. The higher<br/>this value is, the higher quality and the lower<br/>performance.<br/>Has a range of \[0.0, 10.0\] [^1]|
 
 | Compression Multiplier|                                                          |
@@ -202,7 +202,7 @@ In order to provide more artistic control, some key parameters of the skin solve
 | Default Value| 1.0                                                               |
 | Description  | Sets the scaling factor applied to the compression<br/>resistance of every point.<br/>Has a range of \[0.0, 2.0\] [^1]|
 
-| Stretching Multiplier|                                                          |
+| Stretching Multiplier|                                                           |
 | :----        | :-----------------------------------------------------------------|
 | Type         | Float                                                             |
 | Default Value| 1.0                                                               |
@@ -211,13 +211,13 @@ In order to provide more artistic control, some key parameters of the skin solve
 | Attenuation Velocity factor|                                                     |
 | :----        | :-----------------------------------------------------------------|
 | Type         | Float                                                             |
-| Default Value| 0.5                                                              |
+| Default Value| 0.5                                                               |
 | Description  | Sets the weight of the attenuation applied to<br/>the whole simulation driven by the Attenuation<br/>Matrix.<br/>Has a range of \[0.0, 10.0\] [^1]|
 
-| Sliding Constraints Mode|                                                          |
+| Sliding Constraints Mode|                                                        |
 | :----        | :-----------------------------------------------------------------|
-| Type         | Enum                                                             |
-| Default Option| Fast                                                              |
+| Type         | Enum                                                              |
+| Default Option| Fast                                                             |
 | Description  | Defines the mode of execution for the sliding<br/>constraints:<br/> - Quality is more accurate, recommended<br/>for final results.<br/>Fast provides higher performance,<br/>recommended for preview.|
 
 #### Additional Properties
@@ -228,13 +228,13 @@ In order to provide more artistic control, some key parameters of the skin solve
 | Default Value| 1.0                                                               |
 | Description  | Weight to modulate the correction applied to the vertices<br/>to keep them at a constant transformation, local to<br/>the closest point on the reference mesh at initialization.<br/>This attribute is paintable and normalized together with<br/>Slide Constraints and Soft Constraints.<br/>Has a range of \[0.0, 10.0\] [^1]|
 
-| Soft Constraints|                                                                  |
+| Soft Constraints|                                                                |
 | :----        | :-----------------------------------------------------------------|
 | Type         | Float                                                             |
-| Default Value| 0.0                                                              |
+| Default Value| 0.0                                                               |
 | Description  | Weight to modulate the correction applied to the vertices<br/>to keep them at a constant distance to the reference mesh<br/>sliding along the reference surface. This attribute is<br/>paintable and normalized together with Hard Constraints<br/>and Soft Constraints.<br/>Has a range of \[0.0, 2.0\] [^1]|
 
-| Sliding Constraints|                                                                  |
+| Sliding Constraints|                                                             |
 | :----        | :-----------------------------------------------------------------|
 | Type         | Float                                                             |
 | Default Value| 0.0                                                               |
@@ -246,19 +246,19 @@ In order to provide more artistic control, some key parameters of the skin solve
 | Default Value| 1.0                                                               |
 | Description  | Weight to set the force to correct the edge lengths<br/>if the current length is smaller than the rest length.<br/>Has a range of \[0.0, 1.0\] [^1]|
 
-| Stretching Resistance|                                                                  |
+| Stretching Resistance|                                                           |
 | :----        | :-----------------------------------------------------------------|
 | Type         | Float                                                             |
-| Default Value| 1.0                                                              |
+| Default Value| 1.0                                                               |
 | Description  | Weight to set the force to correct the edge lengths<br/>if the current length is greater than the rest length.<br/>Has a range of \[0.0, 1.0\] [^1]|
 
-| Sliding Distance Multiplier|                                                          |
+| Sliding Distance Multiplier|                                                     |
 | :----        | :-----------------------------------------------------------------|
 | Type         | Float                                                             |
 | Default Value| 1.0                                                               |
 | Description  | Determines the size of the sliding area per point.<br/>It corresponds to the maximum distance to the<br/>closest point on the reference mesh computed on<br/>initialization.<br/>Has a range of \[0.0, 1.0\] [^1]|
 
-| Masses       |                                                          |
+| Masses       |                                                                   |
 | :----        | :-----------------------------------------------------------------|
 | Type         | Float                                                             |
 | Default Value| 1.0                                                               |
