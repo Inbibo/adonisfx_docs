@@ -19,7 +19,7 @@ The process to create a Skin deformer must follow this procedure:
 
     <b class="mesh_color">Reference Mesh</b> &#8594 <b class="mesh_color">Skin Mesh</b>
 
-2. Press ![Skin button](../../../images/adn_skin.png) in the AdonisFX shelf or Skin in the AdonisFX menu, under the "Create" section.
+2. Press ![Skin button](../../../images/adn_skin.png){width=40px} in the AdonisFX shelf or Skin in the AdonisFX menu, under the "Create" section.
     - If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed were a custom name and initial attribute values can be set.
 3. Skin is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
@@ -29,13 +29,13 @@ In order to provide more artistic control, some key parameters of the skin solve
 
 - <b class="paintable maps">Hard constrain maps</b>: weight to modulate the correction applied to the vertices to keep them at a constant transformation local to the closest point on the reference mesh at initialization. Hard constrains maps will force the geometry points to keep the original position. You may want to have a low value of hard constraints to allow the skin to create wrinkles, slide, etc.
 
-    - *Tip*: Flood the geometry with a very low value 0.1 - 0.2. Give a value of 1.0 to the edges of the skin to guarantee that’s perfectly attached to the target geometry
+    - *Tip*: flood the geometry with a very low value 0.1 - 0.2. Give a value of 1.0 to the edges of the skin to guarantee that’s perfectly attached to the target geometry
 
     - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles. (unless that’s something you are looking for!)
 
 - <b class="paintable maps">Soft Constraints</b>: weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. An intermediate value of 0.5 on the whole geometry is recommended.
 
-    - *Tip*: Flood the geometry with a very low value 0.1 - 0.2.
+    - *Tip*: flood the geometry with a very low value 0.1 - 0.2.
 
 - <b class="paintable maps">Slide Constraints</b>: weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. In the example of a biped or quadruped, it is recommended to set a value of 1.0 on the scapulas, shoulders, elbows and knees and an overall value of 0 on the rest of the body.
 
@@ -43,13 +43,13 @@ In order to provide more artistic control, some key parameters of the skin solve
 
 - <b class="paintable maps">Compression Resistance</b>: force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. At value 1 the points in the geometry will try to keep as close as possible to their original position.
 
-    - *Tip*: You may want to leave this map weight to 1 as a starting point and tweak some areas later on as you see the results of the skin simulation. 
+    - *Tip*: you may want to leave this map weight to 1 as a starting point and tweak some areas later on as you see the results of the skin simulation. 
     
     - *Tip*: Reducing the value of the weight in some areas will contribute to getting rid of unwanted wrinkles or possible artifacts in the skin.
 
 - <b class="paintable maps">Stretching Resistance</b>: force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
 
-    - *Tip*: You may want to leave this map weight to 1 as a starting point and tweak some areas later on as you see the results of the skin simulation. 
+    - *Tip*: you may want to leave this map weight to 1 as a starting point and tweak some areas later on as you see the results of the skin simulation. 
 
     - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles. (unless that’s something you are looking for!)
 
@@ -57,7 +57,7 @@ In order to provide more artistic control, some key parameters of the skin solve
 
 - <b class="paintable maps">Max Sliding Multiplier</b>: determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. Greater values will allow for greater sliding but will have a greater computational cost.
     
-    - *Tip*: Use lower values in areas where sliding isn't necessary. Use higher values in areas where sliding constraints must have better quality.
+    - *Tip*: for areas where sliding isn't required paint to 0. use values closer to 1 in areas where you want to allow more freedom to slide.
 
 - <b class="paintable maps">Mass</b>: set individual mass values per vertex in the simulated mesh.
 
@@ -74,202 +74,195 @@ In order to provide more artistic control, some key parameters of the skin solve
 [^1]:
   Soft range: higher values can be used.
 
-<style>
-table th:first-of-type {
-    width: 20%;
-}
-table th:nth-of-type(2) {
-    width: 10%;
-}
-table th:nth-of-type(3) {
-    width: 15%;
-}
-table th:nth-of-type(4) {
-    width: 10%;
-}
-table th:nth-of-type(5) {
-    width: 45%;
-}
-</style>
-
 #### Solver Attributes
-- <b class="attributes">Iterations</b>
-    - *Type*: Long
-    - *Default Value*: 3
-    - *Range*: \[1, 10\] [^1]
-    - *Description*: Number of iterations that the solver will execute per simulation step. Greater values means greater computational cost.
 
-- <b class="attributes">Material</b>
-    - *Type*: Enum
-    - *Default Value*: Leather
-    - *Options*: Fat, Muscle, Rubber, Tendon, Leather, Wood, Concrete
-    - *Description*: Solver stiffness presets per material. The materials are listed from lowest to highest stiffness.
+| Iterations   |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Long                                                              |
+| Default Value| 3                                                                 |
+| Description  | Number of iterations that the solver will executeper simulation <br/>step. Greater values means greater computational cost.<br/>Has a range of \[1, 10\] [^1]|
 
-- <b class="attributes">Stiffness Multiplier</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 2.0\] [^1]
-    - *Description*: Multiplier factor to scale up or down the material stiffness.
+| Material     |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Enum                                                              |
+| Default Value| Leather                                                           |
+| Description  | Solver stiffness presets per material. The materials are listed <br/>from lowest to highest stiffness.<br/> *Options*: Fat, Muscle, Rubber, Tendon, Leather, Wood,<br/> Concrete|
+
+| Stiffness Multiplier|                                                            |
+| :----               | :----------------------------------------------------------|
+| Type                | Long                                                       |
+| Default Value       | 3                                                          |
+| Description         | Multiplier factor to scale up or down the material stiffness.<br/>Has a range of \[0.0, 2.0\] [^1]|
 
 #### Time Attributes
-- <b class="attributes">Preroll Start Time</b>
-    - *Type*: Time
-    - *Default Value*: Current frame
-    - *Description*: Sets the frame at which the preroll begins. The preroll ends at Start Time.
 
-- <b class="attributes">Preroll Start Time</b>
-    - *Type*: Time
-    - *Default Value*: Current frame
-    - *Description*: Determines the frame at which the simulation starts.
+| Preroll Start Time   |                                                           |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Time                                                              |
+| Default Value| Current frame                                                     |
+| Description  | Sets the frame at which the preroll begins. The preroll ends at<br/> Start Time|
 
-- <b class="attributes">Current Time</b>
-    - *Type*: Time
-    - *Default Value*: Current frame
-    - *Description*: Current playback frame.
+| Start Time   |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Time                                                              |
+| Default Value| Current frame                                                     |
+| Description  | Determines the frame at which the simulation starts.|
+
+| Current Time |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Time                                                              |
+| Default Value| Current frame                                                     |
+| Description  | Current playback frame.|
 
 #### Scale Attributes
-- <b class="attributes">Time Scale</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[1e^-3^, 10.0\] [^1]
-    - *Description*: Sets the scaling factor applied to the simulation time step.
 
-- <b class="attributes">Space Scale</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[1e^-3^, 100.0\] [^1]
-    - *Description*: Sets the scaling factor applied to the masses and/or the forces.
+| Time Scale   |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the scaling factor applied to the simulation time step.<br/>Has a range of \[0.0, 2.0\] [^1]|
 
-- <b class="attributes">Space Scale Mode</b>
-    - *Type*: Enum
-    - *Default Option*: Masses + Forces
-    - *Options*: Masses, Forces, Masses + Forces
-    - *Description*: Determines if the spatial scaling affects the masses, the forces, or both.
+| Space Scale   |                                                                  |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the scaling factor applied to the masses and/or the forces.<br/>Has a range of \[0.0, 2.0\] [^1]|
+
+| Space Scale Mode|                                                                |
+| :----               | :----------------------------------------------------------|
+| Type                | Enum                                                       |
+| Default Value       | Masses + Forces                                            |
+| Description         | Determines if the spatial scaling affects the masses, <br/>the forces, or both.<br/> *Options*: Masses, Forces, Masses + Forces|
 
 #### Gravity
-- <b class="attributes">Gravity</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 100.0\] [^1]
-    - *Description*: Sets the magnitude of the gravity acceleration.
 
-- <b class="attributes">Gravity Direction</b>
-    - *Type*: Float
-    - *Default Value*: (0.0, -1.0, 0.0)
-    - *Description*: Sets the direction of the gravity acceleration.
+| Gravity   |                                                                      |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the magnitude of the gravity acceleration.                   |
+
+| Gravity Direction   |                                                            |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float3                                                            |
+| Default Value| (0.0, -1.0, 0.0)                                                  |
+| Description  | Sets the direction of the gravity acceleration.                   |
 
 ### Advanced Settings
 
 #### Stiffness Settings
-- <b class="attributes">Use Custom Stiffness</b>
-    - *Type*: Bool
-    - *Default Value*: False
-    - *Description*: Toggles the use of a custom stiffness value. If enabled, the Material is ignored and the Stiffness parameter is used instead.
 
-- <b class="attributes">Stiffness</b>
-    - *Type*: Float
-    - *Default Value*: 10^5^
-    - *Range*: \[0.0, inf\]
-    - *Description*: Sets the custom stiffness value.
+| Gravity   |                                                                      |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Bool                                                              |
+| Default Value| False                                                             |
+| Description  | Toggles the use of a custom stiffness value. If enabled, the <br/>Material is ignored and the Stiffness parameter is used instead.|
+
+| Gravity Direction   |                                                            |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 10^5^                                                             |
+| Description  | Sets the custom stiffness value.<br/>Has a range of \[0.0, inf\]|
 
 #### Dynamic Properties
-- <b class="attributes">Global Mass Multiplier</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 10.0\] [^1]
-    - *Description*: Sets the scaling factor applied to the mass of every point.
 
-- <b class="attributes">Global Damping</b>
-    - *Type*: Float
-    - *Default Value*: 0.75
-    - *Range*: \[0.0, 2.0\] [^1]
-    - *Description*: Toggles the use of the Global Damping Attribute. If enabled, the system will attempt to retrieve the values from the source input at the given attribute name. If the attribute name is not found, then the numeric parameter will be used instead.
+| Global Mass Multiplier|                                                          |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the scaling factor applied to the mass of every point.<br/>Has a range of \[0.0, 10.0\] [^1]|
 
-- <b class="attributes">Inertia Damper</b>
-    - *Type*: Float
-    - *Default Value*: 0.0
-    - *Range*: \[0.0, 1.0\]
-    - *Description*: Sets the linear damping applied to the dynamics of every point.
+| Global Damping|                                                                  |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 0.75                                                              |
+| Description  | Sets the scaling factor applied to the global damping of every <br/>point.<br/>Has a range of \[0.0, 2.0\] [^1]|
 
-- <b class="attributes">Rest Length Multiplier</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 2.0\] [^1]
-    - *Description*: Sets the scaling factor applied to the edge lengths at rest.
+| Inertia Damper|                                                                  |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 0.0                                                               |
+| Description  | Sets the linear damping applied to the dynamics of every point.<br/>Has a range of \[0.0, 1.0\] [^1]|
 
-- <b class="attributes">Max Sliding Distance</b>
-    - *Type*: Float
-    - *Default Value*: 0.5
-    - *Range*: \[0.0, 10.0\] [^1]
-    - *Description*: Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. The higher this value is, the higher quality and the lower performance.
+| Rest Length Multiplier|                                                          |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the scaling factor applied to the edge lengths at<br/>rest.<br/>Has a range of \[0.0, 2.0\] [^1]|
 
-- <b class="attributes">Compression Multiplier</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 2.0\] [^1]
-    - *Description*: Sets the scaling factor applied to the compression resistance of every point.
+| Max Sliding Distance|                                                                  |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 0.5                                                              |
+| Description  | Determines the size of the sliding area. It corresponds <br/>to themaximum distance to the closest point on the<br/>reference mesh computed on initialization. The higher<br/>this value is, the higher quality and the lower<br/>performance.<br/>Has a range of \[0.0, 10.0\] [^1]|
 
-- <b class="attributes">Stretching Multiplier</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 2.0\] [^1]
-    - *Description*: Sets the scaling factor applied to the stretching resistance of every point.
+| Compression Multiplier|                                                          |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the scaling factor applied to the compression<br/>resistance of every point.<br/>Has a range of \[0.0, 2.0\] [^1]|
 
-- <b class="attributes">Attenuation Velocity factor</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 1.0\]
-    - *Description*: Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
+| Stretching Multiplier|                                                          |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the scaling factor applied to the stretching <br/>resistance of every point.<br/>Has a range of \[0.0, 2.0\] [^1]|
 
-- <b class="attributes">Sliding constraints mode</b>
-    - *Type*: Enum
-    - *Default Option*: Fast
-    - *Options*: Fast, Quality 
-    - *Description*: Defines the mode of execution for the sliding constraints: Quality is more accurate, recommended for final results; Fast provides higher performance, recommended for preview.
+| Attenuation Velocity factor|                                                     |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 0.5                                                              |
+| Description  | Sets the weight of the attenuation applied to<br/>the whole simulation driven by the Attenuation<br/>Matrix.<br/>Has a range of \[0.0, 10.0\] [^1]|
+
+| Sliding Constraints Mode|                                                          |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Enum                                                             |
+| Default Option| Fast                                                              |
+| Description  | Defines the mode of execution for the sliding<br/>constraints:<br/> - Quality is more accurate, recommended<br/>for final results.<br/>Fast provides higher performance,<br/>recommended for preview.|
 
 #### Additional Properties
 
-- <b class="attributes">Hard Constraints</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 1.0\]
-    - *Description*: Weight to modulate the correction applied to the vertices to keep them at a constant transformation, local to the closest point on the reference mesh at initialization. <br> This attribute is paintable and normalized together with *Slide Constraints* and *Soft Constraints*.
+| Hard Constraints|                                                                |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Weight to modulate the correction applied to the vertices<br/>to keep them at a constant transformation, local to<br/>the closest point on the reference mesh at initialization.<br/>This attribute is paintable and normalized together with<br/>Slide Constraints and Soft Constraints.<br/>Has a range of \[0.0, 10.0\] [^1]|
 
-- <b class="attributes">Soft Constraints</b>
-    - *Type*: Float
-    - *Default Value*: 0.0
-    - *Range*: \[0.0, 1.0\]
-    - *Description*: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. <br> This attribute is paintable and normalized together with *Hard Constraints* and *Soft Constraints*.
+| Soft Constraints|                                                                  |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 0.0                                                              |
+| Description  | Weight to modulate the correction applied to the vertices<br/>to keep them at a constant distance to the reference mesh<br/>sliding along the reference surface. This attribute is<br/>paintable and normalized together with Hard Constraints<br/>and Soft Constraints.<br/>Has a range of \[0.0, 2.0\] [^1]|
 
-- <b class="attributes">Sliding Constraints</b>
-    - *Type*: Float
-    - *Default Value*: 0.0
-    - *Range*: \[0.0, 1.0\]
-    - *Description*: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. <br> This attribute is paintable and normalized together with *Slide Constraints* and *Hard Constraints*.
+| Sliding Constraints|                                                                  |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 0.0                                                               |
+| Description  | Weight to modulate the correction applied to the vertices<br/>to keep them at a constant distance to the closest point<br/>on the reference mesh at initialization. This attribute is<br/>paintable and normalized together with Slide Constraints<br/>and Hard Constraints.<br/>Has a range of \[0.0, 1.0\] [^1]|
 
-- <b class="attributes">Compression Resistance</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 1.0\]
-    - *Description*: Weight to set the force to correct the edge lengths if the current length is smaller than the rest length.
+| Compression Resistance|                                                          |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Weight to set the force to correct the edge lengths<br/>if the current length is smaller than the rest length.<br/>Has a range of \[0.0, 1.0\] [^1]|
 
-- <b class="attributes">Stretching Resistance</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 1.0\]
-    - *Description*: Weight to set the force to correct the edge lengths if the current length is greater than the rest length.
+| Stretching Resistance|                                                                  |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                              |
+| Description  | Weight to set the force to correct the edge lengths<br/>if the current length is greater than the rest length.<br/>Has a range of \[0.0, 1.0\] [^1]|
 
-- <b class="attributes">Sliding Distance Multiplier</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 1.0\]
-    - *Description*: Determines the size of the sliding area per point. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization.
+| Sliding Distance Multiplier|                                                          |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Determines the size of the sliding area per point.<br/>It corresponds to the maximum distance to the<br/>closest point on the reference mesh computed on<br/>initialization.<br/>Has a range of \[0.0, 1.0\] [^1]|
 
-- <b class="attributes">Masses</b>
-    - *Type*: Float
-    - *Default Value*: 1.0
-    - *Range*: \[0.0, 1.0\]
-    - *Description*: Weight to set per-point mass of the mesh.
+| Masses       |                                                          |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Weight to set per-point mass of the mesh.<br/>Has a range of \[0.0, 1.0\] [^1]|
 
 ## Attribute Editor Template
 
