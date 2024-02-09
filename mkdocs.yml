@@ -2,7 +2,7 @@ site_name: Adonis
 
 theme:
 # Note: other themes available: mkdocs, readthedocs
-  name: material
+  name: readthedocs
   features:
     - navigation.footer
     - navigation.indexes
@@ -109,6 +109,7 @@ nav:
         - AdnSkin             : documentation/maya/1.0.0/skin.md
         - AdnRibbonMuscle     : documentation/maya/1.0.0/ribbon.md
         - AdnVolumetricMuscle : documentation/maya/1.0.0/volumetric.md
+        - Tools               : documentation/maya/1.0.0/tools.md
     - Houdini:
       - 1.0.0: 
         - documentation/houdini/1.0.0/index.md
