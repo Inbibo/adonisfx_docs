@@ -1,10 +1,12 @@
-# How To Use
+# Introduction
 
 Ribbon Muscle is a Maya deformer for fast, robust and easy-to-configure tissue muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachments) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a ribbon with fibers activations to modulate the rigidity and attachments to external objects to follow the global kinematics of the character.
 
+The influence of these constraints have in the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools.md) or by uniformingly regulating their influence via multipliers in the attribute editor. Beyond these constraints, several paramenters to regulate the ribbon muscle's dynamics are available to modify the deformer's behaviour as a whole.
+
 ## Requirements
 
-The Ribbon Muscle deformer requires the following inputs to be provided:
+To create a Ribbon Muscle deformer within a Maya scene, the following inputs must be provided:
 
 - <b class="mesh_color"> Attachments </b> to which the simulated muscle will be attached to. Any tranform node can be used (e.g. bones, locators, meshes, etc). This input is optional and unlimited.
 - <b class="mesh_color"> Muscle Geometry </b> that the ribbon muscle deformer will be applied onto.
@@ -14,24 +16,20 @@ The Ribbon Muscle deformer requires the following inputs to be provided:
 
 ## Create Ribbon Muscle
 
-1. Select the attachments (if any) and the geometry in the following order:
-    ``` mermaid
-    graph LR
-      A["N Attachments\n"] --> B;
-      B["Muscle\n"];
-    ```
+1. Select the attachments (if any) and the geometry in that order:
 2. Press the ![Ribbon Muscle button](../../../images/adn_ribbon_sim.png) button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu. 
 3. Ribbon muscle is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the ribbon muscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the ribbon muscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
-- *Tendons*: floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. We recommend to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh.
 - *Attachment Constraints*: weight to indicate the influence of each attachment at each vertex of the muscle.
+- *Tendons*: floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. We recommend to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh.
 - *Fibers*: the deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, we can use the paint tool to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug) option in the deformer.
 - *Compression Resistance*: force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.
 - *Stretching Resistance*: force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
+- *Slide on Segment Constraints*: weight to force vertices to displace only in the direction of a user-specified group of segments.
 
 <figure>
   <img src="../../../images/ribbon_paint_example.png"> 
@@ -41,6 +39,8 @@ In order to provide more artistic control, some key parameters of the ribbon mus
 !!! Note
     - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
     - We recommend to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
+
+<!-- DEV NOTE: Remove this after merging issue #11 where we created the tools.md page -->
 
 ### AdonisFX Paint Tool
 
@@ -84,75 +84,145 @@ Following, we present the key aspects to keep in mind while painting each attrib
 [^1]:
   Soft range: higher values can be used.
 
-<style>
-table th:first-of-type {
-    width: 20%;
-}
-table th:nth-of-type(2) {
-    width: 10%;
-}
-table th:nth-of-type(3) {
-    width: 15%;
-}
-table th:nth-of-type(4) {
-    width: 10%;
-}
-table th:nth-of-type(5) {
-    width: 45%;
-}
-</style>
-
 #### Solver Attributes
-| Attribute            | Type  | Value     | Range/Options     | Description                  |
-| :------------        | :---  | :----     | :------------     | :--------------------------- |
-| Iterations           | Long  | 3         | \[1, 10\] [^1]    | Number of iterations that the solver will execute per simulation step. |
-| Material             | Enum  | Muscle    | <ul><li>Fat</li><li>Muscle</li><li>Rubber</li><li>Tendon</li><li>Leather</li><li>Wood</li><li>Concrete</li></ul> | Solver stiffness. The materials are listed from lowest to highest stiffness. |
-| Stiffness Multiplier | Float | 1.0       | \[0.0, 2.0\] [^1] | Multiplier factor to scale up or down the material stiffness. |
-| Activation           | Float | 0.0       | \[0.0, 1.0\]      | Current activation of the deformed ribbon muscle. The activation modifies the stiffness of the muscle depending on the fibers direction of the muscle. |
-| Rest Activation      | Float | 0.0       | \[0.0, 1.0\]      | Rest activation of the deformed ribbon muscle. The rest activation modifies the stiffness of the muscle depending on the fibers direction of the muscle at rest. |
+
+| Iterations   |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Long                                                              |
+| Default Value| 3                                                                 |
+| Description  | Number of iterations that the solver will executeper simulation <br/>step. Greater values means greater computational cost.<br/><br/>Has a range of \[1, 10\] [^1]|
+
+| Material     |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Enum                                                              |
+| Default Value| Leather                                                           |
+| Description  | Solver stiffness presets per material. The materials are listed <br/>from lowest to highest stiffness.<br/><br/> *Options*: <ul><li>Fat: 1e+3</li><li>Muscle: 5e+3</li><li>Rubber: 1e+6</li><li>Tendon: 5e+7</li><li>Leather: 1e+8</li><li>Wood: 6e+9</li><li>Concrete: 2.5e+10</li></ul>|
+
+| Stiffness Multiplier|                                                            |
+| :----               | :----------------------------------------------------------|
+| Type                | Long                                                       |
+| Default Value       | 1.0                                                          |
+| Description         | Multiplier factor to scale up or down the material stiffness.<br/><br/>Has a range of \[0.0, 2.0\] [^1]|
+
+| Activation   |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 0.0                                                               |
+| Description  | Current activation of the deformed ribbon muscle.<br/>The activation modifies the stiffness of the muscle depending<br/>on the fibers direction of the muscle.<br/><br/>Has a range of \[0.0, 1.0\] [^1]|
+
+| Rest Activation|                                                                 |
+| :----          | :---------------------------------------------------------------|
+| Type           | Float                                                           |
+| Default Value  | 0.0                                                             |
+| Description    | Value representing the amount of rest activation to apply to the muscle.<br/><br/>Has a range of \[0.0, 1.0\] [^1]|
 
 #### Time Attributes
-| Attribute          | Type | Value         |  Range/Options    | Description                  |
-| :---------------   | :--- | :----         | :----------       | :--------- |
-| Preroll Start Time | Time | Current frame || Frame to start the preroll. |
-| Start Time         | Time | Current frame || Frame to end the preroll and start the simulation. |
-| Current Time       | Time | Current frame || Current playback frame. |
+
+| Preroll Start Time   |                                                           |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Time                                                              |
+| Default Value| Current frame                                                     |
+| Description  | Sets the frame at which the preroll begins. The preroll ends at<br/> Start Time|
+
+| Start Time   |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Time                                                              |
+| Default Value| Current frame                                                     |
+| Description  | Determines the frame at which the simulation starts.|
+
+| Current Time |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Time                                                              |
+| Default Value| Current frame                                                     |
+| Description  | Current playback frame.|
 
 #### Scale Attributes
-| Attribute   | Type  | Value | Range/Options          | Description                  |
-| :---------- | :---  | :---- | :------------          | :--------------------------- |
-| Time Scale  | Float | 1.0   | \[1e^-3^, 10.0\] [^1]  | Scale to control the time step relative to the Dependency Graph time. |
-| Space Scale | Float | 1.0   | \[1e^-3^, 100.0\] [^1] | Scale to control the space relative to the scene units. |
+
+| Time Scale   |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the scaling factor applied to the simulation time step.<br/><br/>Has a range of \[0.0, 2.0\] [^1]|
+
+| Space Scale   |                                                                  |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the scaling factor applied to the masses and/or the forces.<br/><br/>Has a range of \[0.0, 2.0\] [^1]|
 
 #### Gravity
-| Attribute         | Type   | Value            | Range/Options       | Description               |
-| :------------     | :---   | :----            | :------------       | :------------------------ |
-| Gravity           | Float  | 0.0              | \[0.0, 100.0\] [^1] | Magnitude of the gravity. |
-| Gravity Direction | Float3 | (0.0, -1.0, 0.0) |                     | Direction of the gravity. |
+
+| Gravity   |                                                                      |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the magnitude of the gravity acceleration.                   |
+
+| Gravity Direction   |                                                            |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float3                                                            |
+| Default Value| (0.0, -1.0, 0.0)                                                  |
+| Description  | Sets the direction of the gravity acceleration.                   |
 
 ### Advanced Settings
 
 #### Stiffness Settings
-| Attribute            | Type  | Value    | Range/Options   | Description                  |
-| :------------        | :---  | :----    | :------------   | :--------------------------- |
-| Use Custom Stiffness | Bool  | False    || Flag that enables the custom stiffness. If we use custom stiffness, **Material** and **Stiffness Multiplier** will be disabled and **Stiffness** will be used instead. |
-| Stiffness            | Float | 10^5^    | \[0.0, inf\]    | Custom stiffness value. |
+
+| Use Custom Stiffness|                                                            |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Bool                                                              |
+| Default Value| False                                                             |
+| Description  | Toggles the use of a custom stiffness value. If enabled, the <br/>Material is ignored and the Stiffness parameter is used instead.|
+
+| Stiffness    |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 10^5^                                                             |
+| Description  | Sets the custom stiffness value.<br/><br/>Has a range of \[0.0, inf\]|
 
 #### Dynamic Properties
-| Attribute              | Type  | Value | Range/Options     | Description                  |
-| :------------          | :---  | :---- | :------------     | :--------------------------- |
-| Global Damping         | Float | 0.0   | \[0.0, 2.0\] [^1] | Global damping introduced to the system. |
-| Inertia Damping        | Float | 0.0   | \[0.0, 1.0\]      | Damping affecting only the inertias in the system. |
-| Rest Length Multiplier | Float | 1.0   | \[0.0, 2.0\] [^1] | Scaling factor of the edge rest lengths. |
-| Stretching Resistance  | Float | 1.0   | \[0.0, 1.0\]      | Force to correct the edge lengths if the current length is greater than the rest length. This attribute is paintable. | 
-| Compression Resistance | Float | 1.0   | \[0.0, 1.0\]      | Force to correct the edge lengths if the current length is smaller than the rest length. This attribute is paintable. |
-| Hard Attachments       | Bool  | False | \[False, True\]   | If enabled, attachment constraints will force the vertices to stick to target transformation completely. |
 
-#### Debug
-| Attribute    | Type  | Value | Range/Options      | Description                  |
-| :----------- | :---  | :---- | :------------      | :--------------------------- |
-| Draw Fibers  | Bool  | False | \[False, True\]    | Draw the debug fibers in the viewport. |
-| Fibers Scale | Float | 1.0   | \[0.0, 10.0\] [^1] | Scale the fibers drawn in the viewport to increase their size. |
+| Global Damping|                                                                  |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 0.75                                                              |
+| Description  | Sets the scaling factor applied to the global damping of every <br/>point.<br/><br/>Has a range of \[0.0, 2.0\] [^1]|
+
+| Inertia Damper|                                                                  |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 0.0                                                               |
+| Description  | Sets the linear damping applied to the dynamics of every point.<br/><br/>Has a range of \[0.0, 1.0\] [^1]|
+
+| Rest Length Multiplier|                                                          |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the scaling factor applied to the edge lengths at<br/>rest.<br/><br/>Has a range of \[0.0, 2.0\] [^1]|
+
+| Compression Multiplier|                                                          |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the scaling factor applied to the compression<br/>resistance of every point.<br/><br/>Has a range of \[0.0, 2.0\] [^1]|
+
+| Stretching Multiplier|                                                           |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 1.0                                                               |
+| Description  | Sets the scaling factor applied to the stretching <br/>resistance of every point.<br/><br/>Has a range of \[0.0, 2.0\] [^1]|
+
+| Attenuation Velocity factor|                                                     |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Float                                                             |
+| Default Value| 0.5                                                               |
+| Description  | Sets the weight of the attenuation applied to<br/>the whole simulation driven by the Attenuation<br/>Matrix.<br/><br/>Has a range of \[0.0, 10.0\] [^1]|
+
+| Hard Attachments|                                                                |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Bool                                                              |
+| Default Value| False                                                             |
+| Description  | If enabled, attachment constraints will force the<br/>vertices to stick to target transformation completely.|
 
 ## Attribute Editor Template
 
@@ -175,8 +245,40 @@ Once the Ribbon Muscle deformer is created, it is possible to add and remove new
 - **Add attachments**:  
     1. Select the transform nodes (one or more) that you want to assign as attachments to the Ribbon Muscle.
     2. Select the mesh that has the Ribbon Muscle deformer applied.
-    3. Press the ![Add Attachments button](../../../images/adn_add_attachment.png) button in the AdonisFX shelf or press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Add Attachments button](../../../images/adn_add_attachment.png){width=40px} button in the AdonisFX shelf or press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove attachments**:
     1. Select one or more transform nodes that are assigned as attachments to the Ribbon Muscle.
     2. Select the mesh that has the Ribbon Muscle deformer applied.
-    3. Press the ![Remove Attachments button](../../../images/adn_remove_attachment.png) button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
+    3. Press the ![Remove Attachments button](../../../images/adn_remove_attachment.png){width=40px} button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
+    4. Alternatively, if only the mesh with the Ribbon Muscle deformer is selected, when pressing the ![Remove Attachments button](../../../images/adn_remove_attachment.png){width=40px} button all attachments will be removed.
+
+## Slide on Segment Constraint
+
+Additionally to all previously mentioned constraints, ribbon muscles can have an additional, optional constraint. Here the user may add attachments that will define a segment over which the muscle will slide.
+
+- **Add Segment**:  
+- **Remove Segment**:  
+
+## Debugger
+
+To better visualize deformer constraints in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled "Debug" in the attribute editor. 
+
+<figure markdown>
+  ![skin editor debug menu](../../../images/attribute_editor_ribbon_debug.png)
+  <figcaption>Figure 4: Skin Attribute Editor (Debug menu)</figcaption>
+</figure>
+
+To enable the debugger the "Debug" checkbox must marked. The elements that can be visualized with the debugger in the Skin deformer are:
+
+ - **Muscle Fibers**
+ - **Attachments Constraints**
+ - **Sliding on Segment Constraints**
+
+Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
+
+The following paramenters can be modified to better customize the appereance of these lines:
+
+ - **Width Scale**: Modifies the width of all lines.
+ - **Color**: Selects the line color from a color wheel. Its saturation can be modified using the slider.
+
+Additionally, for the specific case of debugging fibers, a fiber scale value can be set to set a custom fiber length.
