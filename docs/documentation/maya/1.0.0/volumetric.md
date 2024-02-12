@@ -87,6 +87,12 @@ Following, we present the key aspects to keep in mind while painting each attrib
 
 #### Solver Attributes
 
+| Enable       |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Bool                                                              |
+| Default Value| True                                                              |
+| Description  | Toggles the solver execution. If disabled, the deformer will <br/>have no effect on the mesh.|
+
 | Iterations   |                                                                   |
 | :----        | :-----------------------------------------------------------------|
 | Type         | Long                                                              |
