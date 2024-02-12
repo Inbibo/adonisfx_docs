@@ -89,8 +89,8 @@ Following, we present the key aspects to keep in mind while painting each attrib
 | Iterations   |                                                                   |
 | :----        | :-----------------------------------------------------------------|
 | Type         | Long                                                              |
-| Default Value| 3                                                                 |
-| Description  | Number of iterations that the solver will executeper simulation <br/>step. Greater values means greater computational cost.<br/><br/>Has a range of \[1, 10\] [^1]|
+| Default Value| 10                                                                |
+| Description  | Number of iterations that the solver will execute per simulation <br/>step. Greater values mean greater computational cost.<br/><br/>Has a range of \[1, 10\] [^1]|
 
 | Material     |                                                                   |
 | :----        | :-----------------------------------------------------------------|
@@ -250,25 +250,32 @@ Once the Ribbon Muscle deformer is created, it is possible to add and remove new
     1. Select one or more transform nodes that are assigned as attachments to the Ribbon Muscle.
     2. Select the mesh that has the Ribbon Muscle deformer applied.
     3. Press the ![Remove Attachments button](../../../images/adn_remove_attachment.png){width=40px} button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
-    4. Alternatively, if only the mesh with the Ribbon Muscle deformer is selected, when pressing the ![Remove Attachments button](../../../images/adn_remove_attachment.png){width=40px} button all attachments will be removed.
+    4. Alternatively, if only the mesh with the Ribbon Muscle deformer is selected, when pressing the ![Remove Attachments button](../../../images/adn_remove_attachment.png){width=40px} button, all attachments will be removed.
 
 ## Slide on Segment Constraint
 
 Additionally to all previously mentioned constraints, ribbon muscles can have an additional, optional constraint. Here the user may add attachments that will define a segment over which the muscle will slide.
 
-- **Add Segment**:  
+- **Add Segment**:
+    1. Select the transform nodes (two or more if this is the first segment you are adding) from which you would wish to make a segment for the muscle to slide on.
+    2. Select the mesh that has the Ribbon Muscle deformer applied.
+    3. Press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove Segment**:  
+    1. Select one or more transform nodes that are assigned as attachments to the Ribbon Muscle.
+    2. Select the mesh that has the Ribbon Muscle deformer applied.
+    3. press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
+    4. Alternatively, if only the mesh with the Ribbon Muscle deformer is selected, when pressing Remove Attachments in the AdonisFX menu, all attachments will be removed.
 
 ## Debugger
 
-To better visualize deformer constraints in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled "Debug" in the attribute editor. 
+To better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled "Debug" in the attribute editor. 
 
 <figure markdown>
   ![skin editor debug menu](../../../images/attribute_editor_ribbon_debug.png)
   <figcaption>Figure 4: Skin Attribute Editor (Debug menu)</figcaption>
 </figure>
 
-To enable the debugger the "Debug" checkbox must marked. The elements that can be visualized with the debugger in the Skin deformer are:
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the Skin deformer are:
 
  - **Muscle Fibers**
  - **Attachments Constraints**
@@ -281,4 +288,6 @@ The following paramenters can be modified to better customize the appereance of 
  - **Width Scale**: Modifies the width of all lines.
  - **Color**: Selects the line color from a color wheel. Its saturation can be modified using the slider.
 
-Additionally, for the specific case of debugging fibers, a fiber scale value can be set to set a custom fiber length.
+Additionally, for the specific case of debugging fibers, one more attribute is available:
+
+ - **Fiber scale value**: can be modified to set a custom fiber length.
