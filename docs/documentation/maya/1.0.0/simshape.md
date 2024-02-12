@@ -1,4 +1,4 @@
-# How To Use
+# Introduction to Simshape in Maya
 
 **Simshape** is a Maya deformer to get facial simulation in the animation rig of an asset. Given a facial expression, the deformer is able to compute the activation of the vertices in order to emulate the changes in the rigidity of the skin. As result, the dynamics of the simulated skin mimic the behaviour of internal muscles contracting.
 
@@ -6,11 +6,11 @@ During the simulation, the solver reduces the inertias of the vertices with high
 
 ## Requirements
 
-The Simshape deformer requires the following inputs to be provided:
+The Simshape deformer has a series of input meshes to be provided:
 
   - <b class="mesh_color"> Rest Mesh (R) </b> with no deformation or animation. (optional) 
   - <b class="mesh_color"> Deform Mesh (D)</b> with deformation driven by the facial expressions. (optional)
-  - <b class="mesh_color"> Anim Mesh (A)</b> with deformation driven by the facial expressions and animation result of to the binding to the animation rig. (optional)
+  - <b class="mesh_color"> Animated Mesh (A)</b> with deformation driven by the facial expressions and animation result of to the binding to the animation rig. (optional)
   - <b class="mesh_color"> Simulation Mesh (S)</b> to apply the deformer onto. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
 !!! Notes
@@ -18,17 +18,19 @@ The Simshape deformer requires the following inputs to be provided:
     - If <b class="mesh_color">R</b> is not provided, the system will use the initial state of <b class="mesh_color">S</b> as the rest mesh.
     - If <b class="mesh_color">D</b> is not provided, the simulation will not produce activations.
     - If <b class="mesh_color">A</b> is not provided, the system will use the input mesh to the deformer (<b class="mesh_color">S</b>) as animated mesh.
+
 ## Create Simshape
 
+When initially creating a Simshape deformer me may add directly a rest mesh.
+
   1. Select the meshes in the following order:
-    ``` mermaid
-    graph LR
-      A["Rest Mesh\n <i style='font-size:12px;'>Optional</i>"]:::opt --> B;
-      B["Simulation Mesh\n <i style='font-size:12px;'>Required</i>"];
-      classDef opt fill:#413E63,stroke-dasharray: 5 5
-    ```
-  2. Press the ![Simshape button](../../../images/adn_simshape_sim.png) in the AdonisFX shelf or press Simshape in AdonisFX menu.
-  3. Simshape is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
+
+    **Rest Mesh** (optional) &#8594 **Simulated mesh**
+        
+    - Remember that the animated mesh can be used directly as the simulation mesh
+
+  2. Press the ![Simshape button](../../../images/adn_simshape.png){width=40px} button in the AdonisFX shelf or press Simshape in AdonisFX menu.
+  3. A message box will notify you that simshape has been created properly, meanting that it is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 In order to add or remove any of those optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape. In that submenu, we can find the options to manage each mesh type as we present in the Figure 1.
 
@@ -37,109 +39,108 @@ In order to add or remove any of those optional meshes, a set of menu items are 
   <figcaption>Figure 1: Edit Simshape submenu.</figcaption>
 </figure>
 
+To add any of these meshes to Simshape, follow a similar procedure to when first creating simshape:
+
+  1. Select the meshes in the following order:
+
+    **Additional Mesh** &#8594 **Simulated mesh**
+        
+  2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
+  3. A message box will notify you that the action has been successful.
+
+To remove any of these meshes from simshape follow this procedure:
+
+  1. Select only the mesh with simshape applied.
+  2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
+  3. A message box will notify you that the action has been successful.
+
+
 # Attributes
 
 [^1]:
   Soft range: higher values can be used.
 
-<style>
-table th:first-of-type {
-    width: 20%;
-}
-table th:nth-of-type(2) {
-    width: 10%;
-}
-table th:nth-of-type(3) {
-    width: 15%;
-}
-table th:nth-of-type(4) {
-    width: 10%;
-}
-table th:nth-of-type(5) {
-    width: 45%;
-}
-</style>
-
 #### Solver Attributes
-| Attribute            | Type  | Value     | Range/Options     | Description                  |
-| :------------        | :---  | :----     | :------------     | :--------------------------- |
-| Enable               | Bool  | True      | \[False, True\]   | Flag to enable or disable the deformer computation. |
-| Iterations           | Long  | 3         | \[1, 10\] [^1]    | Number of iterations that the solver will execute per simulation step. |
-| Material             | Enum  | Leather   | <ul><li>Fat</li><li>Muscle</li><li>Rubber</li><li>Tendon</li><li>Leather</li><li>Wood</li><li>Concrete</li></ul> | Solver stiffness. The materials are listed from lowest to highest stiffness |
-| Stiffness Multiplier | Float | 1.0       | \[0.0, 2.0\] [^1] | Multiplier factor to scale up or down the material stiffness. |
+ - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
+ - **Iterations** (Integer, 3): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
+     - Has a range of \[1, 10\] [^1]
+ - **Material** (Enumerator, Leather): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
+    <ul><li>Fat: 10^7^</li><li>Muscle: 5 * 10^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5 * 10^7^</li><li>Leather: 10^8^</li><li>Wood: 6 * 10^9^</li><li>Concrete: 2.5 * 10^10^</li></ul>
+ - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
+     - Has a range of \[0.0, 2.0\]
 
 #### Muscles Activation Settings
-| Attribute                | Type   | Value           | Range/Options   | Description                  |
-| :------------            | :---   | :----           | :------------   | :--------------------------- |
-| Activation Mode          | Enum   | No Activation   | <ul><li>Muscle Patches</li><li>Plug Values</li><li>No Activation</li></ul> | Mode to drive the muscle activations:<ul><li> **Muscle Patches** (Disabled by default): An Adonis Muscle Patches file (.amp) has to be provided to enable this option.</li><li> **Plug Values**. (Disabled by default): The attribute values **ActivationList.Activation** should be populated to enable this option. The activation data will be read from the plug values. </li><li> **No Activation**. No activation is read. </li></ul> |
-| Muscle Patches File      | String |                 || Path to the Adonis Muscle Patches file (.amp). |
-| Activation Smoothing     | Long   | 1               | \[1, 20\] [^1]  | Number of iterations for the activation smoothing algorithm. |
-| Bidirectional Activation | Bool   | False           | \[False, True\] | Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers. |
-| Activation List          | Float  | 0.0             || Array attribute to connect the activation values for each vertex. Used in Plug Values activation mode |
+ - **Activation Mode** (Enumerator, No Activation): Mode to drive the muscle activations. There are 3 different modes:
+    - *Muscle Patches* (Disabled by default): An Adonis Muscle Patches file (.amp) has to be provided to enable this option.
+    - *Plug Values* (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.
+    - *No Activation* No activation is read.
+ - **Muscle Patches File** (String): Path to the Adonis Muscle Patches file (.amp).
+ - **Activation Smoothing** (Integer, 1): Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be.
+     - Has a range of \[1, 20\] [^1]
+ - **Bidirectional Activation** (Boolean, False): Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers.
+ - **Write Out Actiavations** (Boolean, False): Flag to toggle the writing of activations into a point attribute.
 
 #### Time Attributes
-| Attribute          | Type | Value         | Range/Options | Description                  |
-| :---------------   | :--- | :----         | :----------   | :--------- |
-| Preroll Start Time | Time | Current frame || Frame to start the preroll. |
-| Start Time         | Time | Current frame || Frame to end the preroll and start the simulation. |
-| Current Time       | Time | Current frame || Current playback frame. |
+ - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
+ - **Start Time** (Time, *Current frame*): Determines the frame at which the simulation starts.
+ - **Current Time** (Time, *Current frame*): Current playback frame.
 
 #### Scale Attributes
-| Attribute   | Type  | Value | Range/Options          | Description                  |
-| :---------- | :---  | :---- | :------------          | :--------------------------- |
-| Time Scale  | Float | 1.0   | \[1e^-3^, 10.0\] [^1]  | Scale to control the time step relative to the Dependency Graph time. |
-| Space Scale | Float | 1.0   | \[1e^-3^, 100.0\] [^1] | Scale to control the space relative to the scene units. |
+ - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the simulation time step.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces.
+    - Has a range of \[0.0, 2.0\] [^1]
 
 #### Gravity
-| Attribute         | Type   | Value            | Range/Options       | Description               |
-| :------------     | :---   | :----            | :------------       | :------------------------ |
-| Gravity           | Float  | 0.0              | \[0.0, 100.0\] [^1] | Magnitude of the gravity. |
-| Gravity Direction | Float3 | (0.0, -1.0, 0.0) |                     | Direction of the gravity. |
+ - **Gravity** (Float, 1.0): Sets the magnitude of the gravity acceleration.
+ - **Space Scale** (Float3, {0.0. -1.0, 0.0} ): Sets the scaling factor applied to the masses and/or the forces.
+    - Vectors introduced don't need to be normalized, but they will get normalized internally.
 
 ### Advanced Settings
 
 #### Stiffness Settings
-| Attribute            | Type  | Value    | Range/Options   | Description                  |
-| :------------        | :---  | :----    | :------------   | :--------------------------- |
-| Use Custom Stiffness | Bool  | False    | \[False, True\] | Flag that enables the custom stiffness. If we use custom stiffness, **Material** and **Stiffness Multiplier** will be disabled and **Stiffness** will be used instead. |
-| Stiffness            | Float | 10^5^    | \[0.0, inf\]    | Custom stiffness value. |
+ - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value. If enabled, the Material is ignored and the Stiffness parameter is used instead.
+    - If we use a custom stiffness, **Material** and **Stiffness Multiplier** will be disabled and **Stiffness** will be used instead.
+ - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
+    - Its value must be greater than 0.0.
 
 #### Dynamic Properties
-| Attribute              | Type  | Value | Range/Options     | Description                  |
-| :------------          | :---  | :---- | :------------     | :--------------------------- |
-| Global Damping         | Float | 0.75  | \[0.0, 1.0\] [^1] | Global damping introduced to the system. |
-| Inertia Damping        | Float | 0.0   | \[0.0, 1.0\]      | Damping affecting only the inertias in the system. |
-| Rest Length Multiplier | Float | 1.0   | \[0.0, 2.0\] [^1] | Scaling factor of the edge rest lengths. |
-| Stretching Resistance  | Float | 1.0   | \[0.0, 1.0\]      | Force to correct the edge lengths if the current length is greater than the rest length. This attribute is paintable. | 
-| Compression Resistance | Float | 0.0   | \[0.0, 1.0\]      | Force to correct the edge lengths if the current length is smaller than the rest length. This attribute is paintable. |
+ - **Global Mass Multiplier** (Float, 1.0): Sets the scaling factor applied to the mass of every point.
+    - Has a range of \[0.0, 10.0\] [^1]
+ - **Global Damping** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
+    - Has a range of \[0.0, 1.0\] [^1]
+ - **Inertia Damper** (Float, 0.0): Sets the linear damping applied to the dynamics of every point.
+    - Has a range of \[0.0, 1.0\] [^1]
+ - **Rest Length Multiplier** (Float, 1.0): Sets the scaling factor applied to the edge lengths at rest.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Compression Multiplier** (Float, 1.0): Sets the scaling factor applied to the compression resistance of every point.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Attenuation Velocity factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
+    - Has a range of \[0.0, 10.0\] [^1]
 
 #### Collision Settings
-| Attribute            | Type  | Value | Range/Options      | Description                  |
-| :------------        | :---  | :---- | :------------      | :--------------------------- |
-| Compute Collisions   | Bool  | True  | \[False, True\]    | Flag to enable collisions correction. |
-| Keep Orientation     | Bool  | True  | \[False, True\]    | Preserves the initial orientation of the vertices relative to the collider when handling collisions.|
-| Max Sliding Distance | Float | 1.0   | \[0.0, 10.0\] [^1] | Maximum distance the simulated vertex is allowed to slide on top of the collider in world units. |
+ - **Compute Collisions** (Boolean, True): Flag to enable collisions correction in the deformer. If disabled, the deformer will ignore colliders when deforming the mesh.
+ - **Keep Orientation** (Boolean, True): Flag to preserve the initial orientation of the vertices relative to the collider when handling collisions. If disabled, the mesh will suffer no changes if the orientation of the collider varies.
+ - **Max Sliding Distance** (Float, 1.0): Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider.
+    - Has a range of \[0.0, 10.0\] [^1]
 
 #### Attraction Settings
-| Attribute             | Type | Value     | Range/Options  | Description           |
-| :------------         | :--- | :----     | :------------  | :----------           |
-| Attraction Remap Mode | Enum | Cube Root | <ul><li>Linear</li><li>Logarithmic</li><li>Square Root</li><li>Cube Root</li></ul> | Remap mode used to compute the definitive attraction values. |
+ - **Attraction Multiplier** (Float, 1.0): Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider.
+    - Has a range of \[0.0, 10.0\] [^1]
+ - **Attraction Remap Mode** (Enumerator, Cube Root): Remap mode used to compute the definitive attraction values. There are 4 different modes that folow different remap methods:
+    <ul><li>Linear</li><li>Logarithmic</li><li>Square Root</li><li>Cube Root</li></ul>
 
 #### Initialization Settings
-| Attribute               | Type | Value | Range/Options   | Description           |
-| :------------           | :--- | :---- | :------------   | :----------           |
-| Animatable Rest Mesh    | Bool | False | \[False, True\] | Flag that enables reading animated rest mesh data. |
-| Initialize to Anim Mesh | Bool | False | \[False, True\] | Flag to instantiate points at animated mesh instead of rest mesh on initialization. |
+ - **Animatable Rest Mesh** (Boolean, False): Flag that enables reading animated rest mesh data.
+ - **Initialize to Anim Mesh** (Boolean, True): Flag to instantiate points at animated mesh instead of rest mesh on initialization.
 
 #### Activation Remap
-| Attribute        | Type           | Value  | Range/Options  | Description           |
-| :------------    | :---           | :----  | :------------  | :----------           |
-| Activation Remap | Ramp Attribute | Linear || Curve to remap the activation values. |
+ - **Activation Remap** (Ramp Attribute): Curve to remap the activation values.
 
 #### Additional Properties
-| Attribute     | Type  | Value | Range/Options  | Description                  |
-| :------------ | :---  | :---- | :------------  | :--------------------------- |
-| Attract Force | Float | 1.0   | \[0.0, 1.0\]   | Attibute to control the amount of influence of the animated mesh. The higher the value is, the more influence and the less dynamics will appear. This attribute is paintable. |
+ - **Attract Force** (Float, 1.0): Attibute to control the amount of influence of the animated mesh. The higher the value is, the more influence and the less dynamics will appear. This attribute is paintable.
 
 ## Attribute Editor Template
 
@@ -197,7 +198,7 @@ The AMP file is generated from the Learn Muscle Patches tool:
   <figcaption>Figure 3: Learn Muscle Patches UI</figcaption>
 </figure>
 
-1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](../../../images/adn_simshape_learn.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Learn Muscle Patches UI**.
+1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](../../../images/adn_learn_muscle_patches.png){width=40px} or go to the Edit Simshape submenu from the AdonisFX menu and press **Learn Muscle Patches UI**.
 2. Add the neutral mesh.
 3. Add the target meshes.
 4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation.
@@ -233,7 +234,7 @@ In order to toggle and untoggle the debug mode, follow these steps:
 
 1. Stop the simulation.
 2. Move to pre-roll frame or start frame.
-3. Press ![Simshape debug icon](../../../images/adn_simshape_debug.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Activations Debugger**.
+3. Press ![Simshape debug icon](../../../images/adn_simshape_debugger.png){width=40px} or go to the Edit Simshape submenu from the AdonisFX menu and press **Activations Debugger**.
 
 ## Colliders
 
@@ -243,7 +244,7 @@ Simshape supports an internal collider that has to be bound to the rig and combi
 
 1. Select the collider object.
 2. Select the mesh with the Simshape deformer.
-3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](../../../images/adn_add_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Add Collider**. 
+3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](../../../images/adn_add_collider.png){width=40px} or go to the Edit Simshape submenu from the AdonisFX menu and press **Add Collider**. 
 
 !!! Note
     - Avoid intersections between the collider and the rest/simulated mesh.
@@ -253,7 +254,7 @@ Simshape supports an internal collider that has to be bound to the rig and combi
 
 1. Select the collider object.
 2. Select the mesh with the Simshape deformer.
-3. Press the AdonisFX Shelf > Remove Collider Shelf Button ![Remove collider icon](../../../images/adn_remove_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Remove Collider**.
+3. Press the AdonisFX Shelf > Remove Collider Shelf Button ![Remove collider icon](../../../images/adn_remove_collider.png){width=40px} or go to the Edit Simshape submenu from the AdonisFX menu and press **Remove Collider**.
 
 ### Add Rest Collider
 
