@@ -17,7 +17,7 @@ To create a Ribbon Muscle deformer within a Maya scene, the following inputs mus
 ## Create Ribbon Muscle
 
 1. Select the attachments (if any) and the geometry in that order:
-2. Press the ![Ribbon Muscle button](../../../images/adn_ribbon_sim.png) button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu. 
+2. Press the ![Ribbon Muscle button](../../../images/adn_ribbon_muscle.png){width=40px} button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu. 
 3. Ribbon muscle is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights
@@ -85,6 +85,12 @@ Following, we present the key aspects to keep in mind while painting each attrib
   Soft range: higher values can be used.
 
 #### Solver Attributes
+
+| Enable       |                                                                   |
+| :----        | :-----------------------------------------------------------------|
+| Type         | Bool                                                              |
+| Default Value| True                                                              |
+| Description  | Toggles the solver execution. If disabled, the deformer will <br/>have no effect on the mesh.|
 
 | Iterations   |                                                                   |
 | :----        | :-----------------------------------------------------------------|
