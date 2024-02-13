@@ -2,7 +2,7 @@ site_name: Adonis
 
 theme:
 # Note: other themes available: mkdocs, readthedocs
-  name: material
+  name: readthedocs
   features:
     - navigation.footer
     - navigation.indexes
