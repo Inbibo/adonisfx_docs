@@ -17,7 +17,7 @@ The Skin deformer requires the following inputs to be provided:
       A["Reference Mesh\n"] --> B;
       B["Skin Mesh\n"];
     ```
-2. Press ![Skin button](images/adn_skin_sim.png) in the AdonisFX shelf or Skin in the AdonisFX menu.
+2. Press ![Skin button](images/adn_skin.png) in the AdonisFX shelf or Skin in the AdonisFX menu.
 3. Skin is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights

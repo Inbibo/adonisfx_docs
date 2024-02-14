@@ -20,7 +20,7 @@ The Volumetric Muscle deformer requires the following inputs to be provided:
       A["N Attachments\n"] --> B;
       B["Muscle\n"];
     ```
-2. Press the ![Volumetric Muscle button](images/adn_muscle_sim.png) button in the AdonisFX shelf or press Volumetric Muscle in the AdonisFX menu. 
+2. Press the ![Volumetric Muscle button](images/adn_muscle.png) button in the AdonisFX shelf or press Volumetric Muscle in the AdonisFX menu. 
 3. Volumetric muscle is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights

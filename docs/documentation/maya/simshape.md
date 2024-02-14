@@ -28,7 +28,7 @@ The Simshape deformer requires the following inputs to be provided:
       B["Simulation Mesh\n <i style='font-size:12px;'>Required</i>"];
       classDef opt fill:#413E63,stroke-dasharray: 5 5
     ```
-  2. Press the ![Simshape button](images/adn_simshape_sim.png) in the AdonisFX shelf or press Simshape in AdonisFX menu.
+  2. Press the ![Simshape button](images/adn_simshape.png) in the AdonisFX shelf or press Simshape in AdonisFX menu.
   3. Simshape is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 In order to add or remove any of those optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape. In that submenu, we can find the options to manage each mesh type as we present in the Figure 1.
@@ -179,7 +179,7 @@ The AMP file is generated from the Learn Muscle Patches tool:
   <figcaption>Figure 3: Learn Muscle Patches UI</figcaption>
 </figure>
 
-1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_simshape_learn.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Learn Muscle Patches UI**.
+1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Learn Muscle Patches UI**.
 2. Add the neutral mesh.
 3. Add the target meshes.
 4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation.
@@ -215,7 +215,7 @@ In order to toggle and untoggle the debug mode, follow these steps:
 
 1. Stop the simulation.
 2. Move to pre-roll frame or start frame.
-3. Press ![Simshape debug icon](images/adn_simshape_debug.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Activations Debugger**.
+3. Press ![Simshape debug icon](images/adn_simshape_debugger.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Activations Debugger**.
 
 ## Colliders
 
