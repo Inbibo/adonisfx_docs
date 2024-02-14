@@ -18,6 +18,7 @@ The Simshape deformer requires the following inputs to be provided:
     - If <b class="mesh_color">R</b> is not provided, the system will use the initial state of <b class="mesh_color">S</b> as the rest mesh.
     - If <b class="mesh_color">D</b> is not provided, the simulation will not produce activations.
     - If <b class="mesh_color">A</b> is not provided, the system will use the input mesh to the deformer (<b class="mesh_color">S</b>) as animated mesh.
+
 ## Create Simshape
 
   1. Select the meshes in the following order:
@@ -39,8 +40,7 @@ In order to add or remove any of those optional meshes, a set of menu items are 
 
 # Attributes
 
-[^1]:
-  Soft range: higher values can be used.
+[^1]: Soft range: higher values can be used.
 
 <style>
 table th:first-of-type {

@@ -9,8 +9,8 @@ The Ribbon Muscle deformer requires the following inputs to be provided:
 - <b class="mesh_color"> Attachments </b> to which the simulated muscle will be attached to. Any tranform node can be used (e.g. bones, locators, meshes, etc). This input is optional and unlimited.
 - <b class="mesh_color"> Muscle Geometry </b> that the ribbon muscle deformer will be applied onto.
 
-!!! Notes
-    - It is not mandatory to select the attachments on creation of the ribbon muscle deformer. We can add and remove attachments after creating the deformer, check this [advanced section](#how-to-add-and-remove-attachments) for further details.
+> [!NOTE]
+> - It is not mandatory to select the attachments on creation of the ribbon muscle deformer. We can add and remove attachments after creating the deformer, check this [advanced section](#how-to-add-and-remove-attachments) for further details.
 
 ## Create Ribbon Muscle
 
