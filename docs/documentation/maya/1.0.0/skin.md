@@ -152,11 +152,6 @@ To better visualize deformer constraints and attributes in the Maya viewport the
 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. 
 
-<figure markdown>
-  ![skin editor debug menu](../../../images/attribute_editor_skin_debug.png)
-  <figcaption>Figure 4: Skin Attribute Editor (Debug menu)</figcaption>
-</figure>
-
 ### Debug features
 
 The features that can be visualized with the debugger in the Skin deformer are:
@@ -167,14 +162,19 @@ The features that can be visualized with the debugger in the Skin deformer are:
 
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
 
+<figure markdown>
+  ![skin editor debug menu](../../../images/skin_debug.png)
+  <figcaption>Figure 5: Debugger enabled displaying hard constraints, slide constraints and soft constraints with different configurations. </figcaption>
+</figure>
+
 ### Debugger attributes
 
 The following attributes can be modified to better customize the appereance of these lines:
 
- - **Width Scale** (Float, 1.0): Modifies the width of all lines.
+ - **Width Scale** (Float, 3.0): Modifies the width of all lines.
  - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
 
 <figure markdown>
-  ![skin editor debug menu](../../../images/skin_debug.png)
-  <figcaption>Figure 5: Debugger enabled displaying hard constraints, slide constraints and soft constraints with different configurations. </figcaption>
+  ![skin editor debug menu](../../../images/attribute_editor_skin_debug.png)
+  <figcaption>Figure 4: Skin Attribute Editor (Debug menu)</figcaption>
 </figure>
