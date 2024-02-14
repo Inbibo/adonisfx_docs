@@ -39,8 +39,7 @@ In order to add or remove any of those optional meshes, a set of menu items are 
 
 # Attributes
 
-[^1]:
-  Soft range: higher values can be used.
+[^1]: Soft range: higher values can be used.
 
 <style>
 table th:first-of-type {
