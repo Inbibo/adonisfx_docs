@@ -106,7 +106,7 @@ nav:
       - AdnSimshape         : documentation/maya/simshape.md
       - AdnSkin             : documentation/maya/skin.md
       - AdnRibbonMuscle     : documentation/maya/ribbon.md
-      - AdnVolumetricMuscle : documentation/maya/volumetric.md
+      - AdnMuscle           : documentation/maya/muscle.md
     - Houdini:
       - documentation/houdini/index.md
   - Release Notes: release_notes.md
