@@ -6,7 +6,9 @@ A fundamental part of Adonis is the ability to visualize and measure different t
 
 AdnLocatorPosition is the Adonis locator for visualizing the velocity and acceleration of a single transform node.
 
-### How to create
+### Create AdnLocatorPosition
+
+Only one transform node will e required to 
 
 ### How to use
 
@@ -14,7 +16,7 @@ AdnLocatorPosition is the Adonis locator for visualizing the velocity and accele
 
 AdnLocatorDistance is the Adonis locator for visualizing the relative distance, velocity and acceleration between two transform nodes.
 
-### How to create
+### Create AdnLocatorDistance
 
 ### How to use
 
@@ -22,7 +24,7 @@ AdnLocatorDistance is the Adonis locator for visualizing the relative distance, 
 
 AdnLocatorRotation is the Adonis locator for visualizing the angle, angular velocity and angular acceleration between three transform nodes.
 
-### How to create
+### Create AdnLocatorRotation
 
 ### How to use
 
