@@ -20,7 +20,7 @@ The Ribbon Muscle deformer requires the following inputs to be provided:
       A["N Attachments\n"] --> B;
       B["Muscle\n"];
     ```
-2. Press the ![Ribbon Muscle button](images/adn_ribbon.png) button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu. 
+2. Press the ![Ribbon Muscle button](images/adn_ribbon_muscle.png) button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu. 
 3. Ribbon muscle is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights
