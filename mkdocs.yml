@@ -107,8 +107,8 @@ nav:
         - Sensors             : documentation/maya/1.0.0/sensors.md
         - AdnSimshape         : documentation/maya/1.0.0/simshape.md
         - AdnSkin             : documentation/maya/1.0.0/skin.md
+        - AdnMuscle           : documentation/maya/1.0.0/muscle.md
         - AdnRibbonMuscle     : documentation/maya/1.0.0/ribbon.md
-        - AdnVolumetricMuscle : documentation/maya/1.0.0/volumetric.md
     - Houdini:
       - 1.0.0: 
         - documentation/houdini/1.0.0/index.md
