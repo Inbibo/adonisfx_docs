@@ -8,9 +8,18 @@ AdnLocatorPosition is the Adonis locator for visualizing the velocity and accele
 
 ### Create AdnLocatorPosition
 
-Only one transform node will e required to 
+Only one transform will e required to create the AdnLocatorPosition. The process that we must follow to do so is as following:
+
+ 1. Select a scene object with a transform node
+ 2. Press the ![AdnLocatorPosition button](../../../images/adn_point_locator.png){width=40px} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu.
+ 3. The AdnLocatorPosition is created and ready to be used.
 
 ### How to use
+
+<figure markdown>
+  ![AdnLocatorPosition within a scene](../../../images/locators_position.png){width=60%}
+  <figcaption>Figure 2: Ribbon Muscle Attribute Editor (Advanced Settings)</figcaption>
+</figure>
 
 ## AdnLocatorDistance
 
@@ -18,7 +27,20 @@ AdnLocatorDistance is the Adonis locator for visualizing the relative distance, 
 
 ### Create AdnLocatorDistance
 
+Only one transform will e required to create the AdnLocatorPosition. The process that we must follow to do so is as following:
+
+ 1. Select a scene object with a transform node
+ 2. Press the ![AdnLocatorPosition button](../../../images/adn_point_locator.png){width=40px} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu.
+ 3. The AdnLocatorPosition is created and ready to be used.
+
 ### How to use
+
+Adonis locators will only let the user visualize the relative information from the transform nodes to which they are applied. To be able to read this information and apply it to a deformer we will need an []
+
+<figure markdown>
+  ![AdnLocatorPosition within a scene](../../../images/locators_distance.png){width=60%}
+  <figcaption>Figure 2: Ribbon Muscle Attribute Editor (Advanced Settings)</figcaption>
+</figure>
 
 ## AdnLocatorRotation
 
@@ -26,7 +48,18 @@ AdnLocatorRotation is the Adonis locator for visualizing the angle, angular velo
 
 ### Create AdnLocatorRotation
 
+Only one transform will e required to create the AdnLocatorPosition. The process that we must follow to do so is as following:
+
+ 1. Select a scene object with a transform node
+ 2. Press the ![AdnLocatorPosition button](../../../images/adn_point_locator.png){width=40px} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu.
+ 3. The AdnLocatorPosition is created and ready to be used.
+
 ### How to use
+
+<figure markdown>
+  ![AdnLocatorPosition within a scene](../../../images/locators_rotation.png){width=60%}
+  <figcaption>Figure 2: Ribbon Muscle Attribute Editor (Advanced Settings)</figcaption>
+</figure>
 
 ## AdnLocator
 
