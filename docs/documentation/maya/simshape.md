@@ -42,24 +42,6 @@ In order to add or remove any of those optional meshes, a set of menu items are 
 
 [^1]: Soft range: higher values can be used.
 
-<style>
-table th:first-of-type {
-    width: 20%;
-}
-table th:nth-of-type(2) {
-    width: 10%;
-}
-table th:nth-of-type(3) {
-    width: 15%;
-}
-table th:nth-of-type(4) {
-    width: 10%;
-}
-table th:nth-of-type(5) {
-    width: 45%;
-}
-</style>
-
 #### Solver Attributes
 | Attribute            | Type  | Value     | Range/Options     | Description                  |
 | :------------        | :---  | :----     | :------------     | :--------------------------- |
