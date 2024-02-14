@@ -38,9 +38,9 @@ In order to provide more artistic control, some key parameters of the ribbon mus
   <figcaption>Figure 1: Example of painted weights on a muscle tissue. From left to right: Tendons weights, Attachment weight for the attachment at the bottom, Attachment weight for the attachment at the top; and Fibers directions at each vertex.</figcaption>
 </figure>
 
-!!! Note
-    - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
-    - We recommend to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
+> [!NOTE]
+> - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
+> - We recommend to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
 
 ### AdonisFX Paint Tool
 
@@ -81,8 +81,7 @@ Following, we present the key aspects to keep in mind while painting each attrib
 
 # Attributes
 
-[^1]:
-  Soft range: higher values can be used.
+[^1]: Soft range: higher values can be used.
 
 <style>
 table th:first-of-type {

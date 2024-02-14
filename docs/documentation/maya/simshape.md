@@ -13,11 +13,11 @@ The Simshape deformer requires the following inputs to be provided:
   - <b class="mesh_color"> Anim Mesh (A)</b> with deformation driven by the facial expressions and animation result of to the binding to the animation rig. (optional)
   - <b class="mesh_color"> Simulation Mesh (S)</b> to apply the deformer onto. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
-!!! Notes
-    - All input geometries must have the same number of vertices.
-    - If <b class="mesh_color">R</b> is not provided, the system will use the initial state of <b class="mesh_color">S</b> as the rest mesh.
-    - If <b class="mesh_color">D</b> is not provided, the simulation will not produce activations.
-    - If <b class="mesh_color">A</b> is not provided, the system will use the input mesh to the deformer (<b class="mesh_color">S</b>) as animated mesh.
+> [!NOTE]
+> - All input geometries must have the same number of vertices.
+> - If <b class="mesh_color">R</b> is not provided, the system will use the initial state of <b class="mesh_color">S</b> as the rest mesh.
+> - If <b class="mesh_color">D</b> is not provided, the simulation will not produce activations.
+> - If <b class="mesh_color">A</b> is not provided, the system will use the input mesh to the deformer (<b class="mesh_color">S</b>) as animated mesh.
 
 ## Create Simshape
 
@@ -175,9 +175,9 @@ Simshape can emulate the behaviour of facial muscles by computing the muscle act
     === "Plug Values"
         The plug values from the Activation List array attribute are used to drive the level of activation at each vertex.
 
-        !!! Note
-            - The values must be provided in the range 0 to 1, where 0.0 is no activation and 1.0 is maximum activation.
-            - The values outside of the valid range will be clamped.
+        > [!NOTE]
+        > - The values must be provided in the range 0 to 1, where 0.0 is no activation and 1.0 is maximum activation.
+        > - The values outside of the valid range will be clamped.
 
     === "No Activation"
         Activations are not computed. This option is selected by default.
@@ -245,9 +245,9 @@ Simshape supports an internal collider that has to be bound to the rig and combi
 2. Select the mesh with the Simshape deformer.
 3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](images/adn_add_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Add Collider**. 
 
-!!! Note
-    - Avoid intersections between the collider and the rest/simulated mesh.
-    - Colliders with high Level Of Detail will affect the simulation performance.
+> [!NOTE]
+> - Avoid intersections between the collider and the rest/simulated mesh.
+> - Colliders with high Level Of Detail will affect the simulation performance.
 
 ### Remove Collider
 
@@ -263,9 +263,9 @@ The use of rest collider is recommended when the preroll simulation is not compu
 2. Select the mesh with the Simshape deformer.
 3. Go to the Edit Simshape submenu from the AdonisFX menu and press **Add Rest Collider**.
 
-!!! Note
-    - Avoid intersections between the collider and the rest mesh.
-    - Colliders with high Level Of Detail will affect the simulation performance.
+> [!NOTE]
+> - Avoid intersections between the collider and the rest mesh.
+> - Colliders with high Level Of Detail will affect the simulation performance.
 
 ### Remove Rest Collider
 

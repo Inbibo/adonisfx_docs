@@ -9,8 +9,8 @@ The Volumetric Muscle deformer requires the following inputs to be provided:
   - <b class="mesh_color"> Attachments </b> to which the simulated muscle will be attached to. Any transform node can be used (e.g. bones, locators, meshes, etc). This input is optional and unlimited.
   - <b class="mesh_color"> Muscle Geometry </b> that the volumetric muscle deformer will be applied onto.
 
-!!! Notes
-    - It is not mandatory to select the attachments on creation of the volumetric muscle deformer. We can add and remove attachments after creating the deformer, check this [advanced section](#how-to-add-and-remove-attachments) for further details.
+> [!NOTE]
+> - It is not mandatory to select the attachments on creation of the volumetric muscle deformer. We can add and remove attachments after creating the deformer, check this [advanced section](#how-to-add-and-remove-attachments) for further details.
 
 ## Create Volumetric Muscle
 
@@ -38,9 +38,9 @@ In order to provide more artistic control, some key parameters of the volumetric
   <figcaption>Figure 1: Example of painted weights on a biceps. From left to right: Tendons weights, Attachment weight for the attachment at the top, Attachment weight for the attachment at the bottom; and Fibers directions at each vertex.</figcaption>
 </figure>
 
-!!! Note
-    - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
-    - We recommend to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
+> [!NOTE]
+> - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
+> - We recommend to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
 
 ### AdonisFX Paint Tool
 
@@ -82,8 +82,7 @@ Following, we present the key aspects to keep in mind while painting each attrib
 
 # Attributes
 
-[^1]:
-  Soft range: higher values can be used.
+[^1]: Soft range: higher values can be used.
 
 <style>
 table th:first-of-type {

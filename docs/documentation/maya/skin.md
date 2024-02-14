@@ -35,8 +35,8 @@ In order to provide more artistic control, some key parameters of the skin solve
   <figcaption>Figure 1: Example of painted weights on the skin of a bear character. From left to right: Hard Constraints, Slide Constraints and Soft Constraints.</figcaption>
 </figure>
 
-!!! Note
-    - *Hard*, *Soft* and *Slide* values are normalized for each vertex. Make sure to paint the values that you want to give priority to at the end in order to avoid the internal normalization override them in further strokes.
+> [!NOTE]
+> - *Hard*, *Soft* and *Slide* values are normalized for each vertex. Make sure to paint the values that you want to give priority to at the end in order to avoid the internal normalization override them in further strokes.
 
 ### AdonisFX Paint Tool
 
@@ -61,8 +61,7 @@ You can select the attribute to paint from the combo box exposed in the UI:
 
 # Attributes
 
-[^1]:
-  Soft range: higher values can be used.
+[^1]: Soft range: higher values can be used.
 
 <style>
 table th:first-of-type {
