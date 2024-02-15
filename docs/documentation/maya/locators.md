@@ -74,6 +74,33 @@ In this specific case the required sensor will be an [AdnSensorDistance](sensors
   <figcaption>Figure 3: Distance locator used in a human model</figcaption>
 </figure>
 
+## Attributes
+
+All AdnLocator types share similar attributes, with some specific differences on information displayed. Locator Attributes are all grouped together here but differences will be pointed out.
+
+[^1]:  Soft range: higher values can be used.
+
+#### Input
+ - **Position**(float3): Current transform node position.
+    - In the case of AdnLocatorDistance, 2 positions will be displayed, one for each transform node. 
+    - In the case of AdnLocatorRotation, 3 positions will be displayed, one for each transform node. 
+
+#### Activation values
+ - **Distance** (Float): Displays the distance between the two transform nodes.
+    - This attribute is only available for AdnLocatorDistance.
+ - **Velocity** (Float): Displays the magnitude of the angle formed by the three transform nodes.
+    - This attribute is only available for AdnLocatorRotation.
+ - **Velocity** (Float): Displays the transform's velocity magnitude.
+ - **Acceleration** (Float): Displays the transform's acceleration magnitude.
+
+# Draw
+ - **Scale** (Float, 1.0): Sets the scaling factor applied to the locator gizmo.
+    - Has a range of \[0.0, 10.0\] [^1]
+ - **Space Scale** (Enum): Selects the property of the locator to be visualized on the gizmo.
+    - On AdnLocatorPosition the options available are: velocity and acceleration.
+    - On AdnLocatorDistance the options available are: distance, velocity and acceleration.
+    - On AdnLocatorRotation the options available are: angle, velocity and acceleration.
+
 ## AdonisFX Logo locator
 
 The AdonisFX Logo locator is an Adonis native alternative to Maya locators. These can be used as any kind of scene element with a transform node, be it to use to gather locator information or as [attachments](muscle.md#attachments) or [segment ends](muscle.md#slide-on-segment-constraint) in muscle deformers.
