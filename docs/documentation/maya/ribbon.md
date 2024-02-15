@@ -37,13 +37,13 @@ In order to provide more artistic control, some key parameters of the ribbon mus
 - *Slide on Segment Constraints*: weight to force vertices to displace only in the direction of a user-specified group of segments.
 
 <figure>
-  <img src="../../../images/ribbon_paint_example.png"> 
+  <img src="images/ribbon_paint_example.png"> 
   <figcaption>Figure 1: Example of painted weights on a muscle tissue. From left to right: Tendons weights, Attachment weight for the attachment at the bottom, Attachment weight for the attachment at the top; and Fibers directions at each vertex.</figcaption>
 </figure>
 
-!!! Note
-    - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
-    - We recommend to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
+> [!NOTE]
+> - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
+> - We recommend to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
 
 <!-- DEV NOTE: Remove this after merging issue #11 where we created the tools.md page -->
 
@@ -52,18 +52,18 @@ In order to provide more artistic control, some key parameters of the ribbon mus
 To configure the paintable attributes in the Ribbon Muscle deformer, the AdonisFX paint tool must be used. Apart from the standard functionalities that the Maya default paint context provides, this tool also processes the painted weights to guarantee that the requirements of solver are satisfied.
 
 <figure>
-  <img src="../../../images/paint_tool_ribbon.png"> 
+  <img src="images/paint_tool_ribbon.png"> 
   <figcaption>Figure 2: AdonisFX Paint Tool</figcaption>
 </figure>
 
 Do the following to open the tool:
   1. Select the mesh with the Ribbon Muscle deformer applied to.
-  2. Press the ![paint tool](../../../images/adn_paint_tool.png) shelf button or go to AdonisFX menu > Paint Tool.
+  2. Press the ![paint tool](images/adn_paint_tool.png) shelf button or go to AdonisFX menu > Paint Tool.
 
 The selected attribute in the combo box exposed at the top of the UI is the active attribute in the paint context. Now you can use the tool as it was the Artisan's tool from Maya, the behaviour of the different widgets/fields is the same.
 
 <figure style="margin-left:30%;" markdown> 
-  ![Pain Tool Skin Attributes example](../../../images/paint_tool_ribbon_attributes.png) 
+  ![Pain Tool Skin Attributes example](images/paint_tool_ribbon_attributes.png) 
   <figcaption style="margin-right:30%"> Figure 3: AdonisFX paint tool displaying the paintable attributes of the deformer. </figcaption> 
 </figure>
 
@@ -86,8 +86,9 @@ Following, we present the key aspects to keep in mind while painting each attrib
 
 # Attributes
 
-[^1]:
-  Soft range: higher values can be used.
+[^1]: Soft range: higher values can be used.
+
+
 
 #### Solver Attributes
  - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
@@ -144,12 +145,12 @@ Following, we present the key aspects to keep in mind while painting each attrib
 ## Attribute Editor Template
 
 <figure markdown>
-  ![Ribbon Muscle editor first part](../../../images/attribute_editor_part_one_ribbon.png) 
+  ![Ribbon Muscle editor first part](images/attribute_editor_part_one_ribbon.png) 
   <figcaption>Figure 1: Ribbon Muscle Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
-  ![Ribbon Muscle editor second part](../../../images/attribute_editor_part_two_ribbon.png)
+  ![Ribbon Muscle editor second part](images/attribute_editor_part_two_ribbon.png)
   <figcaption>Figure 2: Ribbon Muscle Attribute Editor (Advanced Settings)</figcaption>
 </figure>
 
@@ -162,11 +163,11 @@ Once the Ribbon Muscle deformer is created, it is possible to add and remove new
 - **Add attachments**:  
     1. Select the transform nodes (one or more) that you want to assign as attachments to the Ribbon Muscle.
     2. Select the mesh that has the Ribbon Muscle deformer applied.
-    3. Press the ![Add Attachments button](../../../images/adn_add_attachment.png){width=40px} button in the AdonisFX shelf or press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Add Attachments button](images/adn_add_attachment.png){width=40px} button in the AdonisFX shelf or press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove attachments**:
     1. Select one or more transform nodes that are assigned as attachments to the Ribbon Muscle.
     2. Select the mesh that has the Ribbon Muscle deformer applied.
-    3. Press the ![Remove Attachments button](../../../images/adn_remove_attachment.png){width=40px} button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
+    3. Press the ![Remove Attachments button](images/adn_remove_attachment.png){width=40px} button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
     4. Alternatively, if only the mesh with the Ribbon Muscle deformer is selected, when pressing the ![Remove Attachments button](../../../images/adn_remove_attachment.png){width=40px} button, all attachments will be removed.
 
 ## Slide on Segment Constraint
@@ -211,6 +212,6 @@ Additionally, for the specific case of debugging fibers, one more attribute is a
  - **Fiber scale value** (Float, 3.0): can be modified to set a custom fiber length.
 
 <figure markdown>
-  ![skin editor debug menu](../../../images/attribute_editor_ribbon_debug.png)
+  ![skin editor debug menu](images/attribute_editor_ribbon_debug.png)
   <figcaption>Figure 4: Skin Attribute Editor (Debug menu)</figcaption>
 </figure>
