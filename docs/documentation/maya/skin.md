@@ -17,7 +17,7 @@ The Skin deformer requires the following inputs to be provided:
       A["Reference Mesh\n"] --> B;
       B["Skin Mesh\n"];
     ```
-2. Press ![Skin button](../../../images/adn_skin_sim.png) in the AdonisFX shelf or Skin in the AdonisFX menu.
+2. Press ![Skin button](images/adn_skin.png) in the AdonisFX shelf or Skin in the AdonisFX menu.
 3. Skin is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights
@@ -31,56 +31,37 @@ In order to provide more artistic control, some key parameters of the skin solve
 - *Stretching Resistance*: force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
 
 <figure>
-  <img src="../../../images/skin_paint_example.png" caption="AdonisFX Paint Tool"> 
+  <img src="images/skin_paint_example.png" caption="AdonisFX Paint Tool"> 
   <figcaption>Figure 1: Example of painted weights on the skin of a bear character. From left to right: Hard Constraints, Slide Constraints and Soft Constraints.</figcaption>
 </figure>
 
-!!! Note
-    - *Hard*, *Soft* and *Slide* values are normalized for each vertex. Make sure to paint the values that you want to give priority to at the end in order to avoid the internal normalization override them in further strokes.
+> [!NOTE]
+> - *Hard*, *Soft* and *Slide* values are normalized for each vertex. Make sure to paint the values that you want to give priority to at the end in order to avoid the internal normalization override them in further strokes.
 
 ### AdonisFX Paint Tool
 
 To configure the paintable attributes in the skin deformer, the AdonisFX paint tool must be used. Apart from the standard functionalities that the Maya default paint context provides, this tool also processes the painted weights to guarantee that the requirements of solver are satisfied.
 
 <figure>
-  <img src="../../../images/paint_tool.png" caption="AdonisFX Paint Tool"> 
+  <img src="images/paint_tool.png" caption="AdonisFX Paint Tool"> 
   <figcaption>Figure 2: AdonisFX Paint Tool</figcaption>
 </figure>
 
 Do the following to open the tool:
 
   1. Select the mesh with the Skin deformer applied to.
-  2. Press the paint tool ![paint tool](../../../images/adn_paint_tool.png) shelf button or go to AdonisFX menu > Paint Tool.
+  2. Press the paint tool ![paint tool](images/adn_paint_tool.png) shelf button or go to AdonisFX menu > Paint Tool.
 
 You can select the attribute to paint from the combo box exposed in the UI:
 
 <figure style="margin-left:30%;" markdown> 
-  ![Pain Tool Skin Attributes example](../../../images/paint_tool_skin_attributes.png) 
+  ![Pain Tool Skin Attributes example](images/paint_tool_skin_attributes.png) 
   <figcaption> Figure 3: Paintable attributes listed in the UI. </figcaption>
 </figure>
 
 # Attributes
 
-[^1]:
-  Soft range: higher values can be used.
-
-<style>
-table th:first-of-type {
-    width: 20%;
-}
-table th:nth-of-type(2) {
-    width: 10%;
-}
-table th:nth-of-type(3) {
-    width: 15%;
-}
-table th:nth-of-type(4) {
-    width: 10%;
-}
-table th:nth-of-type(5) {
-    width: 45%;
-}
-</style>
+[^1]: Soft range: higher values can be used.
 
 #### Solver Attributes
 | Attribute            | Type  | Value     | Range/Options     | Description                  |
@@ -136,11 +117,11 @@ table th:nth-of-type(5) {
 ## Attribute Editor Template
 
 <figure markdown>
-  ![skin editor first part](../../../images/attribute_editor_part_one_skin.png) 
+  ![skin editor first part](images/attribute_editor_part_one_skin.png) 
   <figcaption>Figure 1: Skin Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor second part](../../../images/attribute_editor_part_two_skin.png)
+  ![skin editor second part](images/attribute_editor_part_two_skin.png)
   <figcaption>Figure 2: Skin Attribute Editor (Advanced Settings)</figcaption>
 </figure>

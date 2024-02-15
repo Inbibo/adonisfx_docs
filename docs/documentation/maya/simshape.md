@@ -13,27 +13,27 @@ The Simshape deformer has a series of input meshes to be provided:
   - <b class="mesh_color"> Animated Mesh (A)</b> with deformation driven by the facial expressions and animation result of to the binding to the animation rig. (optional)
   - <b class="mesh_color"> Simulation Mesh (S)</b> to apply the deformer onto. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
-!!! Notes
-    - All input geometries must have the same number of vertices.
-    - If <b class="mesh_color">R</b> is not provided, the system will use the initial state of <b class="mesh_color">S</b> as the rest mesh.
-    - If <b class="mesh_color">D</b> is not provided, the simulation will not produce activations.
-    - If <b class="mesh_color">A</b> is not provided, the system will use the input mesh to the deformer (<b class="mesh_color">S</b>) as animated mesh.
+> [!NOTE]
+> - All input geometries must have the same number of vertices.
+> - If <b class="mesh_color">R</b> is not provided, the system will use the initial state of <b class="mesh_color">S</b> as the rest mesh.
+> - If <b class="mesh_color">D</b> is not provided, the simulation will not produce activations.
+> - If <b class="mesh_color">A</b> is not provided, the system will use the input mesh to the deformer (<b class="mesh_color">S</b>) as animated mesh.
 
 ## Create Simshape
 
-When initially creating a Simshape deformer me may add directly a rest mesh.
+When initially creating a Simshape deformer me may add directly a rest mesh or apply it diretly with a single mesh selected. The required process is as follows:
 
   1. Select the meshes in the following order: **Rest Mesh** (optional) &#8594 **Simulated mesh**
         
     - Remember that the animated mesh will be used directly as the simulation mesh when no animation mesh is provided.
 
-  2. Press the ![Simshape button](../../../images/adn_simshape.png){width=40px} button in the AdonisFX shelf or press Simshape in AdonisFX menu.
-  3. A message box will notify you that simshape has been created properly, meanting that it is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
+  2. Press the ![Simshape button](images/adn_simshape.png) in the AdonisFX shelf or press Simshape in AdonisFX menu.
+  3. A message box will notify you that simshape has been created properly, meaning that it is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 In order to add or remove any of those optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape. In that submenu, we can find the options to manage each mesh type as we present in the Figure 1.
 
 <figure style="width:45%" markdown>
-  ![Edit Simshape submenu](../../../images/simshape_menu.png)
+  ![Edit Simshape submenu](images/simshape_menu.png)
   <figcaption>Figure 1: Edit Simshape submenu.</figcaption>
 </figure>
 
@@ -55,8 +55,7 @@ To remove any of these meshes from simshape follow this procedure:
 
 # Attributes
 
-[^1]:
-  Soft range: higher values can be used.
+[^1]: Soft range: higher values can be used.
 
 #### Solver Attributes
  - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
@@ -160,12 +159,12 @@ In order to provide more artistic control, some key parameters of the Simshape s
 ## Attribute Editor Template
 
 <figure markdown>
-  ![simshape editor first part](../../../images/attribute_editor_part_one_simshape.png) 
+  ![simshape editor first part](images/attribute_editor_part_one_simshape.png) 
   <figcaption>Figure 1: Simshape Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
-  ![simshape editor second part](../../../images/attribute_editor_part_two_simshape.png)
+  ![simshape editor second part](images/attribute_editor_part_two_simshape.png)
   <figcaption>Figure 2: Simshape Attribute Editor (Advanced Settings)</figcaption>
 </figure>
 
@@ -175,26 +174,31 @@ In order to provide more artistic control, some key parameters of the Simshape s
 Simshape can emulate the behaviour of facial muscles by computing the muscle activation directly on the vertices of the skin geometry. The activation of the vertices is an advanced and optional feature that can work in two modes: from **muscle patches data** or from **plug values**.
 
 <figure markdown>
-  ![Activation modes from attribute editor](../../../images/activation_modes.png)
+  ![Activation modes from attribute editor](images/activation_modes.png)
   <figcaption>Figure 1: Activation Modes switch exposed in the Attribute Editor</figcaption>
 </figure>
 
-#### Activation Mode: Muscle Patches
-The data in the Adonis Muscle Patches (AMP) file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following [this section](#generate-muscle-patches).
+!!! abstract "Activations Modes"
+    === "Muscle Patches"
+        The data in the Adonis Muscle Patches (AMP) file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following [this section](#generate-muscle-patches).
 
-##### Requirements
+        <h5>Requirements</h5>
 
-- **Adonis Muscle Patches**.
-- **Deform mesh**.
+        - **Adonis Muscle Patches**.
+        - **Deform mesh**.
 
-#### Activation Mode: Plug Values
-The plug values from the Activation List array attribute are used to drive the level of activation at each vertex.
+    === "Plug Values"
+        The plug values from the Activation List array attribute are used to drive the level of activation at each vertex.
 
-!!! Note
-    - The values must be provided in the range 0 to 1, where 0.0 is no activation and 1.0 is maximum activation.
-    - The values outside of the valid range will be clamped.
+        > [!NOTE]
+        > - The values must be provided in the range 0 to 1, where 0.0 is no activation and 1.0 is maximum activation.
+        > - The values outside of the valid range will be clamped.
+
+    === "No Activation"
+        Activations are not computed. This option is selected by default.
 
 ### Generate Muscle Patches
+
 ##### Requirements
 
   - **Neutral mesh**: rest mesh with a neutral facial expression.
@@ -205,11 +209,11 @@ The plug values from the Activation List array attribute are used to drive the l
 The AMP file is generated from the Learn Muscle Patches tool:
 
 <figure style="float: right; width: 40%; padding-left: 5px;">
-  <img src="../../../images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
+  <img src="images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
   <figcaption>Figure 3: Learn Muscle Patches UI</figcaption>
 </figure>
 
-1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](../../../images/adn_learn_muscle_patches.png){width=40px} or go to the Edit Simshape submenu from the AdonisFX menu and press **Learn Muscle Patches UI**.
+1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Learn Muscle Patches UI**.
 2. Add the neutral mesh.
 3. Add the target meshes.
 4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation.
@@ -219,7 +223,7 @@ The AMP file is generated from the Learn Muscle Patches tool:
 
 <br>
 <figure style="width: 25%;" markdown>
-  ![Simshape draw muscle patches example](../../../images/nassim_draw_muscle_patches.png)
+  ![Simshape draw muscle patches example](images/nassim_draw_muscle_patches.png)
   <figcaption>Figure 2: Example of muscle patches generated with the Learn Muscle Patches UI</figcaption>
 </figure>
 
@@ -234,10 +238,11 @@ Additional custom settings for the learning algorithm:
  - **Draw Muscle Patches** (Boolean, True): If enabled, the vertices of the neutral mesh will be colored according to the muscle patches resulting from the training.
 
 ### Debug Activations
+
 Simshape integrates a debug mode to visualize the activations during the simulation. If this mode is enabled, then Simshape will display a map of vertex colors from black to red on the simulation mesh where the black color is mapped to no activation and the red color is mapped to maximum activation.
 
 <figure style="width: 30%" markdown>
-  ![Learn Muscle Patches UI window](../../../images/nassim_debug.png)
+  ![Learn Muscle Patches UI window](images/nassim_debug.png)
   <figcaption>Figure 4: Example of Simshape running in Debug mode</figcaption>
 </figure>
 
@@ -246,7 +251,7 @@ In order to toggle and untoggle the debug mode, follow these steps:
 
 1. Stop the simulation.
 2. Move to pre-roll frame or start frame.
-3. Press ![Simshape debug icon](../../../images/adn_simshape_debugger.png){width=40px} or go to the Edit Simshape submenu from the AdonisFX menu and press **Activations Debugger**.
+3. Press ![Simshape debug icon](images/adn_simshape_debugger.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Activations Debugger**.
 
 ## Colliders
 
@@ -256,17 +261,17 @@ Simshape supports an internal collider that has to be bound to the rig and combi
 
 1. Select the collider object.
 2. Select the mesh with the Simshape deformer.
-3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](../../../images/adn_add_collider.png){width=40px} or go to the Edit Simshape submenu from the AdonisFX menu and press **Add Collider**. 
+3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](images/adn_add_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Add Collider**. 
 
-!!! Note
-    - Avoid intersections between the collider and the rest/simulated mesh.
-    - Colliders with high Level Of Detail will affect the simulation performance.
+> [!NOTE]
+> - Avoid intersections between the collider and the rest/simulated mesh.
+> - Colliders with high Level Of Detail will affect the simulation performance.
 
 ### Remove Collider
 
 1. Select the collider object.
 2. Select the mesh with the Simshape deformer.
-3. Press the AdonisFX Shelf > Remove Collider Shelf Button ![Remove collider icon](../../../images/adn_remove_collider.png){width=40px} or go to the Edit Simshape submenu from the AdonisFX menu and press **Remove Collider**.
+3. Press the AdonisFX Shelf > Remove Collider Shelf Button ![Remove collider icon](images/adn_remove_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Remove Collider**.
 
 ### Add Rest Collider
 
@@ -276,9 +281,9 @@ The use of rest collider is recommended when the preroll simulation is not compu
 2. Select the mesh with the Simshape deformer.
 3. Go to the Edit Simshape submenu from the AdonisFX menu and press **Add Rest Collider**.
 
-!!! Note
-    - Avoid intersections between the collider and the rest mesh.
-    - Colliders with high Level Of Detail will affect the simulation performance.
+> [!NOTE]
+> - Avoid intersections between the collider and the rest mesh.
+> - Colliders with high Level Of Detail will affect the simulation performance.
 
 ### Remove Rest Collider
 
@@ -294,12 +299,12 @@ Apart from [*Compute Collisions*](#collision-settings), [*Keep Orientation*](#co
  - [**Collision Threshold Multiplier**](#paintable-weights) to represent which areas' collisions should be computed against the collider.
 
 <figure style="width:45%" markdown> 
-  ![Slide collision paint example](../../../images/slide_collision_paint_example.png) 
+  ![Slide collision paint example](images/slide_collision_paint_example.png) 
   <figcaption>Figure 5: Slide Collision Constraints painted values.</figcaption> 
 </figure>
 
 <figure style="width:45%;" markdown> 
-  ![Collision threshold paint example](../../../images/collision_threshold_paint_example.png) 
+  ![Collision threshold paint example](images/collision_threshold_paint_example.png) 
   <figcaption>Figure 6: Collision Threshold Multiplier painted values to 0.2 for the whole mesh.</figcaption> 
 </figure>
 
@@ -332,6 +337,6 @@ Additionally, for the specific case of debugging fibers, one more attribute is a
  - **Fiber scale value**: can be modified to set a custom fiber length.
 
 <figure markdown>
-![skin editor debug menu](../../../images/attribute_editor_simshape_debug.png)
+![skin editor debug menu](images/attribute_editor_simshape_debug.png)
 <figcaption>Figure 4: Simshape Attribute Editor (Debug menu)</figcaption>
 </figure>
