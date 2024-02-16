@@ -2,7 +2,9 @@
 
 Skin is a Maya deformer for fast, robust and easy-to-configure skin simulation for digital assets. Thanks to the combination of internal and external constraints, the deformer can produce dynamics that allow the skin mesh to realistically react to the deformations of the internal tissues (e.g. muscles, fascia) over time.
 
-The influence these constraints have in the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools.md) or by uniformingly regulating their influence via multipliers in the attribute editor. Beyond these constraints, there are many paramenters to regulate the skin's dynamics are available to modify the deformer's behaviour to a wide array of options.
+<!-- DEV NOTE: change paint tool references once tools.md has been merged-->
+
+The influence these constraints have in the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](index.md) or by uniformingly regulating their influence via multipliers in the attribute editor. Beyond these constraints, there are many paramenters to regulate the skin's dynamics are available to modify the deformer's behaviour to a wide array of options.
 
 # How to Use
 
@@ -26,7 +28,7 @@ The process to create a Skin deformer must follow this procedure:
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the skin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the skin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](index.md) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
 - <b class="paintable maps">Hard constrain maps</b>: weight to modulate the correction applied to the vertices to keep them at a constant transformation, local to the closest point on the reference mesh at initialization. Hard constrains maps will force the geometry points to keep the original position. You may want to have a low value of hard constraints to allow the skin to create wrinkles, slide, etc.
 
