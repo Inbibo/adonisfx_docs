@@ -103,6 +103,7 @@ nav:
       - A simple Setup      : documentation/maya/simple_setup.md
       - Locators            : documentation/maya/locators.md
       - Sensors             : documentation/maya/sensors.md
+      - Edge Evaluator      : documentation/maya/edge_evaluator.md
       - AdnSimshape         : documentation/maya/simshape.md
       - AdnSkin             : documentation/maya/skin.md
       - AdnRibbonMuscle     : documentation/maya/ribbon.md
