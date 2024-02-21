@@ -22,7 +22,7 @@ To create an AdnSkin deformer within a Maya scene, the following inputs must be 
 The process to create an AdnSkin deformer must follow this procedure:
 
 1. Select the attachments (if any), then the geometry:
-2. Press ![Skin button](images/adn_skin.png) in the AdonisFX shelf or AdnSkin in the AdonisFX menu, under the "Create" section.
+2. Press ![Skin button](images/adn_skin.png) in the AdonisFX shelf or Skin in the AdonisFX menu, under the "Create" section.
     - If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnSkin is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
