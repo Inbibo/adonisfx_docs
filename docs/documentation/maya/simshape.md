@@ -70,7 +70,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
  - **Activation Mode** (Enumerator, No Activation): Mode to drive the muscle activations. There are 3 different modes:
     - *Muscle Patches* (Disabled by default): An Adonis Muscle Patches file (.amp) has to be provided to enable this option.
     - *Plug Values* (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.
-    - *No Activation* No activation is read.
+    - *No Activation* (Enabled by default): No activation is read.
  - **Muscle Patches File** (String): Path to the Adonis Muscle Patches file (.amp).
  - **Activation Smoothing** (Integer, 1): Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be.
      - Has a range of \[1, 20\] [^1]
