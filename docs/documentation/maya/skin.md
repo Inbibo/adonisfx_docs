@@ -1,6 +1,6 @@
-# Introduction to Skin in Maya
+# Introduction to AdnSkin in Maya
 
-Skin is a Maya deformer for fast, robust and easy-to-configure skin simulation for digital assets. Thanks to the combination of internal and external constraints, the deformer can produce dynamics that allow the skin mesh to realistically react to the deformations of the internal tissues (e.g. muscles, fascia) over time.
+AdnSkin is a Maya deformer for fast, robust and easy-to-configure skin simulation for digital assets. Thanks to the combination of internal and external constraints, the deformer can produce dynamics that allow the skin mesh to realistically react to the deformations of the internal tissues (e.g. muscles, fascia) over time.
 
 <!-- DEV NOTE: change paint tool references once tools.md has been merged-->
 
@@ -12,57 +12,57 @@ The Adonis Skin deformer is of great simplicity so set up and apply to a mesh wi
 
 ## Requirements
 
-To create a Skin deformer within a Maya scene, the following inputs must be provided:
+To create an AdnSkin deformer within a Maya scene, the following inputs must be provided:
 
-  - <b class="mesh_color"> Reference Mesh (R) </b> to drive the simulation skin (e.g. fascia or combined muscles).
-  - <b class="mesh_color"> Skin Mesh (S) </b> which will be the simulated mesh to which the skin deformer will be applied.
+  - <b class="mesh_color"> Reference Mesh (R)</b>: mesh to drive the simulation skin (e.g. fascia or combined muscles).
+  - <b class="mesh_color"> Skin Mesh (S)</b>: mesh to be simulated to which the AdnSkin deformer will be applied.
 
-## Create Skin
+## Create AdnSkin
 
-The process to create a Skin deformer must follow this procedure:
+The process to create an AdnSkin deformer must follow this procedure:
 
 1. Select the attachments (if any), then the geometry:
-2. Press ![Skin button](images/adn_skin.png) in the AdonisFX shelf or Skin in the AdonisFX menu, under the "Create" section.
-    - If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed were a custom name and initial attribute values can be set.
-3. Skin is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
+2. Press ![Skin button](images/adn_skin.png) in the AdonisFX shelf or AdnSkin in the AdonisFX menu, under the "Create" section.
+    - If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+3. AdnSkin is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the skin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](index.md) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the AdnSkin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](index.md) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
-- <b class="paintable maps">Hard constrain maps</b>: weight to modulate the correction applied to the vertices to keep them at a constant transformation, local to the closest point on the reference mesh at initialization. Hard constrains maps will force the geometry points to keep the original position. You may want to have a low value of hard constraints to allow the skin to create wrinkles, slide, etc.
+- <b class="paintable maps">Hard Constraints</b>: weight to modulate the correction applied to the vertices to keep them at a constant transformation, local to the closest point on the reference mesh at initialization. Hard constraint maps will force the geometry points to keep the original position. A low value of hard constraints may be desired to allow the skin to create wrinkles, sliding, etc.
 
     - *Tip*: flood the geometry with a very low value 0.1 - 0.2. Give a value of 1.0 to the edges of the skin to guarantee that’s perfectly attached to the target geometry
 
-    - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles. (unless that’s something you are looking for!)
+    - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles (unless that’s something you are looking for!).
 
 - <b class="paintable maps">Soft Constraints</b>: weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. An intermediate value of 0.5 on the whole geometry is recommended.
 
     - *Tip*: flood the geometry with a very low value 0.1 - 0.2.
 
-    - *Tip*: you may want to leave this map weight to 1 as a starting point and tweak some areas later on as you see the results of the skin simulation. 
+    - *Tip*: it may be desirable to leave this map weight to 1 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
 
 - <b class="paintable maps">Slide Constraints</b>: weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. In the example of a biped or quadruped, it is recommended to set a value of 1.0 on the scapulas, shoulders, elbows and knees and an overall value of 0 on the rest of the body.
 
-    - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles. (unless that’s something you are looking for!)
+    - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles (unless that’s something you are looking for!).
 
 - <b class="paintable maps">Compression Resistance</b>: force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. At value 1 the points in the geometry will try to keep as close as possible to their original position.
 
-    - *Tip*: you may want to leave this map weight to 1 as a starting point and tweak some areas later on as you see the results of the skin simulation. 
+    - *Tip*: it may be desirable to leave this map weight to 1 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
     
     - *Tip*: Reducing the value of the weight in some areas will contribute to getting rid of unwanted wrinkles or possible artifacts in the skin.
 
 - <b class="paintable maps">Stretching Resistance</b>: force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
 
-    - *Tip*: you may want to leave this map weight to 1 as a starting point and tweak some areas later on as you see the results of the skin simulation. 
+    - *Tip*: it may be desirable to leave this map weight to 1 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
 
-    - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles. (unless that’s something you are looking for!)
+    - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles (unless that’s something you are looking for!).
 
 - <b class="paintable maps">Global Damping </b>: set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position.
 
 - <b class="paintable maps">Max Sliding Multiplier</b>: determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. Greater values will allow for greater sliding but will have a greater computational cost.
     
-    - *Tip*: for areas where sliding isn't required paint to 0. use values closer to 1 in areas where you want to allow more freedom to slide.
+    - *Tip*: for areas where sliding isn't required paint to 0. Use values closer to 1 in areas where more sliding freedom is desired.
 
 - <b class="paintable maps">Mass</b>: set individual mass values per vertex in the simulated mesh.
 
@@ -108,7 +108,7 @@ In order to provide more artistic control, some key parameters of the skin solve
 ### Advanced Settings
 
 #### Stiffness Settings
- - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value. If enabled, the Material is ignored and the Stiffness parameter is used instead.
+ - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
     - If we use a custom stiffness, **Material** and **Stiffness Multiplier** will be disabled and **Stiffness** will be used instead.
  - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
     - Its value must be greater than 0.0.
@@ -122,7 +122,7 @@ In order to provide more artistic control, some key parameters of the skin solve
     - Has a range of \[0.0, 1.0\] [^1]
  - **Rest Length Multiplier** (Float, 1.0): Sets the scaling factor applied to the edge lengths at rest.
     - Has a range of \[0.0, 2.0\] [^1]
- - **Max Sliding Distance** (Float, 0.5): Determines the size of the sliding area. It corresponds to themaximum distance to the closest point on the reference mesh computed on initialization.
+ - **Max Sliding Distance** (Float, 0.5): Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization.
     - The higher this value is, the higher quality and the lower performance.
     - Has a range of \[0.0, 10.0\] [^1]
  - **Compression Multiplier** (Float, 1.0): Sets the scaling factor applied to the compression resistance of every point.
@@ -141,12 +141,12 @@ In order to provide more artistic control, some key parameters of the skin solve
 
 <figure markdown>
   ![skin editor first part](images/attribute_editor_part_one_skin.png) 
-  <figcaption>Figure 1: Skin Attribute Editor</figcaption>
+  <figcaption>Figure 1: AdnSkin Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor second part](images/attribute_editor_part_two_skin.png)
-  <figcaption>Figure 3: Skin Attribute Editor (Advanced Settings)</figcaption>
+  <figcaption>Figure 3: AdnSkin Attribute Editor (Advanced Settings)</figcaption>
 </figure>
 
 ## Debugger
@@ -157,7 +157,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 ### Debug features
 
-The features that can be visualized with the debugger in the Skin deformer are:
+The features that can be visualized with the debugger in the AdnSkin deformer are:
 
  - **Hard Constraints**: for each vertex, a line will be drawn from the simulated mesh to its corresponding reference point on those vertices where its Hard Constraints weight is greater than 0.0.
  - **Soft Constraints**: for each vertex, a line will be drawn from the simulated mesh to its corresponding reference point on those vertices where its Soft Constraints weight is greater than 0.0.
@@ -179,5 +179,5 @@ The following attributes can be modified to better customize the appereance of t
 
 <figure markdown>
   ![skin editor debug menu](images/attribute_editor_skin_debug.png)
-  <figcaption>Figure 4: Skin Attribute Editor (Debug menu)</figcaption>
+  <figcaption>Figure 4: AdnSkin Attribute Editor (Debug menu)</figcaption>
 </figure>
