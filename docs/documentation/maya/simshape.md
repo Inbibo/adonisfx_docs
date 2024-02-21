@@ -21,7 +21,7 @@ The AdnSimshape deformer has a series of input meshes to be provided:
 
 ## Create AdnSimshape
 
-When initially creating an AdnSimshape deformer me may add directly a rest mesh or apply it diretly with a single mesh selected. The required process is as follows:
+When initially creating an AdnSimshape deformer, it is possible to add both a Simulated Mesh and a Rest Mesh, or only add a Simulated Mesh. The required process is as follows:
 
   1. Select the meshes in the following order: **Rest Mesh** (optional) &#8594 **Simulated mesh**
         
