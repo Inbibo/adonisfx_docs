@@ -1,4 +1,4 @@
-# How To Use
+# Introduction to Simshape in Maya
 
 **Simshape** is a Maya deformer to get facial simulation in the animation rig of an asset. Given a facial expression, the deformer is able to compute the activation of the vertices in order to emulate the changes in the rigidity of the skin. As result, the dynamics of the simulated skin mimic the behaviour of internal muscles contracting.
 
@@ -6,11 +6,11 @@ During the simulation, the solver reduces the inertias of the vertices with high
 
 ## Requirements
 
-The Simshape deformer requires the following inputs to be provided:
+The Simshape deformer has a series of input meshes to be provided:
 
   - <b class="mesh_color"> Rest Mesh (R) </b> with no deformation or animation. (optional) 
   - <b class="mesh_color"> Deform Mesh (D)</b> with deformation driven by the facial expressions. (optional)
-  - <b class="mesh_color"> Anim Mesh (A)</b> with deformation driven by the facial expressions and animation result of to the binding to the animation rig. (optional)
+  - <b class="mesh_color"> Animated Mesh (A)</b> with deformation driven by the facial expressions and animation result of to the binding to the animation rig. (optional)
   - <b class="mesh_color"> Simulation Mesh (S)</b> to apply the deformer onto. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
 > [!NOTE]
@@ -21,15 +21,14 @@ The Simshape deformer requires the following inputs to be provided:
 
 ## Create Simshape
 
-  1. Select the meshes in the following order:
-    ``` mermaid
-    graph LR
-      A["Rest Mesh\n <i style='font-size:12px;'>Optional</i>"]:::opt --> B;
-      B["Simulation Mesh\n <i style='font-size:12px;'>Required</i>"];
-      classDef opt fill:#413E63,stroke-dasharray: 5 5
-    ```
+When initially creating a Simshape deformer me may add directly a rest mesh or apply it diretly with a single mesh selected. The required process is as follows:
+
+  1. Select the meshes in the following order: **Rest Mesh** (optional) &#8594 **Simulated mesh**
+        
+    - Remember that the animated mesh will be used directly as the simulation mesh when no animation mesh is provided.
+
   2. Press the ![Simshape button](images/adn_simshape.png) in the AdonisFX shelf or press Simshape in AdonisFX menu.
-  3. Simshape is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
+  3. A message box will notify you that simshape has been created properly, meaning that it is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 In order to add or remove any of those optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape. In that submenu, we can find the options to manage each mesh type as we present in the Figure 1.
 
@@ -38,90 +37,124 @@ In order to add or remove any of those optional meshes, a set of menu items are 
   <figcaption>Figure 1: Edit Simshape submenu.</figcaption>
 </figure>
 
+To add any of these meshes to Simshape, follow a similar procedure to when first creating simshape:
+
+  1. Select the meshes in the following order:
+
+    **Additional Mesh** &#8594 **Simulated mesh**
+        
+  2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
+  3. A message box will notify you that the action has been successful.
+
+To remove any of these meshes from simshape follow this procedure:
+
+  1. Select only the mesh with simshape applied.
+  2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
+  3. A message box will notify you that the action has been successful.
+
+
 # Attributes
 
 [^1]: Soft range: higher values can be used.
 
 #### Solver Attributes
-| Attribute            | Type  | Value     | Range/Options     | Description                  |
-| :------------        | :---  | :----     | :------------     | :--------------------------- |
-| Enable               | Bool  | True      | \[False, True\]   | Flag to enable or disable the deformer computation. |
-| Iterations           | Long  | 3         | \[1, 10\] [^1]    | Number of iterations that the solver will execute per simulation step. |
-| Material             | Enum  | Leather   | <ul><li>Fat</li><li>Muscle</li><li>Rubber</li><li>Tendon</li><li>Leather</li><li>Wood</li><li>Concrete</li></ul> | Solver stiffness. The materials are listed from lowest to highest stiffness |
-| Stiffness Multiplier | Float | 1.0       | \[0.0, 2.0\] [^1] | Multiplier factor to scale up or down the material stiffness. |
+ - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
+ - **Iterations** (Integer, 3): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
+     - Has a range of \[1, 10\] [^1]
+ - **Material** (Enumerator, Leather): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
+    <ul><li>Fat: 10^7^</li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e^7^</li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
+ - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
+     - Has a range of \[0.0, 2.0\]
 
 #### Muscles Activation Settings
-| Attribute                | Type   | Value           | Range/Options   | Description                  |
-| :------------            | :---   | :----           | :------------   | :--------------------------- |
-| Activation Mode          | Enum   | No Activation   | <ul><li>Muscle Patches</li><li>Plug Values</li><li>No Activation</li></ul> | Mode to drive the muscle activations:<ul><li> **Muscle Patches** (Disabled by default): An Adonis Muscle Patches file (.amp) has to be provided to enable this option.</li><li> **Plug Values**. (Disabled by default): The attribute values **ActivationList.Activation** should be populated to enable this option. The activation data will be read from the plug values. </li><li> **No Activation**. No activation is read. </li></ul> |
-| Muscle Patches File      | String |                 || Path to the Adonis Muscle Patches file (.amp). |
-| Activation Smoothing     | Long   | 1               | \[1, 20\] [^1]  | Number of iterations for the activation smoothing algorithm. |
-| Bidirectional Activation | Bool   | False           | \[False, True\] | Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers. |
-| Activation List          | Float  | 0.0             || Array attribute to connect the activation values for each vertex. Used in Plug Values activation mode |
+ - **Activation Mode** (Enumerator, No Activation): Mode to drive the muscle activations. There are 3 different modes:
+    - *Muscle Patches* (Disabled by default): An Adonis Muscle Patches file (.amp) has to be provided to enable this option.
+    - *Plug Values* (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.
+    - *No Activation* No activation is read.
+ - **Muscle Patches File** (String): Path to the Adonis Muscle Patches file (.amp).
+ - **Activation Smoothing** (Integer, 1): Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be.
+     - Has a range of \[1, 20\] [^1]
+ - **Bidirectional Activation** (Boolean, False): Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers.
+ - **Write Out Actiavations** (Boolean, False): Flag to toggle the writing of activations into a point attribute.
 
 #### Time Attributes
-| Attribute          | Type | Value         | Range/Options | Description                  |
-| :---------------   | :--- | :----         | :----------   | :--------- |
-| Preroll Start Time | Time | Current frame || Frame to start the preroll. |
-| Start Time         | Time | Current frame || Frame to end the preroll and start the simulation. |
-| Current Time       | Time | Current frame || Current playback frame. |
+ - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
+ - **Start Time** (Time, *Current frame*): Determines the frame at which the simulation starts.
+ - **Current Time** (Time, *Current frame*): Current playback frame.
 
 #### Scale Attributes
-| Attribute   | Type  | Value | Range/Options          | Description                  |
-| :---------- | :---  | :---- | :------------          | :--------------------------- |
-| Time Scale  | Float | 1.0   | \[1e^-3^, 10.0\] [^1]  | Scale to control the time step relative to the Dependency Graph time. |
-| Space Scale | Float | 1.0   | \[1e^-3^, 100.0\] [^1] | Scale to control the space relative to the scene units. |
+ - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the simulation time step.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces.
+    - Has a range of \[0.0, 2.0\] [^1]
 
 #### Gravity
-| Attribute         | Type   | Value            | Range/Options       | Description               |
-| :------------     | :---   | :----            | :------------       | :------------------------ |
-| Gravity           | Float  | 0.0              | \[0.0, 100.0\] [^1] | Magnitude of the gravity. |
-| Gravity Direction | Float3 | (0.0, -1.0, 0.0) |                     | Direction of the gravity. |
+ - **Gravity** (Float, 1.0): Sets the magnitude of the gravity acceleration.
+ - **Space Scale** (Float3, {0.0. -1.0, 0.0} ): Sets the scaling factor applied to the masses and/or the forces.
+    - Vectors introduced don't need to be normalized, but they will get normalized internally.
 
 ### Advanced Settings
 
 #### Stiffness Settings
-| Attribute            | Type  | Value    | Range/Options   | Description                  |
-| :------------        | :---  | :----    | :------------   | :--------------------------- |
-| Use Custom Stiffness | Bool  | False    | \[False, True\] | Flag that enables the custom stiffness. If we use custom stiffness, **Material** and **Stiffness Multiplier** will be disabled and **Stiffness** will be used instead. |
-| Stiffness            | Float | 10^5^    | \[0.0, inf\]    | Custom stiffness value. |
+ - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value. If enabled, the Material is ignored and the Stiffness parameter is used instead.
+    - If we use a custom stiffness, **Material** and **Stiffness Multiplier** will be disabled and **Stiffness** will be used instead.
+ - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
+    - Its value must be greater than 0.0.
 
 #### Dynamic Properties
-| Attribute              | Type  | Value | Range/Options     | Description                  |
-| :------------          | :---  | :---- | :------------     | :--------------------------- |
-| Global Damping         | Float | 0.75  | \[0.0, 1.0\] [^1] | Global damping introduced to the system. |
-| Inertia Damping        | Float | 0.0   | \[0.0, 1.0\]      | Damping affecting only the inertias in the system. |
-| Rest Length Multiplier | Float | 1.0   | \[0.0, 2.0\] [^1] | Scaling factor of the edge rest lengths. |
-| Stretching Resistance  | Float | 1.0   | \[0.0, 1.0\]      | Force to correct the edge lengths if the current length is greater than the rest length. This attribute is paintable. | 
-| Compression Resistance | Float | 0.0   | \[0.0, 1.0\]      | Force to correct the edge lengths if the current length is smaller than the rest length. This attribute is paintable. |
+ - **Global Mass Multiplier** (Float, 1.0): Sets the scaling factor applied to the mass of every point.
+    - Has a range of \[0.0, 10.0\] [^1]
+ - **Global Damping** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
+    - Has a range of \[0.0, 1.0\] [^1]
+ - **Inertia Damper** (Float, 0.0): Sets the linear damping applied to the dynamics of every point.
+    - Has a range of \[0.0, 1.0\] [^1]
+ - **Rest Length Multiplier** (Float, 1.0): Sets the scaling factor applied to the edge lengths at rest.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Compression Multiplier** (Float, 1.0): Sets the scaling factor applied to the compression resistance of every point.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Attenuation Velocity factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
+    - Has a range of \[0.0, 10.0\] [^1]
 
 #### Collision Settings
-| Attribute            | Type  | Value | Range/Options      | Description                  |
-| :------------        | :---  | :---- | :------------      | :--------------------------- |
-| Compute Collisions   | Bool  | True  | \[False, True\]    | Flag to enable collisions correction. |
-| Keep Orientation     | Bool  | True  | \[False, True\]    | Preserves the initial orientation of the vertices relative to the collider when handling collisions.|
-| Max Sliding Distance | Float | 1.0   | \[0.0, 10.0\] [^1] | Maximum distance the simulated vertex is allowed to slide on top of the collider in world units. |
+ - **Compute Collisions** (Boolean, True): Flag to enable collisions correction in the deformer. If disabled, the deformer will ignore colliders when deforming the mesh.
+ - **Keep Orientation** (Boolean, True): Flag to preserve the initial orientation of the vertices relative to the collider when handling collisions. If disabled, the mesh will suffer no changes if the orientation of the collider varies.
+ - **Max Sliding Distance** (Float, 1.0): Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider.
+    - Has a range of \[0.0, 10.0\] [^1]
 
 #### Attraction Settings
-| Attribute             | Type | Value     | Range/Options  | Description           |
-| :------------         | :--- | :----     | :------------  | :----------           |
-| Attraction Remap Mode | Enum | Cube Root | <ul><li>Linear</li><li>Logarithmic</li><li>Square Root</li><li>Cube Root</li></ul> | Remap mode used to compute the definitive attraction values. |
+ - **Attraction Multiplier** (Float, 1.0): Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider.
+    - Has a range of \[0.0, 10.0\] [^1]
+ - **Attraction Remap Mode** (Enumerator, Cube Root): Remap mode used to compute the definitive attraction values. There are 4 different modes that folow different remap methods:
+    <ul><li>Linear</li><li>Logarithmic</li><li>Square Root</li><li>Cube Root</li></ul>
 
 #### Initialization Settings
-| Attribute               | Type | Value | Range/Options   | Description           |
-| :------------           | :--- | :---- | :------------   | :----------           |
-| Animatable Rest Mesh    | Bool | False | \[False, True\] | Flag that enables reading animated rest mesh data. |
-| Initialize to Anim Mesh | Bool | False | \[False, True\] | Flag to instantiate points at animated mesh instead of rest mesh on initialization. |
+ - **Animatable Rest Mesh** (Boolean, False): Flag that enables reading animated rest mesh data.
+ - **Initialize to Anim Mesh** (Boolean, True): Flag to instantiate points at animated mesh instead of rest mesh on initialization.
 
 #### Activation Remap
-| Attribute        | Type           | Value  | Range/Options  | Description           |
-| :------------    | :---           | :----  | :------------  | :----------           |
-| Activation Remap | Ramp Attribute | Linear || Curve to remap the activation values. |
+ - **Activation Remap** (Ramp Attribute): Curve to remap the activation values.
 
-#### Additional Properties
-| Attribute     | Type  | Value | Range/Options  | Description                  |
-| :------------ | :---  | :---- | :------------  | :--------------------------- |
-| Attract Force | Float | 1.0   | \[0.0, 1.0\]   | Attibute to control the amount of influence of the animated mesh. The higher the value is, the more influence and the less dynamics will appear. This attribute is paintable. |
+## Paintable Weights
+
+In order to provide more artistic control, some key parameters of the Simshape solver are exposed as paintable attributes in the deformer. The Maya paint tool must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+
+ - **Attract Force**: weight to control the amount of influence of the animated mesh. The higher the value is, the more influence and the less dynamics will appear.
+    - It's initialized to a flooded value of 1.0
+ - **Collision Threshold Multiplier**: Factor to scale the distance vertex-to-collider at rest. It is used to modulate the minimum distance to the collider allowed for each vertex.
+    - It's initialized to a flooded value of 1.0
+- **Compression Resistance**: force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.
+    - It's initialized to a flooded value of 0.0
+ - **Global Damping**: set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position.
+    - It's initialized to a flooded value of 1.0
+ - **Mass**: set individual mass values per vertex in the simulated mesh.
+    - It's initialized to a flooded value of 1.0
+ - **Slide Collision Constraints**: Represents for which areas collisions should be computed against the collider.
+    - It's initialized to a flooded value of 0.0
+    - A value of 0.0 does not apply correction at all, while a value of 1.0 does apply the correction to fix intersections. 
+- **Stretching Resistance**: force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
+    - It's initialized to a flooded value of 1.0
 
 ## Attribute Editor Template
 
@@ -138,7 +171,7 @@ In order to add or remove any of those optional meshes, a set of menu items are 
 # Advanced
 
 ## Muscle Activations
-Simshape can emulate the behaviour of facial muscles by computing the muscle activation directly on the vertices of the skin geometry. The activation of the vertices is an advanced and optional feature that can work in two modes: from muscle patches data or from plug values.
+Simshape can emulate the behaviour of facial muscles by computing the muscle activation directly on the vertices of the skin geometry. The activation of the vertices is an advanced and optional feature that can work in two modes: from **muscle patches data** or from **plug values**.
 
 <figure markdown>
   ![Activation modes from attribute editor](images/activation_modes.png)
@@ -165,6 +198,7 @@ Simshape can emulate the behaviour of facial muscles by computing the muscle act
         Activations are not computed. This option is selected by default.
 
 ### Generate Muscle Patches
+
 ##### Requirements
 
   - **Neutral mesh**: rest mesh with a neutral facial expression.
@@ -195,14 +229,16 @@ The AMP file is generated from the Learn Muscle Patches tool:
 
 Additional custom settings for the learning algorithm:
 
-| Settings                   | Type  | Value     |  Range/Options | Description                  |
-| :------------              | :---  | :----     |  :------------ | :--------------------------- |
-| Limit Iterations           | Bool  | False     |                | If enabled, the "Number of iterations" will be taken into consideration. |
-| Number of Iterations       | Int   | 20        | \[1, 1e^6^\]   | Maximum number of iterations allowed in the training process. The higher this value is, the more accurate the muscle patches estimation will be and the longer the execution will take. This parameter is ignored if "Limit iterations" attribute is disabled. In that case, the training process will run until it achieves the most accurate solution. |
-| Number of Muscle Patches   | Int   | 79        | \[1, 1e^6^\]   | Maximum number of muscle patches expected in the results. |
-| Draw Muscle Patches        | Bool  | True      |                | If enabled, the vertices of the neutral mesh will be colored according to the muscle patches resulting from the training. |
+ - **Limit Iterations** (Boolean, False): If enabled, the "Number of iterations" will be taken into consideration.
+ - **Number of Iterations** (Integer, 20): Maximum number of iterations allowed in the training process. The higher this value is, the more accurate the muscle patches estimation will be and the longer the execution will take.
+    - This parameter is ignored if "Limit iterations" attribute is disabled. In that case, the training process will run until it achieves the most accurate solution.
+    - Has a range of \[1, 1e^6^\]
+ - **Number of Muscle Patches** (Integer, 79): Maximum number of muscle patches expected in the results.
+    - Has a range of \[1, 1e^6^\]
+ - **Draw Muscle Patches** (Boolean, True): If enabled, the vertices of the neutral mesh will be colored according to the muscle patches resulting from the training.
 
 ### Debug Activations
+
 Simshape integrates a debug mode to visualize the activations during the simulation. If this mode is enabled, then Simshape will display a map of vertex colors from black to red on the simulation mesh where the black color is mapped to no activation and the red color is mapped to maximum activation.
 
 <figure style="width: 30%" markdown>
@@ -257,12 +293,10 @@ The use of rest collider is recommended when the preroll simulation is not compu
 
 ### Collider Configuration
 
-Apart from [*Compute Collisions*](#collision-settings), [*Keep Orientation*](#collision-settings) and [*Max Sliding Distance*](#collision-settings) parameters, it is possible to tweak the collision computation by painting the following attributes:
+Apart from [*Compute Collisions*](#collision-settings), [*Keep Orientation*](#collision-settings) and [*Max Sliding Distance*](#collision-settings) parameters, it is possible to tweak the collision computation by painting the following attributes, also explained in more detail in the [*Paintable Weights*](#paintable-weights) section:
 
-| Paintable Attribute            | Type  | Value | Range        | Description |
-| :------------                  | :---  | :---- | :----        | :---------- |
-| Slide Collision Constraints    | Float | 0.0   | \[0.0, 1.0\] | Represents for which areas collisions should be computed against the collider.  <br><br> A value of 0.0 does not apply correction at all, while a value of 1.0 does apply the correction to fix intersections. |
-| Collision Threshold Multiplier | Float | 1.0   | \[0.0, 1.0\] | Factor to scale the distance vertex-to-collider at rest. It is used to modulate the minimum distance to the collider allowed for each vertex. |
+ - [**Slide Collision Constraints**](#paintable-weights) to scale the distance vertex-to-collider at rest.
+ - [**Collision Threshold Multiplier**](#paintable-weights) to represent which areas' collisions should be computed against the collider.
 
 <figure style="width:45%" markdown> 
   ![Slide collision paint example](images/slide_collision_paint_example.png) 
@@ -272,4 +306,37 @@ Apart from [*Compute Collisions*](#collision-settings), [*Keep Orientation*](#co
 <figure style="width:45%;" markdown> 
   ![Collision threshold paint example](images/collision_threshold_paint_example.png) 
   <figcaption>Figure 6: Collision Threshold Multiplier painted values to 0.2 for the whole mesh.</figcaption> 
+</figure>
+
+## Debugger
+
+To better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled "Debug" in the attribute editor.
+
+To enable the debugger the *Debug* checkbox must be marked.To select the specific feature you would like to visualize, choose it from the list provided in *Features*. 
+
+### Debug features
+
+The features that can be visualized with the debugger in the Skin deformer are:
+
+ - **Collision Constraints**: for each vertex, a line will be drawn from the mesh to the closest point of a collider.
+    - The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
+ - **Muscle Fibers**: for each vertex, a line will be drawn showing the direction of the muscle fibers.
+    - The debug lines will only be displayed in case muscle activations have been enabled with an Adonis Muscle Patches file.
+
+Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
+
+### Debugger attributes
+
+The following attributes can be modified to better customize the appereance of these lines:
+
+ - **Width Scale** (Float, 1.0): Modifies the width of all lines.
+ - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
+
+Additionally, for the specific case of debugging fibers, one more attribute is available:
+
+ - **Fiber scale value**: can be modified to set a custom fiber length.
+
+<figure markdown>
+![skin editor debug menu](images/attribute_editor_simshape_debug.png)
+<figcaption>Figure 4: Simshape Attribute Editor (Debug menu)</figcaption>
 </figure>
