@@ -3,7 +3,7 @@
 ## Software
 
 - Maya 2020, 2022, 2023, 2024
-- Houdini 20.0
+<!-- - Houdini 20.0 -->
 
 ## System Requirements
 
