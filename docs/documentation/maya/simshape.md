@@ -75,7 +75,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
  - **Activation Smoothing** (Integer, 1): Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be.
      - Has a range of \[1, 20\] [^1]
  - **Bidirectional Activation** (Boolean, False): Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers.
- - **Write Out Actiavations** (Boolean, False): Flag to toggle the writing of activations into a point attribute.
+ - **Write Out Activations** (Boolean, False): Flag to toggle the writing of activations into an output plug.
 
 #### Time Attributes
  - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
