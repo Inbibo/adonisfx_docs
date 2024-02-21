@@ -64,21 +64,21 @@ If we want to create the muscle deformer with some initial customization we can 
 Now that we have the muscle deformer properly created we are now able to apints its weights to correctly set up the deformer properties so it can behave as expected. To do so we must select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png) shelf button or go to *AdonisFX menu > Paint Tool*.
 
 <figure>
-  <img src="images/setup_muscle_6.png"> 
+  <img src="images/setup_muscle_3.png"> 
   <figcaption>Figure: Attachment influence for joint 1.</figcaption>
 </figure>
 
 We will start by painting attachment weights, painting the influence for each attachment by selecting the corresponding attachment from the list and painting its desired influence.  
 
 <figure>
-  <img src="images/setup_muscle_7.png"> 
+  <img src="images/setup_muscle_4.png"> 
   <figcaption>Figure: Attachment influence for joint 2.</figcaption>
 </figure>
 
 After that is done we will now paint the muscle tendon weights, by selecting the "Tendon" attribute from the "Attribute" ennumerator and painting over the parts of the muscle that we want to have as tendon tissue.
 
 <figure>
-  <img src="images/setup_muscle_8.png"> 
+  <img src="images/setup_muscle_5.png"> 
   <figcaption>Figure: Tendon weights for biceps.</figcaption>
 </figure>
 
@@ -87,7 +87,7 @@ Now that we have tendons painted, when selecting the "Fibers" attribute from the
 In case we want to change the fiber size or its color, we can go to the Attribute Editor, in the debug submenu, and customize the color, width and length of the drawn lines.
 
 <figure>
-  <img src="images/setup_muscle_9.png"> 
+  <img src="images/setup_muscle_6.png"> 
   <figcaption>Figure: Muscle fibers combing.</figcaption>
 </figure>
 
@@ -100,7 +100,7 @@ To have the muscle change and responding to external inputs (in this case an arm
 To do this we will first need to create a locator and a sensor. We will create a rotation locator and sensor to read the elbow angle. We can create both elements by selecting the three joints from which we are going to create the rotation locator and sensor (arm, forearm and wrist joints) and directly click on the ![adnRotationSensor](images/adn_angle_sensor.png) shelf button or go to *AdonisFX menu > Sensors (on the "Create" group) > Rotation*. With this both a locator and its corresponding sensor will get created at the same time.
 
 <figure>
-  <img src="images/setup_muscle_13.png"> 
+  <img src="images/setup_muscle_7.png"> 
   <figcaption>Figure: Rotation locator and sensor set up in elbow.</figcaption>
 </figure>
 
@@ -109,7 +109,7 @@ Now that we have the sensor created we just have to connect it to the deformer. 
 Once we have the Connection Editor open we must first select the locator from our scene and press the *Reload Left* button, then select the simulated mesh and press the *Reload Right* button. Once this is done we must see on the lists below the buttons the selections we have done on each side with their respective connectable attributes. We will connect the "activationAngle" attribute from the locator to the "activation" attribute from the deformer.
 
 <figure>
-  <img src="images/setup_muscle_14.png"> 
+  <img src="images/setup_muscle_8.png"> 
   <figcaption>Figure: Connection Editor tool.</figcaption>
 </figure>
 
@@ -214,4 +214,8 @@ If we want to create the AdnSimshape deformer with some initial customization we
 
 ### 2. Painting weights
 
-In the case of the AdnSimshape we may use the Maya Paint tool to set up and paint its paintable weight attributes. 
+In the case of the AdnSimshape we may use the Maya Paint tool to set up and paint its paintable weight attributes. We will start by painting the Attraction Force weights. This value is flooded by default to 1, meaning that by default the simulated mesh will follow completely the animation, without displaying dynamics.
+
+By painting lower Attraction Force weights in the areas where we want more dynamics to be shown, such as under the neck or in the cheecks, we will allow the solver to simulate t
+
+After painting similar weights to the ones displayed and pressing playback to check the animation we should already see realistic dynamics being simulated in the face.
