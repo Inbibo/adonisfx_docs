@@ -2,6 +2,31 @@
 
 AdonisFX includes several tools to allow for a better experience when setting up deformers. In this page these tools will get detailed, with the specifications on how they work on each deformer and how to properly set the mup and use them.
 
+## AdonisFX Import Tool
+
+The **AdonisFX Import Tool** allows the user to import the configuration for a specific defomrer from a previously exported AAD (Adonis Attribute Definition) file.
+
+<figure>
+  <img src="images/import_tool_empty.png" caption="AdonisFX Import Tool">
+  <figcaption>Figure 1: AdonisFX Import Tool</figcaption>
+</figure>
+
+To open the tool ress the ![Import Tool](images/adn_importer.png) shelf button or go to *AdonisFX menu > Import*.
+
+> [!NOTE]
+> - When using this tool it has to be taken into consideration that the mesh from which the AAD file was exported **must be exactly the same** as the one to which the configuration is getting exported.
+
+## AdonisFX Export Tool
+
+The **AdonisFX Import Tool** allows the user to save in an external file the configuration for a specific defomrer into an AAD (Adonis Attribute Definition) file.
+
+<figure>
+  <img src="images/export_tool_empty.png" caption="AdonisFX Export Tool">
+  <figcaption>Figure 1: AdonisFX Export Tool</figcaption>
+</figure>
+
+To open the tool ress the ![Import Tool](images/adn_exporter.png) shelf button or go to *AdonisFX menu > Import*.
+
 ## AdonisFX Paint Tool
 
 To configure the paintable attributes in Adonis deformers, the AdonisFX paint tool must be used. Apart from the standard functionalities that the Maya default paint context provides, this tool also processes the painted weights to guarantee that the requirements of the specific solver of the selected deformer are satisfied.
