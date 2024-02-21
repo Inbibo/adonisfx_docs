@@ -34,7 +34,7 @@ The Edge Evaluator Node requires the following inputs to be provided:
 
 <figure markdown>
   ![Edge Evaluator editor](images/attribute_editor_edge_evaluator.png)
-  <figcaption>Figure 1: Edge Evaluator Attribute Editor</figcaption>
+  <figcaption><b>Figure 1:</b> Edge Evaluator Attribute Editor</figcaption>
 </figure>
 
 # Advanced
@@ -44,6 +44,6 @@ The Edge Evaluator Node requires the following inputs to be provided:
 The evaluator node might be used to drive the activations of a Simshape deformer. It can be done by connecting the output map to the activations plug of Simshape. Adonis provides a menu option to recreate this steps easily.
 
 1. Select the Edge Evaluator Node. Then the Simshape deformer node.
-2. Go to the AdonisFX menu > Simshape > Connect Activations Plug.
+2. Go to the AdonisFX Menu > Simshape > Connect Activations Plug.
 
 If you want to disconnect the plug repeat the steps and instead of pressing "Connect Activations Plug" press "Disconnect Activations Plug".
