@@ -8,10 +8,10 @@ During the simulation, the solver reduces the inertias of the vertices with high
 
 The AdnSimshape deformer has a series of input meshes to be provided:
 
-  - <b class="mesh_color"> Rest Mesh (R) </b> with no deformation or animation. (optional) 
-  - <b class="mesh_color"> Deform Mesh (D)</b> with deformation driven by the facial expressions. (optional)
-  - <b class="mesh_color"> Animated Mesh (A)</b> with deformation driven by the facial expressions and animation result of to the binding to the animation rig. (optional)
-  - <b class="mesh_color"> Simulation Mesh (S)</b> to apply the deformer onto. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
+  - <b class="mesh_color"> Rest Mesh (R)</b>: mesh with no deformation or animation (optional).
+  - <b class="mesh_color"> Deform Mesh (D)</b>: mesh with deformation driven by the facial expressions (optional).
+  - <b class="mesh_color"> Animated Mesh (A)</b>: mesh with deformation driven by the facial expressions and animation result of to the binding to the animation rig (optional).
+  - <b class="mesh_color"> Simulation Mesh (S)</b>: mesh to apply the deformer onto. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
 > [!NOTE]
 > - All input geometries must have the same number of vertices.
