@@ -96,7 +96,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 ### Advanced Settings
 
 #### Stiffness Settings
- - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value. If enabled, the Material is ignored and the Stiffness parameter is used instead.
+ - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
     - If we use a custom stiffness, **Material** and **Stiffness Multiplier** will be disabled and **Stiffness** will be used instead.
  - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
     - Its value must be greater than 0.0.
