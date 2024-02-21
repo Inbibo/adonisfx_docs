@@ -114,7 +114,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
     - Has a range of \[0.0, 2.0\] [^1]
  - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
     - Has a range of \[0.0, 2.0\] [^1]
- - **Attenuation Velocity factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
+ - **Attenuation Velocity Factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
     - Has a range of \[0.0, 10.0\] [^1]
 
 #### Collision Settings
