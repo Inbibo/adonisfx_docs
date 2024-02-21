@@ -1,34 +1,70 @@
-# How To Use
+# Introduction to AdnSkin in Maya
 
-Skin is a Maya deformer for fast, robust and easy-to-configure skin simulation for digital assets. Thanks to the combination of internal and external constraints, the deformer can produce dynamics that allow the skin mesh to realistically react to the deformations of the internal tissues (e.g. muscles, fascia) over time.
+AdnSkin is a Maya deformer for fast, robust and easy-to-configure skin simulation for digital assets. Thanks to the combination of internal and external constraints, the deformer can produce dynamics that allow the skin mesh to realistically react to the deformations of the internal tissues (e.g. muscles, fascia) over time.
+
+<!-- DEV NOTE: change paint tool references once tools.md has been merged-->
+
+The influence these constraints have in the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](index.md) or by uniformingly regulating their influence via multipliers in the attribute editor. Beyond these constraints, there are many paramenters to regulate the skin's dynamics are available to modify the deformer's behaviour to a wide array of options.
+
+# How to Use
+
+The Adonis Skin deformer is of great simplicity so set up and apply to a mesh within a Maya scene. The way this deformer works, a reference mesh (usually animated) is set in the scene, over which the skin mesh (simulated mesh) is set with the deformer.
 
 ## Requirements
 
-The Skin deformer requires the following inputs to be provided:
+To create an AdnSkin deformer within a Maya scene, the following inputs must be provided:
 
-  - <b class="mesh_color"> Reference Mesh (R) </b> to drive the simulation skin (e.g. fascia or combined muscles).
-  - <b class="mesh_color"> Skin Mesh (S) </b> where the skin deformer will be applied to.
+  - <b class="mesh_color"> Reference Mesh (R)</b>: mesh to drive the simulation skin (e.g. fascia or combined muscles).
+  - <b class="mesh_color"> Skin Mesh (S)</b>: mesh to be simulated to which the AdnSkin deformer will be applied.
 
-## Create Skin
+## Create AdnSkin
 
-1. Select the meshes in the following order:
-    ``` mermaid
-    graph LR
-      A["Reference Mesh\n"] --> B;
-      B["Skin Mesh\n"];
-    ```
-2. Press ![Skin button](images/adn_skin.png) in the AdonisFX shelf or Skin in the AdonisFX menu.
-3. Skin is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
+The process to create an AdnSkin deformer must follow this procedure:
+
+1. Select the attachments (if any), then the geometry:
+2. Press ![Skin button](images/adn_skin.png) in the AdonisFX shelf or AdnSkin in the AdonisFX menu, under the "Create" section.
+    - If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+3. AdnSkin is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the skin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the AdnSkin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](index.md) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
-- *Hard Constraints*: weight to modulate the correction applied to the vertices to keep them at a constant transformation local to the closest point on the reference mesh at initialization. The recommendation for a biped or quadruped creature is to use a maximum value of 1.0 on the wrists, ankles and hips and a value of 0.2 on the rest of the body.
-- *Slide Constraints*: weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. In the example of a biped or quadruped, we recommend a value of 1.0 on the scapulas, shoulders, elbows and knees and a value of 0.2 on the rest of the body.
-- *Soft Constraints*: weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. An intermediate value of 0.5 on the whole geometry is recommended.
-- *Compression Resistance*: force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.
-- *Stretching Resistance*: force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
+- <b class="paintable maps">Hard Constraints</b>: weight to modulate the correction applied to the vertices to keep them at a constant transformation, local to the closest point on the reference mesh at initialization. Hard constraint maps will force the geometry points to keep the original position. A low value of hard constraints may be desired to allow the skin to create wrinkles, sliding, etc.
+
+    - *Tip*: flood the geometry with a very low value 0.1 - 0.2. Give a value of 1.0 to the edges of the skin to guarantee that’s perfectly attached to the target geometry
+
+    - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles (unless that’s something you are looking for!).
+
+- <b class="paintable maps">Soft Constraints</b>: weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. An intermediate value of 0.5 on the whole geometry is recommended.
+
+    - *Tip*: flood the geometry with a very low value 0.1 - 0.2.
+
+    - *Tip*: it may be desirable to leave this map weight to 1 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
+
+- <b class="paintable maps">Slide Constraints</b>: weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. In the example of a biped or quadruped, it is recommended to set a value of 1.0 on the scapulas, shoulders, elbows and knees and an overall value of 0 on the rest of the body.
+
+    - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles (unless that’s something you are looking for!).
+
+- <b class="paintable maps">Compression Resistance</b>: force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. At value 1 the points in the geometry will try to keep as close as possible to their original position.
+
+    - *Tip*: it may be desirable to leave this map weight to 1 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
+    
+    - *Tip*: Reducing the value of the weight in some areas will contribute to getting rid of unwanted wrinkles or possible artifacts in the skin.
+
+- <b class="paintable maps">Stretching Resistance</b>: force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
+
+    - *Tip*: it may be desirable to leave this map weight to 1 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
+
+    - *Tip*: smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles (unless that’s something you are looking for!).
+
+- <b class="paintable maps">Global Damping </b>: set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position.
+
+- <b class="paintable maps">Max Sliding Multiplier</b>: determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. Greater values will allow for greater sliding but will have a greater computational cost.
+    
+    - *Tip*: for areas where sliding isn't required paint to 0. Use values closer to 1 in areas where more sliding freedom is desired.
+
+- <b class="paintable maps">Mass</b>: set individual mass values per vertex in the simulated mesh.
 
 <figure>
   <img src="images/skin_paint_example.png" caption="AdonisFX Paint Tool"> 
@@ -38,90 +74,110 @@ In order to provide more artistic control, some key parameters of the skin solve
 > [!NOTE]
 > - *Hard*, *Soft* and *Slide* values are normalized for each vertex. Make sure to paint the values that you want to give priority to at the end in order to avoid the internal normalization override them in further strokes.
 
-### AdonisFX Paint Tool
-
-To configure the paintable attributes in the skin deformer, the AdonisFX paint tool must be used. Apart from the standard functionalities that the Maya default paint context provides, this tool also processes the painted weights to guarantee that the requirements of solver are satisfied.
-
-<figure>
-  <img src="images/paint_tool.png" caption="AdonisFX Paint Tool"> 
-  <figcaption>Figure 2: AdonisFX Paint Tool</figcaption>
-</figure>
-
-Do the following to open the tool:
-
-  1. Select the mesh with the Skin deformer applied to.
-  2. Press the paint tool ![paint tool](images/adn_paint_tool.png) shelf button or go to AdonisFX menu > Paint Tool.
-
-You can select the attribute to paint from the combo box exposed in the UI:
-
-<figure style="margin-left:30%;" markdown> 
-  ![Pain Tool Skin Attributes example](images/paint_tool_skin_attributes.png) 
-  <figcaption> Figure 3: Paintable attributes listed in the UI. </figcaption>
-</figure>
-
 # Attributes
 
 [^1]: Soft range: higher values can be used.
 
 #### Solver Attributes
-| Attribute            | Type  | Value     | Range/Options     | Description                  |
-| :------------        | :---  | :----     | :------------     | :--------------------------- |
-| Iterations           | Long  | 3         | \[1, 10\] [^1]    | Number of iterations that the solver will execute per simulation step. |
-| Material             | Enum  | Leather   | <ul><li>Fat</li><li>Muscle</li><li>Rubber</li><li>Tendon</li><li>Leather</li><li>Wood</li><li>Concrete</li></ul> | Solver stiffness. The materials are listed from lowest to highest stiffness |
-| Stiffness Multiplier | Float | 1.0       | \[0.0, 2.0\] [^1] | Multiplier factor to scale up or down the material stiffness. |
+ - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
+ - **Iterations** (Integer, 3): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
+     - Has a range of \[1, 10\] [^1]
+ - **Material** (Enumerator, Leather): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
+    <ul><li>Fat: 10^7^</li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e^7^</li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
+ - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
+     - Has a range of \[0.0, 2.0\]
 
 #### Time Attributes
-| Attribute          | Type | Value         | Range/Options    | Description                  |
-| :---------------   | :--- | :----         | :----------      | :--------- |
-| Preroll Start Time | Time | Current frame || Frame to start the preroll. |
-| Start Time         | Time | Current frame || Frame to end the preroll and start the simulation. |
-| Current Time       | Time | Current frame || Current playback frame. |
+ - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
+ - **Start Time** (Time, *Current frame*): Determines the frame at which the simulation starts.
+ - **Current Time** (Time, *Current frame*): Current playback frame.
 
 #### Scale Attributes
-| Attribute   | Type  | Value | Range/Options          | Description                  |
-| :---------- | :---  | :---- | :------------          | :--------------------------- |
-| Time Scale  | Float | 1.0   | \[1e^-3^, 10.0\] [^1]  | Scale to control the time step relative to the Dependency Graph time. |
-| Space Scale | Float | 1.0   | \[1e^-3^, 100.0\] [^1] | Scale to control the space relative to the scene units. |
+ - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the simulation time step.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Space Scale Mode** (Enumerator, "Masses + Forces"): Determines if the spatial scaling affects the masses, the forces, or both.
+    - The available options are: Masses, Forces, Masses + Forces.
 
 #### Gravity
-| Attribute         | Type   | Value            | Range/Options       | Description               |
-| :------------     | :---   | :----            | :------------       | :------------------------ |
-| Gravity           | Float  | 0.0              | \[0.0, 100.0\] [^1] | Magnitude of the gravity. |
-| Gravity Direction | Float3 | (0.0, -1.0, 0.0) |                     | Direction of the gravity. |
+ - **Gravity** (Float, 1.0): Sets the magnitude of the gravity acceleration.
+ - **Gravity Direction** (Float3, {0.0. -1.0, 0.0} ): Sets the direction of the gravity acceleration.
+    - Vectors introduced don't need to be normalized, but they will get normalized internally.
 
 ### Advanced Settings
 
 #### Stiffness Settings
-| Attribute            | Type  | Value    | Range/Options | Description                  |
-| :------------        | :---  | :----    | :------------ | :--------------------------- |
-| Use Custom Stiffness | Bool  | False    || Flag that enables the custom stiffness. If we use custom stiffness, **Material** and **Stiffness Multiplier** will be disabled and **Stiffness** will be used instead. |
-| Stiffness            | Float | 10^5^    | \[0.0, inf\]  | Custom stiffness value. |
+ - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
+    - If we use a custom stiffness, **Material** and **Stiffness Multiplier** will be disabled and **Stiffness** will be used instead.
+ - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
+    - Its value must be greater than 0.0.
 
 #### Dynamic Properties
-| Attribute              | Type  | Value | Range/Options      | Description                  |
-| :------------          | :---  | :---- | :------------      | :--------------------------- |
-| Global Damping         | Float | 0.75  | \[0.0, 2.0\] [^1]  | Global damping introduced to the system. |
-| Inertia Damping        | Float | 0.0   | \[0.0, 1.0\]       | Damping affecting only the inertias in the system. |
-| Rest Length Multiplier | Float | 1.0   | \[0.0, 2.0\] [^1]  | Scaling factor of the edge rest lengths. |
-| Stretching Resistance  | Float | 1.0   | \[0.0, 1.0\]       | Force to correct the edge lengths if the current length is greater than the rest length. This attribute is paintable. | 
-| Compression Resistance | Float | 1.0   | \[0.0, 1.0\]       | Force to correct the edge lengths if the current length is smaller than the rest length. This attribute is paintable. |
-| Max Sliding Distance   | Float | 0.0   | \[0.0, 10.0\] [^1] | Maximum distance along the reference mesh that one vertex can slide on. |
+ - **Global Mass Multiplier** (Float, 1.0): Sets the scaling factor applied to the mass of every point.
+    - Has a range of \[0.0, 10.0\] [^1]
+ - **Global Damping** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
+    - Has a range of \[0.0, 1.0\] [^1]
+ - **Inertia Damper** (Float, 0.0): Sets the linear damping applied to the dynamics of every point.
+    - Has a range of \[0.0, 1.0\] [^1]
+ - **Rest Length Multiplier** (Float, 1.0): Sets the scaling factor applied to the edge lengths at rest.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Max Sliding Distance** (Float, 0.5): Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization.
+    - The higher this value is, the higher quality and the lower performance.
+    - Has a range of \[0.0, 10.0\] [^1]
+ - **Compression Multiplier** (Float, 1.0): Sets the scaling factor applied to the compression resistance of every point.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
+    - Has a range of \[0.0, 2.0\] [^1]
+ - **Attenuation Velocity factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
+    - Has a range of \[0.0, 10.0\] [^1]
+ - **Space Scale Mode** (Enumerator, "Masses + Forces"): Defines the mode of execution for the sliding constraints.
+    - *Quality* is more accurate, recommended for final results.
+    - *Fast* provides higher performance, recommended for preview.
 
-#### Additional Properties
-| Attribute         | Type  | Value | Range/Options | Description                  |
-| :------------     | :---  | :---- | :------------ | :--------------------------- |
-| Hard constraints  | Float | 1.0   | \[0.0, 1.0\]  | Weight to modulate the correction applied to the vertices to keep them at a constant transformation, local to the closest point on the reference mesh at initialization. <br> This attribute is paintable and normalized together with *Slide Constraints* and *Soft Constraints*. |
-| Slide Constraints | Float | 0.0   | \[0.0, 1.0\]  | Weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. <br> This attribute is paintable and normalized together with *Hard Constraints* and *Soft Constraints*. |
-| Soft constraints  | Float | 0.0   | \[0.0, 1.0\]  | Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. <br> This attribute is paintable and normalized together with *Slide Constraints* and *Hard Constraints*. |
+<!-- Removed additional attributes as they were basically paintable weights, previously explained  -->
 
 ## Attribute Editor Template
 
 <figure markdown>
   ![skin editor first part](images/attribute_editor_part_one_skin.png) 
-  <figcaption>Figure 1: Skin Attribute Editor</figcaption>
+  <figcaption>Figure 1: AdnSkin Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor second part](images/attribute_editor_part_two_skin.png)
-  <figcaption>Figure 2: Skin Attribute Editor (Advanced Settings)</figcaption>
+  <figcaption>Figure 3: AdnSkin Attribute Editor (Advanced Settings)</figcaption>
+</figure>
+
+## Debugger
+
+To better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled "Debug" in the attribute editor.
+
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. 
+
+### Debug features
+
+The features that can be visualized with the debugger in the AdnSkin deformer are:
+
+ - **Hard Constraints**: for each vertex, a line will be drawn from the simulated mesh to its corresponding reference point on those vertices where its Hard Constraints weight is greater than 0.0.
+ - **Soft Constraints**: for each vertex, a line will be drawn from the simulated mesh to its corresponding reference point on those vertices where its Soft Constraints weight is greater than 0.0.
+ - **Slide Constraints**: for each vertex, a line will be drawn from the simulated mesh to its corresponding reference point on those vertices where its Soft Constraints weight is greater than 0.0.
+
+Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
+
+<figure markdown>
+  ![skin editor debug menu](images/skin_debug.png)
+  <figcaption>Figure 5: Debugger enabled displaying hard constraints, slide constraints and soft constraints with different configurations. </figcaption>
+</figure>
+
+### Debugger attributes
+
+The following attributes can be modified to better customize the appereance of these lines:
+
+ - **Width Scale** (Float, 3.0): Modifies the width of all lines.
+ - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
+
+<figure markdown>
+  ![skin editor debug menu](images/attribute_editor_skin_debug.png)
+  <figcaption>Figure 4: AdnSkin Attribute Editor (Debug menu)</figcaption>
 </figure>
