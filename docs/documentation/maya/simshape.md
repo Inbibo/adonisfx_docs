@@ -124,8 +124,8 @@ To remove any of these meshes from AdnSimshape follow this procedure:
     - Has a range of \[0.0, 10.0\] [^1]
 
 #### Attraction Settings
- - **Attraction Multiplier** (Float, 1.0): Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider.
-    - Has a range of \[0.0, 10.0\] [^1]
+ - **Attraction Multiplier** (Float, 1.0): Sets the scaling factor applied to the Attraction.
+    - Has a range of \[0.0, 2.0\] [^1]
  - **Attraction Remap Mode** (Enumerator, Cube Root): Remap mode used to compute the definitive attraction values. There are 4 different modes that folow different remap methods:
     <ul><li>Linear</li><li>Logarithmic</li><li>Square Root</li><li>Cube Root</li></ul>
 
