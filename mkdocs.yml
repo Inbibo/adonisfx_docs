@@ -1,7 +1,6 @@
 site_name: Adonis
 
 theme:
-# Note: other themes available: mkdocs, material
   name: readthedocs
   features:
     - navigation.footer
@@ -101,16 +100,14 @@ nav:
   - Documentation:
     - documentation/index.md
     - Maya:
-      - 1.0.0: 
-        - documentation/maya/1.0.0/index.md
-        - UI Overview         : documentation/maya/1.0.0/ui_overview.md
-        - A simple Setup      : documentation/maya/1.0.0/simple_setup.md
-        - Locators            : documentation/maya/1.0.0/locators.md
-        - Sensors             : documentation/maya/1.0.0/sensors.md
-        - AdnSimshape         : documentation/maya/1.0.0/simshape.md
-        - AdnSkin             : documentation/maya/1.0.0/skin.md
-        - AdnRibbonMuscle     : documentation/maya/1.0.0/ribbon.md
-        - AdnVolumetricMuscle : documentation/maya/1.0.0/volumetric.md
+      - documentation/maya/index.md
+      - UI Overview         : documentation/maya/ui_overview.md
+      - A simple Setup      : documentation/maya/simple_setup.md
+      - Locators            : documentation/maya/locators.md
+      - Sensors             : documentation/maya/sensors.md
+      - AdnSimshape         : documentation/maya/simshape.md
+      - AdnSkin             : documentation/maya/skin.md
+      - AdnRibbonMuscle     : documentation/maya/ribbon.md
+      - AdnMuscle           : documentation/maya/muscle.md
     - Houdini:
-      - 1.0.0: 
-        - documentation/houdini/1.0.0/index.md
+      - documentation/houdini/index.md
