@@ -1,12 +1,12 @@
-# Introduction to Simshape in Maya
+# Introduction to AdnSimshape in Maya
 
-**Simshape** is a Maya deformer to get facial simulation in the animation rig of an asset. Given a facial expression, the deformer is able to compute the activation of the vertices in order to emulate the changes in the rigidity of the skin. As result, the dynamics of the simulated skin mimic the behaviour of internal muscles contracting.
+**AdnSimshape** is a Maya deformer to get facial simulation in the animation rig of an asset. Given a facial expression, the deformer is able to compute the activation of the vertices in order to emulate the changes in the rigidity of the skin. As result, the dynamics of the simulated skin mimic the behaviour of internal muscles contracting.
 
-During the simulation, the solver reduces the inertias of the vertices with higher values of activation, while it computes standard simulation in the vertices that are not activated. One of the key features of Simshape is the ability to extract muscle information directly from the neutral geometry and the set of deformed geometries with the facial expressions using Machine Learning techniques.
+During the simulation, the solver reduces the inertias of the vertices with higher values of activation, while it computes standard simulation in the vertices that are not activated. One of the key features of AdnSimshape is the ability to extract muscle information directly from the neutral geometry and the set of deformed geometries with the facial expressions using Machine Learning techniques.
 
 ## Requirements
 
-The Simshape deformer has a series of input meshes to be provided:
+The AdnSimshape deformer has a series of input meshes to be provided:
 
   - <b class="mesh_color"> Rest Mesh (R) </b> with no deformation or animation. (optional) 
   - <b class="mesh_color"> Deform Mesh (D)</b> with deformation driven by the facial expressions. (optional)
@@ -19,16 +19,16 @@ The Simshape deformer has a series of input meshes to be provided:
 > - If <b class="mesh_color">D</b> is not provided, the simulation will not produce activations.
 > - If <b class="mesh_color">A</b> is not provided, the system will use the input mesh to the deformer (<b class="mesh_color">S</b>) as animated mesh.
 
-## Create Simshape
+## Create AdnSimshape
 
-When initially creating a Simshape deformer me may add directly a rest mesh or apply it diretly with a single mesh selected. The required process is as follows:
+When initially creating an AdnSimshape deformer me may add directly a rest mesh or apply it diretly with a single mesh selected. The required process is as follows:
 
   1. Select the meshes in the following order: **Rest Mesh** (optional) &#8594 **Simulated mesh**
         
     - Remember that the animated mesh will be used directly as the simulation mesh when no animation mesh is provided.
 
   2. Press the ![Simshape button](images/adn_simshape.png) in the AdonisFX shelf or press Simshape in AdonisFX menu.
-  3. A message box will notify you that simshape has been created properly, meaning that it is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
+  3. A message box will notify you that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 In order to add or remove any of those optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape. In that submenu, we can find the options to manage each mesh type as we present in the Figure 1.
 
@@ -37,7 +37,7 @@ In order to add or remove any of those optional meshes, a set of menu items are 
   <figcaption>Figure 1: Edit Simshape submenu.</figcaption>
 </figure>
 
-To add any of these meshes to Simshape, follow a similar procedure to when first creating simshape:
+To add any of these meshes to AdnSimshape, follow a similar procedure to when first creating the deformer:
 
   1. Select the meshes in the following order:
 
@@ -46,9 +46,9 @@ To add any of these meshes to Simshape, follow a similar procedure to when first
   2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
   3. A message box will notify you that the action has been successful.
 
-To remove any of these meshes from simshape follow this procedure:
+To remove any of these meshes from AdnSimshape follow this procedure:
 
-  1. Select only the mesh with simshape applied.
+  1. Select only the mesh with AdnSimshape applied.
   2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
   3. A message box will notify you that the action has been successful.
 
@@ -138,7 +138,7 @@ To remove any of these meshes from simshape follow this procedure:
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the Simshape solver are exposed as paintable attributes in the deformer. The Maya paint tool must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the AdnSimshape solver are exposed as paintable attributes in the deformer. The Maya paint tool must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
  - **Attract Force**: weight to control the amount of influence of the animated mesh. The higher the value is, the more influence and the less dynamics will appear.
     - It's initialized to a flooded value of 1.0
@@ -160,18 +160,18 @@ In order to provide more artistic control, some key parameters of the Simshape s
 
 <figure markdown>
   ![simshape editor first part](images/attribute_editor_part_one_simshape.png) 
-  <figcaption>Figure 1: Simshape Attribute Editor</figcaption>
+  <figcaption>Figure 1: AdnSimshape Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
   ![simshape editor second part](images/attribute_editor_part_two_simshape.png)
-  <figcaption>Figure 2: Simshape Attribute Editor (Advanced Settings)</figcaption>
+  <figcaption>Figure 2: AdnSimshape Attribute Editor (Advanced Settings)</figcaption>
 </figure>
 
 # Advanced
 
 ## Muscle Activations
-Simshape can emulate the behaviour of facial muscles by computing the muscle activation directly on the vertices of the skin geometry. The activation of the vertices is an advanced and optional feature that can work in two modes: from **muscle patches data** or from **plug values**.
+AdnSimshape can emulate the behaviour of facial muscles by computing the muscle activation directly on the vertices of the skin geometry. The activation of the vertices is an advanced and optional feature that can work in two modes: from **muscle patches data** or from **plug values**.
 
 <figure markdown>
   ![Activation modes from attribute editor](images/activation_modes.png)
@@ -239,11 +239,11 @@ Additional custom settings for the learning algorithm:
 
 ### Debug Activations
 
-Simshape integrates a debug mode to visualize the activations during the simulation. If this mode is enabled, then Simshape will display a map of vertex colors from black to red on the simulation mesh where the black color is mapped to no activation and the red color is mapped to maximum activation.
+AdnSimshape integrates a debug mode to visualize the activations during the simulation. If this mode is enabled, then AdnSimshape will display a map of vertex colors from black to red on the simulation mesh where the black color is mapped to no activation and the red color is mapped to maximum activation.
 
 <figure style="width: 30%" markdown>
   ![Learn Muscle Patches UI window](images/nassim_debug.png)
-  <figcaption>Figure 4: Example of Simshape running in Debug mode</figcaption>
+  <figcaption>Figure 4: Example of AdnSimshape running in Debug mode</figcaption>
 </figure>
 
 
@@ -255,12 +255,12 @@ In order to toggle and untoggle the debug mode, follow these steps:
 
 ## Colliders
 
-Simshape supports an internal collider that has to be bound to the rig and combined into a single object in order to mimic the internal structures like the skull or the teeth.
+AdnSimshape supports an internal collider that has to be bound to the rig and combined into a single object in order to mimic the internal structures like the skull or the teeth.
 
 ### Add Collider
 
 1. Select the collider object.
-2. Select the mesh with the Simshape deformer.
+2. Select the mesh with the AdnSimshape deformer.
 3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](images/adn_add_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Add Collider**. 
 
 > [!NOTE]
@@ -270,7 +270,7 @@ Simshape supports an internal collider that has to be bound to the rig and combi
 ### Remove Collider
 
 1. Select the collider object.
-2. Select the mesh with the Simshape deformer.
+2. Select the mesh with the AdnSimshape deformer.
 3. Press the AdonisFX Shelf > Remove Collider Shelf Button ![Remove collider icon](images/adn_remove_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Remove Collider**.
 
 ### Add Rest Collider
@@ -278,7 +278,7 @@ Simshape supports an internal collider that has to be bound to the rig and combi
 The use of rest collider is recommended when the preroll simulation is not computed and the [initialization to the animated mesh](#initialization-settings) is enabled. In order to allow the solver to build consistent collision data in those cases, we should provide both the [rest mesh](#requirements) and the rest collider.
 
 1. Select the rest collider object.
-2. Select the mesh with the Simshape deformer.
+2. Select the mesh with the AdnSimshape deformer.
 3. Go to the Edit Simshape submenu from the AdonisFX menu and press **Add Rest Collider**.
 
 > [!NOTE]
@@ -288,7 +288,7 @@ The use of rest collider is recommended when the preroll simulation is not compu
 ### Remove Rest Collider
 
 1. Select the rest collider object.
-2. Select the mesh with the Simshape deformer.
+2. Select the mesh with the AdnSimshape deformer.
 3. Go to the Edit Simshape submenu from the AdonisFX menu and press **Remove Rest Collider**.
 
 ### Collider Configuration
@@ -338,5 +338,5 @@ Additionally, for the specific case of debugging fibers, one more attribute is a
 
 <figure markdown>
 ![skin editor debug menu](images/attribute_editor_simshape_debug.png)
-<figcaption>Figure 4: Simshape Attribute Editor (Debug menu)</figcaption>
+<figcaption>Figure 4: AdnSimshape Attribute Editor (Debug menu)</figcaption>
 </figure>
