@@ -21,7 +21,7 @@ To create a Ribbon Muscle deformer within a Maya scene, the following inputs mus
 ## Create Ribbon Muscle
 
 1. Select the attachments (if any) and the geometry in that order:
-2. Press the ![Ribbon Muscle button](../../../images/adn_ribbon_muscle.png){width=40px} button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu.
+2. Press the ![Ribbon Muscle button](images/adn_ribbon_muscle.png) button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu.
     - If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed were a custom name and initial attribute values can be set.
 3. Ribbon muscle is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
@@ -163,12 +163,12 @@ Once the Ribbon Muscle deformer is created, it is possible to add and remove new
 - **Add attachments**:  
     1. Select the transform nodes (one or more) that you want to assign as attachments to the Ribbon Muscle.
     2. Select the mesh that has the Ribbon Muscle deformer applied.
-    3. Press the ![Add Attachments button](images/adn_add_attachment.png){width=40px} button in the AdonisFX shelf or press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Add Attachments button](images/adn_add_attachment.png) button in the AdonisFX shelf or press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove attachments**:
     1. Select one or more transform nodes that are assigned as attachments to the Ribbon Muscle.
     2. Select the mesh that has the Ribbon Muscle deformer applied.
-    3. Press the ![Remove Attachments button](images/adn_remove_attachment.png){width=40px} button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
-    4. Alternatively, if only the mesh with the Ribbon Muscle deformer is selected, when pressing the ![Remove Attachments button](../../../images/adn_remove_attachment.png){width=40px} button, all attachments will be removed.
+    3. Press the ![Remove Attachments button](images/adn_remove_attachment.png) button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
+    4. Alternatively, if only the mesh with the Ribbon Muscle deformer is selected, when pressing the ![Remove Attachments button](images/adn_remove_attachment.png) button, all attachments will be removed.
 
 ## Slide on Segment Constraint
 
@@ -212,6 +212,6 @@ Additionally, for the specific case of debugging fibers, one more attribute is a
  - **Fiber scale value** (Float, 3.0): can be modified to set a custom fiber length.
 
 <figure markdown>
-  ![skin editor debug menu](images/attribute_editor_ribbon_debug.png)
+  ![skin editor debug menu](images/attribute_editor_muscle_debug.png)
   <figcaption>Figure 4: Skin Attribute Editor (Debug menu)</figcaption>
 </figure>
