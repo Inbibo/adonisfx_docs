@@ -25,7 +25,7 @@ When initially creating an AdnSimshape deformer, it is possible to add both a Si
 
   1. Select the meshes in the following order: **Rest Mesh** (optional) &#8594 **Simulated mesh**
         
-    - Remember that the animated mesh will be used directly as the simulation mesh when no animation mesh is provided.
+    - Remember that the deformer can be applied to the animation mesh and use it directly as the simulation mesh.
 
   2. Press the ![Simshape button](images/adn_simshape.png) in the AdonisFX shelf or press Simshape in AdonisFX menu.
   3. A message box will notify you that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
