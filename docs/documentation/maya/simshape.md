@@ -312,7 +312,7 @@ Apart from [*Compute Collisions*](#collision-settings), [*Keep Orientation*](#co
 
 To better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled "Debug" in the attribute editor.
 
-To enable the debugger the *Debug* checkbox must be marked.To select the specific feature you would like to visualize, choose it from the list provided in *Features*. 
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*.
 
 ### Debug features
 
