@@ -1,6 +1,6 @@
-# Introduction to Ribbon Muscle in Maya
+# Introduction to AdnRibbonMuscle in Maya
 
-Ribbon Muscle is a Maya deformer for fast, robust and easy-to-configure tissue muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachments) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a ribbon with fibers activations to modulate the rigidity and attachments to external objects to follow the global kinematics of the character.
+AdnRibbonMuscle is a Maya deformer for fast, robust and easy-to-configure tissue muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachments) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a ribbon with fibers activations to modulate the rigidity and attachments to external objects to follow the global kinematics of the character.
 
 The influence of these constraints have in the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools.md) or by uniformingly regulating their influence via multipliers in the attribute editor. Beyond these constraints, several paramenters to regulate the ribbon muscle's dynamics are available to modify the deformer's behaviour as a whole.
 
@@ -10,24 +10,24 @@ The Adonis Skin deformer is of great simplicity so set up and apply to a mesh wi
 
 ## Requirements
 
-To create a Ribbon Muscle deformer within a Maya scene, the following inputs must be provided:
+To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs must be provided:
 
 - <b class="mesh_color"> Attachments </b> to which the simulated muscle will be attached to. Any tranform node can be used (e.g. bones, locators, meshes, etc). This input is optional and unlimited.
-- <b class="mesh_color"> Muscle Geometry </b> that the ribbon muscle deformer will be applied onto.
+- <b class="mesh_color"> Muscle Geometry </b> that the AdnRibbonMuscle deformer will be applied onto.
 
 !!! Notes
-    - It is not mandatory to select the attachments on creation of the ribbon muscle deformer. We can add and remove attachments after creating the deformer, check this [advanced section](#how-to-add-and-remove-attachments) for further details.
+    - It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. We can add and remove attachments after creating the deformer, check this [advanced section](#how-to-add-and-remove-attachments) for further details.
 
-## Create Ribbon Muscle
+## Create AdnRibbonMuscle
 
 1. Select the attachments (if any) and the geometry in that order:
-2. Press the ![Ribbon Muscle button](images/adn_ribbon_muscle.png) button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu.
+2. Press the ![AdnRibbonMuscle button](images/adn_ribbon_muscle.png) button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu.
     - If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed were a custom name and initial attribute values can be set.
-3. Ribbon muscle is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
+3. AdnRibbonMuscle is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the ribbon muscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the AdnRibbonMuscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
 - *Attachment Constraints*: weight to indicate the influence of each attachment at each vertex of the muscle.
 - *Tendons*: floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. We recommend to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh.
@@ -49,7 +49,7 @@ In order to provide more artistic control, some key parameters of the ribbon mus
 
 ### AdonisFX Paint Tool
 
-To configure the paintable attributes in the Ribbon Muscle deformer, the AdonisFX paint tool must be used. Apart from the standard functionalities that the Maya default paint context provides, this tool also processes the painted weights to guarantee that the requirements of solver are satisfied.
+To configure the paintable attributes in the AdnRibbonMuscle deformer, the AdonisFX paint tool must be used. Apart from the standard functionalities that the Maya default paint context provides, this tool also processes the painted weights to guarantee that the requirements of solver are satisfied.
 
 <figure>
   <img src="images/paint_tool_ribbon.png"> 
@@ -57,7 +57,7 @@ To configure the paintable attributes in the Ribbon Muscle deformer, the AdonisF
 </figure>
 
 Do the following to open the tool:
-  1. Select the mesh with the Ribbon Muscle deformer applied to.
+  1. Select the mesh with the AdnRibbonMuscle deformer applied to.
   2. Press the ![paint tool](images/adn_paint_tool.png) shelf button or go to AdonisFX menu > Paint Tool.
 
 The selected attribute in the combo box exposed at the top of the UI is the active attribute in the paint context. Now you can use the tool as it was the Artisan's tool from Maya, the behaviour of the different widgets/fields is the same.
@@ -70,7 +70,7 @@ The selected attribute in the combo box exposed at the top of the UI is the acti
 Following, we present the key aspects to keep in mind while painting each attribute:
 
   1. Attachment Constraints
-    1. If this attribute type is selected, then a list widget is shown with the names of the attachments connected to the Ribbon Muscle deformer.
+    1. If this attribute type is selected, then a list widget is shown with the names of the attachments connected to the AdnRibbonMuscle deformer.
     2. Select the desired attachment you want to paint from the list widget and paint the weight values.
     3. If more than one attachment was added to the system, then the paint tool will normalise the weights automatically after a stroke has been completed.
     4. If any attachment is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
@@ -145,30 +145,30 @@ Following, we present the key aspects to keep in mind while painting each attrib
 ## Attribute Editor Template
 
 <figure markdown>
-  ![Ribbon Muscle editor first part](images/attribute_editor_part_one_ribbon.png) 
-  <figcaption>Figure 1: Ribbon Muscle Attribute Editor</figcaption>
+  ![AdnRibbonMuscle editor first part](images/attribute_editor_part_one_ribbon.png) 
+  <figcaption>Figure 1: AdnRibbonMuscle Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
-  ![Ribbon Muscle editor second part](images/attribute_editor_part_two_ribbon.png)
-  <figcaption>Figure 2: Ribbon Muscle Attribute Editor (Advanced Settings)</figcaption>
+  ![AdnRibbonMuscle editor second part](images/attribute_editor_part_two_ribbon.png)
+  <figcaption>Figure 2: AdnRibbonMuscle Attribute Editor (Advanced Settings)</figcaption>
 </figure>
 
 # Advanced
 
 ## Attachments
 
-Once the Ribbon Muscle deformer is created, it is possible to add and remove new attachments to the system. 
+Once the AdnRibbonMuscle deformer is created, it is possible to add and remove new attachments to the system. 
 
 - **Add attachments**:  
-    1. Select the transform nodes (one or more) that you want to assign as attachments to the Ribbon Muscle.
-    2. Select the mesh that has the Ribbon Muscle deformer applied.
+    1. Select the transform nodes (one or more) that you want to assign as attachments to the AdnRibbonMuscle.
+    2. Select the mesh that has the AdnRibbonMuscle deformer applied.
     3. Press the ![Add Attachments button](images/adn_add_attachment.png) button in the AdonisFX shelf or press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove attachments**:
-    1. Select one or more transform nodes that are assigned as attachments to the Ribbon Muscle.
-    2. Select the mesh that has the Ribbon Muscle deformer applied.
+    1. Select one or more transform nodes that are assigned as attachments to the AdnRibbonMuscle.
+    2. Select the mesh that has the AdnRibbonMuscle deformer applied.
     3. Press the ![Remove Attachments button](images/adn_remove_attachment.png) button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
-    4. Alternatively, if only the mesh with the Ribbon Muscle deformer is selected, when pressing the ![Remove Attachments button](images/adn_remove_attachment.png) button, all attachments will be removed.
+    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing the ![Remove Attachments button](images/adn_remove_attachment.png) button, all attachments will be removed.
 
 ## Slide on Segment Constraint
 
@@ -176,13 +176,13 @@ Additionally to all previously mentioned constraints, ribbon muscles can have an
 
 - **Add Segment**:
     1. Select the transform nodes (two or more if this is the first segment you are adding) from which you would wish to make a segment for the muscle to slide on.
-    2. Select the mesh that has the Ribbon Muscle deformer applied.
+    2. Select the mesh that has the AdnRibbonMuscle deformer applied.
     3. Press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove Segment**:  
-    1. Select one or more transform nodes that are assigned as attachments to the Ribbon Muscle.
-    2. Select the mesh that has the Ribbon Muscle deformer applied.
+    1. Select one or more transform nodes that are assigned as attachments to the AdnRibbonMuscle.
+    2. Select the mesh that has the AdnRibbonMuscle deformer applied.
     3. press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
-    4. Alternatively, if only the mesh with the Ribbon Muscle deformer is selected, when pressing Remove Attachments in the AdonisFX menu, all attachments will be removed.
+    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing Remove Attachments in the AdonisFX menu, all attachments will be removed.
 
 ## Debugger
 
