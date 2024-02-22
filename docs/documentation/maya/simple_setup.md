@@ -4,7 +4,7 @@ This page is dedicated to explain, step by step, the process of creating and set
 
 ## AdnSkin simple setup
 
-For a basic scenario using the AdnSkin deformer we will start with a scene with the following elements:
+To create a basic scenario using the AdnSkin deformer we will start with a scene with the following elements:
 
   - A target mesh with animation.
   - A simulated mesh (without animation).
@@ -56,7 +56,7 @@ With this basic paint setup the AdnSkin deformer will already show a proper beha
 
 ## AdnMuscle simple setup
 
-To set up AdnMuscle deformer we will start with a scene with the following elements:
+To create a basic scenario using the AdnMuscle deformer we will start with a scene with the following elements:
 
  - An animated rig.
  - A simulated mesh.
@@ -217,7 +217,7 @@ The process to connect and AdnSensor to an AdnRibbonMuscle is the exact same to 
 
 ## AdnSimshape
 
-To set up an AdnSimshape deformer we will start with a scene with the following elements:
+To create a basic scenario using the AdnSimshape deformer we will start with a scene with the following elements:
 
  - An animated facial mesh (to which we will apply the deformer).
  - A rest mesh.
