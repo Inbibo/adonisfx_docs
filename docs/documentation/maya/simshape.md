@@ -8,10 +8,10 @@ During the simulation, the solver reduces the inertias of the vertices with high
 
 The AdnSimshape deformer has a series of input meshes to be provided:
 
-  - <b class="mesh_color"> Rest Mesh (R)</b>: mesh with no deformation or animation (optional).
-  - <b class="mesh_color"> Deform Mesh (D)</b>: mesh with deformation driven by the facial expressions (optional).
-  - <b class="mesh_color"> Animated Mesh (A)</b>: mesh with deformation driven by the facial expressions and animation result of to the binding to the animation rig (optional).
-  - <b class="mesh_color"> Simulation Mesh (S)</b>: mesh to apply the deformer onto. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
+  - <b class="mesh_color"> Rest Mesh (R)</b>: Mesh with no deformation or animation (optional).
+  - <b class="mesh_color"> Deform Mesh (D)</b>: Mesh with deformation driven by the facial expressions (optional).
+  - <b class="mesh_color"> Animated Mesh (A)</b>: Mesh with deformation driven by the facial expressions and animation result of to the binding to the animation rig (optional).
+  - <b class="mesh_color"> Simulation Mesh (S)</b>: Mesh to apply the deformer onto. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
 > [!NOTE]
 > - All input geometries must have the same number of vertices.
@@ -78,7 +78,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
  - **Write Out Activations** (Boolean, False): Flag to toggle the writing of activations into an output plug.
 
 #### Time Attributes
- - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
+ - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at Start Time.
  - **Start Time** (Time, *Current frame*): Determines the frame at which the simulation starts.
  - **Current Time** (Time, *Current frame*): Current playback frame.
 
@@ -97,7 +97,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 
 #### Stiffness Settings
  - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
-    - If we use a custom stiffness, **Material** and **Stiffness Multiplier** will be disabled and **Stiffness** will be used instead.
+    - If we use a custom stiffness, Material and Stiffness Multiplier will be disabled and Stiffness will be used instead.
  - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
     - Its value must be greater than 0.0.
 
@@ -140,20 +140,20 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 
 In order to provide more artistic control, some key parameters of the AdnSimshape solver are exposed as paintable attributes in the deformer. The Maya paint tool must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
- - **Attract Force**: weight to control the amount of influence of the animated mesh. The higher the value is, the more influence and the less dynamics will appear.
+ - **Attract Force**: Weight to control the amount of influence of the animated mesh. The higher the value is, the more influence and the less dynamics will appear.
     - It's initialized to a flooded value of 1.0
  - **Collision Threshold Multiplier**: Factor to scale the distance vertex-to-collider at rest. It is used to modulate the minimum distance to the collider allowed for each vertex.
     - It's initialized to a flooded value of 1.0
-- **Compression Resistance**: force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.
+- **Compression Resistance**: Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.
     - It's initialized to a flooded value of 0.0
- - **Global Damping**: set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position.
+ - **Global Damping**: Set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position.
     - It's initialized to a flooded value of 1.0
- - **Mass**: set individual mass values per vertex in the simulated mesh.
+ - **Mass**: Set individual mass values per vertex in the simulated mesh.
     - It's initialized to a flooded value of 1.0
  - **Slide Collision Constraints**: Represents for which areas collisions should be computed against the collider.
     - It's initialized to a flooded value of 0.0
     - A value of 0.0 does not apply correction at all, while a value of 1.0 does apply the correction to fix intersections. 
-- **Stretching Resistance**: force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
+- **Stretching Resistance**: Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
     - It's initialized to a flooded value of 1.0
 
 ## Attribute Editor Template
@@ -201,8 +201,8 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
 
 ##### Requirements
 
-  - **Neutral mesh**: rest mesh with a neutral facial expression.
-  - **Target meshes**: set of deformed meshes representing facial expresions.
+  - **Neutral mesh**: Rest mesh with a neutral facial expression.
+  - **Target meshes**: Set of deformed meshes representing facial expresions.
   - The number of vertices in the neutral and the target meshes must match with the number of vertices of the Simulated mesh that will be used for the simulation.
 
 
@@ -318,9 +318,9 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 The features that can be visualized with the debugger in the Skin deformer are:
 
- - **Collision Constraints**: for each vertex, a line will be drawn from the mesh to the closest point of a collider.
+ - **Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider.
     - The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
- - **Muscle Fibers**: for each vertex, a line will be drawn showing the direction of the muscle fibers.
+ - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
     - The debug lines will only be displayed in case muscle activations have been enabled with an Adonis Muscle Patches file.
 
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
