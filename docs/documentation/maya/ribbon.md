@@ -61,9 +61,9 @@ Follow the steps to open the tool:
 
 The selected attribute in the combo box exposed at the top of the UI is the active attribute in the paint context. Now you can use the tool as it was the Artisan's tool from Maya, the behaviour of the different widgets/fields is the same.
 
-<figure style="margin-left:30%;" markdown> 
+<figure markdown>
   ![Pain Tool AdnRibbonMuscle Attributes example](images/paint_tool_ribbon_attributes.png)
-  <figcaption style="margin-right:30%"><b>Figure 3:</b> AdonisFX paint tool displaying the paintable attributes of the AdnRibbonMuscle deformer. </figcaption>
+  <figcaption><b>Figure 3:</b> AdonisFX paint tool displaying the paintable attributes of the AdnRibbonMuscle deformer. </figcaption>
 </figure>
 
 Following, we present the key aspects to keep in mind while painting each attribute:
@@ -204,12 +204,12 @@ The features that can be visualized with the debugger in the AdnRibbonMuscle def
  - **Attachments Constraints**: for each vertex with an attachment constraint weight greater than 0.0, a line will be drawn from the mesh to its respective attachment.
  - **Sliding on Segment Constraints**: for each vertex with a sliding on segment weight greater than 0.0, a line will be drawn from the mesh to the closest point to its respective segment.
 
+Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices.
+
 <figure markdown>
   ![AdnRibbonMuscle debug](images/ribbon_debug.png)
   <figcaption><b>Figure 6:</b> AdnRibbonMuscle being debugged (from left ro right, "Muscle Fibers", "Attachment Constraints" and "Slide On Segment")</figcaption>
 </figure>
-
-Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
 
 ### Debugger attributes
 
