@@ -39,11 +39,11 @@ The Edge Evaluator Node requires the following inputs to be provided:
 
 # Advanced
 
-## Simshape Activation using Edge Evaluator node
+## AdnSimshape Activation using Edge Evaluator node
 
-The evaluator node might be used to drive the [activations of a Simshape](simshape.md#muscle-activations) deformer. It can be done by connecting the output map to the activations plug of Simshape. Adonis provides a menu option to recreate this steps easily.
+The evaluator node might be used to drive the [activations of an AdnSimshape](simshape.md#muscle-activations) deformer. It can be done by connecting the output map to the activations plug of AdnSimshape. Adonis provides a menu option to recreate this steps easily.
 
 1. Select the Edge Evaluator Node. Then the Simshape deformer node.
 2. Go to the AdonisFX Menu > *Edit* Simshape > Connect Activations Plug.
 
-If you want to disconnect the plug repeat the selection and instead of pressing "Connect Activations Plug" press "Disconnect Activations Plug".
+In order to disconnect the plug, repeat the selection and instead of pressing "Connect Activations Plug" press "Disconnect Activations Plug".
