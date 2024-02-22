@@ -2,11 +2,11 @@
 
 AdnRibbonMuscle is a Maya deformer for fast, robust and easy-to-configure tissue muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachments) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a ribbon with fibers activations to modulate the rigidity and attachments to external objects to follow the global kinematics of the character.
 
-The influence of these constraints have in the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools.md) or by uniformingly regulating their influence via multipliers in the attribute editor. Beyond these constraints, several paramenters to regulate the ribbon muscle's dynamics are available to modify the deformer's behaviour as a whole.
+The influence of these constraints have in the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) or by uniformingly regulating their influence via multipliers in the attribute editor. Beyond these constraints, several paramenters to regulate the ribbon muscle's dynamics are available to modify the deformer's behaviour as a whole.
 
 # How to Use
 
-The Adonis Skin deformer is of great simplicity so set up and apply to a mesh within a Maya scene. The way this deformer works, a mesh (the simulated mesh) is set within a scene, usually with a series of attachments. Those attachments mark the anchor points for the muscle, prepared to act as tendons, and will set great part of the dynamics of the deformer.
+The AdnRibbonMuscle deformer is of great simplicity so set up and apply to a mesh within a Maya scene. The way this deformer works, a mesh (the simulated mesh) is set within a scene, usually with a series of attachments. Those attachments mark the anchor points for the muscle, prepared to act as tendons, and will set great part of the dynamics of the deformer.
 
 ## Requirements
 
@@ -15,37 +15,35 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 - <b class="mesh_color"> Attachments </b> to which the simulated muscle will be attached to. Any tranform node can be used (e.g. bones, locators, meshes, etc). This input is optional and unlimited.
 - <b class="mesh_color"> Muscle Geometry </b> that the AdnRibbonMuscle deformer will be applied onto.
 
-!!! Notes
-    - It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. We can add and remove attachments after creating the deformer, check this [advanced section](#how-to-add-and-remove-attachments) for further details.
+> [!NOTE]
+> - It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. We can add and remove attachments after creating the deformer, check this [advanced section](#attachments) for further details.
 
 ## Create AdnRibbonMuscle
 
 1. Select the attachments (if any) and the geometry in that order:
 2. Press the ![AdnRibbonMuscle button](images/adn_ribbon_muscle.png) button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu.
     - If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed were a custom name and initial attribute values can be set.
-3. AdnRibbonMuscle is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
+3. AdnRibbonMuscle is ready to simulate with default settings. Check [this section](#attributes) to customize the configuration.
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the AdnRibbonMuscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the AdnRibbonMuscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
 - *Attachment Constraints*: weight to indicate the influence of each attachment at each vertex of the muscle.
 - *Tendons*: floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. We recommend to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh.
-- *Fibers*: the deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, we can use the paint tool to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug) option in the deformer.
+- *Fibers*: the deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, we can use the paint tool to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug-features) option in the deformer.
 - *Compression Resistance*: force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.
 - *Stretching Resistance*: force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
 - *Slide on Segment Constraints*: weight to force vertices to displace only in the direction of a user-specified group of segments.
 
 <figure>
   <img src="images/ribbon_paint_example.png"> 
-  <figcaption>Figure 1: Example of painted weights on a muscle tissue. From left to right: Tendons weights, Attachment weight for the attachment at the bottom, Attachment weight for the attachment at the top; and Fibers directions at each vertex.</figcaption>
+  <figcaption><b>Figure 1:</b> Example of painted weights on a muscle tissue. From left to right: Tendons weights, Attachment weight for the attachment at the bottom, Attachment weight for the attachment at the top; and Fibers directions at each vertex.</figcaption>
 </figure>
 
 > [!NOTE]
-> - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
+> - The attachment and slide on segment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](tools.md#adonisfx-paint-tool).
 > - We recommend to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
-
-<!-- DEV NOTE: Remove this after merging issue #11 where we created the tools.md page -->
 
 ### AdonisFX Paint Tool
 
@@ -53,18 +51,19 @@ To configure the paintable attributes in the AdnRibbonMuscle deformer, the Adoni
 
 <figure>
   <img src="images/paint_tool_ribbon.png"> 
-  <figcaption>Figure 2: AdonisFX Paint Tool</figcaption>
+  <figcaption><b>Figure 2:</b> AdonisFX Paint Tool</figcaption>
 </figure>
 
-Do the following to open the tool:
-  1. Select the mesh with the AdnRibbonMuscle deformer applied to.
-  2. Press the ![paint tool](images/adn_paint_tool.png) shelf button or go to AdonisFX menu > Paint Tool.
+Follow the steps to open the tool:
+
+1. Select the mesh with the AdnRibbonMuscle deformer applied to.
+2. Press the ![paint tool](images/adn_paint_tool.png) shelf button or go to AdonisFX menu > Paint Tool.
 
 The selected attribute in the combo box exposed at the top of the UI is the active attribute in the paint context. Now you can use the tool as it was the Artisan's tool from Maya, the behaviour of the different widgets/fields is the same.
 
 <figure style="margin-left:30%;" markdown> 
-  ![Pain Tool Skin Attributes example](images/paint_tool_ribbon_attributes.png) 
-  <figcaption style="margin-right:30%"> Figure 3: AdonisFX paint tool displaying the paintable attributes of the deformer. </figcaption> 
+  ![Pain Tool AdnRibbonMuscle Attributes example](images/paint_tool_ribbon_attributes.png)
+  <figcaption style="margin-right:30%"><b>Figure 3:</b> AdonisFX paint tool displaying the paintable attributes of the AdnRibbonMuscle deformer. </figcaption>
 </figure>
 
 Following, we present the key aspects to keep in mind while painting each attribute:
@@ -77,18 +76,20 @@ Following, we present the key aspects to keep in mind while painting each attrib
   2. Tendons
     1. We recommend to paint values of 1.0 wherever the tendon tissue is and values of 0.0 in the rest of the mesh. This painting will internally trigger an automatic estimation of fibers directions
   3. Fibers
-    1. To visualise the fibers, enable the [Draw Fibers](#debug) attribute in the deformer or go to the Adonis menu > Edit Muscle > Draw Fibers.
-    2. From the deformer Attribute Editor, it is also possible to scale the fibers vectors for debugging purposes.
-    3. Comb the fibers towards the desired direction.
+    1. To visualise properly the fibers, adjust the "Debug Fiber Scale" at the attribute editor.
+    2. Comb the fibers towards the desired direction.
   4. Stretching and Compression Resistance
     1. Stretching resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get stretched.
     2. Compression resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get compressed.
+  5. Slide On Segments.
+    1. If this attribute type is selected, then a list widget is shown with the names of the segments (combination of anchor points) connected to the AdnRibbonMuscle deformer.
+    2. Select the desired segment you want to paint from the list widget and paint the weight values.
+    3. If more than one segment was added to the system, then the paint tool will normalise the weights automatically after a stroke has been completed.
+    4. If any anchor/segment is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
 
 # Attributes
 
 [^1]: Soft range: higher values can be used.
-
-
 
 #### Solver Attributes
  - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
@@ -146,12 +147,12 @@ Following, we present the key aspects to keep in mind while painting each attrib
 
 <figure markdown>
   ![AdnRibbonMuscle editor first part](images/attribute_editor_part_one_ribbon.png) 
-  <figcaption>Figure 1: AdnRibbonMuscle Attribute Editor</figcaption>
+  <figcaption><b>Figure 4:</b> AdnRibbonMuscle Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnRibbonMuscle editor second part](images/attribute_editor_part_two_ribbon.png)
-  <figcaption>Figure 2: AdnRibbonMuscle Attribute Editor (Advanced Settings)</figcaption>
+  <figcaption><b>Figure 5:</b> AdnRibbonMuscle Attribute Editor (Advanced Settings)</figcaption>
 </figure>
 
 # Advanced
@@ -167,7 +168,7 @@ Once the AdnRibbonMuscle deformer is created, it is possible to add and remove n
 - **Remove attachments**:
     1. Select one or more transform nodes that are assigned as attachments to the AdnRibbonMuscle.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press the ![Remove Attachments button](images/adn_remove_attachment.png) button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
+    3. Press the ![Remove Attachments button](images/adn_remove_attachment.png) button in the AdonisFX shelf or press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu.
     4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing the ![Remove Attachments button](images/adn_remove_attachment.png) button, all attachments will be removed.
 
 ## Slide on Segment Constraint
@@ -177,26 +178,36 @@ Additionally to all previously mentioned constraints, ribbon muscles can have an
 - **Add Segment**:
     1. Select the transform nodes (two or more if this is the first segment you are adding) from which you would wish to make a segment for the muscle to slide on.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press Add Attachments in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press "Add Slide On Segment Constraint" in the AdonisFX menu from the *Edit* Muscle submenu.
+
+> [!NOTE]
+> - The transform nodes should follow a hierarchy.
+> - The transform nodes selection should follow the hierarchy (starting from the most top element).
+
 - **Remove Segment**:  
-    1. Select one or more transform nodes that are assigned as attachments to the AdnRibbonMuscle.
+    1. Select one or more transform nodes that are assigned as segment anchors to the AdnRibbonMuscle.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. press Remove Attachments in the AdonisFX menu from the Edit Muscle submenu. 
-    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing Remove Attachments in the AdonisFX menu, all attachments will be removed.
+    3. Press "Remove Slide On Segment Constraint" in the AdonisFX menu from the *Edit* Muscle submenu.
+    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing "Remove Slide On Segment Constraint" in the AdonisFX menu, all segments will be removed.
 
 ## Debugger
 
 To better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled "Debug" in the attribute editor.
 
-To enable the debugger the *Debug* checkbox must be marked.To select the specific feature you would like to visualize, choose it from the list provided in *Features*. 
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*.
 
 ### Debug features
 
-The features that can be visualized with the debugger in the Skin deformer are:
+The features that can be visualized with the debugger in the AdnRibbonMuscle deformer are:
 
  - **Muscle Fibers**: for each vertex, a line will be drawn showing the direction of the muscle fibers.
  - **Attachments Constraints**: for each vertex with an attachment constraint weight greater than 0.0, a line will be drawn from the mesh to its respective attachment.
  - **Sliding on Segment Constraints**: for each vertex with a sliding on segment weight greater than 0.0, a line will be drawn from the mesh to the closest point to its respective segment.
+
+<figure markdown>
+  ![AdnRibbonMuscle debug](images/ribbon_debug.png)
+  <figcaption><b>Figure 6:</b> AdnRibbonMuscle being debugged (from left ro right, "Muscle Fibers", "Attachment Constraints" and "Slide On Segment")</figcaption>
+</figure>
 
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
 
@@ -207,11 +218,11 @@ The following attributes can be modified to better customize the appereance of t
  - **Width Scale** (Float, 1.0): Modifies the width of all lines.
  - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
 
-Additionally, for the specific case of debugging fibers, one more attribute is available:
+Additionally, for the specific case of debugging "Muscle Fibers", one more attribute is available:
 
  - **Fiber scale value** (Float, 3.0): can be modified to set a custom fiber length.
 
 <figure markdown>
-  ![skin editor debug menu](images/attribute_editor_muscle_debug.png)
-  <figcaption>Figure 4: Skin Attribute Editor (Debug menu)</figcaption>
+  ![AdnRibbonMuscle editor debug menu](images/attribute_editor_muscle_debug.png)
+  <figcaption><b>Figure 7:</b> AdnRibbonMuscle Attribute Editor (Debug menu)</figcaption>
 </figure>
