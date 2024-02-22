@@ -1,14 +1,14 @@
-# Introduction to AdnSkin in Maya
+# AdnSkin
 
 AdnSkin is a Maya deformer for fast, robust and easy-to-configure skin simulation for digital assets. Thanks to the combination of internal and external constraints, the deformer can produce dynamics that allow the skin mesh to realistically react to the deformations of the internal tissues (e.g. muscles, fascia) over time.
 
 <!-- DEV NOTE: change paint tool references once tools.md has been merged-->
 
-The influence these constraints have in the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](index.md) or by uniformingly regulating their influence via multipliers in the attribute editor. Beyond these constraints, there are many paramenters to regulate the skin's dynamics are available to modify the deformer's behaviour to a wide array of options.
+The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](index.md) or by uniformingly regulating their influence via multipliers in the attribute editor. Besides the maps and multipliers there are many other parameters to regulate the skin's dynamics and behaviour to a wide array of options.
 
 # How to Use
 
-The Adonis Skin deformer is of great simplicity so set up and apply to a mesh within a Maya scene. The way this deformer works, a reference mesh (usually animated) is set in the scene, over which the skin mesh (simulated mesh) is set with the deformer.
+The AdnSkin deformer is of great simplicity so set up and apply to a mesh within a Maya scene. The way this deformer works, a reference mesh (usually animated) is set in the scene, over which the skin mesh (simulated mesh) is applied with the deformer.
 
 ## Requirements
 
@@ -19,12 +19,11 @@ To create an AdnSkin deformer within a Maya scene, the following inputs must be 
 
 ## Create AdnSkin
 
-The process to create an AdnSkin deformer must follow this procedure:
+The process to create an AdnSkin deformer is the following:
 
 1. Select the reference mesh (if any), then the geometry:
-2. Press ![Skin button](images/adn_skin.png) in the AdonisFX shelf or Skin in the AdonisFX menu, under the "Create" section.
-    - If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
-3. AdnSkin is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
+2. Press ![Skin button](images/adn_skin.png) in the AdonisFX shelf or *Skin* in the AdonisFX menu, under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+3. AdnSkin is ready to simulate with default settings. Check the [attributes page](#attributes) to customize the configuration.
 
 ## Paintable Weights
 
@@ -36,7 +35,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
     - *Tip*: Smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles (unless that’s something you are looking for!).
 
-- <b class="paintable maps">Soft Constraints</b>: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. An intermediate value of 0.5 on the whole geometry is recommended.
+- <b class="paintable maps">Soft Constraints</b>: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. Painting these constraint weights would allow the deformer to create a wrinkle effect when combined with hard and slide weights. An intermediate value of 0.5 on the whole geometry is recommended.
 
     - *Tip*: Flood the geometry with a very low value 0.1 - 0.2.
 
@@ -44,9 +43,9 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 - <b class="paintable maps">Slide Constraints</b>: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. In the example of a biped or quadruped, it is recommended to set a value of 1.0 on the scapulas, shoulders, elbows and knees and an overall value of 0 on the rest of the body.
 
-    - *Tip*: Smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles (unless that’s something you are looking for!).
+    - *Tip*: Smooth the borders by using the Smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd looking wrinkles (unless that’s something you are looking for!).
 
-- <b class="paintable maps">Compression Resistance</b>: Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. At value 1 the points in the geometry will try to keep as close as possible to their original position.
+- <b class="paintable maps">Compression Resistance</b>: Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. At value 1 the points in the geometry will try to stay as close as possible to their original position.
 
     - *Tip*: It may be desirable to leave this map weight to 1 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
     
@@ -58,7 +57,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
     - *Tip*: Smooth the borders by using the smooth-Flood combination to make sure the simulation doesn’t find hard edges as this could create odd wrinkles (unless that’s something you are looking for!).
 
-- <b class="paintable maps">Global Damping </b>: Set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position.
+- <b class="paintable maps">Global Damping</b>: Set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position.
 
 - <b class="paintable maps">Max Sliding Multiplier</b>: Determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. Greater values will allow for greater sliding but will have a greater computational cost.
     
@@ -82,7 +81,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
  - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
  - **Iterations** (Integer, 3): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
      - Has a range of \[1, 10\] [^1]
- - **Material** (Enumerator, Leather): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
+ - **Material** (Enumerator, "Leather"): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
     <ul><li>Fat: 10^7^</li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e^7^</li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
  - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
      - Has a range of \[0.0, 2.0\]
@@ -97,8 +96,10 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
     - Has a range of \[0.0, 2.0\] [^1]
  - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces.
     - Has a range of \[0.0, 2.0\] [^1]
- - **Space Scale Mode** (Enumerator, "Masses + Forces"): Determines if the spatial scaling affects the masses, the forces, or both.
-    - The available options are: Masses, Forces, Masses + Forces.
+ - **Space Scale Mode** (Enumerator, "Masses + Forces"): Determines if the spatial scaling affects the masses, the forces, or both. The available options are:
+    - Masses: The space scale only affects masses.
+    - Forces: The space scale only affects forces.
+    - Masses + Forces: The space scale only affects masses and forces.
 
 #### Gravity
  - **Gravity** (Float, 1.0): Sets the magnitude of the gravity acceleration.
@@ -131,7 +132,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
     - Has a range of \[0.0, 2.0\] [^1]
  - **Attenuation Velocity Factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
     - Has a range of \[0.0, 10.0\] [^1]
- - **Space Scale Mode** (Enumerator, "Masses + Forces"): Defines the mode of execution for the sliding constraints.
+ - **Sliding Constraints Mode** (Enumerator, "Fast"): Defines the mode of execution for the sliding constraints.
     - *Quality* is more accurate, recommended for final results.
     - *Fast* provides higher performance, recommended for preview.
 
@@ -141,7 +142,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 <figure markdown>
   ![skin editor first part](images/attribute_editor_part_one_skin.png) 
-  <figcaption>Figure 1: AdnSkin Attribute Editor</figcaption>
+  <figcaption>Figure 2: AdnSkin Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
@@ -151,7 +152,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 ## Debugger
 
-To better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled "Debug" in the attribute editor.
+To better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled *Debug* in the attribute editor.
 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. 
 
@@ -167,7 +168,7 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![skin editor debug menu](images/skin_debug.png)
-  <figcaption>Figure 5: Debugger enabled displaying hard constraints, slide constraints and soft constraints with different configurations. </figcaption>
+  <figcaption>Figure 4: Debugger enabled displaying hard constraints, slide constraints and soft constraints with different configurations. </figcaption>
 </figure>
 
 ### Debugger attributes
@@ -179,5 +180,5 @@ The following attributes can be modified to better customize the appereance of t
 
 <figure markdown>
   ![skin editor debug menu](images/attribute_editor_skin_debug.png)
-  <figcaption>Figure 4: AdnSkin Attribute Editor (Debug menu)</figcaption>
+  <figcaption>Figure 5: AdnSkin Attribute Editor (Debug menu)</figcaption>
 </figure>
