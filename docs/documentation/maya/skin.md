@@ -175,6 +175,11 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 The following attributes can be modified to better customize the appereance of these lines:
 
+ - **Debug** (Boolean, False): Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer.
+ - **Feature** (Enumerator, "Hard Constraints"): A list of debuggable features for this deformer.
+     - Hard Constraints: Draw hard constraints connections from the simulated mesh to the reference mesh.
+     - Soft Constraints: Draw soft constraints connections from the simulated mesh to the reference mesh.
+     - Slide Constraints: Draw slide constraints connections from the simulated mesh to the reference mesh.
  - **Width Scale** (Float, 3.0): Modifies the width of all lines.
  - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
 
