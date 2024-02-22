@@ -28,7 +28,7 @@ The AdonisFX shelf can be found in the Maya shelf tab under the label "*AdonisFX
 | ![AdnSimshape Learn Muscle Patches Tool](images/adn_learn_muscle_patches.png) | Launches the [AdnSimshape Muscle Patches Learning](simshape.md#generate-muscle-patches) tool used to generate the "*Adonis Muscle Patches*" file (.amp) file. | AdonisFX Menu > *Edit* Simshape > Learn Muscle Patches UI |
 | ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png) | Toggles the [Simshape Activations Debug Mode](simshape.md#debug-activations). Current frame must match the specified initialization frame at the AdnSimshape deformer to toggle. | AdonisFX Menu > *Edit* Simshape > Activations Debugger |
 |||
-| ![Create AdnSkin](images/adn_skin.png) | Create [AdnSkin](skin.md#create-adnskin), applies a AdnSkin deformer to the selection. First you must select, in order, reference mesh and skin mesh to apply the deformer. Using the double click command will open a window to provide a custom name for the node and the possibility to customize the generic solver parameters. | AdonisFX Menu > *Create* Skin |
+| ![Create AdnSkin](images/adn_skin.png) | Create [AdnSkin](skin.md#create-adnskin), applies a AdnSkin deformer to the selection. First select, in order, reference mesh and skin mesh to apply the deformer. Using the double click command will open a window to provide a custom name for the node and the possibility to customize the generic solver parameters. | AdonisFX Menu > *Create* Skin |
 | ![Create AdnRibbonMuscle](images/adn_ribbon_muscle.png) | Create [AdnRibbonMuscle](ribbon.md#create-ribbon-muscle), applies an AdnRibbonMuscle deformer to the selection. The deformer will be applied to the last element in the selection, everything else will be consider an attachment (optional on creation). Using the double click command will open a window to provide a custom name for the node and the possibility to customize the generic solver parameters. | AdonisFX Menu > *Create* Ribbon Muscle |
 | ![Create AdnMuscle](images/adn_muscle.png) | Create [AdnMuscle](muscle.md#create-muscle), applies a AdnMuscle deformer to the selection. The deformer will be applied to the last element in the selection, everything else will be consider an attachment (optional on creation). Using the double click command will open a window to provide a custom name for the node and the possibility to customize the generic solver parameters. | AdonisFX Menu > *Create* Muscle |
 | ![Add Attachments](images/adn_add_attachment.png) | Assings attachment objects to the deformer selected (utility usable with [AdnRibbonMuscle](ribbon.md#attachments) and [Muscle](muscle.md#attachments) deformers). The mesh with the deformer applied must be the last element in the selection. Utility usable with [AdnRibbonMuscle](ribbon.md#attachments) and [Muscle](muscle.md#attachments) deformers. | AdonisFX Menu > *Edit* Muscle > Add Attachments |
@@ -52,7 +52,7 @@ The AdonisFX Maya Menu provides apart from all the options available at the shel
 
 #### Locators + Sensors
 
-Option boxes are available at the AdonisFX Menu for [Locators](locators.md) and [Sensors](sensors.md) creation. Openning a small auxiliar window that will allow us to provide custom name for the node.
+Option boxes are available at the AdonisFX Menu for [Locators](locators.md) and [Sensors](sensors.md) creation. Openning a small auxiliar window with the possibility to provide a custom name for the node.
 
 <figure markdown>
   ![Locator Sensor Creator UI](images/adn_position_locator_sensor_locator_creator.png){width=50%}
@@ -71,7 +71,7 @@ Option boxes are available at the AdonisFX Menu for [Locators](locators.md) and 
 
 #### Deformers
 
-Option boxes might be used for deformer creation. Openning an auxiliar window that will allow us, other than providing a custom name for the deformer, the possibility to customize generic solver parameters.
+Option boxes might be used for deformer creation. Openning an auxiliar window with the possibility to, other than providing a custom name for the deformer, provide customized generic solver parameters.
 
 <figure markdown>
   ![AdonisFX AdnSkin Deformer Creator](images/adn_skin_deformer_creator.png){width=50%}
@@ -82,7 +82,7 @@ Option boxes might be used for deformer creation. Openning an auxiliar window th
 
 #### Sensors
 
-- **Connection Editor**. Launches the [Connection Editor](tools.md#adonisfx-sensors-connection-editor) UI. This tool will assist us to connect easily the locators and sensors output plugs to the AdonisFX deformer nodes.
+- **Connection Editor**. Launches the [Connection Editor](tools.md#adonisfx-sensors-connection-editor) UI. This tool will assist with the connectivity of the locators and sensors output plugs with the AdonisFX deformer nodes.
 
 <figure markdown>
   ![AdonisFX Menu Edit Sensors](images/adonis_menu_connection_editor.png){width=30%}
