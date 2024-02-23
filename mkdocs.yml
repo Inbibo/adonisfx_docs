@@ -103,7 +103,7 @@ nav:
     - Maya:
       - documentation/maya/index.md
       - UI Overview         : documentation/maya/ui_overview.md
-      - A simple Setup      : documentation/maya/simple_setup.md
+      - A Simple Setup      : documentation/maya/simple_setup.md
       - Locators            : documentation/maya/locators.md
       - Sensors             : documentation/maya/sensors.md
       - Edge Evaluator      : documentation/maya/edge_evaluator.md
