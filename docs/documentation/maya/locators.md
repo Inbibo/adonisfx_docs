@@ -4,7 +4,7 @@ AdnLocators are visualizers that are meant for visualizing and measuring transfo
 
 ## AdnLocatorPosition
 
-AdnLocatorPosition is the Adonis locator for visualizing the position of a single transform node. When connected to its corresponding AdnSensorPosition, velocity or acceleration can be visualized via coloring, providing feedback for setting up the deformer.
+AdnLocatorPosition is the locator for visualizing the position of a single transform node. When connected to its corresponding AdnSensorPosition, velocity or acceleration can be visualized via coloring, providing feedback for setting up the deformer.
 
 ### How to use
 
@@ -42,7 +42,7 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 
 ## AdnLocatorDistance
 
-AdnLocatorDistance is the Adonis locator for visualizing the distance between two transform nodes. When connected to its corresponding AdnSensorDistance, distance, velocity or acceleration can be visualized via coloring, providing feedback for setting up the deformer.
+AdnLocatorDistance is the locator for visualizing the distance between two transform nodes. When connected to its corresponding AdnSensorDistance, distance, velocity or acceleration can be visualized via coloring, providing feedback for setting up the deformer.
 
 ### How to use
 
@@ -82,7 +82,7 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 
 ## AdnLocatorRotation
 
-AdnLocatorRotation is the Adonis locator for visualizing the angle between three transform nodes. When connected to its corresponding AdnSensorRotation, angle, angular velocity or angular acceleration can be visualized via coloring, providing feedback for setting up the deformer.
+AdnLocatorRotation is the locator for visualizing the angle between three transform nodes. When connected to its corresponding AdnSensorRotation, angle, angular velocity or angular acceleration can be visualized via coloring, providing feedback for setting up the deformer.
 
 ### How to use
 
@@ -126,7 +126,7 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 
 ## AdnLocator
 
-The AdnLocator is an Adonis native alternative to Maya locators. This locator can be used to visualize any kind of scene element with a transform node. For example they can be used to visualize [attachments](muscle.md#attachments) or [segment ends](muscle.md#slide-on-segment-constraint) in muscle deformers.
+The AdnLocator is an native alternative to Maya locators. This locator can be used to visualize any kind of scene element with a transform node. For example they can be used to visualize [attachments](muscle.md#attachments) or [segment ends](muscle.md#slide-on-segment-constraint) in muscle deformers.
 
 ### Create AdnLocator
 
