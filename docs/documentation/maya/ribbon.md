@@ -112,6 +112,12 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
  - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
  - **Fiber scale value** (Float, 3.0): can be modified to set a custom fiber length.
 
+### Connectable attributes
+ - **Attenuation Matrix** (Matrix, Identity): Transformation matrix to drive the attenuation.
+ - **Attachment Matrix** (Matrix, Identity): List of attachment matrices  (from a compound attribute) used for setting up attachments.
+ - **Slide On Segment Root Matrix** (Matrix, Identity): List of root matrices (from a compound attribute) used for setting up segments of slide on segment constraints.
+ - **Slide On Segment Tip Matrix** (Matrix, Identity): List of tip matrices (from a compound attribute) used for setting up segments of slide on segment constraints.
+
 ## Attribute Editor Template
 
 <figure markdown>
