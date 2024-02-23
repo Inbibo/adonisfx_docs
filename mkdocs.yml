@@ -95,6 +95,9 @@ nav:
   - Terminology: terminology.md
   - Installation: installation.md
   - Licensing: licensing.md
+  - Requirements: requirements.md
+  - FAQ: faq.md
+  - Release Notes: release_notes.md
   - Documentation:
     - documentation/index.md
     - Maya:
@@ -103,6 +106,8 @@ nav:
       - A simple Setup      : documentation/maya/simple_setup.md
       - Locators            : documentation/maya/locators.md
       - Sensors             : documentation/maya/sensors.md
+      - Edge Evaluator      : documentation/maya/edge_evaluator.md
+      - Tools               : documentation/maya/tools.md
       - AdnSimshape         : documentation/maya/simshape.md
       - AdnSkin             : documentation/maya/skin.md
       - AdnRibbonMuscle     : documentation/maya/ribbon.md
