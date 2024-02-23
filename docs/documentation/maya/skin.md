@@ -132,6 +132,10 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
     - *Quality* is more accurate, recommended for final results.
     - *Fast* provides higher performance, recommended for preview.
 
+### Additional attributes
+ - **Attenuation Matrix** (Float4x4): Transformation matrix to drive the attenuation.
+ - **Reference Mesh** (Mesh): Mesh taken as reference to evaluate external constraints.
+
 ## Attribute Editor Template
 
 <figure markdown>
