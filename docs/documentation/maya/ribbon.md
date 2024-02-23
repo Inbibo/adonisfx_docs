@@ -21,8 +21,7 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 ## Create AdnRibbonMuscle
 
 1. Select the attachments (if any) and the geometry in that order:
-2. Press the ![AdnRibbonMuscle button](images/adn_ribbon_muscle.png) button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu.
-    - If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed were a custom name and initial attribute values can be set.
+2. Press the ![AdnRibbonMuscle button](images/adn_ribbon_muscle.png) button in the AdonisFX shelf or press Ribbon Muscle in the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed were a custom name and initial attribute values can be set.
 3. AdnRibbonMuscle is ready to simulate with default settings. Check the [attributes section](#attributes) to customize the configuration.
 
 ## Paintable Weights
