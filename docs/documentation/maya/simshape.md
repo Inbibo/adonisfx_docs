@@ -1,12 +1,16 @@
-# Introduction to AdnSimshape in Maya
+# AdnSimshape
 
-**AdnSimshape** is a Maya deformer to get facial simulation in the animation rig of an asset. Given a facial expression, the deformer is able to compute the activation of the vertices in order to emulate the changes in the rigidity of the skin. As result, the dynamics of the simulated skin mimic the behaviour of internal muscles contracting.
+AdnSimshape is a Maya deformer to produce facial simulation in the animation rig of an asset. Given a facial expression, the deformer is able to compute the activation of the vertices in order to emulate the changes in the rigidity of the skin. As result, the dynamics of the simulated skin mimic the behaviour of internal muscles contracting.
 
-During the simulation, the solver reduces the inertias of the vertices with higher values of activation, while it computes standard simulation in the vertices that are not activated. One of the key features of AdnSimshape is the ability to extract muscle information directly from the neutral geometry and the set of deformed geometries with the facial expressions using Machine Learning techniques.
+During simulation, the solver reduces the inertias of the vertices with higher values of activation, while it computes standard simulation in the vertices that are not activated. One of the key features of AdnSimshape is the ability to extract muscle information directly from the neutral geometry and the set of deformed geometries with the facial expressions using Machine Learning techniques.
+
+## How to Use
+
+The AdnSimshape deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The combination of a rest mesh, deform mesh and animated mesh allow the system to compute activation values which would drive the behaviour and inertias of the output skin mesh (simulated mesh).
 
 ## Requirements
 
-The AdnSimshape deformer has a series of input meshes to be provided:
+To create an AdnSimshape deformer within a Maya scene, the following inputs must be provided:
 
   - <b class="mesh_color"> Rest Mesh (R)</b>: Mesh with no deformation or animation (optional).
   - <b class="mesh_color"> Deform Mesh (D)</b>: Mesh with deformation driven by the facial expressions (optional).
@@ -21,20 +25,21 @@ The AdnSimshape deformer has a series of input meshes to be provided:
 
 ## Create AdnSimshape
 
-When initially creating an AdnSimshape deformer, it is possible to add both a Simulated Mesh and a Rest Mesh, or only add a Simulated Mesh. The required process is as follows:
+When initially creating an AdnSimshape deformer, it is possible to add both a **Simulated Mesh** and a **Rest Mesh**, or only add a **Simulated Mesh**. The process to create an AdnSimshape deformer is the following:
 
-  1. Select the meshes in the following order: **Rest Mesh** (optional) &#8594 **Simulated mesh**
+  1. Select the **Rest Mesh** (optional), then the **Simulated Mesh**.
         
-    - Remember that the deformer can be applied to the animation mesh and use it directly as the simulation mesh.
+    - Remember that the deformer can be applied to the **Animated Mesh** and use it directly as the **Simulated Mesh**.
 
-  2. Press the ![Simshape button](images/adn_simshape.png) in the AdonisFX shelf or press Simshape in AdonisFX menu.
-  3. A message box will notify you that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings. Check [this page](#attributes) to customize the configuration.
+  2. Press the ![Simshape button](images/adn_simshape.png) in the AdonisFX shelf or press *Simshape* in AdonisFX menu under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 
-In order to add or remove any of those optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape. In that submenu, we can find the options to manage each mesh type as we present in the Figure 1.
+  3. A message box will notify you that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings. Check the [attributes section](#attributes) to customize the configuration.
+
+In order to add or remove any of those optional meshes, a set of menu items are exposed in AdonisFX menu > *Edit Simshape*. In that submenu, we can find the options to manage each mesh type as we present in the Figure 1.
 
 <figure style="width:45%" markdown>
-  ![Edit Simshape submenu](images/simshape_menu.png)
-  <figcaption>Figure 1: Edit Simshape submenu.</figcaption>
+  ![*Edit Simshape* submenu](images/simshape_menu.png)
+  <figcaption><b>Figure 1:</b> *Edit Simshape* submenu.</figcaption>
 </figure>
 
 To add any of these meshes to AdnSimshape, follow a similar procedure to when first creating the deformer:
@@ -43,98 +48,14 @@ To add any of these meshes to AdnSimshape, follow a similar procedure to when fi
 
     **Additional Mesh** &#8594 **Simulated mesh**
         
-  2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
+  2. Press the corresponding menu element in AdonisFX menu > *Edit Simshape*.
   3. A message box will notify you that the action has been successful.
 
 To remove any of these meshes from AdnSimshape follow this procedure:
 
   1. Select only the mesh with AdnSimshape applied.
-  2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
+  2. Press the corresponding menu element in AdonisFX menu > *Edit Simshape*.
   3. A message box will notify you that the action has been successful.
-
-
-# Attributes
-
-[^1]: Soft range: higher values can be used.
-
-#### Solver Attributes
- - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
- - **Iterations** (Integer, 3): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
-     - Has a range of \[1, 10\] [^1]
- - **Material** (Enumerator, Leather): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
-    <ul><li>Fat: 10^7^</li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e^7^</li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
- - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
-     - Has a range of \[0.0, 2.0\]
-
-#### Muscles Activation Settings
- - **Activation Mode** (Enumerator, No Activation): Mode to drive the muscle activations. There are 3 different modes:
-    - *Muscle Patches* (Disabled by default): An Adonis Muscle Patches file (.amp) has to be provided to enable this option.
-    - *Plug Values* (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.
-    - *No Activation* (Enabled by default): No activation is read.
- - **Muscle Patches File** (String): Path to the Adonis Muscle Patches file (.amp).
- - **Activation Smoothing** (Integer, 1): Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be.
-     - Has a range of \[1, 20\] [^1]
- - **Bidirectional Activation** (Boolean, False): Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers.
- - **Write Out Activations** (Boolean, False): Flag to toggle the writing of activations into an output plug.
-
-#### Time Attributes
- - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at Start Time.
- - **Start Time** (Time, *Current frame*): Determines the frame at which the simulation starts.
- - **Current Time** (Time, *Current frame*): Current playback frame.
-
-#### Scale Attributes
- - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the simulation time step.
-    - Has a range of \[0.0, 2.0\] [^1]
- - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces.
-    - Has a range of \[0.0, 2.0\] [^1]
-
-#### Gravity
- - **Gravity** (Float, 1.0): Sets the magnitude of the gravity acceleration.
- - **Space Scale** (Float3, {0.0. -1.0, 0.0} ): Sets the scaling factor applied to the masses and/or the forces.
-    - Vectors introduced don't need to be normalized, but they will get normalized internally.
-
-### Advanced Settings
-
-#### Stiffness Settings
- - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
-    - If we use a custom stiffness, Material and Stiffness Multiplier will be disabled and Stiffness will be used instead.
- - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
-    - Its value must be greater than 0.0.
-
-#### Dynamic Properties
- - **Global Mass Multiplier** (Float, 1.0): Sets the scaling factor applied to the mass of every point.
-    - Has a range of \[0.0, 10.0\] [^1]
- - **Global Damping** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
-    - Has a range of \[0.0, 1.0\] [^1]
- - **Inertia Damper** (Float, 0.0): Sets the linear damping applied to the dynamics of every point.
-    - Has a range of \[0.0, 1.0\] [^1]
- - **Rest Length Multiplier** (Float, 1.0): Sets the scaling factor applied to the edge lengths at rest.
-    - Has a range of \[0.0, 2.0\] [^1]
- - **Compression Multiplier** (Float, 1.0): Sets the scaling factor applied to the compression resistance of every point.
-    - Has a range of \[0.0, 2.0\] [^1]
- - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
-    - Has a range of \[0.0, 2.0\] [^1]
- - **Attenuation Velocity Factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
-    - Has a range of \[0.0, 10.0\] [^1]
-
-#### Collision Settings
- - **Compute Collisions** (Boolean, True): Flag to enable collisions correction in the deformer. If disabled, the deformer will ignore colliders when deforming the mesh.
- - **Keep Orientation** (Boolean, True): Flag to preserve the initial orientation of the vertices relative to the collider when handling collisions. If disabled, the mesh will suffer no changes if the orientation of the collider varies.
- - **Max Sliding Distance** (Float, 1.0): Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider.
-    - Has a range of \[0.0, 10.0\] [^1]
-
-#### Attraction Settings
- - **Attraction Multiplier** (Float, 1.0): Sets the scaling factor applied to the Attraction.
-    - Has a range of \[0.0, 2.0\] [^1]
- - **Attraction Remap Mode** (Enumerator, Cube Root): Remap mode used to compute the definitive attraction values. There are 4 different modes that folow different remap methods:
-    <ul><li>Linear</li><li>Logarithmic</li><li>Square Root</li><li>Cube Root</li></ul>
-
-#### Initialization Settings
- - **Animatable Rest Mesh** (Boolean, False): Flag that enables reading animated rest mesh data.
- - **Initialize to Anim Mesh** (Boolean, True): Flag to instantiate points at animated mesh instead of rest mesh on initialization.
-
-#### Activation Remap
- - **Activation Remap** (Ramp Attribute): Curve to remap the activation values.
 
 ## Paintable Weights
 
@@ -156,17 +77,142 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 - **Stretching Resistance**: Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
     - It's initialized to a flooded value of 1.0
 
+# Attributes
+
+#### Solver Attributes
+ - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
+ - **Iterations** (Integer, 3): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
+     - Has a range of \[1, 10\]. Upper limit is soft, higher values can be used.
+ - **Material** (Enumerator, "Leather"): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
+    <ul><li>Fat: 10^7^</li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e^7^</li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
+ - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
+     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
+
+#### Muscles Activation Settings
+ - **Activation Mode** (Enumerator, "No Activation"): Mode to drive the muscle activations. There are 3 different modes:
+    - Muscle Patches (Disabled by default): An Adonis Muscle Patches file (.amp) has to be provided to enable this option.
+    - Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.
+    - No Activation (Enabled by default): No activation is read.
+ - **Muscle Patches File** (String, ""): Path to the Adonis Muscle Patches file (.amp).
+ - **Activation Smoothing** (Integer, 1): Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be.
+     - Has a range of \[1, 20\]. Upper limit is soft, higher values can be used.
+ - **Bidirectional Activation** (Boolean, False): Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers.
+ - **Write Out Activations** (Boolean, False): Flag to toggle the writing of activations into an output plug.
+
+#### Time Attributes
+ - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
+ - **Start Time** (Time, *Current frame*): Determines the frame at which the simulation starts.
+ - **Current Time** (Time, *Current frame*): Current playback frame.
+
+#### Scale Attributes
+ - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the simulation time step.
+    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
+ - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces.
+    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
+
+#### Gravity
+ - **Gravity** (Float, 0.0): Sets the magnitude of the gravity acceleration.
+    - Has a range of \[0.0, 100.0\]. Upper limit is soft, higher values can be used.
+ - **Gravity Direction** (Float3, {0.0. -1.0, 0.0}): Sets the direction of the gravity acceleration.
+    - Vectors introduced do not need to be normalized, but they will get normalized internally.
+
+### Advanced Settings
+
+#### Stiffness Settings
+ - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
+    - If we use a custom stiffness, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead.
+ - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
+    - Its value must be greater than 0.0.
+
+#### Dynamic Properties
+ - **Global Mass Multiplier** (Float, 1.0): Sets the scaling factor applied to the mass of every point.
+    - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
+ - **Global Damping** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
+    - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
+ - **Inertia Damper** (Float, 0.0): Sets the linear damping applied to the dynamics of every point.
+    - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
+ - **Rest Length Multiplier** (Float, 1.0): Sets the scaling factor applied to the edge lengths at rest.
+    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
+ - **Compression Multiplier** (Float, 1.0): Sets the scaling factor applied to the compression resistance of every point.
+    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
+ - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
+    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
+ - **Attenuation Velocity Factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the *Attenuation Matrix*.
+    - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
+
+#### Collision Settings
+ - **Compute Collisions** (Boolean, True): Flag to enable collisions correction in the deformer. If disabled, the deformer will ignore colliders when deforming the mesh.
+ - **Keep Orientation** (Boolean, True): Flag to preserve the initial orientation of the vertices relative to the collider when handling collisions. If disabled, the mesh will suffer no changes if the orientation of the collider varies.
+ - **Max Sliding Distance** (Float, 1.0): Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider.
+    - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
+
+#### Attraction Settings
+ - **Attraction Multiplier** (Float, 1.0): Sets the scaling factor applied to the Attraction.
+    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
+ - **Attraction Remap Mode** (Enumerator, Cube Root): Remap mode used to compute the definitive attraction values. There are 4 different modes that folow different remap methods:
+    <ul><li>Linear</li><li>Logarithmic</li><li>Square Root</li><li>Cube Root</li></ul>
+
+#### Initialization Settings
+ - **Animatable Rest Mesh** (Boolean, False): Flag that enables reading animated rest mesh data.
+ - **Initialize to Anim Mesh** (Boolean, True): Flag to instantiate points at animated mesh instead of rest mesh on initialization.
+
+#### Activation Remap
+ - **Activation Remap** (Ramp Attribute): Curve to remap the activation values.
+
+### Debug attributes
+
+ - **Debug** (Boolean, False): Enable or Disable the debug functionalities in the viewport for the AdnSimshape deformer.
+ - **Feature** (Enumerator, "Collision Constraints"): A list of debuggable features for this deformer.
+     - Collision Constraints: Draw *Collision Constraints* connections from the simulated mesh to the collider mesh.
+     - Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.
+ - **Width Scale** (Float, 3.0): Modifies the width of all lines.
+ - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
+ - **Fiber scale value**: can be modified to set a custom fiber length.
+
+### Connectable attributes
+ - **Anim Mesh** (Mesh): Animated mesh on which to apply the simulation to.
+ - **Attenuation Matrix** (Matrix, Identity): Transformation matrix to drive the attenuation.
+ - **Collision Mesh Matrix** (Matrix, Identity): Collision matrix used to drive the collision logic.
+ - **Collision Rest Mesh** (Mesh): Collision rest mesh used to drive the initialization of the collision logic.
+ - **Collision Rest Mesh Matrix** (Matrix, Identity): Collision rest matrix at rest used for initializing.
+ - **Deform Mesh** (Mesh): Deform mesh used to estimate the muscle patches activation.
+ - **Rest Mesh** (Mesh): Rest mesh used for initializing the system and to compute the activations against using the deform mesh.
+
 ## Attribute Editor Template
 
 <figure markdown>
   ![simshape editor first part](images/attribute_editor_part_one_simshape.png) 
-  <figcaption>Figure 1: AdnSimshape Attribute Editor</figcaption>
+  <figcaption><b>Figure 2:</b> AdnSimshape Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
   ![simshape editor second part](images/attribute_editor_part_two_simshape.png)
-  <figcaption>Figure 2: AdnSimshape Attribute Editor (Advanced Settings)</figcaption>
+  <figcaption><b>Figure 3:</b> AdnSimshape Attribute Editor (Advanced Settings)</figcaption>
 </figure>
+
+<figure markdown>
+![skin editor debug menu](images/attribute_editor_simshape_debug.png)
+<figcaption><b>Figure 4:</b> AdnSimshape Attribute Editor (Debug menu)</figcaption>
+</figure>
+
+## Debugger
+
+To better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled *Debug* in the Attribute Editor.
+
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*.
+
+### Debug features
+
+The features that can be visualized with the debugger in the Skin deformer are:
+
+ - **Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider.
+    - The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
+ - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
+    - The debug lines will only be displayed in case muscle activations have been enabled with an Adonis Muscle Patches file.
+
+Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
+
+<!-- We might want to add a screenshot here of a debug functionality like fibers -->
 
 # Advanced
 
@@ -175,7 +221,7 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
 
 <figure markdown>
   ![Activation modes from attribute editor](images/activation_modes.png)
-  <figcaption>Figure 1: Activation Modes switch exposed in the Attribute Editor</figcaption>
+  <figcaption><b>Figure 5:</b> Activation Modes switch exposed in the Attribute Editor</figcaption>
 </figure>
 
 !!! abstract "Activations Modes"
@@ -210,10 +256,10 @@ The AMP file is generated from the Learn Muscle Patches tool:
 
 <figure style="float: right; width: 40%; padding-left: 5px;">
   <img src="images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
-  <figcaption>Figure 3: Learn Muscle Patches UI</figcaption>
+  <figcaption><b>Figure 6:</b> Learn Muscle Patches UI</figcaption>
 </figure>
 
-1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Learn Muscle Patches UI**.
+1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press **Learn Muscle Patches UI**.
 2. Add the neutral mesh.
 3. Add the target meshes.
 4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation.
@@ -224,7 +270,7 @@ The AMP file is generated from the Learn Muscle Patches tool:
 <br>
 <figure style="width: 25%;" markdown>
   ![Simshape draw muscle patches example](images/nassim_draw_muscle_patches.png)
-  <figcaption>Figure 2: Example of muscle patches generated with the Learn Muscle Patches UI</figcaption>
+  <figcaption><b>Figure 7:</b> Example of muscle patches generated with the Learn Muscle Patches UI</figcaption>
 </figure>
 
 Additional custom settings for the learning algorithm:
@@ -243,7 +289,7 @@ AdnSimshape integrates a debug mode to visualize the activations during the simu
 
 <figure style="width: 30%" markdown>
   ![Learn Muscle Patches UI window](images/nassim_debug.png)
-  <figcaption>Figure 4: Example of AdnSimshape running in Debug mode</figcaption>
+  <figcaption><b>Figure 8:</b> Example of AdnSimshape running in Debug mode</figcaption>
 </figure>
 
 
@@ -251,7 +297,7 @@ In order to toggle and untoggle the debug mode, follow these steps:
 
 1. Stop the simulation.
 2. Move to pre-roll frame or start frame.
-3. Press ![Simshape debug icon](images/adn_simshape_debugger.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Activations Debugger**.
+3. Press ![Simshape debug icon](images/adn_simshape_debugger.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press **Activations Debugger**.
 
 ## Colliders
 
@@ -261,7 +307,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 
 1. Select the collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](images/adn_add_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Add Collider**. 
+3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](images/adn_add_collider.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press **Add Collider**. 
 
 > [!NOTE]
 > - Avoid intersections between the collider and the rest/simulated mesh.
@@ -271,7 +317,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 
 1. Select the collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Press the AdonisFX Shelf > Remove Collider Shelf Button ![Remove collider icon](images/adn_remove_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press **Remove Collider**.
+3. Press the AdonisFX Shelf > Remove Collider Shelf Button ![Remove collider icon](images/adn_remove_collider.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press **Remove Collider**.
 
 ### Add Rest Collider
 
@@ -279,7 +325,7 @@ The use of rest collider is recommended when the preroll simulation is not compu
 
 1. Select the rest collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Go to the Edit Simshape submenu from the AdonisFX menu and press **Add Rest Collider**.
+3. Go to the *Edit Simshape* submenu from the AdonisFX menu and press **Add Rest Collider**.
 
 > [!NOTE]
 > - Avoid intersections between the collider and the rest mesh.
@@ -289,7 +335,7 @@ The use of rest collider is recommended when the preroll simulation is not compu
 
 1. Select the rest collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Go to the Edit Simshape submenu from the AdonisFX menu and press **Remove Rest Collider**.
+3. Go to the *Edit Simshape* submenu from the AdonisFX menu and press **Remove Rest Collider**.
 
 ### Collider Configuration
 
@@ -300,43 +346,10 @@ Apart from [*Compute Collisions*](#collision-settings), [*Keep Orientation*](#co
 
 <figure style="width:45%" markdown> 
   ![Slide collision paint example](images/slide_collision_paint_example.png) 
-  <figcaption>Figure 5: Slide Collision Constraints painted values.</figcaption> 
+  <figcaption><b>Figure 9:</b> Slide Collision Constraints painted values.</figcaption> 
 </figure>
 
 <figure style="width:45%;" markdown> 
   ![Collision threshold paint example](images/collision_threshold_paint_example.png) 
-  <figcaption>Figure 6: Collision Threshold Multiplier painted values to 0.2 for the whole mesh.</figcaption> 
-</figure>
-
-## Debugger
-
-To better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled "Debug" in the attribute editor.
-
-To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*.
-
-### Debug features
-
-The features that can be visualized with the debugger in the Skin deformer are:
-
- - **Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider.
-    - The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
- - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
-    - The debug lines will only be displayed in case muscle activations have been enabled with an Adonis Muscle Patches file.
-
-Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
-
-### Debugger attributes
-
-The following attributes can be modified to better customize the appereance of these lines:
-
- - **Width Scale** (Float, 1.0): Modifies the width of all lines.
- - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
-
-Additionally, for the specific case of debugging fibers, one more attribute is available:
-
- - **Fiber scale value**: can be modified to set a custom fiber length.
-
-<figure markdown>
-![skin editor debug menu](images/attribute_editor_simshape_debug.png)
-<figcaption>Figure 4: AdnSimshape Attribute Editor (Debug menu)</figcaption>
+  <figcaption><b>Figure 10:</b> Collision Threshold Multiplier painted values to 0.2 for the whole mesh.</figcaption> 
 </figure>
