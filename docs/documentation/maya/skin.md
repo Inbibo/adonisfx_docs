@@ -31,7 +31,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
     - *Tip*: Flood the geometry with a very low value 0.1 - 0.2. Give a value of 1.0 to the edges of the skin to guarantee that is properly attached to the target geometry.
 
-    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure the simulation does not find hard edges as this could create odd wrinkles (unless that is something you are looking for!).
+    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its neighbors vertices.
 
 - **Soft Constraints**: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. Painting these constraint weights would allow the deformer to create a wrinkle effect when combined with hard and slide weights.
 
@@ -41,7 +41,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 - **Slide Constraints**: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. In the example of a biped or quadruped creature, it is recommended to set a value of 1.0 on the scapulas, shoulders, elbows and knees and an overall value of 0 on the rest of the body.
 
-    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure the simulation does not find hard edges as this could create undesired wrinkles.
+    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its neighbors vertices.
 
 - **Compression Resistance**: Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. At value 1 the points in the geometry will try to stay as close as possible to their original position.
 
@@ -53,7 +53,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
     - *Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
 
-    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure the simulation doesn’t find hard edges as this could create undesired wrinkles.
+    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its neighbors vertices.
 
 - **Global Damping**: Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position.
 
@@ -76,11 +76,11 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 #### Solver Attributes
  - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
  - **Iterations** (Integer, 3): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
-     - Has a range of \[1, 10\]
+     - Has a range of \[1, 10\]. Upper limit is soft, higher values can be used.
  - **Material** (Enumerator, "Leather"): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
     <ul><li>Fat: 10^7^</li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e^7^</li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
  - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
-     - Has a range of \[0.0, 2.0\]
+     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
 
 #### Time Attributes
  - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
@@ -89,9 +89,9 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 #### Scale Attributes
  - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the simulation time step.
-    - Has a range of \[0.0, 2.0\]
+    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces.
-    - Has a range of \[0.0, 2.0\]
+    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Space Scale Mode** (Enumerator, "Masses + Forces"): Determines if the spatial scaling affects the masses, the forces, or both. The available options are:
     - Masses: The *Space Scale* only affects masses.
     - Forces: The *Space Scale* only affects forces.
@@ -99,6 +99,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 #### Gravity
  - **Gravity** (Float, 0.0): Sets the magnitude of the gravity acceleration.
+    - Has a range of \[0.0, 100.0\]. Upper limit is soft, higher values can be used.
  - **Gravity Direction** (Float3, {0.0. -1.0, 0.0}): Sets the direction of the gravity acceleration.
     - Vectors introduced do not need to be normalized, but they will get normalized internally.
 
@@ -112,25 +113,35 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 #### Dynamic Properties
  - **Global Mass Multiplier** (Float, 1.0): Sets the scaling factor applied to the mass of every point.
-    - Has a range of \[0.0, 10.0\]
+    - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
  - **Global Damping** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
-    - Has a range of \[0.0, 1.0\]
+    - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
  - **Inertia Damper** (Float, 0.0): Sets the linear damping applied to the dynamics of every point.
-    - Has a range of \[0.0, 1.0\]
+    - Has a range of \[0.0, 1.0\].
  - **Rest Length Multiplier** (Float, 1.0): Sets the scaling factor applied to the edge lengths at rest.
-    - Has a range of \[0.0, 2.0\]
+    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Max Sliding Distance** (Float, 0.5): Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization.
     - The higher this value is, the higher quality and the lower performance.
-    - Has a range of \[0.0, 10.0\]
+    - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
  - **Compression Multiplier** (Float, 1.0): Sets the scaling factor applied to the compression resistance of every point.
-    - Has a range of \[0.0, 2.0\]
+    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
-    - Has a range of \[0.0, 2.0\]
+    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Attenuation Velocity Factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
-    - Has a range of \[0.0, 10.0\]
+    - Has a range of \[0.0, 1.0\].
  - **Sliding Constraints Mode** (Enumerator, "Fast"): Defines the mode of execution for the sliding constraints.
     - *Quality* is more accurate, recommended for final results.
     - *Fast* provides higher performance, recommended for preview.
+
+### Debugger attributes
+
+ - **Debug** (Boolean, False): Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer.
+ - **Feature** (Enumerator, "Hard Constraints"): A list of debuggable features for this deformer.
+     - Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh to the reference mesh.
+     - Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the reference mesh.
+     - Slide Constraints: Draw *Slide Constraints* connections from the simulated mesh to the reference mesh.
+ - **Width Scale** (Float, 3.0): Modifies the width of all lines.
+ - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
 
 ### Additional attributes
  - **Attenuation Matrix** (Float4x4): Transformation matrix to drive the attenuation.
@@ -146,6 +157,11 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 <figure markdown>
   ![skin editor second part](images/attribute_editor_part_two_skin.png)
   <figcaption><b>Figure 3</b>: AdnSkin Attribute Editor (Advanced Settings).</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor debug menu](images/attribute_editor_skin_debug.png)
+  <figcaption><b>Figure 5</b>: AdnSkin Attribute Editor (Debug menu)</figcaption>
 </figure>
 
 ## Debugger
@@ -167,19 +183,4 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 <figure markdown>
   ![skin editor debug example](images/skin_debug.png)
   <figcaption><b>Figure 4</b>: Debugger enabled displaying *Hard Constraints*, slide constraints and soft constraints with different configurations. </figcaption>
-</figure>
-
-### Debugger attributes
-
- - **Debug** (Boolean, False): Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer.
- - **Feature** (Enumerator, "Hard Constraints"): A list of debuggable features for this deformer.
-     - Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh to the reference mesh.
-     - Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the reference mesh.
-     - Slide Constraints: Draw *Slide Constraints* connections from the simulated mesh to the reference mesh.
- - **Width Scale** (Float, 3.0): Modifies the width of all lines.
- - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
-
-<figure markdown>
-  ![skin editor debug menu](images/attribute_editor_skin_debug.png)
-  <figcaption><b>Figure 5</b>: AdnSkin Attribute Editor (Debug menu)</figcaption>
 </figure>
