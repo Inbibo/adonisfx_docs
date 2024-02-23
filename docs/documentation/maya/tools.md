@@ -13,8 +13,21 @@ The **AdonisFX Import Tool** allows the user to import the configuration for a s
 
 To open the tool ress the ![Import Tool](images/adn_importer.png) shelf button or go to *AdonisFX menu > Import*.
 
+Once the tool is open, to import deformer configuration we must first locate the AAD file. To do so, go to *Input File Path* and select and AAD file from a directory.
+
+We may distinguish two main sections in the tool, marked clearly with two lists. The one in the left will display the deformer nodes found in the AAD file, while the one in the right will list the nodes found in the current scene selection. This selection can be redone and expanded by selecting elements from the scene and pressing the *Add Selected* button. 
+
+To assign a deformer from the AAD file to a mesh, we must select a node from the list on the left and a mesh from the list in the right. Then we must press the *Assign* button, after which the *Candidate Node* setion of the list on the right will get updated with the name of the node we selected.
+
+After everything is properly set up, we must press the *Import* button to apply the changes. We will now see the selected elements from the scene have the imported deformer node attached.
+
+<figure>
+  <img src="images/import_tool_full.png" caption="AdonisFX Import Tool">
+  <figcaption>Figure 1: AdonisFX Import Tool</figcaption>
+</figure>
+
 > [!NOTE]
-> - When using this tool it has to be taken into consideration that the mesh from which the AAD file was exported **must be exactly the same** as the one to which the configuration is getting exported.
+> - When using this tool it has to be taken into consideration that the mesh from which the AAD file was exported **must have the same number of vertices** as the one to which the configuration is getting exported.
 
 ## AdonisFX Export Tool
 
@@ -26,6 +39,20 @@ The **AdonisFX Import Tool** allows the user to save in an external file the con
 </figure>
 
 To open the tool ress the ![Import Tool](images/adn_exporter.png) shelf button or go to *AdonisFX menu > Import*.
+
+Once the tool is open, to export AAD file we must select the deformer (or the group in which it is contained), and press the *Add Selected* button. After doing this, the list in the tool will get filled with all the information related to the Adonis deformers, specifying the deformer type and the possible elements to export. Here we are able to select exactly what elements of the deformer we wish to export.
+
+Once that is set we must select the *Output File Path*, to which the AAD file will get exported.
+
+Once everything is properly set up, pressing the *Export* button will generate the file in the designated location.
+
+<figure>
+  <img src="images/export_tool_full.png" caption="AdonisFX Export Tool">
+  <figcaption>Figure 1: AdonisFX Export Tool</figcaption>
+</figure>
+
+> [!NOTE]
+> - When using this tool to export more than one Adonis deformer, all meshes with deformers must be contained within the same group in the scene.
 
 ## AdonisFX Paint Tool
 
