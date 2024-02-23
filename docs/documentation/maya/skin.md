@@ -31,7 +31,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
     - *Tip*: Flood the geometry with a very low value 0.1 - 0.2. Give a value of 1.0 to the edges of the skin to guarantee that is properly attached to the target geometry.
 
-    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its neighbors vertices.
+    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.
 
 - **Soft Constraints**: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. Painting these constraint weights would allow the deformer to create a wrinkle effect when combined with hard and slide weights.
 
@@ -41,7 +41,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 - **Slide Constraints**: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. In the example of a biped or quadruped creature, it is recommended to set a value of 1.0 on the scapulas, shoulders, elbows and knees and an overall value of 0 on the rest of the body.
 
-    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its neighbors vertices.
+    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.
 
 - **Compression Resistance**: Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. At value 1 the points in the geometry will try to stay as close as possible to their original position.
 
@@ -53,7 +53,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
     - *Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
 
-    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its neighbors vertices.
+    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.
 
 - **Global Damping**: Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position.
 
@@ -127,13 +127,13 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Attenuation Velocity Factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
+ - **Attenuation Velocity Factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the *Attenuation Matrix*.
     - Has a range of \[0.0, 1.0\].
  - **Sliding Constraints Mode** (Enumerator, "Fast"): Defines the mode of execution for the sliding constraints.
     - *Quality* is more accurate, recommended for final results.
     - *Fast* provides higher performance, recommended for preview.
 
-### Debugger attributes
+### Debug attributes
 
  - **Debug** (Boolean, False): Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer.
  - **Feature** (Enumerator, "Hard Constraints"): A list of debuggable features for this deformer.
@@ -143,8 +143,8 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
  - **Width Scale** (Float, 3.0): Modifies the width of all lines.
  - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
 
-### Additional attributes
- - **Attenuation Matrix** (Float4x4): Transformation matrix to drive the attenuation.
+### Connectable attributes
+ - **Attenuation Matrix** (Matrix, Identity): Transformation matrix to drive the attenuation.
  - **Reference Mesh** (Mesh): Mesh taken as reference to evaluate external constraints.
 
 ## Attribute Editor Template
