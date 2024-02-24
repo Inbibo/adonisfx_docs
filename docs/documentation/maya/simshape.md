@@ -33,29 +33,27 @@ When initially creating an AdnSimshape deformer, it is possible to add both a **
 
   2. Press the ![Simshape button](images/adn_simshape.png) in the AdonisFX shelf or press *Simshape* in AdonisFX menu under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 
-  3. A message box will notify you that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings. Check the [attributes section](#attributes) to customize the configuration.
+  3. A message box will notify that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings. Check the [attributes section](#attributes) to customize the configuration.
 
 In order to add or remove any of those optional meshes, a set of menu items are exposed in AdonisFX menu > *Edit Simshape*. In that submenu, we can find the options to manage each mesh type as we present in the Figure 1.
 
 <figure style="width:45%" markdown>
-  ![*Edit Simshape* submenu](images/simshape_menu.png)
+  ![Edit Simshape submenu](images/simshape_menu.png)
   <figcaption><b>Figure 1:</b> *Edit Simshape* submenu.</figcaption>
 </figure>
 
 To add any of these meshes to AdnSimshape, follow a similar procedure to when first creating the deformer:
 
-  1. Select the meshes in the following order:
-
-    **Additional Mesh** &#8594 **Simulated mesh**
+  1. First, select the **Additional Mesh**. then the **Simulated Mesh**.
         
   2. Press the corresponding menu element in AdonisFX menu > *Edit Simshape*.
-  3. A message box will notify you that the action has been successful.
+  3. A message box will notify that the action has been successful.
 
 To remove any of these meshes from AdnSimshape follow this procedure:
 
   1. Select only the mesh with AdnSimshape applied.
   2. Press the corresponding menu element in AdonisFX menu > *Edit Simshape*.
-  3. A message box will notify you that the action has been successful.
+  3. A message box will notify that the action has been successful.
 
 ## Paintable Weights
 
@@ -97,7 +95,7 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
  - **Activation Smoothing** (Integer, 1): Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be.
      - Has a range of \[1, 20\]. Upper limit is soft, higher values can be used.
  - **Bidirectional Activation** (Boolean, False): Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers.
- - **Write Out Activations** (Boolean, False): Flag to toggle the writing of activations into an output plug.
+ - **Write Out Activation** (Boolean, False): Flag to toggle the writing of activations into an output plug.
 
 #### Time Attributes
  - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
@@ -109,6 +107,10 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
+ - **Space Scale Mode** (Enumerator, "Masses + Forces"): Determines if the spatial scaling affects the masses, the forces, or both. The available options are:
+    - Masses: The *Space Scale* only affects masses.
+    - Forces: The *Space Scale* only affects forces.
+    - Masses + Forces: The *Space Scale* only affects masses and forces.
 
 #### Gravity
  - **Gravity** (Float, 0.0): Sets the magnitude of the gravity acceleration.
@@ -172,6 +174,7 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 ### Connectable attributes
  - **Anim Mesh** (Mesh): Animated mesh on which to apply the simulation to.
  - **Attenuation Matrix** (Matrix, Identity): Transformation matrix to drive the attenuation.
+ - **Collision Mesh** (Mesh): Collision rest mesh used to drive the the collision logic.
  - **Collision Mesh Matrix** (Matrix, Identity): Collision matrix used to drive the collision logic.
  - **Collision Rest Mesh** (Mesh): Collision rest mesh used to drive the initialization of the collision logic.
  - **Collision Rest Mesh Matrix** (Matrix, Identity): Collision rest matrix at rest used for initializing.
@@ -226,7 +229,7 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
 
 !!! abstract "Activations Modes"
     === "Muscle Patches"
-        The data in the Adonis Muscle Patches (AMP) file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following [this section](#generate-muscle-patches).
+        The data in the Adonis Muscle Patches (AMP) file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following [generate muscle patches section](#generate-muscle-patches).
 
         <h5>Requirements</h5>
 
@@ -248,8 +251,8 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
 ##### Requirements
 
   - **Neutral mesh**: Rest mesh with a neutral facial expression.
-  - **Target meshes**: Set of deformed meshes representing facial expresions.
-  - The number of vertices in the neutral and the target meshes must match with the number of vertices of the Simulated mesh that will be used for the simulation.
+  - **Target meshes**: Set of deformed meshes representing facial expressions.
+    - The number of vertices in the neutral and the target meshes must match with the number of vertices of the Simulated mesh that will be used for the simulation.
 
 
 The AMP file is generated from the Learn Muscle Patches tool:
@@ -259,7 +262,7 @@ The AMP file is generated from the Learn Muscle Patches tool:
   <figcaption><b>Figure 6:</b> Learn Muscle Patches UI</figcaption>
 </figure>
 
-1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press **Learn Muscle Patches UI**.
+1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
 2. Add the neutral mesh.
 3. Add the target meshes.
 4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation.
@@ -297,7 +300,7 @@ In order to toggle and untoggle the debug mode, follow these steps:
 
 1. Stop the simulation.
 2. Move to pre-roll frame or start frame.
-3. Press ![Simshape debug icon](images/adn_simshape_debugger.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press **Activations Debugger**.
+3. Press ![Simshape debug icon](images/adn_simshape_debugger.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press *Activations Debugger*.
 
 ## Colliders
 
@@ -307,7 +310,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 
 1. Select the collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](images/adn_add_collider.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press **Add Collider**. 
+3. Press the AdonisFX Shelf > Add Collider Shelf Button ![Add collider icon](images/adn_add_collider.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press *Add Collider*. 
 
 > [!NOTE]
 > - Avoid intersections between the collider and the rest/simulated mesh.
@@ -317,7 +320,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 
 1. Select the collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Press the AdonisFX Shelf > Remove Collider Shelf Button ![Remove collider icon](images/adn_remove_collider.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press **Remove Collider**.
+3. Press the AdonisFX Shelf > Remove Collider Shelf Button ![Remove collider icon](images/adn_remove_collider.png) or go to the *Edit Simshape* submenu from the AdonisFX menu and press *Remove Collider*.
 
 ### Add Rest Collider
 
@@ -325,7 +328,7 @@ The use of rest collider is recommended when the preroll simulation is not compu
 
 1. Select the rest collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Go to the *Edit Simshape* submenu from the AdonisFX menu and press **Add Rest Collider**.
+3. Go to the *Edit Simshape* submenu from the AdonisFX menu and press *Add Rest Collider*.
 
 > [!NOTE]
 > - Avoid intersections between the collider and the rest mesh.
@@ -335,7 +338,7 @@ The use of rest collider is recommended when the preroll simulation is not compu
 
 1. Select the rest collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Go to the *Edit Simshape* submenu from the AdonisFX menu and press **Remove Rest Collider**.
+3. Go to the *Edit Simshape* submenu from the AdonisFX menu and press *Remove Rest Collider*.
 
 ### Collider Configuration
 
