@@ -6,7 +6,7 @@ The influence these constraints have on the simulated mesh can be freely modifie
 
 # How to Use
 
-The AdnMuscle deformer is of great simplicity so set up and apply to a mesh within a Maya scene. The way this deformer works, a mesh (the simulated mesh) is set within a scene, usually with a series of attachments. Those attachments mark the anchor points for the muscle, prepared to act as tendons, and will introduce great part of the dynamics of the deformer.
+The AdnMuscle deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The way this deformer works is by applying simulation on top a mesh emulating a muscle which follows the dynamics of attachment points. Those attachments mark the anchor points for the muscle, prepared to act as tendons, and will introduce great part of the dynamics of the deformer.
 
 ## Requirements
 
@@ -16,32 +16,32 @@ To create a Muscle deformer within a Maya scene, the following inputs must be pr
   - <b class="mesh_color"> Muscle Geometry (M):</b> Mesh that the muscle deformer will be applied onto.
 
 > [!NOTE]
-> - It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. Attachments can be added and remove after creating the deformer. For more information check the [advanced section](#attachments) for further details.
+> - It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. Attachments can be added and remove after creating the deformer. For more information check the [advanced section](#attachments).
 
 ## Create Muscle
 
 1. Select the **Attachments** (if any), then the **Muscle Geometry**.
 2. Press the ![Muscle button](images/adn_muscle.png){width=40px} button in the AdonisFX shelf or press *Muscle* in the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed were a custom name and initial attribute values can be set.
-3. AdnSkin is ready to simulate with default settings. Check [this section](#attributes) to customize the configuration.
+3. AdnMuscle is ready to simulate with default settings. Check [this section](#attributes) to customize the configuration.
 
 ## Paintable Weights
 
 In order to provide more artistic control, some key parameters of the muscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
-- **Tendons**: Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. We recommend to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh.
-   - It's initialized to a flooded value of 0.0.
-- **Attachment Constraints**: weight to indicate the influence of each attachment at each vertex of the muscle.
-   - It's initialized to a flooded value of 0.0.
-- **Fibers**: the deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug-features) option in the deformer.
-   - It's initialized to a flooded value of (0.0, 0.0, 0.0).
+- **Tendons**: Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh.
+    - It's initialized to a flooded value of 0.0.
+- **Attachment Constraints**: Weight to indicate the influence of each attachment at each vertex of the muscle.
+    - It's initialized to a flooded value of 0.0.
+- **Fibers**: The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug-features) option in the deformer.
+    - It's initialized to a flooded value of (0.0, 0.0, 0.0).
 - **Compression Resistance**: Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.
-   - It's initialized to a flooded value of 1.0.
+    - It's initialized to a flooded value of 1.0.
 - **Stretching Resistance**: Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
-   - It's initialized to a flooded value of 1.0.
+    - It's initialized to a flooded value of 1.0.
 - **Global Damping**: Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position.
-   - It's initialized to a flooded value of 1.0.
+    - It's initialized to a flooded value of 1.0.
 - **Slide on Segment Constraints**: Weight to force vertices to displace only in the direction of a user-specified group of segments.
-   - It's initialized to a flooded value of 0.0.
+    - It's initialized to a flooded value of 0.0.
 
 <figure>
   <img src="images/muscle_paint_example.png"> 
@@ -50,7 +50,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 > [!NOTE]
 > - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
-> - We recommend to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
+> - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
 
 # Attributes
 
@@ -92,7 +92,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 #### Stiffness Settings
  - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value. If enabled, the Material is ignored and the Stiffness parameter is used instead.
-    - If we use a custom stiffness, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead.
+    - If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead.
 
 #### Dynamic Properties
  - **Global Damping** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
@@ -117,7 +117,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
      - Sliding On Segment: Draw *Sliding On Segment* connections from the simulated mesh to the segment the simulated mesh is sliding on.
  - **Width Scale** (Float, 1.0): Modifies the width of all lines.
  - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
- - **Fiber scale value** (Float, 3.0): can be modified to set a custom fiber length.
+ - **Fiber Scale** (Float, 3.0): can be modified to set a custom fiber length.
 
 ### Connectable attributes
  - **Attenuation Matrix** (Matrix, Identity): Transformation matrix to drive the attenuation.
@@ -187,8 +187,10 @@ Additionally to all previously mentioned constraints, ribbon muscles can have an
     1. Select the transform nodes (two or more if this is the first segment to be added) from which a segment would be created for the muscle to slide on.
     2. Select the mesh that has the AdnMuscle deformer applied.
     3. Press *Add Slide On Segment Constraint* in the AdonisFX menu from the Edit Muscle submenu.
+
 > [!NOTE]
 > - The transform nodes selection must follow a parent to child relationship in the hierarchy.
+
 - **Remove Segment**: 
     1. Select one or more transform nodes that are assigned as attachments to the Muscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
