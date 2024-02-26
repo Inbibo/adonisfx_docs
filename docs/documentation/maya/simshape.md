@@ -129,7 +129,7 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 #### Dynamic Properties
  - **Global Mass Multiplier** (Float, 1.0): Sets the scaling factor applied to the mass of every point.
     - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
- - **Global Damping** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
+ - **Global Damping Multiplier** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
     - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
  - **Inertia Damper** (Float, 0.0): Sets the linear damping applied to the dynamics of every point.
     - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
