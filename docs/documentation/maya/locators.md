@@ -12,7 +12,7 @@ An AdnLocatorPosition will only visualize the information of the transform node 
 
 <figure markdown>
   ![AdnLocatorPosition within a scene](images/locators_position.png){width=60%}
-  <figcaption>Figure 1: AdnLocatorPosition used in a human model.</figcaption>
+  <figcaption><b>Figure 1</b>: AdnLocatorPosition used in a human model.</figcaption>
 </figure>
 
 ### Create AdnLocatorPosition
@@ -20,14 +20,14 @@ An AdnLocatorPosition will only visualize the information of the transform node 
 Only one transform will be required to create the AdnLocatorPosition. The creation process is the following:
 
  1. Select a scene object with a transform node.
- 2. Press the ![AdnLocatorPosition button](images/adn_point_locator.png) button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name.
+ 2. Press the ![AdnLocatorPosition button](images/adn_point_locator.png) button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorPosition is created and ready to be used.
 
 
 ### Attributes
 
 #### Input
- - **Position**(Float3, {0.0. 0.0, 0.0}): Current transform node position.
+ - **Position** (Float3, {0.0. 0.0, 0.0}): Current transform node position.
 
 #### Activation Values
  - **Velocity** (Float, 0.0): Magnitude of the velocity (remapped) of the transform node.
@@ -37,8 +37,8 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
  - **Scale** (Float, 1.0): Sets the scaling factor applied to the position locator visualizer.
     - Has a range of \[0.0, 10.0\]. Upper limit soft, higher values can be used.
  - **Draw Output** (Enumerator, "Velocity"): Selects the property of the locator to be visualized on the locator visualizer.
-    - **Velocity:** color the visualizer of the locator according to the input velocity activation.
-    - **Acceleration:** color the visualizer of the locator according to the input acceleration activation.
+    - **Velocity:** Color the visualizer of the locator according to the input velocity activation.
+    - **Acceleration:** Color the visualizer of the locator according to the input acceleration activation.
 
 ## AdnLocatorDistance
 
@@ -50,7 +50,7 @@ An AdnLocatorDistance will only visualize the information of the distance betwee
 
 <figure markdown>
   ![AdnLocatorDistance within a scene](images/locators_distance.png){width=60%}
-  <figcaption>Figure 2: AdnLocatorDistance used in a human model.</figcaption>
+  <figcaption><b>Figure 2</b>: AdnLocatorDistance used in a human model.</figcaption>
 </figure>
 
 ### Create AdnLocatorDistance
@@ -58,14 +58,14 @@ An AdnLocatorDistance will only visualize the information of the distance betwee
 Two transform nodes will be required to create an AdnLocatorDistance representing each extremity. The creation process is the following:
 
  1. Select two scene objects with transform nodes.
- 2. Press the ![AdnLocatorDistance button](images/adn_distance_locator.png) button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name.
+ 2. Press the ![AdnLocatorDistance button](images/adn_distance_locator.png) button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorDistance is created and ready to be used.
 
 ### Attributes
 
 #### Input
- - **Start Position**(Float3, {0.0. 0.0, 0.0}): Start transform node position.
- - **End Position**(Float3, {0.0. 0.0, 0.0}): End transform node position.
+ - **Start Position** (Float3, {0.0. 0.0, 0.0}): Start transform node position.
+ - **End Position** (Float3, {0.0. 0.0, 0.0}): End transform node position.
 
 #### Activation Values
  - **Distance** (Float, 0.0): Magnitude of the distance (remapped) between the transform nodes.
@@ -76,9 +76,9 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
  - **Scale** (Float, 1.0): Sets the scaling factor applied to the distance locator visualizer.
     - Has a range of \[0.0, 10.0\]. Upper limit soft, higher values can be used.
  - **Draw Output** (Enumerator, "Distance"): Selects the property of the locator to be visualized on the locator visualizer.
-    - **Distance:** color the visualizer of the locator according to the input distance activation.
-    - **Velocity:** color the visualizer of the locator according to the input velocity activation.
-    - **Acceleration:** color the visualizer of the locator according to the input acceleration activation.
+    - **Distance:** Color the visualizer of the locator according to the input distance activation.
+    - **Velocity:** Color the visualizer of the locator according to the input velocity activation.
+    - **Acceleration:** Color the visualizer of the locator according to the input acceleration activation.
 
 ## AdnLocatorRotation
 
@@ -90,7 +90,7 @@ An AdnLocatorRotation will only visualize the information of the connections and
 
 <figure markdown>
   ![AdnLocatorRotation within a scene](images/locators_rotation.png){width=60%}
-  <figcaption>Figure 3: AdnLocatorRotation locator used in a human model.</figcaption>
+  <figcaption><b>Figure 3</b>: AdnLocatorRotation locator used in a human model.</figcaption>
 </figure>
 
 ### Create AdnLocatorRotation
@@ -98,18 +98,18 @@ An AdnLocatorRotation will only visualize the information of the connections and
 Three transform nodes will be required to create the AdnLocatorRotation. The creation process is the following:
 
  1. Select three scene objects with transform nodes. The order in which the objects are selected is relevant, as the created angle will have the following arrangement:
-    - First selected object: start point of the angle.
-    - Second selected object: middle point of the angle.
-    - Third selected object: end point of the angle.
- 2. Press the ![AdnLocatorRotation button](images/adn_angle_locator.png) button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name.
+    - First selected object: Start point of the angle.
+    - Second selected object: Middle point of the angle.
+    - Third selected object: End point of the angle.
+ 2. Press the ![AdnLocatorRotation button](images/adn_angle_locator.png) button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorRotation is created and ready to be used.
 
 ### Attributes
 
 #### Input
- - **Start Position**(Float3, {0.0. 0.0, 0.0}): Start transform node position.
- - **Mid Position**(Float3, {0.0. 0.0, 0.0}): Mid transform node position.
- - **End Position**(Float3, {0.0. 0.0, 0.0}): End transform node position.
+ - **Start Position** (Float3, {0.0. 0.0, 0.0}): Start transform node position.
+ - **Mid Position** (Float3, {0.0. 0.0, 0.0}): Mid transform node position.
+ - **End Position** (Float3, {0.0. 0.0, 0.0}): End transform node position.
 
 #### Activation Values
  - **Angle** (Float, 0.0): Magnitude of the angle (remapped) between the three transform nodes.
@@ -120,9 +120,9 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
  - **Scale** (Float, 1.0): Sets the scaling factor applied to the rotation locator visualizer.
     - Has a range of \[0.0, 10.0\]. Upper limit soft, higher values can be used.
  - **Draw Output** (Enumerator, "Angle"): Selects the property of the locator to be visualized on the locator visualizer.
-    - **Angle:** color the visualizer of the locator according to the input angle activation.
-    - **Velocity:** color the visualizer of the locator according to the input velocity activation.
-    - **Acceleration:** color the visualizer of the locator according to the input acceleration activation.
+    - **Angle:** Color the visualizer of the locator according to the input angle activation.
+    - **Velocity:** Color the visualizer of the locator according to the input velocity activation.
+    - **Acceleration:** Color the visualizer of the locator according to the input acceleration activation.
 
 ## AdnLocator
 
@@ -130,9 +130,9 @@ The AdnLocator is an native alternative to Maya locators. This locator can be us
 
 ### Create AdnLocator
 
-To create an AdonisFX Logo locator just click on the ![AdonisFX Logo locator button](images/adn_adonis_locator.png) button in the AdonisFX shelf. The locator will be created at the origin of your scene.
+To create an AdnLocator just click on the ![AdonisFX Logo locator button](images/adn_adonis_locator.png) button in the AdonisFX shelf. The locator will be created at the origin of your scene.
 
 <figure markdown>
   ![AdnLocator within a scene](images/locators_adonis.png){width=60%}
-  <figcaption>Figure 4: AdnLocator used for distance constraints.</figcaption>
+  <figcaption><b>Figure 4</b>: AdnLocator used for distance constraints.</figcaption>
 </figure>
