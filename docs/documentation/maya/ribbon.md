@@ -21,7 +21,7 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 ## Create AdnRibbonMuscle
 
 1. Select the **Attachments** (if any) and the **Muscle Geometry** in that order.
-2. Press the ![AdnRibbonMuscle button](images/adn_ribbon_muscle.png) button in the AdonisFX shelf or press *Ribbon Muscle* in the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed were a custom name and initial attribute values can be set.
+2. Press the ![AdnRibbonMuscle button](images/adn_ribbon_muscle.png) button in the AdonisFX shelf or press *Ribbon Muscle* in the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnRibbonMuscle is ready to simulate with default settings. Check the [attributes section](#attributes) to customize the configuration.
 
 ## Paintable Weights
@@ -32,7 +32,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
     - It's initialized to a flooded value of 0.0.
 - **Tendons**: Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh.
     - It's initialized to a flooded value of 0.0.
-- **Fibers**: the deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug-features) option in the deformer.
+- **Fibers**: The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug-features) option in the deformer.
     - It's initialized to a flooded value of (0.0, 0.0, 0.0).
 - **Compression Resistance**: Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.
     - It's initialized to a flooded value of 1.0.
@@ -49,8 +49,8 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 </figure>
 
 > [!NOTE]
-> - The *Attachment* and *Slide On Segment* weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [the AdonisFX paint tool section](tools.md#adonisfx-paint-tool).
-> - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
+> - The *Attachment* and *Slide On Segment* weights are normalized at each vertex. This normalization is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [the AdonisFX paint tool section](tools.md#adonisfx-paint-tool).
+> - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalization override them in further strokes.
 
 # Attributes
 
@@ -87,13 +87,13 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 ### Advanced Settings
 
 #### Stiffness Settings
- - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value. If enabled, the Material is ignored and the Stiffness parameter is used instead.
+ - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
     - If use a custom stiffness is selected, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead.
  - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
     - Its value must be greater than 0.0.
 
 #### Dynamic Properties
- - **Global Damping** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
+ - **Global Damping Multiplier** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
     - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
  - **Inertia Damper** (Float, 0.0): Sets the linear damping applied to the dynamics of every point.
     - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
@@ -103,7 +103,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Attenuation Velocity factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
+ - **Attenuation Velocity Factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
     - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
  - **Hard Attachments** (Boolean, True): If enabled, attachment constraints will force the vertices to stick to the target transformation completely.
 
@@ -112,10 +112,10 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
  - **Feature** (Enumerator, "Muscle Fibers"): A list of debuggable features for this deformer.
      - Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface.
      - Attachment Constraints: Draw *Attachment Constraints* connections from the simulated mesh to the attachments.
-     - Sliding On Segment: Draw *Sliding On Segment* connections from the simulated mesh to the segment the simulated mesh is sliding on.
+     - Slide On Segment: Draw *Slide On Segment* connections from the simulated mesh to the segment the simulated mesh is sliding on.
  - **Width Scale** (Float, 1.0): Modifies the width of all lines.
  - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
- - **Fiber Scale** (Float, 3.0): can be modified to set a custom fiber length.
+ - **Fiber Scale** (Float, 3.0): The scale can be modified to set a custom fiber length.
 
 ### Connectable attributes
  - **Attenuation Matrix** (Matrix, Identity): Transformation matrix to drive the attenuation.
@@ -152,7 +152,7 @@ The features that can be visualized with the debugger in the AdnRibbonMuscle def
 
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
  - **Attachments Constraints**: For each vertex with an attachment constraint weight greater than 0.0, a line will be drawn from the mesh to its respective attachment.
- - **Sliding on Segment Constraints**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh to the closest point to its respective segment.
+ - **Slide on Segment Constraints**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh to the closest point to its respective segment.
 
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices.
 
