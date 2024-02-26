@@ -16,12 +16,12 @@ To create a Muscle deformer within a Maya scene, the following inputs must be pr
   - <b class="mesh_color"> Muscle Geometry (M):</b> Mesh that the muscle deformer will be applied onto.
 
 > [!NOTE]
-> - It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. Attachments can be added and remove after creating the deformer. For more information check the [advanced section](#attachments).
+> - It is not mandatory to select the attachments on creation of the AdnMuscle deformer. Attachments can be added and remove after creating the deformer. For more information check the [advanced section](#attachments).
 
 ## Create Muscle
 
 1. Select the **Attachments** (if any), then the **Muscle Geometry**.
-2. Press the ![Muscle button](images/adn_muscle.png){width=40px} button in the AdonisFX shelf or press *Muscle* in the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed were a custom name and initial attribute values can be set.
+2. Press the ![Muscle button](images/adn_muscle.png){width=40px} button in the AdonisFX shelf or press *Muscle* in the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnMuscle is ready to simulate with default settings. Check [this section](#attributes) to customize the configuration.
 
 ## Paintable Weights
@@ -91,11 +91,11 @@ In order to provide more artistic control, some key parameters of the muscle sol
 ### Advanced Settings
 
 #### Stiffness Settings
- - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value. If enabled, the Material is ignored and the Stiffness parameter is used instead.
+ - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
     - If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead.
 
 #### Dynamic Properties
- - **Global Damping** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
+ - **Global Damping Multiplier** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
     - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
  - **Inertia Damper** (Float, 0.0): Sets the linear damping applied to the dynamics of every point.
     - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
@@ -105,19 +105,19 @@ In order to provide more artistic control, some key parameters of the muscle sol
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Attenuation Velocity factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
+ - **Attenuation Velocity Factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
     - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
  - **Hard Attachments** (Boolean, True): If enabled, attachment constraints will force the vertices to stick to target transformation completely.
 
 ### Debug attributes
- - **Debug** (Boolean, False): Enable or Disable the debug functionalities in the viewport for the AdnRibbonMuscle deformer.
+ - **Debug** (Boolean, False): Enable or Disable the debug functionalities in the viewport for the AdnMuscle deformer.
  - **Feature** (Enumerator, "Muscle Fibers"): A list of debuggable features for this deformer.
      - Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface.
      - Attachment Constraints: Draw *Attachment Constraints* connections from the simulated mesh to the attachments.
      - Sliding On Segment: Draw *Sliding On Segment* connections from the simulated mesh to the segment the simulated mesh is sliding on.
  - **Width Scale** (Float, 1.0): Modifies the width of all lines.
  - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
- - **Fiber Scale** (Float, 3.0): can be modified to set a custom fiber length.
+ - **Fiber Scale** (Float, 3.0): The scale can be modified to set a custom fiber length.
 
 ### Connectable attributes
  - **Attenuation Matrix** (Matrix, Identity): Transformation matrix to drive the attenuation.
@@ -146,15 +146,15 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 In order to better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled "Debug" in the attribute editor.
 
-To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. 
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to be visualized, choose it from the list provided in *Features*. 
 
 ### Debug features
 
 The features that can be visualized with the debugger in the AdnMuscle deformer are:
 
- - **Muscle Fibers**: for each vertex, a line will be drawn showing the direction of the muscle fibers.
- - **Attachments Constraints**: for each vertex with an attachment constraint weight greater than 0.0, a line will be drawn from the mesh to its respective attachment.
- - **Sliding on Segment Constraints**: for each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh to the closest point to its respective segment.
+ - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
+ - **Attachments Constraints**: For each vertex with an attachment constraint weight greater than 0.0, a line will be drawn from the mesh to its respective attachment.
+ - **Sliding on Segment Constraints**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh to the closest point to its respective segment.
 
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices.
 
@@ -170,18 +170,18 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 Once the AdnMuscle deformer is created, it is possible to add and remove new attachments to the system. 
 
 - **Add attachments**:  
-    1. Select the transform nodes (one or more) to be assigned as attachments to the AdnRibbonMuscle.
+    1. Select the transform nodes (one or more) to be assigned as attachments to the AdnMuscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
     3. Press the ![Add Attachments button](images/adn_add_attachment.png){width=40px} button in the AdonisFX shelf or press *Add Attachments* in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove attachments**:
-    1. Select one or more transform nodes that are assigned as attachments to the Muscle.
+    1. Select one or more transform nodes that are assigned as attachments to the muscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
     3. Press the ![Remove Attachments button](images/adn_remove_attachment.png){width=40px} button in the AdonisFX shelf or press *Remove Attachments* in the AdonisFX menu from the Edit Muscle submenu. 
     4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing the ![Remove Attachments button](images/adn_remove_attachment.png){width=40px} button, all attachments will be removed.
 
 ## Slide on Segment Constraint
 
-Additionally to all previously mentioned constraints, ribbon muscles can have an additional, optional constraint that can define a segment over which the muscle will slide.
+Additionally to all previously mentioned constraints, muscles can have an additional, optional constraint that can define a segment over which the muscle will slide.
 
 - **Add Segment**:
     1. Select the transform nodes (two or more if this is the first segment to be added) from which a segment would be created for the muscle to slide on.
@@ -192,7 +192,7 @@ Additionally to all previously mentioned constraints, ribbon muscles can have an
 > - The transform nodes selection must follow a parent to child relationship in the hierarchy.
 
 - **Remove Segment**: 
-    1. Select one or more transform nodes that are assigned as attachments to the Muscle.
+    1. Select one or more transform nodes that are assigned as segments to the muscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. press *Remove Slide On Segment Constraint* in the AdonisFX menu from the Edit Muscle submenu. 
-    4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing *Remove Slide On Segment Constraint* in the AdonisFX menu, all attachments will be removed.
+    3. Press *Remove Slide On Segment Constraint* in the AdonisFX menu from the Edit Muscle submenu. 
+    4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing *Remove Slide On Segment Constraint* in the AdonisFX menu, all segments will be removed.
