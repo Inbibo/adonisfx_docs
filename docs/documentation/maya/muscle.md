@@ -114,7 +114,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
  - **Feature** (Enumerator, "Muscle Fibers"): A list of debuggable features for this deformer.
      - Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface.
      - Attachment Constraints: Draw *Attachment Constraints* connections from the simulated mesh to the attachments.
-     - Sliding On Segment: Draw *Sliding On Segment* connections from the simulated mesh to the segment the simulated mesh is sliding on.
+     - Slide On Segment: Draw *Slide On Segment* connections from the simulated mesh to the segment the simulated mesh is sliding on.
  - **Width Scale** (Float, 1.0): Modifies the width of all lines.
  - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
  - **Fiber Scale** (Float, 3.0): The scale can be modified to set a custom fiber length.
@@ -154,7 +154,7 @@ The features that can be visualized with the debugger in the AdnMuscle deformer 
 
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
  - **Attachments Constraints**: For each vertex with an attachment constraint weight greater than 0.0, a line will be drawn from the mesh to its respective attachment.
- - **Sliding on Segment Constraints**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh to the closest point to its respective segment.
+ - **Slide on Segment Constraints**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh to the closest point to its respective segment.
 
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices.
 
