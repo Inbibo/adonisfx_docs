@@ -169,7 +169,7 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
      - Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.
  - **Width Scale** (Float, 3.0): Modifies the width of all lines.
  - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
- - **Fiber Scale**: Can be modified to set a custom fiber length.
+ - **Fiber Scale**: The scale can be modified to set a custom fiber length.
 
 ### Connectable attributes
  - **Anim Mesh** (Mesh): Animated mesh on which to apply the simulation.
