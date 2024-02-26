@@ -192,7 +192,7 @@ Additionally to all previously mentioned constraints, muscles can have an additi
 > - The transform nodes selection must follow a parent to child relationship in the hierarchy.
 
 - **Remove Segment**: 
-    1. Select one or more transform nodes that are assigned as segments to the muscle.
+    1. Select one or more transform nodes that are assigned as segment anchors to the AdnMuscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
     3. Press *Remove Slide On Segment Constraint* in the AdonisFX menu from the Edit Muscle submenu. 
     4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing *Remove Slide On Segment Constraint* in the AdonisFX menu, all segments will be removed.
