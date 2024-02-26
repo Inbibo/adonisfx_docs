@@ -1,14 +1,14 @@
 # UI Overview
 
-The Adonis UI for maya can be separated into two main elements: the **AdonisFX Shelf** and the **AdonisFX Menu**. The many uses the UI elements have will be explained in this page.
+The Adonis UI for Maya can be separated into two main elements: the **AdonisFX Shelf** and the **AdonisFX Menu**. The many uses the UI elements have will be explained in this page.
 
 ## AdonisFX Shelf
 
-The AdonisFX shelf can be found in the Maya shelf tab under the label "*AdonisFX*". It allows for quick access to the main Adonis functionalities.
+The AdonisFX shelf can be found in the Maya shelf tab under the label *AdonisFX*. It allows for quick access to the main Adonis functionalities.
 
 <figure markdown>
   ![AdnLocatorPosition within a scene](images/adonis_shelf.png){width=100%}
-  <figcaption><b>Figure 1:</b> AdonisFX shelf tab menu.</figcaption>
+  <figcaption><b>Figure 1</b>: AdonisFX shelf tab menu.</figcaption>
 </figure>
 
 | Icon | Description | Menu Shortcut |
@@ -25,7 +25,7 @@ The AdonisFX shelf can be found in the Maya shelf tab under the label "*AdonisFX
 | ![Create AdnSimshape](images/adn_simshape.png) | Create [AdnSimshape](simshape.md#create-simshape), applies an AdnSimshape deformer to the mesh selected. For more information about the possible selections see [Create AdnSimshape](simshape.md#create-simshape). Using the double click command will open a window to provide a custom name for the node and the possibility to customize the generic solver parameters. | AdonisFX Menu > *Create Simshape* |
 | ![Add AdnSimshape Collider](images/adn_add_collider.png) | [Add Collider to AdnSimshape](simshape.md#add-collider), Assigns a collider to the AdnSimshape deformer. Selecting first, in order, collider and mesh with AdnSimshape applied. | AdonisFX Menu > Edit Simshape > *Add Collider* |
 | ![Remove AdnSimshape Collider](images/adn_remove_collider.png) | [Remove Collider from AdnSimshape](simshape.md#remove-collider), removes the collider from the AdnSimshape deformer. Selecting first, in order, collider assigned and mesh with AdnSimshape applied. | AdonisFX Menu > Edit Simshape > *Remove Collider* |
-| ![AdnSimshape Learn Muscle Patches Tool](images/adn_learn_muscle_patches.png) | Launches the [AdnSimshape Muscle Patches Learning](simshape.md#generate-muscle-patches) tool used to generate the "*Adonis Muscle Patches*" file (.amp) file. | AdonisFX Menu > Edit Simshape > *Learn Muscle Patches UI* |
+| ![AdnSimshape Learn Muscle Patches Tool](images/adn_learn_muscle_patches.png) | Launches the [AdnSimshape Muscle Patches Learning](simshape.md#generate-muscle-patches) tool used to generate the *Adonis Muscle Patches* file (.amp) file. | AdonisFX Menu > Edit Simshape > *Learn Muscle Patches UI* |
 | ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png) | Toggles the [Simshape Activations Debug Mode](simshape.md#debug-activations). Current frame must match the specified initialization frame at the AdnSimshape deformer to toggle. | AdonisFX Menu > Edit Simshape > *Activations Debugger* |
 |||
 | ![Create AdnSkin](images/adn_skin.png) | Create [AdnSkin](skin.md#create-adnskin), applies an AdnSkin deformer to the selection. First select, in order, reference mesh and skin mesh to apply the deformer. Using the double click command will open a window to provide a custom name for the node and the possibility to customize the generic solver parameters. | AdonisFX Menu > *Create Skin* |
@@ -45,7 +45,7 @@ The AdonisFX Maya Menu provides apart from all the options available in the shel
 
 <figure markdown>
   ![AdnLocatorPosition within a scene](images/adonis_menu_1.png){width=30%}
-  <figcaption><b>Figure 2:</b> AdonisFX Menu.</figcaption>
+  <figcaption><b>Figure 2</b>: AdonisFX Menu.</figcaption>
 </figure>
 
 ### Create Group
@@ -56,17 +56,17 @@ Option boxes are available at the AdonisFX Menu for [Locators](locators.md) and 
 
 <figure markdown>
   ![Locator Sensor Creator UI](images/adn_position_locator_sensor_locator_creator.png){width=50%}
-  <figcaption><b>Figure 3:</b> Locators/Sensors creator UI.</figcaption>
+  <figcaption><b>Figure 3</b>: Locators/Sensors creator UI.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdonisFX Menu Create Locators](images/adonis_menu_locators.png){width=30%}
-  <figcaption><b>Figure 4:</b> AdonisFX Menu Create Locators section.</figcaption>
+  <figcaption><b>Figure 4</b>: AdonisFX Menu Create Locators section.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdonisFX Menu Create Sensors](images/adonis_menu_sensors.png){width=30%}
-  <figcaption><b>Figure 5:</b> AdonisFX Menu Create Sensors section.</figcaption>
+  <figcaption><b>Figure 5</b>: AdonisFX Menu Create Sensors section.</figcaption>
 </figure>
 
 #### Deformers
@@ -75,7 +75,7 @@ Option boxes can be used for deformer creation. Opening an auxiliar window with 
 
 <figure markdown>
   ![AdonisFX AdnSkin Deformer Creator](images/adn_skin_deformer_creator.png){width=50%}
-  <figcaption><b>Figure 6:</b> Deformer Creator UI creating an AdnSkin deformer.</figcaption>
+  <figcaption><b>Figure 6</b>: Deformer Creator UI creating an AdnSkin deformer.</figcaption>
 </figure>
 
 ### Edit group
@@ -86,7 +86,7 @@ Option boxes can be used for deformer creation. Opening an auxiliar window with 
 
 <figure markdown>
   ![AdonisFX Menu Edit Sensors](images/adonis_menu_connection_editor.png){width=30%}
-  <figcaption><b>Figure 7:</b> AdonisFX Menu Edit Sensors section.</figcaption>
+  <figcaption><b>Figure 7</b>: AdonisFX Menu Edit Sensors section.</figcaption>
 </figure>
 
 #### Simshape
@@ -104,17 +104,17 @@ Option boxes can be used for deformer creation. Opening an auxiliar window with 
 
 <figure markdown>
   ![AdonisFX Menu Edit AdnSimshape](images/adonis_menu_simshape.png){width=30%}
-  <figcaption><b>Figure 8:</b> AdonisFX Menu Edit AdnSimshape section.</figcaption>
+  <figcaption><b>Figure 8</b>: AdonisFX Menu Edit AdnSimshape section.</figcaption>
 </figure>
 
 #### Muscle
 
 - **Add [Slide On Segment](muscle.md#slide-on-segment-constraint) Constraint**. Adds segments based on the two (or more) transform objects and the mesh with the deformer node applied selected.
 - **Remove [Slide On Segment](muscle.md#slide-on-segment-constraint) Constraint**. Removes anchors from segments based on the transform objects and the mesh with the deformer node applied selected.
-- **Draw Fibers**. Enables "*Muscle Fibers*" Debugging from all the [AdnRibbonMuscle](ribbon.md#debug-features) an [AdnMuscle](muscle.md#debug-features) found in the scene.
-- **Hide Fibers**. Disables "*Muscle Fibers*" Debugging from all the [AdnRibbonMuscle](ribbon.md#debug-features) an [AdnMuscle](muscle.md#debug-features) found in the scene that were debugging "*Muscle Fibers*".
+- **Draw Fibers**. Enables *Muscle Fibers* Debugging from all the [AdnRibbonMuscle](ribbon.md#debug-features) an [AdnMuscle](muscle.md#debug-features) found in the scene.
+- **Hide Fibers**. Disables *Muscle Fibers* Debugging from all the [AdnRibbonMuscle](ribbon.md#debug-features) an [AdnMuscle](muscle.md#debug-features) found in the scene that were debugging *Muscle Fibers*.
 
 <figure markdown>
   ![AdonisFX Menu Edit Muscle](images/adonis_menu_muscle.png){width=30%}
-  <figcaption><b>Figure 9:</b> AdonisFX Menu Edit Muscle section.</figcaption>
+  <figcaption><b>Figure 9</b>: AdonisFX Menu Edit Muscle section.</figcaption>
 </figure>
