@@ -8,7 +8,7 @@ The **AdonisFX Import Tool** allows the user to import the configuration for a s
 
 <figure>
   <img src="images/import_tool_empty.png" caption="AdonisFX Import Tool">
-  <figcaption>Figure 1: AdonisFX Import Tool UI</figcaption>
+  <figcaption><b>Figure 1</b>: AdonisFX Import Tool UI</figcaption>
 </figure>
 
 ### How To Use
@@ -23,13 +23,13 @@ To import and apply an ADD file to an entity in the current open scene with the 
 4. Select the deformer from which the AAD file data will be fetched in the left hand panel.
 5. Select the node to which to apply the selected deformer configuration in the right hand panel.
 6. Press the *Assign* button to temporarily assign the configuration to the target node. Or clear the assignment using *Delete*.
-7. The assignments can then be imported using the **Import* button or everything can be cleared using the *Clear All* button.
+7. The assignments can then be imported using the *Import* button or everything can be cleared using the *Clear All* button.
 
 After following the previous steps the tool will inform about the status of the import: it failed, only partial data could be imported or all data could be imported.
 
 <figure>
   <img src="images/import_tool_full.png" caption="AdonisFX Import Tool Active">
-  <figcaption>Figure 2: AdonisFX Import Tool Active State</figcaption>
+  <figcaption><b>Figure 2</b>: AdonisFX Import Tool Active State</figcaption>
 </figure>
 
 > [!NOTE]
@@ -42,7 +42,7 @@ from an already existing setup containing data like weight maps, connections and
 
 <figure>
   <img src="images/export_tool_empty.png" caption="AdonisFX Export Tool Default">
-  <figcaption>Figure 3: AdonisFX Export Tool Default State</figcaption>
+  <figcaption><b>Figure 3</b>: AdonisFX Export Tool Default State</figcaption>
 </figure>
 
 ### How To Use
@@ -51,8 +51,8 @@ To open the tool press the ![Import Tool](images/adn_exporter.png) shelf button 
 
 To export and apply an ADD file for the current entity in the current open scene with the deformer information follow these steps:
 
-1. If the tool had been opened on an already active selection containing an Adonis deformer the node will appear in the "Select Export Data" list. To add and remove a new selection press *Add Selection* or *Clear*.
-2. Select, using the checkboxes, the deformers and the individual settings to export to the AAD file. For example selecting "Maps" and "Attachments" would export the painted attribute maps and the matrices for the attachments relative to an AdnMuscle or AdnRibbonMuscle deformer.
+1. If the tool had been opened on an already active selection containing an Adonis deformer the node will appear in the *Select Export Data* list. To add and remove a new selection press *Add Selection* or *Clear*.
+2. Select, using the checkboxes, the deformers and the individual settings to export to the AAD file. For example selecting *Maps* and *Attachments* would export the painted attribute maps and the matrices for the attachments relative to an AdnMuscle or AdnRibbonMuscle deformer.
 3. Define a name for the ADD file by going to *Output File Path* and selecting the folder icon.
 4. Finally, pressing the *Export* button will generate the file in the designated location.
 
@@ -60,7 +60,7 @@ The AAD file that has been exported can then be imported in a scene with similar
 
 <figure>
   <img src="images/export_tool_full.png" caption="AdonisFX Export Tool Active State">
-  <figcaption>Figure 4: AdonisFX Export Tool Active State</figcaption>
+  <figcaption><b>Figure 4</b>: AdonisFX Export Tool Active State</figcaption>
 </figure>
 
 > [!NOTE]
@@ -72,7 +72,7 @@ Some Adonis deformers require the use of a custom paint tool (external but simil
 
 <figure>
   <img src="images/paint_tool.png" caption="AdonisFX Paint Tool"> 
-  <figcaption>Figure 5: AdonisFX Paint Tool</figcaption>
+  <figcaption><b>Figure 5</b>: AdonisFX Paint Tool</figcaption>
 </figure>
 
 ### How To Use
@@ -91,7 +91,7 @@ In the specific case of AdnMuscle deformers, the AdonisFX Paint Tool will displa
 <!-- Note for later to update this information once the Global Damping attribute is added-->
 <figure markdown>
   ![Pain Tool Skin Attributes example](images/paint_tool_ribbon_attributes.png) 
-  <figcaption> Figure 6: AdonisFX paint tool displaying the paintable attributes of the deformer. </figcaption> 
+  <figcaption><b>Figure 6</b>: AdonisFX paint tool displaying the paintable attributes of the deformer. </figcaption>
 </figure>
 
   - **Attachment Constraints**
@@ -103,7 +103,7 @@ In the specific case of AdnMuscle deformers, the AdonisFX Paint Tool will displa
 
     <figure>
       <img src="images/paint_tool_attachment_attribute.png"> 
-      <figcaption>Figure 7: AdonisFX Paint Tool</figcaption>
+      <figcaption><b>Figure 7</b>: AdonisFX Paint Tool</figcaption>
     </figure>
 
   - **Tendons**
@@ -134,7 +134,7 @@ In the specific case of an AdnSkin deformer, the AdonisFX Paint Tool will displa
 
 <figure markdown> 
   ![Pain Tool Skin Attributes example](images/paint_tool_skin_attributes.png) 
-  <figcaption> Figure 8: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
+  <figcaption><b>Figure 8</b>: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
 </figure>
 
   - **Hard Constraints**
@@ -167,18 +167,18 @@ To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *C
 
 <figure markdown> 
   ![Connection Editor](images/sensor_conection_editor_empty.png) 
-  <figcaption> Figure 9: Sensor connection editor after opening it for the first time. </figcaption>
+  <figcaption><b>Figure 9</b>: Sensor connection editor after opening it for the first time. </figcaption>
 </figure>
 
 Two main sections can be distinguished in this tool, labeled *source* and *destination*. In the source section the [sensors](sensors.md), alongside their signal attributes, will get displayed and in the destination section the **deformers**, alongside their possible input attributes, will get displayed.
 
 To retrieve these objects and display them in the tool, select the desired element from the scene (an Adonis locator containing a sensor or a deformer) and press their respective *Reload Left* or *Reload Right* button.
 
-For Source elements (sensors) press the *Reload Left** button and for Destination elements (deformers) press the *Reload Right* button.
+For Source elements (sensors) press the *Reload Left* button and for Destination elements (deformers) press the *Reload Right* button.
 
 <figure markdown> 
   ![Connection Editor Setup](images/sensor_conection_editor.png) 
-  <figcaption> Figure 10: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
+  <figcaption><b>Figure 10</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
 </figure>
 
 To make the connections select the two specific attribute to connect (one from *source* and one from *destination*) and press the *Make Connection* button. A message will then get displayed informing that the connection has been properly made (if nothing failed).
