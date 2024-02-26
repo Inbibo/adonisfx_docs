@@ -12,7 +12,7 @@ An AdnSensorPosition will be in charge of feeding, after remapping, activation (
 
 <figure markdown>
   ![AdnSensorPosition velocity display on AdnLocatorPosition within a scene](images/adn_sensor_position.png){width=60%}
-  <figcaption>Figure 1: AdnSensorPosition used in a human model.</figcaption>
+  <figcaption><b>Figure 1</b>: AdnSensorPosition used in a human model.</figcaption>
 </figure>
 
 ### Create AdnSensorPosition
@@ -60,7 +60,7 @@ An AdnSensorDistance will be in charge of feeding, after remapping, activation (
 
 <figure markdown>
   ![AdnSensorDistance distance display on AdnLocatorDistance within a scene](images/adn_sensor_distance.png){width=60%}
-  <figcaption>Figure 2: AdnSensorDistance used in a human model.</figcaption>
+  <figcaption><b>Figure 2</b>: AdnSensorDistance used in a human model.</figcaption>
 </figure>
 
 ### Create AdnSensorDistance
@@ -110,7 +110,7 @@ An AdnSensorRotation will be in charge of feeding, after remapping, activation (
 
 <figure markdown>
   ![AdnSensorRotation angle display on AdnLocatorRotation within a scene](images/adn_sensor_rotation.png){width=60%}
-  <figcaption>Figure 3: AdnSensorRotation used in a human model.</figcaption>
+  <figcaption><b>Figure 3</b>: AdnSensorRotation used in a human model.</figcaption>
 </figure>
 
 ### Create AdnSensorRotation
@@ -159,24 +159,24 @@ When creating a sensor, a remap node for each output attribute is created. Throu
 
 <figure markdown>
   ![AdnLocatorPosition within a scene](images/position_sensor_nodes.png){width=60%}
-  <figcaption>Figure 4: Nodes created by an AdnSensorPosition.</figcaption>
+  <figcaption><b>Figure 4</b>: Nodes created by an AdnSensorPosition.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnLocatorPosition within a scene](images/distance_sensor_nodes.png){width=60%}
-  <figcaption>Figure 5: Nodes created by an AdnSensorDistance.</figcaption>
+  <figcaption><b>Figure 5</b>: Nodes created by an AdnSensorDistance.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnLocatorPosition within a scene](images/rotation_sensor_nodes.png){width=60%}
-  <figcaption>Figure 6: Nodes created by an AdnSensorRotation.</figcaption>
+  <figcaption><b>Figure 6</b>: Nodes created by an AdnSensorRotation.</figcaption>
 </figure>
 
 Connecting the sensor to the target deformer can be done using the Node Editor in Maya:
 
 <figure markdown>
   ![AdnSensorDistance connected to the activation of an AdnMuscle](images/adn_sensor_to_deformer_connect.png){width=60%}
-  <figcaption>Figure 7: AdnSensorDistance connected to the activation of an AdnMuscle.</figcaption>
+  <figcaption><b>Figure 7</b>: AdnSensorDistance connected to the activation of an AdnMuscle.</figcaption>
 </figure>
 
 However, these connections are made in a much more user friendly way by making use of the [Connection Editor](tools.md), explained in more detail in the [tools](tools.md) section.
