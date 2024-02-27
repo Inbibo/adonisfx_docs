@@ -333,6 +333,7 @@ The use of rest collider is recommended when the pre-roll simulation is not comp
 > [!NOTE]
 > - Avoid intersections between the collider and the rest mesh.
 > - Colliders with high Level Of Detail will affect the simulation performance.
+> - Collider meshes must have the same number of vertices although it can be different from the number of vertices of the rest, deformed, animated and simulated meshes.
 
 ### Remove Rest Collider
 
