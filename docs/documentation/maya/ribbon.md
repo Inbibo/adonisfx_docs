@@ -59,7 +59,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
  - **Iterations** (Integer, 10): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
      - Has a range of \[1, 10\]. Upper limit is soft, higher values can be used.
  - **Material** (Enumerator, "Muscle"): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
-    <ul><li>Fat: 10^7^</li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e^7^</li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
+    <ul><li>Fat: 10<sup>7</sup></li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e<sup>7</sup></li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
  - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
      - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Activation** (Float, 0.0): Current activation of the deformed ribbon muscle. The activation modifies the stiffness of the muscle depending on the fibers direction of the muscle.
