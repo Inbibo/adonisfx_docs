@@ -12,6 +12,11 @@ The Edge Evaluator Node requires the following inputs to be provided:
 > [!NOTE]
 > - All input geometries must have the same number of vertices and edges.
 
+<figure markdown>
+  ![Edge Evaluator node](images/edge_evaluator.png)
+  <figcaption><b>Figure 1</b>: Edge Evaluator Attribute Editor</figcaption>
+</figure>
+
 ## Create the Edge Evaluator Node
 
 1. Select the deform mesh, then the rest mesh.
@@ -42,3 +47,8 @@ The evaluator node can be used to drive the [activations of an AdnSimshape](sims
 2. Go to the AdonisFX Menu > Edit Simshape > *Connect Activations Plug*.
 
 In order to disconnect the plug, repeat the selection and instead of pressing *Connect Activations Plug* press *Disconnect Activations Plug*.
+
+<figure markdown>
+  ![Edge Evaluator example](images/edge_evaluator_example.png)
+  <figcaption><b>Figure 1</b>: AdnSimshape deformer with activations provided by the AdnEdgeEvaluator node (activations debugger enabled)</figcaption>
+</figure>

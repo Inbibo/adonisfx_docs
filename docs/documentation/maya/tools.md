@@ -103,7 +103,7 @@ In the specific case of AdnMuscle deformers, the AdonisFX Paint Tool will displa
 
     <figure>
       <img src="images/paint_tool_attachment_attribute.png"> 
-      <figcaption><b>Figure 7</b>: AdonisFX Paint Tool</figcaption>
+      <figcaption><b>Figure 7</b>: AdonisFX Paint Tool listing multiple attachments.</figcaption>
     </figure>
 
   - **Tendons**
@@ -125,6 +125,11 @@ In the specific case of AdnMuscle deformers, the AdonisFX Paint Tool will displa
     2. Select the desired segment to paint from the list widget and paint the weight values.
     4. When selecting a segment in the list the two scene objects that form the root and tip of the segment will get selected as well, facilitating its identification.
     5. If more than one segment was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the addition of all slide on segment constraint weights in a vertex will always add up to a maximum value of 1.0.
+
+    <figure>
+      <img src="images/paint_tool_sos_attribute.png"> 
+      <figcaption><b>Figure 7</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
+    </figure>
 
 To find a more precise example for setting up this deformer refer to the documentation page [muscle](muscle.md).
 

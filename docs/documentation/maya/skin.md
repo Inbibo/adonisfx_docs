@@ -69,7 +69,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 <figure>
   <img src="images/skin_paint_example.png" caption="AdonisFX Paint Tool"> 
-  <figcaption><b>Figure 1</b>: Example of painted weights on the skin of a bear character. From left to right: Hard Constraints, Slide Constraints and Soft Constraints.</figcaption>
+  <figcaption><b>Figure 1</b>: Example of painted weights on the skin of a bear character, labeled as:<br/><b>a)</b> Hard Constraints, <b>b)</b> Slide Constraints, <b>c)</b> Soft Constraints, <b>d)</b> Compression Resistance,<br/><b>e)</b> Stretching Resistance, <b>f)</b> Global Damping Max, <b>g)</b> Sliding Multiplier, <b>h)</b> Mass</figcaption>
 </figure>
 
 > [!NOTE]
@@ -186,5 +186,5 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![skin editor debug example](images/skin_debug.png)
-  <figcaption><b>Figure 5</b>: Debugger enabled displaying *Hard Constraints*, slide constraints and soft constraints with different configurations. </figcaption>
+  <figcaption><b>Figure 5</b>: Debugger enabled displaying <i>Hard Constraints</i>, <i>Slide Constraints</i> and <i>Soft Constraints</i> with different configurations. </figcaption>
 </figure>
