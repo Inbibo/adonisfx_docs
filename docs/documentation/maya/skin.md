@@ -15,13 +15,15 @@ To create an AdnSkin deformer within a Maya scene, the following inputs must be 
   - **Reference Mesh (R)**: Mesh to drive the simulation skin (e.g. fascia or combined muscles).
   - **Skin Mesh (S)**: Mesh to apply the deformer onto.
 
+  [!NOTE] - All input geometries must have the same number of vertices.
+
 ## Create AdnSkin
 
 The process to create an AdnSkin deformer is the following:
 
-1. Select the reference mesh, then the geometry to simulate.
+1. Select the **Reference Mesh**, then the **Skin Mesh**.
 2. Press ![Skin button](images/adn_skin.png) in the AdonisFX shelf or *Skin* in the AdonisFX menu, under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
-3. AdnSkin is ready to simulate with default settings. Check [this section](#attributes) to customize the configuration.
+3. A message box will notify you that AdnSkin has been created properly, meaning that it is ready to simulate with default settings. Check the [attributes section](#attributes) to customize the configuration.
 
 ## Paintable Weights
 
@@ -65,7 +67,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 <figure>
   <img src="images/skin_paint_example.png" caption="AdonisFX Paint Tool"> 
-  <figcaption><b>Figure 1</b>: Example of painted weights on the skin of a bear character. From left to right: *Hard Constraints*, *Slide Constraints* and *Soft Constraints*.</figcaption>
+  <figcaption><b>Figure 1</b>: Example of painted weights on the skin of a bear character. From left to right: Hard Constraints, Slide Constraints and Soft Constraints.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -161,7 +163,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 <figure markdown>
   ![skin editor debug menu](images/attribute_editor_skin_debug.png)
-  <figcaption><b>Figure 5</b>: AdnSkin Attribute Editor (Debug menu)</figcaption>
+  <figcaption><b>Figure 4</b>: AdnSkin Attribute Editor (Debug menu)</figcaption>
 </figure>
 
 ## Debugger
@@ -182,5 +184,5 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![skin editor debug example](images/skin_debug.png)
-  <figcaption><b>Figure 4</b>: Debugger enabled displaying *Hard Constraints*, slide constraints and soft constraints with different configurations. </figcaption>
+  <figcaption><b>Figure 5</b>: Debugger enabled displaying *Hard Constraints*, slide constraints and soft constraints with different configurations. </figcaption>
 </figure>
