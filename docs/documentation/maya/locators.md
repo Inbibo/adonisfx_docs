@@ -11,7 +11,7 @@ AdnLocatorPosition is the locator for visualizing the position of a single trans
 An AdnLocatorPosition will only visualize the information of the transform node to which it is applied. To be able to read, process and visualize information like the velocity or acceleration that can be used for setting up a deformer, an [AdnSensorPosition](sensors.md) has to be applied.
 
 <figure markdown>
-  ![AdnLocatorPosition within a scene](images/locators_position.png){width=60%}
+  ![AdnLocatorPosition within a scene](images/locators_position.png)
   <figcaption><b>Figure 1</b>: AdnLocatorPosition used in a human model.</figcaption>
 </figure>
 
@@ -49,7 +49,7 @@ AdnLocatorDistance is the locator for visualizing the distance between two trans
 An AdnLocatorDistance will only visualize the information of the distance between two transform nodes to which it is applied. To be able to read, process and visualize information like the distance magnitude, velocity or acceleration that can be used for setting up a deformer, an [AdnSensorDistance](sensors.md) has to be applied.
 
 <figure markdown>
-  ![AdnLocatorDistance within a scene](images/locators_distance.png){width=60%}
+  ![AdnLocatorDistance within a scene](images/locators_distance.png)
   <figcaption><b>Figure 2</b>: AdnLocatorDistance used in a human model.</figcaption>
 </figure>
 
@@ -89,7 +89,7 @@ AdnLocatorRotation is the locator for visualizing the angle between three transf
 An AdnLocatorRotation will only visualize the information of the connections and angle between the three transform nodes. To be able to read, process and visualize information like the angle, angular velocity or angular acceleration that can be used for setting up a deformer, an [AdnSensorRotation](sensors.md) has to be applied.
 
 <figure markdown>
-  ![AdnLocatorRotation within a scene](images/locators_rotation.png){width=60%}
+  ![AdnLocatorRotation within a scene](images/locators_rotation.png)
   <figcaption><b>Figure 3</b>: AdnLocatorRotation locator used in a human model.</figcaption>
 </figure>
 
@@ -133,6 +133,6 @@ The AdnLocator is an native alternative to Maya locators. This locator can be us
 To create an AdnLocator just click on the ![AdonisFX Logo locator button](images/adn_adonis_locator.png) button in the AdonisFX shelf. The locator will be created at the origin of your scene.
 
 <figure markdown>
-  ![AdnLocator within a scene](images/locators_adonis.png){width=60%}
+  ![AdnLocator within a scene](images/locators_adonis.png)
   <figcaption><b>Figure 4</b>: AdnLocator used for distance constraints.</figcaption>
 </figure>

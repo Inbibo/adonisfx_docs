@@ -82,7 +82,7 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
  - **Iterations** (Integer, 3): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
      - Has a range of \[1, 10\]. Upper limit is soft, higher values can be used.
  - **Material** (Enumerator, "Leather"): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
-    <ul><li>Fat: 10<sup>7</sup></li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e<sup>7</sup></li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
+    <ul><li>Fat: 10<sup>3</sup></li><li>Muscle: 5e<sup>3</sup></li><li>Rubber: 10<sup>6</sup></li><li>Tendon: 5e<sup>7</sup></li><li>Leather: 10<sup>6</sup></li><li>Wood: 6e<sup>9</sup></li><li>Concrete: 2.5e<sup>10</sup></li></ul>
  - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
      - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
 
@@ -123,7 +123,7 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 #### Stiffness Settings
  - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
     - If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead.
- - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
+ - **Stiffness** (Float, 10<sup>5</sup>): Sets the custom stiffness value.
     - Its value must be greater than 0.0.
 
 #### Dynamic Properties
@@ -281,9 +281,9 @@ Additional custom settings for the learning algorithm:
  - **Limit Iterations** (Boolean, False): If enabled, the "Number of Iterations" will be taken into consideration.
  - **Number of Iterations** (Integer, 20): Maximum number of iterations allowed in the training process. The higher this value is, the more accurate the muscle patches estimation will be and the longer the execution will take.
     - This parameter is ignored if "Limit Iterations" attribute is disabled. In that case, the training process will run until it achieves the most accurate solution.
-    - Has a range of \[1, 1e^6^\]
+    - Has a range of \[1, 1e<sup>6</sup>\]
  - **Number of Muscle Patches** (Integer, 79): Maximum number of muscle patches expected in the results.
-    - Has a range of \[1, 1e^6^\]
+    - Has a range of \[1, 1e<sup>6</sup>\]
  - **Draw Muscle Patches** (Boolean, True): If enabled, the vertices of the neutral mesh will be colored according to the muscle patches resulting from the training.
 
 ### Debug Activations

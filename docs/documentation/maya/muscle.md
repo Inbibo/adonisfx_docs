@@ -59,7 +59,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
  - **Iterations** (Integer, 10): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
      - Has a range of \[1, 10\]. Upper limit is soft, higher values can be used.
  - **Material** (Enumerator, "Muscle"): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
-    <ul><li>Fat: 10<sup>7</sup></li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e<sup>7</sup></li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
+    <ul><li>Fat: 10<sup>3</sup></li><li>Muscle: 5e<sup>3</sup></li><li>Rubber: 10<sup>6</sup></li><li>Tendon: 5e<sup>7</sup></li><li>Leather: 10<sup>6</sup></li><li>Wood: 6e<sup>9</sup></li><li>Concrete: 2.5e<sup>10</sup></li></ul>
  - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
      - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Activation** (Float, 0.0): Current activation of the deformed muscle. The activation modifies the stiffness of the muscle depending on the fibers direction of the muscle.
@@ -172,12 +172,12 @@ Once the AdnMuscle deformer is created, it is possible to add and remove new att
 - **Add attachments**:  
     1. Select the transform nodes (one or more) to be assigned as attachments to the AdnMuscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press the ![Add Attachments button](images/adn_add_attachment.png){width=40px} button in the AdonisFX shelf or press *Add Attachments* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Add Attachments button](images/adn_add_attachment.png) button in the AdonisFX shelf or press *Add Attachments* in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove attachments**:
     1. Select one or more transform nodes that are assigned as attachments to the muscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press the ![Remove Attachments button](images/adn_remove_attachment.png){width=40px} button in the AdonisFX shelf or press *Remove Attachments* in the AdonisFX menu from the Edit Muscle submenu. 
-    4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing the ![Remove Attachments button](images/adn_remove_attachment.png){width=40px} button, all attachments will be removed.
+    3. Press the ![Remove Attachments button](images/adn_remove_attachment.png) button in the AdonisFX shelf or press *Remove Attachments* in the AdonisFX menu from the Edit Muscle submenu. 
+    4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing the ![Remove Attachments button](images/adn_remove_attachment.png) button, all attachments will be removed.
 
 ## Slide on Segment Constraint
 

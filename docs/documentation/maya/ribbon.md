@@ -59,7 +59,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
  - **Iterations** (Integer, 10): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
      - Has a range of \[1, 10\]. Upper limit is soft, higher values can be used.
  - **Material** (Enumerator, "Muscle"): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
-    <ul><li>Fat: 10<sup>7</sup></li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e<sup>7</sup></li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
+    <ul><li>Fat: 10<sup>3</sup></li><li>Muscle: 5e<sup>3</sup></li><li>Rubber: 10<sup>6</sup></li><li>Tendon: 5e<sup>7</sup></li><li>Leather: 10<sup>6</sup></li><li>Wood: 6e<sup>9</sup></li><li>Concrete: 2.5e<sup>10</sup></li></ul>
  - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
      - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Activation** (Float, 0.0): Current activation of the deformed ribbon muscle. The activation modifies the stiffness of the muscle depending on the fibers direction of the muscle.
@@ -89,7 +89,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 #### Stiffness Settings
  - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
     - If use a custom stiffness is selected, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead.
- - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
+ - **Stiffness** (Float, 10<sup>5</sup>): Sets the custom stiffness value.
     - Its value must be greater than 0.0.
 
 #### Dynamic Properties
