@@ -12,8 +12,8 @@ The AdnRibbonMuscle deformer is of great simplicity to set up and apply to a mes
 
 To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs must be provided:
 
-- <b class="mesh_color"> Attachments (A):</b> Attachment anchors to which the simulated muscle will be attached to. Any transform node can be used (e.g. bones, locators, meshes, etc). This input is optional and unlimited.
-- <b class="mesh_color"> Muscle Geometry (M):</b> Mesh that the AdnRibbonMuscle deformer will be applied to.
+- **Attachments (A)**: Attachment anchors to which the simulated muscle will be attached to. Any transform node can be used (e.g. bones, locators, meshes, etc). This input is optional and unlimited.
+- **Muscle Geometry (M)**: Mesh that the AdnRibbonMuscle deformer will be applied to.
 
 > [!NOTE]
 > - It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. Attachments can be added and remove after creating the deformer. For more information check the [advanced section](#attachments).

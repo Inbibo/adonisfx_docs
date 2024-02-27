@@ -12,16 +12,16 @@ The AdnSimshape deformer is of great simplicity to set up and apply to a mesh wi
 
 To create an AdnSimshape deformer within a Maya scene, the following inputs must be provided:
 
-  - <b class="mesh_color"> Rest Mesh (R)</b>: Mesh with no deformation or animation (optional).
-  - <b class="mesh_color"> Deform Mesh (D)</b>: Mesh with deformation driven by the facial expressions (optional).
-  - <b class="mesh_color"> Animated Mesh (A)</b>: Mesh with deformation driven by the facial expressions and animation result of the binding to the animation rig (optional).
-  - <b class="mesh_color"> Simulation Mesh (S)</b>: Mesh to apply the deformer to. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
+  - **Rest Mesh (R)**: Mesh with no deformation or animation (optional).
+  - **Deform Mesh (D)**: Mesh with deformation driven by the facial expressions (optional).
+  - **Animated Mesh (A)**: Mesh with deformation driven by the facial expressions and animation result of the binding to the animation rig (optional).
+  - **Simulation Mesh (S)**: Mesh to apply the deformer to. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
 > [!NOTE]
 > - All input geometries must have the same number of vertices.
-> - If <b class="mesh_color">R</b> is not provided, the system will use the initial state of <b class="mesh_color">S</b> as the rest mesh.
-> - If <b class="mesh_color">D</b> is not provided, the simulation will not produce activations.
-> - If <b class="mesh_color">A</b> is not provided, the system will use the input mesh to the deformer (<b class="mesh_color">S</b>) as animated mesh.
+> - If **R** is not provided, the system will use the initial state of **S** as the rest mesh.
+> - If **D** is not provided, the simulation will not produce activations.
+> - If **A** is not provided, the system will use the input mesh to the deformer (**S**) as animated mesh.
 
 ## Create AdnSimshape
 
