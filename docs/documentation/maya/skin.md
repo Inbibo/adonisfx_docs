@@ -6,7 +6,7 @@ The influence these constraints have on the simulated mesh can be freely modifie
 
 # How to Use
 
-The AdnSkin deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The way this deformer works, a reference mesh (with deformation over time) is set in the scene, over which the skin mesh (simulated mesh) is applied with the deformer.
+The AdnSkin deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The way this deformer works is by applying simulation on top of the skin mesh (simulated mesh) which will be directly coupled to its reference mesh (with deformation over time).
 
 ## Requirements
 
@@ -59,6 +59,8 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 - **Global Damping**: Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position.
 
+    - It's initialized to a flooded value of 1.0.
+
 - **Max Sliding Multiplier**: Determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. Greater values will allow for greater sliding but will have a greater computational cost.
     
     - *Tip*: For areas where sliding is not required paint to 0. Use values closer to 1 in areas where more sliding freedom should be prioritized.
@@ -71,7 +73,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 </figure>
 
 > [!NOTE]
-> - *Hard*, *Soft* and *Slide* values are normalized for each vertex. Make sure to paint the values that you want to give priority to at the end in order to avoid the internal normalization override them in further strokes.
+> - *Hard*, *Soft* and *Slide* values are normalized for each vertex. Make sure to paint the values that you want to give priority to at the end in order to avoid the internal normalization override them in further strokes. The basics of the paint tool are explained in [the AdonisFX paint tool section](tools.md#adonisfx-paint-tool).
 
 # Attributes
 
