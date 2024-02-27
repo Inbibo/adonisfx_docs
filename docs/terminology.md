@@ -40,11 +40,11 @@ A slide on segment constraint defines the relationship between a geometry point 
 
 A soft constraint defines the relationship between a geometry point and another point of a different geometry. This constraints aims to keep the point at a certain distance to the external geometry point without any restrictions of relative orientation.
 
-##### Uber
+##### Uber Constraint
 
 A uber constraint is a compound of hard, slide and soft constraint.
 
-##### Volume
+##### Volume Constraint
 
 A volume constraint defines the volume at rest of a geometry.
 
@@ -69,7 +69,7 @@ Sensors are nodes to measure positions, distances, angles, velocities and accele
 
 ### Simshape
 
-Simshape or **AdnSimshape** is an Adonis solver for facial simulation. It allows to apply dynamics on top of the the deformation driven by a facial rig. Also, it has the ability to mimic the change in rigidity of the skin due to the activation of the internal facial muscles.Patches. 
+Simshape or **AdnSimshape** is an Adonis solver for facial simulation. It allows to apply dynamics on top of the the deformation driven by a facial rig. Also, it has the ability to mimic the change in rigidity of the skin due to the activation of the internal facial muscle patches.
 
 ### Skin
 
