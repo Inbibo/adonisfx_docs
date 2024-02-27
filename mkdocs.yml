@@ -18,8 +18,8 @@ theme:
     - content.tabs.link
     - content.tooltips
   language: en
-  #logo: images/adn_logo_default_2x.png
-  #favicon: images/adn_logo_default_2x.png
+  # logo: images/adn_logo_default_2x.png
+  # favicon: images/adn_logo_default_2x.png
   palette:
     scheme: slate
     primary: light blue
@@ -111,5 +111,3 @@ nav:
       - AdnSimshape         : documentation/maya/simshape.md
       - AdnSkin             : documentation/maya/skin.md
       - AdnEdgeEvaluator    : documentation/maya/edge_evaluator.md
-    #- Houdini:
-    #  - documentation/houdini/index.md
