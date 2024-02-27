@@ -88,10 +88,10 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 
 #### Muscles Activation Settings
  - **Activation Mode** (Enumerator, "No Activation"): Mode to drive the muscle activations. There are 3 different modes:
-    - Muscle Patches (Disabled by default): An Adonis Muscle Patches file (.amp) has to be provided to enable this option.
+    - Muscle Patches (Disabled by default): An Adonis Muscle Patches file ([.amp](#generate-muscle-patches)) has to be provided to enable this option.
     - Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.
     - No Activation (Enabled by default): No activation is read.
- - **Muscle Patches File** (String, ""): Path to the Adonis Muscle Patches file (.amp).
+ - **Muscle Patches File** (String, ""): Path to the Adonis Muscle Patches file ([.amp](#generate-muscle-patches)).
  - **Activation Smoothing** (Integer, 1): Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be.
      - Has a range of \[1, 20\]. Upper limit is soft, higher values can be used.
  - **Bidirectional Activation** (Boolean, False): Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers.
