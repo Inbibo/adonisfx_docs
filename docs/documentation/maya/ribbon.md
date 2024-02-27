@@ -75,7 +75,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 #### Scale Attributes
  - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the simulation time step.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces.
+ - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces. Adonis interprets the scene units in meters. Because of that, to simulate external forces in the right scale, the *Space Scale* may need to be adjusted. For example, to apply *Gravity* with a value of 9.8 m/s^2^, the *Space Scale* should be set to 0.01.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
 
 #### Gravity
