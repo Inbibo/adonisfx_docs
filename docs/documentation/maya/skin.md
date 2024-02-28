@@ -15,7 +15,8 @@ To create an AdnSkin deformer within a Maya scene, the following inputs must be 
   - **Reference Mesh (R)**: Mesh to drive the simulation skin (e.g. fascia or combined muscles).
   - **Skin Mesh (S)**: Mesh to apply the deformer onto.
 
-  [!NOTE] - All input geometries must have the same number of vertices.
+  > [!NOTE]
+  > All input geometries must have the same number of vertices.
 
 ## Create AdnSkin
 
