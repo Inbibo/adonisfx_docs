@@ -28,11 +28,8 @@ To create an AdnSimshape deformer within a Maya scene, the following inputs must
 When initially creating an AdnSimshape deformer, it is possible to add both a **Simulated Mesh** and a **Rest Mesh**, or only add a **Simulated Mesh**. The process to create an AdnSimshape deformer is the following:
 
   1. Select the **Rest Mesh** (optional), then the **Simulated Mesh**.
-        
     - The deformer can also be applied to the **Animated Mesh** and use it directly as the **Simulated Mesh**.
-
   2. Press the ![Simshape button](images/adn_simshape.png) in the AdonisFX shelf or press *Simshape* in AdonisFX menu under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
-
   3. A message box will notify that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings. Check the [attributes section](#attributes) to customize the configuration.
 
 In order to add or remove any of the optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape. In that submenu, the options to manage each mesh type can be found. See Figure 1.
@@ -45,7 +42,6 @@ In order to add or remove any of the optional meshes, a set of menu items are ex
 To add any of these meshes to AdnSimshape, follow a similar procedure to when first creating the deformer:
 
   1. First, select the **Additional Mesh**. then the **Simulated Mesh**.
-        
   2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
   3. A message box will notify that the action has been successful.
 
