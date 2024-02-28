@@ -268,7 +268,7 @@ The AMP file is generated from the Learn Muscle Patches tool:
 1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png) or go to the Edit Simshape submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
 2. Add the neutral mesh.
 3. Add the target meshes.
-4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation.
+4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation. If *Add Selected* is pressed with no selection it will display a pop-up and inform that all vertices will be used for the learning process. This button has to necessarily be pressed to enable the execution of the learning process.
 5. Browse or specify the destination AMP file.
 6. Configure custom settings for the learning algorithm.
 7. Press **Execute**.
