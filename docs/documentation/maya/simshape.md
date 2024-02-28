@@ -217,7 +217,7 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
 ![skin editor debug menu](images/simshape_debug.png)
-<figcaption><b>Figure 4:</b> AdnSimshape Muscle Fibers and Collision Constraints debugging</figcaption>
+<figcaption><b>Figure 5:</b> AdnSimshape Muscle Fibers and Collision Constraints debugging</figcaption>
 </figure>
 
 # Advanced
@@ -227,7 +227,7 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
 
 <figure markdown>
   ![Activation modes from attribute editor](images/activation_modes.png)
-  <figcaption><b>Figure 5:</b> Activation Modes switch exposed in the Attribute Editor</figcaption>
+  <figcaption><b>Figure 6:</b> Activation Modes switch exposed in the Attribute Editor</figcaption>
 </figure>
 
 !!! abstract "Activations Modes"
@@ -262,7 +262,7 @@ The AMP file is generated from the Learn Muscle Patches tool:
 
 <figure style="float: right; width: 40%; padding-left: 5px;">
   <img src="images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
-  <figcaption><b>Figure 6:</b> Learn Muscle Patches UI</figcaption>
+  <figcaption><b>Figure 7:</b> Learn Muscle Patches UI</figcaption>
 </figure>
 
 1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png) or go to the Edit Simshape submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
@@ -276,7 +276,7 @@ The AMP file is generated from the Learn Muscle Patches tool:
 <br>
 <figure style="width: 25%;" markdown>
   ![Simshape draw muscle patches example](images/nassim_draw_muscle_patches.png)
-  <figcaption><b>Figure 7:</b> Example of muscle patches generated with the Learn Muscle Patches UI</figcaption>
+  <figcaption><b>Figure 8:</b> Example of muscle patches generated with the Learn Muscle Patches UI</figcaption>
 </figure>
 
 Additional custom settings for the learning algorithm:
@@ -295,7 +295,7 @@ AdnSimshape integrates a debug mode to visualize the activations during the simu
 
 <figure style="width: 30%" markdown>
   ![Learn Muscle Patches UI window](images/nassim_debug.png)
-  <figcaption><b>Figure 8:</b> Example of AdnSimshape running in Debug mode</figcaption>
+  <figcaption><b>Figure 9:</b> Example of AdnSimshape running in Debug mode</figcaption>
 </figure>
 
 
@@ -353,10 +353,10 @@ Apart from [*Compute Collisions*](#collision-settings), [*Keep Orientation*](#co
 
 <figure style="width:45%" markdown> 
   ![Slide collision paint example](images/slide_collision_paint_example.png) 
-  <figcaption><b>Figure 9:</b> Slide Collision Constraints painted values.</figcaption> 
+  <figcaption><b>Figure 10:</b> Slide Collision Constraints painted values.</figcaption> 
 </figure>
 
 <figure style="width:45%;" markdown> 
   ![Collision threshold paint example](images/collision_threshold_paint_example.png) 
-  <figcaption><b>Figure 10:</b> Collision Threshold Multiplier painted values to 0.2 for the whole mesh.</figcaption> 
+  <figcaption><b>Figure 11:</b> Collision Threshold Multiplier painted values to 0.2 for the whole mesh.</figcaption> 
 </figure>
