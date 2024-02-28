@@ -14,7 +14,7 @@ The Edge Evaluator Node requires the following inputs to be provided:
 
 <figure markdown>
   ![Edge Evaluator node](images/edge_evaluator.png)
-  <figcaption><b>Figure 1</b>: Edge Evaluator Attribute Editor</figcaption>
+  <figcaption><b>Figure 1</b>: Edge Evaluator Graph Editor</figcaption>
 </figure>
 
 ## Create the Edge Evaluator Node
@@ -34,7 +34,7 @@ The Edge Evaluator Node requires the following inputs to be provided:
 
 <figure markdown>
   ![Edge Evaluator editor](images/attribute_editor_edge_evaluator.png)
-  <figcaption><b>Figure 1</b>: Edge Evaluator Attribute Editor</figcaption>
+  <figcaption><b>Figure 2</b>: Edge Evaluator Attribute Editor</figcaption>
 </figure>
 
 # Advanced
@@ -50,5 +50,5 @@ In order to disconnect the plug, repeat the selection and instead of pressing *C
 
 <figure markdown>
   ![Edge Evaluator example](images/edge_evaluator_example.png)
-  <figcaption><b>Figure 1</b>: AdnSimshape deformer with activations provided by the AdnEdgeEvaluator node (activations debugger enabled)</figcaption>
+  <figcaption><b>Figure 3</b>: AdnSimshape deformer with activations provided by the AdnEdgeEvaluator node (activations debugger enabled)</figcaption>
 </figure>
