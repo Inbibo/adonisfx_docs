@@ -103,7 +103,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
  - **Stretching Multiplier** (Float, 1.0, Keyable): Sets the scaling factor applied to the stretching resistance of every point.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Attenuation Velocity Factor** (Float, 1.0, Keyable): Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the Attenuation Matrix.
+ - **Attenuation Velocity Factor** (Float, 1.0, Keyable): Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*.
     - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
  - **Hard Attachments** (Boolean, True, Keyable): If enabled, attachment constraints will force the vertices to stick to the target transformation completely.
 
