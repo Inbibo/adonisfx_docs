@@ -25,10 +25,10 @@ The Edge Evaluator Node requires the following inputs to be provided:
 # Attributes
 
 #### Time Attributes
-- **Initialization Time** (Time, *Current frame*): Sets the frame at which the data will be initialized.
+- **Initialization Time** (Time, *Current frame*, Not animatable): Sets the frame at which the data will be initialized.
 
 #### Compression Remap
-- **Compression Remap** (Ramp Attribute): Curve to remap the output compression map.
+- **Compression Remap** (Ramp Attribute, Not animatable): Curve to remap the output compression map.
 
 ## Attribute Editor Template
 
