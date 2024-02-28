@@ -34,20 +34,20 @@ There are two different methods of creating an AdnSensorPosition, depending if w
 ### Attributes
 
 #### Input
- - **Position** (Float3, {0.0. -1.0, 0.0}): Current transform node position.
+ - **Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): Current transform node position.
 
 #### Output
- - **Velocity** (Float, 0.0): Magnitude of the velocity of the transform node.
- - **Acceleration** (Float, 0.0): Magnitude of the acceleration of the transform node.
+ - **Velocity** (Float, 0.0, Not animatable): Magnitude of the velocity of the transform node.
+ - **Acceleration** (Float, 0.0, Not animatable): Magnitude of the acceleration of the transform node.
 
 #### Time Attributes
- - **Start Time** (Time, *Current frame*): Determines the frame at which the playback/simulation starts.
- - **Current Time** (Time, *Current frame*): Current playback frame.
+ - **Start Time** (Time, *Current frame*, Not animatable): Determines the frame at which the playback/simulation starts.
+ - **Current Time** (Time, *Current frame*, Not animatable): Current playback frame.
 
 #### Scale Attributes
- - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the compute the velocity or acceleration.
+ - **Time Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the compute the velocity or acceleration.
     - Has a range of \[0.001, 10.0\]. Upper limit soft, higher values can be used.
- - **Space Scale** (Float, 1.0): Sets the scaling factor applied to velocity or acceleration.
+ - **Space Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to velocity or acceleration.
     - Has a range of \[0.001, 100.0\]. Upper limit soft, higher values can be used.
 
 ## AdnSensorDistance
@@ -82,22 +82,22 @@ There are two different methods of creating an AdnSensorDistance, depending if w
 ### Attributes
 
 #### Input
- - **Start Position** (Float3, {0.0. -1.0, 0.0}): Start transform node position.
- - **End Position** (Float3, {0.0. -1.0, 0.0}): End transform node position.
+ - **Start Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): Start transform node position.
+ - **End Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): End transform node position.
 
 #### Output
- - **Distance** (Float, 0.0): Magnitude of the distance between the transform nodes.
- - **Velocity** (Float, 0.0): Magnitude of the velocity between the transform nodes.
- - **Acceleration** (Float, 0.0): Magnitude of the acceleration between the transform nodes.
+ - **Distance** (Float, 0.0, Not animatable): Magnitude of the distance between the transform nodes.
+ - **Velocity** (Float, 0.0, Not animatable): Magnitude of the velocity between the transform nodes.
+ - **Acceleration** (Float, 0.0, Not animatable): Magnitude of the acceleration between the transform nodes.
 
 #### Time Attributes
- - **Start Time** (Time, *Current frame*): Determines the frame at which the playback/simulation starts.
- - **Current Time** (Time, *Current frame*): Current playback frame.
+ - **Start Time** (Time, *Current frame*, Not animatable): Determines the frame at which the playback/simulation starts.
+ - **Current Time** (Time, *Current frame*, Not animatable): Current playback frame.
 
 #### Scale Attributes
- - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the compute the velocity or acceleration.
+ - **Time Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the compute the velocity or acceleration.
     - Has a range of \[0.001, 10.0\]. Upper limit soft, higher values can be used.
- - **Space Scale** (Float, 1.0): Sets the scaling factor applied to velocity or acceleration.
+ - **Space Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to velocity or acceleration.
     - Has a range of \[0.001, 100.0\]. Upper limit soft, higher values can be used.
 
 ## AdnSensorRotation
@@ -132,24 +132,22 @@ There are two different methods of creating an AdnSensorRotation, depending if w
 ### Attributes
 
 #### Input
- - **Start Position** (Float3, {0.0. -1.0, 0.0}): Start transform node position.
- - **Mid Position** (Float3, {0.0. -1.0, 0.0}): Mid transform node position.
- - **End Position** (Float3, {0.0. -1.0, 0.0}): End transform node position.
+ - **Start Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): Start transform node position.
+ - **Mid Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): Mid transform node position.
+ - **End Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): End transform node position.
 
 #### Output
- - **Angle** (Float, 0.0): Magnitude of the angle between the three transform nodes.
- - **Velocity** (Float, 0.0): Magnitude of the angular velocity between the three transform nodes.
- - **Acceleration** (Float, 0.0): Magnitude of the angular acceleration between the three transform nodes.
+ - **Angle** (Float, 0.0, Not animatable): Magnitude of the angle between the three transform nodes.
+ - **Velocity** (Float, 0.0, Not animatable): Magnitude of the angular velocity between the three transform nodes.
+ - **Acceleration** (Float, 0.0, Not animatable): Magnitude of the angular acceleration between the three transform nodes.
 
 #### Time Attributes
- - **Start Time** (Time, *Current frame*): Determines the frame at which the playback/simulation starts.
- - **Current Time** (Time, *Current frame*): Current playback frame.
+ - **Start Time** (Time, *Current frame*, Not animatable): Determines the frame at which the playback/simulation starts.
+ - **Current Time** (Time, *Current frame*, Not animatable): Current playback frame.
 
 #### Scale Attributes
- - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the compute the velocity or acceleration.
+ - **Time Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the compute the velocity or acceleration.
     - Has a range of \[0.001, 10.0\]. Upper limit soft, higher values can be used.
- - **Space Scale** (Float, 1.0): Sets the scaling factor applied to velocity or acceleration.
-    - Has a range of \[0.001, 100.0\]. Upper limit soft, higher values can be used.
 
 ## Connecting sensors to deformers
 

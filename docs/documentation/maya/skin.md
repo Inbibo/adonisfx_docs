@@ -69,7 +69,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 <figure>
   <img src="images/skin_paint_example.png" caption="AdonisFX Paint Tool"> 
-  <figcaption><b>Figure 1</b>: Example of painted weights on the skin of a bear character. From left to right: Hard Constraints, Slide Constraints and Soft Constraints.</figcaption>
+  <figcaption><b>Figure 1</b>: Example of painted weights on the skin of a bear character, labeled as:<br/><b>a)</b> Hard Constraints, <b>b)</b> Slide Constraints, <b>c)</b> Soft Constraints, <b>d)</b> Compression Resistance,<br/><b>e)</b> Stretching Resistance, <b>f)</b> Global Damping Max, <b>g)</b> Sliding Multiplier, <b>h)</b> Mass</figcaption>
 </figure>
 
 > [!NOTE]
@@ -78,78 +78,78 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 # Attributes
 
 #### Solver Attributes
- - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
- - **Iterations** (Integer, 3): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
+ - **Enable** (Boolean, True, Animatable): Flag to enable or disable the deformer computation.
+ - **Iterations** (Integer, 3, Animatable): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
      - Has a range of \[1, 10\]. Upper limit is soft, higher values can be used.
- - **Material** (Enumerator, "Leather"): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
+ - **Material** (Enumerator, "Leather", Animatable): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
     <ul><li>Fat: 10^7^</li><li>Muscle: 5e^3^</li><li>Rubber: 10^6^</li><li>Tendon: 5e^7^</li><li>Leather: 10^8^</li><li>Wood: 6e^9^</li><li>Concrete: 2.5e^10^</li></ul>
- - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
+ - **Stiffness Multiplier** (Float, 1.0, Animatable): Multiplier factor to scale up or down the material stiffness.
      - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
 
 #### Time Attributes
- - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
- - **Start Time** (Time, *Current frame*): Determines the frame at which the simulation starts.
- - **Current Time** (Time, *Current frame*): Current playback frame.
+ - **Preroll Start Time** (Time, *Current frame*, Not animatable): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
+ - **Start Time** (Time, *Current frame*, Not animatable): Determines the frame at which the simulation starts.
+ - **Current Time** (Time, *Current frame*, Not animatable): Current playback frame.
 
 #### Scale Attributes
- - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the simulation time step.
+ - **Time Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the simulation time step.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces.
+ - **Space Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the masses and/or the forces. Adonis interprets the scene units in meters. Because of that, to simulate external forces in the right scale, the *Space Scale* may need to be adjusted. For example, to apply *Gravity* with a value of 9.8 m/s^2^, the *Space Scale* should be set to 0.01.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Space Scale Mode** (Enumerator, "Masses + Forces"): Determines if the spatial scaling affects the masses, the forces, or both. The available options are:
+ - **Space Scale Mode** (Enumerator, "Masses + Forces", Animatable): Determines if the spatial scaling affects the masses, the forces, or both. The available options are:
     - Masses: The *Space Scale* only affects masses.
     - Forces: The *Space Scale* only affects forces.
     - Masses + Forces: The *Space Scale* only affects masses and forces.
 
 #### Gravity
- - **Gravity** (Float, 0.0): Sets the magnitude of the gravity acceleration.
+ - **Gravity** (Float, 0.0, Animatable): Sets the magnitude of the gravity acceleration.
     - Has a range of \[0.0, 100.0\]. Upper limit is soft, higher values can be used.
- - **Gravity Direction** (Float3, {0.0. -1.0, 0.0}): Sets the direction of the gravity acceleration.
+ - **Gravity Direction** (Float3, {0.0. -1.0, 0.0}, Animatable): Sets the direction of the gravity acceleration.
     - Vectors introduced do not need to be normalized, but they will get normalized internally.
 
 ### Advanced Settings
 
 #### Stiffness Settings
- - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
+ - **Use Custom Stiffness** (Boolean, False, Animatable): Toggles the use of a custom stiffness value.
     - If we use a custom stiffness, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead.
- - **Stiffness** (Float, 10^5^): Sets the custom stiffness value.
+ - **Stiffness** (Float, 10^5^, Animatable): Sets the custom stiffness value.
     - Its value must be greater than 0.0.
 
 #### Dynamic Properties
- - **Global Mass Multiplier** (Float, 1.0): Sets the scaling factor applied to the mass of every point.
+ - **Global Mass Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the mass of every point.
     - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
- - **Global Damping** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
+ - **Global Damping** (Float, 0.75, Animatable): Sets the scaling factor applied to the global damping of every point.
     - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
- - **Inertia Damper** (Float, 0.0): Sets the linear damping applied to the dynamics of every point.
+ - **Inertia Damper** (Float, 0.0, Animatable): Sets the linear damping applied to the dynamics of every point.
     - Has a range of \[0.0, 1.0\].
- - **Rest Length Multiplier** (Float, 1.0): Sets the scaling factor applied to the edge lengths at rest.
+ - **Rest Length Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the edge lengths at rest.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Max Sliding Distance** (Float, 0.5): Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization.
+ - **Max Sliding Distance** (Float, 0.5, Animatable): Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization.
     - The higher this value is, the higher quality and the lower performance.
     - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
- - **Compression Multiplier** (Float, 1.0): Sets the scaling factor applied to the compression resistance of every point.
+ - **Compression Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the compression resistance of every point.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
+ - **Stretching Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the stretching resistance of every point.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Attenuation Velocity Factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the *Attenuation Matrix*.
+ - **Attenuation Velocity Factor** (Float, 1.0, Animatable): Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*.
     - Has a range of \[0.0, 1.0\].
- - **Sliding Constraints Mode** (Enumerator, "Fast"): Defines the mode of execution for the sliding constraints.
+ - **Sliding Constraints Mode** (Enumerator, "Fast", Animatable): Defines the mode of execution for the sliding constraints.
     - *Quality* is more accurate, recommended for final results.
     - *Fast* provides higher performance, recommended for preview.
 
 ### Debug attributes
 
- - **Debug** (Boolean, False): Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer.
- - **Feature** (Enumerator, "Hard Constraints"): A list of debuggable features for this deformer.
+ - **Debug** (Boolean, False, Not animatable): Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer.
+ - **Feature** (Enumerator, "Hard Constraints", Not animatable): A list of debuggable features for this deformer.
      - Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh to the reference mesh.
      - Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the reference mesh.
      - Slide Constraints: Draw *Slide Constraints* connections from the simulated mesh to the reference mesh.
- - **Width Scale** (Float, 3.0): Modifies the width of all lines.
- - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
+ - **Width Scale** (Float, 3.0, Not animatable): Modifies the width of all lines.
+ - **Color** (Color picker, Not animatable): Selects the line color from a color wheel. Its saturation can be modified using the slider.
 
 ### Connectable attributes
- - **Attenuation Matrix** (Matrix, Identity): Transformation matrix to drive the attenuation.
- - **Reference Mesh** (Mesh): Mesh taken as reference to evaluate external constraints.
+ - **Attenuation Matrix** (Matrix, Identity, Not animatable): Transformation matrix to drive the attenuation.
+ - **Reference Mesh** (Mesh, Not animatable): Mesh taken as reference to evaluate external constraints.
 
 ## Attribute Editor Template
 
@@ -186,5 +186,5 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![skin editor debug example](images/skin_debug.png)
-  <figcaption><b>Figure 5</b>: Debugger enabled displaying *Hard Constraints*, slide constraints and soft constraints with different configurations. </figcaption>
+  <figcaption><b>Figure 5</b>: Debugger enabled displaying <i>Hard Constraints</i>, <i>Slide Constraints</i> and <i>Soft Constraints</i> with different configurations. </figcaption>
 </figure>
