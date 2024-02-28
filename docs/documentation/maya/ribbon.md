@@ -12,8 +12,8 @@ The AdnRibbonMuscle deformer is of great simplicity to set up and apply to a mes
 
 To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs must be provided:
 
-- <b class="mesh_color"> Attachments (A):</b> Attachment anchors to which the simulated muscle will be attached to. Any transform node can be used (e.g. bones, locators, meshes, etc). This input is optional and unlimited.
-- <b class="mesh_color"> Muscle Geometry (M):</b> Mesh that the AdnRibbonMuscle deformer will be applied to.
+- **Attachments (A)**: Attachment anchors to which the simulated muscle will be attached to. Any transform node can be used (e.g. bones, locators, meshes, etc). This input is optional and unlimited.
+- **Muscle Geometry (M)**: Mesh that the AdnRibbonMuscle deformer will be applied to.
 
 > [!NOTE]
 > - It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. Attachments can be added and remove after creating the deformer. For more information check the [advanced section](#attachments).
@@ -55,73 +55,73 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 # Attributes
 
 #### Solver Attributes
- - **Enable** (Boolean, True): Flag to enable or disable the deformer computation.
- - **Iterations** (Integer, 10): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
+ - **Enable** (Boolean, True, Animatable): Flag to enable or disable the deformer computation.
+ - **Iterations** (Integer, 10, Animatable): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
      - Has a range of \[1, 10\]. Upper limit is soft, higher values can be used.
- - **Material** (Enumerator, "Muscle"): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
+ - **Material** (Enumerator, "Muscle", Animatable): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
     <ul><li>Fat: 10<sup>3</sup></li><li>Muscle: 5e<sup>3</sup></li><li>Rubber: 10<sup>6</sup></li><li>Tendon: 5e<sup>7</sup></li><li>Leather: 10<sup>6</sup></li><li>Wood: 6e<sup>9</sup></li><li>Concrete: 2.5e<sup>10</sup></li></ul>
- - **Stiffness Multiplier** (Float, 1.0): Multiplier factor to scale up or down the material stiffness.
+ - **Stiffness Multiplier** (Float, 1.0, Animatable): Multiplier factor to scale up or down the material stiffness.
      - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Activation** (Float, 0.0): Current activation of the deformed ribbon muscle. The activation modifies the stiffness of the muscle depending on the fibers direction of the muscle.
+ - **Activation** (Float, 0.0, Animatable): Current activation of the deformed ribbon muscle. The activation modifies the stiffness of the muscle depending on the fibers direction of the muscle.
      - Has a range of \[0.0, 1.0\]
- - **Rest Activation** (Float, 0.0): Value representing the amount of rest activation to apply to the muscle.
+ - **Rest Activation** (Float, 0.0, Animatable): Value representing the amount of rest activation to apply to the muscle.
      - Has a range of \[0.0, 1.0\]
 
 #### Time Attributes
- - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
- - **Start Time** (Time, *Current frame*): Determines the frame at which the simulation starts.
- - **Current Time** (Time, *Current frame*): Current playback frame.
+ - **Preroll Start Time** (Time, *Current frame*, Not animatable): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
+ - **Start Time** (Time, *Current frame*, Not animatable): Determines the frame at which the simulation starts.
+ - **Current Time** (Time, *Current frame*, Not animatable): Current playback frame.
 
 #### Scale Attributes
- - **Time Scale** (Float, 1.0): Sets the scaling factor applied to the simulation time step.
+ - **Time Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the simulation time step.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Space Scale** (Float, 1.0): Sets the scaling factor applied to the masses and/or the forces.
+ - **Space Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the masses and/or the forces. Adonis interprets the scene units in meters. Because of that, to simulate external forces in the right scale, the *Space Scale* may need to be adjusted. For example, to apply *Gravity* with a value of 9.8 m/s^2^, the *Space Scale* should be set to 0.01.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
 
 #### Gravity
- - **Gravity** (Float, 0.0): Sets the magnitude of the gravity acceleration.
+ - **Gravity** (Float, 0.0, Animatable): Sets the magnitude of the gravity acceleration.
     - Has a range of \[0.0, 100.0\]. Upper limit is soft, higher values can be used.
- - **Gravity Direction** (Float3, {0.0. -1.0, 0.0}): Sets the direction of the gravity acceleration.
+ - **Gravity Direction** (Float3, {0.0. -1.0, 0.0}, Animatable): Sets the direction of the gravity acceleration.
     - Vectors introduced do not need to be normalized, but they will get normalized internally.
 
 ### Advanced Settings
 
 #### Stiffness Settings
- - **Use Custom Stiffness** (Boolean, False): Toggles the use of a custom stiffness value.
+ - **Use Custom Stiffness** (Boolean, False, Animatable): Toggles the use of a custom stiffness value.
     - If use a custom stiffness is selected, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead.
- - **Stiffness** (Float, 10<sup>5</sup>): Sets the custom stiffness value.
+ - **Stiffness** (Float, 10<sup>5</sup>, Animatable): Sets the custom stiffness value.
     - Its value must be greater than 0.0.
 
 #### Dynamic Properties
- - **Global Damping Multiplier** (Float, 0.75): Sets the scaling factor applied to the global damping of every point.
+ - **Global Damping Multiplier** (Float, 0.75, Animatable): Sets the scaling factor applied to the global damping of every point.
     - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
- - **Inertia Damper** (Float, 0.0): Sets the linear damping applied to the dynamics of every point.
+ - **Inertia Damper** (Float, 0.0, Animatable): Sets the linear damping applied to the dynamics of every point.
     - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
- - **Rest Length Multiplier** (Float, 1.0): Sets the scaling factor applied to the edge lengths at rest.
+ - **Rest Length Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the edge lengths at rest.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Compression Multiplier** (Float, 1.0): Sets the scaling factor applied to the compression resistance of every point.
+ - **Compression Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the compression resistance of every point.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Stretching Multiplier** (Float, 1.0): Sets the scaling factor applied to the stretching resistance of every point.
+ - **Stretching Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the stretching resistance of every point.
     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Attenuation Velocity Factor** (Float, 1.0): Sets the weight of the attenuation applied to the whole simulation driven by the Attenuation Matrix.
+ - **Attenuation Velocity Factor** (Float, 1.0, Animatable): Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*.
     - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
- - **Hard Attachments** (Boolean, True): If enabled, attachment constraints will force the vertices to stick to the target transformation completely.
+ - **Hard Attachments** (Boolean, True, Animatable): If enabled, attachment constraints will force the vertices to stick to the target transformation completely.
 
 ### Debugger attributes
- - **Debug** (Boolean, False): Enable or Disable the debug functionalities in the viewport for the AdnRibbonMuscle deformer.
- - **Feature** (Enumerator, "Muscle Fibers"): A list of debuggable features for this deformer.
+ - **Debug** (Boolean, False, Not animatable): Enable or Disable the debug functionalities in the viewport for the AdnRibbonMuscle deformer.
+ - **Feature** (Enumerator, "Muscle Fibers", Not animatable): A list of debuggable features for this deformer.
      - Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface.
      - Attachment Constraints: Draw *Attachment Constraints* connections from the simulated mesh to the attachments.
      - Slide On Segment: Draw *Slide On Segment* connections from the simulated mesh to the segment the simulated mesh is sliding on.
- - **Width Scale** (Float, 1.0): Modifies the width of all lines.
- - **Color** (Color picker): Selects the line color from a color wheel. Its saturation can be modified using the slider.
- - **Fiber Scale** (Float, 3.0): The scale can be modified to set a custom fiber length.
+ - **Width Scale** (Float, 1.0, Not animatable): Modifies the width of all lines.
+ - **Color** (Color picker, Not animatable): Selects the line color from a color wheel. Its saturation can be modified using the slider.
+ - **Fiber Scale** (Float, 3.0, Not animatable): The scale can be modified to set a custom fiber length.
 
 ### Connectable attributes
- - **Attenuation Matrix** (Matrix, Identity): Transformation matrix to drive the attenuation.
- - **Attachment Matrix** (Matrix, Identity): List of attachment matrices  (from a compound attribute) used for setting up attachments.
- - **Slide On Segment Root Matrix** (Matrix, Identity): List of root matrices (from a compound attribute) used for setting up segments of slide on segment constraints.
- - **Slide On Segment Tip Matrix** (Matrix, Identity): List of tip matrices (from a compound attribute) used for setting up segments of slide on segment constraints.
+ - **Attenuation Matrix** (Matrix, Identity, Not animatable): Transformation matrix to drive the attenuation.
+ - **Attachment Matrix** (Matrix, Identity, Not animatable): List of attachment matrices  (from a compound attribute) used for setting up attachments.
+ - **Slide On Segment Root Matrix** (Matrix, Identity, Not animatable): List of root matrices (from a compound attribute) used for setting up segments of slide on segment constraints.
+ - **Slide On Segment Tip Matrix** (Matrix, Identity, Not animatable): List of tip matrices (from a compound attribute) used for setting up segments of slide on segment constraints.
 
 ## Attribute Editor Template
 

@@ -27,16 +27,16 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 ### Attributes
 
 #### Input
- - **Position** (Float3, {0.0. 0.0, 0.0}): Current transform node position.
+ - **Position** (Float3, {0.0. 0.0, 0.0}, Not animatable): Current transform node position.
 
 #### Activation Values
- - **Velocity** (Float, 0.0): Magnitude of the velocity (remapped) of the transform node.
- - **Acceleration** (Float, 0.0): Magnitude of the acceleration (remapped) of the transform node.
+ - **Velocity** (Float, 0.0, Not animatable): Magnitude of the velocity (remapped) of the transform node.
+ - **Acceleration** (Float, 0.0, Not animatable): Magnitude of the acceleration (remapped) of the transform node.
 
 #### Draw
- - **Scale** (Float, 1.0): Sets the scaling factor applied to the position locator visualizer.
+ - **Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the position locator visualizer.
     - Has a range of \[0.0, 10.0\]. Upper limit soft, higher values can be used.
- - **Draw Output** (Enumerator, "Velocity"): Selects the property of the locator to be visualized on the locator visualizer.
+ - **Draw Output** (Enumerator, "Velocity", Animatable): Selects the property of the locator to be visualized on the locator visualizer.
     - **Velocity:** Color the visualizer of the locator according to the input velocity activation.
     - **Acceleration:** Color the visualizer of the locator according to the input acceleration activation.
 
@@ -64,18 +64,18 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 ### Attributes
 
 #### Input
- - **Start Position** (Float3, {0.0. 0.0, 0.0}): Start transform node position.
- - **End Position** (Float3, {0.0. 0.0, 0.0}): End transform node position.
+ - **Start Position** (Float3, {0.0. 0.0, 0.0}, Not animatable): Start transform node position.
+ - **End Position** (Float3, {0.0. 0.0, 0.0}, Not animatable): End transform node position.
 
 #### Activation Values
- - **Distance** (Float, 0.0): Magnitude of the distance (remapped) between the transform nodes.
- - **Velocity** (Float, 0.0): Magnitude of the velocity (remapped) between the transform nodes.
- - **Acceleration** (Float, 0.0): Magnitude of the acceleration (remapped) between the transform nodes.
+ - **Distance** (Float, 0.0, Not animatable): Magnitude of the distance (remapped) between the transform nodes.
+ - **Velocity** (Float, 0.0, Not animatable): Magnitude of the velocity (remapped) between the transform nodes.
+ - **Acceleration** (Float, 0.0, Not animatable): Magnitude of the acceleration (remapped) between the transform nodes.
 
 #### Draw
- - **Scale** (Float, 1.0): Sets the scaling factor applied to the distance locator visualizer.
+ - **Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the distance locator visualizer.
     - Has a range of \[0.0, 10.0\]. Upper limit soft, higher values can be used.
- - **Draw Output** (Enumerator, "Distance"): Selects the property of the locator to be visualized on the locator visualizer.
+ - **Draw Output** (Enumerator, "Distance", Animatable): Selects the property of the locator to be visualized on the locator visualizer.
     - **Distance:** Color the visualizer of the locator according to the input distance activation.
     - **Velocity:** Color the visualizer of the locator according to the input velocity activation.
     - **Acceleration:** Color the visualizer of the locator according to the input acceleration activation.
@@ -107,19 +107,19 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 ### Attributes
 
 #### Input
- - **Start Position** (Float3, {0.0. 0.0, 0.0}): Start transform node position.
- - **Mid Position** (Float3, {0.0. 0.0, 0.0}): Mid transform node position.
- - **End Position** (Float3, {0.0. 0.0, 0.0}): End transform node position.
+ - **Start Position** (Float3, {0.0. 0.0, 0.0}, Not animatable): Start transform node position.
+ - **Mid Position** (Float3, {0.0. 0.0, 0.0}, Not animatable): Mid transform node position.
+ - **End Position** (Float3, {0.0. 0.0, 0.0}, Not animatable): End transform node position.
 
 #### Activation Values
- - **Angle** (Float, 0.0): Magnitude of the angle (remapped) between the three transform nodes.
- - **Velocity** (Float, 0.0): Magnitude of the angular velocity (remapped) between the three transform nodes.
- - **Acceleration** (Float, 0.0): Magnitude of the angular acceleration (remapped) between the three transform nodes.
+ - **Angle** (Float, 0.0, Not animatable): Magnitude of the angle (remapped) between the three transform nodes.
+ - **Velocity** (Float, 0.0, Not animatable): Magnitude of the angular velocity (remapped) between the three transform nodes.
+ - **Acceleration** (Float, 0.0, Not animatable): Magnitude of the angular acceleration (remapped) between the three transform nodes.
 
 #### Draw
- - **Scale** (Float, 1.0): Sets the scaling factor applied to the rotation locator visualizer.
+ - **Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the rotation locator visualizer.
     - Has a range of \[0.0, 10.0\]. Upper limit soft, higher values can be used.
- - **Draw Output** (Enumerator, "Angle"): Selects the property of the locator to be visualized on the locator visualizer.
+ - **Draw Output** (Enumerator, "Angle", Animatable): Selects the property of the locator to be visualized on the locator visualizer.
     - **Angle:** Color the visualizer of the locator according to the input angle activation.
     - **Velocity:** Color the visualizer of the locator according to the input velocity activation.
     - **Acceleration:** Color the visualizer of the locator according to the input acceleration activation.
