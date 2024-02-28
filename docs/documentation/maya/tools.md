@@ -128,7 +128,7 @@ In the specific case of AdnMuscle deformers, the AdonisFX Paint Tool will displa
 
     <figure>
       <img src="images/paint_tool_sos_attribute.png"> 
-      <figcaption><b>Figure 7</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
+      <figcaption><b>Figure 8</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
     </figure>
 
 To find a more precise example for setting up this deformer refer to the documentation page [muscle](muscle.md).
@@ -139,7 +139,7 @@ In the specific case of an AdnSkin deformer, the AdonisFX Paint Tool will displa
 
 <figure markdown> 
   ![Pain Tool Skin Attributes example](images/paint_tool_skin_attributes.png) 
-  <figcaption><b>Figure 8</b>: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
+  <figcaption><b>Figure 9</b>: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
 </figure>
 
   - **Hard Constraints**
@@ -172,7 +172,7 @@ To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *C
 
 <figure markdown> 
   ![Connection Editor](images/sensor_conection_editor_empty.png) 
-  <figcaption><b>Figure 9</b>: Sensor connection editor after opening it for the first time. </figcaption>
+  <figcaption><b>Figure 10</b>: Sensor connection editor after opening it for the first time. </figcaption>
 </figure>
 
 Two main sections can be distinguished in this tool, labeled *source* and *destination*. In the source section the [sensors](sensors.md), alongside their signal attributes, will get displayed and in the destination section the **deformers**, alongside their possible input attributes, will get displayed.
@@ -183,7 +183,7 @@ For Source elements (sensors) press the *Reload Left* button and for Destination
 
 <figure markdown> 
   ![Connection Editor Setup](images/sensor_conection_editor.png) 
-  <figcaption><b>Figure 10</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
+  <figcaption><b>Figure 11</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
 </figure>
 
 To make the connections select the two specific attribute to connect (one from *source* and one from *destination*) and press the *Make Connection* button. A message will then get displayed informing that the connection has been properly made (if nothing failed).
