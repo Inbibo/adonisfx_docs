@@ -87,9 +87,9 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
      - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
 
 #### Time Attributes
- - **Preroll Start Time** (Time, *Current frame*): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
- - **Start Time** (Time, *Current frame*): Determines the frame at which the simulation starts.
- - **Current Time** (Time, *Current frame*): Current playback frame.
+ - **Preroll Start Time** (Time, *Current frame*, Not keyable): Sets the frame at which the preroll begins. The preroll ends at *Start Time*.
+ - **Start Time** (Time, *Current frame*, Not keyable): Determines the frame at which the simulation starts.
+ - **Current Time** (Time, *Current frame*, Not keyable): Current playback frame.
 
 #### Scale Attributes
  - **Time Scale** (Float, 1.0, Keyable): Sets the scaling factor applied to the simulation time step.
