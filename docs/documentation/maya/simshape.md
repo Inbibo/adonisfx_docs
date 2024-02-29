@@ -73,7 +73,19 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 
 # Attributes
 
+<!--
+| **** |  |  |  |  |
+| **** |  |  |  |  |
+| **** |  |  |  |  |
+-->
+
 #### Solver Attributes
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Enable** | Boolean | True | Yes | Flag to enable or disable the deformer computation. |
+| **Iterations** | Integer | 3 | Yes | Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost. Has a range of \[1, 10\]. Upper limit is soft, higher values can be used. |
+| **Material** | Enumerator | "Leather" | Yes | Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets: <ul><li>Fat: 10<sup>3</sup></li><li>Muscle: 5e<sup>3</sup></li><li>Rubber: 10<sup>6</sup></li><li>Tendon: 5e<sup>7</sup></li><li>Leather: 10<sup>6</sup></li><li>Wood: 6e<sup>9</sup></li><li>Concrete: 2.5e<sup>10</sup></li></ul> |
+<!--
  - **Enable** (Boolean, True, Animatable): Flag to enable or disable the deformer computation.
  - **Iterations** (Integer, 3, Animatable): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
      - Has a range of \[1, 10\]. Upper limit is soft, higher values can be used.
@@ -81,8 +93,18 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
     <ul><li>Fat: 10<sup>3</sup></li><li>Muscle: 5e<sup>3</sup></li><li>Rubber: 10<sup>6</sup></li><li>Tendon: 5e<sup>7</sup></li><li>Leather: 10<sup>6</sup></li><li>Wood: 6e<sup>9</sup></li><li>Concrete: 2.5e<sup>10</sup></li></ul>
  - **Stiffness Multiplier** (Float, 1.0, Animatable): Multiplier factor to scale up or down the material stiffness.
      - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
+-->
 
 #### Muscles Activation Settings
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Activation Mode** | Enumerator | "No activation" | No | Mode to drive the muscle activations. There are 3 different modes: <ul><li>Muscle Patches (Disabled by default): An Adonis Muscle Patches file ([.amp](#generate-muscle-patches)) has to be provided to enable this option.</li><li>Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.</li><li>No Activation (Enabled by default): No activation is read.</li></ul> |
+| **Muscle Patches File** | String | "" | No | Path to the Adonis Muscle Patches file ([.amp](#generate-muscle-patches)). |
+| **Activation Smoothing** | Integer | 1 | No | Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be. Has a range of \[1, 20\]. Upper limit is soft, higher values can be used. |
+| **Bidirectional Activation** | Boolean | False | Not animatable | Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers. |
+| **Write Out Activation** | Boolean | False | No | Flag to toggle the writing of activations into an output plug. |
+
+ <!--
  - **Activation Mode** (Enumerator, "No Activation", Not animatable): Mode to drive the muscle activations. There are 3 different modes:
     - Muscle Patches (Disabled by default): An Adonis Muscle Patches file ([.amp](#generate-muscle-patches)) has to be provided to enable this option.
     - Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.
@@ -91,7 +113,7 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
  - **Activation Smoothing** (Integer, 1, Not animatable): Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be.
      - Has a range of \[1, 20\]. Upper limit is soft, higher values can be used.
  - **Bidirectional Activation** (Boolean, False, Not animatable): Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers.
- - **Write Out Activation** (Boolean, False, Not animatable): Flag to toggle the writing of activations into an output plug.
+ - **Write Out Activation** (Boolean, False, Not animatable): Flag to toggle the writing of activations into an output plug. -->
 
 #### Time Attributes
  - **Preroll Start Time** (Time, *Current frame*, Not animatable): Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*.
