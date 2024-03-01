@@ -22,24 +22,24 @@ The Edge Evaluator Node requires the following inputs to be provided:
 1. Select the deform mesh, then the rest mesh.
 2. Go to the AdonisFX menu > Create Nodes > *Edge Evaluator*.
 
-# Attributes
+## Attributes
 
-#### Time Attributes
+### Time Attributes
 - **Initialization Time** (Time, *Current frame*, Not animatable): Sets the frame at which the data will be initialized.
 
-#### Compression Remap
+### Compression Remap
 - **Compression Remap** (Ramp Attribute, Not animatable): Curve to remap the output compression map.
 
-## Attribute Editor Template
+### Attribute Editor Template
 
 <figure markdown>
   ![Edge Evaluator editor](images/attribute_editor_edge_evaluator.png)
   <figcaption><b>Figure 2</b>: Edge Evaluator Attribute Editor</figcaption>
 </figure>
 
-# Advanced
+## Advanced
 
-## AdnSimshape Activation using Edge Evaluator node
+### AdnSimshape Activation using Edge Evaluator node
 
 The evaluator node can be used to drive the [activations of an AdnSimshape](simshape.md#muscle-activations) deformer. It can be done by connecting the output map to the activations plug of AdnSimshape. Adonis provides a menu option to recreate this steps easily.
 
