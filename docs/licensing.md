@@ -250,7 +250,7 @@ The steps to activate the floating licensing server online are the following:
     - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
     - Make sure to open the terminal with adming priviledges.
     - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation: `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
-    - Deactivate an activated license: `TurboFloatServer.exe -deact="YOUR-PRODUCT-KEY"`
+    - Deactivate an activated license: `TurboFloatServer.exe -deact`
 3. The server is now ready and can be run with the commands explained in the **Run** section.
 
 **Offline Float Server Activation**
