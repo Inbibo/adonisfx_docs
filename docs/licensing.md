@@ -13,7 +13,7 @@ AdonisFX also distinguishes between two *Licensing Types*:
 - **Interactive:** License type that allows the user to use AdonisFX from the graphical interface of the software where AdonisFX was loaded. This licensing type is intended for users that want to build scenes, manipulate and interact with AdonisFX using visual and interactive feedback.
 - **Batch:** License type that allows the user to use AdonisFX from a batch script or terminal without the ability to use the graphical interface for manipulating the software. This licensing type is intended for users that want to run AdonisFX from a terminal to for example render a scene on the farm after setting the scene up using an Interactive License.
 
-To be able to activate AdonisFX it is required to purchase a `PRODUCT KEY`. Product keys can be purchase through Inbibo's official website [https://www.inbibo.co.uk/](https://www.inbibo.co.uk/). AdonisFX product keys have the following characteristics:
+To be able to activate AdonisFX it is required to purchase a `PRODUCT KEY`. Product keys can be purchased through Inbibo's official website [https://www.inbibo.co.uk/](https://www.inbibo.co.uk/). AdonisFX product keys have the following characteristics:
 
 - A `PRODUCT KEY` is associated to one single license type: Interactive or Batch. If the user wants to use AdonisFX both in Interactive and Batch mode, two separate product keys have to be purchased.
 - A product key consists of **28** alphanumeric characters separated by "-" which is provided to the user when purchasing AdonisFX throught the website: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
@@ -23,11 +23,13 @@ To support different ways of activating a `PRODUCT KEY`, two ways of activating 
 - **On-line Activation:** This activation mode required the user to be connected to the internet. This process allows AdonisFX to connected to the licensing server for validation and does not require the user to create XML files for the activation process.
 - **Off-line Activation:** This activation mode does not require the user to be connected to the internet. Through different XML files (activation request file and activation response file) is it possible to activate licenses on machines that do not have direct access to the internet. This activation mode requires the generation of several XML files which have to be interchanged with support for the activation process to conclude.
 
-## Node-Locked Licensings
+## Node-Locked Licensing
 
 Node-Locked Licensing in AdonisFX requires the activation of a `PRODUCT KEY` on one single machine. As commented before, this activation process can be concluded using an on-line or off-line process and requires the user to activate the product for batch and interactive modes separately.
 
-NOTE: Node-Locked Licensing is defaulted in AdonisFX. To explicitly switch to Node-Locked licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `0`.
+Node-Locked Licensing product keys can be purchased through Inbibo's official website [https://www.inbibo.co.uk/](https://www.inbibo.co.uk/).
+
+**NOTE:** Node-Locked Licensing is defaulted in AdonisFX. To explicitly switch to Node-Locked licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `0`.
 
 ### Interactive
 
@@ -59,13 +61,13 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
 
     - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
 
-4. After entering a valid product key a confirmation dialog will appear:
+4. After entering a valid product key and pressing **Activate** a confirmation dialog will appear:
     <figure style="width:80%" markdown>
-      ![Activation Add Product Key](images/adn_activated_product_key_dialog.png)
-      <figcaption><b>Figure 3:</b> Activation Add Product Key.</figcaption>
+      ![Product Activated Dialog](images/adn_activated_product_key_dialog.png)
+      <figcaption><b>Figure 3:</b> Product Activated Dialog.</figcaption>
     </figure>
 
-    NOTE: If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to try the activation again.
+    **NOTE:** If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to try the activation.
     <figure style="width:80%" markdown>
       ![Activation Retry Adding Product Key](images/adn_try_again_product_key_dialog.png)
       <figcaption><b>Figure 4:</b> Activation Retry Adding Product Key.</figcaption>
@@ -95,7 +97,7 @@ To activate AdonisFX in Offline Node-Locked Interactive mode:
 8. Execute `OfflineReponse` from `AdonisFX/bin` with admin priviledges.
 9. Select **Interactive** mode again by entering the value `0`.
 10. The response will be registered and AdonisFX will be ready to be used.
-    - Once the activation period has concluded, a new activation request and reponse has to be generated.
+    - Once the activation period has concluded, a new activation request and reponse have to be generated.
 
 ### Batch
 
@@ -134,19 +136,21 @@ To activate AdonisFX in Offline Node-Locked Batch mode:
 9. Select **Batch** mode again by entering the value `1`.
 10. The response will be registered and AdonisFX will be ready to be used.
     - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
-    - Once the activation period has concluded, a new activation request and reponse has to be generated.
+    - Once the activation period has concluded, a new activation request and reponse have to be generated.
+
+**NOTE:** Monthly licenses require an internet connection. Node-Locked licences require internet on the machine being activated.
 
 ### Trial
 
 AdonisFX allows the user to use the product for **30 days** in Node-Locked Interactive mode. This means that the trial can be used using the graphical interface for one single machine at a time. The trial period requires activation which can be handled in an on-line or off-line way.
 
-Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased and activated.
+Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased through Inbibo's official website [https://www.inbibo.co.uk/](https://www.inbibo.co.uk/) and activated.
 
 See the **AdonisFX EULA** for details.
 
 **Online Trial Activation**
 
-This activation mode does *not require access to the internet* for activating licenses.
+This activation mode does *require access to the internet* for activating the trial mode.
 
 It will allow the user to use AdonisFX for 30 days without providing a `PRODUCT KEY`. Once that trial period is over, the user will be asked to introduce a valid product key.
 
@@ -166,12 +170,12 @@ To activate AdonisFX in Online Node-Locked Interactive Trial mode:
       <figcaption><b>Figure 10:</b> Trial Dialog.</figcaption>
     </figure>
 
-4. The trial will deactivate the product after 30 days asking for a product key.
+4. The trial will deactivate the product after 30 days and will ask for a valid product key.
 5. AdonisFX is activated and ready to be used in trial mode.
 
 **Offline Trial Activation**
 
-This activation mode does *not require access to the internet* for activating licenses.
+This activation mode does *not require access to the internet* for activating the trial mode.
 
 It will allow the user to use AdonisFX for 30 days without providing a `PRODUCT KEY`. Once that trial period is over, the user will be asked to introduce a valid product key.
 
@@ -187,11 +191,13 @@ To activate AdonisFX in Offline Node-Locked Interactive Trial mode:
 6. Save the response in the same folder `AdonisFX/bin`.
 7. Execute `TrialOfflineResponse` from `AdonisFX/bin` with admin priviledges.
 8. The response will be registered and AdonisFX will be ready to be used.
-    - Once the activation period has concluded, a new activation request and reponse has to be generated.
+    - Once the activation period has concluded, a new activation request and reponse have to be generated.
+
+- **NOTE:** Monthly licenses require an internet connection. Node-Locked licences require internet on the machine being activated.
 
 ## Floating Licensing
 
-NOTE: Node-Locked Licensing is defaulted in AdonisFX. To explicitly switch to Floating licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `1`.
+**NOTE:** Node-Locked Licensing is defaulted in AdonisFX. To explicitly switch to Floating licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `1`.
 
 This section will explain how to configure, run and set-up the licensing server for leasing floating licenses when the intention is to not restrict the use of AdonisFX to one single machine. AdonisFX floating licensing system requires the use of a license server in charge of providing, dropping and handling licenses from an active lease "pool". When the amount of requested licenses surpass the amount of licenses purchased for that floating license server no further activations of AdonisFX can be made until a lease is dropped and returned to the lese "pool".
 
@@ -256,6 +262,8 @@ The steps to activate the floating licensing server online are the following:
 5. Run the following command to obtain the data from the activation response and activate the server: `TurboFloatServer.exe -a -aresp="<PATH>/ActivationResponse.xml"`
 6. The server is now ready and can be run with the commands explained in the [**Run**](licensing.html#floating-licensing###Run) section.
 
+- **NOTE:** Monthly licenses require an internet connection. Floating licences require internet only for the licence server. Workstations can remain disconnected and protected.
+
 ### Run 
 
 To be able to run AdonisFX using floating license these 4 criterias have to be met:
@@ -270,7 +278,11 @@ To be able to run AdonisFX using floating license these 4 criterias have to be m
 To run the floating server (after following the activation steps) execute the following command: `TurboFloatServer.exe -x` or `TurboFloatServer.exe -x -pdets="YourTurboActivate.dat" -config="Config.xml"` when using sutom destinations for the `.xml` and `.dat` files.
 
 #### Configure the server address on the machine with AdonisFX installed
+
+Some environment variables have to be tweaked to be able to lanch AdonisFX in floating licensing mode.
+
 Configure the following environment variables:
+
 1. `ADN_LICENSE_MODE` to `1`.
 2. `ADN_LICENSE_SERVER` to `<ip-address>:<port-number>`. Eg. `127.0.0.1:13`. If no port was provided whe system will default to port `13`.
 3. When launching AdonisFX in the target DCC, if the connection to the active license server could be established, it will try to obtain a valid lease.
