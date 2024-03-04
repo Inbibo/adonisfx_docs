@@ -73,131 +73,106 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 
 # Attributes
 
-<!--
-| **** |  |  |  |  |
-| **** |  |  |  |  |
-| **** |  |  |  |  |
--->
-
 #### Solver Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Enable** | Boolean | True | ✓ | Flag to enable or disable the deformer computation. |
-| **Iterations** | Integer | 3 | ✓ | Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost. Has a range of \[1, 10\]. Upper limit is soft, higher values can be used. |
-| **Material** | Enumerator | Leather | ✓ | Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets: Fat: 10<sup>3</sup>, Muscle: 5e<sup>3</sup>, Rubber: 10<sup>6</sup>, Tendon: 5e<sup>7</sup>, Leather: 10<sup>6</sup>, Wood: 6e<sup>9</sup>, Concrete: 2.5e<sup>10</sup>. |
-<!--
- - **Enable** (Boolean, True, Animatable): Flag to enable or disable the deformer computation.
- - **Iterations** (Integer, 3, Animatable): Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost.
-     - Has a range of \[1, 10\]. Upper limit is soft, higher values can be used.
- - **Material** (Enumerator, "Leather", Animatable): Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets:
-    <ul><li>Fat: 10<sup>3</sup></li><li>Muscle: 5e<sup>3</sup></li><li>Rubber: 10<sup>6</sup></li><li>Tendon: 5e<sup>7</sup></li><li>Leather: 10<sup>6</sup></li><li>Wood: 6e<sup>9</sup></li><li>Concrete: 2.5e<sup>10</sup></li></ul>
- - **Stiffness Multiplier** (Float, 1.0, Animatable): Multiplier factor to scale up or down the material stiffness.
-     - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
--->
+| **Enable**               | Boolean    | True    | ✓ | Flag to enable or disable the deformer computation. |
+| **Iterations**           | Integer    | 3       | ✓ | Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost. Has a range of \[1, 10\]. Upper limit is soft, higher values can be used. |
+| **Material**             | Enumerator | Leather | ✓ | Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets: Fat: 10<sup>3</sup>, Muscle: 5e<sup>3</sup>, Rubber: 10<sup>6</sup>, Tendon: 5e<sup>7</sup>, Leather: 10<sup>6</sup>, Wood: 6e<sup>9</sup>, Concrete: 2.5e<sup>10</sup>. |
+| **Stiffness Multiplier** | Float      | 1.0     | ✓ | Multiplier factor to scale up or down the material stiffness. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
 
 #### Muscles Activation Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Activation Mode** | Enumerator | No activation | ✗ | Mode to drive the muscle activations. There are 3 different modes: <ul><li>Muscle Patches (Disabled by default): An Adonis Muscle Patches file ([.amp](#generate-muscle-patches)) has to be provided to enable this option.</li><li>Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.</li><li>No Activation (Enabled by default): No activation is read.</li></ul> |
-| **Muscle Patches File** | String | | ✗ | Path to the Adonis Muscle Patches file ([.amp](#generate-muscle-patches)). |
-| **Activation Smoothing** | Integer | 1 | ✗ | Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be. Has a range of \[1, 20\]. Upper limit is soft, higher values can be used. |
-| **Bidirectional Activation** | Boolean | False | ✗ | Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers. |
-| **Write Out Activation** | Boolean | False | ✗ | Flag to toggle the writing of activations into an output plug. |
-
- <!--
- - **Activation Mode** (Enumerator, "No Activation", Not animatable): Mode to drive the muscle activations. There are 3 different modes:
-    - Muscle Patches (Disabled by default): An Adonis Muscle Patches file ([.amp](#generate-muscle-patches)) has to be provided to enable this option.
-    - Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.
-    - No Activation (Enabled by default): No activation is read.
- - **Muscle Patches File** (String, "", Not animatable): Path to the Adonis Muscle Patches file ([.amp](#generate-muscle-patches)).
- - **Activation Smoothing** (Integer, 1, Not animatable): Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be.
-     - Has a range of \[1, 20\]. Upper limit is soft, higher values can be used.
- - **Bidirectional Activation** (Boolean, False, Not animatable): Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers.
- - **Write Out Activation** (Boolean, False, Not animatable): Flag to toggle the writing of activations into an output plug. -->
+| **Activation Mode**          | Enumerator | No activation | ✗ | Mode to drive the muscle activations. There are 3 different modes: <ul><li>Muscle Patches (Disabled by default): An Adonis Muscle Patches file ([.amp](#generate-muscle-patches)) has to be provided to enable this option.</li><li>Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.</li><li>No Activation (Enabled by default): No activation is read.</li></ul> |
+| **Muscle Patches File**      | String     |               | ✗ | Path to the Adonis Muscle Patches file ([.amp](#generate-muscle-patches)). |
+| **Activation Smoothing**     | Integer    | 1             | ✗ | Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be. Has a range of \[1, 20\]. Upper limit is soft, higher values can be used. |
+| **Bidirectional Activation** | Boolean    | False         | ✗ | Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers. |
+| **Write Out Activation**     | Boolean    | False         | ✗ | Flag to toggle the writing of activations into an output plug. |
 
 #### Time Attributes
- - **Preroll Start Time** (Time, *Current frame*, Not animatable): Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*.
- - **Start Time** (Time, *Current frame*, Not animatable): Determines the frame at which the simulation starts.
- - **Current Time** (Time, *Current frame*, Not animatable): Current playback frame.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*. |
+| **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Current Time**       | Time | *Current frame* | ✗ | Current playback frame. |
 
 #### Scale Attributes
- - **Time Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the simulation time step.
-    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Space Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the masses and/or the forces. Adonis interprets the scene units in meters. Because of that, to simulate external forces in the right scale, the *Space Scale* may need to be adjusted. For example, to apply *Gravity* with a value of 9.8 m/s^2^, the *Space Scale* should be set to 0.01.
-    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Space Scale Mode** (Enumerator, "Masses + Forces", Animatable): Determines if the spatial scaling affects the masses, the forces, or both. The available options are:
-    - Masses: The *Space Scale* only affects masses.
-    - Forces: The *Space Scale* only affects forces.
-    - Masses + Forces: The *Space Scale* only affects masses and forces.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces. Adonis interprets the scene units in meters. Because of that, to simulate external forces in the right scale, the *Space Scale* may need to be adjusted. For example, to apply *Gravity* with a value of 9.8 m/s^2^, the *Space Scale* should be set to 0.01. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* only affects masses and forces.</li><ul> |
 
 #### Gravity
- - **Gravity** (Float, 0.0, Animatable): Sets the magnitude of the gravity acceleration.
-    - Has a range of \[0.0, 100.0\]. Upper limit is soft, higher values can be used.
- - **Gravity Direction** (Float3, {0.0. -1.0, 0.0}, Animatable): Sets the direction of the gravity acceleration.
-    - Vectors introduced do not need to be normalized, but they will get normalized internally.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Gravity**           | Float  | 0.0              | ✓ | Sets the magnitude of the gravity acceleration. Has a range of \[0.0, 100.0\]. Upper limit is soft, higher values can be used. |
+| **Gravity Direction** | Float3 | {0.0, -1.0, 0.0} | ✓ | Sets the direction of the gravity acceleration. Vectors introduced do not need to be normalized, but they will get normalized internally. |
 
 ### Advanced Settings
 
 #### Stiffness Settings
- - **Use Custom Stiffness** (Boolean, False, Animatable): Toggles the use of a custom stiffness value.
-    - If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead.
- - **Stiffness** (Float, 10<sup>5</sup>, Animatable): Sets the custom stiffness value.
-    - Its value must be greater than 0.0.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Use Custom Stiffness** | Boolean | False          | ✓ | Toggles the use of a custom stiffness value. If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead. |
+| **Stiffness**            | Float   | 10<sup>5</sup> | ✓ | Sets the custom stiffness value. Its value must be greater than 0.0. |
 
 #### Dynamic Properties
- - **Global Mass Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the mass of every point.
-    - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
- - **Global Damping Multiplier** (Float, 0.75, Animatable): Sets the scaling factor applied to the global damping of every point.
-    - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
- - **Inertia Damper** (Float, 0.0, Animatable): Sets the linear damping applied to the dynamics of every point.
-    - Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used.
- - **Rest Length Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the edge lengths at rest.
-    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Compression Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the compression resistance of every point.
-    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Stretching Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the stretching resistance of every point.
-    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Attenuation Velocity Factor** (Float, 1.0, Animatable): Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*.
-    - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Global Mass Multiplier**      | Float | 1.0  | ✓ | Sets the scaling factor applied to the mass of every point. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used. |
+| **Global Damping Multiplier**   | Float | 0.75 | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Inertia Damper**              | Float | 0.0  | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Rest Length Multiplier**      | Float | 1.0  | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Compression Multiplier**      | Float | 1.0  | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Stretching Multiplier**       | Float | 1.0  | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Attenuation Velocity Factor** | Float | 1.0  | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 
 #### Collision Settings
- - **Compute Collisions** (Boolean, True, Not animatable): Flag to enable collisions correction in the deformer. If disabled, the deformer will ignore colliders when deforming the mesh.
- - **Keep Orientation** (Boolean, True, Not animatable): Flag to preserve the initial orientation of the vertices relative to the collider when handling collisions. If disabled, the mesh will suffer no changes if the orientation of the collider varies.
- - **Max Sliding Distance** (Float, 1.0, Not animatable): Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider.
-    - Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Compute Collisions**   | Boolean | True | ✗ | Flag to enable collisions correction in the deformer. If disabled, the deformer will ignore colliders when deforming the mesh. |
+| **Keep Orientation**     | Boolean | True | ✗ | Flag to preserve the initial orientation of the vertices relative to the collider when handling collisions. If disabled, the mesh will suffer no changes if the orientation of the collider varies. |
+| **Max Sliding Distance** | Float   | 1.0  | ✗ | Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used. |
 
 #### Attraction Settings
- - **Attraction Multiplier** (Float, 1.0, Animatable): Sets the scaling factor applied to the Attraction.
-    - Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used.
- - **Attraction Remap Mode** (Enumerator, "Cube Root", Animatable): Remap mode used to compute the definitive attraction values. There are 4 different modes that folow different remap methods:
-    <ul><li>Linear</li><li>Logarithmic</li><li>Square Root</li><li>Cube Root</li></ul>
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Attraction Multiplier** | Float      | 1.0       | ✓ | Sets the scaling factor applied to the Attraction. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Attraction Remap Mode** | Enumerator | Cube Root | ✓ | Remap mode used to compute the definitive attraction values. There are 4 different modes that folow different remap methods: Linear, Logarithmic, Square Root, Cube Root. |
 
 #### Initialization Settings
- - **Animatable Rest Mesh** (Boolean, False, Not animatable): Flag that enables reading animated rest mesh data.
- - **Initialize to Anim Mesh** (Boolean, True, Not animatable): Flag to instantiate points at animated mesh instead of rest mesh on initialization.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Animatable Rest Mesh**    | Boolean | False | ✗ | Flag that enables reading animated rest mesh data. |
+| **Initialize to Anim Mesh** | Boolean | False | ✗ | Flag to instantiate points at animated mesh instead of rest mesh on initialization. |
 
 #### Activation Remap
- - **Activation Remap** (Ramp Attribute, Not animatable): Curve to remap the activation values.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Activation Remap** | Ramp Attribute |  | ✗ | Curve to remap the activation values. |
 
 ### Debug attributes
-
- - **Debug** (Boolean, False, Not animatable): Enable or Disable the debug functionalities in the viewport for the AdnSimshape deformer.
- - **Feature** (Enumerator, "Collision Constraints", Not animatable): A list of debuggable features for this deformer.
-     - Collision Constraints: Draw *Collision Constraints* connections from the simulated mesh to the collider mesh.
-     - Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.
- - **Width Scale** (Float, 3.0, Not animatable): Modifies the width of all lines.
- - **Color** (Color picker, Not animatable): Selects the line color from a color wheel. Its saturation can be modified using the slider.
- - **Fiber Scale** (Float, 3.0, Not animatable): The scale can be modified to set a custom fiber length.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Debug**       | Boolean      | False                 | ✗ | Enable or Disable the debug functionalities in the viewport for the AdnSimshape deformer. |
+| **Feature**     | Enumerator   | Collision Constraints | ✗ | A list of debuggable features for this deformer.<ul><li>Collision Constraints: Draw *Collision Constraints* connections from the simulated mesh to the collider mesh.</li><li>Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.</li><ul> |
+| **Width Scale** | Float        | 3.0                   | ✗ | Modifies the width of all lines. |
+| **Color**       | Color Picker |                       | ✗ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
+| **Fiber Scale** | Float        | 3.0                   | ✗ | The scale can be modified to set a custom fiber length. |
 
 ### Connectable attributes
- - **Anim Mesh** (Mesh, Not animatable): Animated mesh on which to apply the simulation.
- - **Attenuation Matrix** (Matrix, Identity, Not animatable): Transformation matrix to drive the attenuation.
- - **Collision Mesh** (Mesh, Not animatable): Collision mesh used to drive the the collision logic.
- - **Collision Mesh Matrix** (Matrix, Identity, Not animatable): Collision matrix used to drive the collision logic.
- - **Collision Rest Mesh** (Mesh, Not animatable): Collision rest mesh used to drive the initialization of the collision logic.
- - **Collision Rest Mesh Matrix** (Matrix, Identity, Not animatable): Collision rest matrix at rest used for initializing.
- - **Deform Mesh** (Mesh, Not animatable): Deform mesh used to estimate the muscle patches activation.
- - **Rest Mesh** (Mesh, Not animatable): Rest mesh used for initializing the system and to compute the activations against the deform mesh.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Anim Mesh**                  | Mesh   |          | ✗ | Animated mesh on which to apply the simulation. |
+| **Attenuation Matrix**         | Matrix | Identity | ✗ | Transformation matrix to drive the attenuation. |
+| **Collision Mesh**             | Mesh   |          | ✗ | Collision mesh used to drive the the collision logic. |
+| **Collision Mesh Matrix**      | Matrix | Identity | ✗ | Collision matrix used to drive the collision logic. |
+| **Collision Rest Mesh**        | Mesh   |          | ✗ | Collision rest mesh used to drive the initialization of the collision logic. |
+| **Collision Rest Mesh Matrix** | Matrix | Identity | ✗ | Collision rest matrix at rest used for initializing. |
+| **Deform Mesh**                | Mesh   |          | ✗ | Deform mesh used to estimate the muscle patches activation. |
+| **Rest Mesh**                  | Mesh   |          | ✗ | Rest mesh used for initializing the system and to compute the activations against the deform mesh. |
 
 ## Attribute Editor Template
 
@@ -299,13 +274,12 @@ The AMP file is generated from the Learn Muscle Patches tool:
 
 Additional custom settings for the learning algorithm:
 
- - **Limit Iterations** (Boolean, False): If enabled, the *Number of Iterations* will be taken into consideration.
- - **Number of Iterations** (Integer, 20): Maximum number of iterations allowed in the training process. The higher this value is, the more accurate the muscle patches estimation will be and the longer the execution will take.
-    - This parameter is ignored if *Limit Iterations* attribute is disabled. In that case, the training process will run until it achieves the most accurate solution.
-    - Has a range of \[1, 1e<sup>6</sup>\]
- - **Number of Muscle Patches** (Integer, 79): Maximum number of muscle patches expected in the results.
-    - Has a range of \[1, 1e<sup>6</sup>\]
- - **Draw Muscle Patches** (Boolean, True): If enabled, the vertices of the neutral mesh will be colored according to the muscle patches resulting from the training.
+| Name | Type | Default | Description |
+| :--- | :--- | :------ | :---------- |
+| **Limit Iterations**         | Boolean | False | If enabled, the *Number of Iterations* will be taken into consideration. |
+| **Number of Iterations**     | Integer | 20    | Maximum number of iterations allowed in the training process. The higher this value is, the more accurate the muscle patches estimation will be and the longer the execution will take. This parameter is ignored if *Limit Iterations* attribute is disabled. In that case, the training process will run until it achieves the most accurate solution. Has a range of \[1, 1e<sup>6</sup>\]. |
+| **Number of Muscle Patches** | Integer | 79    | Maximum number of muscle patches expected in the results. Has a range of \[1, 1e<sup>6</sup>\]. |
+| **Draw Muscle Patches**      | Boolean | True  | If enabled, the vertices of the neutral mesh will be colored according to the muscle patches resulting from the training. |
 
 ### Debug Activations
 
