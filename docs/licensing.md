@@ -29,6 +29,8 @@ Node-Locked Licensing in AdonisFX requires the activation of a `PRODUCT KEY` on 
 
 Node-Locked Licensing product keys can be purchased through Inbibo's official website [https://www.inbibo.co.uk/](https://www.inbibo.co.uk/).
 
+To be able to move node-locked licenses to a different machine the licenses has to be deactivated and activated again on the new machine.
+
 **NOTE:** Node-Locked Licensing is defaulted in AdonisFX. To explicitly switch to Node-Locked licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `0`.
 
 ### Interactive
@@ -146,6 +148,8 @@ AdonisFX allows the user to use the product for **30 days** in Node-Locked Inter
 
 Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased through Inbibo's official website [https://www.inbibo.co.uk/](https://www.inbibo.co.uk/) and activated.
 
+To request an extension of the trial license period contact support at **adnsupport@inbibo.co.uk**.
+
 See the **AdonisFX EULA** for details.
 
 **Online Trial Activation**
@@ -199,7 +203,9 @@ To activate AdonisFX in Offline Node-Locked Interactive Trial mode:
 
 **NOTE:** Node-Locked Licensing is defaulted in AdonisFX. To explicitly switch to Floating licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `1`.
 
-This section will explain how to configure, run and set-up the licensing server for leasing floating licenses when the intention is to not restrict the use of AdonisFX to one single machine. AdonisFX floating licensing system requires the use of a license server in charge of providing, dropping and handling licenses from an active lease "pool". When the amount of requested licenses surpass the amount of licenses purchased for that floating license server no further activations of AdonisFX can be made until a lease is dropped and returned to the lese "pool".
+This section will explain how to configure, run and set-up the licensing server for leasing floating licenses when the intention is to not restrict the use of AdonisFX to one single machine. AdonisFX floating licensing system requires the use of a license server in charge of providing, dropping and handling licenses from an active lease "pool". When the amount of requested licenses surpass the amount of licenses purchased for that floating license server no further activations of AdonisFX can be made until a lease is dropped and returned to the lese "pool". If for example 20 licences had been purchased, then one of them will remain leased until the plug-in is unloaded from the target DCC.
+
+It is possible to run the license server on one operating system and run instances of AdonisFX on a differnt operating system.
 
 The licensing server is provided and shipped with the installation of AdonisFX for x64 architectures and can be run on Windows, Linux and MacOS. For more builds please visit [https://wyday.com/download/](https://wyday.com/download/).
 
@@ -224,14 +230,13 @@ The steps to run or install the floating licensing server on a dedicated machine
     - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
     - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
 4. The content after copying the files should following this structure:
-
     <figure style="width:80%" markdown>
       ![Turbo Float Folder](images/adn_turbo_float_folder.png)
       <figcaption><b>Figure 11:</b> Turbo Float Folder.</figcaption>
     </figure>
 
 5. Before running the license server and activating the license several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
-    - Connection port, thread count, lease length, logs, grace periods, and proxies
+    - Connection port, thread count, lease length, logs, grace periods, and proxies. For more information visit [Configuring the TurboFloat Server](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in the [**Run**](licensing.md#debug-features) section.
     - Find the full list of tweakable parameters in the `.xml` file comments.
 
 **Online Float Server Activation**
@@ -277,13 +282,17 @@ To be able to run AdonisFX using floating license these 4 criterias have to be m
 
 To run the floating server (after following the activation steps) execute the following command: `TurboFloatServer.exe -x` or `TurboFloatServer.exe -x -pdets="YourTurboActivate.dat" -config="Config.xml"` when using sutom destinations for the `.xml` and `.dat` files.
 
+It is also possible to install the server avoiding the need to run the server manually with the command above. For that use: `TurboFloatServer.exe -i` or `TurboFloatServer.exe -i -pdets="YourTurboActivate.dat" -config="Config.xml"` when using sutom destinations for the `.xml` and `.dat` files. For more information visit [Installing the TurboFloat Server](https://wyday.com/limelm/help/turbofloat-server/#install)
+
+For more commands and information for deactivation refer to [https://wyday.com/limelm/help/turbofloat-server/](https://wyday.com/limelm/help/turbofloat-server/).
+
 #### Configure the server address on the machine with AdonisFX installed
 
 Some environment variables have to be tweaked to be able to lanch AdonisFX in floating licensing mode.
 
 Configure the following environment variables:
 
-1. `ADN_LICENSE_MODE` to `1`.
-2. `ADN_LICENSE_SERVER` to `<ip-address>:<port-number>`. Eg. `127.0.0.1:13`. If no port was provided whe system will default to port `13`.
+1. Set `ADN_LICENSE_MODE` to `1`.
+2. Set `ADN_LICENSE_SERVER` to `<ip-address>:<port-number>`. Eg. `127.0.0.1:13`. If no port was provided whe system will default to port `13`.
 3. When launching AdonisFX in the target DCC, if the connection to the active license server could be established, it will try to obtain a valid lease.
 4. AdonisFX is activated and ready to be used using floating licensing with the maximum amount of purchased leases.
