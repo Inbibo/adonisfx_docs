@@ -25,57 +25,120 @@ To support different ways of activating a **PRODUCT KEY**, two ways of activatin
 
 ## Node-Locked Licensing
 
-- Requires activation
-- Can be batch or interactive
+Node-Locked Licensing in AdonisFX requires the activation of a **PRODUCT KEY** on one single machine. As commented before, this activation process can be concluded using an on-line or off-line process and requires the user to activate the product for batch and interactive modes separately.
 
 ### Interactive
 
 **Online Node-Locked Interactive Activation**
 
-- Via dialog on plugin load ("Activate")
-- Add screenshots:
-    - DIALOG_ACTIVATE_QUESTION
-    - DIALOG_ENTER_PRODUCT_KEY
-    - DIALOG_ACTIVATED_SUCCESSFULLY
+This activation mode requires access to the internet for activating licenses.
+
+Whenever activating AdonisFX for the first time for a specific DCC in interactive mode, a series of dialogs requesting information are prompted. These dialogs allow to enter a valid **PRODUCT KEY** or to launch AdonisFX in trial mode for non-commercial purposes.
+
+1. Load the plug-in from the desired location depending on the target DCC.
+2. A pop-up will show up with two options:
+
+    <figure style="width:80%" markdown>
+      ![Activation Dialog](images/adn_activation_dialog.png)
+      <figcaption><b>Figure 1:</b> Activation Dialog.</figcaption>
+    </figure>
+
+    - **Activate:** Enter a valid **PRODUCT KEY** and activate AdonisFX.
+    - **Continue With Trial:** Continue with the 30 day trial period.
+ 
+3. Enter a valid product key in the text edit after selecting **Activate**:
+
+    <figure style="width:80%" markdown>
+      ![Activation Add Product Key](images/adn_add_product_key_dialog.png)
+      <figcaption><b>Figure 2:</b> Activation Add Product Key.</figcaption>
+    </figure>
+
+    - The **PRODUCT KEY** has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
+
+4. After entering a valid product key a confirmation pop-up will appear:
+    <figure style="width:80%" markdown>
+      ![Activation Add Product Key](images/adn_activated_product_key_dialog.png)
+      <figcaption><b>Figure 3:</b> Activation Add Product Key.</figcaption>
+    </figure>
+
+    If the product key is invalid or connecting with the licensing servers failed, a pop-up will appear suggesting to try the activation again:
+    <figure style="width:80%" markdown>
+      ![Activation Retry Adding Product Key](images/adn_try_again_product_key_dialog.png)
+      <figcaption><b>Figure 3:</b> Activation Retry Adding Product Key.</figcaption>
+    </figure>
+
+5. AdonisFX is ready to be used.
 
 **Offline Node-Locked Interactive Activation**
 
-- Via OfflineRequest and OfflineResponse
-- Executables have to be run with adnim privileges
-- Execute OfflineRequest (from the given folder AdonisFX/bin)
-- Select Interactive in the console (add screenshot)
-- Enter product key
-- An xml file "InteractiveOfflineRequest.xml" will be generated in the same folder
-- Send the request file to **adnsupport@inbibo.co.uk**
-- In maximum 24h you will receive the response InteractiveOfflineResponse.xml
-- Make sure to save the response in the same folder AdonisFX/bin
-- Exeucte OfflineReposnse (from the given folder AdonisFX/bin)
-- Select Interactive in the console
-- The response will be registered
+To be able to activate AdonisFX in interactive mode without relying on internet access an Activation Request and a Activation Response have to be generated.
+To agilize this process several executable files are provided to generate the associated XML files for activation.
+
+1. Open `AdonisFX/bin`.
+2. Run `OfflineRequest` from `AdonisFX/bin` with admin priviledges.
+3. Select interactive mode by entering the value `0`.
+    <figure style="width:80%" markdown>
+      ![Offline Request Dialog](images/adn_offline_requestor.png)
+      <figcaption><b>Figure 4:</b> Offline Request Dialog.</figcaption>
+    </figure>
+
+4. Enter a valid product key.
+    <figure style="width:80%" markdown>
+      ![Offline Request Dialog Enter Product Key](images/adn_offline_requestor_2.png)
+      <figcaption><b>Figure 4:</b> Offline Request Dialog Enter Product Key.</figcaption>
+    </figure>
+
+    - A XML file `InteractiveOfflineRequest.xml` will be generated in the same folder.
+
+5. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request.
+6. In a maximum of 24h an `InteractiveOfflineResponse.xml` will be returned to the source e-mail address.
+7. Save the response in the same folder `AdonisFX/bin`.
+8. Exeucte `OfflineReponse` from `AdonisFX/bin` with admin priviledges.
+9. Select interactive mode again by entering the value `0`.
+10. The response will be registered and AdonisFX will be ready to be used.
+    - Once the activation period has concluded, a new activation request and reponse has to be generated.
 
 ### Batch
 
 **Online Node-Locked Batch Activation**
 
-- Via ActivateBatch.exe (in AdonisFX/bin)
-- Admin privileges are required
-- Execute the program
-- Enter your product key
-- The product will get activated
+This activation mode requires access to the internet for activating licenses.
+
+Whenever activating AdonisFX for the first time for a specific DCC in batch mode, a product key has to be registered previously. Activating batch mode requires que use of an executable that agilizes the activation of the product.
+
+1. Run `ActivateBatch` from `AdonisFX/bin` with admin priviledges.
+2. Enter the **PRODUCT KEY**
+    - The **PRODUCT KEY** has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
+3. If successful AdonisFX can now be used in batch mode.
 
 **Offline Node-Locked Batch Activation**
 
-- Via OfflineRequest and OfflineResponse
-- Execute OfflineRequest (from the given folder AdonisFX/bin)
-- Select Batch in the console (add screenshot)
-- Enter product key
-- An xml file "BatchOfflineRequest.xml" will be generated in the same folder
-- Send the request file to **adnsupport@inbibo.co.uk**
-- In maximum 24h you will receive the response BatchOfflineResponse.xml
-- Make sure to save the response in the same folder AdonisFX/bin
-- Exeucte OfflineReposnse (from the given folder AdonisFX/bin)
-- Select Batch in the console
-- The response will be registered
+To be able to activate AdonisFX in batch mode without relying on internet access an Activation Request and a Activation Response have to be generated.
+To agilize this process several executable files are provided to generate the associated XML files for activation.
+
+1. Open `AdonisFX/bin`.
+2. Run `OfflineRequest` from `AdonisFX/bin` with admin priviledges.
+3. Select batch mode by entering the value `1`.
+    <figure style="width:80%" markdown>
+      ![Offline Request Dialog](images/adn_offline_requestor.png)
+      <figcaption><b>Figure 4:</b> Offline Request Dialog.</figcaption>
+    </figure>
+
+4. Enter a valid product key.
+    <figure style="width:80%" markdown>
+      ![Offline Request Dialog Enter Product Key](images/adn_offline_requestor_2.png)
+      <figcaption><b>Figure 4:</b> Offline Request Dialog Enter Product Key.</figcaption>
+    </figure>
+
+    - A XML file `BatchOfflineRequest.xml` will be generated in the same folder.
+
+5. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request.
+6. In a maximum of 24h an `BatchOfflineResponse.xml` will be returned to the source e-mail address.
+7. Save the response in the same folder `AdonisFX/bin`.
+8. Exeucte `OfflineReponse` from `AdonisFX/bin` with admin priviledges.
+9. Select batch mode again by entering the value `1`.
+10. The response will be registered and AdonisFX will be ready to be used.
+    - Once the activation period has concluded, a new activation request and reponse has to be generated.
 
 ### Trial
 
