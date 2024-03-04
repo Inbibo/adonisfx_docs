@@ -201,8 +201,6 @@ To activate AdonisFX in Offline Node-Locked Interactive Trial mode:
 
 ## Floating Licensing
 
-**NOTE:** Node-Locked Licensing is defaulted in AdonisFX. To explicitly switch to Floating licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `1`.
-
 This section will explain how to configure, run and set-up the licensing server for leasing floating licenses when the intention is to not restrict the use of AdonisFX to one single machine. AdonisFX floating licensing system requires the use of a license server in charge of providing, dropping and handling licenses from an active lease "pool". When the amount of requested licenses surpass the amount of licenses purchased for that floating license server no further activations of AdonisFX can be made until a lease is dropped and returned to the lese "pool". If for example 20 licences had been purchased, then one of them will remain leased until the plug-in is unloaded from the target DCC.
 
 It is possible to run the license server on one operating system and run instances of AdonisFX on a differnt operating system.
@@ -217,6 +215,8 @@ In AdonisFX the steps for setting up floating licenses is the following:
 2. Configure the server to the expected requirements using the config file associated to the server.
 3. Activate the server using online or offline activation using a purchased `PRODUCT KEY`.
 4. Start the server to start providing leases to the client instances of AdonisFX.
+
+**NOTE:** Node-Locked Licensing is defaulted in AdonisFX. To explicitly switch to Floating licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `1`.
 
 ### Install Server
 
