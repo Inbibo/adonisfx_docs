@@ -222,7 +222,7 @@ In AdonisFX the steps for setting up floating licenses is the following:
 
 The first step to be able to serve leases from the lease pool is to activate, configure and run/install the server on a dedicated machine.
 
-The steps to run or install the floating licensing server on a dedicated machine is the following:
+The steps to run or install the floating licensing server on a dedicated machine are the following:
 
 1. Locate the `TurboFloatServer.exe` in `AdonisFX/licensing/turbo_float_server`. If a differnt executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
 2. Copy the folder to a preferred location.
