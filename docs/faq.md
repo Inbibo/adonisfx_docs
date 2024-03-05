@@ -61,9 +61,6 @@ Adonis solvers interpret input units as meters. This means that in order to simu
 #### Can I activate AdonisFX offline?
 Yes. Visit the [licensing](licensing.md#licensing) page for more information.
 
-#### Can I renew my 30 days trial license period?
-It is possible to request an extension of the trial license period by contacting with support.
-
 #### Can I use my Node-Locked license on more than one machine?
 No. To be able to move a node-locked license to a different machine deactivate the license and reactivate it on the newly configured machine. For more flexibility and no hardware specific licensing restriction purchase floating licenses.
 
