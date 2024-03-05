@@ -207,7 +207,7 @@ This section will explain how to configure, run and set-up the licensing server 
 
 It is possible to run the license server on one operating system and run instances of AdonisFX on a different operating system.
 
-The licensing server is provided and shipped with the installation of AdonisFX for x64 architectures and can be run on Windows. For more builds please visit [https://wyday.com/download/](https://wyday.com/download/).
+The licensing server is provided and shipped with the installation of AdonisFX for x64 architectures and can be run on Windows or Linux. For more builds please visit [https://wyday.com/download/](https://wyday.com/download/).
 
 To be able to request leases from the license server it is necessary to activate the product with a `PRODUCT KEY` on the server side. Once activated it is required to have direct connection between the requestor AdonisFX instance and the licensing server to be able to balance the leases accordingly.
 
@@ -228,7 +228,7 @@ The first step to be able to serve leases from the lease pool is to activate, co
 
 The steps to run or install the floating licensing server on a dedicated Windows machine are the following:
 
-1. Locate the `TurboFloatServer.exe` in `AdonisFX/licensing/turbo_float_server`. If a different executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
+1. Locate the `TurboFloatServer.exe` in `AdonisFX/licensing/turbo_float_server/windows`. If a different executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
 2. Copy the folder to a preferred location.
 3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
     - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
@@ -241,7 +241,7 @@ The steps to run or install the floating licensing server on a dedicated Windows
 
 5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
     - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [Configuring the TurboFloat Server](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in the **Run** section.
-    - Find the full list of tweakable parameters in the `.xml` file comments.
+    - Find the full list of customizable parameters in the `.xml` file comments.
 
 **Online Floating Server Activation**
 
@@ -283,8 +283,8 @@ The first step to be able to serve leases from the lease pool is to activate, co
 
 The steps to run or install the floating licensing server on a dedicated Linux machine are the following:
 
-1. Locate the `turbofloatserver` for Linux at [https://wyday.com/download/](https://wyday.com/download/) or directly from [https://wyday.com/limelm/api/TurboFloat-Server-Linux.zip](https://wyday.com/limelm/api/TurboFloat-Server-Linux.zip) and add it to `AdonisFX/licensing/turbo_float_server`.
-2. Copy the folder to a preferred location and remove the `.exe` file as it is not required for Linux builds.
+1. Locate the `turbofloatserver` in `AdonisFX/licensing/turbo_float_server/linux`. If a different executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
+2. Copy the folder to a preferred location.
 3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
     - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
     - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
