@@ -11,7 +11,7 @@ AdnSensorPosition is the sensor for computing meaningful output values represent
 An AdnSensorPosition will be in charge of feeding, after remapping, activation (or other) values into the deformer for driving the simulation and the AdnLocatorPosition for visualization purposes. The value of the sensor can be used to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
 <figure markdown>
-  ![AdnSensorPosition velocity display on AdnLocatorPosition within a scene](images/adn_sensor_position.png){width=60%}
+  ![AdnSensorPosition velocity display on AdnLocatorPosition within a scene](images/adn_sensor_position.png)
   <figcaption><b>Figure 1</b>: AdnSensorPosition used in a human model.</figcaption>
 </figure>
 
@@ -34,21 +34,27 @@ There are two different methods of creating an AdnSensorPosition, depending if w
 ### Attributes
 
 #### Input
- - **Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): Current transform node position.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Position** | Float3 | {0.0, 0.0, 0.0} | ✗ | Current transform node position. |
 
 #### Output
- - **Velocity** (Float, 0.0, Not animatable): Magnitude of the velocity of the transform node.
- - **Acceleration** (Float, 0.0, Not animatable): Magnitude of the acceleration of the transform node.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Velocity**     | Float | 0.0 | ✗ | Magnitude of the velocity of the transform node. |
+| **Acceleration** | Float | 0.0 | ✗ | Magnitude of the acceleration of the transform node. |
 
 #### Time Attributes
- - **Start Time** (Time, *Current frame*, Not animatable): Determines the frame at which the playback/simulation starts.
- - **Current Time** (Time, *Current frame*, Not animatable): Current playback frame.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Start Time**   | Time | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
+| **Current Time** | Time | *Current frame* | ✗ | Current playback frame. |
 
 #### Scale Attributes
- - **Time Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the compute the velocity or acceleration.
-    - Has a range of \[0.001, 10.0\]. Upper limit soft, higher values can be used.
- - **Space Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to velocity or acceleration.
-    - Has a range of \[0.001, 100.0\]. Upper limit soft, higher values can be used.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Time Scale**  | Float | 1.0 | ✓ | Sets the scaling factor applied to the compute the velocity or acceleration. Has a range of \[0.001, 10.0\]. Upper limit soft, higher values can be used. |
+| **Space Scale** | Float | 1.0 | ✓ | Sets the scaling factor applied to velocity or acceleration. Has a range of \[0.001, 100.0\]. Upper limit soft, higher values can be used. |
 
 ## AdnSensorDistance
 
@@ -59,7 +65,7 @@ AdnSensorDistance is the sensor for computing meaningful output values represent
 An AdnSensorDistance will be in charge of feeding, after remapping, activation (or other) values into the deformer for driving the simulation and the AdnLocatorDistance for visualization purposes. The value of the sensor can be used to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
 <figure markdown>
-  ![AdnSensorDistance distance display on AdnLocatorDistance within a scene](images/adn_sensor_distance.png){width=60%}
+  ![AdnSensorDistance distance display on AdnLocatorDistance within a scene](images/adn_sensor_distance.png)
   <figcaption><b>Figure 2</b>: AdnSensorDistance used in a human model.</figcaption>
 </figure>
 
@@ -82,23 +88,29 @@ There are two different methods of creating an AdnSensorDistance, depending if w
 ### Attributes
 
 #### Input
- - **Start Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): Start transform node position.
- - **End Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): End transform node position.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✗ | Start transform node position. |
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✗ | End transform node position. |
 
 #### Output
- - **Distance** (Float, 0.0, Not animatable): Magnitude of the distance between the transform nodes.
- - **Velocity** (Float, 0.0, Not animatable): Magnitude of the velocity between the transform nodes.
- - **Acceleration** (Float, 0.0, Not animatable): Magnitude of the acceleration between the transform nodes.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Distance**     | Float | 0.0 | ✗ | Magnitude of the distance between the transform nodes. |
+| **Velocity**     | Float | 0.0 | ✗ | Magnitude of the velocity between the transform nodes. |
+| **Acceleration** | Float | 0.0 | ✗ | Magnitude of the acceleration between the transform nodes. |
 
 #### Time Attributes
- - **Start Time** (Time, *Current frame*, Not animatable): Determines the frame at which the playback/simulation starts.
- - **Current Time** (Time, *Current frame*, Not animatable): Current playback frame.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Start Time**   | Time | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
+| **Current Time** | Time | *Current frame* | ✗ | Current playback frame. |
 
 #### Scale Attributes
- - **Time Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to the compute the velocity or acceleration.
-    - Has a range of \[0.001, 10.0\]. Upper limit soft, higher values can be used.
- - **Space Scale** (Float, 1.0, Animatable): Sets the scaling factor applied to velocity or acceleration.
-    - Has a range of \[0.001, 100.0\]. Upper limit soft, higher values can be used.
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Time Scale**  | Float | 1.0 | ✓ | Sets the scaling factor applied to the compute the velocity or acceleration. Has a range of \[0.001, 10.0\]. Upper limit soft, higher values can be used. |
+| **Space Scale** | Float | 1.0 | ✓ | Sets the scaling factor applied to velocity or acceleration. Has a range of \[0.001, 100.0\]. Upper limit soft, higher values can be used. |
 
 ## AdnSensorRotation
 
@@ -109,7 +121,7 @@ AdnSensorRotation is the sensor for computing meaningful output values represent
 An AdnSensorRotation will be in charge of feeding, after remapping, activation (or other) values into the deformer for driving the simulation and the AdnLocatorRotation for visualization purposes. The value of the sensor can be used to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
 <figure markdown>
-  ![AdnSensorRotation angle display on AdnLocatorRotation within a scene](images/adn_sensor_rotation.png){width=60%}
+  ![AdnSensorRotation angle display on AdnLocatorRotation within a scene](images/adn_sensor_rotation.png)
   <figcaption><b>Figure 3</b>: AdnSensorRotation used in a human model.</figcaption>
 </figure>
 
@@ -132,6 +144,8 @@ There are two different methods of creating an AdnSensorRotation, depending if w
 ### Attributes
 
 #### Input
+
+
  - **Start Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): Start transform node position.
  - **Mid Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): Mid transform node position.
  - **End Position** (Float3, {0.0. -1.0, 0.0}, Not animatable): End transform node position.
@@ -156,24 +170,24 @@ Sensors are meant to be connected to a deformer so that they can automatically c
 When creating a sensor, a remap node for each output attribute is created. Through these remap nodes, and their output, it is possible to modulate and connect the information obtained by the sensor to a deformer and display its remapped value to its corresponding locator.
 
 <figure markdown>
-  ![AdnLocatorPosition within a scene](images/position_sensor_nodes.png){width=60%}
+  ![AdnLocatorPosition within a scene](images/position_sensor_nodes.png)
   <figcaption><b>Figure 4</b>: Nodes created by an AdnSensorPosition.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnLocatorPosition within a scene](images/distance_sensor_nodes.png){width=60%}
+  ![AdnLocatorPosition within a scene](images/distance_sensor_nodes.png)
   <figcaption><b>Figure 5</b>: Nodes created by an AdnSensorDistance.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnLocatorPosition within a scene](images/rotation_sensor_nodes.png){width=60%}
+  ![AdnLocatorPosition within a scene](images/rotation_sensor_nodes.png)
   <figcaption><b>Figure 6</b>: Nodes created by an AdnSensorRotation.</figcaption>
 </figure>
 
 Connecting the sensor to the target deformer can be done using the Node Editor in Maya:
 
 <figure markdown>
-  ![AdnSensorDistance connected to the activation of an AdnMuscle](images/adn_sensor_to_deformer_connect.png){width=60%}
+  ![AdnSensorDistance connected to the activation of an AdnMuscle](images/adn_sensor_to_deformer_connect.png)
   <figcaption><b>Figure 7</b>: AdnSensorDistance connected to the activation of an AdnMuscle.</figcaption>
 </figure>
 
