@@ -230,24 +230,23 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
   <figcaption><b>Figure 6:</b> Activation Modes switch exposed in the Attribute Editor</figcaption>
 </figure>
 
-!!! abstract "Activations Modes"
-    === "Muscle Patches"
-        The data in the Adonis Muscle Patches (AMP) file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following [generate muscle patches section](#generate-muscle-patches).
-
-        <h5>Requirements</h5>
-
-        - **Adonis Muscle Patches**.
-        - **Deform mesh**.
-
-    === "Plug Values"
-        The plug values from the Activation List array attribute are used to drive the level of activation at each vertex.
-
-        > [!NOTE]
-        > - The values must be provided in the range 0 to 1, where 0.0 is no activation and 1.0 is maximum activation.
-        > - The values outside of the valid range will be clamped.
-
-    === "No Activation"
-        Activations are not computed. This option is selected by default.
+> [!NOTE = Activation Modes]
+> === Muscle Patches
+> The data in the Adonis Muscle Patches (AMP) file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following [generate muscle patches section](#generate-muscle-patches).
+>
+> #####Requirements
+>  - **Adonis Muscle Patches**.
+>  - **Deform mesh**.
+>
+>  === Plug Values
+> The plug values from the Activation List array attribute are used to drive the level of activation at each vertex.
+>
+> **Note**
+> - The values must be provided in the range 0 to 1, where 0.0 is no activation and 1.0 is maximum activation.
+> - The values outside of the valid range will be clamped.
+>
+> === Tab Header 3
+> tab 3 content here
 
 ### Generate Muscle Patches
 
