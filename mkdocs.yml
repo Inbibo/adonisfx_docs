@@ -18,8 +18,8 @@ theme:
     - content.tabs.link
     - content.tooltips
   language: en
-  logo: images/adn_logo_default_2x.png
-  favicon: images/adn_logo_default_2x.png
+  # logo: images/adn_logo_default_2x.png
+  # favicon: images/adn_logo_default_2x.png
   palette:
     scheme: slate
     primary: light blue
@@ -99,19 +99,15 @@ nav:
   - FAQ: faq.md
   - Release Notes: release_notes.md
   - Documentation:
-    - documentation/index.md
     - Maya:
       - documentation/maya/index.md
       - UI Overview         : documentation/maya/ui_overview.md
       - A Simple Setup      : documentation/maya/simple_setup.md
       - Locators            : documentation/maya/locators.md
       - Sensors             : documentation/maya/sensors.md
-      - Edge Evaluator      : documentation/maya/edge_evaluator.md
       - Tools               : documentation/maya/tools.md
+      - AdnMuscle           : documentation/maya/muscle.md
+      - AdnRibbonMuscle     : documentation/maya/ribbon.md
       - AdnSimshape         : documentation/maya/simshape.md
       - AdnSkin             : documentation/maya/skin.md
-      - AdnRibbonMuscle     : documentation/maya/ribbon.md
-      - AdnMuscle           : documentation/maya/muscle.md
-    - Houdini:
-      - documentation/houdini/index.md
-  - Release Notes: release_notes.md
+      - AdnEdgeEvaluator    : documentation/maya/edge_evaluator.md
