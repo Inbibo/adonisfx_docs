@@ -6,8 +6,8 @@ The Adonis UI for Maya can be separated into two main elements: the **AdonisFX S
 
 The AdonisFX shelf can be found in the Maya shelf tab under the label *AdonisFX*. It allows for quick access to the main Adonis functionalities.
 
-<figure markdown>
-  ![AdnLocatorPosition within a scene](images/adonis_shelf.png){width=100%}
+<figure style="width: 100%;" markdown>
+  ![AdnLocatorPosition within a scene](images/adonis_shelf.png)
   <figcaption><b>Figure 1</b>: AdonisFX shelf tab menu.</figcaption>
 </figure>
 
@@ -43,8 +43,8 @@ The AdonisFX shelf can be found in the Maya shelf tab under the label *AdonisFX*
 
 The AdonisFX Maya Menu provides apart from all the options available in the shelf, advanced utilities and customization of the nodes. These new utilities, that are not present in the shelf, will be described and referenced in this section.
 
-<figure markdown>
-  ![AdnLocatorPosition within a scene](images/adonis_menu_1.png){width=30%}
+<figure style="width: 30%;" markdown>
+  ![AdnLocatorPosition within a scene](images/adonis_menu_1.png)
   <figcaption><b>Figure 2</b>: AdonisFX Menu.</figcaption>
 </figure>
 
@@ -54,18 +54,18 @@ The AdonisFX Maya Menu provides apart from all the options available in the shel
 
 Option boxes are available at the AdonisFX Menu for [Locators](locators.md) and [Sensors](sensors.md) creation. Opening a small auxiliar window with the possibility to provide a custom name for the node.
 
-<figure markdown>
-  ![Locator Sensor Creator UI](images/adn_position_locator_sensor_locator_creator.png){width=50%}
+<figure style="width: 50%;" markdown>
+  ![Locator Sensor Creator UI](images/adn_position_locator_sensor_locator_creator.png)
   <figcaption><b>Figure 3</b>: Locators/Sensors creator UI.</figcaption>
 </figure>
 
-<figure markdown>
-  ![AdonisFX Menu Create Locators](images/adonis_menu_locators.png){width=30%}
+<figure style="width: 30%;" markdown>
+  ![AdonisFX Menu Create Locators](images/adonis_menu_locators.png)
   <figcaption><b>Figure 4</b>: AdonisFX Menu Create Locators section.</figcaption>
 </figure>
 
-<figure markdown>
-  ![AdonisFX Menu Create Sensors](images/adonis_menu_sensors.png){width=30%}
+<figure style="width: 30%;" markdown>
+  ![AdonisFX Menu Create Sensors](images/adonis_menu_sensors.png)
   <figcaption><b>Figure 5</b>: AdonisFX Menu Create Sensors section.</figcaption>
 </figure>
 
@@ -73,8 +73,8 @@ Option boxes are available at the AdonisFX Menu for [Locators](locators.md) and 
 
 Option boxes can be used for deformer creation. Opening an auxiliar window with the possibility to, other than providing a custom name for the deformer, provide customized generic solver parameters.
 
-<figure markdown>
-  ![AdonisFX AdnSkin Deformer Creator](images/adn_skin_deformer_creator.png){width=50%}
+<figure style="width: 50%;" markdown>
+  ![AdonisFX AdnSkin Deformer Creator](images/adn_skin_deformer_creator.png)
   <figcaption><b>Figure 6</b>: Deformer Creator UI creating an AdnSkin deformer.</figcaption>
 </figure>
 
@@ -84,8 +84,8 @@ Option boxes can be used for deformer creation. Opening an auxiliar window with 
 
 - **Connection Editor**. Launches the [Connection Editor](tools.md#adonisfx-sensors-connection-editor) UI. This tool will assist with the connectivity of the locators and sensors output plugs with the AdonisFX deformer nodes.
 
-<figure markdown>
-  ![AdonisFX Menu Edit Sensors](images/adonis_menu_connection_editor.png){width=30%}
+<figure style="width: 30%;" markdown>
+  ![AdonisFX Menu Edit Sensors](images/adonis_menu_connection_editor.png)
   <figcaption><b>Figure 7</b>: AdonisFX Menu Edit Sensors section.</figcaption>
 </figure>
 
@@ -106,8 +106,8 @@ Option boxes can be used for deformer creation. Opening an auxiliar window with 
 - **Connect Activations Plug**. Connects the output compression map from an [Edge Evaluator](edge_evaluator.md#simshape-activation-using-edge-evaluator-node) node to the activations plug of the AdnSimshape deformer selected. The selection must consist of: first the Edge Evaluator node and lastly the AdnSimshape deformer node.
 - **Disconnect Activations Plug**. Disconnects the output compression map from an [Edge Evaluator](edge_evaluator.md#simshape-activation-using-edge-evaluator-node) node from the activations plug of the AdnSimshape deformer selected. The selection must consist of: first the Edge Evaluator node and lastly the AdmSimshape deformer node.
 
-<figure markdown>
-  ![AdonisFX Menu Edit AdnSimshape](images/adonis_menu_simshape.png){width=30%}
+<figure style="width: 30%;" markdown>
+  ![AdonisFX Menu Edit AdnSimshape](images/adonis_menu_simshape.png)
   <figcaption><b>Figure 8</b>: AdonisFX Menu Edit AdnSimshape section.</figcaption>
 </figure>
 
@@ -118,7 +118,7 @@ Option boxes can be used for deformer creation. Opening an auxiliar window with 
 - **Draw Fibers**. Enables *Muscle Fibers* Debugging from all the [AdnRibbonMuscle](ribbon.md#debug-features) an [AdnMuscle](muscle.md#debug-features) found in the scene.
 - **Hide Fibers**. Disables *Muscle Fibers* Debugging from all the [AdnRibbonMuscle](ribbon.md#debug-features) an [AdnMuscle](muscle.md#debug-features) found in the scene that were debugging *Muscle Fibers*.
 
-<figure markdown>
-  ![AdonisFX Menu Edit Muscle](images/adonis_menu_muscle.png){width=30%}
+<figure style="width: 30%;" markdown>
+  ![AdonisFX Menu Edit Muscle](images/adonis_menu_muscle.png)
   <figcaption><b>Figure 9</b>: AdonisFX Menu Edit Muscle section.</figcaption>
 </figure>
