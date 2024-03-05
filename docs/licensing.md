@@ -228,7 +228,7 @@ The first step to be able to serve leases from the lease pool is to activate, co
 
 The steps to run or install the floating licensing server on a dedicated Windows machine are the following:
 
-1. Locate the `TurboFloatServer.exe` in `AdonisFX/licensing/turbo_float_server/windows`. If a different executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
+1. Locate the `TurboFloatServer.exe` in `AdonisFX/licensing/turbo_float_server`. If a different executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
 2. Copy the folder to a preferred location.
 3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
     - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
@@ -283,7 +283,7 @@ The first step to be able to serve leases from the lease pool is to activate, co
 
 The steps to run or install the floating licensing server on a dedicated Linux machine are the following:
 
-1. Locate the `turbofloatserver` in `AdonisFX/licensing/turbo_float_server/linux`. If a different executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
+1. Locate the `turbofloatserver` in `AdonisFX/licensing/turbo_float_server`. If a different executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
 2. Copy the folder to a preferred location.
 3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
     - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
