@@ -22,13 +22,13 @@ There are two different methods of creating an AdnSensorPosition, depending if w
  - If applying to an already existing AdnLocatorPosition:
 
     1. Select an AdnLocatorPosition from your scene.
-    2. Press the ![AdnSensorPosition button](images/adn_point_sensor.png) button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorPosition button](images/adn_point_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnSensorPosition is created, applied to the selected AdnLocatorPosition.
 
  - If creating the locator alongside the sensor:
 
     1. Select a scene object with a transform node.
-    2. Press the ![AdnSensorPosition button](images/adn_point_sensor.png) button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorPosition button](images/adn_point_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnSensorPosition is created, alongside a new AdnLocatorPosition is applied to the same transform node.
 
 ### Attributes
@@ -76,13 +76,13 @@ There are two different methods of creating an AdnSensorDistance, depending if w
  - If applying to an already existing AdnLocatorDistance:
 
     1. Select an AdnLocatorDistance from your scene.
-    2. Press the ![AdnSensorDistance button](images/adn_distance_sensor.png) button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorDistance button](images/adn_distance_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnLocatorDistance is created, applied to the selected AdnLocatorDistance.
 
  - If creating the locator alongside the sensor:
 
     1. Select two scene objects with transform nodes.
-    2. Press the ![AdnSensorDistance button](images/adn_distance_sensor.png) button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorDistance button](images/adn_distance_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnSensorDistance is created, alongside a new AdnLocatorDistance is applied to the same transform nodes.
 
 ### Attributes
@@ -132,13 +132,13 @@ There are two different methods of creating an AdnSensorRotation, depending if w
  - If applying to an already existing AdnLocatorRotation:
 
     1. Select an AdnLocatorRotation from your scene.
-    2. Press the ![AdnSensorRotation button](images/adn_angle_sensor.png) button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorRotation button](images/adn_angle_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnLocatorRotation is created, applied to the selected AdnLocatorRotation.
 
  - If creating the locator alongside the sensor:
 
     1. Select two scene objects with transform nodes.
-    2. Press the ![AdnSensorRotation button](images/adn_angle_sensor.png) button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorRotation button](images/adn_angle_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnSensorRotation is created, alongside a new AdnLocatorRotation is applied to the same transform nodes.
 
 ### Attributes

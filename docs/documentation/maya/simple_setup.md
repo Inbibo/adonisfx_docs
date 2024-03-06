@@ -18,7 +18,7 @@ The AdnSkin deformer will get applied to the simulated mesh.
 
 ### 1. Creating the deformer
 
-To create the AdnSkin deformer select the target mesh and then the skin mesh (simulated mesh). Then press the ![AdnMuscle](images/adn_skin.png) shelf button or go to AdonisFX Menu > *Skin*.
+To create the AdnSkin deformer select the target mesh and then the skin mesh (simulated mesh). Then press the ![AdnMuscle](images/adn_skin.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Skin*.
 
 To create the AdnSkin deformer with some initial customization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow to do some initial customization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
@@ -29,7 +29,7 @@ To create the AdnSkin deformer with some initial customization, double-click the
 
 ### 2. Painting weights
 
-Once the AdnSkin deformer is properly created it is possible now to paint its weights to correctly setup the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png) shelf button or go to AdonisFX Menu > *Paint Tool*.
+Once the AdnSkin deformer is properly created it is possible now to paint its weights to correctly setup the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
 
 Start by painting *Hard Constraints*, which should only be applied to the edges of the simulated skin to be able to properly attach to the reference mesh.  
 
@@ -70,7 +70,7 @@ In this case the proposed example is to simulate a biceps in an animated full bo
 
 ### 1. Creating the deformer
 
-To create the AdnMuscle deformer, select the two joints of the rig that form the arm and the forearm and then the mesh of the muscle. Then, press the ![AdnMuscle](images/adn_muscle.png) shelf button or go to AdonisFX Menu > *Muscle*.
+To create the AdnMuscle deformer, select the two joints of the rig that form the arm and the forearm and then the mesh of the muscle. Then, press the ![AdnMuscle](images/adn_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Muscle*.
 
 <figure>
   <img src="images/setup_muscle_1.png"> 
@@ -86,7 +86,7 @@ To create the AdnMuscle deformer with some initial customization, double-click t
 
 ### 2. Painting weights
 
-Once the AdnMuscle deformer is properly created it is possible now to paint its weights to correctly setup the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png) shelf button or go to AdonisFX Menu > *Paint Tool*.
+Once the AdnMuscle deformer is properly created it is possible now to paint its weights to correctly setup the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
 
 <figure>
   <img src="images/setup_muscle_3.png"> 
@@ -122,7 +122,7 @@ Pressing play should display the muscle properly attached and with the expected 
 
 To have the muscle change and responding to external inputs (in this case an arm flex), it is recommended to setup and AdnSensor and connect it to the deformer. 
 
-To do this, first create a rotation locator and sensor to compute the elbow angle. Both elements can be created by selecting the three joints from which to create the rotation locator and sensor (arm, forearm and wrist joints) and directly click on the ![adnRotationSensor](images/adn_angle_sensor.png) shelf button or go to AdonisFX Menu > Sensors (on the *Create* group) > *Rotation*. With this, both a locator and its corresponding sensor will get created at the same time.
+To do this, first create a rotation locator and sensor to compute the elbow angle. Both elements can be created by selecting the three joints from which to create the rotation locator and sensor (arm, forearm and wrist joints) and directly click on the ![adnRotationSensor](images/adn_angle_sensor.png){style="width:4%"} shelf button or go to AdonisFX Menu > Sensors (on the *Create* group) > *Rotation*. With this, both a locator and its corresponding sensor will get created at the same time.
 
 <figure>
   <img src="images/setup_muscle_7.png"> 
@@ -158,7 +158,7 @@ In this case a planar muscle will be simulated corresponding to a biceps, which 
 
 ### 1. Creating the deformer
 
-Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the attachments (arm and forearm joints) and then the mesh to deform (the biceps muscle) and then pressing the ![AdnMuscle](images/adn_ribbon_muscle.png) shelf button or go to AdonisFX Menu > *Ribbon Muscle*.
+Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the attachments (arm and forearm joints) and then the mesh to deform (the biceps muscle) and then pressing the ![AdnMuscle](images/adn_ribbon_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Ribbon Muscle*.
 
 <figure>
   <img src="images/setup_ribbon_muscle_1.png"> 
@@ -174,7 +174,7 @@ To create the AdnRibbonMuscle deformer with some initial customization, double-c
 
 ### 2. Painting weights
 
-Once the muscle deformer is properly created it is possible now to paint its weights to correctly setup the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png) shelf button or go to AdonisFX Menu > *Paint Tool*.
+Once the muscle deformer is properly created it is possible now to paint its weights to correctly setup the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
 
 Start by painting attachment weights, painting the influence for each attachment by selecting the corresponding attachment from the list and painting its desired influence.  
 
@@ -236,7 +236,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 To create the AdnSimshape deformer it is required to select first the rest mesh and then the animated mesh. In this scenario, the animated mesh will be used as the simulated mesh.
 
-Press the ![AdnMuscle](images/adn_simshape.png) shelf button or go to AdonisFX Menu > *Simshape*.
+Press the ![AdnMuscle](images/adn_simshape.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Simshape*.
 
 To create the AdnSimshape deformer with some initial customization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow to do some initial customization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
@@ -294,4 +294,4 @@ Once the node is created it will appear in the Node Editor. Connect it to the Ad
   <figcaption><b>Figure 29</b>: Connecting Edge Evaluator Node to AdnSimshape Deformer.</figcaption>
 </figure>
 
-In the attribute editor of the AdnSimshape deformer, under the *Muscles Activation* section, the *Plug Values* will be enabled as a new valid *Activation Mode* option. To better visualize activations, press the ![AdnMuscle](images/adn_simshape_debugger.png) shelf button or go to AdonisFX Menu > Simshape (on the *Edit* group) > *Activations Debugger*.
+In the attribute editor of the AdnSimshape deformer, under the *Muscles Activation* section, the *Plug Values* will be enabled as a new valid *Activation Mode* option. To better visualize activations, press the ![AdnMuscle](images/adn_simshape_debugger.png){style="width:4%"} shelf button or go to AdonisFX Menu > Simshape (on the *Edit* group) > *Activations Debugger*.

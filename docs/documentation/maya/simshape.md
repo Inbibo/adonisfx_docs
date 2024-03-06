@@ -29,7 +29,7 @@ When initially creating an AdnSimshape deformer, it is possible to add both a **
 
   1. Select the **Rest Mesh** (optional), then the **Simulated Mesh**.
     - The deformer can also be applied to the **Animated Mesh** and use it directly as the **Simulated Mesh**.
-  2. Press the ![Simshape button](images/adn_simshape.png) in the AdonisFX shelf or press *Simshape* in AdonisFX menu under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+  2. Press the ![Simshape button](images/adn_simshape.png){style="width:4%"} in the AdonisFX shelf or press *Simshape* in AdonisFX menu under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
   3. A message box will notify that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings. Check the [attributes section](#attributes) to customize the configuration.
 
 In order to add or remove any of the optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape. In that submenu, the options to manage each mesh type can be found. See Figure 1.
@@ -251,7 +251,7 @@ The AMP file is generated from the Learn Muscle Patches tool:
   <figcaption><b>Figure 7:</b> Learn Muscle Patches UI</figcaption>
 </figure>
 
-1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png) or go to the Edit Simshape submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
+1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
 2. Add the neutral mesh.
 3. Add the target meshes.
 4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation. If *Add Selected* is pressed with no selection, the tool will display a pop-up and inform that all vertices will be used for the learning process. This button has to necessarily be pressed to enable the execution of the learning process.
@@ -288,7 +288,7 @@ In order to toggle and untoggle the debug mode, follow these steps:
 
 1. Stop the simulation.
 2. Move to pre-roll time or start time.
-3. Press ![Simshape debug icon](images/adn_simshape_debugger.png) or go to the Edit Simshape submenu from the AdonisFX menu and press *Activations Debugger*.
+3. Press ![Simshape debug icon](images/adn_simshape_debugger.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Activations Debugger*.
 
 ## Colliders
 
@@ -298,7 +298,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 
 1. Select the collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Press the AdonisFX Shelf > *Add Collider* Shelf Button ![Add collider icon](images/adn_add_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press *Add Collider*. 
+3. Press the AdonisFX Shelf > *Add Collider* Shelf Button ![Add collider icon](images/adn_add_collider.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Add Collider*.
 
 > [!NOTE]
 > - Avoid intersections between the collider and the rest/simulated mesh.
@@ -308,7 +308,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 
 1. Select the collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Press the AdonisFX Shelf > *Remove Collider* Shelf Button ![Remove collider icon](images/adn_remove_collider.png) or go to the Edit Simshape submenu from the AdonisFX menu and press *Remove Collider*.
+3. Press the AdonisFX Shelf > *Remove Collider* Shelf Button ![Remove collider icon](images/adn_remove_collider.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Remove Collider*.
 
 ### Add Rest Collider
 

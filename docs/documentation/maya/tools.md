@@ -13,7 +13,7 @@ The **AdonisFX Import Tool** allows the user to import the configuration for a s
 
 ### How To Use
 
-To open the importer tool press the ![Import Tool](images/adn_importer.png) shelf button or go to AdonisFX Menu > *Import*.
+To open the importer tool press the ![Import Tool](images/adn_importer.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Import*.
 
 To import and apply an ADD file to an entity in the current open scene with the deformer information follow these steps:
 
@@ -47,7 +47,7 @@ from an already existing setup containing data like weight maps, connections and
 
 ### How To Use
 
-To open the tool press the ![Import Tool](images/adn_exporter.png) shelf button or go to AdonisFX Menu > *Export*.
+To open the tool press the ![Import Tool](images/adn_exporter.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Export*.
 
 To export and apply an ADD file for the current entity in the current open scene with the deformer information follow these steps:
 
@@ -80,7 +80,7 @@ Some Adonis deformers require the use of a custom paint tool (external but simil
 To open the tool:
 
   1. Select the mesh with the Adonis deformer applied to.
-  2. Press the paint tool ![paint tool](images/adn_paint_tool.png) shelf button or go to AdonisFX Menu > *Paint Tool*.
+  2. Press the paint tool ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
 
 The selected attribute in the enumerator exposed at the top of the UI is the active attribute in the paint context. Depending on the deformer and the attribute the UI can adjust to support multi-influence attributes by exposing the influences or restricting certain functionalities of the tool.
 

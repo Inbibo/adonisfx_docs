@@ -21,7 +21,7 @@ To create a Muscle deformer within a Maya scene, the following inputs must be pr
 ## Create Muscle
 
 1. Select the **Attachments** (if any), then the **Muscle Geometry**.
-2. Press the ![Muscle button](images/adn_muscle.png) button in the AdonisFX shelf or press *Muscle* in the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press the ![Muscle button](images/adn_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Muscle* in the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnMuscle is ready to simulate with default settings. Check [this section](#attributes) to customize the configuration.
 
 ## Paintable Weights
@@ -163,12 +163,12 @@ Once the AdnMuscle deformer is created, it is possible to add and remove new att
 - **Add attachments**:  
     1. Select the transform nodes (one or more) to be assigned as attachments to the AdnMuscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press the ![Add Attachments button](images/adn_add_attachment.png) button in the AdonisFX shelf or press *Add Attachments* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Add Attachments button](images/adn_add_attachment.png){style="width:4%"} button in the AdonisFX shelf or press *Add Attachments* in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove attachments**:
     1. Select one or more transform nodes that are assigned as attachments to the muscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press the ![Remove Attachments button](images/adn_remove_attachment.png) button in the AdonisFX shelf or press *Remove Attachments* in the AdonisFX menu from the Edit Muscle submenu. 
-    4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing the ![Remove Attachments button](images/adn_remove_attachment.png) button, all attachments will be removed.
+    3. Press the ![Remove Attachments button](images/adn_remove_attachment.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Attachments* in the AdonisFX menu from the Edit Muscle submenu. 
+    4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing the ![Remove Attachments button](images/adn_remove_attachment.png){style="width:4%"} button, all attachments will be removed.
 
 ## Slide on Segment Constraint
 
