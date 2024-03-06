@@ -91,7 +91,7 @@ Option boxes can be used for deformer creation. Opening an auxiliar window with 
 
 #### Simshape
 
-- **Learn Muscle Patches UI**. Launches the [AdnSimshape Muscle Patches Learning](simshape.md#generate-muscle-patches) tool used to generate the *Adonis Muscle Patches* file (.amp) file.
+- **Learn Muscle Patches UI**. Launches the [AdnSimshape Muscle Patches Learning](simshape.md#generate-muscle-patches) tool used to generate the *Adonis Muscle Patches* (.amp) file.
 - **Activations Debugger**. Toggles the [Simshape Activations Debug Mode](simshape.md#debug-activations). Current frame must match the specified initialization frame at the AdnSimshape deformer to toggle.
 - **Add Collider**. Assigns a [Collider](simshape.md#add-collider) to the deformer selected. The selection must consist of: first the mesh to assign as a Collider and lastly the mesh with the deformer applied.
 - **Remove Collider**. Removes a [Collider](simshape.md#remove-collider) from the deformer selected. The selection must consist of: first the Collider mesh to remove and lastly the mesh with the deformer applied.
