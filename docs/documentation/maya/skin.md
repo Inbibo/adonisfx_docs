@@ -30,20 +30,15 @@ The process to create an AdnSkin deformer is the following:
 
 In order to provide more artistic control, some key parameters of the AdnSkin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
-- **Tendons**: Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh.
-    - It's initialized to a flooded value of 0.0.
-- **Attachment Constraints**: Weight to indicate the influence of each attachment at each vertex of the muscle.
-    - It's initialized to a flooded value of 0.0.
-- **Fibers**: The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug-features) option in the deformer.
-    - It's initialized to a flooded value of (0.0, 0.0, 0.0).
-- **Compression Resistance**: Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.
-    - It's initialized to a flooded value of 1.0.
-- **Stretching Resistance**: Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
-    - It's initialized to a flooded value of 1.0.
-- **Global Damping**: Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position.
-    - It's initialized to a flooded value of 1.0.
-- **Slide on Segment Constraints**: Weight to force vertices to displace only in the direction of a user-specified group of segments.
-    - It's initialized to a flooded value of 0.0.
+| Name | Default | Description |
+| :--- | :------ | :---------- |
+| **Tendons**                      | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
+| **Attachment Constraints**       | 0.0             | Weight to indicate the influence of each attachment at each vertex of the muscle. |
+| **Fibers**                       | {0.0, 0.0, 0.0} | The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug-features) option in the deformer. |
+| **Compression Resistance**       | 1.0             | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
+| **Stretching Resistance**        | 1.0             | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
+| **Global Damping**               | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
+| **Slide on Segment Constraints** | 0.0             | Weight to force vertices to displace only in the direction of a user-specified group of segments. |
 
 <figure>
   <img src="images/skin_paint_example.png" caption="AdonisFX Paint Tool"> 
