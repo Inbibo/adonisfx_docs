@@ -59,12 +59,12 @@ Option boxes are available at the AdonisFX Menu for [Locators](locators.md) and 
   <figcaption><b>Figure 3</b>: Locators/Sensors creator UI.</figcaption>
 </figure>
 
-<figure style="width: 30%;" markdown>
+<figure style="width: 50%;" markdown>
   ![AdonisFX Menu Create Locators](images/adonis_menu_locators.png)
   <figcaption><b>Figure 4</b>: AdonisFX Menu Create Locators section.</figcaption>
 </figure>
 
-<figure style="width: 30%;" markdown>
+<figure style="width: 50%;" markdown>
   ![AdonisFX Menu Create Sensors](images/adonis_menu_sensors.png)
   <figcaption><b>Figure 5</b>: AdonisFX Menu Create Sensors section.</figcaption>
 </figure>
@@ -84,7 +84,7 @@ Option boxes can be used for deformer creation. Opening an auxiliar window with 
 
 - **Connection Editor**. Launches the [Connection Editor](tools.md#adonisfx-sensors-connection-editor) UI. This tool will assist with the connectivity of the locators and sensors output plugs with the AdonisFX deformer nodes.
 
-<figure style="width: 30%;" markdown>
+<figure style="width: 50%;" markdown>
   ![AdonisFX Menu Edit Sensors](images/adonis_menu_connection_editor.png)
   <figcaption><b>Figure 7</b>: AdonisFX Menu Edit Sensors section.</figcaption>
 </figure>
