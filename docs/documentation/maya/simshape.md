@@ -55,21 +55,15 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 
 In order to provide more artistic control, some key parameters of the AdnSimshape solver are exposed as paintable attributes in the deformer. The Maya paint tool must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
- - **Attract Force**: Weight to control the amount of influence of the animated mesh. The higher the value is, the more influence and the less dynamics will appear.
-    - It's initialized to a flooded value of 1.0
- - **Collision Threshold Multiplier**: Factor to scale the distance vertex-to-collider at rest. It is used to modulate the minimum distance to the collider allowed for each vertex.
-    - It's initialized to a flooded value of 1.0
-- **Compression Resistance**: Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.
-    - It's initialized to a flooded value of 0.0
- - **Global Damping**: Set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position.
-    - It's initialized to a flooded value of 1.0
- - **Mass**: Set individual mass values per vertex in the simulated mesh.
-    - It's initialized to a flooded value of 1.0
- - **Slide Collision Constraints**: Represents for which areas collisions should be computed against the collider.
-    - It's initialized to a flooded value of 0.0
-    - A value of 0.0 does not apply correction at all, while a value of 1.0 does apply the correction to fix intersections. 
-- **Stretching Resistance**: Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
-    - It's initialized to a flooded value of 1.0
+| Name | Default | Description |
+| :--- | :------ | :---------- |
+| **Attract Force**                  | 1.0 | Weight to control the amount of influence of the animated mesh. The higher the value is, the more influence and the less dynamics will appear. |
+| **Collision Threshold Multiplier** | 1.0 | Factor to scale the distance vertex-to-collider at rest. It is used to modulate the minimum distance to the collider allowed for each vertex. |
+| **Compression Resistance**         | 0.0 | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
+| **Global Damping**                 | 1.0 | Set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position. |
+| **Mass**                           | 1.0 | Set individual mass values per vertex in the simulated mesh. |
+| **Slide Collision Constraints**    | 0.0 | Represents for which areas collisions should be computed against the collider. A value of 0.0 does not apply correction at all, while a value of 1.0 does apply the correction to fix intersections. |
+| **Stretching Resistance**          | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
 
 # Attributes
 

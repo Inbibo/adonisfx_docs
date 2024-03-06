@@ -30,43 +30,16 @@ The process to create an AdnSkin deformer is the following:
 
 In order to provide more artistic control, some key parameters of the AdnSkin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
-- **Hard Constraints**: Weight to modulate the correction applied to the vertices to keep them at a constant transformation, local to the closest point on the reference mesh at initialization. Hard Constraint maps will force the geometry points to keep the original position. A low value of *Hard Constraints* may be desired to allow the skin to create wrinkles and sliding effect.
-
-    - *Tip*: Flood the geometry with a very low value 0.1 - 0.2. Give a value of 1.0 to the edges of the skin to guarantee that is properly attached to the target geometry.
-
-    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.
-
-- **Soft Constraints**: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. Painting these constraint weights would allow the deformer to create a wrinkle effect when combined with hard and slide weights.
-
-    - *Tip*: Flood the geometry with a very low value 0.1 - 0.2.
-
-    - *Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
-
-- **Slide Constraints**: Weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. In the example of a biped or quadruped creature, it is recommended to set a value of 1.0 on the scapulas, shoulders, elbows and knees and an overall value of 0 on the rest of the body.
-
-    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.
-
-- **Compression Resistance**: Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. At value 1 the points in the geometry will try to stay as close as possible to their original position.
-
-    - *Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
-    
-    - *Tip*: Reducing the value of the weight in some areas will contribute to getting rid of unwanted wrinkles or possible artifacts in the skin.
-
-- **Stretching Resistance**: Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.
-
-    - *Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on as the results of the skin simulation are seen.
-
-    - *Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.
-
-- **Global Damping**: Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position.
-
-    - It's initialized to a flooded value of 1.0.
-
-- **Max Sliding Multiplier**: Determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. Greater values will allow for greater sliding but will have a greater computational cost.
-    
-    - *Tip*: For areas where sliding is not required paint to 0. Use values closer to 1 in areas where more sliding freedom should be prioritized.
-
-- **Mass**: Set individual mass values per vertex in the simulated mesh.
+| Name | Default | Description |
+| :--- | :------ | :---------- |
+| **Hard Constraints**       | 1.0 | Weight to modulate the correction applied to the vertices to keep them at a constant transformation, local to the closest point on the reference mesh at initialization. Hard Constraint maps will force the geometry points to keep the original position. A low value of *Hard Constraints* may be desired to allow the skin to create wrinkles and sliding effect.<ul><li>*Tip*: Flood the geometry with a very low value 0.1 - 0.2. Give a value of 1.0 to the edges of the skin to guarantee that is properly attached to the target geometry.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
+| **Soft Constraints**       | 0.0 | Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. Painting these constraint weights would allow the deformer to create a wrinkle effect when combined with hard and slide weights.<ul><li>*Tip*: Flood the geometry with a very low value 0.1 - 0.2.</li><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on as the results of the skin simulation are seen.</ul></li> |
+| **Slide Constraints**      | 0.0 | Weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface. In the example of a biped or quadruped creature, it is recommended to set a value of 1.0 on the scapulas, shoulders, elbows and knees and an overall value of 0.0 on the rest of the body.<ul><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
+| **Compression Resistance** | 1.0 | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. At value 1.0 the points in the geometry will try to stay as close as possible to their original position.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on as the results of the skin simulation are seen.</li><li>*Tip*: Reducing the value of the weight in some areas will contribute to getting rid of unwanted wrinkles or possible artifacts in the skin.</li></ul> |
+| **Stretching Resistance**  | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on as the results of the skin simulation are seen.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</ul></li> |
+| **Global Damping**         | 1.0 | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
+| **Max Sliding Multiplier** | 1.0 | Determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. Greater values will allow for greater sliding but will have a greater computational cost.<ul><li>*Tip*: For areas where sliding is not required paint to 0.0. Use values closer to 1.0 in areas where more sliding freedom should be prioritized.</ul></li> |
+| **Mass**                   | 1.0 | Set individual mass values per vertex in the simulated mesh. |
 
 <figure>
   <img src="images/skin_paint_example.png" caption="AdonisFX Paint Tool"> 
