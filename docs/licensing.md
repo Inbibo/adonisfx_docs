@@ -82,20 +82,19 @@ To ease this process several executable files are provided to generate the assoc
 
 To activate AdonisFX in Offline Node-Locked Interactive mode:
 
-1. Open `AdonisFX/bin`.
-2. Run `OfflineRequest` from `AdonisFX/bin` with admin privileges.
-3. Select **Interactive** mode by entering the value `0`.
-4. Enter a valid product key.
-    - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
-    - A XML file `InteractiveOfflineRequest.xml` will be generated in the same folder.
-
-5. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request (username and date).
-6. In a maximum of 24h an `InteractiveOfflineResponse.xml` will be returned to the source e-mail address.
-7. Download and save the response in the same folder `AdonisFX/bin`.
-8. Execute `OfflineReponse` from `AdonisFX/bin` with admin privileges.
-9. Select **Interactive** mode again by entering the value `0`.
-10. The response will be registered and AdonisFX will be ready to be used.
-    - Once the activation period has concluded, a new activation request and response have to be generated.
+  1. Open `AdonisFX/bin`.
+  2. Run `OfflineRequest` from `AdonisFX/bin` with admin privileges.
+  3. Select **Interactive** mode by entering the value `0`.
+  4. Enter a valid product key.
+      - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
+      - A XML file `InteractiveOfflineRequest.xml` will be generated in the same folder.
+  5. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request (username and date).
+  6. In a maximum of 24h an `InteractiveOfflineResponse.xml` will be returned to the source e-mail address.
+  7. Download and save the response in the same folder `AdonisFX/bin`.
+  8. Execute `OfflineReponse` from `AdonisFX/bin` with admin privileges.
+  9. Select **Interactive** mode again by entering the value `0`.
+  10. The response will be registered and AdonisFX will be ready to be used.
+      - Once the activation period has concluded, a new activation request and response have to be generated.
 
 > [!NOTE]
 > For deactivating licenses, please contact support.
@@ -110,10 +109,10 @@ Whenever activating AdonisFX for the first time for a specific DCC in batch mode
 
 To activate AdonisFX in Online Node-Locked Batch mode:
 
-1. Run `ActivateBatch` from `AdonisFX/bin` with admin privileges.
-2. Enter the `PRODUCT KEY`.
-    - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
-3. AdonisFX is activated and ready to be used.
+  1. Run `ActivateBatch` from `AdonisFX/bin` with admin privileges.
+  2. Enter the `PRODUCT KEY`.
+      - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
+  3. AdonisFX is activated and ready to be used.
 
 **Offline Node-Locked Batch Activation**
 
@@ -124,20 +123,19 @@ To ease this process several executable files are provided to generate the assoc
 
 To activate AdonisFX in Offline Node-Locked Batch mode:
 
-1. Open `AdonisFX/bin`.
-2. Run `OfflineRequest` from `AdonisFX/bin` with admin privileges.
-3. Select **Batch** mode by entering the value `1`.
-4. Enter a valid product key.
-    - A XML file `BatchOfflineRequest.xml` will be generated in the same folder.
-
-5. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request (username and date).
-6. In a maximum of 24h a `BatchOfflineResponse.xml` will be returned to the source e-mail address.
-7. Download and save the response in the same folder `AdonisFX/bin`.
-8. Execute `OfflineReponse` from `AdonisFX/bin` with admin privileges.
-9. Select **Batch** mode again by entering the value `1`.
-10. The response will be registered and AdonisFX will be ready to be used.
-    - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
-    - Once the activation period has concluded, a new activation request and response have to be generated.
+  1. Open `AdonisFX/bin`.
+  2. Run `OfflineRequest` from `AdonisFX/bin` with admin privileges.
+  3. Select **Batch** mode by entering the value `1`.
+  4. Enter a valid product key.
+      - A XML file `BatchOfflineRequest.xml` will be generated in the same folder.
+  5. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request (username and date).
+  6. In a maximum of 24h a `BatchOfflineResponse.xml` will be returned to the source e-mail address.
+  7. Download and save the response in the same folder `AdonisFX/bin`.
+  8. Execute `OfflineReponse` from `AdonisFX/bin` with admin privileges.
+  9. Select **Batch** mode again by entering the value `1`.
+  10. The response will be registered and AdonisFX will be ready to be used.
+      - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
+      - Once the activation period has concluded, a new activation request and response have to be generated.
 
 > [!NOTE]
 > For deactivating licenses, please contact support.
@@ -158,22 +156,19 @@ It will allow the user to use AdonisFX for 30 days without providing a `PRODUCT 
 
 To activate AdonisFX in Online Node-Locked Interactive Trial mode:
 
-1. Load the plug-in from the desired location depending on the target DCC.
-2. Select **Continue With Trial** from the activation dialog.
-
-    <figure style="width:80%" markdown>
-      ![Activation Dialog](images/adn_activation_dialog.png)
-      <figcaption><b>Figure 9:</b> Activation Dialog.</figcaption>
-    </figure>
-
-3. AdonisFX will inform about the amount of days left for the trial license.
-    <figure style="width:80%" markdown>
-      ![Trial Dialog](images/adn_your_trial_expires_dialog.png)
-      <figcaption><b>Figure 10:</b> Trial Dialog.</figcaption>
-    </figure>
-
-4. The trial will deactivate the product after 30 days and will ask for a valid product key.
-5. AdonisFX is activated and ready to be used in trial mode.
+  1. Load the plug-in from the desired location depending on the target DCC.
+  2. Select **Continue With Trial** from the activation dialog.
+      <figure style="width:80%" markdown>
+        ![Activation Dialog](images/adn_activation_dialog.png)
+        <figcaption><b>Figure 9:</b> Activation Dialog.</figcaption>
+      </figure>
+  3. AdonisFX will inform about the amount of days left for the trial license.
+      <figure style="width:80%" markdown>
+        ![Trial Dialog](images/adn_your_trial_expires_dialog.png)
+        <figcaption><b>Figure 10:</b> Trial Dialog.</figcaption>
+      </figure>
+  4. The trial will deactivate the product after 30 days and will ask for a valid product key.
+  5. AdonisFX is activated and ready to be used in trial mode.
 
 **Offline Trial Activation**
 
@@ -183,17 +178,17 @@ It will allow the user to use AdonisFX for 30 days without providing a `PRODUCT 
 
 To activate AdonisFX in Offline Node-Locked Interactive Trial mode:
 
-1. Open `AdonisFX/bin`.
-2. Run `TrialOfflineRequest` from `AdonisFX/bin` with admin privileges.
-3. Enter a valid product key.
-    - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
-    - A XML file `TrialOfflineRequest.xml` will be generated in the same folder.
-4. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request (username and date).
-5. In a maximum of 24h a `TrialOfflineResponse.xml` will be returned to the source e-mail address.
-6. Download and save the response in the same folder `AdonisFX/bin`.
-7. Execute `TrialOfflineResponse` from `AdonisFX/bin` with admin privileges.
-8. The response will be registered and AdonisFX will be ready to be used.
-    - Once the activation period has concluded, a new activation request and response have to be generated.
+  1. Open `AdonisFX/bin`.
+  2. Run `TrialOfflineRequest` from `AdonisFX/bin` with admin privileges.
+  3. Enter a valid product key.
+      - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
+      - A XML file `TrialOfflineRequest.xml` will be generated in the same folder.
+  4. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request (username and date).
+  5. In a maximum of 24h a `TrialOfflineResponse.xml` will be returned to the source e-mail address.
+  6. Download and save the response in the same folder `AdonisFX/bin`.
+  7. Execute `TrialOfflineResponse` from `AdonisFX/bin` with admin privileges.
+  8. The response will be registered and AdonisFX will be ready to be used.
+      - Once the activation period has concluded, a new activation request and response have to be generated.
 
 ## Floating Licensing
 
@@ -207,10 +202,10 @@ To be able to request leases from the license server it is necessary to activate
 
 In AdonisFX the steps for setting up floating licenses is the following:
 
-1. Locate or download the server software.
-2. Configure the server to the expected requirements using the associated config file.
-3. Activate the server using online or offline activation using a purchased `PRODUCT KEY`.
-4. Start the server to start providing leases to the client instances of AdonisFX.
+  1. Locate or download the server software.
+  2. Configure the server to the expected requirements using the associated config file.
+  3. Activate the server using online or offline activation using a purchased `PRODUCT KEY`.
+  4. Start the server to start providing leases to the client instances of AdonisFX.
 
 > [!NOTE]
 > Node-Locked Licensing is defaulted in AdonisFX. To explicitly switch to Floating licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `1`.
@@ -223,20 +218,19 @@ The first step to be able to serve leases from the lease pool is to activate, co
 
 The steps to run or install the floating licensing server on a dedicated Windows machine are the following:
 
-1. Locate the `TurboFloatServer.exe` in `AdonisFX/licensing/turbo_float_server`. If a different executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
-2. Copy the folder to a preferred location.
-3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
-    - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
-    - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
-4. The content after copying the files should follow this structure:
-    <figure style="width:80%" markdown>
-      ![Turbo Float Folder](images/adn_turbo_float_folder.png)
-      <figcaption><b>Figure 11:</b> Turbo Float Folder.</figcaption>
-    </figure>
-
-5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
-    - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [Configuring the TurboFloat Server](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in the **Run** section.
-    - Find the full list of customizable parameters in the `.xml` file comments.
+  1. Locate the `TurboFloatServer.exe` in `AdonisFX/licensing/turbo_float_server`. If a different executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
+  2. Copy the folder to a preferred location.
+  3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
+      - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
+      - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
+  4. The content after copying the files should follow this structure:
+      <figure style="width:80%" markdown>
+        ![Turbo Float Folder](images/adn_turbo_float_folder.png)
+        <figcaption><b>Figure 11:</b> Turbo Float Folder.</figcaption>
+      </figure>
+  5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
+      - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [Configuring the TurboFloat Server](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in the **Run** section.
+      - Find the full list of customizable parameters in the `.xml` file comments.
 
 **Online Floating Server Activation**
 
@@ -246,13 +240,13 @@ Activating floating licenses only requires the activation of the licensing serve
 
 The steps to activate the floating licensing server online are the following:
 
-1. Open a terminal in the folder where the `TurboFloatServer.exe` is located.
-2. Run the following command for activation: `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY"`
-    - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
-    - Make sure to open the terminal with admin privileges.
-    - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation: `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
-    - Deactivate an activated license: `TurboFloatServer.exe -deact`
-3. The server is now ready and can be run with the commands explained in the **Run** section.
+  1. Open a terminal in the folder where the `TurboFloatServer.exe` is located.
+  2. Run the following command for activation: `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY"`
+      - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
+      - Make sure to open the terminal with admin privileges.
+      - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation: `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
+      - Deactivate an activated license: `TurboFloatServer.exe -deact`
+  3. The server is now ready and can be run with the commands explained in the **Run** section.
 
 **Offline Floating Server Activation**
 
@@ -262,13 +256,13 @@ Activating floating licenses only requires the activation of the licensing serve
 
 The steps to activate the floating licensing server online are the following:
 
-1. Open a terminal in the folder where the `TurboFloatServer.exe` is located.
-2. Run the following command to generate the activation request: `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY" -areq="<PATH>/ActivationRequest.xml"`
-    - An `ActivationRequest.xml` will be stored on disk if the activation process succeeded.
-3. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request (username and date).
-4. In a maximum of 24h an `ActivationResponse.xml` will be returned to the source e-mail address.
-5. Run the following command to obtain the data from the activation response and activate the server: `TurboFloatServer.exe -a -aresp="<PATH>/ActivationResponse.xml"`
-6. The server is now ready and can be run with the commands explained in the **Run** section.
+  1. Open a terminal in the folder where the `TurboFloatServer.exe` is located.
+  2. Run the following command to generate the activation request: `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY" -areq="<PATH>/ActivationRequest.xml"`
+      - An `ActivationRequest.xml` will be stored on disk if the activation process succeeded.
+  3. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request (username and date).
+  4. In a maximum of 24h an `ActivationResponse.xml` will be returned to the source e-mail address.
+  5. Run the following command to obtain the data from the activation response and activate the server: `TurboFloatServer.exe -a -aresp="<PATH>/ActivationResponse.xml"`
+  6. The server is now ready and can be run with the commands explained in the **Run** section.
 
 > [!NOTE]
 > - Monthly licenses require an internet connection. Floating licenses require internet only for the license server. Workstations can remain disconnected and protected.
@@ -280,15 +274,15 @@ The first step to be able to serve leases from the lease pool is to activate, co
 
 The steps to run or install the floating licensing server on a dedicated Linux machine are the following:
 
-1. Locate the `turbofloatserver` in `AdonisFX/licensing/turbo_float_server`. If a different executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
-2. Copy the folder to a preferred location.
-3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
-    - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
-    - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
-4. The content after copying the files should following a similar structure as to Windows.
-5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
-    - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [Configuring the TurboFloat Server](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in the **Run** section.
-    - Find the full list of customizable parameters in the `.xml` file comments.
+  1. Locate the `turbofloatserver` in `AdonisFX/licensing/turbo_float_server`. If a different executable is required please visit [https://wyday.com/download/](https://wyday.com/download/).
+  2. Copy the folder to a preferred location.
+  3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
+      - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
+      - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
+  4. The content after copying the files should following a similar structure as to Windows.
+  5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
+      - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [Configuring the TurboFloat Server](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in the **Run** section.
+      - Find the full list of customizable parameters in the `.xml` file comments.
 
 **Online Floating Server Activation**
 
@@ -298,13 +292,13 @@ Activating floating licenses only requires the activation of the licensing serve
 
 The steps to activate the floating licensing server online are the following:
 
-1. Open a terminal in the folder where the `turbofloatserver` is located.
-2. Run the following command for activation: `./turbofloatserver -a="YOUR-PRODUCT-KEY"`
-    - It might be require to launch this command with `sudo` privileges.
-    - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
-    - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation: `./turbofloatserver -a="YOUR-PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
-    - Deactivate an activated license: `./turbofloatserver -deact`
-3. The server is now ready and can be run with the commands explained in the **Run** section.
+  1. Open a terminal in the folder where the `turbofloatserver` is located.
+  2. Run the following command for activation: `./turbofloatserver -a="YOUR-PRODUCT-KEY"`
+      - It might be require to launch this command with `sudo` privileges.
+      - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
+      - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation: `./turbofloatserver -a="YOUR-PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
+      - Deactivate an activated license: `./turbofloatserver -deact`
+  3. The server is now ready and can be run with the commands explained in the **Run** section.
 
 **Offline Floating Server Activation**
 
@@ -314,13 +308,13 @@ Activating floating licenses only requires the activation of the licensing serve
 
 The steps to activate the floating licensing server online are the following:
 
-1. Open a terminal in the folder where the `turbofloatserver` is located.
-2. Run the following command to generate the activation request: `./turbofloatserver -a="YOUR-PRODUCT-KEY" -areq="<PATH>/ActivationRequest.xml"`
-    - An `ActivationRequest.xml` will be stored on disk if the activation process succeeded.
-3. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request (username and date).
-4. In a maximum of 24h an `ActivationResponse.xml` will be returned to the source e-mail address.
-5. Run the following command to obtain the data from the activation response and activate the server: `./turbofloatserver -a -aresp="<PATH>/ActivationResponse.xml"`
-6. The server is now ready and can be run with the commands explained in the **Run** section.
+  1. Open a terminal in the folder where the `turbofloatserver` is located.
+  2. Run the following command to generate the activation request: `./turbofloatserver -a="YOUR-PRODUCT-KEY" -areq="<PATH>/ActivationRequest.xml"`
+      - An `ActivationRequest.xml` will be stored on disk if the activation process succeeded.
+  3. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request (username and date).
+  4. In a maximum of 24h an `ActivationResponse.xml` will be returned to the source e-mail address.
+  5. Run the following command to obtain the data from the activation response and activate the server: `./turbofloatserver -a -aresp="<PATH>/ActivationResponse.xml"`
+  6. The server is now ready and can be run with the commands explained in the **Run** section.
 
 > [!NOTE]
 > - Monthly licenses require an internet connection. Floating licenses require internet only for the license server. Workstations can remain disconnected and protected.
@@ -330,10 +324,10 @@ The steps to activate the floating licensing server online are the following:
 
 To be able to run AdonisFX using floating license these 4 criteria have to be met:
 
-1. The floating server is running or installed and machines have access to it.
-2. The machine with AdonisFX installed has direct access to the floating server. Use `ping` command to check connectivity.
-3. The licensing mode is set to floating in AdonisFX.
-4. The server address is properly configured on the client machine.
+  1. The floating server is running or installed and machines have access to it.
+  2. The machine with AdonisFX installed has direct access to the floating server. Use `ping` command to check connectivity.
+  3. The licensing mode is set to floating in AdonisFX.
+  4. The server address is properly configured on the client machine.
 
 #### Run the floating server
 
@@ -357,7 +351,7 @@ After activating and launching the licensing server it is necessary to configure
 
 To conclude the configuration of the floating licensing in AdonisFX configure the following environment variables:
 
-1. Set `ADN_LICENSE_MODE` to `1`. Make sure to apply this change before launching AdonisFX.
-2. Set `ADN_LICENSE_SERVER` to `<IP-ADDRESS>:<PORT-NUMBER>`. Eg. `127.0.0.1:13`. If no port number was provided whe system will default to port `13`. Make sure to apply this change before launching AdonisFX.
-3. When launching AdonisFX in the target DCC, if the connection to the active license server could be established, it will try to obtain a valid lease and if granted activate the plug-in.
-4. AdonisFX is activated and ready to be used using floating licensing with the maximum amount of purchased leases. Depending on the configuration of the server it is possible to monitor the leases from the terminal.
+  1. Set `ADN_LICENSE_MODE` to `1`. Make sure to apply this change before launching AdonisFX.
+  2. Set `ADN_LICENSE_SERVER` to `<IP-ADDRESS>:<PORT-NUMBER>`. Eg. `127.0.0.1:13`. If no port number was provided whe system will default to port `13`. Make sure to apply this change before launching AdonisFX.
+  3. When launching AdonisFX in the target DCC, if the connection to the active license server could be established, it will try to obtain a valid lease and if granted activate the plug-in.
+  4. AdonisFX is activated and ready to be used using floating licensing with the maximum amount of purchased leases. Depending on the configuration of the server it is possible to monitor the leases from the terminal.
