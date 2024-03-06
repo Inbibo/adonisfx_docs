@@ -62,8 +62,10 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
       ![Product Activated Dialog](images/adn_activated_product_key_dialog.png)
       <figcaption><b>Figure 3:</b> Product Activated Dialog.</figcaption>
     </figure>
+    
     > [!NOTE]
     > If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to retry the activation.
+    
     <figure style="width:80%" markdown>
       ![Activation Retry Adding Product Key](images/adn_try_again_product_key_dialog.png)
       <figcaption><b>Figure 4:</b> Activation Retry Adding Product Key.</figcaption>
