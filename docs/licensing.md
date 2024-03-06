@@ -31,7 +31,8 @@ Node-Locked Licensing product keys can be purchased through Inbibo's official we
 
 To be able to move node-locked licenses to a different machine the license has to be deactivated and activated again on the new machine.
 
-> [!NOTE] Node-Locked Licensing is the default license mode in AdonisFX. To explicitly switch to Node-Locked licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `0`.
+> [!NOTE]
+> Node-Locked Licensing is the default license mode in AdonisFX. To explicitly switch to Node-Locked licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `0`.
 
 ### Interactive
 
@@ -69,7 +70,8 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
       <figcaption><b>Figure 3:</b> Product Activated Dialog.</figcaption>
     </figure>
 
-    [!NOTE] If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to retry the activation.
+    > [!NOTE]
+    > If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to retry the activation.
     <figure style="width:80%" markdown>
       ![Activation Retry Adding Product Key](images/adn_try_again_product_key_dialog.png)
       <figcaption><b>Figure 4:</b> Activation Retry Adding Product Key.</figcaption>
@@ -77,7 +79,8 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
 
 5. AdonisFX is activated and ready to be used.
 
-> [!NOTE] For deactivating licenses, please contact support.
+> [!NOTE]
+> For deactivating licenses, please contact support.
 
 **Offline Node-Locked Interactive Activation**
 
@@ -103,7 +106,8 @@ To activate AdonisFX in Offline Node-Locked Interactive mode:
 10. The response will be registered and AdonisFX will be ready to be used.
     - Once the activation period has concluded, a new activation request and response have to be generated.
 
-> [!NOTE] For deactivating licenses, please contact support.
+> [!NOTE]
+> For deactivating licenses, please contact support.
 
 ### Batch
 
@@ -144,7 +148,8 @@ To activate AdonisFX in Offline Node-Locked Batch mode:
     - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
     - Once the activation period has concluded, a new activation request and response have to be generated.
 
-> [!NOTE] For deactivating licenses, please contact support.
+> [!NOTE]
+> For deactivating licenses, please contact support.
 
 ### Trial
 
@@ -216,7 +221,8 @@ In AdonisFX the steps for setting up floating licenses is the following:
 3. Activate the server using online or offline activation using a purchased `PRODUCT KEY`.
 4. Start the server to start providing leases to the client instances of AdonisFX.
 
-> [!NOTE] Node-Locked Licensing is defaulted in AdonisFX. To explicitly switch to Floating licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `1`.
+> [!NOTE]
+> Node-Locked Licensing is defaulted in AdonisFX. To explicitly switch to Floating licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `1`.
 
 ### Install Server
 
@@ -273,7 +279,9 @@ The steps to activate the floating licensing server online are the following:
 5. Run the following command to obtain the data from the activation response and activate the server: `TurboFloatServer.exe -a -aresp="<PATH>/ActivationResponse.xml"`
 6. The server is now ready and can be run with the commands explained in the **Run** section.
 
-> [!NOTE] Monthly licenses require an internet connection. Floating licenses require internet only for the license server. Workstations can remain disconnected and protected. For deactivating licenses, please contact support.
+> [!NOTE]
+> - Monthly licenses require an internet connection. Floating licenses require internet only for the license server. Workstations can remain disconnected and protected.
+> - For deactivating licenses, please contact support.
 
 #### Linux
 
@@ -323,7 +331,9 @@ The steps to activate the floating licensing server online are the following:
 5. Run the following command to obtain the data from the activation response and activate the server: `./turbofloatserver -a -aresp="<PATH>/ActivationResponse.xml"`
 6. The server is now ready and can be run with the commands explained in the **Run** section.
 
-> [!NOTE] Monthly licenses require an internet connection. Floating licenses require internet only for the license server. Workstations can remain disconnected and protected. For deactivating licenses, please contact support.
+> [!NOTE]
+> - Monthly licenses require an internet connection. Floating licenses require internet only for the license server. Workstations can remain disconnected and protected.
+> - For deactivating licenses, please contact support.
 
 ### Run 
 
