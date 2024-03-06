@@ -20,7 +20,7 @@ An AdnLocatorPosition will only visualize the information of the transform node 
 Only one transform will be required to create the AdnLocatorPosition. The creation process is the following:
 
  1. Select a scene object with a transform node.
- 2. Press the ![AdnLocatorPosition button](images/adn_point_locator.png) button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+ 2. Press the ![AdnLocatorPosition button](images/adn_point_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorPosition is created and ready to be used.
 
 
