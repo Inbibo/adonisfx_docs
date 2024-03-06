@@ -33,7 +33,7 @@ After following the previous steps the tool will inform about the status of the 
 </figure>
 
 > [!NOTE]
-> - When using this tool it has to be taken into consideration that the mesh from which the AAD file was exported **must have the same number of vertices** as the one to which the configuration is getting imported.
+> When using this tool it has to be taken into consideration that the mesh from which the AAD file was exported **must have the same number of vertices** as the one to which the configuration is getting imported.
 
 ## AdonisFX Export Tool
 
@@ -64,7 +64,7 @@ The AAD file that has been exported can then be imported in a scene with similar
 </figure>
 
 > [!NOTE]
-> - When using this tool to export more than one Adonis deformer, all meshes with deformers must be contained within the same group in the scene.
+> When using this tool to export more than one Adonis deformer, all meshes with deformers must be contained within the same group in the scene.
 
 ## AdonisFX Paint Tool
 

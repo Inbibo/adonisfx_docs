@@ -16,7 +16,7 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 - **Muscle Geometry (M)**: Mesh that the AdnRibbonMuscle deformer will be applied to.
 
 > [!NOTE]
-> - It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. Attachments can be added and remove after creating the deformer. For more information check the [advanced section](#attachments).
+> It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. Attachments can be added and remove after creating the deformer. For more information check the [advanced section](#attachments).
 
 ## Create AdnRibbonMuscle
 
@@ -183,7 +183,7 @@ Additionally to all previously mentioned constraints, ribbon muscles can have an
     3. Press *Add Slide On Segment Constraint* in the AdonisFX menu from the *Edit* Muscle submenu.
 
 > [!NOTE]
-> - The transform nodes selection must follow a parent to child relationship in the hierarchy.
+> The transform nodes selection must follow a parent to child relationship in the hierarchy.
 
 - **Remove Segment**:  
     1. Select one or more transform nodes that are assigned as segment anchors to the AdnRibbonMuscle.
