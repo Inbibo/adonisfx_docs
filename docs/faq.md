@@ -77,7 +77,7 @@ You will need to configure and activate the licensing server, make sure you have
 The process is to deactivate the license offline and reactivate it after making changes (to for example the number of seats). For more information visit the [licensing](licensing.md#licensing) page or contact support.
 
 #### Can I move the license server to a different machine?
-Yes. This process requires you cto deactivate it and then activate it on the new machine. For more information visit the [licensing](licensing.md#licensing) page or contact support.
+Yes. This process requires you to deactivate it and then activate it on the new machine. For more information visit the [licensing](licensing.md#licensing) page or contact support.
 
 #### How can I change the port number of my licensing server?
 Change the server `port` number in the `TurboFloatServer-config.xml` before running the server.
