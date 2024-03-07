@@ -106,7 +106,7 @@ Option boxes can be used for deformer creation. Opening an auxiliar window with 
 - **Connect Activations Plug**. Connects the output compression map from an [Edge Evaluator](edge_evaluator.md#simshape-activation-using-edge-evaluator-node) node to the activations plug of the AdnSimshape deformer selected. The selection must consist of: first the Edge Evaluator node and lastly the AdnSimshape deformer node.
 - **Disconnect Activations Plug**. Disconnects the output compression map from an [Edge Evaluator](edge_evaluator.md#simshape-activation-using-edge-evaluator-node) node from the activations plug of the AdnSimshape deformer selected. The selection must consist of: first the Edge Evaluator node and lastly the AdmSimshape deformer node.
 
-<figure style="width: 30%;" markdown>
+<figure style="width: 50%;" markdown>
   ![AdonisFX Menu Edit AdnSimshape](images/adonis_menu_simshape.png)
   <figcaption><b>Figure 8</b>: AdonisFX Menu Edit AdnSimshape section.</figcaption>
 </figure>
@@ -118,7 +118,7 @@ Option boxes can be used for deformer creation. Opening an auxiliar window with 
 - **Draw Fibers**. Enables *Muscle Fibers* Debugging from all the [AdnRibbonMuscle](ribbon.md#debug-features) an [AdnMuscle](muscle.md#debug-features) found in the scene.
 - **Hide Fibers**. Disables *Muscle Fibers* Debugging from all the [AdnRibbonMuscle](ribbon.md#debug-features) an [AdnMuscle](muscle.md#debug-features) found in the scene that were debugging *Muscle Fibers*.
 
-<figure style="width: 30%;" markdown>
+<figure style="width: 50%;" markdown>
   ![AdonisFX Menu Edit Muscle](images/adonis_menu_muscle.png)
   <figcaption><b>Figure 9</b>: AdonisFX Menu Edit Muscle section.</figcaption>
 </figure>

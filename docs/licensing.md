@@ -53,6 +53,7 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
 
     - **Activate:** Enter a valid `PRODUCT KEY` and activate AdonisFX.
     - **Continue With Trial:** Continue with the 30 day trial period.
+    
   3. Enter a valid product key in the text edit after selecting **Activate**.
 
     <figure style="width:80%" markdown>
@@ -170,7 +171,7 @@ To activate AdonisFX in Online Node-Locked Interactive Trial mode:
         <figcaption><b>Figure 9:</b> Activation Dialog.</figcaption>
       </figure>
   3. AdonisFX will inform about the amount of days left for the trial license.
-      <figure style="width:80%" markdown>
+      <figure style="width:30%" markdown>
         ![Trial Dialog](images/adn_your_trial_expires_dialog.png)
         <figcaption><b>Figure 10:</b> Trial Dialog.</figcaption>
       </figure>

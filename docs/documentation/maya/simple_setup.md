@@ -6,8 +6,8 @@ This page is dedicated to explain, step by step, a simple process of creating an
 
 To create a basic scenario using the AdnSkin deformer, start with a scene with the following elements:
 
-  - A target mesh with animation.
-  - A simulated mesh (without animation).
+  - A target mesh with deformation.
+  - A skin mesh (without animation or deformation).
 
 The AdnSkin deformer will get applied to the simulated mesh.
 
@@ -18,7 +18,7 @@ The AdnSkin deformer will get applied to the simulated mesh.
 
 ### 1. Creating the deformer
 
-To create the AdnSkin deformer select the target mesh and then the skin mesh (simulated mesh). Then press the ![AdnMuscle](images/adn_skin.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Skin*.
+To create the AdnSkin deformer select the target mesh and then the skin mesh. Then press the ![AdnMuscle](images/adn_skin.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Skin*.
 
 To create the AdnSkin deformer with some initial customization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow to do some initial customization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 

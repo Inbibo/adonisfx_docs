@@ -260,7 +260,7 @@ The AMP file is generated from the Learn Muscle Patches tool:
 7. Press **Execute**.
 
 <br>
-<figure style="width: 25%;" markdown>
+<figure style="width: 50%;" markdown>
   ![Simshape draw muscle patches example](images/nassim_draw_muscle_patches.png)
   <figcaption><b>Figure 8:</b> Example of muscle patches generated with the Learn Muscle Patches UI</figcaption>
 </figure>
@@ -278,7 +278,7 @@ Additional custom settings for the learning algorithm:
 
 AdnSimshape integrates a debug mode to visualize the activations during the simulation. If this mode is enabled, then AdnSimshape will display a map of vertex colors from black to red on the simulation mesh where the black color is mapped to no activation and the red color is mapped to maximum activation.
 
-<figure style="width: 30%" markdown>
+<figure style="width: 50%" markdown>
   ![Learn Muscle Patches UI window](images/nassim_debug.png)
   <figcaption><b>Figure 9:</b> Example of AdnSimshape running in Debug mode</figcaption>
 </figure>
