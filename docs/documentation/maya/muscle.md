@@ -39,8 +39,13 @@ In order to provide more artistic control, some key parameters of the muscle sol
 | **Slide on Segment Constraints** | 0.0             | Weight to force vertices to displace only in the direction of a user-specified group of segments. |
 
 <figure>
-  <img src="images/muscle_paint_example.png"> 
-  <figcaption><b>Figure 1:</b> Example of painted weights on a biceps. From left to right: Tendons weights, Attachment weight for the attachment at the top, Attachment weight for the attachment at the bottom; and Fibers directions at each vertex.</figcaption>
+  <img src="images/muscle_w_att.png"> 
+  <figcaption><b>Figure 1:</b> Example of attachment weights painted on a biceps.</figcaption>
+</figure>
+
+<figure>
+  <img src="images/muscle_weights.png"> 
+  <figcaption><b>Figure 2:</b> Example of painted weights on a biceps, labeled as: <b>a)</b> Tendons, <b>b)</b> Compression Resistance, <b>c)</b> Stretching Resistance, <b>d)</b> Global Damping, <b>e)</b> Slide on Segment Constraints.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -120,17 +125,17 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 <figure markdown>
   ![AdnMuscle editor first part](images/attribute_editor_part_one_muscle.png) 
-  <figcaption><b>Figure 2:</b> AdnMuscle Attribute Editor</figcaption>
+  <figcaption><b>Figure 3:</b> AdnMuscle Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnMuscle editor second part](images/attribute_editor_part_two_muscle.png)
-  <figcaption><b>Figure 3:</b> AdnMuscle Attribute Editor (Advanced Settings)</figcaption>
+  <figcaption><b>Figure 4:</b> AdnMuscle Attribute Editor (Advanced Settings)</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnMuscle editor debug menu](images/attribute_editor_muscle_debug.png)
-  <figcaption><b>Figure 4:</b> AdnMuscle Attribute Editor (Debug menu)</figcaption>
+  <figcaption><b>Figure 5:</b> AdnMuscle Attribute Editor (Debug menu)</figcaption>
 </figure>
 
 ## Debugger
@@ -151,7 +156,7 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![AdnMuscle debug](images/muscle_debug.png)
-  <figcaption><b>Figure 5:</b> AdnMuscle being debugged (from left ro right, Muscle Fibers, Attachment Constraints and Slide On Segment)</figcaption>
+  <figcaption><b>Figure 6:</b> AdnMuscle being debugged. From left to right: Muscle Fibers, Attachment Constraints and Slide On Segment Constraints.</figcaption>
 </figure>
 
 # Advanced

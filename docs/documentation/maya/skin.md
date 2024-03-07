@@ -42,8 +42,8 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 | **Mass**                   | 1.0 | Set individual mass values per vertex in the simulated mesh. |
 
 <figure>
-  <img src="images/skin_paint_example.png" caption="AdonisFX Paint Tool"> 
-  <figcaption><b>Figure 1</b>: Example of painted weights on the skin of a bear character, labeled as:<br/><b>a)</b> Hard Constraints, <b>b)</b> Slide Constraints, <b>c)</b> Soft Constraints, <b>d)</b> Compression Resistance,<br/><b>e)</b> Stretching Resistance, <b>f)</b> Global Damping Max, <b>g)</b> Sliding Multiplier, <b>h)</b> Mass</figcaption>
+  <img src="images/skin_weights.png" caption="AdonisFX Paint Tool"> 
+  <figcaption><b>Figure 1</b>: Example of painted weights on the skin of a bear character, labeled as:<br/><b>a)</b> Hard Constraints, <b>b)</b> Soft Constraints, <b>c)</b> Slide Constraints, <b>d)</b> Compression Resistance,<br/><b>e)</b> Stretching Resistance, <b>f)</b> Global Damping, <b>g)</b> Max Sliding Multiplier, <b>h)</b> Mass</figcaption>
 </figure>
 
 > [!NOTE]

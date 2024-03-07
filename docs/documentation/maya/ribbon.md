@@ -39,8 +39,13 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 | **Slide on Segment Constraints** | 0.0             | Weight to force vertices to displace only in the direction of a user-specified group of segments. |
 
 <figure>
-  <img src="images/ribbon_paint_example.png"> 
-  <figcaption><b>Figure 1:</b> Example of painted weights on a muscle tissue. From left to right: Tendons weights, Attachment weight for the attachment at the bottom, Attachment weight for the attachment at the top; and Fibers directions at each vertex.</figcaption>
+  <img src="images/ribbon_w_att.png"> 
+  <figcaption><b>Figure 1:</b> Example of attachment weights painted on a planar biceps.</figcaption>
+</figure>
+
+<figure>
+  <img src="images/ribbon_weights.png"> 
+  <figcaption><b>Figure 2:</b> Example of painted weights on a planar biceps, labeled as: <b>a)</b> Tendons, <b>b)</b> Compression Resistance, <b>c)</b> Stretching Resistance, <b>d)</b> Global Damping, <b>e)</b> Slide on Segment Constraints.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -118,17 +123,17 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 
 <figure markdown>
   ![AdnRibbonMuscle editor first part](images/attribute_editor_part_one_ribbon.png) 
-  <figcaption><b>Figure 2:</b> AdnRibbonMuscle Attribute Editor</figcaption>
+  <figcaption><b>Figure 3:</b> AdnRibbonMuscle Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnRibbonMuscle editor second part](images/attribute_editor_part_two_ribbon.png)
-  <figcaption><b>Figure 3:</b> AdnRibbonMuscle Attribute Editor (Advanced Settings)</figcaption>
+  <figcaption><b>Figure 4:</b> AdnRibbonMuscle Attribute Editor (Advanced Settings)</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnRibbonMuscle editor debug menu](images/attribute_editor_muscle_debug.png)
-  <figcaption><b>Figure 4:</b> AdnRibbonMuscle Attribute Editor (Debug menu)</figcaption>
+  <figcaption><b>Figure 5:</b> AdnRibbonMuscle Attribute Editor (Debug menu)</figcaption>
 </figure>
 
 ## Debugger
@@ -149,7 +154,7 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![AdnRibbonMuscle debug](images/ribbon_debug.png)
-  <figcaption><b>Figure 5:</b> AdnRibbonMuscle being debugged (from left ro right, Muscle Fibers, Attachment Constraints and Slide On Segment)</figcaption>
+  <figcaption><b>Figure 6:</b> AdnRibbonMuscle being debugged (from left ro right, Muscle Fibers, Attachment Constraints and Slide On Segment)</figcaption>
 </figure>
 
 # Advanced
