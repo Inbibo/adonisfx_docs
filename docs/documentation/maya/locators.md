@@ -133,7 +133,7 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 
 ## AdnLocator
 
-The AdnLocator is an native alternative to Maya locators. This locator can be used to visualize any kind of scene element with a transform node. For example they can be used to visualize [attachments](muscle.md#attachments) or [segment ends](muscle.md#slide-on-segment-constraint) in muscle deformers.
+The AdnLocator is an native alternative to Maya locators. This locator can be used to visualize any kind of scene element with a transform node. For example they can be used to visualize [attachments](muscle#attachments) or [segment ends](muscle#slide-on-segment-constraint) in muscle deformers.
 
 ### Create AdnLocator
 

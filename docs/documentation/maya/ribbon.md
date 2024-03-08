@@ -2,7 +2,7 @@
 
 AdnRibbonMuscle is a Maya deformer for fast, robust and easy-to-configure tissue muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachments) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a ribbon with fibers activations to modulate the rigidity, and attachments to external objects to follow the global kinematics of the character.
 
-The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behaviour to a wide array of options.
+The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools#adonisfx-paint-tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behaviour to a wide array of options.
 
 # How to Use
 
@@ -26,7 +26,7 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the AdnRibbonMuscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the AdnRibbonMuscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
@@ -49,7 +49,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 </figure>
 
 > [!NOTE]
-> - The *Attachment* and *Slide On Segment* weights are normalized at each vertex. This normalization is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [the AdonisFX paint tool section](tools.md#adonisfx-paint-tool).
+> - The *Attachment* and *Slide On Segment* weights are normalized at each vertex. This normalization is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [the AdonisFX paint tool section](tools#adonisfx-paint-tool).
 > - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalization override them in further strokes.
 
 # Attributes
