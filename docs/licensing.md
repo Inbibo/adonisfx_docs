@@ -46,36 +46,37 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
   1. Load the plug-in from the desired location depending on the target DCC.
   2. A dialog will show up with two options.
 
-    <figure style="width:80%" markdown>
+<figure style="width:80%" markdown>
       ![Activation Dialog](images/adn_activation_dialog.png)
       <figcaption><b>Figure 1:</b> Activation Dialog.</figcaption>
-    </figure>
+</figure>
 
     - **Activate:** Enter a valid `PRODUCT KEY` and activate AdonisFX.
     - **Continue With Trial:** Continue with the 30 day trial period.
     
   3. Enter a valid product key in the text edit after selecting **Activate**.
 
-    <figure style="width:80%" markdown>
+<figure style="width:80%" markdown>
       ![Activation Add Product Key](images/adn_add_product_key_dialog.png)
       <figcaption><b>Figure 2:</b> Activation Add Product Key.</figcaption>
-    </figure>
+</figure>
 
     - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
   4. After entering a valid product key and pressing **Activate** a confirmation dialog will appear.
 
-    <figure style="width:80%" markdown>
+<figure style="width:80%" markdown>
       ![Product Activated Dialog](images/adn_activated_product_key_dialog.png)
       <figcaption><b>Figure 3:</b> Product Activated Dialog.</figcaption>
-    </figure>
+</figure>
 
 > [!NOTE]
 > If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to retry the activation.
 
-    <figure style="width:80%" markdown>
+<figure style="width:80%" markdown>
       ![Activation Retry Adding Product Key](images/adn_try_again_product_key_dialog.png)
       <figcaption><b>Figure 4:</b> Activation Retry Adding Product Key.</figcaption>
-    </figure>
+</figure>
+
   5. AdonisFX is activated and ready to be used.
 
 > [!NOTE]
@@ -166,15 +167,19 @@ To activate AdonisFX in Online Node-Locked Interactive Trial mode:
 
   1. Load the plug-in from the desired location depending on the target DCC.
   2. Select **Continue With Trial** from the activation dialog.
-      <figure style="width:80%" markdown>
+
+<figure style="width:80%" markdown>
         ![Activation Dialog](images/adn_activation_dialog.png)
         <figcaption><b>Figure 9:</b> Activation Dialog.</figcaption>
-      </figure>
+</figure>
+      
   3. AdonisFX will inform about the amount of days left for the trial license.
-      <figure style="width:30%" markdown>
+
+<figure style="width:30%" markdown>
         ![Trial Dialog](images/adn_your_trial_expires_dialog.png)
         <figcaption><b>Figure 10:</b> Trial Dialog.</figcaption>
-      </figure>
+</figure>
+      
   4. The trial will deactivate the product after 30 days and will ask for a valid product key.
   5. AdonisFX is activated and ready to be used in trial mode.
 
@@ -232,10 +237,12 @@ The steps to run or install the floating licensing server on a dedicated Windows
       - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
       - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
   4. The content after copying the files should follow this structure:
-      <figure style="width:80%" markdown>
+
+<figure style="width:80%" markdown>
         ![Turbo Float Folder](images/adn_turbo_float_folder.png)
         <figcaption><b>Figure 11:</b> Turbo Float Folder.</figcaption>
-      </figure>
+</figure>
+      
   5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
       - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [Configuring the TurboFloat Server](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in the **Run** section.
       - Find the full list of customizable parameters in the `.xml` file comments.
