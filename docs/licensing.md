@@ -46,7 +46,7 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
   1. Load the plug-in from the desired location depending on the target DCC.
   2. A dialog will show up with two options.
 
-<figure style="width:80%" markdown>
+<figure style="width:80%; margin-left:10%" markdown>
       ![Activation Dialog](images/adn_activation_dialog.png)
       <figcaption><b>Figure 1:</b> Activation Dialog.</figcaption>
 </figure>
@@ -56,7 +56,7 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
     
   3. Enter a valid product key in the text edit after selecting **Activate**.
 
-<figure style="width:80%" markdown>
+<figure style="width:80%; margin-left:50px" markdown>
       ![Activation Add Product Key](images/adn_add_product_key_dialog.png)
       <figcaption><b>Figure 2:</b> Activation Add Product Key.</figcaption>
 </figure>
