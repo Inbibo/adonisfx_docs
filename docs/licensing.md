@@ -56,7 +56,7 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
     
   3. Enter a valid product key in the text edit after selecting **Activate**.
 
-<figure style="width:80%; margin-left:50px" markdown>
+<figure style="width:80%; margin-left:10%" markdown>
       ![Activation Add Product Key](images/adn_add_product_key_dialog.png)
       <figcaption><b>Figure 2:</b> Activation Add Product Key.</figcaption>
 </figure>
@@ -64,7 +64,7 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
     - The `PRODUCT KEY` has the following format: **XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX**
   4. After entering a valid product key and pressing **Activate** a confirmation dialog will appear.
 
-<figure style="width:80%" markdown>
+<figure style="width:80%; margin-left:10%" markdown>
       ![Product Activated Dialog](images/adn_activated_product_key_dialog.png)
       <figcaption><b>Figure 3:</b> Product Activated Dialog.</figcaption>
 </figure>
@@ -72,7 +72,7 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
 > [!NOTE]
 > If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to retry the activation.
 
-<figure style="width:80%" markdown>
+<figure style="width:80%; margin-left:10%" markdown>
       ![Activation Retry Adding Product Key](images/adn_try_again_product_key_dialog.png)
       <figcaption><b>Figure 4:</b> Activation Retry Adding Product Key.</figcaption>
 </figure>
@@ -168,14 +168,14 @@ To activate AdonisFX in Online Node-Locked Interactive Trial mode:
   1. Load the plug-in from the desired location depending on the target DCC.
   2. Select **Continue With Trial** from the activation dialog.
 
-<figure style="width:80%" markdown>
+<figure style="width:80%; margin-left:10%" markdown>
         ![Activation Dialog](images/adn_activation_dialog.png)
         <figcaption><b>Figure 9:</b> Activation Dialog.</figcaption>
 </figure>
       
   3. AdonisFX will inform about the amount of days left for the trial license.
 
-<figure style="width:30%" markdown>
+<figure style="width:30%; margin-left:10%" markdown>
         ![Trial Dialog](images/adn_your_trial_expires_dialog.png)
         <figcaption><b>Figure 10:</b> Trial Dialog.</figcaption>
 </figure>
@@ -238,7 +238,7 @@ The steps to run or install the floating licensing server on a dedicated Windows
       - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
   4. The content after copying the files should follow this structure:
 
-<figure style="width:80%" markdown>
+<figure style="width:80%; margin-left:10%" markdown>
         ![Turbo Float Folder](images/adn_turbo_float_folder.png)
         <figcaption><b>Figure 11:</b> Turbo Float Folder.</figcaption>
 </figure>
