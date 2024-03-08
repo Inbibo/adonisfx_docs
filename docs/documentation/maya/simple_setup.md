@@ -286,7 +286,7 @@ To further have a realistic depiction of facial dynamics, facial muscle activati
  - Adonis Muscle Patches files.
  - Edge Evaluator Node.
 
-For this case the Edge Evaluator Node can be used (information on Adonis Muscle Patches files can be foud in the documentation for [AdnSimshape](simshape#muscle-activations)). To create this node, select the rest mesh, then the deformation mesh, and then go to AdonisFX Menu > Nodes > *Edge Evaluator*.
+For this case the Edge Evaluator Node can be used (information on Adonis Muscle Patches files can be foud in the documentation for [AdnSimshape](simshape.md#muscle-activations)). To create this node, select the rest mesh, then the deformation mesh, and then go to AdonisFX Menu > Nodes > *Edge Evaluator*.
 
 Once the node is created it will appear in the Node Editor. Connect it to the AdnSimshape deformer. To do this go to AdonisFX Menu > Simshape (on the *Edit* group) > *Connect Activations Plug*. 
 <figure>

@@ -110,7 +110,7 @@ In the specific case of AdnMuscle deformers, the AdonisFX Paint Tool will displa
     1. It is recommended to paint values of 1.0 wherever the tendon tissue is and values of 0.0 in the rest of the mesh.
     2. This painting will internally trigger an automatic estimation of fibers direction which can be displayed using the debug functionalities of the Muscle deformer.
   - **Fibers**
-    1. When selecting the fibers attribute, the fibers debugger will automatically get enabled, displaying the [muscle fibers](muscle#debug).
+    1. When selecting the fibers attribute, the fibers debugger will automatically get enabled, displaying the [muscle fibers](muscle.md#debug).
     2. The initial direction displayed will be the one estimated by tendon weights.
     3. To modify the fibers direction, comb the fibers towards the desired direction.
     4. For better precision adjust the set direction using the *Smooth* brush.
