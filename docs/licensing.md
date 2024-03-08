@@ -44,15 +44,13 @@ Whenever activating AdonisFX for the first time for a specific DCC in interactiv
 
 To activate AdonisFX in Online Node-Locked Interactive mode:
   1. Load the plug-in from the desired location depending on the target DCC.
-  2. A dialog will show up with two options.
+  2. A dialog will show up with two options: **Activate** to enter a valid `PRODUCT KEY` and activate AdonisFX; **Continue With Trial** to start or continue a 30 day trial period.
 
 <figure style="width:80%; margin-left:10%" markdown>
       ![Activation Dialog](images/adn_activation_dialog.png)
       <figcaption><b>Figure 1:</b> Activation Dialog.</figcaption>
 </figure>
 
-    - **Activate:** Enter a valid `PRODUCT KEY` and activate AdonisFX.
-    - **Continue With Trial:** Continue with the 30 day trial period.
     
   3. Enter a valid product key in the text edit after selecting **Activate**.
 
