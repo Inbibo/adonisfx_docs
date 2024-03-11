@@ -13,7 +13,7 @@ AdonisFX also distinguishes between two *Licensing Types*:
 - **Interactive:** License type that allows the user to use AdonisFX from the graphical interface of the software where AdonisFX was loaded. This licensing type is intended for users that want to build scenes, manipulate and interact with AdonisFX using visual and interactive feedback.
 - **Batch:** License type that allows the user to use AdonisFX from a batch script or terminal without the ability to use the graphical interface for manipulating the software. This licensing type is intended for users that want to run AdonisFX from a terminal to for example render a scene on the farm after setting the scene up using an Interactive License.
 
-To be able to activate AdonisFX it is required to purchase a `PRODUCT KEY`. Product keys can be purchased through Inbibo's official website [LINK PENDING](https://www.inbibo.co.uk/). AdonisFX product keys have the following characteristics:
+To be able to activate AdonisFX it is required to purchase a `PRODUCT KEY`. Product keys can be purchased through Inbibo's official [website](https://adonis.inbibo.co.uk/#prices). AdonisFX product keys have the following characteristics:
 
 - A `PRODUCT KEY` is associated to one single license type: Interactive or Batch. If the user wants to use AdonisFX both in Interactive and Batch mode, two separate product keys have to be purchased.
 - A product key consists of **28** alphanumeric characters separated by "-" which is provided to the user when purchasing AdonisFX through the website: `XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX`
@@ -27,7 +27,7 @@ Two ways of activating AdonisFX are supported:
 
 Node-Locked Licensing in AdonisFX requires the activation of a `PRODUCT KEY` on one single machine. As commented before, this activation process can be concluded using an online or offline process and requires the user to activate the product for batch and interactive modes separately.
 
-Node-Locked Licensing product keys can be purchased through Inbibo's official website [LINK PENDING](https://www.inbibo.co.uk/).
+Node-Locked Licensing product keys can be purchased through Inbibo's official [website](https://adonis.inbibo.co.uk/#prices).
 
 To be able to move node-locked licenses to a different machine the license has to be deactivated and activated again on the new machine.
 
@@ -141,9 +141,9 @@ To activate AdonisFX in Offline Node-Locked Batch mode:
 
 AdonisFX allows the user to use the product for **30 days** in Node-Locked Interactive mode. This means that the trial can be used using the graphical interface for one single machine at a time. The trial period requires activation which can be handled in an online or offline way.
 
-Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased through Inbibo's official website [LINK PENDING](https://www.inbibo.co.uk/) and activated.
+Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased through Inbibo's official [website](https://adonis.inbibo.co.uk/#prices) and activated.
 
-See the **AdonisFX EULA** (LINK PENDING) for details.
+See the AdonisFX [End User License Agreement](https://inbibo.co.uk/adonisfx-maya-eula) for details.
 
 **Online Trial Activation**
 
