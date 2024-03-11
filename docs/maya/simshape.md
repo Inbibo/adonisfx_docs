@@ -6,15 +6,15 @@ During simulation, the solver reduces the inertias of the vertices with higher v
 
 ## How to Use
 
-The AdnSimshape deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The combination of a rest mesh, deform mesh and animated mesh allow the system to compute activation values which would drive the behaviour and inertias of the output skin mesh (simulated mesh).
+The AdnSimshape deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The combination of a rest mesh, deform mesh and animated mesh allows the system to compute activation values which would drive the behaviour and inertias of the output skin mesh (simulated mesh).
 
 ## Requirements
 
 To create an AdnSimshape deformer within a Maya scene, the following inputs must be provided:
 
   - **Rest Mesh (R)**: Mesh with no deformation or animation (optional).
-  - **Deform Mesh (D)**: Mesh with deformation driven by the facial expressions (optional).
-  - **Animated Mesh (A)**: Mesh with deformation driven by the facial expressions and animation result of the binding to the animation rig (optional).
+  - **Deform Mesh (D)**: Mesh with deformation driven by the facial expressions (optional, only if muscle activations with Adonis Muscle Patches is required).
+  - **Animated Mesh (A)**: Mesh with deformation driven by the facial expressions and animation result of the binding to the animation rig.
   - **Simulation Mesh (S)**: Mesh to apply the deformer to. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
 > [!NOTE]
@@ -28,7 +28,6 @@ To create an AdnSimshape deformer within a Maya scene, the following inputs must
 When initially creating an AdnSimshape deformer, it is possible to add both a **Simulated Mesh** and a **Rest Mesh**, or only add a **Simulated Mesh**. The process to create an AdnSimshape deformer is the following:
 
   1. Select the **Rest Mesh** (optional), then the **Simulated Mesh**.
-    - The deformer can also be applied to the **Animated Mesh** and use it directly as the **Simulated Mesh**.
   2. Press the ![Simshape button](images/adn_simshape.png){style="width:4%"} in the AdonisFX shelf or press *Simshape* in AdonisFX menu under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
   3. A message box will notify that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings. Check the [attributes section](#attributes) to customize the configuration.
 
@@ -86,15 +85,15 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 | **Activation Mode**          | Enumerator | No activation | ✗ | Mode to drive the muscle activations. There are 3 different modes: <ul><li>Muscle Patches (Disabled by default): An Adonis Muscle Patches file ([.amp](#generate-muscle-patches)) has to be provided to enable this option.</li><li>Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.</li><li>No Activation (Enabled by default): No activation is read.</li></ul> |
 | **Muscle Patches File**      | String     |               | ✗ | Path to the Adonis Muscle Patches file ([.amp](#generate-muscle-patches)). |
 | **Activation Smoothing**     | Integer    | 1             | ✗ | Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be. Has a range of \[1, 20\]. Upper limit is soft, higher values can be used. |
-| **Bidirectional Activation** | Boolean    | False         | ✗ | Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers. |
-| **Write Out Activation**     | Boolean    | False         | ✗ | Flag to toggle the writing of activations into an output plug. |
+| **Bidirectional Activation** | Boolean    | False         | ✓ | Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers. |
+| **Write Out Activation**     | Boolean    | False         | ✓ | Flag to toggle the writing of activations into an output plug. |
 
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*. |
 | **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
-| **Current Time**       | Time | *Current frame* | ✗ | Current playback frame. |
+| **Current Time**       | Time | *Current frame* | ✓ | Current playback frame. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -131,8 +130,8 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 #### Collision Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Compute Collisions**   | Boolean | True | ✗ | Flag to enable collisions correction in the deformer. If disabled, the deformer will ignore colliders when deforming the mesh. |
-| **Keep Orientation**     | Boolean | True | ✗ | Flag to preserve the initial orientation of the vertices relative to the collider when handling collisions. If disabled, the mesh will suffer no changes if the orientation of the collider varies. |
+| **Compute Collisions**   | Boolean | True | ✓ | Flag to enable collisions correction in the deformer. If disabled, the deformer will ignore colliders when deforming the mesh. |
+| **Keep Orientation**     | Boolean | True | ✓ | Flag to preserve the initial orientation of the vertices relative to the collider when handling collisions. If disabled, the mesh will suffer no changes if the orientation of the collider varies. |
 | **Max Sliding Distance** | Float   | 1.0  | ✗ | Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used. |
 
 #### Attraction Settings
@@ -144,7 +143,7 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 #### Initialization Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Animatable Rest Mesh**    | Boolean | False | ✗ | Flag that enables reading animated rest mesh data. |
+| **Animatable Rest Mesh**    | Boolean | False | ✓ | Flag that enables reading animated rest mesh data. |
 | **Initialize to Anim Mesh** | Boolean | False | ✗ | Flag to instantiate points at animated mesh instead of rest mesh on initialization. |
 
 #### Activation Remap
@@ -155,23 +154,23 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 ### Debug attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Debug**       | Boolean      | False                 | ✗ | Enable or Disable the debug functionalities in the viewport for the AdnSimshape deformer. |
-| **Feature**     | Enumerator   | Collision Constraints | ✗ | A list of debuggable features for this deformer.<ul><li>Collision Constraints: Draw *Collision Constraints* connections from the simulated mesh to the collider mesh.</li><li>Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.</li><ul> |
-| **Width Scale** | Float        | 3.0                   | ✗ | Modifies the width of all lines. |
-| **Color**       | Color Picker |                       | ✗ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
-| **Fiber Scale** | Float        | 3.0                   | ✗ | The scale can be modified to set a custom fiber length. |
+| **Debug**       | Boolean      | False                 | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSimshape deformer. |
+| **Feature**     | Enumerator   | Collision Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Collision Constraints: Draw *Collision Constraints* connections from the simulated mesh to the collider mesh.</li><li>Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.</li><ul> |
+| **Width Scale** | Float        | 3.0                   | ✓ | Modifies the width of all lines. |
+| **Color**       | Color Picker |                       | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
+| **Fiber Scale** | Float        | 3.0                   | ✓ | The scale can be modified to set a custom fiber length. |
 
 ### Connectable attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Anim Mesh**                  | Mesh   |          | ✗ | Animated mesh on which to apply the simulation. |
-| **Attenuation Matrix**         | Matrix | Identity | ✗ | Transformation matrix to drive the attenuation. |
-| **Collision Mesh**             | Mesh   |          | ✗ | Collision mesh used to drive the the collision logic. |
-| **Collision Mesh Matrix**      | Matrix | Identity | ✗ | Collision matrix used to drive the collision logic. |
+| **Anim Mesh**                  | Mesh   |          | ✓ | Animated mesh on which to apply the simulation. |
+| **Attenuation Matrix**         | Matrix | Identity | ✓ | Transformation matrix to drive the attenuation. |
+| **Collision Mesh**             | Mesh   |          | ✓ | Collision mesh used to drive the the collision logic. |
+| **Collision Mesh Matrix**      | Matrix | Identity | ✓ | Collision matrix used to drive the collision logic. |
 | **Collision Rest Mesh**        | Mesh   |          | ✗ | Collision rest mesh used to drive the initialization of the collision logic. |
 | **Collision Rest Mesh Matrix** | Matrix | Identity | ✗ | Collision rest matrix at rest used for initializing. |
-| **Deform Mesh**                | Mesh   |          | ✗ | Deform mesh used to estimate the muscle patches activation. |
-| **Rest Mesh**                  | Mesh   |          | ✗ | Rest mesh used for initializing the system and to compute the activations against the deform mesh. |
+| **Deform Mesh**                | Mesh   |          | ✓ | Deform mesh used to estimate the muscle patches activation. |
+| **Rest Mesh**                  | Mesh   |          | ✓ | Rest mesh used for initializing the system and to compute the activations against the deform mesh. |
 
 ## Attribute Editor Template
 
@@ -200,10 +199,8 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 The features that can be visualized with the debugger in the AdnSimshape deformer are:
 
- - **Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider.
-    - The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
- - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
-    - The debug lines will only be displayed in case muscle activations have been enabled with an Adonis Muscle Patches file.
+ - **Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider. The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
+ - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an Adonis Muscle Patches file.
 
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
 
@@ -251,14 +248,14 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
 
 The AMP file is generated from the Learn Muscle Patches tool:
 
-<figure style="float: right; width: 40%; padding-left: 5px;">
+<figure style="width: 50%; padding-left: 5px;">
   <img src="images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
   <figcaption><b>Figure 8:</b> Learn Muscle Patches UI</figcaption>
 </figure>
 
 1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
 2. Add the neutral mesh.
-3. Add the target meshes.
+3. Add the target meshes. These geometries are the set of facial expressions produced by blendshapes or a facial rig.
 4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation. If *Add Selected* is pressed with no selection, the tool will display a pop-up and inform that all vertices will be used for the learning process. This button has to necessarily be pressed to enable the execution of the learning process.
 5. Browse or specify the destination AMP file.
 6. Configure custom settings for the learning algorithm.
@@ -317,7 +314,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 
 ### Add Rest Collider
 
-The use of rest collider is recommended when the pre-roll simulation is not computed and the [initialization to the animated mesh](#initialization-settings) is enabled. In order to allow the solver to build consistent collision data in those cases, it is necessary to provide both the [rest mesh](#requirements) and the rest collider.
+The use of rest collider is recommended when the pre-roll simulation is not computed and the [initialization to the animated mesh](#initialization-settings) is enabled. In order to allow the solver to build consistent collision data in those cases, it is necessary to provide both the rest mesh and the rest collider in the same space.
 
 1. Select the rest collider object.
 2. Select the mesh with the AdnSimshape deformer.
@@ -338,6 +335,6 @@ The use of rest collider is recommended when the pre-roll simulation is not comp
 
 Apart from [*Compute Collisions*](#collision-settings), [*Keep Orientation*](#collision-settings) and [*Max Sliding Distance*](#collision-settings) parameters, it is possible to tweak the collision computation by painting the following attributes, also explained in more detail in the [*Paintable Weights*](#paintable-weights) section:
 
- - [**Slide Collision Constraints**](#paintable-weights) to scale the distance vertex-to-collider at rest.
- - [**Collision Threshold Multiplier**](#paintable-weights) to represent which areas the collisions should be computed against the collider.
+ - [**Slide Collision Constraints**](#paintable-weights) to represent which areas the collisions should be computed against the collider.
+ - [**Collision Threshold Multiplier**](#paintable-weights) to define the minimum distance vertex-to-collider permitted during simulation, where a value of 1.0 represents the exact distance to collider at rest.
 
