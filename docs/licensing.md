@@ -341,6 +341,6 @@ To be able to run AdonisFX using floating license these 3 criteria have to be me
 The environment variables to setup are the licensing mode and an the IP address for the licensing server:
 
   1. Set `ADN_LICENSE_MODE` to `1`. Make sure to apply this change before launching AdonisFX.
-  2. Set `ADN_LICENSE_SERVER` to `<IP-ADDRESS>:<PORT-NUMBER>`. Eg. `127.0.0.1:13`. If no port number was provided whe system will default to port `13`. Make sure to apply this change before launching AdonisFX.
+  2. Set `ADN_LICENSE_SERVER` to `<IP-ADDRESS>:<PORT-NUMBER>`. e.g. `127.0.0.1:13`. If no port number was provided whe system will default to port `13`. Make sure to apply this change before launching AdonisFX.
 
 When launching AdonisFX in the target DCC, if the connection to the active license server could be established, it will try to obtain a valid lease and if granted it will activate the plug-in. 
