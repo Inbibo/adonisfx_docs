@@ -4,7 +4,7 @@ AdnLocators are visualizers that are meant for visualizing and measuring transfo
 
 ## AdnLocatorPosition
 
-AdnLocatorPosition is the locator for visualizing the position of a single transform node. When connected to its corresponding AdnSensorPosition, velocity or acceleration can be visualized via coloring, providing feedback for setting up the deformer.
+AdnLocatorPosition is the locator for visualizing the position of a single transform node. When connected to its corresponding AdnSensorPosition, velocity or acceleration can be visualized with a coloring code blue-to-red.
 
 ### How to use
 
@@ -19,7 +19,7 @@ An AdnLocatorPosition will only visualize the information of the transform node 
 
 Only one transform will be required to create the AdnLocatorPosition. The creation process is the following:
 
- 1. Select a scene object with a transform node.
+ 1. Select a transform node in the scene.
  2. Press the ![AdnLocatorPosition button](images/adn_point_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorPosition is created and ready to be used.
 
@@ -29,23 +29,23 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Position** | Float3 | {0.0, 0.0, 0.0} | ✗ | Current transform node position. |
+| **Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Current transform node position. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Velocity**     | Float | 0.0 | ✗ | Magnitude of the velocity (remapped) of the transform node. |
-| **Acceleration** | Float | 0.0 | ✗ | Magnitude of the acceleration (remapped) of the transform node. |
+| **Velocity**     | Float | 0.0 | ✓ | Magnitude of the velocity of the transform node. |
+| **Acceleration** | Float | 0.0 | ✓ | Magnitude of the acceleration of the transform node. |
 
 #### Draw
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the position locator visualizer. Has a range of \[0.0, 10.0\]. Upper limit soft, higher values can be used. |
+| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the position locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
 | **Draw Output** | Enumerator | Velocity | ✓ | Selects the property of the locator to be visualized on the locator visualizer.<ul><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
 
 ## AdnLocatorDistance
 
-AdnLocatorDistance is the locator for visualizing the distance between two transform nodes. When connected to its corresponding AdnSensorDistance, distance, velocity or acceleration can be visualized via coloring, providing feedback for setting up the deformer.
+AdnLocatorDistance is the locator for visualizing the distance between two transform nodes. When connected to its corresponding AdnSensorDistance, distance, velocity or acceleration can be visualized with a coloring code blue-to-red.
 
 ### How to use
 
@@ -60,7 +60,7 @@ An AdnLocatorDistance will only visualize the information of the distance betwee
 
 Two transform nodes will be required to create an AdnLocatorDistance representing each extremity. The creation process is the following:
 
- 1. Select two scene objects with transform nodes.
+ 1. Select two transform nodes in the scene.
  2. Press the ![AdnLocatorDistance button](images/adn_distance_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorDistance is created and ready to be used.
 
@@ -69,25 +69,25 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✗ | Start transform node position. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✗ | End transform node position. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Start transform node position. |
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | End transform node position. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Distance**     | Float | 0.0 | ✗ | Magnitude of the distance (remapped) between the transform nodes. |
-| **Velocity**     | Float | 0.0 | ✗ | Magnitude of the velocity (remapped) between the transform nodes. |
-| **Acceleration** | Float | 0.0 | ✗ | Magnitude of the acceleration (remapped) between the transform nodes. |
+| **Distance**     | Float | 0.0 | ✓ | Magnitude of the distance between the transform nodes. |
+| **Velocity**     | Float | 0.0 | ✓ | Magnitude of the velocity between the transform nodes. |
+| **Acceleration** | Float | 0.0 | ✓ | Magnitude of the acceleration between the transform nodes. |
 
 #### Draw
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the distance locator visualizer. Has a range of \[0.0, 10.0\]. Upper limit soft, higher values can be used. |
+| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the distance locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
 | **Draw Output** | Enumerator | Distance | ✓ | Selects the property of the locator to be visualized on the locator visualizer. <ul><li>**Distance:** Color the visualizer of the locator according to the input distance activation.</li><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
 
 ## AdnLocatorRotation
 
-AdnLocatorRotation is the locator for visualizing the angle between three transform nodes. When connected to its corresponding AdnSensorRotation, angle, angular velocity or angular acceleration can be visualized via coloring, providing feedback for setting up the deformer.
+AdnLocatorRotation is the locator for visualizing the angle between three transform nodes. When connected to its corresponding AdnSensorRotation, angle, angular velocity or angular acceleration can be visualized with a coloring code blue-to-red.
 
 ### How to use
 
@@ -102,7 +102,7 @@ An AdnLocatorRotation will only visualize the information of the connections and
 
 Three transform nodes will be required to create the AdnLocatorRotation. The creation process is the following:
 
- 1. Select three scene objects with transform nodes. The order in which the objects are selected is relevant, as the created angle will have the following arrangement:
+ 1. Select three transform objects in the scene. The order in which the objects are selected is relevant, as the created angle will have the following arrangement:
     - First selected object: Start point of the angle.
     - Second selected object: Middle point of the angle.
     - Third selected object: End point of the angle.
@@ -114,26 +114,26 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✗ | Start transform node position. |
-| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✗ | Mid transform node position. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✗ | End transform node position. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Start transform node position. |
+| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Mid transform node position. |
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | End transform node position. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Angle**        | Float | 0.0 | ✗ | Magnitude of the angle (remapped) between the three transform nodes. |
-| **Velocity**     | Float | 0.0 | ✗ | Magnitude of the angular velocity (remapped) between the three transform nodes. |
-| **Acceleration** | Float | 0.0 | ✗ | Magnitude of the angular acceleration (remapped) between the three transform nodes. |
+| **Angle**        | Float | 0.0 | ✓ | Magnitude of the angle between the three transform nodes. |
+| **Velocity**     | Float | 0.0 | ✓ | Magnitude of the angular velocity between the three transform nodes. |
+| **Acceleration** | Float | 0.0 | ✓ | Magnitude of the angular acceleration between the three transform nodes. |
 
 #### Draw
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Scale**       | Float      | 1.0   | ✓ | Sets the scaling factor applied to the rotation locator visualizer. Has a range of \[0.0, 10.0\]. Upper limit soft, higher values can be used. |
+| **Scale**       | Float      | 1.0   | ✓ | Sets the scaling factor applied to the rotation locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
 | **Draw Output** | Enumerator | Angle | ✓ | Selects the property of the locator to be visualized on the locator visualizer.<ul><li>**Angle:** Color the visualizer of the locator according to the input angle activation.</li><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
 
 ## AdnLocator
 
-The AdnLocator is an native alternative to Maya locators. This locator can be used to visualize any kind of scene element with a transform node. For example they can be used to visualize [attachments](muscle.md#attachments) or [segment ends](muscle.md#slide-on-segment-constraint) in muscle deformers.
+The AdnLocator is an native alternative to Maya locators. This locator can be used to visualize any kind of scene element with a transform node. For example they can be used as inputs to other Adonis locators presented in this page.
 
 ### Create AdnLocator
 

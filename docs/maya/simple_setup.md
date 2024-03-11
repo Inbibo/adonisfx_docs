@@ -58,8 +58,8 @@ With this basic paint setup the AdnSkin deformer will already show plausible res
 
 To create a basic scenario using the AdnMuscle deformer, start with a scene with the following elements:
 
- - An animated rig.
- - A simulated mesh.
+ - An animation rig.
+ - A geometry representing the muscle to simulate.
 
 In this case the proposed example is to simulate a biceps in an animated full body rig. The AdnMuscle deformer will be applied to the mesh of the biceps.
 
@@ -70,7 +70,7 @@ In this case the proposed example is to simulate a biceps in an animated full bo
 
 ### 1. Creating the deformer
 
-To create the AdnMuscle deformer, select the two joints of the rig that form the arm and the forearm and then the mesh of the muscle. Then, press the ![AdnMuscle](images/adn_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Muscle*.
+To create the AdnMuscle deformer, select the two joints of the rig that form the shoulder and the elbow and then the mesh of the muscle. Then, press the ![AdnMuscle](images/adn_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Muscle*. This will assign the two selected joints as attachments to the muscle.
 
 <figure>
   <img src="images/setup_muscle_1.png"> 
@@ -120,18 +120,18 @@ Pressing play should display the muscle properly attached and with the expected 
 
 ### 3. Connecting AdnSensors
 
-To have the muscle change and responding to external inputs (in this case an arm flex), it is recommended to setup and AdnSensor and connect it to the deformer. 
+To have the muscle changing and responding to external inputs (i.e. the flexion of the arm), AdnSensorRotation can be added to drive the activation of the muscle. 
 
-To do this, first create a rotation locator and sensor to compute the elbow angle. Both elements can be created by selecting the three joints from which to create the rotation locator and sensor (arm, forearm and wrist joints) and directly click on the ![adnRotationSensor](images/adn_angle_sensor.png){style="width:4%"} shelf button or go to AdonisFX Menu > Sensors (on the *Create* group) > *Rotation*. With this, both a locator and its corresponding sensor will get created at the same time.
+To do this, first create a rotation locator and sensor to compute the elbow angle. Both elements can be created by selecting the three joints from which to create the rotation locator and sensor (shoulder, elbow and wrist joints) and directly click on the ![adnRotationSensor](images/adn_angle_sensor.png){style="width:4%"} shelf button or go to AdonisFX Menu > Sensors (on the *Create* group) > *Rotation*. With this, both a locator and its corresponding sensor will get created at the same time.
 
 <figure>
   <img src="images/setup_muscle_7.png"> 
   <figcaption><b>Figure 13</b>: Rotation locator and sensor setup in elbow.</figcaption>
 </figure>
 
-Now that the sensor is created it has to be connected to the deformer. To do so, make use of the Connection editor, which must be opened from the AdonisFX Menu > Sensors (on the *Edit* group) > *Connection Editor*.
+Now that the sensor is created it has to be connected to the deformer. To do so, make use of the Connection Editor, which must be opened from the AdonisFX Menu > Sensors (on the *Edit* group) > *Connection Editor*.
 
-Once the Connection Editor is open, select the locator from the scene and press the *Reload Left* button, then select the simulated mesh and press the *Reload Right* button. Once this is done, on the lists (below the buttons) the selections done on each side with their respective connectable attributes will appear. Connect the *activationAngle* attribute from the locator to the *activation* attribute from the deformer.
+With the Connection Editor opened, select the locator from the scene and press the *Reload Left* button, then select the simulated mesh and press the *Reload Right* button. The list widgets will refresh with the respective connectable attributes. Select the *activationAngle* attribute from the locator and the *activation* attribute from the deformer, and click *Make Connection*.
 
 <figure>
   <img src="images/setup_muscle_8.png"> 
@@ -140,14 +140,14 @@ Once the Connection Editor is open, select the locator from the scene and press 
 
 When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation will get higher, simulating a much more realistic scenario.
 
-To tweak additional parameters of the AdnMuscle deformer, the following documentation for [AdnMuscle](muscle.md) can be consulted.
+To tweak additional parameters of the AdnMuscle deformer, check the full documentation for [AdnMuscle](muscle.md).
 
 ## AdnRibbonMuscle Simple Setup
 
 The process to setup an AdnRibbonMuscle is very similar to the one of setting up and AdnMuscle. It essentially follows the same steps. Start with the following elements:
 
- - An animated rig.
- - A simulated mesh.
+ - An animation rig.
+ - A geometry representing the muscle to simulate.
 
 In this case a planar muscle will be simulated corresponding to a biceps, which will yield similar results to the case of the AdnMuscle deformer previously shown.
 
@@ -158,7 +158,7 @@ In this case a planar muscle will be simulated corresponding to a biceps, which 
 
 ### 1. Creating the deformer
 
-Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the attachments (arm and forearm joints) and then the mesh to deform (the biceps muscle) and then pressing the ![AdnMuscle](images/adn_ribbon_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Ribbon Muscle*.
+Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the attachments (shoulder and elbow joints) and then the mesh to deform (the biceps muscle) and then pressing the ![AdnMuscle](images/adn_ribbon_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Ribbon Muscle*.
 
 <figure>
   <img src="images/setup_ribbon_muscle_1.png"> 
@@ -208,14 +208,14 @@ Pressing play should show the muscle properly attached and with the expected dyn
 
 ### 3. Connecting AdnSensors
 
-The process to connect and AdnSensor to an AdnRibbonMuscle is the exact same to the one followed [for AdnMuscle](#3-connecting-adnsensors).
+The process to connect and AdnSensor to an AdnRibbonMuscle is the exact same to the one followed for [AdnMuscle](#3-connecting-adnsensors).
 
 <figure>
   <img src="images/setup_ribbon_muscle_8.png"> 
   <figcaption><b>Figure 22</b>: Connection Editor tool with AdnRotation sensor connected to AdnRibbonMuscle.</figcaption>
 </figure>
 
-To tweak additional parameters of the AdnRibbonMuscle deformer, the following documentation for [AdnRibbonMuscle](ribbon.md) can be consulted.
+To tweak additional parameters of the AdnRibbonMuscle deformer, check the full documentation for [AdnRibbonMuscle](ribbon.md).
 
 ## AdnSimshape
 
@@ -223,7 +223,7 @@ To create a basic scenario using the AdnSimshape deformer, start with a scene wi
 
  - An animated facial mesh (to which to apply the deformer).
  - A rest mesh.
- - A deformation mesh with only the facial animation.
+ - A deformation mesh with only the facial deformation (no animation).
 
 All these meshes must have the same number of vertices and correspond to the same facial model.
 
@@ -254,7 +254,7 @@ To add the deformation mesh to the deformer first select the deformation mesh, t
 
 ### 2. Painting weights
 
-In the case of the AdnSimshape use the Maya Paint tool to setup and paint its paintable weight attributes. In this section painting the *Attraction Force* weights will be exposed, as this is the value that dictates how much of each simulated vertex should follow the animation. This value is flooded by default to 1.0, meaning that by default the simulated mesh will follow completely the animation, without displaying dynamics.
+In the case of the AdnSimshape use the Maya Paint tool to setup and paint its paintable weight attributes. The most important paintable map is the *Attraction Force* as this is the value that dictates how much of each simulated vertex should follow the animation. This value is flooded by default to 1.0, meaning that by default the simulated mesh will follow completely the animation, without displaying dynamics.
 
 In high deformation areas, such as around the mouth or under the eyes, add medium to low values (in this case painting with a value of 0.4).
 
@@ -277,18 +277,17 @@ The lowest values (0.1 in this case) will be applied to the area under the jaw w
   <figcaption><b>Figure 28</b>: Attraction Force weights for highest dynamics areas.</figcaption>
 </figure>
 
-After painting similar weights to the ones displayed and pressing playback to check the animation,  realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are avaliable and fully explained in the documentation for [AdnSimshape](simshape.md)
+After painting similar weights to the ones displayed and pressing playback to check the animation,  realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are avaliable and fully explained in the documentation for [AdnSimshape](simshape.md).
 
 ### 3. Adding muscle activations
 
 To further have a realistic depiction of facial dynamics, facial muscle activations can be simulated. The AdnSimshape deformer has two methods of handling muscle activations:
 
- - Adonis Muscle Patches files.
+ - Adonis Muscle Patches file.
  - Edge Evaluator Node.
 
-For this case the Edge Evaluator Node can be used (information on Adonis Muscle Patches files can be foud in the documentation for [AdnSimshape](simshape.md#muscle-activations)). To create this node, select the rest mesh, then the deformation mesh, and then go to AdonisFX Menu > Nodes > *Edge Evaluator*.
+Refer to [this section](simshape.md#muscle-activations) to see how to use Muscle Patches files. However, in this example, we take advantage of the AdnEdgeEvaluator Node. To create this node, select the rest mesh, then the deformation mesh, and then go to AdonisFX Menu > Nodes > *Edge Evaluator*. Then, once created, connect it to the AdnSimshape deformer via AdonisFX Menu > Simshape (on the *Edit* group) > *Connect Activations Plug*. 
 
-Once the node is created it will appear in the Node Editor. Connect it to the AdnSimshape deformer. To do this go to AdonisFX Menu > Simshape (on the *Edit* group) > *Connect Activations Plug*. 
 <figure>
   <img src="images/setup_simshape_6.png"> 
   <figcaption><b>Figure 29</b>: Connecting Edge Evaluator Node to AdnSimshape Deformer.</figcaption>
