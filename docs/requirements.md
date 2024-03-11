@@ -2,12 +2,12 @@
 
 ## Software
 
-- Maya 2020, 2022, 2023, 2024
-<!-- - Houdini 20.0 -->
+- Maya 2022, 2023, 2024
+<!-- - Houdini 18, 19, 20 -->
 
 ## System Requirements
 
-- **OS**: Microsoft Windows 10 (64bit) or higher, Linux CentOS 7+ (64-bit)
+- **OS**: Microsoft Windows 10 (64bit) or higher, Linux CentOS 7+ (64-bit), Linux Rocky 9+ (64-bit)
 - **CPU**: 64-bit Intel or AMD multi-core processor
 - **RAM**: 8GB required (12GB or more recommended)
 - **Storage**: 10MB of free disk space to install.
