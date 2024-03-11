@@ -15,9 +15,6 @@ To create an AdnSkin deformer within a Maya scene, the following inputs must be 
   - **Reference Mesh (R)**: Mesh to drive the simulation skin (e.g. fascia or combined muscles).
   - **Skin Mesh (S)**: Mesh to apply the deformer onto.
 
-  > [!NOTE]
-  > All input geometries must have the same number of vertices.
-
 ## Create AdnSkin
 
 The process to create an AdnSkin deformer is the following:
@@ -64,7 +61,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
 | **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
-| **Current Time**       | Time | *Current frame* | ✗ | Current playback frame. |
+| **Current Time**       | Time | *Current frame* | ✓ | Current playback frame. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -103,16 +100,16 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 ### Debug attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Debug**       | Boolean      | False            | ✗ | Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer. |
-| **Feature**     | Enumerator   | Hard Constraints | ✗ | A list of debuggable features for this deformer.<ul><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh to the reference mesh.</li><li>Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the reference mesh.</li><li>Slide Constraints: Draw *Slide Constraints* connections from the simulated mesh to the reference mesh.</li></ul> |
-| **Width Scale** | Float        | 3.0              | ✗ | Modifies the width of all lines. |
-| **Color**       | Color Picker |                  | ✗ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
+| **Debug**       | Boolean      | False            | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer. |
+| **Feature**     | Enumerator   | Hard Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh to the reference mesh.</li><li>Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the reference mesh.</li><li>Slide Constraints: Draw *Slide Constraints* connections from the simulated mesh to the reference mesh.</li></ul> |
+| **Width Scale** | Float        | 3.0              | ✓ | Modifies the width of all lines. |
+| **Color**       | Color Picker |                  | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
 
 ### Connectable attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Attenuation Matrix** | Matrix | Identity | ✗ | Transformation matrix to drive the attenuation. |
-| **Reference Matrix**   | Mesh   |          | ✗ | Mesh taken as reference to evaluate external constraints. | 
+| **Attenuation Matrix** | Matrix | Identity | ✓ | Transformation matrix to drive the attenuation. |
+| **Reference Matrix**   | Mesh   |          | ✓ | Mesh taken as reference to evaluate external constraints. | 
 
 ## Attribute Editor Template
 
@@ -141,13 +138,11 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 The features that can be visualized with the debugger in the AdnSkin deformer are:
 
- - **Hard Constraints**: For each vertex, a line will be drawn from the simulated mesh to its corresponding reference point on those vertices where its *Hard Constraints* weight is greater than 0.0.
- - **Soft Constraints**: For each vertex, a line will be drawn from the simulated mesh to its corresponding reference point on those vertices where its *Soft Constraints* weight is greater than 0.0.
- - **Slide Constraints**: For each vertex, a line will be drawn from the simulated mesh to its corresponding reference point on those vertices where its *Slide Constraints* weight is greater than 0.0.
-
-Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
+ - **Hard Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the reference mesh if its *Hard Constraints* weight is greater than 0.0.
+ - **Soft Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the reference mesh if its *Soft Constraints* weight is greater than 0.0.
+ - **Slide Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the reference mesh if its *Slide Constraints* weight is greater than 0.0.s
 
 <figure markdown>
   ![skin editor debug example](images/skin_debug.png)
-  <figcaption><b>Figure 5</b>: Debugger enabled displaying <i>Hard Constraints</i>, <i>Slide Constraints</i> and <i>Soft Constraints</i> with different configurations. </figcaption>
+  <figcaption><b>Figure 5</b>: In gray the reference mesh, in orange the simulated skin. Debugger enabled displaying a test example with <i>Soft Constraints</i> colored in green.</figcaption>
 </figure>
