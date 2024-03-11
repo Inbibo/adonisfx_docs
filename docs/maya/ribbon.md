@@ -1,6 +1,6 @@
 # AdnRibbonMuscle
 
-AdnRibbonMuscle is a Maya deformer for fast, robust and easy-to-configure tissue muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachments) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a ribbon with fibers activations to modulate the rigidity, and attachments to external objects to follow the global kinematics of the character.
+AdnRibbonMuscle is a Maya deformer for fast, robust and easy-to-configure tissue muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachments and slide on segment) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a ribbon with fibers activations to modulate the rigidity, and attachments to external objects to follow the global kinematics of the character.
 
 The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behaviour to a wide array of options.
 
@@ -12,7 +12,7 @@ The AdnRibbonMuscle deformer is of great simplicity to set up and apply to a mes
 
 To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs must be provided:
 
-- **Attachments (A)**: Attachment anchors to which the simulated muscle will be attached to. Any transform node can be used (e.g. bones, locators, meshes, etc). This input is optional and unlimited.
+- **Attachments (A)**: Attachment anchors to which the simulated muscle will be attached to. Any transform node can be used (e.g. joints, locators, meshes, etc). This input is optional and unlimited.
 - **Muscle Geometry (M)**: Mesh that the AdnRibbonMuscle deformer will be applied to.
 
 > [!NOTE]
@@ -30,8 +30,8 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
-| **Tendons**                      | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
 | **Attachment Constraints**       | 0.0             | Weight to indicate the influence of each attachment at each vertex of the muscle. |
+| **Tendons**                      | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
 | **Fibers**                       | {0.0, 0.0, 0.0} | The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug-features) option in the deformer. |
 | **Compression Resistance**       | 1.0             | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
 | **Stretching Resistance**        | 1.0             | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
@@ -69,7 +69,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
 | **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
-| **Current Time**       | Time | *Current frame* | ✗ | Current playback frame. |
+| **Current Time**       | Time | *Current frame* | ✓ | Current playback frame. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -105,19 +105,19 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 ### Debugger attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Debug**       | Boolean      | False         | ✗ | Enable or Disable the debug functionalities in the viewport for the AdnRibbonMuscle deformer. |
-| **Feature**     | Enumerator   | Muscle Fibers | ✗ | A list of debuggable features for this deformer. <ul><li>Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface.</li><li>Attachment Constraints: Draw *Attachment Constraints* connections from the simulated mesh to the attachments.</li><li>Slide On Segment: Draw *Slide On Segment* connections from the simulated mesh to the segment the simulated mesh is sliding on.</li> |
-| **Width Scale** | Float        | 1.0           | ✗ | Modifies the width of all lines. |
-| **Color**       | Color Picker |               | ✗ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
-| **Fiber Scale** | Float        | 3.0           | ✗ | The scale can be modified to set a custom fiber length. |
+| **Debug**       | Boolean      | False         | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnRibbonMuscle deformer. |
+| **Feature**     | Enumerator   | Muscle Fibers | ✓ | A list of debuggable features for this deformer. <ul><li>Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface.</li><li>Attachment Constraints: Draw *Attachment Constraints* connections from the simulated mesh to the attachments.</li><li>Slide On Segment: Draw *Slide On Segment* connections from the simulated mesh to the segment the simulated mesh is sliding on.</li> |
+| **Width Scale** | Float        | 1.0           | ✓ | Modifies the width of all lines. |
+| **Color**       | Color Picker |               | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
+| **Fiber Scale** | Float        | 3.0           | ✓ | The scale can be modified to set a custom fiber length. |
 
 ### Connectable attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Attenuation Matrix**           | Matrix | Identity | ✗ | Transformation matrix to drive the attenuation. |
-| **Attachment Matrix**            | Matrix | Identity | ✗ | List of attachment matrices  (from a compound attribute) used for setting up attachments. |
-| **Slide On Segment Root Matrix** | Matrix | Identity | ✗ | List of root matrices (from a compound attribute) used for setting up segments of slide on segment constraints. |
-| **Slide On Segment Tip Matrix**  | Matrix | Identity | ✗ | List of tip matrices (from a compound attribute) used for setting up segments of slide on segment constraints. |
+| **Attenuation Matrix**           | Matrix | Identity | ✓ | Transformation matrix to drive the attenuation. |
+| **Attachment Matrix**            | Matrix | Identity | ✓ | List of attachment matrices  (from a compound attribute) used for setting up attachments. |
+| **Slide On Segment Root Matrix** | Matrix | Identity | ✓ | List of root matrices (from a compound attribute) used for setting up segments of slide on segment constraints. |
+| **Slide On Segment Tip Matrix**  | Matrix | Identity | ✓ | List of tip matrices (from a compound attribute) used for setting up segments of slide on segment constraints. |
 
 ## Attribute Editor Template
 
@@ -147,14 +147,14 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 The features that can be visualized with the debugger in the AdnRibbonMuscle deformer are:
 
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
- - **Attachments Constraints**: For each vertex with an attachment constraint weight greater than 0.0, a line will be drawn from the mesh to its respective attachment.
- - **Slide on Segment Constraints**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh to the closest point to its respective segment.
+ - **Attachments Constraints**: For each vertex with an attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective attachment.
+ - **Slide on Segment Constraints**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point to its respective segment.
 
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices.
 
 <figure markdown>
   ![AdnRibbonMuscle debug](images/ribbon_debug.png)
-  <figcaption><b>Figure 6:</b> AdnRibbonMuscle being debugged (from left ro right, Muscle Fibers, Attachment Constraints and Slide On Segment)</figcaption>
+  <figcaption><b>Figure 6:</b> AdnRibbonMuscle debug features. Ffrom left to right: Muscle Fibers, Attachment Constraints and Slide On Segment Constraints.</figcaption>
 </figure>
 
 # Advanced
@@ -178,12 +178,13 @@ Once the AdnRibbonMuscle deformer is created, it is possible to add and remove n
 Additionally to all previously mentioned constraints, ribbon muscles can have an additional, optional constraint that can define a segment over which the muscle will slide.
 
 - **Add Segment**:
-    1. Select the transform nodes (two or more if this is the first segment to be added) from which a segment would be created for the muscle to slide on.
+    1. Select the transform nodes from which a segment would be created for the muscle to slide on.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
     3. Press *Add Slide On Segment Constraint* in the AdonisFX menu from the *Edit* Muscle submenu.
 
 > [!NOTE]
-> The transform nodes selection must follow a parent to child relationship in the hierarchy.
+> - The transform nodes selection must follow a parent to child relationship in the hierarchy (like rig joints do).
+> - Slide On Segment constraints are recommended especially for muscles on the limbs.
 
 - **Remove Segment**:  
     1. Select one or more transform nodes that are assigned as segment anchors to the AdnRibbonMuscle.
