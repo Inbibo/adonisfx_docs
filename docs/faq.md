@@ -65,16 +65,13 @@ Yes, both online and offline activation is supported. Please, visit the [licensi
 No. To be able to move a node-locked license to a different machine, you have to deactivate the license and reactivate it on the newly configured machine. For more flexibility and no hardware specific licensing restriction you should purchase floating licenses.
 
 #### Does the use of AdonisFX require internet access?
-If the activation happened through an online activation, then yes. However, if the license had been activated offline it will require the user to reactivate the product once the grace period is over (14 days). If the licensing mode is set to floating licensing a direct connection between the server and clients have to established.
+If the activation happened through an online activation, then yes. However, if the license had been activated offline, then internet access is needed only to validate the license. This validation is triggered by the licensing system on plug-in load every 5 days, which requires connection to the internet. If this verification fails because of the machine has no internet access, then you can still use AdonisFX for a grace period of 14 days. After that, the license has to be re-verified with our servers, which again requires connection to the internet.
 
 #### How can I switch between node-locked licensing an floating licensing inside of AdonisFX?
 You can use the environment variable `ADN_LICENSE_MODE` set to `0` for node-locked licensing and `ADN_LICENSE_MODE` set to `1` for floating licensing.
 
 #### What do I need to be able to use floating licensing?
 You will need to configure and activate the licensing server, make sure that client machines have access to it.
-
-#### How can I reactivate my floating offline license?
-The process is to deactivate the license offline and reactivate it after making changes (to change for example the number of seats). For more information visit the [licensing](licensing.md#licensing) page or contact support.
 
 #### Can I move the license server to a different machine?
 Yes. This process requires you to deactivate it and then activate it on the new machine. For more information visit the [licensing](licensing.md#licensing) page or contact support.
@@ -90,7 +87,7 @@ For more information visit the [licensing](licensing.md#licensing) page or [http
 Make sure that your firewall configuration allows the connection and try using the `ping` command to check the connectivity. If the connection is valid but AdonisFX can't load, please contact support.
 
 #### Can I activate the floating licensing server offline?
-Yes. However, it will require you to purchase a lifetime license as this is not supported with monthly licenses. For more information about offline activation visit the [licensing](licensing.md#licensing) page.
+Yes, [here](licensing.md#install-server) you can find the instructions for that. Once the activation is completed and the server is running, the licensing system will require to verify the status of your server as often as it is specified in the `TurboFloatServer-config.yml` file. This verification requires connection to the internet. Please, check the configuration of `days_between` and `grace` settings in that file for more information.
 
 #### My floating server is offline, what will happen?
 Whenever trying to load AdonisFX, the plug-in will take several seconds before erroring out as it could not reach the floating server. This should happen on plug-in load and should not affect the functionalities of the plug-in while using it.
