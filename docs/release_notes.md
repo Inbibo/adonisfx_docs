@@ -35,3 +35,12 @@
 - Sensors Connection Editor: A simple UI to make connections easily from sensors and locators to Adonis deformers.
 - AdonisFX Paint Tool: Custom tool to manipulate the paintable maps of the Adonis deformers to ensure that the solvers receive valid distribution of weights.
 - A debugger system compound by an AdnData node and an AdnDebugLocator to visualize information internal to the solvers such as connections to attachments, fiber directions, etc.
+
+### Known Limitations
+
+- Debugger system draws debug data independently to the visibility of the mesh with a deformer applied. *#802*
+- *Max Sliding Distance* parameter in AdnSkin and AdnSimshape is represented in scene units. The higher this value is, the more units in the space the sliding constraint allows a vertex to slide on. If polygons of the geometry to slide on are very little compared to that value, the sliding constraint will be time and memory consuming. *#997*
+- Enabling and disabling fibers display from the AdonisFX menu does not restore the previous status of the debug settings of affected deformers. *#998*
+- AdonisFX Paint Tool does not refresh painted maps if attachments or slide on segment constraints are removed while it is opened. Restarting the tool is needed. *#999*
+- AdnLocatorRotation does not draw the angle shape if the three inputs (start, mid, end positions) are aligned, i.e. when angle is 180 degrees. *#1000*
+- Importer tool creates and configures the deformers assuming that required inputs exist in the scene. If any of those is not found (e.g. target mesh in AdnSkin), they have to be reassigned to an existing object manually. *#1001*
