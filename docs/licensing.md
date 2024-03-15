@@ -255,11 +255,12 @@ The steps to activate the floating licensing server offline are the following:
   1. Open a terminal in the folder where the `TurboFloatServer.exe` is located.
   2. Run the following command to generate the activation request:
   `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY" -areq="<PATH>/ActivationRequest.xml"`
-      - An `ActivationRequest.xml` will be stored on disk if the activation process succeeded.
-  3. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request.
-  4. In a maximum of 24h an `ActivationResponse.xml` will be returned to the source e-mail address.
-  5. Run the following command to obtain the data from the activation response and activate the server: `TurboFloatServer.exe -a -aresp="<PATH>/ActivationResponse.xml"`
-  6. The server is now ready and can be run with the commands explained in the [Run](/licensing.md#run) section.
+  3. An `ActivationRequest.xml` will be stored on disk if the activation process succeeded.
+  4. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request.
+  5. In a maximum of 24h an `ActivationResponse.xml` will be returned to the source e-mail address.
+  6. Run the following command to obtain the data from the activation response and activate the server:
+  `TurboFloatServer.exe -a -aresp="<PATH>/ActivationResponse.xml"`
+  7. The server is now ready and can be run with the commands explained in the [Run](/licensing.md#run) section.
 
 > [!NOTE]
 > - Floating licenses require internet only for the license server. Workstations can remain disconnected and protected.
@@ -310,12 +311,12 @@ The steps to activate the floating licensing server offline are the following:
   1. Open a terminal in the folder where the `turbofloatserver` is located.
   2. Run the following command to generate the activation request:
   `./turbofloatserver -a="YOUR-PRODUCT-KEY" -areq="<PATH>/ActivationRequest.xml"`
-      - An `ActivationRequest.xml` will be stored on disk if the activation process succeeded.
-  3. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request.
-  4. In a maximum of 24h an `ActivationResponse.xml` will be returned to the source e-mail address.
-  5. Run the following command to obtain the data from the activation response and activate the server:
+  3. An `ActivationRequest.xml` will be stored on disk if the activation process succeeded.
+  4. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request.
+  5. In a maximum of 24h an `ActivationResponse.xml` will be returned to the source e-mail address.
+  6. Run the following command to obtain the data from the activation response and activate the server:
   `./turbofloatserver -a -aresp="<PATH>/ActivationResponse.xml"`
-  6. The server is now ready and can be run with the commands explained in the [Run](/licensing.md#run) section.
+  7. The server is now ready and can be run with the commands explained in the [Run](/licensing.md#run) section.
 
 > [!NOTE]
 > - Floating licenses require internet only for the license server. Workstations can remain disconnected and protected.
