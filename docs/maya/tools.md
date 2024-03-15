@@ -2,63 +2,7 @@
 
 AdonisFX includes several tools that allow for a smoother experience when interacting or configuring nodes and deformers. This page is intended to provide detailed explanation of the use, setup and application of each tool.
 
-## AdonisFX Import Tool
-
-The **AdonisFX Import Tool** allows the user to import the configuration for a specific deformer from a previously exported AAD file. It allows the user to easily configure a deformer from an already known setup which includes data like weight maps, connections and attribute values.
-
-<figure>
-  <img src="images/import_tool_empty.png" caption="AdonisFX Import Tool">
-  <figcaption><b>Figure 1</b>: AdonisFX Import Tool UI</figcaption>
-</figure>
-
-To open the importer tool press the ![Import Tool](images/adn_importer.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Import*. To import and apply an ADD file to an entity in the current open scene with the deformer information follow these steps:
-
-1. Locate the ADD file by going to *Input File Path's* folder button and select an AAD file from a directory.
-2. Locate the available deformer names that were fetched from the AAD file on the left section of the tool ("Node" | "Node Type").
-3. Locate the available nodes found in the current scene selection to which the AAD file configuration can be applied to ("Mesh" | "Candidate Node"). The selection can be redone and expanded by selecting elements from the scene and pressing the *Add Selected* button or can be cleared using the *Clear* button.
-4. Select the deformer from which the AAD file data will be fetched in the left hand panel.
-5. Select the node to which to apply the selected deformer configuration in the right hand panel.
-6. Press the *Assign* button to temporarily assign the configuration to the target node. Or clear the assignment using *Delete*.
-7. The assignments can then be imported using the *Import* button or everything can be cleared using the *Clear All* button.
-
-After following the previous steps the tool will inform about the status of the import: if failed, only partial data could be imported or all data could be imported.
-
-<figure>
-  <img src="images/import_tool_full.png" caption="AdonisFX Import Tool Active">
-  <figcaption><b>Figure 2</b>: AdonisFX Import Tool Active State</figcaption>
-</figure>
-
-> [!NOTE]
-> When using this tool take into consideration that the mesh from which the AAD file was exported **must have the same number of vertices** as the one to which the configuration is getting imported.
-
-## AdonisFX Export Tool
-
-The **AdonisFX Export Tool** allows the user to export the configuration for a specific deformer into an AAD file. It allows the user to easily save a deformer configuration 
-from an already existing setup containing data like weight maps, connections and attribute values.
-
-<figure>
-  <img src="images/export_tool_empty.png" caption="AdonisFX Export Tool Default">
-  <figcaption><b>Figure 3</b>: AdonisFX Export Tool Default State</figcaption>
-</figure>
-
-To open the tool press the ![Import Tool](images/adn_exporter.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Export*. To export an ADD file from the current scene follow these steps:
-
-1. If the tool had been opened on an already active selection containing an Adonis deformer the node will appear in the *Select Export Data* list. To add and remove a new selection press *Add Selection* or *Clear*.
-2. Select, using the checkboxes, the deformers and the individual settings to export to the AAD file. For example selecting *Maps* and *Attachments* would export the painted attribute maps and the matrices for the attachments relative to an AdnMuscle or AdnRibbonMuscle deformer.
-3. Define a name for the ADD file by going to *Output File Path* and selecting the folder icon.
-4. Finally, pressing the *Export* button will generate the file in the designated location.
-
-The AAD file that has been exported can then be imported in a scene with similar characteristics.
-
-<figure>
-  <img src="images/export_tool_full.png" caption="AdonisFX Export Tool Active State">
-  <figcaption><b>Figure 4</b>: AdonisFX Export Tool Active State</figcaption>
-</figure>
-
-> [!NOTE]
-> When using this tool to export more than one Adonis deformer, all meshes with deformers must be contained within the same group in the scene.
-
-## AdonisFX Paint Tool
+## Paint Tool
 
 The **AdonisFX Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalization of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
 
@@ -96,7 +40,7 @@ The painted weights are visualized in the viewport thanks to the **AdnWeightsDis
 
 Depending on the deformer and the attribute selected the UI can adjust to support multi-influence attributes by exposing the influences or restricting certain functionalities of the tool. In the following sections, the specific behavior of the tool for each deformer is presented.
 
-#### AdonisFX Paint Tool on AdnMuscle and AdnRibbonMuscle
+### Paint Tool on AdnMuscle and AdnRibbonMuscle
 
 In the specific case of muscle deformers, the too will display the following attributes:
 
@@ -147,7 +91,7 @@ In the specific case of muscle deformers, the too will display the following att
 
 To find a more precise example for setting up this deformer refer to the documentation page [AdnMuscle](muscle.md).
 
-#### AdonisFX Paint Tool on AdnSkin
+### Paint Tool on AdnSkin
 
 In the specific case of an AdnSkin deformer, the tool will display the following attributes:
 
@@ -175,10 +119,65 @@ In the specific case of an AdnSkin deformer, the tool will display the following
     1. Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.
 
 To find a more precise example for setting up this deformer refer to the documentation page [AdnSkin](skin.md).
+## Importer
 
-## AdonisFX Sensors Connection Editor
+The **Importer** allows the user to import the configuration for a specific deformer from a previously exported AAD file. It allows the user to easily configure a deformer from an already known setup which includes data like weight maps, connections and attribute values.
 
-To ease with the connection of sensors to deformers AdonisFX provides the **AdonisFX Sensors Connection Editor** in charge of facilitating the connection of sensors to the active deformers in the scene.
+<figure>
+  <img src="images/import_tool_empty.png" caption="AdonisFX Import Tool">
+  <figcaption><b>Figure 1</b>: AdonisFX Import Tool UI</figcaption>
+</figure>
+
+To open the importer tool press the ![Import Tool](images/adn_importer.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Import*. To import and apply an ADD file to an entity in the current open scene with the deformer information follow these steps:
+
+1. Locate the ADD file by going to *Input File Path's* folder button and select an AAD file from a directory.
+2. Locate the available deformer names that were fetched from the AAD file on the left section of the tool ("Node" | "Node Type").
+3. Locate the available nodes found in the current scene selection to which the AAD file configuration can be applied to ("Mesh" | "Candidate Node"). The selection can be redone and expanded by selecting elements from the scene and pressing the *Add Selected* button or can be cleared using the *Clear* button.
+4. Select the deformer from which the AAD file data will be fetched in the left hand panel.
+5. Select the node to which to apply the selected deformer configuration in the right hand panel.
+6. Press the *Assign* button to temporarily assign the configuration to the target node. Or clear the assignment using *Delete*.
+7. The assignments can then be imported using the *Import* button or everything can be cleared using the *Clear All* button.
+
+After following the previous steps the tool will inform about the status of the import: if failed, only partial data could be imported or all data could be imported.
+
+<figure>
+  <img src="images/import_tool_full.png" caption="AdonisFX Import Tool Active">
+  <figcaption><b>Figure 2</b>: AdonisFX Import Tool Active State</figcaption>
+</figure>
+
+> [!NOTE]
+> When using this tool take into consideration that the mesh from which the AAD file was exported **must have the same number of vertices** as the one to which the configuration is getting imported.
+
+## Exporter
+
+The **Exporter** allows the user to export the configuration for a specific deformer into an AAD file. It allows the user to easily save a deformer configuration 
+from an already existing setup containing data like weight maps, connections and attribute values.
+
+<figure>
+  <img src="images/export_tool_empty.png" caption="AdonisFX Export Tool Default">
+  <figcaption><b>Figure 3</b>: AdonisFX Export Tool Default State</figcaption>
+</figure>
+
+To open the tool press the ![Import Tool](images/adn_exporter.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Export*. To export an ADD file from the current scene follow these steps:
+
+1. If the tool had been opened on an already active selection containing an Adonis deformer the node will appear in the *Select Export Data* list. To add and remove a new selection press *Add Selection* or *Clear*.
+2. Select, using the checkboxes, the deformers and the individual settings to export to the AAD file. For example selecting *Maps* and *Attachments* would export the painted attribute maps and the matrices for the attachments relative to an AdnMuscle or AdnRibbonMuscle deformer.
+3. Define a name for the ADD file by going to *Output File Path* and selecting the folder icon.
+4. Finally, pressing the *Export* button will generate the file in the designated location.
+
+The AAD file that has been exported can then be imported in a scene with similar characteristics.
+
+<figure>
+  <img src="images/export_tool_full.png" caption="AdonisFX Export Tool Active State">
+  <figcaption><b>Figure 4</b>: AdonisFX Export Tool Active State</figcaption>
+</figure>
+
+> [!NOTE]
+> When using this tool to export more than one Adonis deformer, all meshes with deformers must be contained within the same group in the scene.
+
+## Sensors Connection Editor
+
+To ease with the connection of sensors to deformers AdonisFX provides the **Sensors Connection Editor** in charge of facilitating the connection of sensors to the active deformers in the scene.
 
 To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *Connection Editor*.
 

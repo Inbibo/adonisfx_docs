@@ -8,9 +8,7 @@ The influence these constraints have on the simulated mesh can be freely modifie
 
 The AdnMuscle deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The way this deformer works is by applying simulation on top a mesh emulating a muscle which follows the dynamics of attachment points. Those attachments mark the anchor points for the muscle, prepared to act as tendons, and will introduce great part of the dynamics of the deformer.
 
-### Requirements
-
-To create a Muscle deformer within a Maya scene, the following inputs must be provided:
+An AdnMuscle requires the following inputs to be provided:
 
   - **Attachments (A)**: Attachment anchors to which the simulated muscle will be attached to. Any transform node can be used (e.g. joints, locators, meshes, etc). This input is optional and unlimited.
   - **Muscle Geometry (M)**: Mesh that the muscle deformer will be applied onto.
@@ -18,39 +16,11 @@ To create a Muscle deformer within a Maya scene, the following inputs must be pr
 > [!NOTE]
 > It is not mandatory to select the attachments on creation of the AdnMuscle deformer. Attachments can be added and removed after creating the deformer. For more information check the [advanced section](#attachments).
 
-## Create Muscle
+To create an AdnMuscle, follow these steps:
 
 1. Select the **Attachments** (if any), then the **Muscle Geometry**.
 2. Press the ![Muscle button](images/adn_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Muscle* in the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnMuscle is ready to simulate with default settings. Check [this section](#attributes) to customize the configuration.
-
-## Paintable Weights
-
-In order to provide more artistic control, some key parameters of the muscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
-
-| Name | Default | Description |
-| :--- | :------ | :---------- |
-| **Attachment Constraints**       | 0.0             | Weight to indicate the influence of each attachment at each vertex of the muscle. |
-| **Tendons**                      | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
-| **Fibers**                       | {0.0, 0.0, 0.0} | The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug-features) option in the deformer. |
-| **Compression Resistance**       | 1.0             | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
-| **Stretching Resistance**        | 1.0             | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
-| **Global Damping**               | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
-| **Slide on Segment Constraints** | 0.0             | Weight to force vertices to displace only in the direction of a user-specified group of segments. |
-
-<figure>
-  <img src="images/muscle_w_att.png"> 
-  <figcaption><b>Figure 1:</b> Example of attachments weights painted on a biceps with 4 attachments.</figcaption>
-</figure>
-
-<figure>
-  <img src="images/muscle_weights.png"> 
-  <figcaption><b>Figure 2:</b> Example of painted weights on a biceps, labeled as: <b>a)</b> Tendons, <b>b)</b> Compression Resistance, <b>c)</b> Stretching Resistance, <b>d)</b> Global Damping, <b>e)</b> Slide on Segment Constraints.</figcaption>
-</figure>
-
-> [!NOTE]
-> - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
-> - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
 
 ## Attributes
 
@@ -125,28 +95,52 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 <figure markdown>
   ![AdnMuscle editor first part](images/attribute_editor_part_one_muscle.png) 
-  <figcaption><b>Figure 3:</b> AdnMuscle Attribute Editor</figcaption>
+  <figcaption><b>Figure 1</b>: AdnMuscle Attribute Editor</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnMuscle editor second part](images/attribute_editor_part_two_muscle.png)
-  <figcaption><b>Figure 4:</b> AdnMuscle Attribute Editor (Advanced Settings)</figcaption>
+  <figcaption><b>Figure 2</b>: AdnMuscle Attribute Editor (Advanced Settings)</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnMuscle editor debug menu](images/attribute_editor_muscle_debug.png)
-  <figcaption><b>Figure 5:</b> AdnMuscle Attribute Editor (Debug menu)</figcaption>
+  <figcaption><b>Figure 3</b>: AdnMuscle Attribute Editor (Debug menu)</figcaption>
 </figure>
+
+## Paintable Weights
+
+In order to provide more artistic control, some key parameters of the muscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+
+| Name | Default | Description |
+| :--- | :------ | :---------- |
+| **Attachment Constraints**       | 0.0             | Weight to indicate the influence of each attachment at each vertex of the muscle. |
+| **Tendons**                      | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
+| **Fibers**                       | {0.0, 0.0, 0.0} | The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the [Draw Fibers](#debug-features) option in the deformer. |
+| **Compression Resistance**       | 1.0             | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
+| **Stretching Resistance**        | 1.0             | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
+| **Global Damping**               | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
+| **Slide on Segment Constraints** | 0.0             | Weight to force vertices to displace only in the direction of a user-specified group of segments. |
+
+<figure>
+  <img src="images/muscle_w_att.png"> 
+  <figcaption><b>Figure 4</b>: Example of attachments weights painted on a biceps with 4 attachments.</figcaption>
+</figure>
+
+<figure>
+  <img src="images/muscle_weights.png"> 
+  <figcaption><b>Figure 5</b>: Example of painted weights on a biceps, labeled as: <b>a)</b> Tendons, <b>b)</b> Compression Resistance, <b>c)</b> Stretching Resistance, <b>d)</b> Global Damping, <b>e)</b> Slide on Segment Constraints.</figcaption>
+</figure>
+
+> [!NOTE]
+> - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
+> - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
 
 ## Debugger
 
 In order to better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled *Debug* in the attribute editor.
 
-To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to be visualized, choose it from the list provided in *Features*. 
-
-### Debug features
-
-The features that can be visualized with the debugger in the AdnMuscle deformer are:
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to be visualized, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnMuscle deformer are:
 
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
  - **Attachments Constraints**: For each vertex with an attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective attachment.
@@ -154,7 +148,7 @@ The features that can be visualized with the debugger in the AdnMuscle deformer 
 
 <figure markdown>
   ![AdnMuscle debug](images/muscle_debug.png)
-  <figcaption><b>Figure 6:</b> AdnMuscle debug features. From left to right: Muscle Fibers, Attachment Constraints and Slide On Segment Constraints.</figcaption>
+  <figcaption><b>Figure 6</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment Constraints and Slide On Segment Constraints.</figcaption>
 </figure>
 
 ## Advanced

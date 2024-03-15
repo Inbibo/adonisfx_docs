@@ -48,7 +48,7 @@ The AdonisFX Menu provides access to the options in the shelf and other more adv
   <figcaption><b>Figure 2</b>: AdonisFX Menu.</figcaption>
 </figure>
 
-### Create Group
+### Create Section
 
 #### Locators and Sensors
 
@@ -88,7 +88,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
   <figcaption><b>Figure 6</b>: Deformer Creator UI creating for an AdnSkin deformer.</figcaption>
 </figure>
 
-### Edit group
+### Edit section
 
 #### Sensors
 
@@ -136,7 +136,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 - **Draw Fibers**. Enables *Muscle Fibers* Debugging from all the AdnRibbonMuscle and AdnMuscle in the scene.
 - **Hide Fibers**. Disables *Muscle Fibers* Debugging from all the AdnRibbonMuscle and AdnMuscle in the scene.
 
-#### Tools
+#### Tools section
 
 - **Import**. Launches the Adonis Asset Definition Importer to load and create Adonis nodes from file (.JSON).
 - **Export**. Launches the Adonis Asset Definition Exporter to save Adonis nodes information into a file (.JSON).

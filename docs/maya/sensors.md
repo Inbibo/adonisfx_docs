@@ -15,8 +15,6 @@ An AdnSensorPosition will be in charge of feeding, after remapping, activation (
   <figcaption><b>Figure 1</b>: AdnSensorPosition used in a human model.</figcaption>
 </figure>
 
-### Create AdnSensorPosition
-
 There are two different methods of creating an AdnSensorPosition, depending if we are applying it to an existing [AdnLocatorPosition](locators.md) or creating it alongside the sensor.
 
  - If applying to an already existing AdnLocatorPosition:
@@ -68,8 +66,6 @@ An AdnSensorDistance will be in charge of feeding, after remapping, activation (
   ![AdnSensorDistance distance display on AdnLocatorDistance within a scene](images/adn_sensor_distance.png)
   <figcaption><b>Figure 2</b>: AdnSensorDistance used in a human model.</figcaption>
 </figure>
-
-### Create AdnSensorDistance
 
 There are two different methods of creating an AdnSensorDistance, depending if we are applying it to an existing [AdnLocatorDistance](locators.md) or creating it alongside the sensor.
 
@@ -124,8 +120,6 @@ An AdnSensorRotation will be in charge of feeding, after remapping, activation (
   ![AdnSensorRotation angle display on AdnLocatorRotation within a scene](images/adn_sensor_rotation.png)
   <figcaption><b>Figure 3</b>: AdnSensorRotation used in a human model.</figcaption>
 </figure>
-
-### Create AdnSensorRotation
 
 There are two different methods of creating an AdnSensorRotation, depending if we are applying it to an existing [AdnLocatorRotation](locators.md) or creating it alongside the sensor.
 

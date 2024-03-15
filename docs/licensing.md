@@ -48,7 +48,7 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
 
 <figure style="width:80%; margin-left:10%" markdown>
       ![Activation Dialog](images/adn_activation_dialog.png)
-      <figcaption><b>Figure 1:</b> Activation Dialog.</figcaption>
+      <figcaption><b>Figure 1</b>: Activation Dialog.</figcaption>
 </figure>
 
     
@@ -56,19 +56,19 @@ To activate AdonisFX in Online Node-Locked Interactive mode:
 
 <figure style="width:80%; margin-left:10%" markdown>
       ![Activation Add Product Key](images/adn_add_product_key_dialog.png)
-      <figcaption><b>Figure 2:</b> Activation Add Product Key.</figcaption>
+      <figcaption><b>Figure 2</b>: Activation Add Product Key.</figcaption>
 </figure>
 
   4. After entering a valid product key and pressing Activate a confirmation dialog will appear (Figure 3). If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to retry the activation (Figure 4).
 
 <figure style="width:80%; margin-left:10%" markdown>
       ![Product Activated Dialog](images/adn_activated_product_key_dialog.png)
-      <figcaption><b>Figure 3:</b> Product Activated Dialog.</figcaption>
+      <figcaption><b>Figure 3</b>: Product Activated Dialog.</figcaption>
 </figure>
 
 <figure style="width:80%; margin-left:10%" markdown>
       ![Activation Retry Adding Product Key](images/adn_try_again_product_key_dialog.png)
-      <figcaption><b>Figure 4:</b> Activation Retry Adding Product Key.</figcaption>
+      <figcaption><b>Figure 4</b>: Activation Retry Adding Product Key.</figcaption>
 </figure>
 
   5. AdonisFX is activated and ready to be used.
@@ -158,14 +158,14 @@ To activate AdonisFX in Online Node-Locked Interactive Trial mode:
 
 <figure style="width:80%; margin-left:10%" markdown>
         ![Activation Dialog](images/adn_activation_dialog.png)
-        <figcaption><b>Figure 9:</b> Activation Dialog.</figcaption>
+        <figcaption><b>Figure 9</b>: Activation Dialog.</figcaption>
 </figure>
       
   3. AdonisFX trial is activated and a dialog will inform about the amount of days left for the trial license.
 
 <figure style="width:30%; margin-left:10%" markdown>
         ![Trial Dialog](images/adn_your_trial_expires_dialog.png)
-        <figcaption><b>Figure 10:</b> Trial Dialog.</figcaption>
+        <figcaption><b>Figure 10</b>: Trial Dialog.</figcaption>
 </figure>
 
 **Offline Trial Activation**
@@ -219,7 +219,7 @@ The steps to run or install the floating licensing server on a dedicated Windows
 
 <figure style="width:80%; margin-left:10%" markdown>
         ![Turbo Float Folder](images/adn_turbo_float_folder.png)
-        <figcaption><b>Figure 11:</b> Turbo Float Folder.</figcaption>
+        <figcaption><b>Figure 11</b>: Turbo Float Folder.</figcaption>
 </figure>
       
   5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:

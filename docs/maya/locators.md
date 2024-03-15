@@ -15,8 +15,6 @@ An AdnLocatorPosition will only visualize the information of the transform node 
   <figcaption><b>Figure 1</b>: AdnLocatorPosition used in a human model.</figcaption>
 </figure>
 
-### Create AdnLocatorPosition
-
 Only one transform will be required to create the AdnLocatorPosition. The creation process is the following:
 
  1. Select a transform node in the scene.
@@ -55,8 +53,6 @@ An AdnLocatorDistance will only visualize the information of the distance betwee
   ![AdnLocatorDistance within a scene](images/locators_distance.png)
   <figcaption><b>Figure 2</b>: AdnLocatorDistance used in a human model.</figcaption>
 </figure>
-
-### Create AdnLocatorDistance
 
 Two transform nodes will be required to create an AdnLocatorDistance representing each extremity. The creation process is the following:
 
@@ -98,8 +94,6 @@ An AdnLocatorRotation will only visualize the information of the connections and
   <figcaption><b>Figure 3</b>: AdnLocatorRotation locator used in a human model.</figcaption>
 </figure>
 
-### Create AdnLocatorRotation
-
 Three transform nodes will be required to create the AdnLocatorRotation. The creation process is the following:
 
  1. Select three transform objects in the scene. The order in which the objects are selected is relevant, as the created angle will have the following arrangement:
@@ -135,7 +129,7 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 
 The AdnLocator is an native alternative to Maya locators. This locator can be used to visualize any kind of scene element with a transform node. For example they can be used as inputs to other Adonis locators presented in this page.
 
-### Create AdnLocator
+### How to use
 
 To create an AdnLocator just click on the ![AdonisFX Logo locator button](images/adn_adonis_locator.png){style="width:4%"} button in the AdonisFX shelf. The locator will be created at the origin of your scene.
 

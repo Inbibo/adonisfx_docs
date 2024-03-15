@@ -2,9 +2,9 @@
 
 The AdnEdgeEvaluator node is a dependency node that computes deformation changes in edges. Based on two compatible input meshes it will output a compression map of the edges.
 
-## Requirements
+## Hou to use
 
-The Edge Evaluator Node requires the following inputs to be provided:
+This node requires the following inputs to be provided:
 
   - **Rest Mesh (R)**: Mesh with no deformation or animation.
   - **Deform Mesh (D)**: Mesh with deformation.
@@ -12,15 +12,24 @@ The Edge Evaluator Node requires the following inputs to be provided:
 > [!NOTE]
 > All input geometries must have the same number of vertices and edges.
 
-<figure markdown>
-  ![Edge Evaluator node](images/edge_evaluator.png)
-  <figcaption><b>Figure 1</b>: Edge Evaluator Graph Editor</figcaption>
-</figure>
-
 ## Create the Edge Evaluator Node
 
 1. Select the deform mesh, then the rest mesh.
 2. Go to the AdonisFX menu > Create Nodes > *Edge Evaluator*.
+
+The evaluator node can be used to drive the [activations of an AdnSimshape](simshape.md#muscle-activations) deformer which can be done by connecting the output map to the activations plug of AdnSimshape. 
+
+<figure markdown>
+  ![Edge Evaluator example](images/edge_evaluator_example.png)
+  <figcaption><b>Figure 1</b>: From left to right: rest mesh, deform mesh and simulated mesh with AdnSimshape deformer receiving the compression map from an AdnEdgeEvaluator node to drive activations (activations debugger is enabled).</figcaption>
+</figure>
+
+A menu option is provided to recreate these steps easily:
+
+1. Select the Edge Evaluator Node, then the AdnSimshape deformer node.
+2. Go to the AdonisFX Menu > Edit Simshape > *Connect Activations Plug*.
+
+In order to disconnect the plug, repeat the selection and instead of pressing *Connect Activations Plug* press *Disconnect Activations Plug*.
 
 ## Attributes
 
@@ -34,7 +43,7 @@ The Edge Evaluator Node requires the following inputs to be provided:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Compression Remap** | Ramp Attribute |  | ✓ | Curve to remap the output compression map. |
 
-### Attribute Editor Template
+## Attribute Editor Template
 
 <figure markdown>
   ![Edge Evaluator editor](images/attribute_editor_edge_evaluator.png)
@@ -43,16 +52,3 @@ The Edge Evaluator Node requires the following inputs to be provided:
 
 ## Advanced
 
-### AdnSimshape Activation using Edge Evaluator node
-
-The evaluator node can be used to drive the [activations of an AdnSimshape](simshape.md#muscle-activations) deformer which can be done by connecting the output map to the activations plug of AdnSimshape. Adonis provides a menu option to recreate this steps easily.
-
-1. Select the Edge Evaluator Node, then the Simshape deformer node.
-2. Go to the AdonisFX Menu > Edit Simshape > *Connect Activations Plug*.
-
-In order to disconnect the plug, repeat the selection and instead of pressing *Connect Activations Plug* press *Disconnect Activations Plug*.
-
-<figure markdown>
-  ![Edge Evaluator example](images/edge_evaluator_example.png)
-  <figcaption><b>Figure 3</b>: From left to right: rest mesh, deform mesh and simulated mesh with AdnSimshape deformer receiving the compression map from an AdnEdgeEvaluator node to drive activations (activations debugger is enabled).</figcaption>
-</figure>
