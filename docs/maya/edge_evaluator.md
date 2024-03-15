@@ -12,7 +12,7 @@ This node requires the following inputs to be provided:
 > [!NOTE]
 > All input geometries must have the same number of vertices and edges.
 
-## Create the Edge Evaluator Node
+To create this node, follow these steps:
 
 1. Select the deform mesh, then the rest mesh.
 2. Go to the AdonisFX menu > Create Nodes > *Edge Evaluator*.

@@ -6,7 +6,7 @@ AdnSensors are nodes in charge of interpreting data extracted from transform nod
 
 AdnSensorPosition is the sensor for computing meaningful output values representing the velocity or acceleration of a transform node. The values of velocity an acceleration can then be remapped to produce desirable activation values to drive the simulation of an Adonis deformer. This sensor has to work in combination with an AdnLocatorPosition both for setup and visualization. An example use case for this sensor would be applying it to the wrist connection of an arm outputting velocities while swinging.
 
-### How to use
+### How To Use
 
 An AdnSensorPosition will be in charge of feeding, after remapping, activation (or other) values into Adonis deformers for driving the simulation and the AdnLocatorPosition for visualization purposes. The value of the sensor can be used, for example, to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
@@ -58,7 +58,7 @@ There are two different methods of creating an AdnSensorPosition, depending if w
 
 AdnSensorDistance is the sensor for computing meaningful output values representing the distance, velocity or acceleration between two transform nodes. The values of distance, velocity an acceleration can then be remapped to produce desirable activation values to drive the simulation of an Adonis deformer. This sensor has to work in combination with an AdnLocatorDistance both for setup and visualization. An example use case for this sensor would be applying it to the connection made between bones which would compute the distance between two bones moving together.
 
-### How to use
+### How To Use
 
 An AdnSensorDistance will be in charge of feeding, after remapping, activation (or other) values into the deformer for driving the simulation and the AdnLocatorDistance for visualization purposes. The value of the sensor can be used to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
@@ -112,7 +112,7 @@ There are two different methods of creating an AdnSensorDistance, depending if w
 
 AdnSensorRotation is the sensor for computing meaningful output values representing the angle, angular velocity or angular acceleration between three transform nodes. The values of velocity and acceleration can then be remapped to produce desirable activation values to drive the simulation of an Adonis deformer. This sensor has to work in combination with an AdnLocatorRotation both for setup and visualization. An example use case for this sensor would be applying it to the arc connection made between bones which would compute the angle between two bones rotating.
 
-### How to use
+### How To Use
 
 An AdnSensorRotation will be in charge of feeding, after remapping, activation (or other) values into the deformer for driving the simulation and the AdnLocatorRotation for visualization purposes. The value of the sensor can be used to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
@@ -162,7 +162,7 @@ There are two different methods of creating an AdnSensorRotation, depending if w
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale** | Float | 1.0 | ✓ | Sets the scaling factor applied to the compute the velocity or acceleration. Has a range of \[0.001, 10.0\]. The upper limit is soft, higher values can be used. |
 
-## Connecting sensors to deformers
+## Connect To Deformers
 
 Sensors are meant to be connected to a deformer, tipically to a muscle deformer, so that they can automatically control attributes, enabling the deformer to react to external inputs from the scene.
 

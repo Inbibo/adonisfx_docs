@@ -4,7 +4,7 @@ AdnSimshape is a Maya deformer to produce facial simulation in the animation rig
 
 During simulation, the solver reduces the inertias of the vertices with higher values of activation, while it computes standard simulation in the vertices that are not activated. One of the key features of AdnSimshape is the ability to extract muscle information directly from the neutral geometry and the set of deformed geometries with the facial expressions using Machine Learning techniques.
 
-## How to Use
+### How To Use
 
 The AdnSimshape deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The combination of a rest mesh, deform mesh and animated mesh allows the system to compute activation values which would drive the behaviour and inertias of the output skin mesh (simulated mesh).
 
@@ -128,7 +128,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Activation Remap** | Ramp Attribute |  | ✗ | Curve to remap the activation values. |
 
-### Debug attributes
+### Debug Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False                 | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSimshape deformer. |
@@ -137,7 +137,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | **Color**       | Color Picker |                       | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
 | **Fiber Scale** | Float        | 3.0                   | ✓ | The scale can be modified to set a custom fiber length. |
 
-### Connectable attributes
+### Connectable Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Anim Mesh**                  | Mesh   |          | ✓ | Animated mesh on which to apply the simulation. |

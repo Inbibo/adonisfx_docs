@@ -4,7 +4,7 @@ AdnRibbonMuscle is a Maya deformer for fast, robust and easy-to-configure tissue
 
 The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behaviour to a wide array of options.
 
-# How to Use
+### How To Use
 
 The AdnRibbonMuscle deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The way this deformer works is by applying simulation on top a mesh emulating a ribbon muscle which follows the dynamics of attachment points set as anchors. Those attachments mark the anchor points for the muscle, prepared to act as tendons, and will introduce great part of the dynamics to the deformer.
 
@@ -72,7 +72,7 @@ Follow this steps to create an AndRibbonMuscle deformer:
 | **Attenuation Velocity Factor** | Float   | 1.0  | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 | **Hard Attachments**            | Boolean | True | ✓ | If enabled, attachment constraints will force the vertices to stick to target transformation completely. |
 
-### Debug attributes
+### Debug Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False         | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnRibbonMuscle deformer. |
@@ -81,7 +81,7 @@ Follow this steps to create an AndRibbonMuscle deformer:
 | **Color**       | Color Picker |               | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
 | **Fiber Scale** | Float        | 3.0           | ✓ | The scale can be modified to set a custom fiber length. |
 
-### Connectable attributes
+### Connectable Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Attenuation Matrix**           | Matrix | Identity | ✓ | Transformation matrix to drive the attenuation. |
@@ -167,7 +167,7 @@ Once the AdnRibbonMuscle deformer is created, it is possible to add and remove n
     3. Press the ![Remove Attachments button](images/adn_remove_attachment.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Attachments* in the AdonisFX menu from the Edit Muscle submenu.
     4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing the ![Remove Attachments button](images/adn_remove_attachment.png){style="width:4%"} button, all attachments will get removed.
 
-### Slide on Segment Constraint
+### Slide On Segment Constraint
 
 Additionally to all previously mentioned constraints, ribbon muscles can have an additional, optional constraint that can define a segment over which the muscle will slide.
 

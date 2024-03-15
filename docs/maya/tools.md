@@ -40,7 +40,7 @@ The painted weights are visualized in the viewport thanks to the **AdnWeightsDis
 
 Depending on the deformer and the attribute selected the UI can adjust to support multi-influence attributes by exposing the influences or restricting certain functionalities of the tool. In the following sections, the specific behavior of the tool for each deformer is presented.
 
-### Paint Tool on AdnMuscle and AdnRibbonMuscle
+#### Paint Tool on AdnMuscle and AdnRibbonMuscle
 
 In the specific case of muscle deformers, the too will display the following attributes:
 
@@ -91,7 +91,7 @@ In the specific case of muscle deformers, the too will display the following att
 
 To find a more precise example for setting up this deformer refer to the documentation page [AdnMuscle](muscle.md).
 
-### Paint Tool on AdnSkin
+#### Paint Tool on AdnSkin
 
 In the specific case of an AdnSkin deformer, the tool will display the following attributes:
 

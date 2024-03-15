@@ -88,7 +88,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
   <figcaption><b>Figure 6</b>: Deformer Creator UI creating for an AdnSkin deformer.</figcaption>
 </figure>
 
-### Edit section
+### Edit Section
 
 #### Sensors
 
