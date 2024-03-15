@@ -4,11 +4,11 @@ AdnMuscle is a Maya deformer for fast, robust and easy-to-configure volumetric m
 
 The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools.md#adonisfx-paint-tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behaviour to a wide array of options.
 
-# How to Use
+## How to Use
 
 The AdnMuscle deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The way this deformer works is by applying simulation on top a mesh emulating a muscle which follows the dynamics of attachment points. Those attachments mark the anchor points for the muscle, prepared to act as tendons, and will introduce great part of the dynamics of the deformer.
 
-## Requirements
+### Requirements
 
 To create a Muscle deformer within a Maya scene, the following inputs must be provided:
 
@@ -52,9 +52,9 @@ In order to provide more artistic control, some key parameters of the muscle sol
 > - The attachment weights are normalised at each vertex. This normalisation is applied when a stroke is finished. The use of the AdonisFX painting tool is mandatory for that. The basics of the paint tool are explained in [this section](#adonisfx-paint-tool).
 > - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalisation override them in further strokes.
 
-# Attributes
+## Attributes
 
-#### Solver Attributes
+### Solver Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Enable**               | Boolean    | True   | ✓ | Flag to enable or disable the deformer computation. |
@@ -66,20 +66,20 @@ In order to provide more artistic control, some key parameters of the muscle sol
 | **Volume Preservation**  | Float      | 1.0    | ✓ | The amout of volume to preserve of the current simulated muscle. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 | **Volume Ratio**         | Float      | 1.0    | ✓ | The amount of volume ratio increase or decrease to apply to the simulated muscle. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
 
-#### Time Attributes
+### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
 | **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
 | **Current Time**       | Time | *Current frame* | ✓ | Current playback frame. |
 
-#### Scale Attributes
+### Scale Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**  | Float | 1.0 | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
 | **Space Scale** | Float | 1.0 | ✓ | Sets the scaling factor applied to the masses and/or the forces. Adonis interprets the scene units in meters. Because of that, to simulate external forces in the right scale, the *Space Scale* may need to be adjusted. For example, to apply *Gravity* with a value of 9.8 m/s^2^, the *Space Scale* should be set to 0.01. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
 
-#### Gravity
+### Gravity
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Gravity**           | Float  | 0.0              | ✓ | Sets the magnitude of the gravity acceleration. Has a range of \[0.0, 100.0\]. Upper limit is soft, higher values can be used. |
@@ -157,9 +157,9 @@ The features that can be visualized with the debugger in the AdnMuscle deformer 
   <figcaption><b>Figure 6:</b> AdnMuscle debug features. From left to right: Muscle Fibers, Attachment Constraints and Slide On Segment Constraints.</figcaption>
 </figure>
 
-# Advanced
+## Advanced
 
-## Attachments
+### Attachments
 
 Once the AdnMuscle deformer is created, it is possible to add and remove new attachments to the system. 
 
@@ -173,7 +173,7 @@ Once the AdnMuscle deformer is created, it is possible to add and remove new att
     3. Press the ![Remove Attachments button](images/adn_remove_attachment.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Attachments* in the AdonisFX menu from the Edit Muscle submenu. 
     4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing the ![Remove Attachments button](images/adn_remove_attachment.png){style="width:4%"} button, all attachments will be removed.
 
-## Slide on Segment Constraint
+### Slide on Segment Constraint
 
 Additionally to all previously mentioned constraints, muscles can have an additional, optional constraint that can define a segment over which the muscle will slide.
 

@@ -32,6 +32,10 @@ Constraints are rules that an Adonis solver applies during simulation to ensure 
 
 Locators are intended to visualize the output of an Adonis sensor. There are three types of locators that require a specific number of inputs and adopt custom shapes in the viewport: AdnLocatorPosition (a squared box at the location of a node), AdnLocatorDistance (a parallelepiped with a line connecting two nodes) and AdnLocatorRotation (an angle with two segments connecting three nodes). Each type is associated with its homologous sensor.
 
+## Muscle
+
+**AdnMuscle** is an Adonis solver for muscle simulation including volume preservation. It allows to apply dynamics such as fibers contraction and volume gain to a geometry.
+
 ## Muscle Patches
 
 A muscle patch is a group of connected geometry vertices that represent an internal muscle projected onto the skin. A muscle patch is not an actual modelled geometry. Muscle patches are used by AdnSimshape solver for facial simulation, The muscle patches of a facial geometry can be generated with the Learn Muscle Patches Tool which applies Machine Learning techniques to estimate the distribution of muscles based on the set of facial expressions that a facial rig can reproduce.
@@ -53,8 +57,4 @@ Simshape or **AdnSimshape** is an Adonis solver for facial simulation. It allows
 ## Skin
 
 Skin or **AdnSkin** is an Adonis solver for skin and fascia simulation. It allows to apply dynamics to the skin of a character to produce realistic effects like wrinkles.
-
-## Muscle
-
-**AdnMuscle** is an Adonis solver for muscle simulation including volume preservation. It allows to apply dynamics such as fibers contraction and volume gain to a geometry.
 

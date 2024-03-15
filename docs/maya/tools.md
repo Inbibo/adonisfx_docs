@@ -11,8 +11,6 @@ The **AdonisFX Import Tool** allows the user to import the configuration for a s
   <figcaption><b>Figure 1</b>: AdonisFX Import Tool UI</figcaption>
 </figure>
 
-### How To Use
-
 To open the importer tool press the ![Import Tool](images/adn_importer.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Import*. To import and apply an ADD file to an entity in the current open scene with the deformer information follow these steps:
 
 1. Locate the ADD file by going to *Input File Path's* folder button and select an AAD file from a directory.
@@ -42,8 +40,6 @@ from an already existing setup containing data like weight maps, connections and
   <img src="images/export_tool_empty.png" caption="AdonisFX Export Tool Default">
   <figcaption><b>Figure 3</b>: AdonisFX Export Tool Default State</figcaption>
 </figure>
-
-### How To Use
 
 To open the tool press the ![Import Tool](images/adn_exporter.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Export*. To export an ADD file from the current scene follow these steps:
 
@@ -75,8 +71,6 @@ The use of this tool is required for the correct setup of skin, muscle and ribbo
 
 > [!NOTE]
 > AdnSimshape does not require this tool. Its paintable maps can be manipulated through the standard Maya paint context.
-
-### How To Use
 
 To open the tool:
 
@@ -185,8 +179,6 @@ To find a more precise example for setting up this deformer refer to the documen
 ## AdonisFX Sensors Connection Editor
 
 To ease with the connection of sensors to deformers AdonisFX provides the **AdonisFX Sensors Connection Editor** in charge of facilitating the connection of sensors to the active deformers in the scene.
-
-### How To Use
 
 To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *Connection Editor*.
 
