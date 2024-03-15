@@ -127,7 +127,7 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 
 ## AdnLocator
 
-The AdnLocator is an native alternative to Maya locators. This locator can be used to visualize any kind of scene element with a transform node. For example they can be used as inputs to other Adonis locators presented in this page.
+The AdnLocator is an native alternative to Maya locators. This locator can be used to visualize any kind of scene element with a transform node. For example they can be used as inputs to other AdonisFX locators presented in this page.
 
 ### How To Use
 

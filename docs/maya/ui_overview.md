@@ -1,10 +1,10 @@
 # UI Overview
 
-The Adonis UI for Maya can be separated into two main elements presented in this page: the **AdonisFX Shelf** and the **AdonisFX Menu**.
+The AdonisFX UI for Maya can be separated into two main elements presented in this page: the **AdonisFX Shelf** and the **AdonisFX Menu**.
 
 ## AdonisFX Shelf
 
-The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*. It allows for quick access to the main Adonis functionalities.
+The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*. It allows for quick access to the main AdonisFX functionalities.
 
 <figure style="width: 100%;" markdown>
   ![AdnLocatorPosition within a scene](images/adonis_shelf.png)
@@ -25,7 +25,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![Create AdnSimshape](images/adn_simshape.png) | Applies an [AdnSimshape](simshape.md#create-simshape) deformer to the selected mesh. For more information about the possible selections see [Create AdnSimshape](simshape.md#create-simshape). Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > *Create Simshape* |
 | ![Add AdnSimshape Collider](images/adn_add_collider.png) | [Adds a Collider](simshape.md#add-collider) to AdnSimshape selecting the collider and the mesh with AdnSimshape applied. | AdonisFX Menu > Edit Simshape > *Add Collider* |
 | ![Remove AdnSimshape Collider](images/adn_remove_collider.png) | [Removes a Collider](simshape.md#remove-collider) from AdnSimshape selecting the collider and the mesh with AdnSimshape applied. | AdonisFX Menu > Edit Simshape > *Remove Collider* |
-| ![AdnSimshape Learn Muscle Patches Tool](images/adn_learn_muscle_patches.png) | Launches the [AdnSimshape Muscle Patches Learning](simshape.md#generate-muscle-patches) tool used to generate the *Adonis Muscle Patches* file (.amp) file. | AdonisFX Menu > Edit Simshape > *Learn Muscle Patches UI* |
+| ![AdnSimshape Learn Muscle Patches Tool](images/adn_learn_muscle_patches.png) | Launches the [AdnSimshape Muscle Patches Learning](simshape.md#generate-muscle-patches) tool used to generate the *AdonisFX Muscle Patches* file (.amp) file. | AdonisFX Menu > Edit Simshape > *Learn Muscle Patches UI* |
 | ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png) | Toggles the [Simshape Activations Debug Mode](simshape.md#debug-activations). Current frame has to match the preroll or start frame in the AdnSimshape deformer for this toggle to work. | AdonisFX Menu > Edit Simshape > *Activations Debugger* |
 |||
 | ![Create AdnSkin](images/adn_skin.png) | Creates [AdnSkin](skin.md#create-adnskin) deformer to the selected mesh. First, select the reference mesh and then the skin mesh to apply the deformer. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > *Create Skin* |
@@ -34,8 +34,8 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![Add Attachments](images/adn_add_attachment.png) | Assigns attachment objects to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Attachments* |
 | ![Remove Attachments](images/adn_remove_attachment.png) | Removes attachment objects assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Attachments* |
 |||
-| ![Importer Tool](images/adn_importer.png) | Launches the Adonis Asset Definition [Importer](tools.md#adonisfx-import-tool) to load and create Adonis nodes from file (.JSON). | AdonisFX Menu > Tools *Importer* |
-| ![Exporter Tool](images/adn_exporter.png) | Launches the Adonis Asset Definition [Exporter](tools.md#adonisfx-export-tool) to save Adonis nodes information into a file (.JSON). | AdonisFX Menu > Tools *Exporter* |
+| ![Importer Tool](images/adn_importer.png) | Launches the AdonisFX Asset Definition [Importer](tools.md#adonisfx-import-tool) to load and create AdonisFX nodes from file (.JSON). | AdonisFX Menu > Tools *Importer* |
+| ![Exporter Tool](images/adn_exporter.png) | Launches the AdonisFX Asset Definition [Exporter](tools.md#adonisfx-export-tool) to save AdonisFX nodes information into a file (.JSON). | AdonisFX Menu > Tools *Exporter* |
 | ![Paint Tool](images/adn_paint_tool.png) | Opens the [Paint Tool UI](tools.md#adonisfx-paint-tool) to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. | AdonisFX Menu > *Tools* Paint Tool |
 | ![Interactive Playback](images/adn_interactive_playback.png) | Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. | AdonisFX Menu > Tools *Interactive Playback* |
 
@@ -106,7 +106,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
   <figcaption><b>Figure 8</b>: AdonisFX Menu Edit AdnSimshape section.</figcaption>
 </figure>
 
-- **Learn Muscle Patches UI**. Launches the [AdnSimshape Muscle Patches Learning](simshape.md#generate-muscle-patches) tool used to generate the *Adonis Muscle Patches* (.amp) file.
+- **Learn Muscle Patches UI**. Launches the [AdnSimshape Muscle Patches Learning](simshape.md#generate-muscle-patches) tool used to generate the *AdonisFX Muscle Patches* (.amp) file.
 - **Activations Debugger**. Toggles the [Simshape Activations Debug Mode](simshape.md#debug-activations). Current frame must match the specified initialization frame at the AdnSimshape deformer to toggle.
 - **Add Collider**. Assigns a [Collider](simshape.md#add-collider) to the selected deformer. The selection must consist of: first the mesh to assign as a Collider and lastly the mesh with the deformer applied.
 - **Remove Collider**. Removes a [Collider](simshape.md#remove-collider) from the selected deformer. The selection must consist of: first the Collider mesh to remove and lastly the mesh with the deformer applied.
@@ -138,7 +138,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 #### Tools section
 
-- **Import**. Launches the Adonis Asset Definition Importer to load and create Adonis nodes from file (.JSON).
-- **Export**. Launches the Adonis Asset Definition Exporter to save Adonis nodes information into a file (.JSON).
+- **Import**. Launches the AdonisFX Asset Definition Importer to load and create AdonisFX nodes from file (.JSON).
+- **Export**. Launches the AdonisFX Asset Definition Exporter to save AdonisFX nodes information into a file (.JSON).
 - **Paint Tool**. Opens the Paint Tool UI to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers.
 - **Interactive Playback**. Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed.

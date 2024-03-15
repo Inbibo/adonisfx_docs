@@ -11,7 +11,7 @@ The AdnSimshape deformer is of great simplicity to set up and apply to a mesh wi
 To create an AdnSimshape deformer within a Maya scene, the following inputs must be provided:
 
   - **Rest Mesh (R)**: Mesh with no deformation or animation (optional).
-  - **Deform Mesh (D)**: Mesh with deformation driven by the facial expressions (optional, only if muscle activations with Adonis Muscle Patches is required).
+  - **Deform Mesh (D)**: Mesh with deformation driven by the facial expressions (optional, only if muscle activations with AdonisFX Muscle Patches is required).
   - **Animated Mesh (A)**: Mesh with deformation driven by the facial expressions and animation result of the binding to the animation rig.
   - **Simulation Mesh (S)**: Mesh to apply the deformer to. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
@@ -59,8 +59,8 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 ### Muscles Activation Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Activation Mode**          | Enumerator | No activation | ✗ | Mode to drive the muscle activations. There are 3 different modes: <ul><li>Muscle Patches (Disabled by default): An Adonis Muscle Patches file ([.amp](#generate-muscle-patches)) has to be provided to enable this option.</li><li>Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.</li><li>No Activation (Enabled by default): No activation is read.</li></ul> |
-| **Muscle Patches File**      | String     |               | ✗ | Path to the Adonis Muscle Patches file ([.amp](#generate-muscle-patches)). |
+| **Activation Mode**          | Enumerator | No activation | ✗ | Mode to drive the muscle activations. There are 3 different modes: <ul><li>Muscle Patches (Disabled by default): An AdonisFX Muscle Patches file ([.amp](#generate-muscle-patches)) has to be provided to enable this option.</li><li>Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.</li><li>No Activation (Enabled by default): No activation is read.</li></ul> |
+| **Muscle Patches File**      | String     |               | ✗ | Path to the AdonisFX Muscle Patches file ([.amp](#generate-muscle-patches)). |
 | **Activation Smoothing**     | Integer    | 1             | ✗ | Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be. Has a range of \[1, 20\]. Upper limit is soft, higher values can be used. |
 | **Bidirectional Activation** | Boolean    | False         | ✓ | Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers. |
 | **Write Out Activation**     | Boolean    | False         | ✓ | Flag to toggle the writing of activations into an output plug. |
@@ -76,7 +76,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces. Adonis interprets the scene units in meters. Because of that, to simulate external forces in the right scale, the *Space Scale* may need to be adjusted. For example, to apply *Gravity* with a value of 9.8 m/s^2^, the *Space Scale* should be set to 0.01. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces. AdonisFX interprets the scene units in meters. Because of that, to simulate external forces in the right scale, the *Space Scale* may need to be adjusted. For example, to apply *Gravity* with a value of 9.8 m/s^2^, the *Space Scale* should be set to 0.01. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
 | **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* only affects masses and forces.</li><ul> |
 
 ### Gravity
@@ -192,7 +192,7 @@ To better visualize deformer constraints and attributes in the Maya viewport the
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnSimshape deformer are:
 
  - **Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider. The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
- - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an Adonis Muscle Patches file.
+ - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
 
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
 
@@ -213,9 +213,9 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
 
 > [!NOTE = Activation Modes]
 > === Muscle Patches
-> The data in the Adonis Muscle Patches (AMP) file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following [generate muscle patches section](#generate-muscle-patches). The requirements for this mode to work are:
+> The data in the AdonisFX Muscle Patches (AMP) file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following [generate muscle patches section](#generate-muscle-patches). The requirements for this mode to work are:
 
->  - Adonis Muscle Patches file
+>  - AdonisFX Muscle Patches file
 >  - Deform mesh
 >
 >  === Plug Values

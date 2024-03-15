@@ -1,6 +1,6 @@
 # A Simple Setup
 
-This page is dedicated to explain, step by step, a simple process of creating and setting every Adonis deformer in Maya. The scenarios presented here are intended to provide the minimum required configurations to obtain plausible results.
+This page is dedicated to explain, step by step, a simple process of creating and setting every AdonisFX deformer in Maya. The scenarios presented here are intended to provide the minimum required configurations to obtain plausible results.
 
 ## AdnSkin
 
@@ -306,7 +306,7 @@ After painting similar weights to the ones displayed and pressing playback to ch
 
 To further have a realistic depiction of facial dynamics, facial muscle activations can be simulated. The AdnSimshape deformer has two methods of handling muscle activations:
 
- - Adonis Muscle Patches file.
+ - AdonisFX Muscle Patches file.
  - Edge Evaluator Node.
 
 Refer to [this section](simshape.md#muscle-activations) to see how to use Muscle Patches files. However, in this example, we take advantage of the AdnEdgeEvaluator Node. To create this node, select the rest mesh, then the deformation mesh, and then go to AdonisFX Menu > Nodes > *Edge Evaluator*. Then, once created, connect it to the AdnSimshape deformer via AdonisFX Menu > Simshape (on the *Edit* group) > *Connect Activations Plug*. 

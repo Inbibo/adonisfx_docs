@@ -18,7 +18,7 @@ The use of this tool is required for the correct setup of skin, muscle and ribbo
 
 To open the tool:
 
-  1. Select the mesh with the Adonis deformer applied to.
+  1. Select the mesh with the AdonisFX deformer applied to.
   2. Press the paint tool ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
 
 > [!NOTE]
@@ -26,7 +26,7 @@ To open the tool:
 > - Make sure to select the transform node of the mesh.
 > - If the context does not allow to paint, it is probably because the selected node is not a transform mesh node with an AdonisFx paintable deformer. Please, select the transform mesh node and click *Refresh From Selection* or restart the AdonisFX Paint Tool.
 
-If the selection provided is valid, meaning the selected mesh has one of the Adonis deformers listed before, then the paint context will get configured and the user can paint. The map to be painted is the one associated to the selected attribute in the enumerator exposed at the top of the UI.
+If the selection provided is valid, meaning the selected mesh has one of the AdonisFX deformers listed before, then the paint context will get configured and the user can paint. The map to be painted is the one associated to the selected attribute in the enumerator exposed at the top of the UI.
 
 The painted weights are visualized in the viewport thanks to the **AdnWeightsDisplayNode**. This node is in charge of setting the vertex colors from the selected attribute in the UI on the mesh. This node is created and removed dynamically by the Paint Tool on entering and exiting from the context. Because of that, it is strongly recommended to keep the AdonisFX Paint Tool open while painting.
 
@@ -46,7 +46,7 @@ In the specific case of muscle deformers, the too will display the following att
 
 <figure markdown>
   ![Pain Tool Skin Attributes example](images/paint_tool_ribbon_attributes.png) 
-  <figcaption><b>Figure 7</b>: Paintable attributes in Adonis muscle deformer. </figcaption>
+  <figcaption><b>Figure 7</b>: Paintable attributes in AdonisFX muscle deformer. </figcaption>
 </figure>
 
   - **Attachment Constraints**
@@ -160,7 +160,7 @@ from an already existing setup containing data like weight maps, connections and
 
 To open the tool press the ![Import Tool](images/adn_exporter.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Export*. To export an ADD file from the current scene follow these steps:
 
-1. If the tool had been opened on an already active selection containing an Adonis deformer the node will appear in the *Select Export Data* list. To add and remove a new selection press *Add Selection* or *Clear*.
+1. If the tool had been opened on an already active selection containing an AdonisFX deformer the node will appear in the *Select Export Data* list. To add and remove a new selection press *Add Selection* or *Clear*.
 2. Select, using the checkboxes, the deformers and the individual settings to export to the AAD file. For example selecting *Maps* and *Attachments* would export the painted attribute maps and the matrices for the attachments relative to an AdnMuscle or AdnRibbonMuscle deformer.
 3. Define a name for the ADD file by going to *Output File Path* and selecting the folder icon.
 4. Finally, pressing the *Export* button will generate the file in the designated location.
@@ -173,7 +173,7 @@ The AAD file that has been exported can then be imported in a scene with similar
 </figure>
 
 > [!NOTE]
-> When using this tool to export more than one Adonis deformer, all meshes with deformers must be contained within the same group in the scene.
+> When using this tool to export more than one AdonisFX deformer, all meshes with deformers must be contained within the same group in the scene.
 
 ## Sensors Connection Editor
 
@@ -188,7 +188,7 @@ To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *C
 
 Two main sections can be distinguished in this tool, labeled *source* and *destination*. In the source section the sensors and locators alongside their signal attributes will get displayed, while in the destination section the deformers alongside their possible input attributes will get displayed.
 
-To retrieve these objects and display them in the tool, select the desired element from the scene (an Adonis locator containing a sensor or a deformer) and press their respective *Reload Left* or *Reload Right* button.
+To retrieve these objects and display them in the tool, select the desired element from the scene (an AdonisFX locator containing a sensor or a deformer) and press their respective *Reload Left* or *Reload Right* button.
 
 For Source elements (sensors) press the *Reload Left* button and for Destination elements (deformers) press the *Reload Right* button.
 
