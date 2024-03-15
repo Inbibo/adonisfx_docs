@@ -237,7 +237,8 @@ The steps to activate the floating licensing server online are the following:
   1. Open a terminal in the folder where the `TurboFloatServer.exe` is located.
   2. Run the following command for activation: `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY"`
       - Make sure to open the terminal with admin privileges.
-      - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation: `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
+      - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation:
+      `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
   3. The server is now ready and can be run with the commands explained in the [Run](/licensing.md#run) section.
 
 > [!NOTE]
@@ -249,10 +250,11 @@ This activation mode does not require access to the internet for activating the 
 
 Activating floating licenses only requires the activation of the licensing server which will be the one in charge of handling and balancing the leases. In some cases this activation must happen without the access to the internet. To be able to activate AdonisFX using floating licensing without relying on internet access an *Activation Request* and a *Activation Response* have to be generated.
 
-The steps to activate the floating licensing server online are the following:
+The steps to activate the floating licensing server offline are the following:
 
   1. Open a terminal in the folder where the `TurboFloatServer.exe` is located.
-  2. Run the following command to generate the activation request: `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY" -areq="<PATH>/ActivationRequest.xml"`
+  2. Run the following command to generate the activation request:
+  `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY" -areq="<PATH>/ActivationRequest.xml"`
       - An `ActivationRequest.xml` will be stored on disk if the activation process succeeded.
   3. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request.
   4. In a maximum of 24h an `ActivationResponse.xml` will be returned to the source e-mail address.
@@ -290,7 +292,8 @@ The steps to activate the floating licensing server online are the following:
   1. Open a terminal in the folder where the `turbofloatserver` is located.
   2. Run the following command for activation: `./turbofloatserver -a="YOUR-PRODUCT-KEY"`
       - Make sure to launch this command with `sudo` privileges.
-      - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation: `./turbofloatserver -a="YOUR-PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
+      - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation:
+      `./turbofloatserver -a="YOUR-PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
   3. The server is now ready and can be run with the commands explained in the [Run](/licensing.md#run) section.
 
 > [!NOTE]
@@ -302,14 +305,16 @@ This activation mode does not require access to the internet for activating the 
 
 Activating floating licenses only requires the activation of the licensing server which will be the one in charge of handling and balancing the leases. In some cases this activation must happen without the access to the internet. To be able to activate AdonisFX using floating licensing without relying on internet access an *Activation Request* and a *Activation Response* have to be generated.
 
-The steps to activate the floating licensing server online are the following:
+The steps to activate the floating licensing server offline are the following:
 
   1. Open a terminal in the folder where the `turbofloatserver` is located.
-  2. Run the following command to generate the activation request: `./turbofloatserver -a="YOUR-PRODUCT-KEY" -areq="<PATH>/ActivationRequest.xml"`
+  2. Run the following command to generate the activation request:
+  `./turbofloatserver -a="YOUR-PRODUCT-KEY" -areq="<PATH>/ActivationRequest.xml"`
       - An `ActivationRequest.xml` will be stored on disk if the activation process succeeded.
   3. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request.
   4. In a maximum of 24h an `ActivationResponse.xml` will be returned to the source e-mail address.
-  5. Run the following command to obtain the data from the activation response and activate the server: `./turbofloatserver -a -aresp="<PATH>/ActivationResponse.xml"`
+  5. Run the following command to obtain the data from the activation response and activate the server:
+  `./turbofloatserver -a -aresp="<PATH>/ActivationResponse.xml"`
   6. The server is now ready and can be run with the commands explained in the [Run](/licensing.md#run) section.
 
 > [!NOTE]
@@ -318,19 +323,28 @@ The steps to activate the floating licensing server online are the following:
 
 ### Run Server
 
-##### Windows
+To run the floating server on Windows execute one of the commands below. The second one is to specify custom destinations of the `.xml` and `.dat` files if they are not in the same folder. To configure the server properly from the configuration file it is required to do the modifications prior to launching the server.
 
-To run the floating server on Windows (after following the activation steps) execute the following command: `TurboFloatServer.exe -x` or `TurboFloatServer.exe -x -pdets="YourTurboActivate.dat" -config="Config.xml"` when using custom destinations for the `.xml` and `.dat` files. To configure the server properly from the configuration file it is required to do the modifications prior to launching the server.
+> [!NOTE = Run Server]
+> === Windows
+> 
+>  - `TurboFloatServer.exe -x`
+>  - `TurboFloatServer.exe -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
+>
+>  In Windows, it is also possible to install the server avoiding the need to run it manually:
+>
+> - `TurboFloatServer.exe -i`
+> - `TurboFloatServer.exe -i -pdets="YourTurboActivate.dat" -config="Config.xml"`
+>
+>  === Linux
+>
+> - `./turbofloatserver -x`
+> - `./turbofloatserver -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
+>
+> **Note**
+> Server installation is not possible on Linux. For more information, refer to [https://wyday.com/limelm/help/turbofloat-server/](https://wyday.com/limelm/help/turbofloat-server/#install-linux).
 
-It is also possible to install the server avoiding the need to run the server manually: `TurboFloatServer.exe -i` or `TurboFloatServer.exe -i -pdets="YourTurboActivate.dat" -config="Config.xml"` when using custom destinations for the `.xml` and `.dat` files. For more information visit [Installing the TurboFloat Server](https://wyday.com/limelm/help/turbofloat-server/#install).
-
-##### Linux
-
-To run the floating server on Linux (after following the activation steps) execute the following command: `./turbofloatserver -x` or `./turbofloatserver -x -pdets="YourTurboActivate.dat" -config="Config.xml"` when using custom destinations for the `.xml` and `.dat` files. To configure the server properly from the configuration file it is required to do the modifications prior to launching the server.
-
-It is not possible to install the server on Linux. For more information, refer to [https://wyday.com/limelm/help/turbofloat-server/](https://wyday.com/limelm/help/turbofloat-server/#install-linux).
-
-### Use Floating Licensing
+### Client Configuration
 
 To be able to run AdonisFX using floating license these 3 criteria have to be met:
 
