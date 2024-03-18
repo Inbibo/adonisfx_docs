@@ -65,6 +65,17 @@ To activate AdonisFX in Node-Locked Interactive mode:
 > - This activation mode requires access to the internet for activating licenses.
 > - For deactivating licenses to switch to a different machine, please contact support.
 
+### Batch
+
+Whenever activating AdonisFX for the first time for a specific DCC in batch mode, a product key has to be registered previously. Activating batch mode requires the use of an executable that eases the activation process of the product.
+
+To activate AdonisFX in Node-Locked Batch mode:
+
+  1. Go to `AdonisFX/bin` in the AdonisFX installation folder.
+  2. Run `ActivateBatch`.
+  3. Enter the `PRODUCT KEY`.
+  4. AdonisFX is activated and ready to be used.
+
 ### Trial
 
 AdonisFX allows the user to use the product for **30 days** in Node-Locked Interactive mode. This means that the trial can be used using the graphical interface for one single machine at a time. The trial period requires activation which can be handled in an online or offline way.
@@ -113,24 +124,13 @@ To activate AdonisFX in Offline Node-Locked Interactive Trial mode:
 > [!NOTE]
 > This activation mode does not require access to the internet.
 
-### Batch
-
-Whenever activating AdonisFX for the first time for a specific DCC in batch mode, a product key has to be registered previously. Activating batch mode requires the use of an executable that eases the activation process of the product.
-
-To activate AdonisFX in Node-Locked Batch mode:
-
-  1. Go to `AdonisFX/bin` in the AdonisFX installation folder.
-  2. Run `ActivateBatch`.
-  3. Enter the `PRODUCT KEY`.
-  4. AdonisFX is activated and ready to be used.
-
 ## Floating Licensing
 
 This section will explain how to configure, run and set-up the licensing server for leasing floating licenses when the goal is to not restrict the use of AdonisFX to one single machine. AdonisFX floating licensing system requires the use of a license server in charge of providing, dropping and handling licenses from an active lease "pool". When the amount of requested licenses surpasses the amount of licenses purchased for that floating license server no further activations of AdonisFX can be made until a lease is dropped and returned to the lease "pool" (i.e. the plug-in is unloaded or the DCC process ends).
 
 To be able to request leases from the license server it is necessary to activate the product with a `PRODUCT KEY` on the server side. Once activated it is required to have direct connection between the requestor instance and the licensing server to be able to balance the leases accordingly.
 
-The following sections explain the steps to install and run the server, as well as how to configure the environment to allow processes request leases.s
+The following sections explain the steps to install and run the server, as well as how to configure the environment to allow processes request leases.
 
 ### Install Server
 
@@ -171,8 +171,9 @@ The first step to be able to serve leases from the lease pool is to activate, co
   <figcaption><b>Figure 11</b>: Turbo Float Folder.</figcaption>
 </figure>
 
-Activating floating licenses only requires the activation of the licensing server which will be the one in charge of handling and balancing the leases. To activate the server:
+### Activate Server
 
+Activating floating licenses only requires the activation of the licensing server which will be the one in charge of handling and balancing the leases. To activate the server:
 
 > [!NOTE = Activate Server]
 > === Windows
@@ -222,7 +223,7 @@ To run the floating server on Windows execute one of the commands below. The sec
 > - `./turbofloatserver -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
 >
 > **Note**
-> Server installation is not possible on Linux. For more information, refer to [https://wyday.com/limelm/help/turbofloat-server/](https://wyday.com/limelm/help/turbofloat-server/#install-linux).
+> - Server installation is not possible on Linux. For more information, refer to [https://wyday.com/limelm/help/turbofloat-server/](https://wyday.com/limelm/help/turbofloat-server/#install-linux).
 
 ### Client Configuration
 
