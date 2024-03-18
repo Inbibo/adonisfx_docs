@@ -1,4 +1,4 @@
-# AdnSensors
+# Sensors
 
 AdnSensors are nodes in charge of interpreting data extracted from transform nodes and compute information that can be fed into the deformers to alter their behavior. Sensors work in combination with [AdnLocators](locators.md) to display the computed information in an intuitive way using coloring. To be able to display the information computed from the sensors, remappers are used to convert the computed data (e.g. angle) to a valid value in a given range of activation that will drive the coloring of the locators and the activation of an AdnMuscle for example.
 

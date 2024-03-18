@@ -302,7 +302,7 @@ The lowest values (0.1 in this case) will be applied to the area under the jaw w
 
 After painting similar weights to the ones displayed and pressing playback to check the animation,  realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are avaliable and fully explained in the documentation for [AdnSimshape](simshape.md).
 
-### Adding muscle activations
+### Add muscle activations
 
 To further have a realistic depiction of facial dynamics, facial muscle activations can be simulated. The AdnSimshape deformer has two methods of handling muscle activations:
 
