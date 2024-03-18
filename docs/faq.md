@@ -58,7 +58,7 @@ Yes, you can use the AdonisFX [Export](maya/tools.md#adonisfx-export-tool) and [
 
 AdonisFX solvers interpret input units as meters. This means that in order to simulate external forces, the Space Scale may need to be adjusted. For example, to apply Gravity with a value of 9.8 m/s<sup>2</sup>, the Space Scale should be set to 0.01.
 
-## Does the use of AdonisFX require internet access?
+## Does AdonisFX require internet access?
 The use of AdonisFX itself does not require access to the internet but the licensing system does. In node-locked licenses, the workstation needs connection to the internet to validate the activation on plug-in load at least every 19 days. After that, the product can be used without internet connection. In floating licenses, it is the server that will need to connect to the internet at least every 19 days to validate the activation, meaning that users' workstations or nodes on farm do not need internet access.
 
 ## Can I activate node-locked licenses offline?

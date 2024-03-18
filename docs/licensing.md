@@ -164,7 +164,7 @@ The first step to be able to serve leases from the lease pool is to activate, co
 >      - Find the full list of customizable parameters in the `.xml` file comments.
 >
 > **Note**
-> Server installation is not possible on Linux. For more information, refer to [this page](https://wyday.com/limelm/help/turbofloat-server/#install-linux).
+> - Server installation is not possible on Linux. For more information, refer to [this page](https://wyday.com/limelm/help/turbofloat-server/#install-linux).
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Turbo Float Folder](images/adn_turbo_float_folder.png)
@@ -179,10 +179,10 @@ Activating floating licenses only requires the activation of the licensing serve
 > === Windows
 > 
 > 1. Open a terminal in the folder where the `TurboFloatServer.exe` is located.
-> 2. Run the following command for activation: `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY"`
+> 2. Run the following command for activation: `TurboFloatServer.exe -a="PRODUCT-KEY"`
 >     - Make sure to open the terminal with admin privileges.
 >     - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation:
->     `TurboFloatServer.exe -a="YOUR-PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
+>     `TurboFloatServer.exe -a="PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
 > 3. The server is now ready and can be run with the commands explained in the [Run](/licensing.md#run) section.
 >
 > **Note**
@@ -192,10 +192,10 @@ Activating floating licenses only requires the activation of the licensing serve
 >  === Linux
 >
 > 1. Open a terminal in the folder where the `turbofloatserver` is located.
-> 2. Run the following command for activation: `./turbofloatserver -a="YOUR-PRODUCT-KEY"`
+> 2. Run the following command for activation: `./turbofloatserver -a="PRODUCT-KEY"`
 >     - Make sure to launch this command with `sudo` privileges.
 >     - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation:
->     `./turbofloatserver -a="YOUR-PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
+>     `./turbofloatserver -a="PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
 > 3. The server is now ready and can be run with the commands explained in the [Run](/licensing.md#run) section.
 >
 > **Note**
@@ -223,7 +223,7 @@ To run the floating server on Windows execute one of the commands below. The sec
 > - `./turbofloatserver -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
 >
 > **Note**
-> - Server installation is not possible on Linux. For more information, refer to [https://wyday.com/limelm/help/turbofloat-server/](https://wyday.com/limelm/help/turbofloat-server/#install-linux).
+> - Server installation is not possible on Linux. For more information, refer to [this page](https://wyday.com/limelm/help/turbofloat-server/#install-linux).
 
 ### Client Configuration
 
