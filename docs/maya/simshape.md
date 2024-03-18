@@ -214,7 +214,6 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
 > [!NOTE = Activation Modes]
 > === Muscle Patches
 > The data in the AdonisFX Muscle Patches (AMP) file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following [generate muscle patches section](#generate-muscle-patches). The requirements for this mode to work are:
-
 >  - AdonisFX Muscle Patches file
 >  - Deform mesh
 >
