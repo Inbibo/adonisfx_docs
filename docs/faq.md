@@ -58,14 +58,17 @@ Yes, you can use the AdonisFX [Export](maya/tools.md#adonisfx-export-tool) and [
 
 AdonisFX solvers interpret input units as meters. This means that in order to simulate external forces, the Space Scale may need to be adjusted. For example, to apply Gravity with a value of 9.8 m/s<sup>2</sup>, the Space Scale should be set to 0.01.
 
-## Can I activate AdonisFX offline?
-Yes, both online and offline activation is supported. Please, visit the [licensing](licensing.md#licensing) page for more information.
-
-## Can I use my Node-Locked license on more than one machine?
-No. To be able to move a node-locked license to a different machine, you have to deactivate the license and reactivate it on the newly configured machine. For more flexibility and no hardware specific licensing restriction you should purchase floating licenses.
-
 ## Does the use of AdonisFX require internet access?
-If the activation happened through an online activation, then yes. However, if the license had been activated offline, then internet access is needed only to validate the license. This validation is triggered by the licensing system on plug-in load every 5 days, which requires connection to the internet. If this verification fails because of the machine has no internet access, then you can still use AdonisFX for a grace period of 14 days. After that, the license has to be re-verified with our servers, which again requires connection to the internet.
+The use of AdonisFX itself does not require access to the internet but the licensing system does. In node-locked licenses, the workstation needs connection to the internet to validate the activation on plug-in load at least every 19 days. After that, the product can be used without internet connection. In floating licenses, it is the server that will need to connect to the internet at least every 19 days to validate the activation, meaning that users' workstations or nodes on farm do not need internet access.
+
+## Can I activate node-locked licenses offline?
+No, node-locked licensing requires internet access to activate. Check the [licensing](licensing.md#licensing) page for more information.
+
+## Can I activate floating licensing server offline?
+No, floating licensing requires internet access to activate the server. To be more specific, only the machine running the server needs access, while the users' machines do not require connection to the internet. Check the [licensing](licensing.md#licensing) page for more information.
+
+## Can I use my node-locked license on more than one machine?
+It depends on the purchased product plan. For Indie licenses, only one activation is allowed. To be able to move the license to a different machine, you will need to deactivate the license and reactivate it on the newly configured machine. Please, contact support if that is your case. For Solo licenses, up to two activations are allowed. This means that you can activate your product key in two different machines. For more flexibility and no hardware specific licensing restriction you should purchase floating licenses.
 
 ## How can I switch between node-locked licensing an floating licensing inside of AdonisFX?
 You can use the environment variable `ADN_LICENSE_MODE` set to `0` for node-locked licensing and `ADN_LICENSE_MODE` set to `1` for floating licensing.
@@ -85,9 +88,3 @@ For more information visit the [licensing](licensing.md#licensing) page or [http
 
 ## I can't connect to my licensing server for floating licensing. What should I do?
 Make sure that your firewall configuration allows the connection and try using the `ping` command to check the connectivity. If the connection is valid but AdonisFX can't load, please contact support.
-
-## Can I activate the floating licensing server offline?
-Yes, [here](licensing.md#install-server) you can find the instructions for that. Once the activation is completed and the server is running, the licensing system will require to verify the status of your server as often as it is specified in the `TurboFloatServer-config.yml` file. This verification requires connection to the internet. Please, check the configuration of `days_between` and `grace` settings in that file for more information.
-
-## My floating server is offline, what will happen?
-Whenever trying to load AdonisFX, the plug-in will take several seconds before erroring out as it could not reach the floating server. This should happen on plug-in load and should not affect the functionalities of the plug-in while using it.
