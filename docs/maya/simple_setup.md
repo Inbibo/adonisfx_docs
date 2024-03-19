@@ -7,9 +7,9 @@ This page is dedicated to explain, step by step, a simple process of creating an
 To create a basic scenario using the AdnSkin deformer, start with a scene with the following elements:
 
   - A target mesh with deformation.
-  - A skin mesh (without animation or deformation).
+  - A skin mesh without animation or deformation.
 
-The AdnSkin deformer will get applied to the simulated mesh.
+The AdnSkin deformer will get applied to the second mesh which will become the simulated mesh.
 
 <figure>
   <img src="images/setup_skin_0.png"> 
@@ -156,7 +156,7 @@ With the Connection Editor opened, select the locator from the scene and press t
 
 When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation will get higher, simulating a much more realistic scenario.
 
-To tweak additional parameters of the AdnMuscle deformer, check the full documentation for [AdnMuscle](muscle.md).
+To tweak additional parameters of the AdnMuscle deformer, check [this page](muscle.md).
 
 ## AdnRibbonMuscle
 
@@ -238,15 +238,15 @@ The process to connect and AdnSensor to an AdnRibbonMuscle is the exact same to 
   <figcaption><b>Figure 25</b>: Connection Editor tool with AdnRotation sensor connected to AdnRibbonMuscle.</figcaption>
 </figure>
 
-To tweak additional parameters of the AdnRibbonMuscle deformer, check the full documentation for [AdnRibbonMuscle](ribbon.md).
+To tweak additional parameters of the AdnRibbonMuscle deformer, check [this page](ribbon.md).
 
 ## AdnSimshape
 
 To create a basic scenario using the AdnSimshape deformer, start with a scene with the following elements:
 
- - An animated facial mesh (to which to apply the deformer).
+ - An animated facial mesh to which to apply the deformer.
  - A rest mesh.
- - A deformation mesh with only the facial deformation (no animation).
+ - Optionally, a deformation mesh with only the facial deformation (no animation) to allow muscle activations.
 
 All these meshes must have the same number of vertices and correspond to the same facial model.
 
