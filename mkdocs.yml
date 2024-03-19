@@ -1,4 +1,4 @@
-site_name: Adonis
+site_name: AdonisFX
 
 theme:
   name: readthedocs
@@ -100,14 +100,14 @@ nav:
   - Release Notes: release_notes.md
   - Documentation:
     - Maya:
-      - documentation/maya/index.md
-      - UI Overview         : documentation/maya/ui_overview.md
-      - A Simple Setup      : documentation/maya/simple_setup.md
-      - Locators            : documentation/maya/locators.md
-      - Sensors             : documentation/maya/sensors.md
-      - Tools               : documentation/maya/tools.md
-      - AdnMuscle           : documentation/maya/muscle.md
-      - AdnRibbonMuscle     : documentation/maya/ribbon.md
-      - AdnSimshape         : documentation/maya/simshape.md
-      - AdnSkin             : documentation/maya/skin.md
-      - AdnEdgeEvaluator    : documentation/maya/edge_evaluator.md
+      - maya/index.md
+      - UI Overview         : maya/ui_overview.md
+      - A Simple Setup      : maya/simple_setup.md
+      - Locators            : maya/locators.md
+      - Sensors             : maya/sensors.md
+      - Tools               : maya/tools.md
+      - AdnMuscle           : maya/muscle.md
+      - AdnRibbonMuscle     : maya/ribbon.md
+      - AdnSimshape         : maya/simshape.md
+      - AdnSkin             : maya/skin.md
+      - AdnEdgeEvaluator    : maya/edge_evaluator.md

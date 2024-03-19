@@ -2,11 +2,12 @@
 
 ## Maya
 
-Adonis is distributed for Maya as a standard module. To install the module, please do the following:
+AdonisFX is distributed for Maya as a standard module. To install the module, please do the following:
 
 1. Download the AdonisFX zipped package from the Inbibo's website.
 2. Unzip the contents into the destination folder that you prefer.
-3. Add folder containg the AdonisFX.mod file to the `MAYA_MODULE_PATH` environment variable.
+3. Add the folder containg the AdonisFX.mod file to the `MAYA_MODULE_PATH` environment variable.
+4. Launch Maya and load AdonisFX from Windows > Settings/Preferences > Plug-in Manager.
 
 To configure `MAYA_MODULE_PATH` you can directly modify the environment variable of the system. For example:
 
@@ -21,7 +22,7 @@ An alternative method is to add `MAYA_MODULE_PATH = /path/to/AdonisFX/folder` in
 <!--
 ## Houdini
 
-Adonis is distributed for Houdini as a standard package. To install the package, please do the following:
+AdonisFX is distributed for Houdini as a standard package. To install the package, please do the following:
 
 1. Download the AdonisFX zipped package from the Inbibo's website [TODO: #2 add link].
 2. Unzip the contents into the destination folder that you prefer.

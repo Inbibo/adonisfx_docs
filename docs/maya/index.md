@@ -2,8 +2,8 @@
 
 - [UI Overview](ui_overview.md)
 - [A Simple Setup](simple_setup.md)
-- [AdnLocators](locators.md)
-- [AdnSensors](sensors.md)
+- [Locators](locators.md)
+- [Sensors](sensors.md)
 - [AdnSimshape](simshape.md)
 - [AdnSkin](skin.md)
 - [AdnMuscle](muscle.md)
