@@ -50,11 +50,11 @@ In the specific case of muscle deformers, the too will display the following att
 </figure>
 
   - **Attachment Constraints**
-    1. If this attribute type is selected, then a list widget is shown with the names of the attachments connected to the deformer (Figure 7).
-    2. Select the desired attachment to paint from the list widget and paint the weight values.
-    3. When selecting an attachment in the list, the object will also get selected in the scene, facilitating its identification.
-    4. If more than one attachment was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all attachment constraint weights in a vertex will always add up to a maximum value of 1.0.
-    5. If any attachment is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
+    - If this attribute type is selected, then a list widget is shown with the names of the attachments connected to the deformer (Figure 7).
+    - Select the desired attachment to paint from the list widget and paint the weight values.
+    - When selecting an attachment in the list, the object will also get selected in the scene, facilitating its identification.
+    - If more than one attachment was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all attachment constraint weights in a vertex will always add up to a maximum value of 1.0.
+    - If any attachment is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
 
     <figure>
       <img src="images/paint_tool_attachment_attribute.png"> 
@@ -62,34 +62,32 @@ In the specific case of muscle deformers, the too will display the following att
     </figure>
 
   - **Tendons**
-    1. It is recommended to paint values of 1.0 wherever the tendon tissue is and values of 0.0 in the rest of the mesh.
-    2. This painting will internally trigger an automatic estimation of fibers direction which can be displayed using the debug functionalities of the deformer.
+    - It is recommended to paint values of 1.0 wherever the tendon tissue is and values of 0.0 in the rest of the mesh.
+    - This painting will internally trigger an automatic estimation of fibers direction which can be displayed using the debug functionalities of the deformer.
   - **Fibers**
-    1. When selecting the fibers attribute, the fibers debugger will automatically get enabled, displaying the muscle fibers.
-    2. The initial direction displayed will be the one estimated by tendon weights.
-    3. To modify the fibers direction, comb the fibers towards the desired direction.
-    4. For better precision adjust the set direction using the *Smooth* brush.
-    5. To get all fibers more tightly aligned in a homogeneous way, press the flood button while having the *Smooth* brush selected.
+    - When selecting the fibers attribute, the fibers debugger will automatically get enabled, displaying the muscle fibers.
+    - The initial direction displayed will be the one estimated by tendon weights.
+    - To modify the fibers direction, comb the fibers towards the desired direction.
+    - For better precision adjust the set direction using the *Smooth* brush.
+    - To get all fibers more tightly aligned in a homogeneous way, press the flood button while having the *Smooth* brush selected.
   - **Stretching and Compression Resistance**
-    1. Stretching resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get stretched.
-    2. Compression resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get compressed.
+    - Stretching resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get stretched.
+    - Compression resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get compressed.
   - **Global Damping**
-    1. By default, this map is set to 1.0.
-    2. This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
+    - By default, this map is set to 1.0.
+    - This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
 <!-- Note for later to update this information once the Global Damping attribute is added-->
   - **Slide on Segment Constraints**
-    1. Slide on Segment Constraints operate similarly to attachment constraints, as they are both multi-influence attributes.
-    2. The entries in the list widget correspond in this case to the segments added to the constraint, with the name of the segment being "*root_transform* - *tip_transform*".
-    2. Select the desired segment to paint from the list widget and paint the weight values.
-    4. When selecting a segment in the list the two scene objects that form the root and tip of the segment will get selected as well, facilitating their identification.
-    5. If more than one segment was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the addition of all slide on segment constraint weights in a vertex will always add up to a maximum value of 1.0.
+    - Slide on Segment Constraints operate similarly to attachment constraints, as they are both multi-influence attributes.
+    - The entries in the list widget correspond in this case to the segments added to the constraint, with the name of the segment being "*root_transform* - *tip_transform*".
+    - Select the desired segment to paint from the list widget and paint the weight values.
+    - When selecting a segment in the list the two scene objects that form the root and tip of the segment will get selected as well, facilitating their identification.
+    - If more than one segment was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the addition of all slide on segment constraint weights in a vertex will always add up to a maximum value of 1.0.
 
     <figure>
       <img src="images/paint_tool_sos_attribute.png"> 
       <figcaption><b>Figure 9</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
     </figure>
-
-To find a more precise example for setting up this deformer refer to the documentation page [AdnMuscle](muscle.md).
 
 #### Paint Tool on AdnSkin
 
@@ -101,24 +99,23 @@ In the specific case of an AdnSkin deformer, the tool will display the following
 </figure>
 
   - **Hard Constraints**
-    1. Hard constraints are set to 1.0 by default. With this value the solver will apply the corrections to the vertices needed to keep them at a constant transformation, local to the closest point on the reference mesh at initialization.
-    2. This value is normalized alongside Soft Constraints and Slide Constraints.
+    - Hard constraints are set to 1.0 by default. With this value the solver will apply the corrections to the vertices needed to keep them at a constant transformation, local to the closest point on the reference mesh at initialization.
+    - This value is normalized alongside Soft Constraints and Slide Constraints.
   - **Soft Constraints**
-    1. Soft constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the vertices keeping a constant distance to the closest point of the reference mesh.
-    2. This value is normalized alongside Hard Constraints and Slide Constraints.
+    - Soft constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the vertices keeping a constant distance to the closest point of the reference mesh.
+    - This value is normalized alongside Hard Constraints and Slide Constraints.
   - **Slide Constraints**
-    1. Slide constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the sliding of the simulated mesh along the reference surface.
-    2. This value is normalized alongside Hard Constraints and Soft Constraints.
+    - Slide constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the sliding of the simulated mesh along the reference surface.
+    - This value is normalized alongside Hard Constraints and Soft Constraints.
   - **Stretching and Compression Resistance**
-    1. Stretching resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get stretched.
-    2. Compression resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get compressed.
+    - Stretching resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get stretched.
+    - Compression resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get compressed.
   - **Sliding Distance Multiplier**
-    1. Sliding distance Multiplier is set to 1.0 by default. With this value, every vertex of the geometry will be able to slide along every vertex of the reference surface.
-    2. It is suggested to lower the value in those areas where slide constraints are less relevant or not present for better performance without losing quality.
+    - Sliding distance Multiplier is set to 1.0 by default. With this value, every vertex of the geometry will be able to slide along every vertex of the reference surface.
+    - It is suggested to lower the value in those areas where slide constraints are less relevant or not present for better performance without losing quality.
   - **Masses**
-    1. Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.
+    - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.
 
-To find a more precise example for setting up this deformer refer to the documentation page [AdnSkin](skin.md).
 ## Importer
 
 The **Importer** allows the user to import the configuration for a specific deformer from a previously exported AAD file. It allows the user to easily configure a deformer from an already known setup which includes data like weight maps, connections and attribute values.

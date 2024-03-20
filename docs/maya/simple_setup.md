@@ -18,7 +18,7 @@ The AdnSkin deformer will get applied to the second mesh which will become the s
 
 ### Create Deformer
 
-To create the AdnSkin deformer select the target mesh and then the skin mesh. Then press the ![AdnMuscle](images/adn_skin.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Skin*.
+To create the AdnSkin deformer select the target mesh and then the skin mesh. Then press the ![AdnSkins](images/adn_skin.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Skin*.
 
 To create the AdnSkin deformer with some initial customization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow to do some initial customization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
@@ -174,7 +174,7 @@ In this case a planar muscle will be simulated corresponding to a biceps, which 
 
 ### Create Deformer
 
-Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the attachments (shoulder and elbow joints) and then the mesh to deform (the biceps muscle) and then pressing the ![AdnMuscle](images/adn_ribbon_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Ribbon Muscle*.
+Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the attachments (shoulder and elbow joints) and then the mesh to deform (the biceps muscle) and then pressing the ![AdnRibbonMuscle](images/adn_ribbon_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Ribbon Muscle*.
 
 <figure>
   <img src="images/setup_ribbon_muscle_1.png"> 
@@ -231,7 +231,7 @@ Finally, paint Slide On Segment Constraints (if added). It is recommended to pai
 
 ### Connect Sensors
 
-The process to connect and AdnSensor to an AdnRibbonMuscle is the exact same to the one followed for [AdnMuscle](#3-connecting-adnsensors).
+The process to connect and AdnSensor to an AdnRibbonMuscle is the exact same to the one followed [here](#connect-sensors).
 
 <figure>
   <img src="images/setup_ribbon_muscle_8.png"> 
@@ -259,7 +259,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 To create the AdnSimshape deformer it is required to select first the rest mesh and then the animated mesh. In this scenario, the animated mesh will be used as the simulated mesh.
 
-Press the ![AdnMuscle](images/adn_simshape.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Simshape*.
+Press the ![AdnSimshape](images/adn_simshape.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Simshape*.
 
 To create the AdnSimshape deformer with some initial customization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow to do some initial customization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 

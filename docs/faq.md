@@ -2,19 +2,19 @@
 
 ## How can I simulate muscles?
 
-AdonisFX provides with two solvers for muscle simulation. The use of one or the other depends on the necessity of simulating volume preservation. In Maya, muscles with volume preservation can be simulated with [AdnMuscle](maya/muscle.md) deformer, while [AdnRibbonMuscle](maya/ribbon.md) is for planar muscles. For more information about connecting sensors to muscles, please check [how to set up AdnMuscle](maya/simple_setup.md#adnmuscle-simple-setup) and [how to set up AdnRibbonMuscle](maya/simple_setup.md#adnribbonmuscle-simple-setup).
+AdonisFX provides with two solvers for muscle simulation. The use of one or the other depends on the necessity of simulating volume preservation. In Maya, muscles with volume preservation can be simulated with [AdnMuscle](maya/muscle.md) deformer, while [AdnRibbonMuscle](maya/ribbon.md) is for planar muscles. For more information about a simple setup, please check their respective sections in [this page](maya/simple_setup.md).
 
 ## How can I add activation to the muscles?
 
-In order to add activation to the muscles it is necessary to define the fibers direction. This can be achieved by: first, painting the tendon weights to generate an initial estimation of fibers direction; and second, combing the fibers through the AdonisFX Paint Tool to customize the final fibers flow along the surface. Once the muscle has a valid fiber direction at each vertex, then the [*Activation*](maya/muscle.md#solver-attributes) attribute triggers the contraction of the fibers. Ultimately, the level of activation can be modulated by an AdonisFX sensor to connect the contraction of the muscle to the animation of the rig. For more information about connecting sensors to muscles, please check [how to set up AdnMuscle](maya/simple_setup.md#adnmuscle-simple-setup) and [how to set up AdnRibbonMuscle](maya/simple_setup.md#adnribbonmuscle-simple-setup).
+In order to add activation to the muscles it is necessary to define the fibers direction. This can be achieved by: first, painting the tendon weights to generate an initial estimation of fibers direction; and second, combing the fibers through the AdonisFX Paint Tool to customize the final fibers flow along the surface. Once the muscle has a valid fiber direction at each vertex, then the activation attribute triggers the contraction of the fibers. Ultimately, the level of activation can be modulated by an AdonisFX sensor to connect the contraction of the muscle to the animation of the rig. For more information about connecting sensors to muscles, please check [this section](maya/simple_setup.md#connect-sensors).
 
 ## How can I add volume gain to the muscles?
 
-The [*Volume Ratio*](maya/muscle.md#solver-attributes) attribute of an AdnMuscle allows to simulate volume gain (volume ratio greater than 1) and loss (volume ration lower than 1). The influence of this attribute depends on the value of *Volume Preservation*, where 0 means no effect, and 1 means maximum effect.
+The *Volume Ratio* attribute of an AdnMuscle allows to simulate volume gain (volume ratio greater than 1) and loss (volume ration lower than 1). The influence of this attribute depends on the value of *Volume Preservation*, where 0 means no effect, and 1 means maximum effect.
 
 ## How can I simulate skin?
 
-Skin can be simulated using the [AdnSkin](maya/skin.md) deformer. This deformer requires a reference mesh to drive the skin simulation (i.e. the fascia) and a mesh to apply the deformer to (skin mesh). For more information please check [how to set up AdnSkin](maya/simple_setup.md#adnskin-simple-setup).
+Skin can be simulated using the [AdnSkin](maya/skin.md) deformer. This deformer requires a reference mesh to drive the skin simulation (i.e. the fascia) and a mesh to apply the deformer to (skin mesh). A simple setup is explained [here](maya/simple_setup.md#adnskin).
 
 ## How can I simulate fascia?
 
@@ -31,28 +31,28 @@ Yes, you can simulate muscles, fascia and skin following these steps:
 
 ## How can I simulate facial skin?
 
-You can use AdnSimshape deformer. This deformer allows to reproduce the elasticity and the change in stiffness of a facial geometry thanks to the features of the AdnSimshape solver. Please, check [this section](maya/simshape.md) to know more about how to configure this solver.
+You can use AdnSimshape deformer. This deformer allows to reproduce the elasticity and the change in stiffness of a facial geometry thanks to the features of the AdnSimshape solver. Please, check [this section](maya/simple_setup.md#adnsimshape) where a simple setup is explained or [this page](maya/simshape.md) to know more about this solver.
 
 ## How can I add muscle activations to facial simulation?
 
 The AdnSimshape deformer allows to add muscle activation in two ways:
 
  - Providing a deform mesh together with an AdonisFX Muscle Patches file previously generated using the Learn Muscle Patches tool.
- - Plugging the activation values directly into the *ActivationList.Activation* attribute. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator node (check [this section](maya/edge_evaluator.md)).
+ - Plugging the activation values directly into the *ActivationList.Activation* attribute. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator node (visit [this page](maya/edge_evaluator.md)).
 
-For more information, check [how to add muscle activations](maya/simple_setup.md#3-adding-muscle-activations) to AdnSimshape.
+More detailes can be found [here](maya/simple_setup.md#add-muscle-activations).
 
 ## How can I use Machine Learning to add muscle activations to AdnSimshape?
 
-To add muscle activation via Machine Learning, the Learn Muscle Patches tool has to be used to [generate the AdonisFX Muscle Patches file](maya/simshape.md#generate-muscle-patches). The requirements for this tool are a neutral mesh (facial geometry at rest) and a set of target meshes with deformation representing all facial expressions to drive the learning.
+To add muscle activation via Machine Learning, the Learn Muscle Patches tool has to be used to generate the AdonisFX Muscle Patches file. The requirements for this tool are a neutral mesh (facial geometry at rest) and a set of target meshes with deformation representing all facial expressions to drive the learning. Follow [this link](maya/simshape.md#generate-muscle-patches) to know more.
 
 ## Can I add muscle activations to AdnSimshape without an AdonisFX Muscle Patches file?
 
-AdnSimshape allows to add muscle activation alternatively without the need for the AdonisFX Muscle Patches file. To do this, the activation values must be plugged directly into the *ActivationList.Activation* attribute. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator tool. For more information check [how to drive the activations of AdnSimshape using AdnEdgeEvaluator](maya/edge_evaluator.md#adnsimshape-activation-using-edge-evaluator-node).
+AdnSimshape allows to add muscle activation alternatively without the need for the AdonisFX Muscle Patches file. To do this, the activation values must be plugged directly into the *ActivationList.Activation* attribute. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator tool. Read how to drive the activations of AdnSimshape using AdnEdgeEvaluator [here](maya/edge_evaluator.md#how-to-use).
 
 ## Can I transfer AdonisFX nodes configuration to a different asset?
 
-Yes, you can use the AdonisFX [Export](maya/tools.md#adonisfx-export-tool) and [Import](maya/tools.md#adonisfx-import-tool) Tools to generate and load respectively an AdonisFX Asset Definition (AAD) file. From an scene with an asset fully configured with AdonisFX deformers, you can select the parent transform object and launch the Exporter. From there, you can decide which settings to export and the destination path for the AAD file. Then, in a different scene with a compatible asset, you can launch the Importer, browse the AAD file and assign deformers from the file to the meshes in the hierarchy of the asset.
+Yes, you can use the AdonisFX [Exporter](maya/tools.md#exporter) and [Importer](maya/tools.md#importer) Tools to generate and load respectively an AdonisFX Asset Definition (AAD) file. From an scene with an asset fully configured with AdonisFX deformers, you can select the parent transform object and launch the Exporter. From there, you can decide which settings to export and the destination path for the AAD file. Then, in a different scene with a compatible asset, you can launch the Importer, browse the AAD file and assign deformers from the file to the meshes in the hierarchy of the asset.
 
 ## For what units is AdonisFX designed?
 
@@ -62,10 +62,10 @@ AdonisFX solvers interpret input units as meters. This means that in order to si
 The use of AdonisFX itself does not require access to the internet but the licensing system does. In node-locked licenses, the workstation needs connection to the internet to validate the activation on plug-in load at least every 19 days. After that, the product can be used without internet connection. In floating licenses, it is the server that will need to connect to the internet at least every 19 days to validate the activation, meaning that users' workstations or nodes on farm do not need internet access.
 
 ## Can I activate node-locked licenses offline?
-No, node-locked licensing requires internet access to activate. Check the [licensing](licensing.md#licensing) page for more information.
+No, node-locked licensing requires internet access to activate. Check the [licensing](licensing.md#node-locked-licensing) page for more information.
 
 ## Can I activate floating licensing server offline?
-No, floating licensing requires internet access to activate the server. To be more specific, only the machine running the server needs access, while the users' machines do not require connection to the internet. Check the [licensing](licensing.md#licensing) page for more information.
+No, floating licensing requires internet access to activate the server. To be more specific, only the machine running the server needs access, while the users' machines do not require connection to the internet. Check the [licensing](licensing.md#floating-licensing) page for more information.
 
 ## Can I use my node-locked license on more than one machine?
 It depends on the purchased product plan. For Indie licenses, only one activation is allowed. To be able to move the license to a different machine, you will need to deactivate the license and reactivate it on the newly configured machine. Please, contact support if that is your case. For Solo licenses, up to two activations are allowed. This means that you can activate your product key in two different machines. For more flexibility and no hardware specific licensing restriction you should purchase floating licenses.
@@ -77,14 +77,14 @@ You can use the environment variable `ADN_LICENSE_MODE` set to `0` for node-lock
 You will need to configure and activate the licensing server, make sure that client machines have access to it.
 
 ## Can I move the license server to a different machine?
-Yes. This process requires you to deactivate it and then activate it on the new machine. For more information visit the [licensing](licensing.md#licensing) page or contact support.
+Yes. This process requires you to deactivate it and then activate it on the new machine. For more information visit the [licensing](licensing.md#activate-server) page or contact support.
 
 ## How can I change the port number of my licensing server?
 Change the server `port` number in the `TurboFloatServer-config.xml` before running the server.
 
 ## I want to know more about how leases are dropped, how can I see the notifications in my server?
 You can find and modify when leases are dropped inside of the `TurboFloatServer-config.xml` file. In there you can also specify where to store the log file and with which verbosity it will write to it.
-For more information visit the [licensing](licensing.md#licensing) page or [https://wyday.com/limelm/help/turbofloat-server/](https://wyday.com/limelm/help/turbofloat-server/).
+For more information visit the [licensing](licensing.md#install-server) page or visit [this link](https://wyday.com/limelm/help/turbofloat-server/).
 
 ## I can't connect to my licensing server for floating licensing. What should I do?
 Make sure that your firewall configuration allows the connection and try using the `ping` command to check the connectivity. If the connection is valid but AdonisFX can't load, please contact support.

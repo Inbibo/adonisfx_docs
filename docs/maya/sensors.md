@@ -15,7 +15,7 @@ An AdnSensorPosition will be in charge of feeding, after remapping, activation (
   <figcaption><b>Figure 1</b>: AdnSensorPosition used in a human model.</figcaption>
 </figure>
 
-There are two different methods of creating an AdnSensorPosition, depending if we are applying it to an existing [AdnLocatorPosition](locators.md) or creating it alongside the sensor.
+There are two different methods of creating an AdnSensorPosition, depending if we are applying it to an existing [AdnLocatorPosition](locators.md#adnlocatorposition) or creating it alongside the sensor.
 
  - If applying to an already existing AdnLocatorPosition:
 
@@ -190,4 +190,4 @@ Connecting the sensor to the target deformer can be done using the Node Editor i
   <figcaption><b>Figure 7</b>: AdnSensorDistance connected to the activation of an AdnMuscle.</figcaption>
 </figure>
 
-However, these connections are made in a much more user friendly way by making use of the [Connection Editor](tools.md), explained in more detail in the [tools](tools.md) section.
+However, these connections are made in a much more user friendly way by making use of the Sensors Connection Editor presented [here](tools.md#sensors-connection-editor).
