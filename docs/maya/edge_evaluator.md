@@ -2,7 +2,7 @@
 
 The AdnEdgeEvaluator node is a dependency node that computes deformation changes in edges. Based on two compatible input meshes it will output a compression map of the edges.
 
-## Hou to use
+## How To Use
 
 This node requires the following inputs to be provided:
 
@@ -17,7 +17,7 @@ To create this node, follow these steps:
 1. Select the deform mesh, then the rest mesh.
 2. Go to the AdonisFX menu > Create Nodes > *Edge Evaluator*.
 
-The evaluator node can be used to drive the [activations of an AdnSimshape](simshape.md#muscle-activations) deformer which can be done by connecting the output map to the activations plug of AdnSimshape. 
+The evaluator node can be used to drive the activations of an AdnSimshape deformer by connecting the output map of this node to the activations plug of AdnSimshape deformer. The *Plug Values* mode (see [this section](simshape.md#muscle-activations)) must be enabled.
 
 <figure markdown>
   ![Edge Evaluator example](images/edge_evaluator_example.png)

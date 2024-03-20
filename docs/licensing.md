@@ -148,7 +148,7 @@ The first step to be able to serve leases from the lease pool is to activate, co
 >      - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
 > 4. The content after copying the files should follow the structure in Figure 11.
 > 5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
->      - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [Configuring the TurboFloat Server](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in the [Run](/licensing.md#run) section.
+>      - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [this page](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in [this section](#run-server).
 >      - Find the full list of customizable parameters in the `.xml` file comments.
 >
 >  === Linux
@@ -160,7 +160,7 @@ The first step to be able to serve leases from the lease pool is to activate, co
 >      - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
 > 4. The content after copying the files should follow a structure similar to Figure 11.
 > 5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
->      - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [Configuring the TurboFloat Server](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in the [Run](/licensing.md#run) section.
+>      - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [this page](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in [this section](#run-server).
 >      - Find the full list of customizable parameters in the `.xml` file comments.
 >
 > **Note**
@@ -183,7 +183,7 @@ Activating floating licenses only requires the activation of the licensing serve
 >     - Make sure to open the terminal with admin privileges.
 >     - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation:
 >     `TurboFloatServer.exe -a="PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
-> 3. The server is now ready and can be run with the commands explained in the [Run](/licensing.md#run) section.
+> 3. The server is now ready and can be run with the commands explained in [this section](#run-server).
 >
 > **Note**
 > - Floating licenses require internet only for the license server. Workstations can remain disconnected and protected.
@@ -196,7 +196,7 @@ Activating floating licenses only requires the activation of the licensing serve
 >     - Make sure to launch this command with `sudo` privileges.
 >     - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation:
 >     `./turbofloatserver -a="PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
-> 3. The server is now ready and can be run with the commands explained in the [Run](/licensing.md#run) section.
+> 3. The server is now ready and can be run with the commands explained in [this section](#run-server).
 >
 > **Note**
 > - Floating licenses require internet only for the license server. Workstations can remain disconnected and protected.
