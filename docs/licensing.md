@@ -145,7 +145,7 @@ The first step to be able to serve leases from the lease pool is to activate, co
     - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
 4. The content after copying the files should follow the structure in Figure 11.
 5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
-    - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit this [page](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in [this section](#run-server).
+    - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit this [page](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in this [section](#run-server).
     - Find the full list of customizable parameters in the `.xml` file comments.
 
 <figure style="width:80%; margin-left:10%" markdown>
@@ -169,7 +169,7 @@ Activating floating licenses only requires the activation of the licensing serve
 >
 > `./turbofloatserver -a="PRODUCT-KEY"`
 
-3. The server is now ready and can be run with the commands explained in [this section](#run-server).
+3. The server is now ready and can be run with the commands explained in this [section](#run-server).
 
 The activation command assumes that the server executable, the `.xml` file and the `.dat` file are located in the same folder. To provide a custom path to the configuration files, run the following command instead:
 
