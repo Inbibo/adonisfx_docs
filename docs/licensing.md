@@ -158,13 +158,10 @@ The first step to be able to serve leases from the lease pool is to activate, co
 > 3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
 >      - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
 >      - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
-> 4. The content after copying the files should follow a structure similar to Figure 11.
+> 4. The content after copying the files should follow the structure in Figure 11.
 > 5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
 >      - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [this page](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in [this section](#run-server).
 >      - Find the full list of customizable parameters in the `.xml` file comments.
->
-> **Note**
-> - Server installation is not possible on Linux. For more information, refer to [this page](https://wyday.com/limelm/help/turbofloat-server/#install-linux).
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Turbo Float Folder](images/adn_turbo_float_folder.png)
@@ -204,23 +201,17 @@ Activating floating licenses only requires the activation of the licensing serve
 
 ### Run Server
 
-To run the floating server on Windows execute one of the commands below. The second one is to specify custom destinations of the `.xml` and `.dat` files if they are not in the same folder. To configure the server properly from the configuration file it is required to do the modifications prior to launching the server.
+To run the floating server on Windows execute one of the commands below. The second one is to specify custom destinations of the `.xml` and `.dat` files if they are not in the same folder. To configure the server properly from the configuration file it is required to do the modifications prior to launching the server. Note that if the configuration files need to be located in a different folder, then the use of `-pdets` and `-config` flags is required to especify their locations.
 
 > [!NOTE = Run Server]
 > === Windows
 > 
->  - `TurboFloatServer.exe -x`
-> 
->  In case that the configuration files need to be located in a different folder, then use `-pdets` and `-config` flags to especify their locations:
->
+>  - `TurboFloatServer.exe -x`>
 >  - `TurboFloatServer.exe -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
 >
 >  === Linux
 >
 > - `./turbofloatserver -x`
-> 
->  In case that the configuration files need to be located in a different folder, then use `-pdets` and `-config` flags to especify their locations:
->
 > - `./turbofloatserver -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
 
 ### Client Configuration
