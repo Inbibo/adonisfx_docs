@@ -210,20 +210,18 @@ To run the floating server on Windows execute one of the commands below. The sec
 > === Windows
 > 
 >  - `TurboFloatServer.exe -x`
+> 
+>  In case that the configuration files need to be located in a different folder, then use `-pdets` and `-config` flags to especify their locations:
+>
 >  - `TurboFloatServer.exe -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
->
->  In Windows, it is also possible to install the server avoiding the need to run it manually:
->
-> - `TurboFloatServer.exe -i`
-> - `TurboFloatServer.exe -i -pdets="YourTurboActivate.dat" -config="Config.xml"`
 >
 >  === Linux
 >
 > - `./turbofloatserver -x`
-> - `./turbofloatserver -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
+> 
+>  In case that the configuration files need to be located in a different folder, then use `-pdets` and `-config` flags to especify their locations:
 >
-> **Note**
-> - Server installation is not possible on Linux. For more information, refer to [this page](https://wyday.com/limelm/help/turbofloat-server/#install-linux).
+> - `./turbofloatserver -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
 
 ### Client Configuration
 
