@@ -138,66 +138,62 @@ The licensing server is provided and shipped within the installation of AdonisFX
 
 The first step to be able to serve leases from the lease pool is to activate, configure and run the licensing server on a dedicated machine:
 
-> [!NOTE = Install Server]
-> === Windows
-> 
-> 1. Locate the `TurboFloatServer.exe` in `AdonisFX/licensing/turbo_float_server`.
-> 2. Copy the folder to a preferred location.
-> 3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
->      - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
->      - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
-> 4. The content after copying the files should follow the structure in Figure 11.
-> 5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
->      - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [this page](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in [this section](#run-server).
->      - Find the full list of customizable parameters in the `.xml` file comments.
->
->  === Linux
->
-> 1. Locate the `turbofloatserver` in `AdonisFX/licensing/turbo_float_server`.
-> 2. Copy the folder to a preferred location.
-> 3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
->      - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
->      - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
-> 4. The content after copying the files should follow the structure in Figure 11.
-> 5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
->      - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [this page](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in [this section](#run-server).
->      - Find the full list of customizable parameters in the `.xml` file comments.
+1. Locate the server in `AdonisFX/licensing/turbo_float_server`. `TurboFloatServer.exe` for Windows and `turbofloatserver` for Linux.
+2. Copy the folder to a preferred location.
+3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
+  - `AdonisFX/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
+  - `AdonisFX/licensing/batch/TurboActivate.dat` for batch mode licenses.
+4. The content after copying the files should follow the structure in Figure 11.
+5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
+  - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit [this page](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in [this section](#run-server).
+  - Find the full list of customizable parameters in the `.xml` file comments.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Turbo Float Folder](images/adn_turbo_float_folder.png)
-  <figcaption><b>Figure 11</b>: Turbo Float Folder.</figcaption>
+  <figcaption><b>Figure 11</b>: Folder containing the TurboFloatServer (Windows) and the configuration files.</figcaption>
 </figure>
 
 ### Activate Server
 
 Activating floating licenses only requires the activation of the licensing server which will be the one in charge of handling and balancing the leases. To activate the server:
 
+1. Open a terminal in the folder where the server is located with admin privileges.
+2. Run the following command for activation:
+
 > [!NOTE = Activate Server]
 > === Windows
 > 
-> 1. Open a terminal in the folder where the `TurboFloatServer.exe` is located.
-> 2. Run the following command for activation: `TurboFloatServer.exe -a="PRODUCT-KEY"`
->     - Make sure to open the terminal with admin privileges.
->     - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation:
->     `TurboFloatServer.exe -a="PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
-> 3. The server is now ready and can be run with the commands explained in [this section](#run-server).
->
-> **Note**
-> - Floating licenses require internet only for the license server. Workstations can remain disconnected and protected.
-> - To deactivate an activated license on the server, execute `TurboFloatServer.exe -deact`.
+> `TurboFloatServer.exe -a="PRODUCT-KEY"`
 >
 >  === Linux
 >
-> 1. Open a terminal in the folder where the `turbofloatserver` is located.
-> 2. Run the following command for activation: `./turbofloatserver -a="PRODUCT-KEY"`
->     - Make sure to launch this command with `sudo` privileges.
->     - This step assumes that the server `.xml` file and `.dat` file are located in the same folder as the server executable. To provide a custom path run the following command for the activation:
->     `./turbofloatserver -a="PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
-> 3. The server is now ready and can be run with the commands explained in [this section](#run-server).
+> `./turbofloatserver -a="PRODUCT-KEY"`
+
+3. The server is now ready and can be run with the commands explained in [this section](#run-server).
+
+The activation command assumes that the server executable, the `.xml` file and the `.dat` file are located in the same folder. To provide a custom path to the configuration files, run the following command instead:
+
+> [!NOTE = Activate Server With Custom Location]
+> === Windows
+> 
+> `TurboFloatServer.exe -a="PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
 >
-> **Note**
-> - Floating licenses require internet only for the license server. Workstations can remain disconnected and protected.
-> - To deactivate an activated license on the server, execute `./turbofloatserver -deact`
+>  === Linux
+>
+> `./turbofloatserver -a="PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
+
+Remind that floating licenses require internet access only for the machine running the server, while the workstations intended to query leases to the server can remain disconnected and protected.
+
+To deactivate an activated license on the server, execute:
+
+> [!NOTE = Activate Server]
+> === Windows
+> 
+> `TurboFloatServer.exe -deact`.
+>
+>  === Linux
+>
+> `./turbofloatserver -deact`
 
 ### Run Server
 
@@ -206,12 +202,21 @@ To run the floating server on Windows execute one of the commands below. The sec
 > [!NOTE = Run Server]
 > === Windows
 > 
->  - `TurboFloatServer.exe -x`>
->  - `TurboFloatServer.exe -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
+>  - `TurboFloatServer.exe -x`
 >
 >  === Linux
 >
 > - `./turbofloatserver -x`
+
+Again, the command above assumes that the server executable, the `.xml` file and the `.dat` file are located in the same folder. To provide a custom path to the configuration files, run the following command instead:
+
+> [!NOTE = Run Server]
+> === Windows
+> 
+>  - `TurboFloatServer.exe -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
+>
+>  === Linux
+>
 > - `./turbofloatserver -x -pdets="YourTurboActivate.dat" -config="Config.xml"`
 
 ### Client Configuration
