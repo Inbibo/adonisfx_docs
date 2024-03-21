@@ -156,7 +156,7 @@ With the Connection Editor opened, select the locator from the scene and press t
 
 When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation will get higher, simulating a much more realistic scenario.
 
-To tweak additional parameters of the AdnMuscle deformer, check [this page](muscle.md).
+To tweak additional parameters of the AdnMuscle deformer, check this [page](muscle.md).
 
 ## AdnRibbonMuscle
 
@@ -238,7 +238,7 @@ The process to connect and AdnSensor to an AdnRibbonMuscle is the exact same to 
   <figcaption><b>Figure 25</b>: Connection Editor tool with AdnRotation sensor connected to AdnRibbonMuscle.</figcaption>
 </figure>
 
-To tweak additional parameters of the AdnRibbonMuscle deformer, check [this page](ribbon.md).
+To tweak additional parameters of the AdnRibbonMuscle deformer, check this [page](ribbon.md).
 
 ## AdnSimshape
 

@@ -14,7 +14,7 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 - **Muscle Geometry (M)**: Mesh that the AdnRibbonMuscle deformer will be applied to.
 
 > [!NOTE]
-> It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. Attachments can be added and remove after creating the deformer. For more information check the [advanced section](#attachments).
+> It is not mandatory to select the attachments on creation of the AdnRibbonMuscle deformer. Attachments can be added and remove after creating the deformer. For more information check the advance [section](#attachments).
 
 Follow this steps to create an AndRibbonMuscle deformer:
 
@@ -178,7 +178,8 @@ Additionally to all previously mentioned constraints, ribbon muscles can have an
 
 > [!NOTE]
 > - The transform nodes selection must follow a parent to child relationship in the hierarchy (like rig joints do).
-> - Slide On Segment constraints are recommended especially for muscles on the limbs.
+> - It also recommended to paint only the vertices that are not attached to the rig, i.e. excluding the tendon vertices.
+> - This constraint is recommended especially for muscles on the limbs.
 
 - **Remove Segment**:  
     1. Select one or more transform nodes that are assigned as segment anchors to the AdnRibbonMuscle.

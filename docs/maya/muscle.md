@@ -14,7 +14,7 @@ An AdnMuscle requires the following inputs to be provided:
   - **Muscle Geometry (M)**: Mesh that the muscle deformer will be applied onto.
 
 > [!NOTE]
-> It is not mandatory to select the attachments on creation of the AdnMuscle deformer. Attachments can be added and removed after creating the deformer. For more information check the [advanced section](#attachments).
+> It is not mandatory to select the attachments on creation of the AdnMuscle deformer. Attachments can be added and removed after creating the deformer. For more information check the advance [section](#attachments).
 
 To create an AdnMuscle, follow these steps:
 
@@ -178,7 +178,8 @@ Additionally to all previously mentioned constraints, muscles can have an additi
 
 > [!NOTE]
 > - The transform nodes selection must follow a parent to child relationship in the hierarchy (like rig joints do).
-> - Slide On Segment constraints are recommended especially for muscles on the limbs.
+> - It also recommended to paint only the vertices that are not attached to the rig, i.e. excluding the tendon vertices.
+> - This constraint is recommended especially for muscles on the limbs.
 
 - **Remove Segment**: 
     1. Select one or more transform nodes that are assigned as segment anchors to the AdnMuscle.
