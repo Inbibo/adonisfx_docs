@@ -1,6 +1,6 @@
 # Sensors
 
-AdnSensors are nodes in charge of interpreting data extracted from transform nodes and compute information that can be fed into the deformers to alter their behavior. Sensors work in combination with [AdnLocators](locators.md) to display the computed information in an intuitive way using coloring. To be able to display the information computed from the sensors, remappers are used to convert the computed data (e.g. angle) to a valid value in a given range of activation that will drive the coloring of the locators and the activation of an AdnMuscle for example.
+AdnSensors are nodes in charge of interpreting data extracted from transform nodes and compute information that can be fed into the deformers to alter their behavior. Sensors work in combination with [AdnLocators](locators) to display the computed information in an intuitive way using coloring. To be able to display the information computed from the sensors, remappers are used to convert the computed data (e.g. angle) to a valid value in a given range of activation that will drive the coloring of the locators and the activation of an AdnMuscle for example.
 
 ## AdnSensorPosition
 
@@ -15,7 +15,7 @@ An AdnSensorPosition will be in charge of feeding, after remapping, activation (
   <figcaption><b>Figure 1</b>: AdnSensorPosition used in a human model.</figcaption>
 </figure>
 
-There are two different methods of creating an AdnSensorPosition, depending if we are applying it to an existing [AdnLocatorPosition](locators.md#adnlocatorposition) or creating it alongside the sensor.
+There are two different methods of creating an AdnSensorPosition, depending if we are applying it to an existing [AdnLocatorPosition](locators#adnlocatorposition) or creating it alongside the sensor.
 
  - If applying to an already existing AdnLocatorPosition:
 
@@ -67,7 +67,7 @@ An AdnSensorDistance will be in charge of feeding, after remapping, activation (
   <figcaption><b>Figure 2</b>: AdnSensorDistance used in a human model.</figcaption>
 </figure>
 
-There are two different methods of creating an AdnSensorDistance, depending if we are applying it to an existing [AdnLocatorDistance](locators.md) or creating it alongside the sensor.
+There are two different methods of creating an AdnSensorDistance, depending if we are applying it to an existing [AdnLocatorDistance](locators) or creating it alongside the sensor.
 
  - If applying to an already existing AdnLocatorDistance:
 
@@ -121,7 +121,7 @@ An AdnSensorRotation will be in charge of feeding, after remapping, activation (
   <figcaption><b>Figure 3</b>: AdnSensorRotation used in a human model.</figcaption>
 </figure>
 
-There are two different methods of creating an AdnSensorRotation, depending if we are applying it to an existing [AdnLocatorRotation](locators.md) or creating it alongside the sensor.
+There are two different methods of creating an AdnSensorRotation, depending if we are applying it to an existing [AdnLocatorRotation](locators) or creating it alongside the sensor.
 
  - If applying to an already existing AdnLocatorRotation:
 
@@ -190,4 +190,4 @@ Connecting the sensor to the target deformer can be done using the Node Editor i
   <figcaption><b>Figure 7</b>: AdnSensorDistance connected to the activation of an AdnMuscle.</figcaption>
 </figure>
 
-However, these connections are made in a much more user friendly way by making use of the Sensors Connection Editor presented [here](tools.md#sensors-connection-editor).
+However, these connections are made in a much more user friendly way by making use of the Sensors Connection Editor presented [here](tools#sensors-connection-editor).

@@ -2,7 +2,7 @@
 
 ## How can I simulate muscles?
 
-AdonisFX provides with two solvers for muscle simulation. The use of one or the other depends on the necessity of simulating volume preservation. In Maya, muscles with volume preservation can be simulated with [AdnMuscle](maya/muscle.md) deformer, while [AdnRibbonMuscle](maya/ribbon.md) is for planar muscles. For more information about a simple setup, please check their respective sections in this [page](maya/simple_setup.md).
+AdonisFX provides with two solvers for muscle simulation. The use of one or the other depends on the necessity of simulating volume preservation. In Maya, muscles with volume preservation can be simulated with [AdnMuscle](maya/muscle) deformer, while [AdnRibbonMuscle](maya/ribbon) is for planar muscles. For more information about a simple setup, please check their respective sections in this [page](maya/simple_setup).
 
 ## How can I add activation to the muscles?
 
@@ -14,11 +14,11 @@ The *Volume Ratio* attribute of an AdnMuscle allows to simulate volume gain (vol
 
 ## How can I simulate skin?
 
-Skin can be simulated using the [AdnSkin](maya/skin.md) deformer. This deformer requires a reference mesh to drive the skin simulation (i.e. the fascia) and a mesh to apply the deformer to (skin mesh). A simple setup is explained [here](maya/simple_setup#adnskin).
+Skin can be simulated using the [AdnSkin](maya/skin) deformer. This deformer requires a reference mesh to drive the skin simulation (i.e. the fascia) and a mesh to apply the deformer to (skin mesh). A simple setup is explained [here](maya/simple_setup#adnskin).
 
 ## How can I simulate fascia?
 
-Similarly to a skin simulation setup, the fascia can be simulated using [AdnSkin](maya/skin.md) deformer as well. In this case, it is recommended to use values of *Rest Length Multiplier* lower than 1. This deformer also requires a mesh to drive the simulation (one reference mesh, i.e. the internal muscle geometries combined) and a mesh to apply the deformer to (fascia geometry).
+Similarly to a skin simulation setup, the fascia can be simulated using [AdnSkin](maya/skin) deformer as well. In this case, it is recommended to use values of *Rest Length Multiplier* lower than 1. This deformer also requires a mesh to drive the simulation (one reference mesh, i.e. the internal muscle geometries combined) and a mesh to apply the deformer to (fascia geometry).
 
 ## Can I simulate muscles, fascia and skin all coupled?
 
@@ -31,14 +31,14 @@ Yes, you can simulate muscles, fascia and skin following these steps:
 
 ## How can I simulate facial skin?
 
-You can use AdnSimshape deformer. This deformer allows to reproduce the elasticity and the change in stiffness of a facial geometry thanks to the features of the AdnSimshape solver. Please, check [this section](maya/simple_setup#adnsimshape) where a simple setup is explained or this [page](maya/simshape.md) to know more about this solver.
+You can use AdnSimshape deformer. This deformer allows to reproduce the elasticity and the change in stiffness of a facial geometry thanks to the features of the AdnSimshape solver. Please, check [this section](maya/simple_setup#adnsimshape) where a simple setup is explained or this [page](maya/simshape) to know more about this solver.
 
 ## How can I add muscle activations to facial simulation?
 
 The AdnSimshape deformer allows to add muscle activation in two ways:
 
  - Providing a deform mesh together with an AdonisFX Muscle Patches file previously generated using the Learn Muscle Patches tool.
- - Plugging the activation values directly into the *ActivationList.Activation* attribute. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator node (visit this [page](maya/edge_evaluator.md)).
+ - Plugging the activation values directly into the *ActivationList.Activation* attribute. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator node (visit this [page](maya/edge_evaluator)).
 
 More details can be found [here](maya/simple_setup#add-muscle-activations).
 

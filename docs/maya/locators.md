@@ -8,7 +8,7 @@ AdnLocatorPosition is the locator for visualizing the position of a single trans
 
 ### How To Use
 
-An AdnLocatorPosition will only visualize the information of the transform node to which it is applied. To be able to read, process and visualize information like the velocity or acceleration an [AdnSensorPosition](sensors.md#adnsensorposition) has to be applied.
+An AdnLocatorPosition will only visualize the information of the transform node to which it is applied. To be able to read, process and visualize information like the velocity or acceleration an [AdnSensorPosition](sensors#adnsensorposition) has to be applied.
 
 <figure markdown>
   ![AdnLocatorPosition within a scene](images/locators_position.png)
@@ -47,7 +47,7 @@ AdnLocatorDistance is the locator for visualizing the distance between two trans
 
 ### How To Use
 
-An AdnLocatorDistance will only visualize the information of the distance between two transform nodes to which it is applied. To be able to read, process and visualize information like the distance magnitude, velocity or acceleration an [AdnSensorDistance](sensors.md#adnsensordistance) has to be applied.
+An AdnLocatorDistance will only visualize the information of the distance between two transform nodes to which it is applied. To be able to read, process and visualize information like the distance magnitude, velocity or acceleration an [AdnSensorDistance](sensors#adnsensordistance) has to be applied.
 
 <figure markdown>
   ![AdnLocatorDistance within a scene](images/locators_distance.png)
@@ -87,7 +87,7 @@ AdnLocatorRotation is the locator for visualizing the angle between three transf
 
 ### How To Use
 
-An AdnLocatorRotation will only visualize the information of the connections and angle between the three transform nodes. To be able to read, process and visualize information like the angle, angular velocity or angular acceleration an [AdnSensorRotation](sensors.md#adnsensorrotation) has to be applied.
+An AdnLocatorRotation will only visualize the information of the connections and angle between the three transform nodes. To be able to read, process and visualize information like the angle, angular velocity or angular acceleration an [AdnSensorRotation](sensors#adnsensorrotation) has to be applied.
 
 <figure markdown>
   ![AdnLocatorRotation within a scene](images/locators_rotation.png)
