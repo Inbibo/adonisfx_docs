@@ -39,6 +39,7 @@
 ### Known Limitations
 
 - Debugger system draws debug data independently to the visibility of the mesh with a deformer applied. *AdonisFX-802*
+- The activations debugger in AdnSimshape is limited to the Parallel and Serial evaluation modes. *AdonisFX-1026*
 - *Max Sliding Distance* parameter in AdnSkin and AdnSimshape is represented in scene units. The higher this value is, the more units in the space the sliding constraint allows a vertex to slide on. If polygons of the geometry to slide on are very little compared to that value, the sliding constraint will be time and memory consuming. *AdonisFX-997*
 - Enabling and disabling fibers display from the AdonisFX menu does not restore the previous status of the debug settings of affected deformers. *AdonisFX-998*
 - AdonisFX Paint Tool does not refresh painted maps if attachments or slide on segment constraints are removed while it is opened. Restarting the tool is needed. *AdonisFX-999*

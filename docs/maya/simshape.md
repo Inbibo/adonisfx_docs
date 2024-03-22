@@ -282,6 +282,11 @@ In order to toggle and untoggle the debug mode, follow these steps:
 2. Move to pre-roll time or start time.
 3. Press ![Simshape debug icon](images/adn_simshape_debugger.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Activations Debugger*.
 
+> [!NOTE]
+> - The active status of the debugger is evaluated at initialization only.
+> - If by enabling the debugger the vertex colors are not displayed automatically, then force to initialize the system (e.g. press rewind button in the timeline).
+> - The debugger is limited to the Parallel and Serial evaluation modes.
+
 ### Colliders
 
 AdnSimshape supports an internal collider that has to be bound to the rig and combined into a single object in order to mimic the internal structures. Colliders can represent structures like the skull or the teeth.
