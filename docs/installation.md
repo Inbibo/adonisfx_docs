@@ -46,7 +46,7 @@ In the following sections we explain these two methods for Windows and Linux.
 
 2. Click on *Environment Variables* and a new window will be displayed showing all the environment variables configured at the system level and for the current user.
 
-<figure style="width:60%; margin-left:10%" markdown>
+<figure style="width:40%; margin-left:10%" markdown>
   ![Windows environment variables.](/images/windows_environment_variables.png)
   <figcaption><b>Figure 3</b>: Environment variables of the system.</figcaption>
 </figure>
