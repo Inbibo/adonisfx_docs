@@ -24,14 +24,14 @@ The Maya.env file is version dependent. It means that every instance of Maya wil
 > [!NOTE = Maya.env Location]
 >
 > <figure markdown>
->  ![File location maya.env Windows](./maya/images/maya_env_file_location_windows.png)
+>  ![File location maya.env Windows](/images/maya_env_file_location_windows.png)
 >  <figcaption><b>Figure 1</b>: File location of "maya.env" file in Windows.</figcaption>
 > </figure>
 >
 > `drive:/Users/username/Documents/maya/%MAYA_VERSION%`
 >
 > <figure markdown>
->  ![File location maya.env Linux](./maya/images/maya_env_file_location_linux.png)
+>  ![File location maya.env Linux](/images/maya_env_file_location_linux.png)
 >  <figcaption><b>Figure 2</b>: File location of "maya.env" file in Linux.</figcaption>
 > </figure>
 >
@@ -48,40 +48,40 @@ A different way of configuring the enviroment is setting an enviroment variable 
 
 ##### Steps to set `MAYA_MODULE_PATH` as a system enviroment variable on Windows (persistent)
 
-1. Use the Windows searcher and look for "Edit enviroment variables for your account". "Edit the system enviroment variables" would work too, needing in this case permissions.
+  1. Use the Windows searcher and look for "Edit enviroment variables for your account". "Edit the system enviroment variables" would work too, needing in this case permissions.
 
 <figure markdown>
-  ![edit enviroment variables search](./maya/images/search_edit_env_variables.png)
-  <figcaption><b>Figure 3</b>: Searching for "Edit enviroment variables for your account" at windows.</figcaption>
+      ![edit enviroment variables search](/images/search_edit_env_variables.png)
+      <figcaption><b>Figure 3</b>: Searching for "Edit enviroment variables for your account" at windows.</figcaption>
 </figure>
 
-2. New window will be displayed with the enviroment variables of the user. IF there is a variable "MAYA_MODULE_PATH" we will select it and press "Edit..." if not we will press "New...".
+  2. New window will be displayed with the enviroment variables of the user. IF there is a variable "MAYA_MODULE_PATH" we will select it and press "Edit..." if not we will press "New...".
 
 <figure markdown>
-  ![enviroment variables window windows](./maya/images/enviroment_variables_window_windows.png)
-  <figcaption><b>Figure 4</b>: Enviroment variable window at windows.</figcaption>
+      ![enviroment variables window windows](/images/enviroment_variables_window_windows.png)
+      <figcaption><b>Figure 4</b>: Enviroment variable window at windows.</figcaption>
 </figure>
 
-3. "MAYA_MODULE_PATH" has to be provided as the variable name and for the value the path to where the AdonisFX.mod file is located. Use of "Browse Directory..." might be useful.
+  3. "MAYA_MODULE_PATH" has to be provided as the variable name and for the value the path to where the AdonisFX.mod file is located. Use of "Browse Directory..." might be useful.
 
 <figure markdown>
-  ![create user enviroment variable window](./maya/images/new_user_variable_windows.png)
-  <figcaption><b>Figure 5</b>: Creating new user enviroment variable.</figcaption>
+      ![create user enviroment variable window](/images/new_user_variable_windows.png)
+      <figcaption><b>Figure 5</b>: Creating new user enviroment variable.</figcaption>
 </figure>
 
-4. After adding the variable is needed to press "Ok" or "Apply" at the previous window to the creation one to confirm the variable creation.
+  4. After adding the variable is needed to press "Ok" or "Apply" at the previous window to the creation one to confirm the variable creation.
 
 ##### Steps to set `MAYA_MODULE_PATH` as a system enviroment variable on Linux (persistent)
 
-1. Open a terminal and with the preferred text editor manipulate the file "~/.bashrc".
+  1. Open a terminal and with the preferred text editor manipulate the file "~/.bashrc".
 
 <figure markdown>
-  ![edit bashrc file from terminal](./maya/images/terminal_edit_bashrc.png)
-  <figcaption><b>Figure 6</b>: Linux terminal openning a text editor to edit file ".bashrc".</figcaption>
+      ![edit bashrc file from terminal](/images/terminal_edit_bashrc.png)
+      <figcaption><b>Figure 6</b>: Linux terminal openning a text editor to edit file ".bashrc".</figcaption>
 </figure>
 
-2. At the end of the file add the following line and save the changes. `export MAYA_MODULE_PATH=$MAYA_MODULE_PATH:/path/to/AdonisFX/folder`.
-3. Close the terminal.
+  2. At the end of the file add the following line and save the changes. `export MAYA_MODULE_PATH=$MAYA_MODULE_PATH:/path/to/AdonisFX/folder`.
+  3. Close the terminal.
 
 > [!NOTE = Check Environment Variale]
 > In order to confirm that your persistent variable is properly set, open a terminal and execute the following line.
