@@ -21,21 +21,19 @@ There are two methods of configuring this variable: Setting the value in the `Ma
 
 The Maya.env file is version dependent. It means that every instance of Maya will evaluate the environment file associated to its version. The default location of this file is:
 
-> [!NOTE = Maya.env Location]
->
-> <figure markdown>
->  ![File location maya.env Windows](/images/maya_env_file_location_windows.png)
->  <figcaption><b>Figure 1</b>: File location of "maya.env" file in Windows.</figcaption>
-> </figure>
+> [!NOTE = Maya.env location]
+> === Windows
 >
 > `drive:/Users/username/Documents/maya/%MAYA_VERSION%`
 >
-> <figure markdown>
->  ![File location maya.env Linux](/images/maya_env_file_location_linux.png)
->  <figcaption><b>Figure 2</b>: File location of "maya.env" file in Linux.</figcaption>
-> </figure>
+> ![File location of "maya.env" file in Windows.](images/maya_env_file_location_windows.png)
+>
+> === Linux
 >
 > `~/maya/$MAYA_VERSION`
+>
+> ![File location of "maya.env" file in Linux.](images/maya_env_file_location_linux.png)
+
 
 Add this line to the file and AdonisFX module will be loaded the next time you launch Maya:
 
@@ -83,13 +81,19 @@ A different way of configuring the enviroment is setting an enviroment variable 
   2. At the end of the file add the following line and save the changes. `export MAYA_MODULE_PATH=$MAYA_MODULE_PATH:/path/to/AdonisFX/folder`.
   3. Close the terminal.
 
-> [!NOTE = Check Environment Variale]
-> In order to confirm that your persistent variable is properly set, open a terminal and execute the following line.
+In order to confirm that your persistent variable is properly set, open a terminal and execute the following line.
+
+> [!NOTE = Check Environment Variable]
 >
->  - At Windows `set MAYA_MODULE_PATH`.
->  - At Linux `echo $MAYA_MODULE_PATH`.
+> === Windows
 >
-> The path to the AdonisFX.mod file should be printed.
+> `set MAYA_MODULE_PATH`.
+>
+> === Linux
+>
+> `echo $MAYA_MODULE_PATH`.
+
+The path to the AdonisFX.mod file should be printed.
 
 ##### Steps to set `MAYA_MODULE_PATH` as a system enviroment variable (temporal)
 
