@@ -26,7 +26,7 @@ In the following sections we explain these two methods for Windows and Linux.
 
 1. The default location of `Maya.env` file is `drive:/Users/username/Documents/maya/%MAYA_VERSION%`.
 
-<figure style="width:80%; margin-left:10%" markdown>
+<figure style="width:60%; margin-left:10%" markdown>
   ![Windows Maya.env file location.](/images/windows_maya_env_file_location.png)
   <figcaption><b>Figure 1</b>: Location of Maya.env file in Windows. Example for Maya 2024.</figcaption>
 </figure>
@@ -39,21 +39,21 @@ In the following sections we explain these two methods for Windows and Linux.
 
 1. Open the System Properties window which can be found by searching for *environment variables* in the Windows search bar.
 
-<figure style="width:80%; margin-left:10%" markdown>
+<figure style="width:60%; margin-left:10%" markdown>
   ![Windows system properties.](/images/windows_system_properties.png)
   <figcaption><b>Figure 2</b>: System Properties window.</figcaption>
 </figure>
 
 2. Click on *Environment Variables* and a new window will be displayed showing all the environment variables configured at the system level and for the current user.
 
-<figure style="width:80%; margin-left:10%" markdown>
+<figure style="width:60%; margin-left:10%" markdown>
   ![Windows environment variables.](/images/windows_environment_variables.png)
   <figcaption><b>Figure 3</b>: Environment variables of the system.</figcaption>
 </figure>
 
 3. Click on *New...* button for the level that you prefer (system or user) and configure `MAYA_MODULE_PATH` with the path containing the `AdonisFX.mod` file.
 
-<figure style="width:80%; margin-left:10%" markdown>
+<figure style="width:60%; margin-left:10%" markdown>
   ![Windows add new environment variable.](/images/windows_add_new_env.png)
   <figcaption><b>Figure 4</b>: Configure MAYA_MODULE_PATH as new environment variable.</figcaption>
 </figure>
@@ -64,7 +64,7 @@ In the following sections we explain these two methods for Windows and Linux.
 
 1. The default location of `Maya.env` file is `~/maya/$MAYA_VERSION`.
 
-<figure style="width:80%; margin-left:10%" markdown>
+<figure style="width:60%; margin-left:10%" markdown>
   ![Linux Maya.env file location.](/images/linux_maya_env_file_location.png)
   <figcaption><b>Figure 5</b>: Location of Maya.env in Linux. Example for Maya 2022.</figcaption>
 </figure>
@@ -77,16 +77,11 @@ In the following sections we explain these two methods for Windows and Linux.
 
 1. From the terminal, open your preferred text editor to modify the file `~/.bashrc`.
 
-<figure style="width:80%; margin-left:10%" markdown>
-  ![Linux edit bashrc file.](/images/linux_edit_environment.png)
-  <figcaption><b>Figure 6</b>: Edit environment from the *~/.bashrc* file.</figcaption>
-</figure>
-
 2. Add the command to export the environment variable as shown in the image below.
 
-<figure style="width:80%; margin-left:10%" markdown>
+<figure style="width:60%; margin-left:10%" markdown>
   ![Linux configure environment variable.](/images/linux_add_new_env.png)
-  <figcaption><b>Figure 7</b>: Configure MAYA_MODULE_PATH as new environment variable.</figcaption>
+  <figcaption><b>Figure 6</b>: Configure MAYA_MODULE_PATH as new environment variable.</figcaption>
 </figure>
 
 3. AdonisFX will be loaded the next time you launch Maya.
