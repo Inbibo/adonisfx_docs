@@ -26,13 +26,13 @@ The Maya.env file is version dependent. It means that every instance of Maya wil
 >
 > `drive:/Users/username/Documents/maya/%MAYA_VERSION%`
 >
-> ![File location of "maya.env" file in Windows.](images/maya_env_file_location_windows.png)
+> ![File location of "maya.env" file in Windows.](/maya/images/maya_env_file_location_windows.png)
 >
 > === Linux
 >
 > `~/maya/$MAYA_VERSION`
 >
-> ![File location of "maya.env" file in Linux.](images/maya_env_file_location_linux.png)
+> ![File location of "maya.env" file in Linux.](/maya/images/maya_env_file_location_linux.png)
 
 
 Add this line to the file and AdonisFX module will be loaded the next time you launch Maya:
@@ -42,39 +42,39 @@ Add this line to the file and AdonisFX module will be loaded the next time you l
 
 #### Configure System Environment Variables
 
-A different way of configuring the enviroment is setting an enviroment variable of the system for the `MAYA_MODULE_PATH`. The variable can be set on a persistent or a temporal way. The persistent way will be independent to the session or terminal opened. The temporal approach will be dependent to the session or terminal in which the variable was set.
+A different way of configuring the environment is setting an environment variable of the system for the `MAYA_MODULE_PATH`. The variable can be set on a persistent or a temporal way. The persistent way will be independent to the session or terminal opened. The temporal approach will be dependent to the session or terminal in which the variable was set.
 
-##### Steps to set `MAYA_MODULE_PATH` as a system enviroment variable on Windows (persistent)
+##### Steps to set `MAYA_MODULE_PATH` as a system environment variable on Windows (persistent)
 
-  1. Use the Windows searcher and look for "Edit enviroment variables for your account". "Edit the system enviroment variables" would work too, needing in this case permissions.
+  1. Use the Windows searcher and look for "Edit environment variables for your account". "Edit the system environment variables" would work too, permissions are needed in this case.
 
 <figure markdown>
-      ![edit enviroment variables search](/images/search_edit_env_variables.png)
-      <figcaption><b>Figure 3</b>: Searching for "Edit enviroment variables for your account" at windows.</figcaption>
+      ![Edit environment variables search](/maya/images/search_edit_env_variables.png)
+      <figcaption><b>Figure 3</b>: Searching for "Edit environment variables for your account" at Windows.</figcaption>
 </figure>
 
-  2. New window will be displayed with the enviroment variables of the user. IF there is a variable "MAYA_MODULE_PATH" we will select it and press "Edit..." if not we will press "New...".
+  2. New window will be displayed with the environment variables of the user. IF there is a variable "MAYA_MODULE_PATH" we will select it and press "Edit..." if not we will press "New...".
 
 <figure markdown>
-      ![enviroment variables window windows](/images/enviroment_variables_window_windows.png)
-      <figcaption><b>Figure 4</b>: Enviroment variable window at windows.</figcaption>
+      ![environment variables window Windows](/maya/images/environment_variables_window_windows.png)
+      <figcaption><b>Figure 4</b>: environment variable window at Windows.</figcaption>
 </figure>
 
   3. "MAYA_MODULE_PATH" has to be provided as the variable name and for the value the path to where the AdonisFX.mod file is located. Use of "Browse Directory..." might be useful.
 
 <figure markdown>
-      ![create user enviroment variable window](/images/new_user_variable_windows.png)
-      <figcaption><b>Figure 5</b>: Creating new user enviroment variable.</figcaption>
+      ![Create user environment variable window](/maya/images/new_user_variable_windows.png)
+      <figcaption><b>Figure 5</b>: Creating new user environment variable.</figcaption>
 </figure>
 
   4. After adding the variable is needed to press "Ok" or "Apply" at the previous window to the creation one to confirm the variable creation.
 
-##### Steps to set `MAYA_MODULE_PATH` as a system enviroment variable on Linux (persistent)
+##### Steps to set `MAYA_MODULE_PATH` as a system environment variable on Linux (persistent)
 
   1. Open a terminal and with the preferred text editor manipulate the file "~/.bashrc".
 
 <figure markdown>
-      ![edit bashrc file from terminal](/images/terminal_edit_bashrc.png)
+      ![Edit bashrc file from terminal](/maya/images/terminal_edit_bashrc.png)
       <figcaption><b>Figure 6</b>: Linux terminal openning a text editor to edit file ".bashrc".</figcaption>
 </figure>
 
@@ -95,7 +95,7 @@ In order to confirm that your persistent variable is properly set, open a termin
 
 The path to the AdonisFX.mod file should be printed.
 
-##### Steps to set `MAYA_MODULE_PATH` as a system enviroment variable (temporal)
+##### Steps to set `MAYA_MODULE_PATH` as a system environment variable (temporal)
 
 1. Open a terminal.
 2. Execute the following line depending on your operative system.
