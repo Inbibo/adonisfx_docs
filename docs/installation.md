@@ -24,9 +24,7 @@ In the following sections we explain these two methods for Windows and Linux.
 
 #### Method 1 on Windows
 
-The Maya.env file is version dependent. It means that every instance of Maya will evaluate the environment file associated to its version.
-
-1. The default location of this file is `drive:/Users/username/Documents/maya/%MAYA_VERSION%`.
+1. The default location of Maya.env file is `drive:/Users/username/Documents/maya/%MAYA_VERSION%`.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Windows "Maya.env" file location.](/images/windows_maya_env_file_location.png)
@@ -46,7 +44,7 @@ The Maya.env file is version dependent. It means that every instance of Maya wil
   <figcaption><b>Figure 2</b>: System Properties window.</figcaption>
 </figure>
 
-2. Click on *Environment Variables* and a new window will pop showing all the environment variables configured at the system level and for the current user.
+2. Click on *Environment Variables* and a new window will be displayed showing all the environment variables configured at the system level and for the current user.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Windows environment variables.](/images/windows_environment_variables.png)
@@ -64,9 +62,7 @@ The Maya.env file is version dependent. It means that every instance of Maya wil
 
 #### Method 1 on Linux
 
-The Maya.env file is version dependent. It means that every instance of Maya will evaluate the environment file associated to its version.
-
-1. The default location of this file is `~/maya/$MAYA_VERSION`.
+1. The default location of Maya.env file is `~/maya/$MAYA_VERSION`.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Linux "Maya.env" file location.](/images/linux_maya_env_file_location.png)
