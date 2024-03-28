@@ -9,19 +9,19 @@ AdonisFX is distributed for Maya as a standard module. To install the module, pl
 3. Append the path to the destination folder to the `MAYA_MODULE_PATH` environment variable. Check the next sections for more information.
 4. Launch Maya and load AdonisFX from Windows > Settings/Preferences > Plug-in Manager.
 
-### Configure Environment
-
 When Maya starts up, it evaluates all paths pointed by the `MAYA_MODULE_PATH` environment variable to search and load modules like AdonisFX. In order to allow Maya to find AdonisFX, that environment variable has to include the path where the AdonisFX.mod file is located. 
 
 AdonisFX is distributed for Maya 2022, 2023 and 2024. If you have multiple Maya versions installed, make sure to [download](https://inbibo.co.uk/adonisfx/downloads) the right AdonisFX build and configure the environment to point to the right AdonisFX version. Remind that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
 
+### Configure Environment
+
 There are two different methods of configuring this variable: Setting the value in the `Maya.env` config file; or setting the value in the system to be permanent. In the following sections we explain these two methods for Windows and Linux.
 
-#### Configure Environment On Windows
+#### Method 1: Maya.env on Windows
 
-##### Method 1: Maya.env
+The Maya.env file is version dependent. It means that every instance of Maya will evaluate the environment file associated to its version.
 
-The Maya.env file is version dependent. It means that every instance of Maya will evaluate the environment file associated to its version. The default location of this file is `drive:/Users/username/Documents/maya/%MAYA_VERSION%`.
+The default location of this file is `drive:/Users/username/Documents/maya/%MAYA_VERSION%`.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Windows "Maya.env" file location.](/images/windows_maya_env_file_location.png)
@@ -32,34 +32,34 @@ Add this line making sure to specify the folder containing the AdonisFX.mod file
 
 `MAYA_MODULE_PATH = drive:/path/to/AdonisFX/folder`
 
-##### Method 2: Environment variables of the system
+#### Method 2: Environment variables of the system on Windows
 
-Open the System Properties window which can be found by searching for *environment variables* in the Windows search bar.
+1. Open the System Properties window which can be found by searching for *environment variables* in the Windows search bar.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Windows system properties.](/images/windows_system_properties.png)
   <figcaption><b>Figure 2</b>: System Properties window.</figcaption>
 </figure>
 
-Click on *Environment Variables* and a new window will pop showing all the environment variables configured at the system level and for the current user.
+2. Click on *Environment Variables* and a new window will pop showing all the environment variables configured at the system level and for the current user.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Windows environment variables.](/images/windows_environment_variables.png)
   <figcaption><b>Figure 3</b>: Environment variables of the system.</figcaption>
 </figure>
 
-Click on *New...* button for the level that you prefer (system or user) and configure `MAYA_MODULE_PATH` with the path containing the AdonisFX.mod file.
+3. Click on *New...* button for the level that you prefer (system or user) and configure `MAYA_MODULE_PATH` with the path containing the AdonisFX.mod file.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Windows add new environment variable.](/images/windows_add_new_env.png)
   <figcaption><b>Figure 4</b>: Configure MAYA_MODULE_PATH as new environment variable.</figcaption>
 </figure>
 
-#### Configure Environment On Linux
+#### Method 1: Maya.env on Linux
 
-##### Method 1: Maya.env
+The Maya.env file is version dependent. It means that every instance of Maya will evaluate the environment file associated to its version.
 
-The Maya.env file is version dependent. It means that every instance of Maya will evaluate the environment file associated to its version. The default location of this file is `~/maya/$MAYA_VERSION`.
+The default location of this file is `~/maya/$MAYA_VERSION`.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Linux "Maya.env" file location.](/images/linux_maya_env_file_location.png)
@@ -70,16 +70,16 @@ Add this line making sure to specify the folder containing the AdonisFX.mod file
 
 `MAYA_MODULE_PATH = drive:/path/to/AdonisFX/folder`
 
-##### Method 2: Environment variables of the system
+#### Method 2: Environment variables of the system on Linux
 
-From the terminal, open your preferred text editor to modify the file `~/.bashrc`.
+1. From the terminal, open your preferred text editor to modify the file `~/.bashrc`.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Linux edit bashrc file.](/images/linux_edit_environment.png)
   <figcaption><b>Figure 6</b>: Edit environment from the *~/.bashrc* file.</figcaption>
 </figure>
 
-Add the command to export the environment variable as shown in the image below.
+2. Add the command to export the environment variable as shown in the image below.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Linux configure environment variable.](/images/linux_add_new_env.png)
