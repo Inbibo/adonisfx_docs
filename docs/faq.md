@@ -26,7 +26,8 @@ Yes, you can simulate muscles, fascia and skin following these steps:
 
 - Configure every muscle geometry with an AdnMuscle deformer.
 - Combine all muscle geometries into a single geometry.
-- Configure the fascia with an AdnSkin deformer: Select the combined mesh, then the fascia and then create the skin deformer. It is recommended to use values of *Rest Length Multiplier* lower than 1.
+- Shrinkwrap the skin geometry to the combined muscles geometry to obtain the fascia geometry.
+- Configure the fascia with an AdnSkin deformer: Select the combined muscles geometry, then the fascia geometry and then create the skin deformer. It is recommended to use values of *Rest Length Multiplier* lower than 1.
 - Configure the skin with an AdnSkin deformer: Select the fascia, then the skin geo and then create the skin deformer.
 
 ## How can I simulate facial skin?
