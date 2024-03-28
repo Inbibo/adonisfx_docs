@@ -81,17 +81,19 @@ A different way of configuring the environment is setting an environment variabl
   2. At the end of the file add the following line and save the changes. `export MAYA_MODULE_PATH=$MAYA_MODULE_PATH:/path/to/AdonisFX/folder`.
   3. Close the terminal.
 
+##### Confirm enviroment variable (persistent)
+
 In order to confirm that your persistent variable is properly set, open a terminal and execute the following line.
 
 > [!NOTE = Check Environment Variable]
 >
 > === Windows
 >
-> `set MAYA_MODULE_PATH`.
+> `set MAYA_MODULE_PATH`
 >
 > === Linux
 >
-> `echo $MAYA_MODULE_PATH`.
+> `echo $MAYA_MODULE_PATH`
 
 The path to the AdonisFX.mod file should be printed.
 
