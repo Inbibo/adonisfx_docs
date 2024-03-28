@@ -27,12 +27,14 @@ The Maya.env file is version dependent. It means that every instance of Maya wil
 > `drive:/Users/username/Documents/maya/%MAYA_VERSION%`
 >
 > ![File location of "maya.env" file in Windows.](/images/maya_env_file_location_windows.png)
+> <b>Figure 1</b>: File location of "maya.env" file in Windows
 >
 > === Linux
 >
 > `~/maya/$MAYA_VERSION`
 >
 > ![File location of "maya.env" file in Linux.](/images/maya_env_file_location_linux.png)
+> <b>Figure 2</b>: File location of "maya.env" file in Linux
 
 
 Add this line to the file and AdonisFX module will be loaded the next time you launch Maya:
