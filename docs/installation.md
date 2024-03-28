@@ -17,8 +17,8 @@ AdonisFX is distributed for Maya 2022, 2023 and 2024. If you have multiple Maya 
 
 There are two different methods of configuring this variable:
 
-- Method 1: setting the value in the `Maya.env` config file
-- Method 2: setting the value in the system to be permanent
+- **Method 1**: setting the value in the `Maya.env` config file.
+- **Method 2**: setting the value in the system to be permanent.
 
 In the following sections we explain these two methods for Windows and Linux.
 
