@@ -26,13 +26,13 @@ The Maya.env file is version dependent. It means that every instance of Maya wil
 >
 > `drive:/Users/username/Documents/maya/%MAYA_VERSION%`
 >
-> ![File location of "maya.env" file in Windows.](/maya/images/maya_env_file_location_windows.png)
+> ![File location of "maya.env" file in Windows.](/images/maya_env_file_location_windows.png)
 >
 > === Linux
 >
 > `~/maya/$MAYA_VERSION`
 >
-> ![File location of "maya.env" file in Linux.](/maya/images/maya_env_file_location_linux.png)
+> ![File location of "maya.env" file in Linux.](/images/maya_env_file_location_linux.png)
 
 
 Add this line to the file and AdonisFX module will be loaded the next time you launch Maya:
@@ -49,21 +49,21 @@ A different way of configuring the environment is setting an environment variabl
   1. Use the Windows searcher and look for "Edit environment variables for your account". "Edit the system environment variables" would work too, permissions are needed in this case.
 
 <figure markdown>
-      ![Edit environment variables search](/maya/images/search_edit_env_variables.png)
+      ![Edit environment variables search](/images/search_edit_env_variables.png)
       <figcaption><b>Figure 3</b>: Searching for "Edit environment variables for your account" at Windows.</figcaption>
 </figure>
 
   2. New window will be displayed with the environment variables of the user. IF there is a variable "MAYA_MODULE_PATH" we will select it and press "Edit..." if not we will press "New...".
 
 <figure markdown>
-      ![environment variables window Windows](/maya/images/environment_variables_window_windows.png)
+      ![environment variables window Windows](/images/environment_variables_window_windows.png)
       <figcaption><b>Figure 4</b>: environment variable window at Windows.</figcaption>
 </figure>
 
   3. "MAYA_MODULE_PATH" has to be provided as the variable name and for the value the path to where the AdonisFX.mod file is located. Use of "Browse Directory..." might be useful.
 
 <figure markdown>
-      ![Create user environment variable window](/maya/images/new_user_variable_windows.png)
+      ![Create user environment variable window](/images/new_user_variable_windows.png)
       <figcaption><b>Figure 5</b>: Creating new user environment variable.</figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ A different way of configuring the environment is setting an environment variabl
   1. Open a terminal and with the preferred text editor manipulate the file "~/.bashrc".
 
 <figure markdown>
-      ![Edit bashrc file from terminal](/maya/images/terminal_edit_bashrc.png)
+      ![Edit bashrc file from terminal](/images/terminal_edit_bashrc.png)
       <figcaption><b>Figure 6</b>: Linux terminal openning a text editor to edit file ".bashrc".</figcaption>
 </figure>
 
