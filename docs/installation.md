@@ -35,6 +35,9 @@ In the following sections we explain these two methods for Windows and Linux.
 
 3. AdonisFX will be loaded the next time you launch Maya.
 
+> [!NOTE]
+> If you need to configure multiple paths, concatenate them separated by ";" character.
+
 #### Method 2 on Windows
 
 1. Open the System Properties window which can be found by searching for *environment variables* in the Windows search bar.
@@ -60,6 +63,9 @@ In the following sections we explain these two methods for Windows and Linux.
 
 4. AdonisFX will be loaded the next time you launch Maya.
 
+> [!NOTE]
+> If you need to configure multiple paths, concatenate them separated by ";" character.
+
 #### Method 1 on Linux
 
 1. The default location of `Maya.env` file is `~/maya/$MAYA_VERSION`.
@@ -73,6 +79,9 @@ In the following sections we explain these two methods for Windows and Linux.
 
 3. AdonisFX will be loaded the next time you launch Maya.
 
+> [!NOTE]
+> If you need to configure multiple paths, concatenate them separated by ":" character.
+
 #### Method 2 on Linux
 
 1. From the terminal, open your preferred text editor to modify the file `~/.bashrc`.
@@ -85,6 +94,9 @@ In the following sections we explain these two methods for Windows and Linux.
 </figure>
 
 3. AdonisFX will be loaded the next time you launch Maya.
+
+> [!NOTE]
+> If you need to configure multiple paths, concatenate them separated by ":" character.
 
 <!--
 ## Houdini
