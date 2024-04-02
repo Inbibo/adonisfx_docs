@@ -9,20 +9,19 @@ AdonisFX is distributed for Maya as a standard module. To install the module, pl
 3. Append the path to the destination folder to the `MAYA_MODULE_PATH` environment variable. Check the next sections for more information.
 4. Launch Maya and load AdonisFX from Windows > Settings/Preferences > Plug-in Manager.
 
-When Maya starts up, it evaluates all paths pointed by the `MAYA_MODULE_PATH` environment variable to search and load modules like AdonisFX. In order to allow Maya to find AdonisFX, that environment variable has to include the path where the `AdonisFX.mod` file is located. 
-
-AdonisFX is distributed for Maya 2022, 2023 and 2024. If you have multiple Maya versions installed, make sure to [download](https://inbibo.co.uk/adonisfx/downloads) the right AdonisFX build and configure the environment to point to the right AdonisFX version. Remind that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
-
-### Configure Environment
-
-There are two different methods of configuring this variable:
+When Maya starts up, it evaluates all paths pointed by the `MAYA_MODULE_PATH` environment variable to search and load modules like AdonisFX. In order to allow Maya to find AdonisFX, that environment variable has to include the path where the `AdonisFX.mod` file is located. There are two different methods of configuring this variable:
 
 - **Method 1**: setting the value in the `Maya.env` config file.
 - **Method 2**: setting the value in the system to be permanent.
 
 In the following sections we explain these two methods for Windows and Linux.
 
-#### Method 1 on Windows
+> [!NOTE]
+> AdonisFX is distributed for Maya 2022, 2023 and 2024. If you have multiple Maya versions installed, make sure to [download](https://inbibo.co.uk/adonisfx/downloads) the right AdonisFX build and configure the environment to point to the right AdonisFX version. Remind that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
+
+### Windows
+
+#### Method 1: Configure Maya.env
 
 1. The default location of `Maya.env` file is `drive:/Users/username/Documents/maya/%MAYA_VERSION%`.
 
@@ -38,7 +37,7 @@ In the following sections we explain these two methods for Windows and Linux.
 > [!NOTE]
 > If you need to configure multiple paths, concatenate them separated by ";" character.
 
-#### Method 2 on Windows
+#### Method 2: Configure System Environment
 
 1. Open the System Properties window which can be found by searching for *environment variables* in the Windows search bar.
 
@@ -66,7 +65,10 @@ In the following sections we explain these two methods for Windows and Linux.
 > [!NOTE]
 > If you need to configure multiple paths, concatenate them separated by ";" character.
 
-#### Method 1 on Linux
+
+### Linux
+
+#### Method 1: Configure Maya.env
 
 1. The default location of `Maya.env` file is `~/maya/$MAYA_VERSION`.
 
@@ -82,7 +84,7 @@ In the following sections we explain these two methods for Windows and Linux.
 > [!NOTE]
 > If you need to configure multiple paths, concatenate them separated by ":" character.
 
-#### Method 2 on Linux
+#### Method 2: Configure System Environment
 
 1. From the terminal, open your preferred text editor to modify the file `~/.bashrc`.
 
