@@ -13,7 +13,7 @@ AdonisFX also distinguishes between two *Licensing Types*:
 - **Interactive:** License type that allows the user to use AdonisFX from the graphical interface of the software where AdonisFX was loaded. This licensing type is intended for users that want to build scenes, manipulate and interact with AdonisFX using visual and interactive feedback.
 - **Batch:** License type that allows the user to use AdonisFX from a batch script or terminal without the ability to use the graphical interface for manipulating the software. This licensing type is intended for users that want to run AdonisFX from a terminal to for example render a scene on the farm after setting the scene up using an Interactive License.
 
-To be able to activate AdonisFX it is required to purchase a `PRODUCT KEY`. Product keys can be purchased through Inbibo's official [website](https://adonisfx.inbibo.co.uk/#prices). AdonisFX product keys have the following characteristics:
+To be able to activate AdonisFX it is required to purchase a `PRODUCT KEY`. Product keys can be purchased through Inbibo's official [website](https://inbibo.co.uk/adonisfx#prices). AdonisFX product keys have the following characteristics:
 
 - A `PRODUCT KEY` is associated to one single license type: Interactive or Batch. If the user wants to use AdonisFX both in Interactive and Batch mode, two separate product keys have to be purchased.
 - A product key consists of **28** alphanumeric characters separated by "-" which is provided to the user when purchasing AdonisFX through the website: `XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX`.
@@ -80,7 +80,7 @@ To activate AdonisFX in Node-Locked Batch mode:
 
 AdonisFX allows the user to use the product for **30 days** in Node-Locked Interactive mode. This means that the trial can be used using the graphical interface for one single machine at a time. The trial period requires activation which can be handled in an online or offline way.
 
-Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased through Inbibo's official [website](https://adonisfx.inbibo.co.uk/#prices) and activated. See the AdonisFX [End User License Agreement](https://inbibo.co.uk/adonisfx-maya-eula) for details.
+Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased through Inbibo's official [website](https://inbibo.co.uk/adonisfx#prices) and activated. See the AdonisFX [End User License Agreement](https://inbibo.co.uk/adonisfx-maya-eula) for details.
 
 **Online Trial Activation**
 
