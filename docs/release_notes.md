@@ -4,12 +4,12 @@
 
 ### Bug Fixes
 
-- Fixed a bug that was making Maya freeze if the playback cache enabled. *AdonisFX-1087*
-- Fixed a bug in the validation of floating licenses to allow to load the plugin without requiring admin privileges. *AdonisFX-724*
-- Fixed a bug that was preventing the licensing system was not able to locate the licensing configuration file properly. *AdonisFX-1072*
-- Fixed a bug in the activations debugger in AdnSimshape to support DG evaluation mode. *AdonisFX-1026*
-- Fixed the *Draw Fibers* and *Hide Fibers* menu actions to be undoable and to prevent affecting muscles that are debugging other features different to fibers. *AdonisFX-998*
-- Fixed the *Remove Attachments* buttons to prevent the user to remove attachments that are currently in used by the AdonisFX Paint Tool. *AdonisFX-999*
+- Fixed a bug that was making Maya freeze when creating an AdnSkin deformer with the playback cache enabled. *AdonisFX-1087*
+- Fixed a bug in the validation of floating licenses that was preventing to load the plugin without admin permissions. *AdonisFX-724*
+- Fixed a bug that was preventing the licensing system to locate the licensing configuration file properly in some cases. *AdonisFX-1072*
+- Fixed a bug in the AdnSimshape activations debugger to support DG evaluation mode. *AdonisFX-1026*
+- Fixed the *Draw Fibers* and *Hide Fibers* shortcuts to be undoable and avoid affecting muscles that are debugging other features different to fibers. *AdonisFX-998*
+- Fixed the *Remove Attachments* shortcut to prevent the user to remove attachments that are currently in use by the AdonisFX Paint Tool. *AdonisFX-999*
 - Fixed the AdnLocatorRotation to draw a valid angle shape if the three inputs (start, mid and end positions) are aligned. *AdonisFX-1000*
 - Fixed the importer tool to run a validation before creating a deformer whose minimum requirements can't be found in the scene. *AdonisFX-1001*
 
