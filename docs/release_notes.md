@@ -10,7 +10,7 @@
 - Fixed a bug in the AdnSimshape activations debugger to support DG evaluation mode. *AdonisFX-1026*
 - Fixed a bug in the importer tool where it was attempting to assign a string value to a matrix plug. *AdonisFX-1090*
 - Fixed the *Draw Fibers* and *Hide Fibers* shortcuts to be undoable and avoid affecting muscles that are debugging other features different to fibers. *AdonisFX-998*
-- Fixed the *Remove Attachments* shortcut to prevent the user to remove attachments that are currently in use by the AdonisFX Paint Tool. *AdonisFX-999*
+- Fixed the *Remove Attachments* and *Remove Slide On Segment Constraint* shortcuts to prevent the user to remove attachments and segments that are currently in use by the AdonisFX Paint Tool. *AdonisFX-999*
 - Fixed the AdnLocatorRotation to draw a valid angle shape if the three inputs (start, mid and end positions) are aligned. *AdonisFX-1000*
 - Fixed the importer tool to run a validation before creating a deformer whose minimum requirements can't be found in the scene. *AdonisFX-1001*
 
