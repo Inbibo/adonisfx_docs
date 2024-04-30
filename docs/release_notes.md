@@ -9,7 +9,7 @@
 
 ### Improvements
 
-- Extended the licensing tools to support Trial Extension requests. *AdonisFX-1108*
+- Extended the licensing system to support Trial Extension requests. *AdonisFX-1108*
 
 ## Version 1.0.1
 
