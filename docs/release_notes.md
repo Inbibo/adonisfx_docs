@@ -9,7 +9,7 @@
 
 ### Bug Fixes
 
-- Fixed a bug that was crashing Maya on startup if the plugin was configured to auto load with the license in trial period. *AdonisFX-1097*
+- Fixed a bug that was crashing Maya on startup if the plugin was configured to auto load during the trial period. *AdonisFX-1097*
 
 ## Version 1.0.1
 
