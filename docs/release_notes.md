@@ -2,14 +2,14 @@
 
 ## Version 1.0.2
 
-### Improvements
-
-- Optimized the debugger system to increase the performance especially in complex scenes with multiple deformers debugging information at the same time. *AdonisFX-1110*
-- Extended the licensing tools to support Trial Extension requests. *AdonisFX-1108*
-
 ### Bug Fixes
 
 - Fixed a bug that was crashing Maya on startup if the plugin was configured to auto load during the trial period. *AdonisFX-1097*
+- Fixed the debugger system where the performance was limited in complex scenes with multiple deformers debugging information at the same time. *AdonisFX-1110*
+
+### Improvements
+
+- Extended the licensing tools to support Trial Extension requests. *AdonisFX-1108*
 
 ## Version 1.0.1
 
