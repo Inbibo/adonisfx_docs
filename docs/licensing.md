@@ -32,22 +32,21 @@ Whenever activating AdonisFX for the first time for a specific DCC in interactiv
 To activate AdonisFX in Node-Locked Interactive mode:
   1. Launch Maya.
   2. Load the plug-in.
-  3. A dialog will show up with two options: **Activate** to enter a valid `PRODUCT KEY` in order to enable the full license; **Continue With Trial** to start or continue a 30 day trial period.
+  3. Go to AdonisFX Menu > *Activate License*. A dialog will show up with two options: *Activate* to enter a valid `PRODUCT KEY` in order to enable the full license; *Continue With Trial* to continue with the 30 day trial period.
 
 <figure style="width:80%; margin-left:10%" markdown>
       ![Activation Dialog](images/adn_activation_dialog.png)
       <figcaption><b>Figure 1</b>: Activation Dialog.</figcaption>
 </figure>
 
-    
-  4. Enter a valid product key in the text edit after selecting Activate.
+  4. Click on Activate. A dialog will show up to introduce a product key.
 
 <figure style="width:80%; margin-left:10%" markdown>
       ![Activation Add Product Key](images/adn_add_product_key_dialog.png)
       <figcaption><b>Figure 2</b>: Activation Add Product Key.</figcaption>
 </figure>
-
-  5. After entering a valid product key and pressing Activate a confirmation dialog will appear (Figure 3). If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to retry the activation (Figure 4).
+    
+  5. Enter the product key associated to your Interactive Node-Locked License. A confirmation dialog will appear (Figure 3). If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to retry the activation (Figure 4).
 
 <figure style="width:80%; margin-left:10%" markdown>
       ![Product Activated Dialog](images/adn_activated_product_key_dialog.png)
@@ -59,7 +58,7 @@ To activate AdonisFX in Node-Locked Interactive mode:
       <figcaption><b>Figure 4</b>: Activation Retry Adding Product Key.</figcaption>
 </figure>
 
-  6. AdonisFX is activated and ready to be used.
+  6. AdonisFX is activated. Restart Maya or reload the plugin to start using all features from AdonisFX.
 
 > [!NOTE]
 > - This activation mode requires access to the internet for activating licenses.
@@ -86,23 +85,7 @@ Trial licenses are intended for testing and non-commercial purposes. To use Adon
 
 It will allow the user to use AdonisFX for 30 days without providing a `PRODUCT KEY`. Once that trial period is over, the user will be asked to introduce a valid product key. If not provided, then AdonisFX will not load and could not be used.
 
-To activate AdonisFX in Online Node-Locked Interactive Trial mode:
-
-  1. Launch Maya.
-  2. Load the plug-in.
-  3. Select **Continue With Trial** from the activation dialog.
-
-<figure style="width:80%; margin-left:10%" markdown>
-        ![Activation Dialog](images/adn_activation_dialog.png)
-        <figcaption><b>Figure 9</b>: Activation Dialog.</figcaption>
-</figure>
-      
-  4. AdonisFX trial is activated and a dialog will inform about the amount of days left for the trial license.
-
-<figure style="width:30%; margin-left:10%" markdown>
-        ![Trial Dialog](images/adn_your_trial_expires_dialog.png)
-        <figcaption><b>Figure 10</b>: Trial Dialog.</figcaption>
-</figure>
+In this case, the activation does not require any input from the user. The trial period is registered automatically the first time that AdonisFX is loaded from a workstation with internet access.
 
 > [!NOTE]
 > This activation mode requires access to the internet.
