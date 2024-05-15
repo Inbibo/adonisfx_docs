@@ -4,7 +4,7 @@
 
 ### Bug Fixes
 
-- Fixed a bug that was making the muscle simulation failed in very specific scenarios due to a precision issue in the intialization of Slide On Segment constraints.
+- Fixed a bug that caused muscles simulation to fail in very specific scenarios due to a precision issue in the initialization of Slide On Segment constraints.
 
 ### Improvements
 
