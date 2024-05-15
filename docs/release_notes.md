@@ -1,5 +1,15 @@
 # Release Notes
 
+## Version 1.0.3
+
+### Bug Fixes
+
+- Fixed a bug that was making the muscle simulation failed in very specific scenarios due to a precision issue in the intialization of Slide On Segment constraints.
+
+### Improvements
+
+- Improved the initialization of Attachments and Slide On Segment constraints to update the painted maps after normalization only if needed.
+
 ## Version 1.0.2
 
 ### Bug Fixes
