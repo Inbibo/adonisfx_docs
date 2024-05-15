@@ -1,5 +1,15 @@
 # Release Notes
 
+## Version 1.0.3
+
+### Bug Fixes
+
+- Fixed a bug that caused muscles simulation to fail in very specific scenarios due to a precision issue in the initialization of Slide On Segment constraints. *AdonisFX-1138*
+
+### Improvements
+
+- Improved the update of painted maps for Attachments and Slide On Segment constraints at initialization. *AdonisFX-1136*
+
 ## Version 1.0.2
 
 ### Bug Fixes
