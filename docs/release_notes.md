@@ -1,5 +1,39 @@
 # Release Notes
 
+## Version 1.1.0
+
+### Bug Fixes
+
+- Filtered characters to get valid names for nodes and attributes since some special characters are not allowed in Maya for Linux. *AdonisFX-1033*
+- Fixed Python runtime error due to incorrect element selection on node creation. *AdonisFX-1031*
+- Fixed error messages not displaying the proper status of the AdnSimshape connections. *AdonisFX-1034*
+- Fixed exporter creating the AAD file when there is nothing to export or the only thing to export failed. *AdonisFX-1032*
+- Fixed manipulation of referenced nodes while using the AdonisFX paint tool. *AdonisFX-1147*
+- Fixed a bug that did not allow to add attachments on a AdnMuscle/AdnRibbonMuscle deformer created on referenced geometry. *AdonisFX-506*
+- Fixed a bug in the handling of the constraint weight arrays. *AdonisFX-1155*
+- Fixed a bug that caused geometry sliding constraints to not find valid triangles to slide on for some vertices in very specific scenarios. *AdonisFX-1165*
+- Fixed flood operation not working correctly for multi influence constraints. *AdonisFX-1146*
+
+### Improvements
+
+- Optimzed the initialization of the debugger improving the performance on scenes with many AdonisFX deformers. *AdonisFX-1167*
+
+### Features
+
+- Extended AdonisFX menu with *Documentation*, *Tutorials* and *About* sections. *AdonisFX-1095*
+- Added the ability to prevent the debugging of features if the geometry is not visible, hidden or isolated. *AdonisFX-802*
+- Added a warning dialog in AdnSkin when the *Max Sliding Distance* is considered too high for a mesh, which could freeze Maya. *AdonisFX-997*
+- Added the ability to debug the *Sliding Surface* in AdnSkin. *AdonisFX-997*
+- Added a warning dialog in AdnSimshape when the *Max Sliding Distance* is considered too high for a mesh, which could freeze Maya. *AdonisFX-466*
+- Added the ability to debug the *Sliding Surface* in AdnSimshape. *AdonisFX-466*
+- Added attachment to geometry constraints to AdnMuscle and AdnRibbonMuscle, allowing the muscle to be attached directly to the geometry of the bone. *AdonisFX-1081*
+- Added a new AdonisFX deformer in charge of merging the results given by skin simulation mesh and animation mesh into a final mesh. *AdonisFX-1103*
+- Added slide on geometry constraints to AdnMuscle and AdnRibbonMuscle, allowing the muscle to slide directly on the geometry of the bone. *AdonisFX-1140*
+- Added mass support for AdnMuscle and AndRibbonMuscle deformers, allowing better control to achieve the desired results. *AdonisFX-1079*
+- Added *Point Mass Mode* to AdonisFX deformers, which allows to specify either a mass per point or a density value from which point masses are computed. *AdonisFX-1079*
+- Added importer/exporter support for attachment to geometry and slide on geometry constraints. *AdonisFX-1142*
+- Added importer/exporter support for the AdnSkinMerge deformer. *AdonisFX-1142*
+
 ## Version 1.0.3
 
 ### Bug Fixes
