@@ -89,3 +89,6 @@ For more information visit the [licensing](licensing#install-server) page or vis
 
 ## I can't connect to my licensing server for floating licensing. What should I do?
 Make sure that your firewall configuration allows the connection and try using the `ping` command to check the connectivity. If the connection is valid but AdonisFX can't load, please contact support.
+
+## How can I transfer the results of skin simulation to the final mesh?
+Make use of the [AdnSkinMerge](maya/skin_merge) deformer to blend animated and simulated meshes into a single final mesh.

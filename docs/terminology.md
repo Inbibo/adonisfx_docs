@@ -58,3 +58,7 @@ Simshape or **AdnSimshape** is an AdonisFX solver for facial simulation. It allo
 
 Skin or **AdnSkin** is an AdonisFX solver for skin and fascia simulation. It allows to apply dynamics to the skin of a character to produce realistic effects like wrinkles.
 
+## Skin Merge
+
+Skin Merge or **AdnSkinMerge** is a Maya deformer to merge simulation and animation meshes into a single final mesh. It allows to select multiple animated and simulated skin geometries and dynamically blend their results.
+
