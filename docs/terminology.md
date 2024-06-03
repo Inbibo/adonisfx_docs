@@ -8,7 +8,9 @@ A JSON file containing the settings, paintable maps and input connections of all
 
 Constraints are rules that an AdonisFX solver applies during simulation to ensure that the relationship between elements involved in the simulation is maintained, such as distance between geometry points, distance between geometry points and external attachments, rig joints or external meshes, etc. The catalog of constraints is presented below.
 
-**Attachment Constraint**. An attachment constraint defines the relationship between a geometry point and an external transform object. During simulation, an attachment constraint will try to keep the geometry point at a constant location relative to the transform.
+**Attachment To Transform Constraint**. An attachment to transform constraint defines the relationship between a geometry point and an external transform object. During simulation, an attachment constraint will try to keep the geometry point at a constant location relative to the transform.
+
+**Attachment To Geometry Constraint**. An attachment to geometry constraint defines the relationship between a geometry point and an external mesh object. During simulation, an attachment constraint will try to keep the geometry point at a constant location relative to the closest point to the target geometry at rest.
 
 **Distance Constraint**. A distance constraint defines the relationship between two points of a geometry. During simulation, distance constraints will try to keep the edge lengths of the mesh at rest.
 

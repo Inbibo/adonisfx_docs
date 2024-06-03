@@ -79,7 +79,7 @@ In this case the proposed example is to simulate a biceps in an animated full bo
 
 ### Create Deformer
 
-To create the AdnMuscle deformer, select the two joints of the rig that form the shoulder and the elbow and then the mesh of the muscle. Then, press the ![AdnMuscle](images/adn_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Muscle*. This will assign the two selected joints as attachments to the muscle.
+To create the AdnMuscle deformer, select the two joints of the rig that form the shoulder and the elbow and then the mesh of the muscle. Then, press the ![AdnMuscle](images/adn_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Muscle*. This will assign the two selected joints as transform attachments to the muscle.
 
 <figure>
   <img src="images/setup_muscle_1.png"> 
@@ -99,16 +99,16 @@ Optionally, add Slide On Segment Constraints. This constraint type is recommende
 
 Once the AdnMuscle deformer is properly created it is possible now to paint its weights to correctly setup the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
 
-Start by painting attachment weights, painting the influence for each attachment by selecting the corresponding attachment from the list and painting its desired influence.  
+Start by painting transform attachment weights, painting the influence for each target by selecting the corresponding target from the list and painting its desired influence.
 
 <figure>
   <img src="images/setup_muscle_3.png"> 
-  <figcaption><b>Figure 10</b>: Attachment influence for joint 1.</figcaption>
+  <figcaption><b>Figure 10</b>: Transform Attachment influence for joint 1.</figcaption>
 </figure>
 
 <figure>
   <img src="images/setup_muscle_4.png"> 
-  <figcaption><b>Figure 11</b>: Attachment influence for joint 2.</figcaption>
+  <figcaption><b>Figure 11</b>: Transform Attachment influence for joint 2.</figcaption>
 </figure>
 
 Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from the *Attribute* enumerator and paint over the parts of the muscle that should have tendon tissue.
@@ -174,7 +174,7 @@ In this case a planar muscle will be simulated corresponding to a biceps, which 
 
 ### Create Deformer
 
-Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the attachments (shoulder and elbow joints) and then the mesh to deform (the biceps muscle) and then pressing the ![AdnRibbonMuscle](images/adn_ribbon_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Ribbon Muscle*.
+Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the targets (shoulder and elbow joints) and then the mesh to deform (the biceps muscle) and then pressing the ![AdnRibbonMuscle](images/adn_ribbon_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Ribbon Muscle*.
 
 <figure>
   <img src="images/setup_ribbon_muscle_1.png"> 
@@ -194,16 +194,16 @@ Optionally, add Slide On Segment Constraints. This constraint type is recommende
 
 Once the muscle deformer is properly created it is possible now to paint its weights to correctly setup the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
 
-Start by painting attachment weights, painting the influence for each attachment by selecting the corresponding attachment from the list and painting its desired influence.  
+Start by painting tranform attachment weights, painting the influence for each target by selecting the corresponding target from the list and painting its desired influence.
 
 <figure>
   <img src="images/setup_ribbon_muscle_4.png"> 
-  <figcaption><b>Figure 20</b>: Attachment influence for joint 1.</figcaption>
+  <figcaption><b>Figure 20</b>: Transform Attachment influence for joint 1.</figcaption>
 </figure>
 
 <figure>
   <img src="images/setup_ribbon_muscle_5.png"> 
-  <figcaption><b>Figure 21</b>: Attachment influence for joint 2.</figcaption>
+  <figcaption><b>Figure 21</b>: Transform Attachment influence for joint 2.</figcaption>
 </figure>
 
 Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from the *Attribute* enumerator and painting over the parts of the muscle to represent tendon tissue.
