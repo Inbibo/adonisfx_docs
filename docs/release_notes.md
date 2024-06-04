@@ -1,5 +1,11 @@
 # Release Notes
 
+## Version 1.0.4
+
+### Bug Fixes
+
+- Updated thirdparty libraries to fix a bug in the licensing system that was preventing the activation of the product in some cases. *AdonisFX-1185*
+
 ## Version 1.0.3
 
 ### Bug Fixes
