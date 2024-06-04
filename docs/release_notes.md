@@ -4,7 +4,7 @@
 
 ### Bug Fixes
 
-- Updated thirdparty libraries to fix a bug in the licensing system that was preventing the activation of the product in some cases. *AdonisFX-1185*
+- Updated thirdparty libraries to address a problem in the licensing system that raised the Server Error Code 28 and prevented the activation of the product. *AdonisFX-1185*
 
 ## Version 1.0.3
 
