@@ -337,18 +337,18 @@ The AdnSkinMerge deformer will get applied to the final mesh which will combine 
 
 To create the AdnSkinMerge deformer press the ![AdnSkinMerge](images/adn_skin_merge.png){style="width:4%"} shelf button or go to *AdonisFX Menu* > *Deformers* (on the *Create* group) > *Skin Merge*.
 
-With this action the Create Skin Merge UI will open, allowing to add all the required elements to create the deformer. To add the required meshes select the mesh in the scene and press the corresponding "Add Selected" button. You may also set up a custom name and initialization time in this window before creating the deformer.
+With this action the Create Skin Merge UI will open, allowing to add all the required elements to create the deformer. To add the required meshes select the mesh in the scene and press the corresponding *Add Selected* button. You may also set up a custom name and initialization time in this window before creating the deformer.
 
-When everything has been properly set up, press the "Create" button to create the AdnSkinMerge deformer.
+When everything has been properly set up, press the *Create* button to create the AdnSkinMerge deformer.
 
 <figure>
   <img src="images/setup_skin_merge_1.png"> 
-  <figcaption><b>Figure 33</b>: *Create Skin Merge* window with corresponding meshes added.</figcaption>
+  <figcaption><b>Figure 33</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
 </figure>
 
 ### Paint Weights
 
-Once we have the AdnSkinMerge deformer created we will want to paint its weights to establish how we want the animation and simulation meshes to blend in the final mesh. Similar to Simshape, this deformer makes use of the Maya Paint tool to setup and paint its paintable weight attributes.
+Once we have the AdnSkinMerge deformer created we will paint its weights to blend the animation and simulation meshes into the final mesh. Similar to AdnSimshape, this deformer uses the Maya Paint tool to setup and paint its paintable weight attributes.
 
 With this deformer we will paint the *Blend* attribute with high values over the areas where we want the simulated meshes results to be more visible.
 
@@ -359,4 +359,4 @@ In areas near the edges between the simulation and animation meshes, paint with 
   <figcaption><b>Figure 34</b>: Blend weights painted map.</figcaption>
 </figure>
 
-With this basic paint setup the AdnSkinMerge deformer will now show the results of skin simulation transfered to the final mesh.
+With this basic paint setup the AdnSkinMerge deformer will now show the results of skin simulation transferred to the final mesh.
