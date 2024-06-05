@@ -14,10 +14,6 @@
 - Fixed a bug that caused geometry sliding constraints to not find valid triangles to slide on initialization. *AdonisFX-1165*
 - Fixed paint flood operation not working correctly for multi influence constraints. *AdonisFX-1146*
 
-### Improvements
-
-- Added *Refresh Debugger* utility to the AdonisFX menu to create missing debug nodes and connections. *AdonisFX-1171*
-
 ### Features
 
 - Extended AdonisFX menu with *Documentation*, *Tutorials* and *About* sections. *AdonisFX-1095*
@@ -30,6 +26,7 @@
 - Added mass support for AdnMuscle and AndRibbonMuscle deformers, allowing better control to achieve the desired results. *AdonisFX-1079*
 - Added *Point Mass Mode* to AdonisFX deformers, which allows to specify either a mass per point or a density value from which point masses are computed. *AdonisFX-1079*
 - Added importer/exporter support for AdnSkinMerge deformer and new constraints: attachment to geometry and slide on geometry. *AdonisFX-1142*
+- Added *Refresh Debugger* utility to the AdonisFX menu to create missing debug nodes and connections. *AdonisFX-1171*
 
 ## Version 1.0.3
 
@@ -107,6 +104,3 @@
 
 - The *Max Sliding Distance* parameter in AdnSkin and AdnSimshape is represented in scene units. The higher this value is, the more units in the space the sliding constraint allows a vertex to slide on. If the polygons of the target geometry to slide on are very little compared to that value, then the sliding constraint will be time and memory consuming. *AdonisFX-997*
 - The activations debugger in AdnSimshape is limited to the Parallel and Serial evaluation modes. *AdonisFX-1026*
-- Enabling and disabling fibers display from the AdonisFX menu does not restore the previous status of the debug settings of the affected deformers. *AdonisFX-998*
-- The AdonisFX Paint Tool does not refresh the painted maps if the attachments or the slide on segment constraints are removed while the tool is opened. Restarting the tool is needed. *AdonisFX-999*
-- The Importer tool creates and configures the deformers assuming that all the required inputs exist in the scene. If any of those is not found (e.g. target mesh in AdnSkin), they have to be reassigned to an existing object manually. *AdonisFX-1001*
