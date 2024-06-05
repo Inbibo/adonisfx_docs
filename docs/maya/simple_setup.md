@@ -114,7 +114,7 @@ Once the AdnMuscle deformer is properly created it is possible now to paint its 
 Start by painting attachment weights, painting the influence for each target by selecting the corresponding target from the list and painting its desired influence.
 
 > [!NOTE]
-> In this example the influence painting for both types of attachment constraint is shown. The different types of attachments can be used together or not depending in the needs of the simulation and the rig available.
+> In this example the influence painting for both types of attachment constraint is shown. The different types of attachments can be used together or not depending on the needs of the simulation and the rig setup.
 
 <figure>
   <img src="images/setup_muscle_paint_transform_attach.png">
@@ -224,7 +224,7 @@ Once the ribbon muscle deformer is properly created it is possible now to paint 
 Start by painting attachment weights, painting the influence for each target by selecting the corresponding target from the list and painting its desired influence.
 
 > [!NOTE]
-> In this example the influence painting for both types of attachment constraint is shown. The different types of attachments can be used together or not depending in the needs of the simulation and the rig available.
+> In this example the influence painting for both types of attachment constraint is shown. The different types of attachments can be used together or not depending on the needs of the simulation and the rig setup.
 
 <figure>
   <img src="images/setup_ribbon_muscle_paint_transform_attach.png">

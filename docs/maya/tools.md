@@ -50,7 +50,7 @@ In the specific case of muscle deformers, the too will display the following att
 </figure>
 
   - **Attachments To Transforms** and **Attachments To Geometry**
-    - If any of this attribute types are selected, then a list widget is shown with the names of the targets connected to the deformer (Figure 7).
+    - If any of this attribute types is selected, then a list widget is shown with the names of the targets connected to the deformer (Figure 7).
     - Select the desired target to paint from the list widget and paint the weight values.
     - When selecting a target in the list, the object will also get selected in the scene, facilitating its identification.
     - If more than one target was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all attachment constraint weights in a vertex will always add up to a maximum value of 1.0.
