@@ -35,7 +35,7 @@ The process to create an AdnSkinMerge deformer is:
 
 4. Set a custom name to the deformer and specify the initialization time.
 
-5. Press the "Create" button and a message box will notify you that AdnSkinMerge has been created properly. The final mesh will follow the animation mesh inputs by default.
+5. Press the *Create* button and a message box will notify you that AdnSkinMerge has been created properly. The final mesh will follow the animation mesh inputs by default.
 
 6. To modulate the influence of the simulation mesh inputs, use the maya paintable context and customize the blend weights map.
 

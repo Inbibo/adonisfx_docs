@@ -323,8 +323,8 @@ In the attribute editor of the AdnSimshape deformer, under the *Muscles Activati
 To create a basic scenario using the AdnSkinMerge deformer, start with a scene with the following elements:
 
   - One or more animation meshes with deformation.
-  - A skin mesh with an AdnSkin deformer applied and configured.
   - One or more simulation meshes, for example with an AdnSkin deformer applied and properly configured.
+   - A final mesh without animation or deformation.
 
 The AdnSkinMerge deformer will get applied to the final mesh which will  be the result of blending the animation and simulation meshes.
 
