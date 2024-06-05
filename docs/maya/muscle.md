@@ -19,7 +19,7 @@ An AdnMuscle requires the following inputs to be provided:
 To create an AdnMuscle, follow these steps:
 
 1. Select the **Targets** (if any), then the **Muscle Geometry**.
-2. Press the ![Muscle button](images/adn_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Muscle* in the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press the ![Muscle button](images/adn_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Muscle* in the AdonisFX menu *Solvers* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnMuscle is ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes

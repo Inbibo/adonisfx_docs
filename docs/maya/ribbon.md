@@ -19,7 +19,7 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 Follow this steps to create an AndRibbonMuscle deformer:
 
 1. Select the **Targets** (if any) and the **Muscle Geometry** in that order.
-2. Press the ![AdnRibbonMuscle button](images/adn_ribbon_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Ribbon Muscle* in the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press the ![AdnRibbonMuscle button](images/adn_ribbon_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Ribbon Muscle* in the AdonisFX menu *Solvers* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnRibbonMuscle is ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
