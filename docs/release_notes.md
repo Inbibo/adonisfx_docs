@@ -34,6 +34,12 @@
 - Fixed a bug that caused geometry sliding constraints to not find valid triangles to slide on initialization. *AdonisFX-1165*
 - Fixed paint flood operation not normalizing the weights properly. *AdonisFX-1146*
 
+## Version 1.0.4
+
+### Bug Fixes
+
+- Updated third party libraries to address a problem in the licensing system that raised the Server Error Code 28 and prevented the activation of the product. *AdonisFX-1182*
+
 ## Version 1.0.3
 
 ### Bug Fixes
