@@ -322,11 +322,11 @@ In the attribute editor of the AdnSimshape deformer, under the *Muscles Activati
 
 To create a basic scenario using the AdnSkinMerge deformer, start with a scene with the following elements:
 
-  - An animation mesh with deformation.
+  - One or more animation meshes with deformation.
   - A skin mesh with an AdnSkin deformer applied and configured.
-  - A final mesh without animation or deformation.
+  - One or more simulation meshes, for example with an AdnSkin deformer applied and properly configured.
 
-The AdnSkinMerge deformer will get applied to the final mesh which will combine the animation and simulation meshes.
+The AdnSkinMerge deformer will get applied to the final mesh which will  be the result of blending the animation and simulation meshes.
 
 <figure>
   <img src="images/setup_skin_merge_0.png"> 
@@ -337,7 +337,7 @@ The AdnSkinMerge deformer will get applied to the final mesh which will combine 
 
 To create the AdnSkinMerge deformer press the ![AdnSkinMerge](images/adn_skin_merge.png){style="width:4%"} shelf button or go to *AdonisFX Menu* > *Deformers* (on the *Create* group) > *Skin Merge*.
 
-With this action the Create Skin Merge UI will open, allowing to add all the required elements to create the deformer. To add the required meshes select the mesh in the scene and press the corresponding *Add Selected* button. You may also set up a custom name and initialization time in this window before creating the deformer.
+With this action the Create Skin Merge UI will open, allowing to add all the required elements to create the deformer. To add the required meshes select the mesh in the scene and press the corresponding *Add Selected* button. You may also set up a custom name and initialization time in this window before creating the deformer. Make sure the initialization time corresponds to the start time where all the geometries are in rest pose.
 
 When everything has been properly set up, press the *Create* button to create the AdnSkinMerge deformer.
 
@@ -348,11 +348,11 @@ When everything has been properly set up, press the *Create* button to create th
 
 ### Paint Weights
 
-Once we have the AdnSkinMerge deformer created we will paint its weights to blend the animation and simulation meshes into the final mesh. Similar to AdnSimshape, this deformer uses the Maya Paint tool to setup and paint its paintable weight attributes.
+Once we have the AdnSkinMerge deformer created we will paint its weights to blend the animation and simulation meshes into the final mesh.
 
-With this deformer we will paint the *Blend* attribute with high values over the areas where we want the simulated meshes results to be more visible.
+The *Blend* attribute represents the level of influence of the simulated mesh: a value of 0.0 makes the vertices follow the animated inputs while a value of 1.0 makes the vertices follow the simulated inputs.
 
-In areas near the edges between the simulation and animation meshes, paint with medium values for a better transition between meshes. We must be cautious not to paint outside the limits of the simulation meshes.
+To have a smooth transition from the simulated mesh to the animated mesh, smooth the painting in the areas near the the edges between the simulation and animation meshes.
 
 <figure>
   <img src="images/setup_skin_merge_2.png"> 

@@ -1,6 +1,6 @@
 # AdnSkinMerge
 
-AdnSkinMerge is a Maya deformer to merge animation geometries with the results provided by AdnSkin. This deformer allows for the merging of several animation and simulation meshes into a single final mesh.
+AdnSkinMerge is a Maya deformer to blend animation and simulation together. It allows for the merging of several animation and simulation meshes into a single final mesh.
 
 The influence simulation or animation meshes will have on the final mesh can be freely painted and modified by painting a blend weights map.
 
@@ -16,23 +16,33 @@ To create an AdnSkinMerge deformer within a Maya scene, the following inputs mus
 
 The process to create an AdnSkinMerge deformer is:
 
-1. Press ![Skin merge button](images/adn_skin_merge.png){style="width:4%"} in the AdonisFX shelf or *Skin Merge* in the AdonisFX menu, under the *Deformers* submenu in the *Create* section.
-2. The following UI will get displayed. From here the required meshes for the deformer will be selected and added. At least one mesh must be added in each field to be able to create the deformer. A custom name and initialization time can also be set in this UI.
-    - To add meshes to any list, select the meshes in the scene and click the respecitve *Add Selected* button.
-    - If you wish to remove a single element from the list, select it in the Skin Merge UI and press the *Remove Selected* button.
-    - You may also clear any list fully by pressing the respective *Clear* button.
+1. Press ![Skin merge button](images/adn_skin_merge.png){style="width:4%"} in the AdonisFX shelf or *Skin Merge* in the AdonisFX menu, under the *Deformers* submenu in the *Create* section to open the following UI.
 
 <figure markdown>
   ![create skin merge UI](images/create_skin_merge.png) 
   <figcaption><b>Figure 1</b>: Create Skin Merge UI.</figcaption>
 </figure>
 
-3. Once everything has been set up, press the "Create" button. A message box will notify you that AdnSkinMerge has been created properly, meaning that the meshes have been merged into the final mesh. However, the final mesh will follow only the animation meshes by default, go to the [paintable weights](#paintable-weights) section to see how to add influence from the simulated meshes.
+2. With the UI open select the final mesh in the scene and press the *Add Selected* button in the *Final Mesh* section.
 
-Once we have an AdnSkinMerge deformer created, if we wish to modify its input meshes (be it the Animation Mesh List, the Simulation Mesh List or both) we may follow this process:
+3. Add the animation and simulation meshes taking into consideration the following requirements:
+    - At least one mesh must be added in each field.
+    - To add meshes to any list, select the meshes in the scene and click the respecitve *Add Selected* button.
+    - Adding the same mesh twice to a list is not supported.
+    - Adding the same mesh as a Simulation Mesh and as an Animation Mesh is not adviced but it is supported.
+    - If you wish to remove a single element from the list, select it in the Skin Merge UI and press the Remove Selected button.
+    - You may also clear any list fully by pressing the respective Clear button.
+
+4. Set a custom name to the deformer and specify the initialization time.
+
+5. Press the "Create" button and a message box will notify you that AdnSkinMerge has been created properly. The final mesh will follow the animation mesh inputs by default.
+
+6. To modulate the influence of the simulation mesh inputs, use the maya paintable context and customize the blend weights map.
+
+Once we have an AdnSkinMerge deformer created, if we wish to modify its input meshes (animation mesh list, simulation mesh list or both) we may follow this process:
 
 1. Go to *Deformers > Skin Merge* in the AdonisFX menu, under the *Edit* section.
-2. The following UI will get displayed. Here you will see listed the current animation and simulation meshes the deformer has connected. From this UI you may freely add or remove from either list (at least one element must be present in each list to be able to apply the changes). 
+2. The following UI will get displayed. Here you will see listed the current animation and simulation meshes the deformer has connected. From this UI you may freely add or remove from either list Note that at least one element must be present in each list to be able to apply the changes. 
 
 <figure markdown>
   ![edit skin merge UI](images/edit_skin_merge.png) 
@@ -47,6 +57,7 @@ Once we have an AdnSkinMerge deformer created, if we wish to modify its input me
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Initialization Time** | Time | *Current frame* | ✗ | Sets the frame at which the deformer will be initialized. |
+| **Envelope**            | Float | 1.0 | ✗ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
 ## Attribute Editor Template
 
@@ -59,6 +70,7 @@ Once we have an AdnSkinMerge deformer created, if we wish to modify its input me
 | Name | Default | Description |
 | :--- | :------ | :---------- |
 | **Blend**       | 0.0 | Weight to modulate the influence the simulation meshes have over the animation meshes. Higher values will add more influence of the simulation meshes over the final mesh.<ul><li>*Tip*: Paint only over areas where animation and simulation meshes overlap.</li></ul> |
+| **Weight**      | 1.0 | Default weight attribute to determine the influence of the deformer over the input geometry. |
 
 <figure markdown>
   ![AdnSkinMerge editor](images/skin_merge_blend_weights.png)
