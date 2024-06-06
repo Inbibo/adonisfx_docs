@@ -35,7 +35,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![Create AdnMuscle](images/adn_muscle.png) | Creates AdnMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as attachment objects. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Muscle* |
 | ![Add Targets](images/adn_add_target.png) | Assigns target objects to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Targets* |
 | ![Remove Targets](images/adn_remove_target.png) | Removes target objects assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Targets* |
-| ![Add Slide On Segment](images/adn_add_sliding_constraint.png) | Adds slide segments based on the two (or more) transform objects and the mesh with the deformer node applied (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). This mesh must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Slide On Segment* |
+| ![Add Slide On Segment](images/adn_add_sliding_constraint.png) | Adds slide segments based on the two (or more) transform objects and the mesh with the deformer node applied (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Slide On Segment* |
 | ![Remove Slide On Segment](images/adn_remove_sliding_constraint.png) | Removes slide segments assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Slide On Segment* |
 |||
 | ![Importer Tool](images/adn_importer.png) | Launches the Importer to load and create nodes from an AdonisFX Asset Definition file (.JSON). | AdonisFX Menu > Tools *Importer* |
@@ -80,32 +80,32 @@ In Nodes section, there is a menu item to create an AdnEdgeEvaluator node.
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Edit AdnSimshape](images/adonis_menu_nodes.png)
-  <figcaption><b>Figure 8</b>: AdonisFX Menu Create Nodes section.</figcaption>
+  <figcaption><b>Figure 6</b>: AdonisFX Menu Create Nodes section.</figcaption>
 </figure>
 
 #### Deformers
 
-In the Deformers section, there is a menu item to open the UI to create an AdnSkinMerge node.
+In the Deformers section, there is a menu item to open AdnSkinMerge node creation UI.
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Solvers](images/adonis_menu_deformers.png)
-  <figcaption><b>Figure 3</b>: AdonisFX Menu Create Deformers section.</figcaption>
+  ![AdonisFX Menu Create Deformers](images/adonis_menu_deformers.png)
+  <figcaption><b>Figure 7</b>: AdonisFX Menu Create Deformers section.</figcaption>
 </figure>
 
 #### Solvers
 
-In the Deformers section, there are all options to create AdonisFX simulation deformer nodes.
+In the Solvers section, there are all options to create AdonisFX simulation deformer nodes.
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Create Solvers](images/adonis_menu_solvers.png)
-  <figcaption><b>Figure 3</b>: AdonisFX Menu Create Solvers section.</figcaption>
+  <figcaption><b>Figure 8</b>: AdonisFX Menu Create Solvers section.</figcaption>
 </figure>
 
 Option boxes can be used to launch a UI to assign the name to the deformer and configure generic solver parameters.
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX AdnSkin Deformer Creator](images/adn_skin_deformer_creator.png)
-  <figcaption><b>Figure 6</b>: Deformer Creator UI creating for an AdnSkin deformer.</figcaption>
+  <figcaption><b>Figure 9</b>: Deformer Creator UI creating for an AdnSkin deformer.</figcaption>
 </figure>
 
 ### Edit Section
@@ -114,7 +114,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Edit Sensors](images/adonis_menu_connection_editor.png)
-  <figcaption><b>Figure 7</b>: AdonisFX Menu Edit Sensors section.</figcaption>
+  <figcaption><b>Figure 10</b>: AdonisFX Menu Edit Sensors section.</figcaption>
 </figure>
 
 - **Connection Editor**. Launches the Sensors Connection Editor UI. This tool will assist with the connectivity of the locators and sensors output plugs with the AdonisFX deformer nodes.
@@ -123,16 +123,16 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Create Solvers](images/adonis_menu_edit_deformers.png)
-  <figcaption><b>Figure 3</b>: AdonisFX Menu Edit Deformers section.</figcaption>
+  <figcaption><b>Figure 11</b>: AdonisFX Menu Edit Deformers section.</figcaption>
 </figure>
 
-- **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the edition of simulation and animation meshes lists. To open this UI a mesh with the AdnSkinMerge must be selected.
+- **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the edition of simulation and animation meshes lists of an AdnSkinMerge deformer. To open this UI a mesh with the AdnSkinMerge must be selected.
 
 #### Simshape
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Edit AdnSimshape](images/adonis_menu_simshape.png)
-  <figcaption><b>Figure 8</b>: AdonisFX Menu Edit AdnSimshape section.</figcaption>
+  <figcaption><b>Figure 12</b>: AdonisFX Menu Edit AdnSimshape section.</figcaption>
 </figure>
 
 - **Learn Muscle Patches UI**. Launches the Learn Muscle Patches UI required to generate the *AdonisFX Muscle Patches* (.amp) file.
@@ -155,7 +155,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Edit Muscle](images/adonis_menu_muscle.png)
-  <figcaption><b>Figure 9</b>: AdonisFX Menu Edit Muscle section.</figcaption>
+  <figcaption><b>Figure 13</b>: AdonisFX Menu Edit Muscle section.</figcaption>
 </figure>
 
 - **Add Targets**. Adds target objects to the selected muscle. The mesh with the deformer applied must be the last element in the selection.
@@ -168,8 +168,8 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Debug
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Solvers](images/adonis_menu_debug.png)
-  <figcaption><b>Figure 3</b>: AdonisFX Menu Debug section.</figcaption>
+  ![AdonisFX Menu Debug Section](images/adonis_menu_debug.png)
+  <figcaption><b>Figure 14</b>: AdonisFX Menu Debug section.</figcaption>
 </figure>
 
 - **Refresh Debugger**. Refreshes the scene graph for debugging purposes by making sure the AdnDataNode and the AdnDebugLocator exist in the scene and are properly connected.
@@ -183,7 +183,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 ### License section
 
-- **Activate License**. Launches a dialog to activate an AdonisFX license or the trial period if the license hasn't been activated.
+- **Activate License**. Launches a dialog to activate an AdonisFX license or the trial period if the license is not activated.
 
 ### Help section
 
