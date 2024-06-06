@@ -1,5 +1,11 @@
 # Release Notes
 
+## Version 1.0.4
+
+### Bug Fixes
+
+- Updated third party libraries to address a problem in the licensing system that raised the Server Error Code 28 and prevented the activation of the product. *AdonisFX-1182*
+
 ## Version 1.0.3
 
 ### Bug Fixes
