@@ -110,4 +110,5 @@ nav:
       - AdnRibbonMuscle     : maya/ribbon.md
       - AdnSimshape         : maya/simshape.md
       - AdnSkin             : maya/skin.md
+      - AdnSkinMerge        : maya/skin_merge.md
       - AdnEdgeEvaluator    : maya/edge_evaluator.md

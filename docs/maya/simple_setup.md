@@ -61,7 +61,7 @@ Finally, select the *Sliding Distance Multiplier* attribute and paint weights to
 
 The order of painting is important because after every stroke a normalization of weights soft, hard and slide is performed to ensure that the sum is less or equal to 1.0. In this example, after painting *Slide Constraints*, both *Hard Constraints* and *Soft Constraints* will update reducing their respective values in the areas painted with maximum sliding.
 
-With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the reference target mesh. However, the possible parameters and tweaks to dis☻play high fidelity dynamics can be seen in the documentation for [AdnSkin](skin).
+With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the reference target mesh. However, the possible parameters and tweaks to display high fidelity dynamics can be seen in the documentation for [AdnSkin](skin).
 
 ## AdnMuscle
 
@@ -317,3 +317,46 @@ Refer to this [section](simshape#muscle-activations) to see how to use Muscle Pa
 </figure>
 
 In the attribute editor of the AdnSimshape deformer, under the *Muscles Activation* section, the *Plug Values* will be enabled as a new valid *Activation Mode* option. To better visualize activations, press the ![AdnMuscle](images/adn_simshape_debugger.png){style="width:4%"} shelf button or go to AdonisFX Menu > Simshape (on the *Edit* group) > *Activations Debugger*.
+
+## AdnSkinMerge
+
+To create a basic scenario using the AdnSkinMerge deformer, start with a scene with the following elements:
+
+  - One or more animation meshes with deformation.
+  - One or more simulation meshes, for example with an AdnSkin deformer applied and properly configured.
+   - A final mesh without animation or deformation.
+
+The AdnSkinMerge deformer will get applied to the final mesh which will  be the result of blending the animation and simulation meshes.
+
+<figure>
+  <img src="images/setup_skin_merge_0.png"> 
+  <figcaption><b>Figure 32</b>: Basic setup for skin merge. Meshes isolated for better visualization. From left to right: Final Mesh, Animation Mesh, Simulation Mesh.</figcaption>
+</figure>
+
+### Create Deformer
+
+To create the AdnSkinMerge deformer press the ![AdnSkinMerge](images/adn_skin_merge.png){style="width:4%"} shelf button or go to *AdonisFX Menu* > *Deformers* (on the *Create* group) > *Skin Merge*.
+
+With this action the Create Skin Merge UI will open, allowing to add all the required elements to create the deformer. To add the required meshes select the mesh in the scene and press the corresponding *Add Selected* button. You may also set up a custom name and initialization time in this window before creating the deformer. Make sure the initialization time corresponds to the start time where all the geometries are in rest pose.
+
+When everything has been properly set up, press the *Create* button to create the AdnSkinMerge deformer.
+
+<figure>
+  <img src="images/setup_skin_merge_1.png"> 
+  <figcaption><b>Figure 33</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
+</figure>
+
+### Paint Weights
+
+Once we have the AdnSkinMerge deformer created we will paint its weights to blend the animation and simulation meshes into the final mesh.
+
+The *Blend* attribute represents the level of influence of the simulated mesh: a value of 0.0 makes the vertices follow the animated inputs while a value of 1.0 makes the vertices follow the simulated inputs.
+
+To have a smooth transition from the simulated mesh to the animated mesh, smooth the painting in the areas near the the edges between the simulation and animation meshes.
+
+<figure>
+  <img src="images/setup_skin_merge_2.png"> 
+  <figcaption><b>Figure 34</b>: Blend weights painted map.</figcaption>
+</figure>
+
+With this basic paint setup the AdnSkinMerge deformer will now show the results of skin simulation transferred to the final mesh.
