@@ -11,7 +11,7 @@ The **AdonisFX Paint Tool** is meant to be used for the manipulation of the pain
   <figcaption><b>Figure 5</b>: AdonisFX Paint Tool</figcaption>
 </figure>
 
-The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. After every stroke, the internal logic processes the painted map and updates all dependent maps to keep the configuration of the solver safe. For example, if we paint the influence of one target of an AdnMuscle which has two targets assigned, then the tool will update the weights of the other target to ensure that the addition of both is normalized at each vertex. The same applies if we paint hard constraints of an AdnSkin deformer: the soft and slide constraints maps will be updated internally to keep the addition of the three maps normalized. Thanks to this logic, switching attributes (see Figure 7) or selecting influences (see Figure 8) from the AdonisFX Paint Tool provides automatic feedback to the user of the current status of all the maps.
+The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. After every stroke, the internal logic processes the painted map and updates all dependent maps to keep the configuration of the solver safe. For example, if we paint the influence of one target of an AdnMuscle which has two targets assigned, then the tool will update the weights of the other target to ensure that the addition of both is normalized at each vertex (the normalization process is independent for transform and geometry targets). The same applies if we paint hard constraints of an AdnSkin deformer: the soft and slide constraints maps will be updated internally to keep the addition of the three maps normalized. Thanks to this logic, switching attributes (see Figure 7) or selecting influences (see Figure 8) from the AdonisFX Paint Tool provides automatic feedback to the user of the current status of all the maps.
 
 > [!NOTE]
 > AdnSimshape does not require this tool. Its paintable maps can be manipulated through the standard Maya paint context.
@@ -50,7 +50,7 @@ In the specific case of muscle deformers, the too will display the following att
 </figure>
 
   - **Attachments To Transforms** and **Attachments To Geometry**
-    - If any of this attribute types is selected, then a list widget is shown with the names of the targets connected to the deformer (Figure 7).
+    - If any of these attribute types is selected, then a list widget is shown with the names of the targets connected to the deformer (Figure 7).
     - Select the desired target to paint from the list widget and paint the weight values.
     - When selecting a target in the list, the object will also get selected in the scene, facilitating its identification.
     - If more than one target was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all attachment constraint weights in a vertex will always add up to a maximum value of 1.0.

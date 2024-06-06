@@ -93,7 +93,7 @@ To create the AdnMuscle deformer with some initial customization, double-click t
   <figcaption><b>Figure 9</b>: AdnMuscle custom creation UI.</figcaption>
 </figure>
 
-In order to add attachments constraints to the muscle we will select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+In order to add attachments constraints to the muscle select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
 
 <figure>
   <img src="images/setup_muscle_add_transform_attachments.png">
@@ -118,12 +118,12 @@ Start by painting attachment weights, painting the influence for each target by 
 
 <figure>
   <img src="images/setup_muscle_paint_transform_attach.png">
-  <figcaption><b>Figure 12</b>: Transform Attachment influences.</figcaption>
+  <figcaption><b>Figure 12</b>: Transform Attachment influences (joints and bones).</figcaption>
 </figure>
 
 <figure>
   <img src="images/setup_muscle_paint_geometry_attach.png">
-  <figcaption><b>Figure 13</b>: Geometry Attachment influences.</figcaption>
+  <figcaption><b>Figure 13</b>: Geometry Attachment influences (meshes).</figcaption>
 </figure>
 
 Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from the *Attribute* enumerator and paint over the parts of the muscle that should have tendon tissue.
@@ -203,7 +203,7 @@ To create the AdnRibbonMuscle deformer with some initial customization, double-c
   <figcaption><b>Figure 21</b>: AdnRibbonMuscle custom creation UI.</figcaption>
 </figure>
 
-In order to add attachments constraints to the ribbon muscle we will select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+In order to add attachments constraints to the ribbon muscle select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
 
 <figure>
   <img src="images/setup_ribbon_muscle_add_transform_attachments.png">
@@ -228,12 +228,12 @@ Start by painting attachment weights, painting the influence for each target by 
 
 <figure>
   <img src="images/setup_ribbon_muscle_paint_transform_attach.png">
-  <figcaption><b>Figure 22</b>: Transform Attachment influences.</figcaption>
+  <figcaption><b>Figure 22</b>: Transform Attachment influences (joints and bones).</figcaption>
 </figure>
 
 <figure>
   <img src="images/setup_ribbon_muscle_paint_geometry_attach.png">
-  <figcaption><b>Figure 23</b>: Geometry Attachment influences.</figcaption>
+  <figcaption><b>Figure 23</b>: Geometry Attachment influences (meshes).</figcaption>
 </figure>
 
 Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from the *Attribute* enumerator and painting over the parts of the muscle to represent tendon tissue.

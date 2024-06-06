@@ -85,10 +85,10 @@ Follow this steps to create an AndRibbonMuscle deformer:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Attenuation Matrix**           | Matrix | Identity | ✓ | Transformation matrix to drive the attenuation. |
-| **Attachment Matrix**            | Matrix | Identity | ✓ | List of transform attachment matrices  (from a compound attribute) used for setting up transform attachments. |
+| **Attachment Matrix**            | Matrix | Identity | ✓ | List of transform attachment matrices (from a compound attribute) used for setting up transform attachments. |
 | **Slide On Segment Root Matrix** | Matrix | Identity | ✓ | List of root matrices (from a compound attribute) used for setting up segments of slide on segment constraints. |
 | **Slide On Segment Tip Matrix**  | Matrix | Identity | ✓ | List of tip matrices (from a compound attribute) used for setting up segments of slide on segment constraints. |
-| **Target World Mesh**            | Mesh   |          | ✗ | List of geometry attachment meshes (from a compound attribute) used for setting up attachments to geometries. |
+| **Target World Mesh**            | Mesh   |          | ✓ | List of geometry attachment meshes (from a compound attribute) used for setting up attachments to geometries. |
 | **Target World Matrix**          | Matrix | Identity | ✓ | List of geometry matrices (from a compound attribute) used for setting up attachments to geometries. |
 
 ## Attribute Editor Template
@@ -158,7 +158,7 @@ In order to better visualize deformer constraints and attributes in the Maya vie
 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnRibbonMuscle deformer are:
 
- - **Attachments To Geometry**: For each vertex with a geometry attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective geometry target closest point on rest.
+ - **Attachments To Geometry**: For each vertex with a geometry attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective geometry target closest point at rest.
  - **Attachments To Transform**: For each vertex with a transform attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective transform target.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
  - **Slide on Segment Constraints**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point to its respective segment.
@@ -174,7 +174,7 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 ### Targets
 
-Once the AdnRibbonMuscle deformer is created, it is possible to add and remove new targets to the system. Targets that are joints, locators, etc. will be treated as transform targets. In the other hand, mesh nodes will be considered geometry targets. 
+Once the AdnRibbonMuscle deformer is created, it is possible to add and remove new targets to the system. Targets that are transform based like joints and locators will be treated as transform targets. Targets that are mesh based will be considered as geometry targets.
 
 - **Add targets**:  
     1. Select the transform or mesh nodes (one or more) to be assigned as targets to the AdnRibbonMuscle.
@@ -184,7 +184,7 @@ Once the AdnRibbonMuscle deformer is created, it is possible to add and remove n
     1. Select one or more transform or mesh nodes that are assigned as targets to the AdnRibbonMuscle.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
     3. Press the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu.
-    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button, all targets will get removed.
+    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button, all targets will get removed (transform and mesh targets).
 
 ### Slide On Segment Constraint
 
