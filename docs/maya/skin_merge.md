@@ -23,13 +23,13 @@ The process to create an AdnSkinMerge deformer is:
   <figcaption><b>Figure 1</b>: Create Skin Merge UI.</figcaption>
 </figure>
 
-2. With the UI open select the final mesh in the scene and press the *Add Selected* button in the *Final Mesh* section.
+2. In the UI select the final mesh in the scene and press the *Add Selected* button in the *Final Mesh* section.
 
 3. Add the animation and simulation meshes taking into consideration the following requirements:
     - At least one mesh must be added in each field.
     - To add meshes to any list, select the meshes in the scene and click the respecitve *Add Selected* button.
     - Adding the same mesh twice to a list is not supported.
-    - Adding the same mesh as a Simulation Mesh and as an Animation Mesh is not adviced but it is supported.
+    - Adding the same mesh as a Simulation Mesh and as an Animation Mesh is not adviced.
     - If you wish to remove a single element from the list, select it in the Skin Merge UI and press the Remove Selected button.
     - You may also clear any list fully by pressing the respective Clear button.
 
@@ -42,7 +42,8 @@ The process to create an AdnSkinMerge deformer is:
 Once we have an AdnSkinMerge deformer created, if we wish to modify its input meshes (animation mesh list, simulation mesh list or both) we may follow this process:
 
 1. Go to *Deformers > Skin Merge* in the AdonisFX menu, under the *Edit* section.
-2. The following UI will get displayed. Here you will see listed the current animation and simulation meshes the deformer has connected. From this UI you may freely add or remove from either list Note that at least one element must be present in each list to be able to apply the changes. 
+
+2. The following UI will get displayed. Here you will see listed the current animation and simulation meshes the deformer has connected. From this UI you may freely add or remove from either list. Note that at least one element must be present in each list to be able to apply the changes. 
 
 <figure markdown>
   ![edit skin merge UI](images/edit_skin_merge.png) 

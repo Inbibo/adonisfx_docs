@@ -330,7 +330,7 @@ The AdnSkinMerge deformer will get applied to the final mesh which will  be the 
 
 <figure>
   <img src="images/setup_skin_merge_0.png"> 
-  <figcaption><b>Figure 32</b>: Basic setup for skin merge (final mesh and animation mesh are the same, but final mesh has no deformation).</figcaption>
+  <figcaption><b>Figure 32</b>: Basic setup for skin merge. Meshes isolated for better visualization. From left to right: Final Mesh, Animation Mesh, Simulation Mesh.</figcaption>
 </figure>
 
 ### Create Deformer
