@@ -114,12 +114,12 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
-| **Attachments To Transform**     | 0.0             | Weight to indicate the influence of each transform attachment at each vertex of the muscle. |
-| **Attachments To Geometry**      | 0.0             | Weight to indicate the influence of each geometry attachment at each vertex of the muscle. |
+| **Attachments To Transform**     | 0.0             | Multi-influence weight to indicate the influence of each transform attachment at each vertex of the muscle. |
+| **Attachments To Geometry**      | 0.0             | Multi-influence weight to indicate the influence of each geometry attachment at each vertex of the muscle. |
 | **Compression Resistance**       | 1.0             | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
 | **Fibers**                       | {0.0, 0.0, 0.0} | The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the *Muscle Fibers* option in the [debugger](#debugger). |
 | **Global Damping**               | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
-| **Slide on Segment Constraints** | 0.0             | Weight to force vertices to displace only in the direction of a user-specified group of segments. |
+| **Slide on Segment Constraints** | 0.0             | Multi-influence weight to force vertices to displace only in the direction of a user-specified group of segments. |
 | **Stretching Resistance**        | 1.0             | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
 | **Tendons**                      | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
 

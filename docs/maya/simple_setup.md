@@ -118,7 +118,7 @@ Start by painting attachment weights, painting the influence for each target by 
 
 <figure>
   <img src="images/setup_muscle_paint_transform_attach.png">
-  <figcaption><b>Figure 12</b>: Transform Attachment influences (joints and bones).</figcaption>
+  <figcaption><b>Figure 12</b>: Transform Attachment influences (joints and locators).</figcaption>
 </figure>
 
 <figure>
@@ -228,7 +228,7 @@ Start by painting attachment weights, painting the influence for each target by 
 
 <figure>
   <img src="images/setup_ribbon_muscle_paint_transform_attach.png">
-  <figcaption><b>Figure 22</b>: Transform Attachment influences (joints and bones).</figcaption>
+  <figcaption><b>Figure 22</b>: Transform Attachment influences (joints and locators).</figcaption>
 </figure>
 
 <figure>
