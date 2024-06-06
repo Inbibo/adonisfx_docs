@@ -1,5 +1,39 @@
 # Release Notes
 
+## Version 1.1.0
+
+### Core
+
+- Attachment to geometry constraints in AdnMuscle and AdnRibbonMuscle solvers. Multiple target geometries are supported.
+- Slide on geometry constraints in AdnMuscle and AdnRibbonMuscle solvers. Multiple target geometries are supported.
+- Point mass support integrated in all solvers to control the dynamics of the system.
+
+### Maya
+
+- Added AdnSkinMerge deformer to blend the results from animated and simualted input geometries.
+- Added support for attachment to geometry in AdnMuscle and AdnRibbonMuscle solvers.
+- Added support to slide on geometry in AdnMuscle and AdnRibbonMuscle solvers.
+- Added mass attributes in AdnMuscle and AndRibbonMuscle deformers to provide more control over the dynamics of the simulated object.
+- Added *Point Mass Mode* to AdnSimshape, AdnSkin, AdnMuscle and AdnRibbonMuscle which allows to specify either a mass per point or a density value from which point masses will be computed.
+- Debugger system improved to be dependent to the visibility of the simulated geometry.
+- Added a sanity check to *Max Sliding Distance* attribute to warn the user if the input value is too high for the given target mesh.
+- Updated debugger system to visualize attachment to geometry constraints, slide on geometry constraints and sliding surface.
+- Extended Importer and Exporter tools to support AdnSkinMerge deformer and new constraints (attachment to geometry and slide on geometry).
+- Added *Refresh Debugger* utility to the AdonisFX menu to create missing debug nodes and connections.
+- Extended AdonisFX menu with *Documentation*, *Tutorials* and *About* sections.
+
+### Bug Fixes
+
+- Filtered characters to get valid identifiers in Maya for Linux. *AdonisFX-1033*
+- Fixed element selection check at node creation. *AdonisFX-1031*
+- Fixed error messages not displaying the proper status of the AdnSimshape collider connections. *AdonisFX-1034*
+- Prevent Exporter to generate the AAD file if there is no valid data to export. *AdonisFX-1032*
+- Fixed manipulation of referenced nodes while using the AdonisFX paint tool. *AdonisFX-1147*
+- Fixed a bug that did not allow to add attachments on a muscle deformer created on referenced geometry. *AdonisFX-506*
+- Fixed import of the constraint weight arrays on sparse arrays. *AdonisFX-1155*
+- Fixed a bug that caused geometry sliding constraints to not find valid triangles to slide on initialization. *AdonisFX-1165*
+- Fixed paint flood operation not normalizing the weights properly. *AdonisFX-1146*
+
 ## Version 1.0.4
 
 ### Bug Fixes
