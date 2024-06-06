@@ -49,7 +49,7 @@ In the specific case of muscle deformers, the too will display the following att
   <figcaption><b>Figure 7</b>: Paintable attributes in AdonisFX muscle deformer. </figcaption>
 </figure>
 
-  - **Attachments To Transforms** and **Attachments To Geometry**
+  - **Attachments To Transform** and **Attachments To Geometry**
     - If any of these attribute types is selected, then a list widget is shown with the names of the targets connected to the deformer (Figure 7).
     - Select the desired target to paint from the list widget and paint the weight values.
     - When selecting a target in the list, the object will also get selected in the scene, facilitating its identification.

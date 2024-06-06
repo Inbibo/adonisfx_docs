@@ -93,7 +93,7 @@ To create the AdnMuscle deformer with some initial customization, double-click t
   <figcaption><b>Figure 9</b>: AdnMuscle custom creation UI.</figcaption>
 </figure>
 
-In order to add attachments constraints to the muscle select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+In order to add attachment constraints to the muscle select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
 
 <figure>
   <img src="images/setup_muscle_add_transform_attachments.png">
@@ -203,7 +203,7 @@ To create the AdnRibbonMuscle deformer with some initial customization, double-c
   <figcaption><b>Figure 21</b>: AdnRibbonMuscle custom creation UI.</figcaption>
 </figure>
 
-In order to add attachments constraints to the ribbon muscle select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+In order to add attachment constraints to the ribbon muscle select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
 
 <figure>
   <img src="images/setup_ribbon_muscle_add_transform_attachments.png">

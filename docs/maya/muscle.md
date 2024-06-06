@@ -78,7 +78,7 @@ To create an AdnMuscle, follow these steps:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False         | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnMuscle deformer. |
-| **Feature**     | Enumerator   | Muscle Fibers | ✓ | A list of debuggable features for this deformer. <ul><li>Attachments To Geometry: Draw *Attachment To Geometry Constraints* connections from the simulated mesh to the geometry targets.</li><li>Attachments To Transform: Draw *Attachment To Transform Constraints* connections from the simulated mesh to the transform targets.</li><li>Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface.</li><li>Slide On Segment: Draw *Slide On Segment* connections from the simulated mesh to the segment the simulated mesh is sliding on.</li> |
+| **Feature**     | Enumerator   | Muscle Fibers | ✓ | A list of debuggable features for this deformer. <ul><li>Attachments To Geometry: Draw *Attachment To Geometry Constraints* connections from the simulated mesh to the geometry targets.</li><li>Attachments To Transform: Draw *Attachment To Transform Constraints* connections from the simulated mesh to the transform targets.</li><li>Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface.</li><li>Slide On Segment: Draw *Slide On Segment Constraints* connections from the simulated mesh to the segment the simulated mesh is sliding on.</li> |
 | **Width Scale** | Float        | 1.0           | ✓ | Modifies the width of all lines. |
 | **Color**       | Color Picker |               | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
 | **Fiber Scale** | Float        | 3.0           | ✓ | The scale can be modified to set a custom fiber length. |
@@ -87,7 +87,7 @@ To create an AdnMuscle, follow these steps:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Attenuation Matrix**           | Matrix | Identity | ✓ | Transformation matrix to drive the attenuation. |
-| **Attachment Matrix**            | Matrix | Identity | ✓ | List of transform attachment matrices (from a compound attribute) used for setting up transform attachments. |
+| **Attachment Matrix**            | Matrix | Identity | ✓ | List of attachment to transform matrices (from a compound attribute) used for setting up transform attachments. |
 | **Slide On Segment Root Matrix** | Matrix | Identity | ✓ | List of root matrices (from a compound attribute) used for setting up segments of slide on segment constraints. |
 | **Slide On Segment Tip Matrix**  | Matrix | Identity | ✓ | List of tip matrices (from a compound attribute) used for setting up segments of slide on segment constraints. |
 | **Target World Mesh**            | Mesh   |          | ✓ | List of geometry attachment meshes (from a compound attribute) used for setting up attachments to geometries. |
@@ -127,7 +127,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 <figure>
   <img src="images/muscle_w_att.png">
-  <figcaption><b>Figure 4</b>: Example of attachments to transform weights painted on a biceps with 4 transform targets.</figcaption>
+  <figcaption><b>Figure 4</b>: Example of attachment to transform weights painted on a biceps with 4 transform targets.</figcaption>
 </figure>
 
 <figure>
@@ -163,7 +163,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
  - **Attachments To Geometry**: For each vertex with a geometry attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective geometry target closest point at rest.
  - **Attachments To Transform**: For each vertex with a transform attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective transform target.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
- - **Slide on Segment Constraints**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point to its respective segment.
+ - **Slide on Segment**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point to its respective segment.
 
 <figure markdown>
   ![AdnMuscle debug](images/muscle_debug.png)
