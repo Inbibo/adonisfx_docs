@@ -45,7 +45,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 
 ## AdonisFX Maya Menu
 
-The AdonisFX Menu provides access to the options in the shelf and other more advanced utilities that are organised in 3 groups: Create, Edit and Tools.
+The AdonisFX Menu provides access to the options in the shelf and other more advanced utilities that are organised in 5 groups: Create, Edit, Tools, License and Help.
 
 <figure style="width: 30%;" markdown>
   ![AdnLocatorPosition within a scene](images/adonis_menu_1.png)
@@ -54,19 +54,29 @@ The AdonisFX Menu provides access to the options in the shelf and other more adv
 
 ### Create Section
 
-#### Locators and Sensors
+#### Locators
 
-There is an item to create each locator and sensor type (Figures 3 and 4). Also, there are option boxes to launch a simple UI to provide a custom name for the node to create (Figure 5).
-
-<figure style="width: 49%;float: left" markdown>
+<figure style="width: 50%;" markdown>
   ![AdonisFX Menu Create Locators](images/adonis_menu_locators.png)
   <figcaption><b>Figure 3</b>: AdonisFX Menu Create Locators section.</figcaption>
 </figure>
 
-<figure style="width: 49%;float: right" markdown>
+- **Position**. Creates an AdnLocatorPosition node.
+- **Distance**. Creates an AdnLocatorDistance node.
+- **Rotation**. Creates an AdnLocatorRotation node.
+
+#### Sensors
+
+<figure style="width: 50%;" markdown>
   ![AdonisFX Menu Create Sensors](images/adonis_menu_sensors.png)
   <figcaption><b>Figure 4</b>: AdonisFX Menu Create Sensors section.</figcaption>
 </figure>
+
+- **Position**. Creates an AdnSensorPosition node.
+- **Distance**. Creates an AdnSensorDistance node.
+- **Rotation**. Creates an AdnSensorRotation node.
+
+Both in Locators and Sensors there are option boxes to launch a simple UI to provide a custom name for the node to create.
 
 <figure style="width: 50%;" markdown>
   ![Locator Sensor Creator UI](images/adn_position_locator_sensor_locator_creator.png)
@@ -75,31 +85,33 @@ There is an item to create each locator and sensor type (Figures 3 and 4). Also,
 
 #### Nodes
 
-In Nodes section, there is a menu item to create an AdnEdgeEvaluator node.
-
-
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Edit AdnSimshape](images/adonis_menu_nodes.png)
   <figcaption><b>Figure 6</b>: AdonisFX Menu Create Nodes section.</figcaption>
 </figure>
 
-#### Deformers
+- **Skin Merge**. Creates an AdnEdgeEvaluator node.
 
-In the Deformers section, there is a menu item to open AdnSkinMerge node creation UI.
+#### Deformers
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Create Deformers](images/adonis_menu_deformers.png)
   <figcaption><b>Figure 7</b>: AdonisFX Menu Create Deformers section.</figcaption>
 </figure>
 
-#### Solvers
+- **Skin Merge**. Launches the Create Skin Merge UI, which allows the creation of AdnSkinMerge deformers.
 
-In the Solvers section, there are all options to create AdonisFX simulation deformer nodes.
+#### Solvers
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Create Solvers](images/adonis_menu_solvers.png)
   <figcaption><b>Figure 8</b>: AdonisFX Menu Create Solvers section.</figcaption>
 </figure>
+
+- **Simshape**. Creates an AdnSimshape simulation deformer node.
+- **Skin**. Creates an AdnSkin simulation deformer node.
+- **Ribbon Muscle**. Creates an AdnRibbonMuscle simulation deformer node.
+- **Muscle**. Creates an AdnMuscle simulation deformer node.
 
 Option boxes can be used to launch a UI to assign the name to the deformer and configure generic solver parameters.
 
@@ -183,7 +195,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 ### License section
 
-- **Activate License**. Launches a dialog to activate an AdonisFX license or the trial period if the license is not activated.
+- **Activate License**. Checks the license status and if it is not activated yet, then a dialog is prompted to guide on the product key registration. This functionality is only available in Interactive Node-Locked license.
 
 ### Help section
 
