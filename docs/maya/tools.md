@@ -50,7 +50,7 @@ In the specific case of muscle deformers, the too will display the following att
 </figure>
 
   - **Attachments To Transform** and **Attachments To Geometry**
-    - If any of these attribute types is selected, then a list widget is shown with the names of the targets connected to the deformer (Figure 7).
+    - If any of these attribute types is selected, then a list widget is shown with the names of the targets connected to the deformer (Figure 8).
     - Select the desired target to paint from the list widget and paint the weight values.
     - When selecting a target in the list, the object will also get selected in the scene, facilitating its identification.
     - If more than one target was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all attachment constraint weights in a vertex will always add up to a maximum value of 1.0.
@@ -61,7 +61,7 @@ In the specific case of muscle deformers, the too will display the following att
       <figcaption><b>Figure 8</b>: AdonisFX Paint Tool listing multiple transform attachments.</figcaption>
     </figure>
 
-  - **Stretching and Compression Resistance**
+  - **Stretching** and **Compression Resistance**
     - Stretching resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get stretched.
     - Compression resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get compressed.
   - **Fibers**
@@ -75,7 +75,13 @@ In the specific case of muscle deformers, the too will display the following att
     - This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
 <!-- Note for later to update this information once the Global Damping attribute is added-->
 <!-- Note for later to update this information once the Slide On Geometry Damping attribute is added-->
-  - **Slide on Segment Constraints**
+  - **Slide On Geomety**
+    - If this attribute is selected, a list widget is shown with the names of the targets connected to the deformer (Figure 8).
+    - Select the desired target to paint from the list widget and paint the weight values.
+    - When selecting a target in the list, the object will also get selected in the scene, facilitating its identification.
+    - If more than one target was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all slide on geometry constraint weights in a vertex will always add up to a maximum value of 1.0.
+    - If any target is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
+  - **Slide On Segment**
     - Slide on Segment Constraints operate similarly to attachment constraints, as they are both multi-influence attributes.
     - The entries in the list widget correspond in this case to the segments added to the constraint, with the name of the segment being "*root_transform* - *tip_transform*".
     - Select the desired segment to paint from the list widget and paint the weight values.
@@ -87,6 +93,9 @@ In the specific case of muscle deformers, the too will display the following att
       <figcaption><b>Figure 9</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
     </figure>
 
+  - **Sliding Distance Multiplier**
+    - Sliding distance Multiplier is set to 1.0 by default. With this value, every vertex of the geometry will be able to slide along every vertex of the reference surface.
+    - It is suggested to lower the value in those areas where slide constraints are less relevant or not present for better performance without losing quality.
   - **Tendons**
     - It is recommended to paint values of 1.0 wherever the tendon tissue is and values of 0.0 in the rest of the mesh.
     - This painting will internally trigger an automatic estimation of fibers direction which can be displayed using the debug functionalities of the deformer.
