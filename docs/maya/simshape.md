@@ -90,8 +90,10 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 #### Stiffness Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Use Custom Stiffness** | Boolean | False          | ✓ | Toggles the use of a custom stiffness value. If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead. |
-| **Stiffness**            | Float   | 10<sup>5</sup> | ✓ | Sets the custom stiffness value. Its value must be greater than 0.0. |
+| **Use Custom Stiffness**                  | Boolean | False          | ✓ | Toggles the use of a custom stiffness value. If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead. |
+| **Stiffness**                             | Float   | 10<sup>5</sup> | ✓ | Sets the custom stiffness value. Its value must be greater than 0.0. |
+| **Override Shape Preservation Stiffness** | Boolean | False          | ✓ | Override the shape preservation stiffness with a custom value. If disabled it will use either the material stiffness or the custom stiffness value. |
+| **Shape Preserve Stiffness**              | Float   | 1000.0 | ✓ | Sets the override for the shape preservation stiffness to control the amount of shape preservation to be applied. |
 
 #### Mass Properties
 
@@ -184,12 +186,13 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 | **Compression Resistance**         | 0.0 | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
 | **Global Damping**                 | 1.0 | Set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position. |
 | **Mass**                           | 1.0 | Set individual mass values per vertex in the simulated mesh. |
+| **Shape Preservation**             | 0.0 | Amount of correction to apply to the current vertex to maintain the initial state of the 3 vertices conforming a single shape preservation constraint. |
 | **Slide Collision Constraints**    | 0.0 | Represents for which areas collisions should be computed against the collider. A value of 0.0 does not apply correction at all, while a value of 1.0 does apply the correction to fix intersections. |
 | **Stretching Resistance**          | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
 
 <figure markdown>
   ![simshape weights](images/simshape_weights.png) 
-  <figcaption><b>Figure 5</b>: Example of painted weights, labeled as: <b>a)</b> Attract Force, <b>b)</b> Collision Threshold Multiplier, <b>c)</b> Compression Resistance, <b>d)</b> Global Damping, <b>e)</b> Mass, <b>f)</b> Slide Collision Constraints, <b>g)</b> Strecthing Resistance.</figcaption>
+  <figcaption><b>Figure 5</b>: Example of painted weights, labeled as: <b>a)</b> Attract Force, <b>b)</b> Collision Threshold Multiplier, <b>c)</b> Compression Resistance, <b>d)</b> Global Damping, <b>e)</b> Mass, <b>f)</b> Shape Preservation, <b>g)</b> Slide Collision Constraints, <b>h)</b> Strecthing Resistance.</figcaption>
 </figure>
 
 ## Debugger
@@ -200,12 +203,14 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
  - **Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider. The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
+ - **Sliding Surface On Collider**: For each vertex, lines will outline the collider triangles within the reach of its *Sliding Distance*.
+ - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
 
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
 
 <figure markdown>
 ![skin editor debug menu](images/simshape_debug.png)
-<figcaption><b>Figure 6</b>: AdnSimshape Collision Constraints and Muscle Fibers debugging</figcaption>
+<figcaption><b>Figure 6</b>: AdnSimshape Collision Constraints, Muscle Fibers, Sliding Surface On Collider and Shape Preservation debugging</figcaption>
 </figure>
 
 ## Advanced
