@@ -49,7 +49,7 @@ In the specific case of muscle deformers, the too will display the following att
   <figcaption><b>Figure 7</b>: Paintable attributes in AdonisFX muscle deformer. </figcaption>
 </figure>
 
-  - **Attachments To Transform** and **Attachments To Geometry**
+  - **Attachments To Geometry** and **Attachments To Transform**
     - If any of these attribute types is selected, then a list widget is shown with the names of the targets connected to the deformer (Figure 7).
     - Select the desired target to paint from the list widget and paint the weight values.
     - When selecting a target in the list, the object will also get selected in the scene, facilitating its identification.
@@ -102,23 +102,28 @@ In the specific case of an AdnSkin deformer, the tool will display the following
   <figcaption><b>Figure 10</b>: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
 </figure>
 
+  - **Compression and Stretching Resistance**
+    - Stretching resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get stretched.
+    - Compression resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get compressed.
+  - **Global Damping**
+    - By default, this map is set to 1.0.
+    - This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
   - **Hard Constraints**
     - Hard constraints are set to 1.0 by default. With this value the solver will apply the corrections to the vertices needed to keep them at a constant transformation, local to the closest point on the reference mesh at initialization.
     - This value is normalized alongside Soft Constraints and Slide Constraints.
-  - **Soft Constraints**
-    - Soft constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the vertices keeping a constant distance to the closest point of the reference mesh.
-    - This value is normalized alongside Hard Constraints and Slide Constraints.
+  - **Masses**
+    - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.
+  - **Shape Preservation**
+    - Shape preservation weights are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the 3 vertices conforming a single shape preservation constraint. 
   - **Slide Constraints**
     - Slide constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the sliding of the simulated mesh along the reference surface.
     - This value is normalized alongside Hard Constraints and Soft Constraints.
-  - **Stretching and Compression Resistance**
-    - Stretching resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get stretched.
-    - Compression resistance is set to 1.0 by default. With this value, the solver will apply the corrections to the edges needed to keep the lengths at rest. Set values lower than 1.0 to linearly reduce the amount of correction applied by the solver when the edges get compressed.
   - **Sliding Distance Multiplier**
     - Sliding distance Multiplier is set to 1.0 by default. With this value, every vertex of the geometry will be able to slide along every vertex of the reference surface.
     - It is suggested to lower the value in those areas where slide constraints are less relevant or not present for better performance without losing quality.
-  - **Masses**
-    - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.
+  - **Soft Constraints**
+    - Soft constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the vertices keeping a constant distance to the closest point of the reference mesh.
+    - This value is normalized alongside Hard Constraints and Slide Constraints.
 
 ## Importer
 
