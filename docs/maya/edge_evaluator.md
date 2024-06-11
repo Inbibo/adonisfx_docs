@@ -36,7 +36,7 @@ In order to disconnect the plug, repeat the selection and instead of pressing *C
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Initialization Time** | Time | *Current frame* | ✓ | Sets the frame at which the data will be initialized. |
+| **Initialization Time** | Time | *Current frame* | ✗ | Sets the frame at which the data will be initialized. |
 
 ### Compression Remap
 | Name | Type | Default | Animatable | Description |

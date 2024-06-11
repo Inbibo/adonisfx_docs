@@ -105,7 +105,9 @@ In order to add attachment constraints to the muscle select the targets (joints,
   <figcaption><b>Figure 11</b>: Addition of geometry targets to AdnMuscle.</figcaption>
 </figure>
 
-Optionally, add Slide On Segment Constraints. This constraint type is recommended for muscles in the limbs of the character to follow better the animation. With the same selection, first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
+Additionally, target geometries that have been added to an AdnMuscle deformer (see Figure 11) can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to follow better the animation.
+
+Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry we will specify a pair of joints of the rig representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
 
 ### Paint Weights
 
@@ -142,11 +144,16 @@ To change the fiber size or its color, go to the Attribute Editor, in the debug 
   <figcaption><b>Figure 15</b>: Muscle fibers combing.</figcaption>
 </figure>
 
-Finally, paint Slide On Segment Constraints (if added). It is recommended to paint only the vertices that are not attached to the rig. In this example, the tendons are painted with a value of 0.0, while the rest of the shape is painted to 1.0.
+Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It is recommended to paint only the vertices that are not attached to the rig. In this example, the tendons are painted with a value of 0.0, while the rest of the shape is painted to 1.0 or lower values.
 
 <figure>
   <img src="images/setup_muscle_5.png">
   <figcaption><b>Figure 16</b>: Slide on segment weights for biceps.</figcaption>
+</figure>
+
+<figure>
+  <img src="images/setup_muscle_8.png">
+  <figcaption><b>Figure 17</b>: Slide on geometry weights for biceps.</figcaption>
 </figure>
 
 ### Connect Sensors
@@ -157,7 +164,7 @@ To do this, first create a rotation locator and sensor to compute the elbow angl
 
 <figure>
   <img src="images/setup_muscle_6.png">
-  <figcaption><b>Figure 17</b>: Rotation locator and sensor setup in elbow.</figcaption>
+  <figcaption><b>Figure 18</b>: Rotation locator and sensor setup in elbow.</figcaption>
 </figure>
 
 Now that the sensor is created it has to be connected to the deformer. To do so, make use of the Connection Editor, which must be opened from the AdonisFX Menu > Sensors (on the *Edit* group) > *Connection Editor*.
@@ -166,7 +173,7 @@ With the Connection Editor opened, select the locator from the scene and press t
 
 <figure>
   <img src="images/setup_muscle_7.png">
-  <figcaption><b>Figure 18</b>: Connection Editor tool.</figcaption>
+  <figcaption><b>Figure 19</b>: Connection Editor tool.</figcaption>
 </figure>
 
 When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation will get higher, simulating a much more realistic scenario.
@@ -184,7 +191,7 @@ In this case a planar muscle will be simulated corresponding to a biceps, which 
 
 <figure>
   <img src="images/setup_ribbon_muscle_0.png">
-  <figcaption><b>Figure 19</b>: Basic setup for planar biceps simulations.</figcaption>
+  <figcaption><b>Figure 20</b>: Basic setup for planar biceps simulations.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -193,29 +200,31 @@ Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the mesh 
 
 <figure>
   <img src="images/setup_ribbon_muscle_1.png">
-  <figcaption><b>Figure 20</b>: AdnRibbonMuscle deformer creation scenario.</figcaption>
+  <figcaption><b>Figure 21</b>: AdnRibbonMuscle deformer creation scenario.</figcaption>
 </figure>
 
 To create the AdnRibbonMuscle deformer with some initial customization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow to do some initial customization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
 <figure>
   <img src="images/setup_ribbon_muscle_2.png">
-  <figcaption><b>Figure 21</b>: AdnRibbonMuscle custom creation UI.</figcaption>
+  <figcaption><b>Figure 22</b>: AdnRibbonMuscle custom creation UI.</figcaption>
 </figure>
 
 In order to add attachment constraints to the ribbon muscle select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
 
 <figure>
   <img src="images/setup_ribbon_muscle_add_transform_attachments.png">
-  <figcaption><b>Figure 22</b>: Addition of transform targets to AdnRibbonMuscle.</figcaption>
+  <figcaption><b>Figure 23</b>: Addition of transform targets to AdnRibbonMuscle.</figcaption>
 </figure>
 
 <figure>
   <img src="images/setup_ribbon_muscle_add_geometry_attachments.png">
-  <figcaption><b>Figure 23</b>: Addition of geometry targets to AdnRibbonMuscle.</figcaption>
+  <figcaption><b>Figure 24</b>: Addition of geometry targets to AdnRibbonMuscle.</figcaption>
 </figure>
 
-Optionally, add Slide On Segment Constraints. This constraint type is recommended for muscles in the limbs of the character to follow better the animation. With the same selection, first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
+Additionally, target geometries that have been added to an AdnRibbonMuscle deformer (see Figure 24) can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to follow better the animation.
+
+Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry we will specify a pair of joints of the rig representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
 
 ### Paint Weights
 
@@ -228,19 +237,19 @@ Start by painting attachment weights, painting the influence for each target by 
 
 <figure>
   <img src="images/setup_ribbon_muscle_paint_transform_attach.png">
-  <figcaption><b>Figure 22</b>: Transform Attachment influences (joints and locators).</figcaption>
+  <figcaption><b>Figure 25</b>: Transform Attachment influences (joints and locators).</figcaption>
 </figure>
 
 <figure>
   <img src="images/setup_ribbon_muscle_paint_geometry_attach.png">
-  <figcaption><b>Figure 23</b>: Geometry Attachment influences (meshes).</figcaption>
+  <figcaption><b>Figure 26</b>: Geometry Attachment influences (meshes).</figcaption>
 </figure>
 
 Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from the *Attribute* enumerator and painting over the parts of the muscle to represent tendon tissue.
 
 <figure>
   <img src="images/setup_ribbon_muscle_4.png">
-  <figcaption><b>Figure 24</b>: Tendon weights for planar biceps.</figcaption>
+  <figcaption><b>Figure 27</b>: Tendon weights for planar biceps.</figcaption>
 </figure>
 
 Now that tendons are painted, when selecting the *Fibers* attribute from the *Attribute* enumerator, painted fibers will be displayed, with a default direction set by the painted tendons. It is now possible to freely comb these fibers if it is desired.
@@ -249,14 +258,19 @@ In case the fiber or its color has to be manipulated, go to the Attribute Editor
 
 <figure>
   <img src="images/setup_ribbon_muscle_5.png">
-  <figcaption><b>Figure 25</b>: Muscle fibers combing.</figcaption>
+  <figcaption><b>Figure 28</b>: Muscle fibers combing.</figcaption>
 </figure>
 
-Finally, paint Slide On Segment Constraints (if added). It is recommended to paint only the vertices that are not attached to the rig. In this example, the tendons are painted with a value of 0.0, while the rest of the shape is painted to 1.0.
+Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It is recommended to paint only the vertices that are not attached to the rig. In this example, the tendons are painted with a value of 0.0, while the rest of the shape is painted to 1.0 or lower values.
 
 <figure>
   <img src="images/setup_ribbon_muscle_6.png">
-  <figcaption><b>Figure 26</b>: Slide on segment weights for planar biceps.</figcaption>
+  <figcaption><b>Figure 29</b>: Slide on segment weights for planar biceps.</figcaption>
+</figure>
+
+<figure>
+  <img src="images/setup_ribbon_muscle_8.png">
+  <figcaption><b>Figure 30</b>: Slide on geometry weights for planar biceps.</figcaption>
 </figure>
 
 ### Connect Sensors
@@ -265,7 +279,7 @@ The process to connect and AdnSensor to an AdnRibbonMuscle is the exact same to 
 
 <figure>
   <img src="images/setup_ribbon_muscle_7.png">
-  <figcaption><b>Figure 27</b>: Connection Editor tool with AdnRotation sensor connected to AdnRibbonMuscle.</figcaption>
+  <figcaption><b>Figure 31</b>: Connection Editor tool with AdnRotation sensor connected to AdnRibbonMuscle.</figcaption>
 </figure>
 
 To tweak additional parameters of the AdnRibbonMuscle deformer, check this [page](ribbon).
@@ -282,7 +296,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 <figure>
   <img src="images/setup_simshape_0.png"> 
-  <figcaption><b>Figure 28</b>: Basic setup for facial simulations.</figcaption>
+  <figcaption><b>Figure 32</b>: Basic setup for facial simulations.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -295,14 +309,14 @@ To create the AdnSimshape deformer with some initial customization, double-click
 
 <figure>
   <img src="images/setup_simshape_1.png"> 
-  <figcaption><b>Figure 29</b>: AdnSimshape deformer creation scenario.</figcaption>
+  <figcaption><b>Figure 33</b>: AdnSimshape deformer creation scenario.</figcaption>
 </figure>
 
 To add the deformation mesh to the deformer first select the deformation mesh, then the simulated mesh (it is the animation mesh), and then go to AdonisFX Menu > Simshape (on the *Edit* group) > Add *Deform Mesh*. A message will notify is that the addition of the rest mesh has been done correctly.
 
 <figure>
   <img src="images/setup_simshape_2.png"> 
-  <figcaption><b>Figure 30</b>: Addition of deform mesh to AdnSimshape deformer.</figcaption>
+  <figcaption><b>Figure 34</b>: Addition of deform mesh to AdnSimshape deformer.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -313,21 +327,21 @@ In high deformation areas, such as around the mouth or under the eyes, add mediu
 
 <figure>
   <img src="images/setup_simshape_3.png"> 
-  <figcaption><b>Figure 31</b>: Attraction Force weights for medium dynamics areas.</figcaption>
+  <figcaption><b>Figure 35</b>: Attraction Force weights for medium dynamics areas.</figcaption>
 </figure>
 
 Painting lower Attraction Force weights in meatier areas of the face, such as under the neck or in the cheecks to show more dynamics in these regions. In this case a value of 0.15 will be applied.
 
 <figure>
   <img src="images/setup_simshape_4.png"> 
-  <figcaption><b>Figure 32</b>: Attraction Force weights for high dynamics areas.</figcaption>
+  <figcaption><b>Figure 36</b>: Attraction Force weights for high dynamics areas.</figcaption>
 </figure>
 
 The lowest values (0.1 in this case) will be applied to the area under the jaw where dynamics will appear the most. 
 
 <figure>
   <img src="images/setup_simshape_5.png"> 
-  <figcaption><b>Figure 33</b>: Attraction Force weights for highest dynamics areas.</figcaption>
+  <figcaption><b>Figure 37</b>: Attraction Force weights for highest dynamics areas.</figcaption>
 </figure>
 
 After painting similar weights to the ones displayed and pressing playback to check the animation,  realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are avaliable and fully explained in the documentation for [AdnSimshape](simshape).
@@ -343,7 +357,7 @@ Refer to this [section](simshape#muscle-activations) to see how to use Muscle Pa
 
 <figure>
   <img src="images/setup_simshape_6.png"> 
-  <figcaption><b>Figure 34</b>: Connecting Edge Evaluator Node to AdnSimshape Deformer.</figcaption>
+  <figcaption><b>Figure 38</b>: Connecting Edge Evaluator Node to AdnSimshape Deformer.</figcaption>
 </figure>
 
 In the attribute editor of the AdnSimshape deformer, under the *Muscles Activation* section, the *Plug Values* will be enabled as a new valid *Activation Mode* option. To better visualize activations, press the ![AdnMuscle](images/adn_simshape_debugger.png){style="width:4%"} shelf button or go to AdonisFX Menu > Simshape (on the *Edit* group) > *Activations Debugger*.
@@ -360,7 +374,7 @@ The AdnSkinMerge deformer will get applied to the final mesh which will  be the 
 
 <figure>
   <img src="images/setup_skin_merge_0.png"> 
-  <figcaption><b>Figure 32</b>: Basic setup for skin merge. Meshes isolated for better visualization. From left to right: Final Mesh, Animation Mesh, Simulation Mesh.</figcaption>
+  <figcaption><b>Figure 39</b>: Basic setup for skin merge. Meshes isolated for better visualization. From left to right: Final Mesh, Animation Mesh, Simulation Mesh.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -373,7 +387,7 @@ When everything has been properly set up, press the *Create* button to create th
 
 <figure>
   <img src="images/setup_skin_merge_1.png"> 
-  <figcaption><b>Figure 33</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
+  <figcaption><b>Figure 40</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -386,7 +400,7 @@ To have a smooth transition from the simulated mesh to the animated mesh, smooth
 
 <figure>
   <img src="images/setup_skin_merge_2.png"> 
-  <figcaption><b>Figure 34</b>: Blend weights painted map.</figcaption>
+  <figcaption><b>Figure 41</b>: Blend weights painted map.</figcaption>
 </figure>
 
 With this basic paint setup the AdnSkinMerge deformer will now show the results of skin simulation transferred to the final mesh.
