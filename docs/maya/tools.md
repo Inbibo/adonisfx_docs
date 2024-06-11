@@ -73,6 +73,8 @@ In the specific case of muscle deformers, the too will display the following att
   - **Global Damping**
     - By default, this map is set to 1.0.
     - This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
+  - **Masses**
+    - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the muscle has a uniform mass.
 <!-- Note for later to update this information once the Global Damping attribute is added-->
 <!-- Note for later to update this information once the Slide On Geometry Damping attribute is added-->
   - **Slide On Geomety**

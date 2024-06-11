@@ -46,8 +46,9 @@ To create an AdnMuscle, follow these steps:
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Time Scale**  | Float | 1.0 | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Space Scale** | Float | 1.0 | ✓ | Sets the scaling factor applied to the masses and/or the forces. AdonisFX interprets the scene units in meters. Because of that, to simulate external forces in the right scale, the *Space Scale* may need to be adjusted. For example, to apply *Gravity* with a value of 9.8 m/s^2^, the *Space Scale* should be set to 0.01. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces. AdonisFX interprets the scene units in meters. Because of that, to simulate external forces in the right scale, the *Space Scale* may need to be adjusted. For example, to apply *Gravity* with a value of 9.8 m/s^2^, the *Space Scale* should be set to 0.01. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li><ul> |
 
 ### Gravity
 | Name | Type | Default | Animatable | Description |
@@ -62,6 +63,14 @@ To create an AdnMuscle, follow these steps:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Use Custom Stiffness** | Boolean | False          | ✓ | Toggles the use of a custom stiffness value. If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead. |
 | **Stiffness**            | Float   | 10<sup>5</sup> | ✓ | Sets the custom stiffness value. Its value must be greater than 0.0. |
+
+#### Mass Properties
+
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Point Mass Mode**        | Enumerator | By Uniform Value | ✓ | Defines how masses should be used in the solver.<ul><li>*By Density* allows to estimate the mass value by multiplying Density * Volume.</li><li>*By Uniform Value* allows to set a uniform mass value.</li></ul> |
+| **Density**                | Float      | 1060.0           | ✓ | Sets the density value in kg/m<sup>3</sup> to be able to estime mass values with *By Density* mode. Has a range of \[0.001, 10<sup>6</sup>\]. Lower and upper limits are soft, lower and higher values can be used. |
+| **Global Mass Multiplier** | Float      | 1.0              | ✓ | Sets the scaling factor applied to the mass of every point. Has a range of \[0.001, 10.0\]. Lower and upper limits are soft, lower and higher values can be used. |
 
 #### Dynamic Properties
 | Name | Type | Default | Animatable | Description |
@@ -123,6 +132,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
 | **Compression Resistance**      | 1.0             | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
 | **Fibers**                      | {0.0, 0.0, 0.0} | The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the *Muscle Fibers* option in the [debugger](#debugger). |
 | **Global Damping**              | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
+| **Masses**                      | 1.0             | Set individual mass values per vertex in the simulated mesh. |
 | **Slide On Geometry**           | 0.0             | Multi-influence weight to force vertices to displace only on the target geometry area defined by the *Max Sliding Distance* value. |
 | **Slide On Segment**            | 0.0             | Multi-influence weight to force vertices to displace only in the direction of a user-specified group of segments. |
 | **Sliding Distance Multiplier** | 1.0             | Determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. Greater values will allow for larger sliding areas but will also increase the computational cost.<ul><li>*Tip*: For areas where sliding is not required paint to 0.0. Use values closer to 1.0 in areas where more sliding freedom should be prioritized.</li></ul> |
@@ -151,7 +161,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 <figure>
   <img src="images/muscle_weights.png">
-  <figcaption><b>Figure 8</b>: Example of painted weights on a biceps, labeled as: <b>a)</b> Tendons, <b>b)</b> Compression Resistance, <b>c)</b> Stretching Resistance, <b>d)</b> Global Damping.</figcaption>
+  <figcaption><b>Figure 8</b>: Example of painted weights on a biceps, labeled as: <b>a)</b> Tendons, <b>b)</b> Compression Resistance, <b>c)</b> Stretching Resistance, <b>d)</b> Global Damping and <b>e)</b> Masses.</figcaption>
 </figure>
 
 > [!NOTE]
