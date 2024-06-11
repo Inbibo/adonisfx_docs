@@ -10,7 +10,7 @@ The AdnRibbonMuscle deformer is of great simplicity to set up and apply to a mes
 
 To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs must be provided:
 
-- **Targets (T)**: List of objects to which the simulated muscle will interact with. The targets can be either transform nodes (e.g. rig joints, locators, etc) or geometries (e.g. bones). Providing the list of targets is optional on create. However, they are required to add attachments and sliding behavior to the muscle. One or multiple targets are supported.
+- **Targets (T)**: List of objects with which the simulated muscle will interact. The targets can be either transform nodes (e.g. rig joints, locators, etc) or geometries (e.g. bones). Providing a list of targets is optional on create. However, they are required to add attachment and sliding behaviors to the muscle. One or multiple targets are supported.
 - **Muscle Geometry (M)**: Mesh that the AdnRibbonMuscle deformer will be applied to.
 
 > [!NOTE]
@@ -76,7 +76,7 @@ Follow this steps to create an AndRibbonMuscle deformer:
 | **Global Damping Multiplier**   | Float      | 0.75 | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 | **Inertia Damper**              | Float      | 0.0  | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 | **Rest Length Multiplier**      | Float      | 1.0  | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Max Sliding Distance**        | Float      | 0.0  | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. The higher this value is, the higher quality and the lower performance. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
+| **Max Sliding Distance**        | Float      | 0.0  | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. The higher this value is, the higher quality and the lower performance. If the value provided is considered too high for a given target mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
 | **Compression Multiplier**      | Float      | 1.0  | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
 | **Stretching Multiplier**       | Float      | 1.0  | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
 | **Attenuation Velocity Factor** | Float      | 1.0  | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |

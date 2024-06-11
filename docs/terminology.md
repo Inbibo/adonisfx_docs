@@ -24,7 +24,7 @@ Constraints are rules that an AdonisFX solver applies during simulation to ensur
 
 **Slide On Segment Constraint**. A slide on segment constraint defines the relationship between a geometry point and a segment defined by two transform objects (i.e. two joints of a rig). This constraint aims to keep the point at a certain distance to the segment but with the possibility of traveling along the segment. It also includes a restriction by angle, preventing the simulated point to twist around the segment.
 
-**Slide On Geometry Constraint**. A slide on geometry constraint defines a relationship between a geometry point and a surface of an external mesh object. This constraint allows the point to travel along the surface. During simulation, this constraint will try to keep the point at a constant distance to the surface in a given radius.
+**Slide On Geometry Constraint**. A slide on geometry constraint defines the relationship between a geometry point and a surface of an external mesh object. This constraint allows the point to travel along the surface. During simulation, this constraint aims to keep the point at a constant distance to the surface in a given radius.
 
 **Soft Constraint**. A soft constraint defines the relationship between a geometry point and a another point on a external geometry. This constraints aims to keep the point at a certain distance to the external geometry point without any restrictions of relative orientation.
 
