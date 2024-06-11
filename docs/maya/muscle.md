@@ -78,7 +78,7 @@ To create an AdnMuscle, follow these steps:
 | **Global Damping Multiplier**   | Float      | 0.75 | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 | **Inertia Damper**              | Float      | 0.0  | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 | **Rest Length Multiplier**      | Float      | 1.0  | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Max Sliding Distance**        | Float      | 0.0  | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. The higher this value is, the higher quality and the lower performance. If the value provided is considered too high for a given target mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
+| **Max Sliding Distance**        | Float      | 0.0  | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. The higher this value is, the higher quality and the lower performance. If the value provided is considered too high for a given target mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used. |
 | **Compression Multiplier**      | Float      | 1.0  | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
 | **Stretching Multiplier**       | Float      | 1.0  | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
 | **Attenuation Velocity Factor** | Float      | 1.0  | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
@@ -127,8 +127,8 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
-| **Attachments To Transform**    | 0.0             | Multi-influence weight to indicate the influence of each transform attachment at each vertex of the muscle. |
 | **Attachments To Geometry**     | 0.0             | Multi-influence weight to indicate the influence of each geometry attachment at each vertex of the muscle. |
+| **Attachments To Transform**    | 0.0             | Multi-influence weight to indicate the influence of each transform attachment at each vertex of the muscle. |
 | **Compression Resistance**      | 1.0             | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
 | **Fibers**                      | {0.0, 0.0, 0.0} | The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the *Muscle Fibers* option in the [debugger](#debugger). |
 | **Global Damping**              | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
@@ -177,7 +177,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
  - **Attachments To Geometry**: For each vertex with a geometry attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective geometry target closest point at rest.
  - **Attachments To Transform**: For each vertex with a transform attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective transform target.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
- - **Slide On Geometry**: For each vertex with a slide on geometry weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective transform target.
+ - **Slide On Geometry**: If the *Max Sliding Distance* value is greater than 0.0, for each vertex with a slide on geometry weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective geometry target.
  - **Slide On Segment**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective segment.
 
 <figure markdown>

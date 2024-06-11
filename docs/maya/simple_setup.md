@@ -144,7 +144,7 @@ To change the fiber size or its color, go to the Attribute Editor, in the debug 
   <figcaption><b>Figure 15</b>: Muscle fibers combing.</figcaption>
 </figure>
 
-Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It is recommended to paint only the vertices that are not attached to the rig. In this example, the tendons are painted with a value of 0.0, while the rest of the shape is painted to 1.0.
+Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It is recommended to paint only the vertices that are not attached to the rig. In this example, the tendons are painted with a value of 0.0, while the rest of the shape is painted to 1.0 or lower values.
 
 <figure>
   <img src="images/setup_muscle_5.png">
@@ -261,7 +261,7 @@ In case the fiber or its color has to be manipulated, go to the Attribute Editor
   <figcaption><b>Figure 28</b>: Muscle fibers combing.</figcaption>
 </figure>
 
-Finally, paint Slide On Segment or Slide On Geo Constraints (if added). It is recommended to paint only the vertices that are not attached to the rig. In this example, the tendons are painted with a value of 0.0, while the rest of the shape is painted to 1.0.
+Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It is recommended to paint only the vertices that are not attached to the rig. In this example, the tendons are painted with a value of 0.0, while the rest of the shape is painted to 1.0 or lower values.
 
 <figure>
   <img src="images/setup_ribbon_muscle_6.png">
