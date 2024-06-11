@@ -10,7 +10,7 @@ The AdnMuscle deformer is of great simplicity to set up and apply to a mesh with
 
 An AdnMuscle requires the following inputs to be provided:
 
-  - **Targets (T)**: Attachment anchors to which the simulated muscle will be attached to. Any target node can be used (e.g. joints, locators, meshes, etc). This input is optional and unlimited.
+  - **Targets (T)**: List of objects with which the simulated muscle will interact. The targets can be either transform nodes (e.g. rig joints, locators, etc) or geometries (e.g. bones). Providing a list of targets is optional on create. However, they are required to add attachment and sliding behaviors to the muscle. One or multiple targets are supported.
   - **Muscle Geometry (M)**: Mesh that the muscle deformer will be applied onto.
 
 > [!NOTE]
@@ -77,19 +77,21 @@ To create an AdnMuscle, follow these steps:
 #### Dynamic Properties
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Global Damping Multiplier**   | Float   | 0.75 | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
-| **Inertia Damper**              | Float   | 0.0  | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
-| **Rest Length Multiplier**      | Float   | 1.0  | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Compression Multiplier**      | Float   | 1.0  | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Stretching Multiplier**       | Float   | 1.0  | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Attenuation Velocity Factor** | Float   | 1.0  | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
-| **Hard Attachments**            | Boolean | True | ✓ | If enabled, attachment constraints will force the vertices to stick to target transformation completely. |
+| **Global Damping Multiplier**   | Float      | 0.75 | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Inertia Damper**              | Float      | 0.0  | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Rest Length Multiplier**      | Float      | 1.0  | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Max Sliding Distance**        | Float      | 0.0  | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. The higher this value is, the higher quality and the lower performance. If the value provided is considered too high for a given target mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used. |
+| **Compression Multiplier**      | Float      | 1.0  | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Stretching Multiplier**       | Float      | 1.0  | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Attenuation Velocity Factor** | Float      | 1.0  | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Hard Attachments**            | Boolean    | True | ✓ | If enabled, attachment constraints will force the vertices to stick to target transformation completely. |
+| **Sliding Constraints Mode**    | Enumerator | Fast | ✓ | Defines the mode of execution for the slide on geometry constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
 
 ### Debug Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False         | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnMuscle deformer. |
-| **Feature**     | Enumerator   | Muscle Fibers | ✓ | A list of debuggable features for this deformer. <ul><li>Attachments To Geometry: Draw *Attachment To Geometry Constraints* connections from the simulated mesh to the geometry targets.</li><li>Attachments To Transform: Draw *Attachment To Transform Constraints* connections from the simulated mesh to the transform targets.</li><li>Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface.</li><li>Slide On Segment: Draw *Slide On Segment Constraints* connections from the simulated mesh to the segment the simulated mesh is sliding on.</li> |
+| **Feature**     | Enumerator   | Muscle Fibers | ✓ | A list of debuggable features for this deformer. <ul><li>Attachments To Geometry: Draw *Attachment To Geometry Constraints* connections from the simulated mesh to the geometry targets.</li><li>Attachments To Transform: Draw *Attachment To Transform Constraints* connections from the simulated mesh to the transform targets.</li><li>Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface.</li><li>Slide On Geometry: Draw *Slide On Geometry Constraints* connections from the simulated mesh to the geometry targets the simulated mesh is sliding on.</li><li>Slide On Segment: Draw *Slide On Segment Constraints* connections from the simulated mesh to the segment the simulated mesh is sliding on.</li> |
 | **Width Scale** | Float        | 1.0           | ✓ | Modifies the width of all lines. |
 | **Color**       | Color Picker |               | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
 | **Fiber Scale** | Float        | 3.0           | ✓ | The scale can be modified to set a custom fiber length. |
@@ -101,8 +103,8 @@ To create an AdnMuscle, follow these steps:
 | **Attachment Matrix**            | Matrix | Identity | ✓ | List of attachment to transform matrices (from a compound attribute) used for setting up transform attachments. |
 | **Slide On Segment Root Matrix** | Matrix | Identity | ✓ | List of root matrices (from a compound attribute) used for setting up segments of slide on segment constraints. |
 | **Slide On Segment Tip Matrix**  | Matrix | Identity | ✓ | List of tip matrices (from a compound attribute) used for setting up segments of slide on segment constraints. |
-| **Target World Mesh**            | Mesh   |          | ✓ | List of geometry attachment meshes (from a compound attribute) used for setting up attachments to geometries. |
-| **Target World Matrix**          | Matrix | Identity | ✓ | List of geometry matrices (from a compound attribute) used for setting up attachments to geometries. |
+| **Target World Mesh**            | Mesh   |          | ✓ | List of geometry meshes (from a compound attribute) used for setting up attachment to geometry and slide on geometry constraints. |
+| **Target World Matrix**          | Matrix | Identity | ✓ | List of geometry matrices (from a compound attribute) used for setting up attachment to geometry and slide on geometry constraints. |
 
 ## Attribute Editor Template
 
@@ -127,16 +129,18 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
-| **Attachments To Transform**     | 0.0             | Multi-influence weight to indicate the influence of each transform attachment at each vertex of the muscle. |
-| **Attachments To Geometry**      | 0.0             | Multi-influence weight to indicate the influence of each geometry attachment at each vertex of the muscle. |
-| **Compression Resistance**       | 1.0             | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
-| **Fibers**                       | {0.0, 0.0, 0.0} | The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the *Muscle Fibers* option in the [debugger](#debugger). |
-| **Global Damping**               | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
-| **Masses**                       | 1.0             | Set individual mass values per vertex in the simulated mesh. |
+| **Attachments To Geometry**     | 0.0             | Multi-influence weight to indicate the influence of each geometry attachment at each vertex of the muscle. |
+| **Attachments To Transform**    | 0.0             | Multi-influence weight to indicate the influence of each transform attachment at each vertex of the muscle. |
+| **Compression Resistance**      | 1.0             | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
+| **Fibers**                      | {0.0, 0.0, 0.0} | The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the *Muscle Fibers* option in the [debugger](#debugger). |
+| **Global Damping**              | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
+| **Masses**                      | 1.0             | Set individual mass values per vertex in the simulated mesh. |
 | **Shape Preservation**           | 0.1             | Amount of correction to apply to the current vertex to maintain the initial state of the 3 vertices conforming a single shape preservation constraint. |
-| **Slide on Segment Constraints** | 0.0             | Multi-influence weight to force vertices to displace only in the direction of a user-specified group of segments. |
-| **Stretching Resistance**        | 1.0             | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
-| **Tendons**                      | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
+| **Slide On Geometry**           | 0.0             | Multi-influence weight to force vertices to displace only on the target geometry area defined by the *Max Sliding Distance* value. |
+| **Slide On Segment**            | 0.0             | Multi-influence weight to force vertices to displace only in the direction of a user-specified group of segments. |
+| **Sliding Distance Multiplier** | 1.0             | Determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. Greater values will allow for larger sliding areas but will also increase the computational cost.<ul><li>*Tip*: For areas where sliding is not required paint to 0.0. Use values closer to 1.0 in areas where more sliding freedom should be prioritized.</li></ul> |
+| **Stretching Resistance**       | 1.0             | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
+| **Tendons**                     | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
 
 <figure>
   <img src="images/muscle_w_att.png">
@@ -177,7 +181,8 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
  - **Attachments To Transform**: For each vertex with a transform attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective transform target.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
- - **Slide on Segment**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point to its respective segment.
+ - **Slide On Geometry**: If the *Max Sliding Distance* value is greater than 0.0, for each vertex with a slide on geometry weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective geometry target.
+ - **Slide On Segment**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective segment.
 
 <figure markdown>
   ![AdnMuscle debug](images/muscle_debug.png)
@@ -199,6 +204,8 @@ Once the AdnMuscle deformer is created, it is possible to add and remove new tar
     2. Select the mesh that has the AdnMuscle deformer applied.
     3. Press the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu. 
     4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button, all targets will be removed (transform and mesh targets).
+
+Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](maya/simple_setup#AdnMuscle) for more information on how to paint the influence maps for the mentioned constraints.
 
 ### Slide On Segment Constraint
 
