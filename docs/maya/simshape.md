@@ -116,7 +116,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Compute Collisions**   | Boolean | True | ✓ | Flag to enable collisions correction in the deformer. If disabled, the deformer will ignore colliders when deforming the mesh. |
 | **Keep Orientation**     | Boolean | True | ✓ | Flag to preserve the initial orientation of the vertices relative to the collider when handling collisions. If disabled, the mesh will suffer no changes if the orientation of the collider varies. |
-| **Max Sliding Distance** | Float   | 0.0  | ✗ | Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used. |
+| **Max Sliding Distance** | Float   | 0.0  | ✗ | Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider. If the value provided is considered too high for a given collider mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used. |
 
 #### Attraction Settings
 | Name | Type | Default | Animatable | Description |
