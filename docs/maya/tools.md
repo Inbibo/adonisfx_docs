@@ -194,7 +194,7 @@ To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *C
   <figcaption><b>Figure 11</b>: Sensor connection editor after opening it for the first time. </figcaption>
 </figure>
 
-Two main sections can be distinguished in this tool, labeled *source* and *destination*. In the source section the sensors and locators alongside their signal attributes will get displayed, while in the destination section the deformers alongside their possible input attributes will get displayed.
+Two main sections can be distinguished in this tool, labeled *source* and *destination*. The source section is intended to display the signal attributes of sensors and locators, but it can also display the float attributes of any node. Meanwhile, the destination section will display the deformers along with their possible input attributes.
 
 To retrieve these objects and display them in the tool, select the desired element from the scene (an AdonisFX locator containing a sensor or a deformer) and press their respective *Reload Left* or *Reload Right* button.
 
@@ -208,3 +208,6 @@ For Source elements (sensors) press the *Reload Left* button and for Destination
 To make the connections select the two specific attribute to connect (one from *source* and one from *destination*) and press the *Make Connection* button. A message will then get displayed informing that the connection has been properly made.
 
 To clear the selection and reset the tool to its initial state, press the *Clear All* button.
+
+> [!NOTE]
+> - If the history of a muscle geometry is deleted having any AdonisFX locator attribute connected to the deformer, Maya will also delete the shape node corresponding to the AdonisFX locator. To avoid this behaviour we recommend to connect the remap node attributes to the deformer instead of connecting the AdonisFX locator directly.
