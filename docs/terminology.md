@@ -18,6 +18,8 @@ Constraints are rules that an AdonisFX solver applies during simulation to ensur
 
 **Hard Constraint**. A hard constraint defines the location of a geometry point in the tangent space of a polygon. This constraint type is similar to the attachment constraint but in this case the transformation used is the one given by the tangent space at the closest point on an external geometry.
 
+**Shape Preservation Constraint**. A shape preservation constraint defines the state of shape formed by a vertex with its adjacents on initialization. During simulation, a shape preservation constraint will try to mantain this shape with its neighbouring vertices.
+
 **Slide Constraint**. A slide constraint defines the distance between a geometry point and a surface. This constraint allows the point to travel along the surface. During simulation, this constraint will try to keep the point at a constant distance to the surface in a given radius.
 
 **Slide Collision Constraint**. A slide collision constraint is an extension of a slide constraint that includes information about the relative orientation of the point against the surface (inside/outside) plus the ability to allow the point to be closer to the surface up to a given threshold.

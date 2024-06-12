@@ -54,8 +54,10 @@ The process to create an AdnSkin deformer is:
 #### Stiffness Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Use Custom Stiffness** | Boolean | False          | ✓ | Toggles the use of a custom stiffness value. If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead. |
-| **Stiffness**            | Float   | 10<sup>5</sup> | ✓ | Sets the custom stiffness value. Its value must be greater than 0.0. |
+| **Use Custom Stiffness**                  | Boolean | False          | ✓ | Toggles the use of a custom stiffness value. If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead. |
+| **Stiffness**                             | Float   | 10<sup>5</sup> | ✓ | Sets the custom stiffness value. Its value must be greater than 0.0. |
+| **Override Shape Preservation Stiffness** | Boolean | False          | ✓ | Override the shape preservation stiffness with a custom value. If disabled it will use either the material stiffness or the custom stiffness value. |
+| **Shape Preserve Stiffness**              | Float   | 1000.0         | ✓ | Sets the stiffness shape preservation override value. Its value must be greater than 0.0. |
 
 #### Mass Properties
 
@@ -81,7 +83,7 @@ The process to create an AdnSkin deformer is:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False            | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer. |
-| **Feature**     | Enumerator   | Hard Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh to the reference mesh.</li><li>Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the reference mesh.</li><li>Slide Constraints: Draw *Slide Constraints* connections from the simulated mesh to the reference mesh.</li></ul> |
+| **Feature**     | Enumerator   | Hard Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh to the reference mesh.</li><li>Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the reference mesh.</li><li>Slide Constraints: Draw *Slide Constraints* connections from the simulated mesh to the reference mesh.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide Surface On Collider: Draw outline of triangles covered by the *Max Sliding Distance* of each vertex.</li><ul</ul> |
 | **Width Scale** | Float        | 3.0              | ✓ | Modifies the width of all lines. |
 | **Color**       | Color Picker |                  | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
 
@@ -118,6 +120,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 | **Global Damping**              | 1.0 | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more damping of velocities. |
 | **Hard Constraints**            | 1.0 | Weight to modulate the correction applied to the vertices to keep them at a constant transformation, local to the closest point on the reference mesh at initialization. Hard Constraint maps will force the geometry points to keep the original position. A low value of *Hard Constraints* may be desired to allow the skin to create wrinkles and sliding effect.<ul><li>*Tip*: In the example of a biped or quadruped creature, it is recommended to flood the geometry with a very low value 0.1, and then set a value of 1.0 to the edges of the skin to guarantee that it is properly attached to the target geometry.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
 | **Masses**                      | 1.0 | Set individual mass values per vertex in the simulated mesh. |
+| **Shape Preservation**          | 0.0 | Amount of correction to apply to the current vertex to maintain the initial state of the shape formed with the surrounding vertices. |
 | **Slide Constraints**           | 0.0 | Weight to modulate the correction applied to the vertices to keep them at a constant distance to the reference mesh sliding along the reference surface.<ul><li>*Tip*: In the example of a biped or quadruped creature, it is recommended to set a value of 1.0 on the scapulas, shoulders, elbows and knees and an overall value of 0 on the rest of the body.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
 | **Sliding Distance Multiplier** | 1.0 | Determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the reference mesh computed on initialization. Greater values will allow for larger sliding areas but will also increase the computational cost.<ul><li>*Tip*: For areas where sliding is not required paint to 0. Use values closer to 1 in areas where more sliding freedom should be prioritized.</li></ul> |
 | **Soft Constraints**            | 0.0 | Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the reference mesh at initialization. Painting these constraint weights would allow the deformer to create a wrinkle effect when combined with hard and slide weights.<ul><li>*Tip*: In the example of a biped or quadruped creature, it is recommended to flood the geometry with a low value 0.2.</li></ul> |
@@ -125,7 +128,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 <figure>
   <img src="images/skin_weights.png" caption="AdonisFX Paint Tool"> 
-  <figcaption><b>Figure 4</b>: Example of painted weights on the skin of a bear character, labeled as:<br/><b>a)</b> Hard Constraints, <b>b)</b> Soft Constraints, <b>c)</b> Slide Constraints, <b>d)</b> Compression Resistance,<br/><b>e)</b> Stretching Resistance, <b>f)</b> Global Damping, <b>g)</b> Max Sliding Multiplier, <b>h)</b> Mass</figcaption>
+  <figcaption><b>Figure 4</b>: Example of painted weights on the skin of a bear character, labeled as:<br/><b>a)</b> Compression Resistance, <b>b)</b> Global Damping, <b>c)</b> Hard Constraints, <b>d)</b> Mass,<br/><b>e)</b> Shape Preservation, <b>f)</b> Slide Constraints, <b>g)</b> Sliding Distance Multiplier, <b>h)</b> Soft Constraints, and <b>i)</b> Stretching Resistance.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -138,10 +141,17 @@ In order to better visualize deformer constraints and attributes in the Maya vie
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnSkin deformer are:
 
  - **Hard Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the reference mesh if its *Hard Constraints* weight is greater than 0.0.
- - **Soft Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the reference mesh if its *Soft Constraints* weight is greater than 0.0.
+ - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the reference mesh if its *Slide Constraints* weight is greater than 0.0.s
+ - **Sliding Surface On Target**: For each vertex, lines will outline the target triangles within the reach of its *Max Sliding Distance*.
+ - **Soft Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the reference mesh if its *Soft Constraints* weight is greater than 0.0.
 
 <figure markdown>
   ![skin editor debug example](images/skin_debug.png)
   <figcaption><b>Figure 5</b>: In gray the reference mesh, in orange the simulated skin. Debugger enabled displaying a test example with <i>Soft Constraints</i> colored in green.</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor sliding surface debug](images/skin_debug_slide_surface.png)
+  <figcaption><b>Figure 6</b>: In gray the reference mesh, in red the simulated skin. Debugger enabled displaying the <i>Sliding Surface</i> colored in green.</figcaption>
 </figure>
