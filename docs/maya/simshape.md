@@ -93,7 +93,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | **Use Custom Stiffness**                  | Boolean | False          | ✓ | Toggles the use of a custom stiffness value. If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead. |
 | **Stiffness**                             | Float   | 10<sup>5</sup> | ✓ | Sets the custom stiffness value. Its value must be greater than 0.0. |
 | **Override Shape Preservation Stiffness** | Boolean | False          | ✓ | Override the shape preservation stiffness with a custom value. If disabled it will use either the material stiffness or the custom stiffness value. |
-| **Shape Preserve Stiffness**              | Float   | 1000.0 | ✓ | Sets the override for the shape preservation stiffness to control the amount of shape preservation to be applied. |
+| **Shape Preserve Stiffness**              | Float   | 1000.0         | ✓ | Sets the stiffness shape preservation override value. Its value must be greater than 0.0. |
 
 #### Mass Properties
 
@@ -141,7 +141,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False                 | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSimshape deformer. |
-| **Feature**     | Enumerator   | Collision Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Collision Constraints: Draw *Collision Constraints* connections from the simulated mesh to the collider mesh.</li><li>Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.</li><ul> |
+| **Feature**     | Enumerator   | Collision Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Collision Constraints: Draw *Collision Constraints* connections from the simulated mesh to the collider mesh.</li><li>Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide Surface On Collider: Draw outline of triangles covered by the *Max Sliding Distance* of each vertex.</li><ul> |
 | **Width Scale** | Float        | 3.0                   | ✓ | Modifies the width of all lines. |
 | **Color**       | Color Picker |                       | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
 | **Fiber Scale** | Float        | 3.0                   | ✓ | The scale can be modified to set a custom fiber length. |
@@ -186,7 +186,7 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 | **Compression Resistance**         | 0.0 | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
 | **Global Damping**                 | 1.0 | Set global damping per vertex in the simulated mesh. The greater the value per vertex the more it will attempt to retain its previous position. |
 | **Mass**                           | 1.0 | Set individual mass values per vertex in the simulated mesh. |
-| **Shape Preservation**             | 0.0 | Amount of correction to apply to the current vertex to maintain the initial state of the 3 vertices conforming a single shape preservation constraint. |
+| **Shape Preservation**             | 0.0 | Amount of correction to apply to the current vertex to maintain the initial state of the shape formed with the surrounding vertices. |
 | **Slide Collision Constraints**    | 0.0 | Represents for which areas collisions should be computed against the collider. A value of 0.0 does not apply correction at all, while a value of 1.0 does apply the correction to fix intersections. |
 | **Stretching Resistance**          | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
 
@@ -203,7 +203,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
  - **Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider. The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
- - **Sliding Surface On Collider**: For each vertex, lines will outline the collider triangles within the reach of its *Sliding Distance*.
+ - **Sliding Surface On Collider**: For each vertex, lines will outline the collider triangles within the reach of its *Max Sliding Distance*.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
 
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 

@@ -14,7 +14,7 @@ The **AdonisFX Paint Tool** is meant to be used for the manipulation of the pain
 The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. After every stroke, the internal logic processes the painted map and updates all dependent maps to keep the configuration of the solver safe. For example, if we paint the influence of one target of an AdnMuscle which has two targets assigned, then the tool will update the weights of the other target to ensure that the addition of both is normalized at each vertex (the normalization process is independent for transform and geometry targets). The same applies if we paint hard constraints of an AdnSkin deformer: the soft and slide constraints maps will be updated internally to keep the addition of the three maps normalized. Thanks to this logic, switching attributes (see Figure 3) or selecting influences (see Figure 4) from the AdonisFX Paint Tool provides automatic feedback to the user of the current status of all the maps.
 
 > [!NOTE]
-> AdnSimshape does not require this tool. Its paintable maps can be manipulated through the standard Maya paint context.
+> AdnSimshape and AdnSkinMerge not require this tool. Their paintable maps can be manipulated through the standard Maya paint context.
 
 To open the tool:
 
@@ -75,6 +75,8 @@ In the specific case of muscle deformers, the too will display the following att
     - This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
   - **Masses**
     - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the muscle has a uniform mass.
+  - **Shape Preservation**
+    - Shape preservation weights are set to 0.1 by default in AdnMuscle and AdnRibbonMuscle. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the shape formed with the surrounding vertices. 
   - **Slide On Geometry**
     - If this attribute is selected, a list widget is shown with the names of the targets connected to the deformer (see Figure 4).
     - Select the desired target to paint from the list widget and paint the weight values.
@@ -121,7 +123,7 @@ In the specific case of an AdnSkin deformer, the tool will display the following
   - **Masses**
     - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.
   - **Shape Preservation**
-    - Shape preservation weights are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the 3 vertices conforming a single shape preservation constraint. 
+    - Shape preservation weights are set to 0.0 by default in AdnSkin. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the shape formed with the surrounding vertices. 
   - **Slide Constraints**
     - Slide constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the sliding of the simulated mesh along the reference surface.
     - This value is normalized alongside Hard Constraints and Soft Constraints.
