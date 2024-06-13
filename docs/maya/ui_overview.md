@@ -13,7 +13,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 
 | Icon | Description | Menu Shortcut |
 | :--- | :---------- | :------------ |
-| ![AdnLocator](images/adn_adonis_locator.png) | Creates an AdnLocator at the origin. This object is a standard Maya locator with a custom shape for better visualization in the viewport. | |
+| ![AdnLocator](images/adn_adonis_locator.png) | Creates an AdnLocator at the origin. This object is a standard Maya locator with a custom shape for better visualisation in the viewport. | |
 | ![AdnLocatorPosition](images/adn_point_locator.png) | Creates an AdnLocatorPosition from the selected transform node. The locator shape represents the position change of the element provided. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Locators > *Position* |
 | ![AdnLocatorDistance](images/adn_distance_locator.png) | Creates an AdnLocatorDistance from the two selected transform nodes. The locator shape represents the distance between the two elements provided. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Locators > *Distance* |
 | ![AdnLocatorRotation](images/adn_angle_locator.png) | Creates an AdnLocatorRotation from the three selected transform nodes. The locator shape represents the angle between the two segments represted by the three nodes. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Locators > *Rotation* |
@@ -148,7 +148,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 </figure>
 
 - **Learn Muscle Patches UI**. Launches the Learn Muscle Patches UI required to generate the *AdonisFX Muscle Patches* (.amp) file. This item corresponds to the shelf button ![AdnSimshape Learn Muscle Patches Tool](images/adn_learn_muscle_patches.png){style="width:4%"}.
-- **Activations Debugger**. Toggles the AdnSimshape activations debug mode. The current frame must match the specified initialization frame at the AdnSimshape deformer to toggle. This item corresponds to the shelf button ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png){style="width:4%"}. 
+- **Activations Debugger**. Toggles the AdnSimshape activations debug mode. The current frame must match the specified initialisation frame at the AdnSimshape deformer to toggle. This item corresponds to the shelf button ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png){style="width:4%"}. 
 - **Add Collider**. Assigns the collider to the selected deformer. The selection must consist of: first the mesh to assign as a Collider and lastly the mesh with the deformer applied. This item corresponds to the shelf button ![Add AdnSimshape Collider](images/adn_add_collider.png){style="width:4%"}. 
 - **Remove Collider**. Removes the collider from the selected deformer. The selection must consist of: first the Collider mesh to remove and lastly the mesh with the deformer applied. This item corresponds to the shelf button ![Remove AdnSimshape Collider](images/adn_remove_collider.png){style="width:4%"}. 
 - **Add Rest Collider**. Assigns the collider at rest to the selected deformer. The selection must consist of: first the mesh to assign as a Rest Collider and lastly the mesh with the deformer applied.

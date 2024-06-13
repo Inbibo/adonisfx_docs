@@ -25,7 +25,7 @@ When initially creating an AdnSimshape deformer, it is possible to add both a **
 
   1. Select the **Rest Mesh** (optional), then the **Simulated Mesh**.
   2. Press the ![Simshape button](images/adn_simshape.png){style="width:4%"} in the AdonisFX shelf or press *Simshape* in AdonisFX menu under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
-  3. A message box will notify that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customize their configuration.
+  3. A message box will notify that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customise their configuration.
 
 In order to add or remove any of the optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape. In that submenu, the options to manage each mesh type can be found. See Figure 1.
 
@@ -83,7 +83,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Gravity**           | Float  | 0.0              | ✓ | Sets the magnitude of the gravity acceleration. Has a range of \[0.0, 100.0\]. Upper limit is soft, higher values can be used. |
-| **Gravity Direction** | Float3 | {0.0, -1.0, 0.0} | ✓ | Sets the direction of the gravity acceleration. Vectors introduced do not need to be normalized, but they will get normalized internally. |
+| **Gravity Direction** | Float3 | {0.0, -1.0, 0.0} | ✓ | Sets the direction of the gravity acceleration. Vectors introduced do not need to be normalised, but they will get normalised internally. |
 
 ### Advanced Settings
 
@@ -130,7 +130,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Animatable Rest Mesh**    | Boolean | False | ✓ | Flag that enables reading animated rest mesh data. |
-| **Initialize to Anim Mesh** | Boolean | False | ✗ | Flag to instantiate points at animated mesh instead of rest mesh on initialization. |
+| **Initialize to Anim Mesh** | Boolean | False | ✗ | Flag to instantiate points at animated mesh instead of rest mesh on initialisation. |
 
 #### Activation Remap
 | Name | Type | Default | Animatable | Description |
@@ -143,7 +143,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | **Debug**       | Boolean      | False                 | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSimshape deformer. |
 | **Feature**     | Enumerator   | Collision Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Collision Constraints: Draw *Collision Constraints* connections from the simulated mesh to the collider mesh.</li><li>Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide Surface On Collider: Draw outline of triangles covered by the *Max Sliding Distance* of each vertex.</li><ul> |
 | **Width Scale** | Float        | 3.0                   | ✓ | Modifies the width of all lines. |
-| **Color**       | Color Picker |                       | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
+| **Color**       | Color Picker |                       | ✓ | Selects the line colour from a colour wheel. Its saturation can be modified using the slider. |
 | **Fiber Scale** | Float        | 3.0                   | ✓ | The scale can be modified to set a custom fiber length. |
 
 ### Connectable Attributes
@@ -153,7 +153,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | **Attenuation Matrix**         | Matrix | Identity | ✓ | Transformation matrix to drive the attenuation. |
 | **Collision Mesh**             | Mesh   |          | ✓ | Collision mesh used to drive the the collision logic. |
 | **Collision Mesh Matrix**      | Matrix | Identity | ✓ | Collision matrix used to drive the collision logic. |
-| **Collision Rest Mesh**        | Mesh   |          | ✗ | Collision rest mesh used to drive the initialization of the collision logic. |
+| **Collision Rest Mesh**        | Mesh   |          | ✗ | Collision rest mesh used to drive the initialisation of the collision logic. |
 | **Collision Rest Mesh Matrix** | Matrix | Identity | ✗ | Collision rest matrix at rest used for initializing. |
 | **Deform Mesh**                | Mesh   |          | ✓ | Deform mesh used to estimate the muscle patches activation. |
 | **Rest Mesh**                  | Mesh   |          | ✓ | Rest mesh used for initializing the system and to compute the activations against the deform mesh. |
@@ -197,9 +197,9 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 
 ## Debugger
 
-To better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled *Debug* in the Attribute Editor.
+To better visualise deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled *Debug* in the Attribute Editor.
 
-To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnSimshape deformer are:
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to visualise, choose it from the list provided in *Features*. The features that can be visualised with the debugger in the AdnSimshape deformer are:
 
  - **Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider. The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
@@ -276,11 +276,11 @@ Additional custom settings for the learning algorithm:
 | **Limit Iterations**         | Boolean | False | If enabled, the *Number of Iterations* will be taken into consideration. |
 | **Number of Iterations**     | Integer | 20    | Maximum number of iterations allowed in the training process. The higher this value is, the more accurate the muscle patches estimation will be and the longer the execution will take. This parameter is ignored if *Limit Iterations* attribute is disabled. In that case, the training process will run until it achieves the most accurate solution. Has a range of \[1, 1e<sup>6</sup>\]. |
 | **Number of Muscle Patches** | Integer | 79    | Maximum number of muscle patches expected in the results. Has a range of \[1, 1e<sup>6</sup>\]. |
-| **Draw Muscle Patches**      | Boolean | True  | If enabled, the vertices of the neutral mesh will be colored according to the muscle patches resulting from the training. |
+| **Draw Muscle Patches**      | Boolean | True  | If enabled, the vertices of the neutral mesh will be coloured according to the muscle patches resulting from the training. |
 
 #### Debug Activations
 
-AdnSimshape integrates a debug mode to visualize the activations during the simulation. If this mode is enabled, then AdnSimshape will display a map of vertex colors from black to red on the simulation mesh where the black color is mapped to no activation and the red color is mapped to maximum activation.
+AdnSimshape integrates a debug mode to visualise the activations during the simulation. If this mode is enabled, then AdnSimshape will display a map of vertex colours from black to red on the simulation mesh where the black colour is mapped to no activation and the red colour is mapped to maximum activation.
 
 <figure style="width: 50%" markdown>
   ![Learn Muscle Patches UI window](images/nassim_debug.png)
@@ -295,8 +295,8 @@ In order to toggle and untoggle the debug mode, follow these steps:
 3. Press ![Simshape debug icon](images/adn_simshape_debugger.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Activations Debugger*.
 
 > [!NOTE]
-> - The active status of the debugger is evaluated at initialization only.
-> - If by enabling the debugger the vertex colors are not displayed automatically, then force to initialize the system (e.g. press rewind button in the timeline).
+> - The active status of the debugger is evaluated at initialisation only.
+> - If by enabling the debugger the vertex colours are not displayed automatically, then force to initialise the system (e.g. press rewind button in the timeline).
 > - The debugger is limited to the Parallel and Serial evaluation modes.
 
 ### Colliders
@@ -321,7 +321,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 
 #### Add Rest Collider
 
-The use of rest collider is recommended when the pre-roll simulation is not computed and the initialization to the animated mesh is enabled (see attribute *Initialize to Anim Mesh*). In order to allow the solver to build consistent collision data in those cases, it is necessary to provide both the rest mesh and the rest collider in the same space.
+The use of rest collider is recommended when the pre-roll simulation is not computed and the initialisation to the animated mesh is enabled (see attribute *Initialize to Anim Mesh*). In order to allow the solver to build consistent collision data in those cases, it is necessary to provide both the rest mesh and the rest collider in the same space.
 
 1. Select the rest collider object.
 2. Select the mesh with the AdnSimshape deformer.

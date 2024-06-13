@@ -4,14 +4,14 @@ AdonisFX includes several tools that allow for a smoother experience when intera
 
 ## Paint Tool
 
-The **AdonisFX Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalization of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
+The **AdonisFX Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalisation of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
 
 <figure>
   <img src="images/paint_tool.png" caption="AdonisFX Paint Tool"> 
   <figcaption><b>Figure 1</b>: AdonisFX Paint Tool.</figcaption>
 </figure>
 
-The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. After every stroke, the internal logic processes the painted map and updates all dependent maps to keep the configuration of the solver safe. For example, if we paint the influence of one target of an AdnMuscle which has two targets assigned, then the tool will update the weights of the other target to ensure that the addition of both is normalized at each vertex (the normalization process is independent for transform and geometry targets). The same applies if we paint hard constraints of an AdnSkin deformer: the soft and slide constraints maps will be updated internally to keep the addition of the three maps normalized. Thanks to this logic, switching attributes (see Figure 3) or selecting influences (see Figure 4) from the AdonisFX Paint Tool provides automatic feedback to the user of the current status of all the maps.
+The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. After every stroke, the internal logic processes the painted map and updates all dependent maps to keep the configuration of the solver safe. For example, if we paint the influence of one target of an AdnMuscle which has two targets assigned, then the tool will update the weights of the other target to ensure that the addition of both is normalised at each vertex (the normalisation process is independent for transform and geometry targets). The same applies if we paint hard constraints of an AdnSkin deformer: the soft and slide constraints maps will be updated internally to keep the addition of the three maps normalised. Thanks to this logic, switching attributes (see Figure 3) or selecting influences (see Figure 4) from the AdonisFX Paint Tool provides automatic feedback to the user of the current status of all the maps.
 
 > [!NOTE]
 > AdnSimshape and AdnSkinMerge do not require this tool. Their paintable maps can be manipulated through the standard Maya paint context.
@@ -28,7 +28,7 @@ To open the tool:
 
 If the selection provided is valid, meaning the selected mesh has one of the AdonisFX deformers listed before, then the paint context will get configured and the user can paint. The map to be painted is the one associated to the selected attribute in the enumerator exposed at the top of the UI.
 
-The painted weights are visualized in the viewport thanks to the **AdnWeightsDisplayNode**. This node is in charge of setting the vertex colors from the selected attribute in the UI on the mesh. This node is created and removed dynamically by the Paint Tool on entering and exiting from the context. Because of that, it is strongly recommended to keep the AdonisFX Paint Tool open while painting.
+The painted weights are visualised in the viewport thanks to the **AdnWeightsDisplayNode**. This node is in charge of setting the vertex colours from the selected attribute in the UI on the mesh. This node is created and removed dynamically by the Paint Tool on entering and exiting from the context. Because of that, it is strongly recommended to keep the AdonisFX Paint Tool open while painting.
 
 <figure markdown>
   ![AdnWeightsDisplayNode in the Node Editor](images/paint_tool_weights_display_node.png) 
@@ -38,7 +38,7 @@ The painted weights are visualized in the viewport thanks to the **AdnWeightsDis
 > [!NOTE]
 > - If the painted weights are not displayed, it is probably because the node got removed. Please, select the transform node of an AdonisFX paintable deformer and click *Refresh From Selection* or restart the AdonisFX Paint Tool.
 
-Depending on the deformer and the attribute selected the UI can adjust to support multi-influence attributes by exposing the influences or restricting certain functionalities of the tool. In the following sections, the specific behavior of the tool for each deformer is presented.
+Depending on the deformer and the attribute selected the UI can adjust to support multi-influence attributes by exposing the influences or restricting certain functionalities of the tool. In the following sections, the specific behaviour of the tool for each deformer is presented.
 
 #### Paint Tool on AdnMuscle and AdnRibbonMuscle
 
@@ -53,7 +53,7 @@ In the specific case of muscle deformers, the too will display the following att
     - If any of these attribute types is selected, then a list widget is shown with the names of the targets connected to the deformer (see Figure 4).
     - Select the desired target to paint from the list widget and paint the weight values.
     - When selecting a target in the list, the object will also get selected in the scene, facilitating its identification.
-    - If more than one target was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all attachment constraint weights in a vertex will always add up to a maximum value of 1.0.
+    - If more than one target was added to the system, then the paint tool will normalise the weights automatically after a stroke has been completed, meaning that the sum of all attachment constraint weights in a vertex will always add up to a maximum value of 1.0.
     - If any target is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
 
     <figure>
@@ -81,14 +81,14 @@ In the specific case of muscle deformers, the too will display the following att
     - If this attribute is selected, a list widget is shown with the names of the targets connected to the deformer (see Figure 4).
     - Select the desired target to paint from the list widget and paint the weight values.
     - When selecting a target in the list, the object will also get selected in the scene, facilitating its identification.
-    - If more than one target was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all slide on geometry constraint weights in a vertex will always add up to a maximum value of 1.0.
+    - If more than one target was added to the system, then the paint tool will normalise the weights automatically after a stroke has been completed, meaning that the sum of all slide on geometry constraint weights in a vertex will always add up to a maximum value of 1.0.
     - If any target is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
   - **Slide On Segment**
     - Slide on Segment Constraints operate similarly to attachment constraints, as they are both multi-influence attributes.
     - The entries in the list widget correspond in this case to the segments added to the constraint, with the name of the segment being "*root_transform* - *tip_transform*".
     - Select the desired segment to paint from the list widget and paint the weight values.
     - When selecting a segment in the list the two scene objects that form the root and tip of the segment will get selected as well, facilitating their identification.
-    - If more than one segment was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the addition of all slide on segment constraint weights in a vertex will always add up to a maximum value of 1.0.
+    - If more than one segment was added to the system, then the paint tool will normalise the weights automatically after a stroke has been completed, meaning that the addition of all slide on segment constraint weights in a vertex will always add up to a maximum value of 1.0.
 
     <figure>
       <img src="images/paint_tool_sos_attribute.png"> 
@@ -118,21 +118,21 @@ In the specific case of an AdnSkin deformer, the tool will display the following
     - By default, this map is set to 1.0.
     - This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
   - **Hard Constraints**
-    - Hard constraints are set to 1.0 by default. With this value the solver will apply the corrections to the vertices needed to keep them at a constant transformation, local to the closest point on the reference mesh at initialization.
-    - This value is normalized alongside Soft Constraints and Slide Constraints.
+    - Hard constraints are set to 1.0 by default. With this value the solver will apply the corrections to the vertices needed to keep them at a constant transformation, local to the closest point on the reference mesh at initialisation.
+    - This value is normalised alongside Soft Constraints and Slide Constraints.
   - **Masses**
     - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.
   - **Shape Preservation**
     - Shape preservation weights are set to 0.0 by default in AdnSkin. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the shape formed with the surrounding vertices. 
   - **Slide Constraints**
     - Slide constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the sliding of the simulated mesh along the reference surface.
-    - This value is normalized alongside Hard Constraints and Soft Constraints.
+    - This value is normalised alongside Hard Constraints and Soft Constraints.
   - **Sliding Distance Multiplier**
     - Sliding distance Multiplier is set to 1.0 by default. With this value, every vertex of the geometry will be able to slide along every vertex of the reference surface.
     - It is suggested to lower the value in those areas where slide constraints are less relevant or not present for better performance without losing quality.
   - **Soft Constraints**
     - Soft constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the vertices keeping a constant distance to the closest point of the reference mesh.
-    - This value is normalized alongside Hard Constraints and Slide Constraints.
+    - This value is normalised alongside Hard Constraints and Slide Constraints.
 
 ## Importer
 

@@ -33,11 +33,11 @@ The process to create an AdnSkinMerge deformer is:
     - If you wish to remove a single element from the list, select it in the Skin Merge UI and press the Remove Selected button.
     - You may also clear any list fully by pressing the respective Clear button.
 
-4. Set a custom name to the deformer and specify the initialization time.
+4. Set a custom name to the deformer and specify the initialisation time.
 
 5. Press the *Create* button and a message box will notify you that AdnSkinMerge has been created properly. The final mesh will follow the animation mesh inputs by default.
 
-6. To modulate the influence of the simulation mesh inputs, use the maya paintable context and customize the blend weights map.
+6. To modulate the influence of the simulation mesh inputs, use the maya paintable context and customise the blend weights map.
 
 Once we have an AdnSkinMerge deformer created, if we wish to modify its input meshes (animation mesh list, simulation mesh list or both) we may follow this process:
 
@@ -57,7 +57,7 @@ Once we have an AdnSkinMerge deformer created, if we wish to modify its input me
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Initialization Time** | Time | *Current frame* | ✗ | Sets the frame at which the deformer will be initialized. |
+| **Initialization Time** | Time | *Current frame* | ✗ | Sets the frame at which the deformer will be initialised. |
 | **Envelope**            | Float | 1.0 | ✗ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
 ## Attribute Editor Template
