@@ -207,6 +207,9 @@ Once the AdnRibbonMuscle deformer is created, it is possible to add and remove n
 
 Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](maya/simple_setup#AdnRibbonMuscle) for more information on how to paint the influence maps for the mentioned constraints.
 
+> [!NOTE]
+> - Simulated muscle geometries are currently not supported as geometry targets.
+
 ### Slide On Segment Constraint
 
 Additionally to all previously mentioned constraints, ribbon muscles can have an additional, optional constraint that can define a segment over which the muscle will slide.
