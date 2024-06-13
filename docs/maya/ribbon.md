@@ -108,17 +108,17 @@ Follow this steps to create an AndRibbonMuscle deformer:
 
 <figure markdown>
   ![AdnRibbonMuscle editor first part](images/attribute_editor_part_one_ribbon.png) 
-  <figcaption><b>Figure 1</b>: AdnRibbonMuscle Attribute Editor</figcaption>
+  <figcaption><b>Figure 1</b>: AdnRibbonMuscle Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnRibbonMuscle editor second part](images/attribute_editor_part_two_ribbon.png)
-  <figcaption><b>Figure 2</b>: AdnRibbonMuscle Attribute Editor (Advanced Settings)</figcaption>
+  <figcaption><b>Figure 2</b>: AdnRibbonMuscle Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnRibbonMuscle editor debug menu](images/attribute_editor_muscle_debug.png)
-  <figcaption><b>Figure 3</b>: AdnRibbonMuscle Attribute Editor (Debug menu)</figcaption>
+  <figcaption><b>Figure 3</b>: AdnRibbonMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 
 ## Paintable Weights

@@ -110,17 +110,17 @@ To create an AdnMuscle, follow these steps:
 
 <figure markdown>
   ![AdnMuscle editor first part](images/attribute_editor_part_one_muscle.png) 
-  <figcaption><b>Figure 1</b>: AdnMuscle Attribute Editor</figcaption>
+  <figcaption><b>Figure 1</b>: AdnMuscle Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnMuscle editor second part](images/attribute_editor_part_two_muscle.png)
-  <figcaption><b>Figure 2</b>: AdnMuscle Attribute Editor (Advanced Settings)</figcaption>
+  <figcaption><b>Figure 2</b>: AdnMuscle Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnMuscle editor debug menu](images/attribute_editor_muscle_debug.png)
-  <figcaption><b>Figure 3</b>: AdnMuscle Attribute Editor (Debug menu)</figcaption>
+  <figcaption><b>Figure 3</b>: AdnMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 
 ## Paintable Weights

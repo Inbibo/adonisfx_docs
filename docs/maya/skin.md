@@ -107,7 +107,7 @@ The process to create an AdnSkin deformer is:
 
 <figure markdown>
   ![skin editor debug menu](images/attribute_editor_skin_debug.png)
-  <figcaption><b>Figure 3</b>: AdnSkin Attribute Editor (Debug menu)</figcaption>
+  <figcaption><b>Figure 3</b>: AdnSkin Attribute Editor (Debug menu).</figcaption>
 </figure>
 
 ## Paintable Weights

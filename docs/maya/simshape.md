@@ -162,17 +162,17 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 
 <figure markdown>
   ![simshape editor first part](images/attribute_editor_part_one_simshape.png) 
-  <figcaption><b>Figure 2</b>: AdnSimshape Attribute Editor</figcaption>
+  <figcaption><b>Figure 2</b>: AdnSimshape Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
   ![simshape editor second part](images/attribute_editor_part_two_simshape.png)
-  <figcaption><b>Figure 3</b>: AdnSimshape Attribute Editor (Advanced Settings)</figcaption>
+  <figcaption><b>Figure 3</b>: AdnSimshape Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor debug menu](images/attribute_editor_simshape_debug.png)
-  <figcaption><b>Figure 4</b>: AdnSimshape Attribute Editor (Debug menu)</figcaption>
+  <figcaption><b>Figure 4</b>: AdnSimshape Attribute Editor (Debug menu).</figcaption>
 </figure>
 
 ## Paintable Weights
@@ -210,7 +210,7 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
 ![skin editor debug menu](images/simshape_debug.png)
-<figcaption><b>Figure 6</b>: AdnSimshape Collision Constraints, Muscle Fibers, Sliding Surface On Collider and Shape Preservation debugging</figcaption>
+<figcaption><b>Figure 6</b>: AdnSimshape Collision Constraints, Muscle Fibers, Sliding Surface On Collider and Shape Preservation debugging.</figcaption>
 </figure>
 
 ## Advanced
@@ -220,7 +220,7 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
 
 <figure markdown>
   ![Activation modes from attribute editor](images/activation_modes.png)
-  <figcaption><b>Figure 7</b>: Activation Modes switch exposed in the Attribute Editor</figcaption>
+  <figcaption><b>Figure 7</b>: Activation Modes switch exposed in the Attribute Editor.</figcaption>
 </figure>
 
 > [!NOTE = Activation Modes]
@@ -252,7 +252,7 @@ The Learn Muscle Patches tool allows the user to generate the AMP file:
 
 <figure style="width: 50%; padding-left: 5px;">
   <img src="images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
-  <figcaption><b>Figure 8</b>: Learn Muscle Patches UI</figcaption>
+  <figcaption><b>Figure 8</b>: Learn Muscle Patches UI.</figcaption>
 </figure>
 
 1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
@@ -266,7 +266,7 @@ The Learn Muscle Patches tool allows the user to generate the AMP file:
 <br>
 <figure style="width: 50%;" markdown>
   ![Simshape draw muscle patches example](images/simshape_debug_amp.png)
-  <figcaption><b>Figure 9</b>: Example of muscle patches generated with the Learn Muscle Patches UI</figcaption>
+  <figcaption><b>Figure 9</b>: Example of muscle patches generated with the Learn Muscle Patches UI.</figcaption>
 </figure>
 
 Additional custom settings for the learning algorithm:
@@ -284,7 +284,7 @@ AdnSimshape integrates a debug mode to visualise the activations during the simu
 
 <figure style="width: 50%" markdown>
   ![Learn Muscle Patches UI window](images/nassim_debug.png)
-  <figcaption><b>Figure 10</b>: Example of AdnSimshape running in Debug mode</figcaption>
+  <figcaption><b>Figure 10</b>: Example of AdnSimshape running in Debug mode.</figcaption>
 </figure>
 
 

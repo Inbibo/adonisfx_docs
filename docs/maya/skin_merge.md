@@ -64,7 +64,7 @@ Once we have an AdnSkinMerge deformer created, if we wish to modify its input me
 
 <figure markdown>
   ![AdnSkinMerge editor](images/attribute_editor_skin_merge.png)
-  <figcaption><b>Figure 3</b>: AdnSkinMerge Attribute Editor</figcaption>
+  <figcaption><b>Figure 3</b>: AdnSkinMerge Attribute Editor.</figcaption>
 </figure>
 
 ## Paintable Weights
