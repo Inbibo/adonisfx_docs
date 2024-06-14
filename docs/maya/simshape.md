@@ -154,9 +154,9 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | **Collision Mesh**             | Mesh   |          | ✓ | Collision mesh used to drive the the collision logic. |
 | **Collision Mesh Matrix**      | Matrix | Identity | ✓ | Collision matrix used to drive the collision logic. |
 | **Collision Rest Mesh**        | Mesh   |          | ✗ | Collision rest mesh used to drive the initialisation of the collision logic. |
-| **Collision Rest Mesh Matrix** | Matrix | Identity | ✗ | Collision rest matrix at rest used for initializing. |
+| **Collision Rest Mesh Matrix** | Matrix | Identity | ✗ | Collision rest matrix at rest used for initialising. |
 | **Deform Mesh**                | Mesh   |          | ✓ | Deform mesh used to estimate the muscle patches activation. |
-| **Rest Mesh**                  | Mesh   |          | ✓ | Rest mesh used for initializing the system and to compute the activations against the deform mesh. |
+| **Rest Mesh**                  | Mesh   |          | ✓ | Rest mesh used for initialising the system and to compute the activations against the deform mesh. |
 
 ## Attribute Editor Template
 

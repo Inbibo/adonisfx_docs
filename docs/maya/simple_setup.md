@@ -137,7 +137,7 @@ Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from 
 
 Once tendons are painted, when selecting the *Fibers* attribute from the *Attribute* enumerator, painted fibers will be displayed, with a default direction set by the painted tendons. It is now possible to freely comb these fibers if it is desired.
 
-To change the fiber size or its colour, go to the Attribute Editor, in the debug submenu, and customise the colour, width and length of the drawn lines.
+To change the fiber size or its colour, go to the Attribute Editor in the debug submenu, and customise the colour, width and length of the drawn lines.
 
 <figure>
   <img src="images/setup_muscle_4.png">
@@ -312,7 +312,7 @@ To create the AdnSimshape deformer with some initial customisation, double-click
   <figcaption><b>Figure 33</b>: AdnSimshape deformer creation scenario.</figcaption>
 </figure>
 
-To add the deformation mesh to the deformer first select the deformation mesh, then the simulated mesh (it is the animation mesh), and then go to AdonisFX Menu > Simshape (on the *Edit* group) > Add *Deform Mesh*. A message will notify is that the addition of the rest mesh has been done correctly.
+To add the deformation mesh to the deformer first select the deformation mesh, then the simulated mesh (which is the animation mesh) and then go to AdonisFX Menu > Simshape (on the *Edit* group) > Add *Deform Mesh*. A message will notify is that the addition of the rest mesh has been done correctly.
 
 <figure>
   <img src="images/setup_simshape_2.png"> 
@@ -394,7 +394,7 @@ When everything has been properly set up, press the *Create* button to create th
 
 Once we have the AdnSkinMerge deformer created we will paint its weights to blend the animation and simulation meshes into the final mesh.
 
-The *Blend* attribute represents the level of influence of the simulated mesh: a value of 0.0 makes the vertices follow the animated inputs while a value of 1.0 makes the vertices follow the simulated inputs.
+The *Blend* attribute represents the level of influence of the simulated mesh: a value of 0.0 makes the vertices follow the animated inputs, while a value of 1.0 makes the vertices follow the simulated inputs.
 
 To have a smooth transition from the simulated mesh to the animated mesh, smooth the painting in the areas near the the edges between the simulation and animation meshes.
 

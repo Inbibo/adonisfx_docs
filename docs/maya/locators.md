@@ -1,10 +1,10 @@
 # Locators
 
-AdonisFX Locators are visualisers that are meant for visualizing and measuring transform nodes which provide valuable input information for setting up the deformers. They can visualise information representing position, distance, or angle as well as velocities or accelerations represented via colouring when used in combination with Sensors.
+AdonisFX Locators are visualisers that are meant for visualising and measuring transform nodes which provide valuable input information for setting up the deformers. They can visualise information representing position, distance, or angle as well as velocities or accelerations represented via colouring when used in combination with Sensors.
 
 ## AdnLocatorPosition
 
-AdnLocatorPosition is the locator for visualizing the position of a single transform node. When connected to its corresponding AdnSensorPosition, velocity or acceleration can be visualised with a colouring code blue-to-red.
+AdnLocatorPosition is the locator for visualising the position of a single transform node. When connected to its corresponding AdnSensorPosition, velocity or acceleration can be visualised with a colouring code blue-to-red.
 
 ### How To Use
 
@@ -43,7 +43,7 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 
 ## AdnLocatorDistance
 
-AdnLocatorDistance is the locator for visualizing the distance between two transform nodes. When connected to its corresponding AdnSensorDistance, distance, velocity or acceleration can be visualised with a colouring code blue-to-red.
+AdnLocatorDistance is the locator for visualising the distance between two transform nodes. When connected to its corresponding AdnSensorDistance, distance, velocity or acceleration can be visualised with a colouring code blue-to-red.
 
 ### How To Use
 
@@ -83,7 +83,7 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 
 ## AdnLocatorRotation
 
-AdnLocatorRotation is the locator for visualizing the angle between three transform nodes. When connected to its corresponding AdnSensorRotation, angle, angular velocity or angular acceleration can be visualised with a colouring code blue-to-red.
+AdnLocatorRotation is the locator for visualising the angle between three transform nodes. When connected to its corresponding AdnSensorRotation, angle, angular velocity or angular acceleration can be visualised with a colouring code blue-to-red.
 
 ### How To Use
 

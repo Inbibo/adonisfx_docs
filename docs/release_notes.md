@@ -32,7 +32,7 @@
 - Fixed a bug that did not allow to add attachments on a muscle deformer created on referenced geometry. *AdonisFX-506*
 - Fixed import of the constraint weight arrays on sparse arrays. *AdonisFX-1155*
 - Fixed a bug that caused geometry sliding constraints to not find valid triangles to slide on initialisation. *AdonisFX-1165*
-- Fixed paint flood operation not normalizing the weights properly. *AdonisFX-1146*
+- Fixed paint flood operation not normalising the weights properly. *AdonisFX-1146*
 
 ## Version 1.0.4
 

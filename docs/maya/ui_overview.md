@@ -16,9 +16,9 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![AdnLocator](images/adn_adonis_locator.png) | Creates an AdnLocator at the origin. This object is a standard Maya locator with a custom shape for better visualisation in the viewport. | |
 | ![AdnLocatorPosition](images/adn_point_locator.png) | Creates an AdnLocatorPosition from the selected transform node. The locator shape represents the position change of the element provided. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Locators > *Position* |
 | ![AdnLocatorDistance](images/adn_distance_locator.png) | Creates an AdnLocatorDistance from the two selected transform nodes. The locator shape represents the distance between the two elements provided. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Locators > *Distance* |
-| ![AdnLocatorRotation](images/adn_angle_locator.png) | Creates an AdnLocatorRotation from the three selected transform nodes. The locator shape represents the angle between the two segments represted by the three nodes. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Locators > *Rotation* |
+| ![AdnLocatorRotation](images/adn_angle_locator.png) | Creates an AdnLocatorRotation from the three selected transform nodes. The locator shape corresponds to the angle between the two segments represented by the three nodes. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Locators > *Rotation* |
 |||
-| ![AdnSensorPosition](images/adn_point_sensor.png) | Creates an AdnSensorPosition from the transform object and the AdnLocatorPosition selected. If only the transform nodes is provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Sensors > *Position* |
+| ![AdnSensorPosition](images/adn_point_sensor.png) | Creates an AdnSensorPosition from the transform object and the AdnLocatorPosition selected. If only the transform node is provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Sensors > *Position* |
 | ![AdnSensorDistance](images/adn_distance_sensor.png) | Creates an AdnSensorDistance from the two transform nodes and the AdnLocatorDistance selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Sensors > *Distance* |
 | ![AdnSensorRotation](images/adn_angle_locator.png) | Creates an AdnSensorRotation from the three transform nodes and the AdnLocatorRotation selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Sensors > *Rotation* |
 |||
@@ -31,8 +31,8 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![Create AdnSkin](images/adn_skin.png) | Creates AdnSkin deformer to the selected mesh. First, select the reference mesh and then the skin mesh to apply the deformer. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Skin* |
 | ![Create AdnSkinMerge](images/adn_skin_merge.png) | Launches the Create Skin Merge UI used to create an AdnSkinMerge deformer. | AdonisFX Menu > Create Deformers > *Skin Merge* |
 |||
-| ![Create AdnRibbonMuscle](images/adn_ribbon_muscle.png) | Creates AdnRibbonMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as attachment objects. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Ribbon Muscle* |
-| ![Create AdnMuscle](images/adn_muscle.png) | Creates AdnMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as attachment objects. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Muscle* |
+| ![Create AdnRibbonMuscle](images/adn_ribbon_muscle.png) | Creates AdnRibbonMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as target objects. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Ribbon Muscle* |
+| ![Create AdnMuscle](images/adn_muscle.png) | Creates AdnMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as target objects. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Muscle* |
 | ![Add Targets](images/adn_add_target.png) | Assigns target objects to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Targets* |
 | ![Remove Targets](images/adn_remove_target.png) | Removes target objects assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Targets* |
 | ![Add Slide On Segment](images/adn_add_sliding_constraint.png) | Adds slide segments based on the two (or more) transform objects and the mesh with the deformer node applied (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Slide On Segment* |
@@ -63,7 +63,7 @@ The AdonisFX Menu provides access to the options in the shelf and other more adv
 
 - **Position**. Creates an AdnLocatorPosition from the selected transform node. The locator shape represents the position change of the element provided. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnLocator](images/adn_adonis_locator.png){style="width:4%"}.
 - **Distance**. Creates an AdnLocatorDistance from the two selected transform nodes. The locator shape represents the distance between the two elements provided. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnLocatorDistance](images/adn_distance_locator.png){style="width:4%"}.
-- **Rotation**. Creates an AdnLocatorRotation from the three selected transform nodes. The locator shape represents the angle between the two segments represted by the three nodes. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnLocatorRotation](images/adn_angle_locator.png){style="width:4%"}.
+- **Rotation**. Creates an AdnLocatorRotation from the three selected transform nodes. The locator shape corresponds to the angle between the two segments represented by the three nodes. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnLocatorRotation](images/adn_angle_locator.png){style="width:4%"}.
 
 #### Sensors
 
@@ -72,7 +72,7 @@ The AdonisFX Menu provides access to the options in the shelf and other more adv
   <figcaption><b>Figure 4</b>: AdonisFX Menu Create Sensors section.</figcaption>
 </figure>
 
-- **Position**. Creates an AdnSensorPosition from the transform object and the AdnLocatorPosition selected. If only the transform nodes is provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button !![AdnSensorPosition](images/adn_point_sensor.png){style="width:4%"}.
+- **Position**. Creates an AdnSensorPosition from the transform object and the AdnLocatorPosition selected. If only the transform nodes is provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorPosition](images/adn_point_sensor.png){style="width:4%"}.
 - **Distance**. Creates an AdnSensorDistance from the two transform nodes and the AdnLocatorDistance selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorDistance](images/adn_distance_sensor.png){style="width:4%"}.
 - **Rotation**. Creates an AdnSensorRotation from the three transform nodes and the AdnLocatorRotation selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorRotation](images/adn_angle_locator.png){style="width:4%"}.
 
@@ -90,7 +90,7 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
   <figcaption><b>Figure 6</b>: AdonisFX Menu Create Nodes section.</figcaption>
 </figure>
 
-- **Skin Merge**. Creates an AdnEdgeEvaluator node from two selected meshes with the same topology. 
+- **Edge Evaluator**. Creates an AdnEdgeEvaluator node from two selected meshes with the same topology. 
 
 #### Deformers
 
@@ -129,7 +129,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
   <figcaption><b>Figure 10</b>: AdonisFX Menu Edit Sensors section.</figcaption>
 </figure>
 
-- **Connection Editor**. Launches the Sensors Connection Editor UI. This tool will assist with the connectivity of the locators and sensors output plugs with the AdonisFX deformer nodes.
+- **Connection Editor**. Launches the Sensors Connection Editor UI. This tool will assist with the connection of the locators and sensors output plugs with the AdonisFX deformer nodes.
 
 #### Deformers
 
@@ -138,7 +138,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
   <figcaption><b>Figure 11</b>: AdonisFX Menu Edit Deformers section.</figcaption>
 </figure>
 
-- **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the edition of simulation and animation meshes lists of an AdnSkinMerge deformer. To open this UI a mesh with the AdnSkinMerge must be selected.
+- **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the edition of simulation and animation meshes lists of an AdnSkinMerge deformer. To open this UI a mesh with an AdnSkinMerge applied must be selected.
 
 #### Simshape
 
@@ -153,10 +153,10 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 - **Remove Collider**. Removes the collider from the selected deformer. The selection must consist of: first the Collider mesh to remove and lastly the mesh with the deformer applied. This item corresponds to the shelf button ![Remove AdnSimshape Collider](images/adn_remove_collider.png){style="width:4%"}. 
 - **Add Rest Collider**. Assigns the collider at rest to the selected deformer. The selection must consist of: first the mesh to assign as a Rest Collider and lastly the mesh with the deformer applied.
 - **Remove Rest Collider**. Removes the collider at rest from the selected deformer. The selection must consist of: first the Rest Collider mesh to remove and lastly the mesh with the deformer applied.
-- **Add Rest Mesh**. Assigns the rest mesh to the selected deformer. The selection must consist of: first the Rest Mesh that to assign and lastly the mesh with the deformer applied.
-- **Remove Rest Mesh**. Removes the rest Mesh from the selected deformer. The selection must consist of: first the Rest Mesh that to remove and lastly the mesh with the deformer applied.
-- **Add Deform Mesh**. Assigns the deform mesh to the selected deformer. The selection must consist of: first the Deform Mesh that to assign and lastly the mesh with the deformer applied.
-- **Remove Deform Mesh**. Removes the deform mesh from the selected deformer. The selection must consist of: first the Deform Mesh that to remove and lastly the mesh with the deformer applied.
+- **Add Rest Mesh**. Assigns the rest mesh to the selected deformer. The selection must consist of: first the Rest Mesh to assign and lastly the mesh with the deformer applied.
+- **Remove Rest Mesh**. Removes the rest Mesh from the selected deformer. The selection must consist of: first the Rest Mesh to remove and lastly the mesh with the deformer applied.
+- **Add Deform Mesh**. Assigns the deform mesh to the selected deformer. The selection must consist of: first the Deform Mesh to assign and lastly the mesh with the deformer applied.
+- **Remove Deform Mesh**. Removes the deform mesh from the selected deformer. The selection must consist of: first the Deform Mesh to remove and lastly the mesh with the deformer applied.
 - **Add Anim Mesh**. Assigns the animated mesh to the selected deformer. The selection must consist of: first the Anim Mesh to assign and lastly the mesh with the deformer applied.
 - **Remove Anim Mesh**. Removes the animated mesh from the selected deformer. The selection must consist of: first the Anim Mesh to remove and lastly the mesh with the deformer applied.
 - **Connect Activations Plug**. Connects the output compression map from an AdnEdgeEvaluator node to the activations plug of the AdnSimshape selected deformer. The selection must consist of: first the Edge Evaluator node and lastly the AdnSimshape deformer node.
@@ -195,7 +195,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 ### License section
 
-- **Activate License**. Checks the license status and if it is not activated yet, then a dialog is prompted to guide on the product key registration. This functionality is only available in Interactive Node-Locked license.
+- **Activate License**. Checks the license status and if it is not activated yet, then a dialog will be prompted to guide on the product key registration. This functionality is only available in Interactive Node-Locked license.
 
 ### Help section
 
