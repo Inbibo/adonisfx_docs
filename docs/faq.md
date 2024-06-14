@@ -32,7 +32,7 @@ Yes, you can simulate muscles, fascia and skin following these steps:
 
 ## How can I simulate facial skin?
 
-You can use AdnSimshape deformer. This deformer allows to reproduce the elasticity and the change in stiffness of a facial geometry thanks to the features of the AdnSimshape solver. Please, check this [section](maya/simple_setup#adnsimshape) where a simple setup is explained or this [page](maya/simshape) to know more about this solver.
+You can use [AdnSimshape](maya/simshape) deformer. This deformer allows to reproduce the elasticity and the change in stiffness of a facial geometry thanks to the features of the AdnSimshape solver. Please, check this [section](maya/simple_setup#adnsimshape) where a simple setup is explained or this [page](maya/simshape) to know more about this solver.
 
 ## How can I add muscle activations to facial simulation?
 

@@ -107,7 +107,7 @@ In order to add attachment constraints to the muscle select the targets (joints,
 
 Additionally, target geometries that have been added to an AdnMuscle deformer (see Figure 11) can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to follow better the animation.
 
-Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry we will specify a pair of joints of the rig representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
+Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry a pair of joints will be specified of the rig representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
 
 ### Paint Weights
 
@@ -224,7 +224,7 @@ In order to add attachment constraints to the ribbon muscle select the targets (
 
 Additionally, target geometries that have been added to an AdnRibbonMuscle deformer (see Figure 24) can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to follow better the animation.
 
-Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry we will specify a pair of joints of the rig representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
+Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry a pair of joints of the rig can be specified representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
 
 ### Paint Weights
 
@@ -353,7 +353,7 @@ To further have a realistic depiction of facial dynamics, facial muscle activati
  - AdonisFX Muscle Patches file.
  - Edge Evaluator Node.
 
-Refer to this [section](simshape#muscle-activations) to see how to use Muscle Patches files. However, in this example, we take advantage of the AdnEdgeEvaluator Node. To create this node, select the rest mesh, then the deformation mesh, and then go to AdonisFX Menu > Nodes > *Edge Evaluator*. Then, once created, connect it to the AdnSimshape deformer via AdonisFX Menu > Simshape (on the *Edit* group) > *Connect Activations Plug*. 
+Refer to this [section](simshape#muscle-activations) to see how to use Muscle Patches files. However, in this example, it is taken advantage of the AdnEdgeEvaluator Node. To create this node, select the rest mesh, then the deformation mesh, and then go to AdonisFX Menu > Nodes > *Edge Evaluator*. Then, once created, connect it to the AdnSimshape deformer via AdonisFX Menu > Simshape (on the *Edit* group) > *Connect Activations Plug*. 
 
 <figure>
   <img src="images/setup_simshape_6.png"> 
@@ -392,7 +392,7 @@ When everything has been properly set up, press the *Create* button to create th
 
 ### Paint Weights
 
-Once we have the AdnSkinMerge deformer created we will paint its weights to blend the animation and simulation meshes into the final mesh.
+Once the AdnSkinMerge deformer is created the weights can be painted to blend the animation and simulation meshes into the final mesh.
 
 The *Blend* attribute represents the level of influence of the simulated mesh: a value of 0.0 makes the vertices follow the animated inputs, while a value of 1.0 makes the vertices follow the simulated inputs.
 

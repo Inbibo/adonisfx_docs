@@ -39,7 +39,7 @@ The process to create an AdnSkinMerge deformer is:
 
 6. To modulate the influence of the simulation mesh inputs, use the maya paintable context and customise the blend weights map.
 
-Once we have an AdnSkinMerge deformer created, if we wish to modify its input meshes (animation mesh list, simulation mesh list or both) we may follow this process:
+Once the AdnSkinMerge deformer is created, to modify its input meshes (animation mesh list, simulation mesh list or both) the follow process can be followed:
 
 1. Go to *Deformers > Skin Merge* in the AdonisFX menu, under the *Edit* section.
 
