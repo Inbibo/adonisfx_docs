@@ -20,7 +20,7 @@
 - Added *Point Mass Mode* to AdnSimshape, AdnSkin, AdnMuscle and AdnRibbonMuscle which allows to specify either a mass per point or a density value from which point masses will be computed.
 - Debugger system improved to be dependent to the visibility of the simulated geometry.
 - Added a sanity check to *Max Sliding Distance* attribute to warn the user if the input value is too high for the given target mesh.
-- Updated debugger system to visualise attachment to geometry constraints, slide on geometry constraints and sliding surface.
+- Updated debugger system to visualise attachment to geometry constraints, slide on geometry constraints, shape preservation constraints and sliding surface.
 - Extended Importer and Exporter tools to support AdnSkinMerge deformer and new constraints (attachment to geometry and slide on geometry).
 - Added *Refresh Debugger* utility to the AdonisFX menu to create missing debug nodes and connections.
 - Allow source nodes of any type in the *Sensors Connection Editor*.
