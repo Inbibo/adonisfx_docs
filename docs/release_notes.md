@@ -6,7 +6,7 @@
 
 - Attachment to geometry constraints in AdnMuscle and AdnRibbonMuscle solvers. Multiple target geometries are supported.
 - Slide on geometry constraints in AdnMuscle and AdnRibbonMuscle solvers. Multiple target geometries are supported.
-- Shape preservation constraints integrated in all solvers.
+- Shape preservation constraints integrated in in AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape solvers.
 - Point mass support integrated in all solvers to control the dynamics of the system.
 - Compute point mass distribution based on the density and volume or area.
 
@@ -15,7 +15,7 @@
 - Added AdnSkinMerge deformer to blend the results from animated and simulated input geometries.
 - Added support for attachment to geometry in AdnMuscle and AdnRibbonMuscle solvers.
 - Added support to slide on geometry in AdnMuscle and AdnRibbonMuscle solvers.
-- Added support for shape preservation in all AdonisFX solvers.
+- Added support for shape preservation in AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape solvers.
 - Added mass attributes in AdnMuscle and AndRibbonMuscle deformers to provide more control over the dynamics of the simulated object.
 - Added *Point Mass Mode* to AdnSimshape, AdnSkin, AdnMuscle and AdnRibbonMuscle which allows to specify either a mass per point or a density value from which point masses will be computed.
 - Debugger system improved to be dependent to the visibility of the simulated geometry.
