@@ -12,7 +12,7 @@
 
 ### Maya
 
-- Added AdnSkinMerge deformer to blend the results from animated and simualted input geometries.
+- Added AdnSkinMerge deformer to blend the results from animated and simulated input geometries.
 - Added support for attachment to geometry in AdnMuscle and AdnRibbonMuscle solvers.
 - Added support to slide on geometry in AdnMuscle and AdnRibbonMuscle solvers.
 - Added support for shape preservation in all AdonisFX solvers.
@@ -36,9 +36,8 @@
 - Fixed import of the constraint weight arrays on sparse arrays. *AdonisFX-1155*
 - Fixed a bug that caused geometry sliding constraints to not find valid triangles to slide on initialisation. *AdonisFX-1165*
 - Fixed paint flood operation not normalising the weights properly. *AdonisFX-1146*
-- Fixed a bug that occurred when data from the target mesh was missing. *AdonisFX-1183*
-- Fixed a bug that allowed to remove target geometries while painting Slide On Geometry constraints. *AdonisFX-1192*
-- Fixed a bug that allowed to open the AdonisFX Paint Tool for the final mesh of an AdnSkinMerge deformer. *AdonisFX-1198*
+- Fixed a bug that happened when reference mesh data was missing at AdnSkin deformer. *AdonisFX-1183*
+- Fixed a bug that did not allow to apply AdonisFX deformers to a geometry with the same type of deformer in its history but not applied to it. *AdonisFX-1198*
 - Fixed AdonisFX Paint Tool initialization of simulated nodes with intermediate nodes. *AdonisFX-1184*
 
 ### Improvements
