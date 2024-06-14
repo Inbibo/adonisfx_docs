@@ -6,7 +6,7 @@
 
 - Attachment to geometry constraints in AdnMuscle and AdnRibbonMuscle solvers. Multiple target geometries are supported.
 - Slide on geometry constraints in AdnMuscle and AdnRibbonMuscle solvers. Multiple target geometries are supported.
-- Shape preservation constraints integrated in in AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape solvers.
+- Shape preservation constraints integrated in AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape solvers.
 - Point mass support integrated in all solvers to control the dynamics of the system.
 - Compute point mass distribution based on the density and volume or area.
 
