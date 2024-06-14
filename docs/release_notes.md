@@ -15,6 +15,7 @@
 - Added AdnSkinMerge deformer to blend the results from animated and simualted input geometries.
 - Added support for attachment to geometry in AdnMuscle and AdnRibbonMuscle solvers.
 - Added support to slide on geometry in AdnMuscle and AdnRibbonMuscle solvers.
+- Added support for shape preservation in all AdonisFX solvers.
 - Added mass attributes in AdnMuscle and AndRibbonMuscle deformers to provide more control over the dynamics of the simulated object.
 - Added *Point Mass Mode* to AdnSimshape, AdnSkin, AdnMuscle and AdnRibbonMuscle which allows to specify either a mass per point or a density value from which point masses will be computed.
 - Debugger system improved to be dependent to the visibility of the simulated geometry.
@@ -35,6 +36,15 @@
 - Fixed import of the constraint weight arrays on sparse arrays. *AdonisFX-1155*
 - Fixed a bug that caused geometry sliding constraints to not find valid triangles to slide on initialisation. *AdonisFX-1165*
 - Fixed paint flood operation not normalising the weights properly. *AdonisFX-1146*
+- Fixed a bug that occurred when data from the target mesh was missing. *AdonisFX-1183*
+- Fixed a bug that allowed to remove target geometries while painting Slide On Geometry constraints. *AdonisFX-1192*
+- Fixed a bug that allowed to open the AdonisFX Paint Tool for the final mesh of an AdnSkinMerge deformer. *AdonisFX-1198*
+- Fixed AdonisFX Paint Tool initialization of simulated nodes with intermediate nodes. *AdonisFX-1184*
+
+### Improvements
+
+- Allow source nodes of any type in the *Sensors Connection Editor*. *AdonisFX-1189*
+- Prevent the use of simulated muscles as geometry targets. *AdonisFX-1200*
 
 ### Known Limitations
 
