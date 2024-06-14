@@ -50,15 +50,15 @@ Once we have an AdnSkinMerge deformer created, if we wish to modify its input me
   <figcaption><b>Figure 2</b>: Edit Skin Merge UI.</figcaption>
 </figure>
 
-3. Once everything has been set up, press the "Apply changes" button. A message box will notify you that AdnSkinMerge has been edited properly.
+3. Once everything has been set up, press the *Apply changes* button. A message box will notify you that AdnSkinMerge has been edited properly.
 
 ## Attributes
 
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Initialization Time** | Time | *Current frame* | ✗ | Sets the frame at which the deformer will be initialised. |
-| **Envelope**            | Float | 1.0 | ✗ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
+| **Initialization Time** | Time  | *Current frame* | ✗ | Sets the frame at which the deformer will be initialised. |
+| **Envelope**            | Float | 1.0             | ✗ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
 ## Attribute Editor Template
 
