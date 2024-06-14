@@ -6,7 +6,9 @@
 
 - Attachment to geometry constraints in AdnMuscle and AdnRibbonMuscle solvers. Multiple target geometries are supported.
 - Slide on geometry constraints in AdnMuscle and AdnRibbonMuscle solvers. Multiple target geometries are supported.
+- Shape preservation constraints integrated into all AdonisFX solvers.
 - Point mass support integrated in all solvers to control the dynamics of the system.
+- Calculate the mass distribution using a physically based estimate of the volume.
 
 ### Maya
 
@@ -33,6 +35,11 @@
 - Fixed import of the constraint weight arrays on sparse arrays. *AdonisFX-1155*
 - Fixed a bug that caused geometry sliding constraints to not find valid triangles to slide on initialisation. *AdonisFX-1165*
 - Fixed paint flood operation not normalising the weights properly. *AdonisFX-1146*
+
+### Known Limitations
+
+- The *Max Sliding Distance* parameter in AdnSkin and AdnSimshape is represented in scene units. The higher this value is, the more units in the space the sliding constraint allows a vertex to slide on. If the polygons of the target geometry to slide on are very little compared to that value, then the sliding constraint will be time and memory consuming. *AdonisFX-997*
+- The activations debugger in AdnSimshape is limited to the Parallel and Serial evaluation modes. *AdonisFX-1026*
 
 ## Version 1.0.4
 
