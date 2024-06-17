@@ -123,7 +123,7 @@ In the specific case of an AdnSkin deformer, the tool will display the following
   - **Masses**
     - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.
   - **Shape Preservation**
-    - Shape preservation weights are set to 0.0 by default in AdnSkin and AdnSimshape. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the shape formed with the surrounding vertices.
+    - Shape preservation weights are set to 0.0 by default in AdnSkin. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the shape formed with the surrounding vertices.
   - **Slide Constraints**
     - Slide constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the sliding of the simulated mesh along the reference surface.
     - This value is normalised alongside Hard Constraints and Soft Constraints.

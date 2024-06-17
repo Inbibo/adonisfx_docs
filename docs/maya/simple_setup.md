@@ -107,7 +107,7 @@ In order to add attachment constraints to the muscle select the targets (joints,
 
 Additionally, target geometries that have been added to an AdnMuscle deformer (see Figure 11) can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to follow better the animation.
 
-Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry a pair of joints will be specified of the rig representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
+Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry a pair of joints of the rig will be specified representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
 
 ### Paint Weights
 
