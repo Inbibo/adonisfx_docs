@@ -28,20 +28,22 @@
 
 ### Bug Fixes
 
-- Filtered characters to get valid identifiers in Maya for Linux. *AdonisFX-1033*
-- Fixed element selection check at node creation. *AdonisFX-1031*
-- Fixed error messages not displaying the proper status of the AdnSimshape collider connections. *AdonisFX-1034*
-- Prevent Exporter to generate the AAD file if there is no valid data to export. *AdonisFX-1032*
-- Fixed manipulation of referenced nodes while using the AdonisFX paint tool. *AdonisFX-1147*
-- Fixed a bug that did not allow to add attachments on a muscle deformer created on referenced geometry. *AdonisFX-506*
-- Fixed import of the constraint weight arrays on sparse arrays. *AdonisFX-1155*
-- Fixed a bug that caused geometry sliding constraints to not find valid triangles to slide on initialisation. *AdonisFX-1165*
-- Fixed paint flood operation not normalising the weights properly. *AdonisFX-1146*
 - Fixed AdonisFX Paint Tool initialization of simulated nodes with intermediate nodes. *AdonisFX-1184*
+- Fixed a bug that caused sliding constraints to not find valid triangles to slide on if the initial closest point on the target lied on an edge. *AdonisFX-1165*
+- Fixed importer to support sparse array maps. *AdonisFX-1155*
+- Fixed manipulation of referenced nodes while using the AdonisFX paint tool. *AdonisFX-1147*
+- Fixed paint flood operation not normalising the weights properly. *AdonisFX-1146*
+- Fixed error messages not displaying the proper status of the AdnSimshape collider connections. *AdonisFX-1034*
+- Filtered characters to get valid identifiers when creating nodes with a custom name in Linux. *AdonisFX-1033*
+- Prevent Exporter to generate the AAD file if there is no valid data to export. *AdonisFX-1032*
+- Fixed a bug that did not allow to add attachments on a muscle deformer created on referenced geometry. *AdonisFX-506*
 
 ### Known Limitations
 
-- The activations debugger in AdnSimshape is limited to the Parallel and Serial evaluation modes. *AdonisFX-1026*
+- Volume ratio gain effect is dependent to the total volume of the muscle. This might require to use volume ratios with a range different to the default [0, 2] if needed. *AdonisFX-1137*
+- Interaction muscle-to-muscle is not supported. *AdonisFX-1211*
+- Exporter and Importer do not support locators and sensors. *AdonisFX-1118*
+- Fat simuation is limited to the current features of AdnSkin solver. *AdonisFX-879*
 
 ## Version 1.0.4
 
