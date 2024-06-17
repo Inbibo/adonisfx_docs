@@ -1,14 +1,14 @@
 # Locators
 
-AdonisFX Locators are visualizers that are meant for visualizing and measuring transform nodes which provide valuable input information for setting up the deformers. They can visualize information representing position, distance, or angle as well as velocities or accelerations represented via coloring when used in combination with Sensors.
+AdonisFX Locators are visualisers that are meant for visualising and measuring transform nodes which provide valuable input information for setting up the deformers. They can visualise information representing position, distance, or angle as well as velocities or accelerations represented via colouring when used in combination with Sensors.
 
 ## AdnLocatorPosition
 
-AdnLocatorPosition is the locator for visualizing the position of a single transform node. When connected to its corresponding AdnSensorPosition, velocity or acceleration can be visualized with a coloring code blue-to-red.
+AdnLocatorPosition is the locator for visualising the position of a single transform node. When connected to its corresponding AdnSensorPosition, velocity or acceleration can be visualised with a colouring code blue-to-red.
 
 ### How To Use
 
-An AdnLocatorPosition will only visualize the information of the transform node to which it is applied. To be able to read, process and visualize information like the velocity or acceleration an [AdnSensorPosition](sensors#adnsensorposition) has to be applied.
+An AdnLocatorPosition will only visualise the information of the transform node to which it is applied. To be able to read, process and visualise information like the velocity or acceleration an [AdnSensorPosition](sensors#adnsensorposition) has to be applied.
 
 <figure markdown>
   ![AdnLocatorPosition within a scene](images/locators_position.png)
@@ -38,16 +38,16 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 #### Draw
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the position locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
-| **Draw Output** | Enumerator | Velocity | ✓ | Selects the property of the locator to be visualized on the locator visualizer.<ul><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
+| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the position locator visualiser. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
+| **Draw Output** | Enumerator | Velocity | ✓ | Selects the property of the locator to be visualised on the locator visualiser.<ul><li>**Velocity:** Colour the visualiser of the locator according to the input velocity activation.</li><li>**Acceleration:** Colour the visualiser of the locator according to the input acceleration activation.</li></ul> |
 
 ## AdnLocatorDistance
 
-AdnLocatorDistance is the locator for visualizing the distance between two transform nodes. When connected to its corresponding AdnSensorDistance, distance, velocity or acceleration can be visualized with a coloring code blue-to-red.
+AdnLocatorDistance is the locator for visualising the distance between two transform nodes. When connected to its corresponding AdnSensorDistance, distance, velocity or acceleration can be visualised with a colouring code blue-to-red.
 
 ### How To Use
 
-An AdnLocatorDistance will only visualize the information of the distance between two transform nodes to which it is applied. To be able to read, process and visualize information like the distance magnitude, velocity or acceleration an [AdnSensorDistance](sensors#adnsensordistance) has to be applied.
+An AdnLocatorDistance will only visualise the information of the distance between two transform nodes to which it is applied. To be able to read, process and visualise information like the distance magnitude, velocity or acceleration an [AdnSensorDistance](sensors#adnsensordistance) has to be applied.
 
 <figure markdown>
   ![AdnLocatorDistance within a scene](images/locators_distance.png)
@@ -78,16 +78,16 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 #### Draw
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the distance locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
-| **Draw Output** | Enumerator | Distance | ✓ | Selects the property of the locator to be visualized on the locator visualizer. <ul><li>**Distance:** Color the visualizer of the locator according to the input distance activation.</li><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
+| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the distance locator visualiser. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
+| **Draw Output** | Enumerator | Distance | ✓ | Selects the property of the locator to be visualised on the locator visualiser. <ul><li>**Distance:** Colour the visualiser of the locator according to the input distance activation.</li><li>**Velocity:** Colour the visualiser of the locator according to the input velocity activation.</li><li>**Acceleration:** Colour the visualiser of the locator according to the input acceleration activation.</li></ul> |
 
 ## AdnLocatorRotation
 
-AdnLocatorRotation is the locator for visualizing the angle between three transform nodes. When connected to its corresponding AdnSensorRotation, angle, angular velocity or angular acceleration can be visualized with a coloring code blue-to-red.
+AdnLocatorRotation is the locator for visualising the angle between three transform nodes. When connected to its corresponding AdnSensorRotation, angle, angular velocity or angular acceleration can be visualised with a colouring code blue-to-red.
 
 ### How To Use
 
-An AdnLocatorRotation will only visualize the information of the connections and angle between the three transform nodes. To be able to read, process and visualize information like the angle, angular velocity or angular acceleration an [AdnSensorRotation](sensors#adnsensorrotation) has to be applied.
+An AdnLocatorRotation will only visualise the information of the connections and angle between the three transform nodes. To be able to read, process and visualise information like the angle, angular velocity or angular acceleration an [AdnSensorRotation](sensors#adnsensorrotation) has to be applied.
 
 <figure markdown>
   ![AdnLocatorRotation within a scene](images/locators_rotation.png)
@@ -122,12 +122,12 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 #### Draw
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Scale**       | Float      | 1.0   | ✓ | Sets the scaling factor applied to the rotation locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
-| **Draw Output** | Enumerator | Angle | ✓ | Selects the property of the locator to be visualized on the locator visualizer.<ul><li>**Angle:** Color the visualizer of the locator according to the input angle activation.</li><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
+| **Scale**       | Float      | 1.0   | ✓ | Sets the scaling factor applied to the rotation locator visualiser. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
+| **Draw Output** | Enumerator | Angle | ✓ | Selects the property of the locator to be visualised on the locator visualiser.<ul><li>**Angle:** Colour the visualiser of the locator according to the input angle activation.</li><li>**Velocity:** Colour the visualiser of the locator according to the input velocity activation.</li><li>**Acceleration:** Colour the visualiser of the locator according to the input acceleration activation.</li></ul> |
 
 ## AdnLocator
 
-The AdnLocator is an native alternative to Maya locators. This locator can be used to visualize any kind of scene element with a transform node. For example they can be used as inputs to other AdonisFX locators presented in this page.
+The AdnLocator is an native alternative to Maya locators. This locator can be used to visualise any kind of scene element with a transform node. For example they can be used as inputs to other AdonisFX locators presented in this page.
 
 ### How To Use
 

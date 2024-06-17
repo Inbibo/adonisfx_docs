@@ -36,7 +36,7 @@ In order to disconnect the plug, repeat the selection and instead of pressing *C
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Initialization Time** | Time | *Current frame* | ✓ | Sets the frame at which the data will be initialized. |
+| **Initialization Time** | Time | *Current frame* | ✗ | Sets the frame at which the data will be initialised. |
 
 ### Compression Remap
 | Name | Type | Default | Animatable | Description |
@@ -47,5 +47,5 @@ In order to disconnect the plug, repeat the selection and instead of pressing *C
 
 <figure markdown>
   ![Edge Evaluator editor](images/attribute_editor_edge_evaluator.png)
-  <figcaption><b>Figure 2</b>: Edge Evaluator Attribute Editor</figcaption>
+  <figcaption><b>Figure 2</b>: Edge Evaluator Attribute Editor.</figcaption>
 </figure>

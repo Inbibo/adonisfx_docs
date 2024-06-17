@@ -1,5 +1,51 @@
 # Release Notes
 
+## Version 1.1.0
+
+### Core
+
+- Attachment to geometry constraints in AdnMuscle and AdnRibbonMuscle solvers. Multiple target geometries are supported.
+- Slide on geometry constraints in AdnMuscle and AdnRibbonMuscle solvers. Multiple target geometries are supported.
+- Shape preservation constraints integrated in AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape solvers.
+- Point mass support integrated in AdnMuscle and AdnRibbonMuscle to control the dynamics of the system.
+- Compute point mass distribution based on the density and volume or area.
+
+### Maya
+
+- Added AdnSkinMerge deformer to blend the results from animated and simulated input geometries.
+- Added support for attachment to geometry in AdnMuscle and AdnRibbonMuscle solvers.
+- Added support to slide on geometry in AdnMuscle and AdnRibbonMuscle solvers.
+- Added support for shape preservation in AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape solvers.
+- Added mass attributes in AdnMuscle and AndRibbonMuscle deformers to provide more control over the dynamics of the simulated object.
+- Added *Point Mass Mode* to AdnSimshape, AdnSkin, AdnMuscle and AdnRibbonMuscle which allows to specify either a mass per point or a density value from which point masses will be computed.
+- Debugger system improved to be dependent to the visibility of the simulated geometry.
+- Added a sanity check to *Max Sliding Distance* attribute to warn the user if the input value is too high for the given target mesh.
+- Updated debugger system to visualise attachment to geometry constraints, slide on geometry constraints, shape preservation constraints and sliding surface.
+- Extended Importer and Exporter tools to support AdnSkinMerge deformer and new constraints (attachment to geometry and slide on geometry).
+- Added *Refresh Debugger* utility to the AdonisFX menu to create missing debug nodes and connections.
+- Allow source nodes of any type in the *Sensors Connection Editor*.
+- Extended AdonisFX menu with *Documentation*, *Tutorials* and *About* sections.
+
+### Bug Fixes
+
+- Fixed AdonisFX Paint Tool initialization of simulated nodes with intermediate nodes. *AdonisFX-1184*
+- Fixed a bug that caused sliding constraints to not find valid triangles to slide on if the initial closest point on the target lied on an edge. *AdonisFX-1165*
+- Fixed importer to support sparse array maps. *AdonisFX-1155*
+- Fixed manipulation of referenced nodes while using the AdonisFX paint tool. *AdonisFX-1147*
+- Fixed paint flood operation not normalising the weights properly. *AdonisFX-1146*
+- Fixed error messages not displaying the proper status of the AdnSimshape collider connections. *AdonisFX-1034*
+- Filtered characters to get valid identifiers when creating nodes with a custom name in Linux. *AdonisFX-1033*
+- Prevent Exporter to generate the AAD file if there is no valid data to export. *AdonisFX-1032*
+- Fixed a bug that did not allow to add attachments on a muscle deformer created on referenced geometry. *AdonisFX-506*
+
+### Known Limitations
+
+- Slide on geometry constraints in Fast mode are limited to simple setups. They need to run in Quality mode to ensure stability in complex scenarios. *AdonisFX-1213*
+- Volume ratio gain effect is dependent to the total volume of the muscle. This might require to use volume ratios with a range different to the default [0, 2] if needed. *AdonisFX-1137*
+- Interaction muscle-to-muscle is not supported. *AdonisFX-1211*
+- Exporter and Importer do not support locators and sensors. *AdonisFX-1118*
+- Fat simulation is limited to the current features in AdnSkin solver. *AdonisFX-879*
+
 ## Version 1.0.4
 
 ### Bug Fixes
@@ -10,11 +56,11 @@
 
 ### Bug Fixes
 
-- Fixed a bug that caused muscles simulation to fail in very specific scenarios due to a precision issue in the initialization of Slide On Segment constraints. *AdonisFX-1138*
+- Fixed a bug that caused muscles simulation to fail in very specific scenarios due to a precision issue in the initialisation of Slide On Segment constraints. *AdonisFX-1138*
 
 ### Improvements
 
-- Improved the update of painted maps for Attachments and Slide On Segment constraints at initialization. *AdonisFX-1136*
+- Improved the update of painted maps for Attachments and Slide On Segment constraints at initialisation. *AdonisFX-1136*
 
 ## Version 1.0.2
 
@@ -68,15 +114,15 @@
     - AdnRibbonMuscle
     - AdnSimshape
 - Nodes to evaluate relative distances, angles, velocities and accelerations between transform nodes in the scene: AdnSensorPosition, AdnSensorDistance, AdnSensorRotation.
-- Locators to visualize relative distances, angles, velocities and accelerations between transform nodes in the scene: AdnLocatorPosition, AdnLocatorDistance, AdnLocatorRotation.
-- Plain AdnLocator with a custom shape for visualization purposes.
+- Locators to visualise relative distances, angles, velocities and accelerations between transform nodes in the scene: AdnLocatorPosition, AdnLocatorDistance, AdnLocatorRotation.
+- Plain AdnLocator with a custom shape for visualisation purposes.
 - AdnEdgeEvaluator: A node to compute the compression map of a deformed geometry.
-- AdnWeightsDisplayNode: A node to visualize the paintable maps while painting from the AdonisFX Paint Tool.
+- AdnWeightsDisplayNode: A node to visualise the paintable maps while painting from the AdonisFX Paint Tool.
 - AdnLearnMusclePatches: Command to execute the ML process for facial muscles generation.
 - Learn Muscle Patches Tool: An intuitive UI to configure and run the AdnLearnMusclePatches command.
 - Sensors Connection Editor: A simple UI to make connections easily from sensors and locators to AdonisFX deformers.
 - AdonisFX Paint Tool: Custom tool to manipulate the paintable maps of the AdonisFX deformers to ensure that the solvers receive valid distribution of weights.
-- A debugger system compound by an AdnData node and an AdnDebugLocator to visualize information internal to the solvers such as connections to attachments, fiber directions, etc.
+- A debugger system compound by an AdnData node and an AdnDebugLocator to visualise information internal to the solvers such as connections to attachments, fiber directions, etc.
 
 ### Known Limitations
 
