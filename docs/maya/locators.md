@@ -27,13 +27,13 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Position** | Float3 | {0.0, 0.0, 0.0} | ✗ | Current transform node position. |
+| **Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Current transform node position. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Velocity**     | Float | 0.0 | ✗ | Magnitude of the velocity of the transform node. |
-| **Acceleration** | Float | 0.0 | ✗ | Magnitude of the acceleration of the transform node. |
+| **Velocity**     | Float | 0.0 | ✓ | Magnitude of the velocity of the transform node. |
+| **Acceleration** | Float | 0.0 | ✓ | Magnitude of the acceleration of the transform node. |
 
 #### Draw
 | Name | Type | Default | Animatable | Description |
@@ -65,15 +65,15 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✗ | Start transform node position. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✗ | End transform node position. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Start transform node position. |
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | End transform node position. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Distance**     | Float | 0.0 | ✗ | Magnitude of the distance between the transform nodes. |
-| **Velocity**     | Float | 0.0 | ✗ | Magnitude of the velocity between the transform nodes. |
-| **Acceleration** | Float | 0.0 | ✗ | Magnitude of the acceleration between the transform nodes. |
+| **Distance**     | Float | 0.0 | ✓ | Magnitude of the distance between the transform nodes. |
+| **Velocity**     | Float | 0.0 | ✓ | Magnitude of the velocity between the transform nodes. |
+| **Acceleration** | Float | 0.0 | ✓ | Magnitude of the acceleration between the transform nodes. |
 
 #### Draw
 | Name | Type | Default | Animatable | Description |
@@ -108,16 +108,16 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✗ | Start transform node position. |
-| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✗ | Mid transform node position. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✗ | End transform node position. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Start transform node position. |
+| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Mid transform node position. |
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | End transform node position. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Angle**        | Float | 0.0 | ✗ | Magnitude of the angle between the three transform nodes. |
-| **Velocity**     | Float | 0.0 | ✗ | Magnitude of the angular velocity between the three transform nodes. |
-| **Acceleration** | Float | 0.0 | ✗ | Magnitude of the angular acceleration between the three transform nodes. |
+| **Angle**        | Float | 0.0 | ✓ | Magnitude of the angle between the three transform nodes. |
+| **Velocity**     | Float | 0.0 | ✓ | Magnitude of the angular velocity between the three transform nodes. |
+| **Acceleration** | Float | 0.0 | ✓ | Magnitude of the angular acceleration between the three transform nodes. |
 
 #### Draw
 | Name | Type | Default | Animatable | Description |

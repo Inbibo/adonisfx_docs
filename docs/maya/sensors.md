@@ -34,7 +34,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Position** | Float3 | {0.0, 0.0, 0.0} | ✗ | Current transform node position. |
+| **Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Current transform node position. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
@@ -86,8 +86,8 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✗ | Start transform node position. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✗ | End transform node position. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Start transform node position. |
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | End transform node position. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
@@ -140,9 +140,9 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✗ | Start transform node position. |
-| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✗ | Mid transform node position. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✗ | End transform node position. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Start transform node position. |
+| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Mid transform node position. |
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | End transform node position. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
