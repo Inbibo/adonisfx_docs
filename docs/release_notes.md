@@ -40,10 +40,11 @@
 
 ### Known Limitations
 
+- Slide on geometry constraints in Fast mode are limited to simple setups. They need to run in Quality mode to ensure stability in complex scenarios. *AdonisFX-1213*
 - Volume ratio gain effect is dependent to the total volume of the muscle. This might require to use volume ratios with a range different to the default [0, 2] if needed. *AdonisFX-1137*
 - Interaction muscle-to-muscle is not supported. *AdonisFX-1211*
 - Exporter and Importer do not support locators and sensors. *AdonisFX-1118*
-- Fat simuation is limited to the current features of AdnSkin solver. *AdonisFX-879*
+- Fat simulation is limited to the current features in AdnSkin solver. *AdonisFX-879*
 
 ## Version 1.0.4
 
