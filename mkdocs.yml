@@ -105,10 +105,10 @@ nav:
       - A Simple Setup      : maya/simple_setup.md
       - Locators            : maya/locators.md
       - Sensors             : maya/sensors.md
-      - Tools               : maya/tools.md
+      - AdnSkin             : maya/skin.md
       - AdnMuscle           : maya/muscle.md
       - AdnRibbonMuscle     : maya/ribbon.md
       - AdnSimshape         : maya/simshape.md
-      - AdnSkin             : maya/skin.md
-      - AdnSkinMerge        : maya/skin_merge.md
       - AdnEdgeEvaluator    : maya/edge_evaluator.md
+      - AdnSkinMerge        : maya/skin_merge.md
+      - Tools               : maya/tools.md

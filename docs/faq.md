@@ -32,7 +32,7 @@ Yes, you can simulate muscles, fascia and skin following these steps:
 
 ## How can I simulate facial skin?
 
-You can use AdnSimshape deformer. This deformer allows to reproduce the elasticity and the change in stiffness of a facial geometry thanks to the features of the AdnSimshape solver. Please, check this [section](maya/simple_setup#adnsimshape) where a simple setup is explained or this [page](maya/simshape) to know more about this solver.
+You can use [AdnSimshape](maya/simshape) deformer. This deformer allows to reproduce the elasticity and the change in stiffness of a facial geometry thanks to the features of the AdnSimshape solver. Please, check this [section](maya/simple_setup#adnsimshape) where a simple setup is explained or this [page](maya/simshape) to know more about this solver.
 
 ## How can I add muscle activations to facial simulation?
 
@@ -57,7 +57,12 @@ Yes, you can use the AdonisFX [Exporter](maya/tools#exporter) and [Importer](may
 
 ## For what units is AdonisFX designed?
 
-AdonisFX solvers interpret input units as meters. This means that in order to simulate external forces, the Space Scale may need to be adjusted. For example, to apply Gravity with a value of 9.8 m/s<sup>2</sup>, the Space Scale should be set to 0.01.
+AdonisFX solvers interpret input units as meters. In order to simulate external forces like gravity with realism, you need to take some considerations into account:
+
+ - If Maya preferences are configured in centimeters, then all distances in the viewport are measured in centimeters. In this scenario, a gravity magnitude of 9.8 means that the effective gravity of the system is 9.8 cm/s<sup>2</sup>. To make this value equivalent to the Earth's gravity you have to either set the space scale to 0.01 or alternatively, change the gravity to 980. Both methods will make AdonisFX use a gravity of 9.8 m/s<sup>2</sup>.
+ - If Maya preferences are cofnigured in meters, then all distances in the viewport are measured in meters. In this scenario, a gravity magnitude of 9.8 corresponds to the Earth's gravity and no further adjustments are needed.
+ - For realistic results, ensure that the AdonisFX gravity and space scale settings are coherent with the scale of the character and the Maya scene units.
+ - It is not mandatory to use a factor of 9.8 for the gravity. AdonisFX solvers are not restrictive in this regard. Sometimes, if you aim for a creative and artistic effect, you can experiment with different values.
 
 ## Does AdonisFX require internet access?
 The use of AdonisFX itself does not require access to the internet but the licensing system does. In node-locked licenses, the workstation needs connection to the internet to validate the activation on plug-in load at least every 19 days. After that, the product can be used without internet connection. In floating licenses, it is the server that will need to connect to the internet at least every 19 days to validate the activation, meaning that users' workstations or nodes on farm do not need internet access.
