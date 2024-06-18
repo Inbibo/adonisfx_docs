@@ -205,7 +205,7 @@ Once the AdnMuscle deformer is created, it is possible to add and remove new tar
     3. Press the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu. 
     4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button, all targets will be removed (transform and mesh targets).
 
-Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](maya/simple_setup#AdnMuscle) for more information on how to paint the influence maps for the mentioned constraints.
+Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](simple_setup#AdnMuscle) for more information on how to paint the influence maps for the mentioned constraints.
 
 > [!NOTE]
 > - Attachments to geometry and slide on geometry constraints are meant to simulate interaction muscle to bones. The use of simulated muscles as geometry targets for other muscles is not supported.
