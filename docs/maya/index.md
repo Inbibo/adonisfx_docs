@@ -8,6 +8,6 @@
 - [AdnMuscle](muscle)
 - [AdnRibbonMuscle](ribbon)
 - [AdnSimshape](simshape)
-- [AdnSkinMerge](skin_erge)
+- [AdnSkinMerge](skin_merge)
 - [AdnEdgeEvaluator](edge_evaluator)
 - [Tools](tools)
