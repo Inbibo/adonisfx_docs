@@ -94,6 +94,11 @@ Follow this steps to create an AndRibbonMuscle deformer:
 | **Color**       | Color Picker |               | ✓ | Selects the line colour from a colour wheel. Its saturation can be modified using the slider. |
 | **Fiber Scale** | Float        | 3.0           | ✓ | The scale can be modified to set a custom fiber length. |
 
+### Deformer Attributes
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
+
 ### Connectable Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -205,7 +210,7 @@ Once the AdnRibbonMuscle deformer is created, it is possible to add and remove n
     3. Press the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu.
     4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button, all targets will get removed (transform and mesh targets).
 
-Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](maya/simple_setup#AdnRibbonMuscle) for more information on how to paint the influence maps for the mentioned constraints.
+Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](simple_setup#AdnRibbonMuscle) for more information on how to paint the influence maps for the mentioned constraints.
 
 > [!NOTE]
 > - Attachments to geometry and slide on geometry constraints are meant to simulate interaction muscle to bones. The use of simulated muscles as geometry targets for other muscles is not supported.
