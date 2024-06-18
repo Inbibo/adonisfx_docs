@@ -146,6 +146,9 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | **Color**       | Color Picker |                             | ✓ | Selects the line colour from a colour wheel. Its saturation can be modified using the slider. |
 | **Fiber Scale** | Float        | 3.0                         | ✓ | The scale can be modified to set a custom fiber length. |
 
+### Deformer Attributes
+| **Envelope**            | Float | 1.0             | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
+
 ### Connectable Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
