@@ -96,6 +96,7 @@ Follow this steps to create an AndRibbonMuscle deformer:
 
 ### Deformer Attributes
 | Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
 | **Envelope**            | Float | 1.0             | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
 ### Connectable Attributes
