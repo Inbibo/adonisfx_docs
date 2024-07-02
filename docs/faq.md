@@ -57,12 +57,10 @@ Yes, you can use the AdonisFX [Exporter](maya/tools#exporter) and [Importer](may
 
 ## For what units is AdonisFX designed?
 
-AdonisFX solvers interpret input units as meters. In order to simulate external forces like gravity with realism, you need to take some considerations into account:
+The AdonisFX simulation engine works in centimeters. Maya units also works internally in centimeters, disregarding any preferences set for the viewport. AdonisFX then works in centimeters in conjunction with Maya, disregarding any working units set in the Maya preferences.
 
- - If Maya preferences are configured in centimeters, then all distances in the viewport are measured in centimeters. In this scenario, a gravity magnitude of 9.8 means that the effective gravity of the system is 9.8 cm/s<sup>2</sup>. To make this value equivalent to the Earth's gravity you have to either set the space scale to 0.01 or alternatively, change the gravity to 980. Both methods will make AdonisFX use a gravity of 9.8 m/s<sup>2</sup>.
- - If Maya preferences are cofnigured in meters, then all distances in the viewport are measured in meters. In this scenario, a gravity magnitude of 9.8 corresponds to the Earth's gravity and no further adjustments are needed.
- - For realistic results, ensure that the AdonisFX gravity and space scale settings are coherent with the scale of the character and the Maya scene units.
- - It is not mandatory to use a factor of 9.8 for the gravity. AdonisFX solvers are not restrictive in this regard. Sometimes, if you aim for a creative and artistic effect, you can experiment with different values.
+It is typical in Maya to model creatures 10 times smaller in order to avoid precision issues. Imagine the example of a creature that is supposed to be 1.7 meters tall (170 Maya units). Then in Maya to avoid precision issues, this creacture may be modeled to be 17 centimeters tall (17 Maya units).
+In this case you can adjust the simulation for this scaling factor by applying the AdonisFX Space Scale attribute to 10. This will ensure that AdonisFX will scale everything internally so that the simulation of the 17 units creature will look like if it was actually 170 units tall.
 
 ## Does AdonisFX require internet access?
 The use of AdonisFX itself does not require access to the internet but the licensing system does. In node-locked licenses, the workstation needs connection to the internet to validate the activation on plug-in load at least every 19 days. After that, the product can be used without internet connection. In floating licenses, it is the server that will need to connect to the internet at least every 19 days to validate the activation, meaning that users' workstations or nodes on farm do not need internet access.
