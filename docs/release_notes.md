@@ -1,5 +1,11 @@
 # Release Notes
 
+## Version 1.1.1
+
+### Bug Fixes
+
+- Fixed a bug in how the gravity was evaluated. The value from the UI represented in m/s<sup>2</sup> is converted to cm/s<sup>2</sup>.
+
 ## Version 1.1.0
 
 ### Core
