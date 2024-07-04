@@ -1,5 +1,15 @@
 # Release Notes
 
+## Version 1.1.1
+
+### Bug Fixes
+
+- Fixed a bug in how the gravity was evaluated. Now the value from the UI represented in m/s<sup>2</sup> is converted to cm/s<sup>2</sup>. *AdonisFX-1250*
+
+### Considerations for backward compatibility
+
+- Due to the fix introduced in this version, in order to have the scenes created with previous versions work the same way, it is needed to set the gravity value in all AdonisFX nodes divided by 100. For example, if the AdonisFX setup in v1.1.0 (or older) used a gravity of 980, now this attribute needs to be changed to 9.8. If the setup did not use gravity, no adjustment needs to be done.
+
 ## Version 1.1.0
 
 ### Core
