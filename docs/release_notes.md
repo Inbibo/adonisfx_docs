@@ -4,7 +4,7 @@
 
 ### Bug Fixes
 
-- Fixed a bug in how the gravity was evaluated. Now the value from the UI represented in m/s<sup>2</sup> is converted to cm/s<sup>2</sup>.
+- Fixed a bug in how the gravity was evaluated. Now the value from the UI represented in m/s<sup>2</sup> is converted to cm/s<sup>2</sup>. *AdonisFX-1250*
 
 ### Considerations for backward compatibility
 
