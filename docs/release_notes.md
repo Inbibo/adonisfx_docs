@@ -1,5 +1,15 @@
 # Release Notes
 
+## Version 1.1.2
+
+### Bug Fixes
+
+- Fixed a bug in the projection of the Slide Collision Constraints that, when having Compute Collisions ON and Keep Orientation ON, was overcorrecting the constraints past the collision threshold when the simulated mesh intersected the collider a considerable amount. This resulted in flickering and artifacts that were more noticeable when gravity was applied to the system. *AdonisFX-1258*
+
+### Considerations
+
+- Due to the fix introduced in this version the results are mathematically more correct. However, given that the bugfix was introduced in the core of the Slide Collision Constraints full backwards compatibility can't be ensured.
+
 ## Version 1.1.1
 
 ### Bug Fixes
