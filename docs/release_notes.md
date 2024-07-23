@@ -4,11 +4,7 @@
 
 ### Bug Fixes
 
-- Fixed a bug in the projection of the Slide Collision Constraints that when having Compute Collisions ON and Keep Orientation ON was applying an incorrect amount of correction past the collision threshold when the simulated mesh intersected the collider more than the collision threshold distance. *AdonisFX-1258*
-
-### Considerations
-
-- Due to the fix introduced in this version the results are more mathematically correct. However, given that the bugfix was introduced in the core logic of the Slide Collision Constraints full backwards compatibility can't be ensured.
+- Fixed a bug in the Slide Collision Constraints that was overcorrecting in case of intersection with the collider with a magnitude greater than the collision threshold. *AdonisFX-1258*
 
 ## Version 1.1.1
 
