@@ -1,5 +1,11 @@
 # Release Notes
 
+## Version 1.1.2
+
+### Bug Fixes
+
+- Fixed a bug in the Slide Collision Constraints that was overcorrecting in case of intersection with the collider with a magnitude greater than the collision threshold. *AdonisFX-1258*
+
 ## Version 1.1.1
 
 ### Bug Fixes
