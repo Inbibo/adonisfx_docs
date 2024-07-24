@@ -14,11 +14,11 @@ The *Volume Ratio* attribute of an AdnMuscle allows to simulate volume gain (vol
 
 ## How can I simulate skin?
 
-Skin can be simulated using the [AdnSkin](maya/skin) deformer. This deformer requires a reference mesh to drive the skin simulation (i.e. the fascia) and a mesh to apply the deformer to (skin mesh). A simple setup is explained [here](maya/simple_setup#adnskin).
+Skin can be simulated using the [AdnSkin](maya/skin) deformer. This deformer requires a target mesh or meshes to drive the skin simulation (i.e. the fascia) and a mesh to apply the deformer to (skin mesh). A simple setup is explained [here](maya/simple_setup#adnskin).
 
 ## How can I simulate fascia?
 
-Similarly to a skin simulation setup, the fascia can be simulated using [AdnSkin](maya/skin) deformer as well. In this case, it is recommended to use values of *Rest Length Multiplier* lower than 1. This deformer also requires a mesh to drive the simulation (one reference mesh, i.e. the internal muscle geometries combined) and a mesh to apply the deformer to (fascia geometry).
+Similarly to a skin simulation setup, the fascia can be simulated using [AdnSkin](maya/skin) deformer as well. In this case, it is recommended to use values of *Rest Length Multiplier* lower than 1. This deformer also requires a mesh (one target mesh, i.e. the internal muscle geometries combined) or meshes (multiple target meshes, i.e. the internal muscle geometries separated) to drive the simulation and a mesh to apply the deformer to (fascia geometry).
 
 ## Can I simulate muscles, fascia and skin all coupled?
 

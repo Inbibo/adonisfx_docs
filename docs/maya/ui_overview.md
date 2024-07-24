@@ -28,9 +28,11 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![AdnSimshape Learn Muscle Patches Tool](images/adn_learn_muscle_patches.png) | Launches the Learn Muscle Patches UI used to generate the *AdonisFX Muscle Patches* file (.amp) file. | AdonisFX Menu > Edit Simshape > *Learn Muscle Patches UI* |
 | ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png) | Toggles the AdnSimshape activations debug mode. Current frame has to match the preroll or start frame in the AdnSimshape deformer for this toggle to work. | AdonisFX Menu > Edit Simshape > *Activations Debugger* |
 |||
-| ![Create AdnSkin](images/adn_skin.png) | Creates AdnSkin deformer to the selected mesh. First, select the reference mesh and then the skin mesh to apply the deformer. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Skin* |
+| ![Create AdnSkin](images/adn_skin.png) | Creates AdnSkin deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (at least one) will be considered as target meshes. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Skin* |
 | ![Create AdnSkinMerge](images/adn_skin_merge.png) | Launches the Create Skin Merge UI used to create an AdnSkinMerge deformer. | AdonisFX Menu > Create Deformers > *Skin Merge* |
 |||
+| ![Add Targets](images/adn_add_skin_targets.png) | Assigns target meshes to the selected AdnSkin deformer. The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Skin > *Add Targets* |
+| ![Remove Targets](images/adn_remove_skin_targets.png) | Removes target meshes assigned to the selected AdnSkin deformer. The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Skin > *Remove Targets* |
 | ![Create AdnRibbonMuscle](images/adn_ribbon_muscle.png) | Creates AdnRibbonMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as target objects. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Ribbon Muscle* |
 | ![Create AdnMuscle](images/adn_muscle.png) | Creates AdnMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as target objects. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Muscle* |
 | ![Add Targets](images/adn_add_target.png) | Assigns target objects to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Targets* |
@@ -162,12 +164,21 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 - **Connect Activations Plug**. Connects the output compression map from an AdnEdgeEvaluator node to the activations plug of the AdnSimshape selected deformer. The selection must consist of: first the Edge Evaluator node and lastly the AdnSimshape deformer node.
 - **Disconnect Activations Plug**. Disconnects the output compression map from an AdnEdgeEvaluators node from the activations plug of the AdnSimshape selected deformer. The selection must consist of: first the Edge Evaluator node and lastly the AdmSimshape deformer node.
 
+#### Skin
+
+<figure style="width: 50%;" markdown>
+  ![AdonisFX Menu Edit Skin](images/adonis_menu_skin.png)
+  <figcaption><b>Figure 13</b>: AdonisFX Menu Edit Skin section.</figcaption>
+</figure>
+
+- **Add Targets**. Adds target meshes to the selected skin. The mesh with the deformer applied must be the last element in the selection. This item corresponds to the shelf button ![Add Targets](images/adn_add_skin_targets.png){style="width:4%"}.
+- **Remove Targets**. Removes target meshes from the selected skin. The mesh with the deformer applied must be the last element in the selection. If only the skin geometry is selected, then all targets are removed. This item corresponds to the shelf button ![Remove Targets](images/adn_remove_skin_targets.png){style="width:4%"}.
 
 #### Muscle
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Edit Muscle](images/adonis_menu_muscle.png)
-  <figcaption><b>Figure 13</b>: AdonisFX Menu Edit Muscle section.</figcaption>
+  <figcaption><b>Figure 14</b>: AdonisFX Menu Edit Muscle section.</figcaption>
 </figure>
 
 - **Add Targets**. Adds target objects to the selected muscle. The mesh with the deformer applied must be the last element in the selection. This item corresponds to the shelf button ![Add Targets](images/adn_add_target.png){style="width:4%"}.
@@ -181,7 +192,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Debug Section](images/adonis_menu_debug.png)
-  <figcaption><b>Figure 14</b>: AdonisFX Menu Debug section.</figcaption>
+  <figcaption><b>Figure 15</b>: AdonisFX Menu Debug section.</figcaption>
 </figure>
 
 - **Refresh Debugger**. Refreshes the scene graph for debugging purposes by making sure the AdnDataNode and the AdnDebugLocator exist in the scene and are properly connected.
