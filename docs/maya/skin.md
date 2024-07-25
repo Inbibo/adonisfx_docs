@@ -14,7 +14,7 @@ To create an AdnSkin deformer within a Maya scene, the following inputs must be 
   - **Skin Mesh (S)**: Mesh to apply the deformer onto.
 
 > [!NOTE]
-> It is required to select at least one target on creation of the AdnSkin deformer. More targets can be added and removed after creating the deformer. For more information check the advance [section](#targets).
+> It is required to select at least one target on creation of the AdnSkin deformer. More targets can be added and removed after creating the deformer. For more information check the advanced [section](#targets).
 
 The process to create an AdnSkin deformer is:
 

@@ -14,7 +14,7 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 - **Muscle Geometry (M)**: Mesh that the AdnRibbonMuscle deformer will be applied to.
 
 > [!NOTE]
-> It is not mandatory to select the targets on creation of the AdnRibbonMuscle deformer. Targets can be added and remove after creating the deformer. For more information check the advance [section](#targets).
+> It is not mandatory to select the targets on creation of the AdnRibbonMuscle deformer. Targets can be added and remove after creating the deformer. For more information check the advanced [section](#targets).
 
 Follow this steps to create an AndRibbonMuscle deformer:
 

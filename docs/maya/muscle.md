@@ -14,7 +14,7 @@ An AdnMuscle requires the following inputs to be provided:
   - **Muscle Geometry (M)**: Mesh that the muscle deformer will be applied onto.
 
 > [!NOTE]
-> It is not mandatory to select the targets on creation of the AdnMuscle deformer. Targets can be added and removed after creating the deformer. For more information check the advance [section](#targets).
+> It is not mandatory to select the targets on creation of the AdnMuscle deformer. Targets can be added and removed after creating the deformer. For more information check the advanced [section](#targets).
 
 To create an AdnMuscle, follow these steps:
 
