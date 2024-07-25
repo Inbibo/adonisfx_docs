@@ -174,7 +174,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 ### Targets
 
-Once the AdnSkin deformer is created by providing at least one target geometry, it is possible to add and remove new targets to the system.
+Once the AdnSkin deformer is created, it is possible to add and remove new targets to the system.
 
 - **Add targets**:
     1. Select one or more mesh nodes to be assigned as targets to the AdnSkin.
