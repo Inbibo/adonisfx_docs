@@ -106,12 +106,13 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 #### Dynamic Properties
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Global Damping Multiplier**   | Float | 0.75 | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
-| **Inertia Damper**              | Float | 0.0  | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
-| **Rest Length Multiplier**      | Float | 1.0  | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Compression Multiplier**      | Float | 1.0  | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Stretching Multiplier**       | Float | 1.0  | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Attenuation Velocity Factor** | Float | 1.0  | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Triangulate Mesh**            | Boolean | False | ✗ | Use the internally triangulated mesh to build constraints. |
+| **Global Damping Multiplier**   | Float   | 0.75  | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Inertia Damper**              | Float   | 0.0   | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Rest Length Multiplier**      | Float   | 1.0   | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Compression Multiplier**      | Float   | 1.0   | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Stretching Multiplier**       | Float   | 1.0   | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Attenuation Velocity Factor** | Float   | 1.0   | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 
 #### Collision Settings
 | Name | Type | Default | Animatable | Description |
@@ -141,7 +142,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False                       | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSimshape deformer. |
-| **Feature**     | Enumerator   | Slide Collision Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide Collision Constraints: Draw *Slide Collision Constraints* connections from the simulated mesh to the collider mesh.</li><li>Slide Surface On Collider: Draw outline of triangles covered by the *Max Sliding Distance* of each vertex.</li><ul> |
+| **Feature**     | Enumerator   | Slide Collision Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Distance Constraints: Draw *Distance Constraint* connections representing the constrained vertex pairs in the simulated mesh.</li><li>Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide Collision Constraints: Draw *Slide Collision Constraints* connections from the simulated mesh to the collider mesh.</li><li>Slide Surface On Collider: Draw outline of triangles covered by the *Max Sliding Distance* of each vertex.</li><ul> |
 | **Width Scale** | Float        | 3.0                         | ✓ | Modifies the width of all lines. |
 | **Color**       | Color Picker |                             | ✓ | Selects the line colour from a colour wheel. Its saturation can be modified using the slider. |
 | **Fiber Scale** | Float        | 3.0                         | ✓ | The scale can be modified to set a custom fiber length. |
