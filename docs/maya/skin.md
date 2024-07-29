@@ -14,11 +14,11 @@ To create an AdnSkin deformer within a Maya scene, the following inputs must be 
   - **Skin Mesh (S)**: Mesh to apply the deformer onto.
 
 > [!NOTE]
-> It is not mandatory to select the targets on creation of the AdnSkin deformer, Targets can be added and removed after creating the deformer. For more information check the advanced [section](#targets).
+> It is not mandatory to select the targets on creation of the AdnSkin deformer. Targets can be added and removed after creating the deformer. For more information, please check the advanced [section](#targets).
 
 The process to create an AdnSkin deformer is:
 
-1. Select the **Targets** (or add them later), then the **Skin Mesh**.
+1. Select the **Targets** (optional, they can be added later), then the **Skin Mesh**.
 2. Press ![Skin button](images/adn_skin.png){style="width:4%"} in the AdonisFX shelf or *Skin* in the AdonisFX menu, under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. A message box will notify you that AdnSkin has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customise their configuration.
 
@@ -190,5 +190,5 @@ Once the AdnSkin deformer is created, it is possible to add and remove new targe
 
 <figure markdown>
   ![skin adding multiple targets](images/skin_add_multiple_targets.png)
-  <figcaption><b>Figure 7</b>: Addition of multiple targets.</figcaption>
+  <figcaption><b>Figure 7</b>: Addition of multiple targets (e.g. Adding multiple muscle targets to a fascia/fat/skin simulation).</figcaption>
 </figure>
