@@ -207,7 +207,8 @@ To better visualise deformer constraints and attributes in the Maya viewport the
 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to visualise, choose it from the list provided in *Features*. The features that can be visualised with the debugger in the AdnSimshape deformer are:
 
-- **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
+ - **Distance Constraints**: For each connected vertex pairs forming the constraint a line will be drawn. If the "Triangulate Mesh" option is disabled the debugged lines will align with the edges of the simulated mesh. If the "Triangulate Mesh" option is enabled the debugged lines will align with the edges of the underlying triangulation of the simulated mesh without necessarily being aligned with the edges of the mesh.
+ - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider. The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
  - **Sliding Surface On Collider**: For each vertex, lines will outline the collider triangles within the reach of its *Max Sliding Distance*
@@ -215,8 +216,18 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
 
 <figure markdown>
-![skin editor debug menu](images/simshape_debug.png)
+![simshape editor debug menu](images/simshape_debug.png)
 <figcaption><b>Figure 6</b>: AdnSimshape Slide Collision Constraints, Muscle Fibers, Sliding Surface On Collider and Shape Preservation debugging.</figcaption>
+</figure>
+
+<figure markdown>
+  ![simshape editor distance constraint debug](images/simshape_dist_constr_debug.png)
+  <figcaption><b>Figure 7</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Distance Constraints</i> coloured in blue with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+<figure markdown>
+  ![simshape editor shape preservation constraint debug](images/simshape_shape_preserve_constr_debug.png)
+  <figcaption><b>Figure 8</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced
@@ -226,7 +237,7 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
 
 <figure markdown>
   ![Activation modes from attribute editor](images/activation_modes.png)
-  <figcaption><b>Figure 7</b>: Activation Modes switch exposed in the Attribute Editor.</figcaption>
+  <figcaption><b>Figure 9</b>: Activation Modes switch exposed in the Attribute Editor.</figcaption>
 </figure>
 
 > [!NOTE = Activation Modes]
@@ -258,7 +269,7 @@ The Learn Muscle Patches tool allows the user to generate the AMP file:
 
 <figure style="width: 50%; padding-left: 5px;">
   <img src="images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
-  <figcaption><b>Figure 8</b>: Learn Muscle Patches UI.</figcaption>
+  <figcaption><b>Figure 10</b>: Learn Muscle Patches UI.</figcaption>
 </figure>
 
 1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
@@ -272,7 +283,7 @@ The Learn Muscle Patches tool allows the user to generate the AMP file:
 <br>
 <figure style="width: 50%;" markdown>
   ![Simshape draw muscle patches example](images/simshape_debug_amp.png)
-  <figcaption><b>Figure 9</b>: Example of muscle patches generated with the Learn Muscle Patches UI.</figcaption>
+  <figcaption><b>Figure 11</b>: Example of muscle patches generated with the Learn Muscle Patches UI.</figcaption>
 </figure>
 
 Additional custom settings for the learning algorithm:
@@ -290,7 +301,7 @@ AdnSimshape integrates a debug mode to visualise the activations during the simu
 
 <figure style="width: 50%" markdown>
   ![Learn Muscle Patches UI window](images/nassim_debug.png)
-  <figcaption><b>Figure 10</b>: Example of AdnSimshape running in Debug mode.</figcaption>
+  <figcaption><b>Figure 12</b>: Example of AdnSimshape running in Debug mode.</figcaption>
 </figure>
 
 

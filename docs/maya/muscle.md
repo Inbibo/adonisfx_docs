@@ -185,7 +185,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
  - **Attachments To Geometry**: For each vertex with a geometry attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective geometry target closest point at rest.
  - **Attachments To Transform**: For each vertex with a transform attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective transform target.
-  - **Distance Constraints**: For each connected vertex pairs forming the constraint a line will be drawn. If the "Triangulate Mesh" option is disabled the debugged lines will align with the edges of the simulated mesh. If the "Triangulate Mesh" option is enabled the debugged lines will align with the edges of the underlying triangulation of the simulated mesh without necessarily being aligned with the edges of the mesh.
+  - **Fiber Constraints**: For each connected vertex pairs forming the constraint a line will be drawn. If the "Triangulate Mesh" option is disabled the debugged lines will align with the edges of the simulated mesh. If the "Triangulate Mesh" option is enabled the debugged lines will align with the edges of the underlying triangulation of the simulated mesh without necessarily being aligned with the edges of the mesh.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide On Geometry**: If the *Max Sliding Distance* value is greater than 0.0, for each vertex with a slide on geometry weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective geometry target.
@@ -194,6 +194,16 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 <figure markdown>
   ![AdnMuscle debug](images/muscle_debug.png)
   <figcaption><b>Figure 9</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
+</figure>
+
+<figure markdown>
+  ![muscle editor fiber constraint debug](images/muscle_dist_constr_debug.png)
+  <figcaption><b>Figure 10</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+<figure markdown>
+  ![muscle editor shape preservation constraint debug](images/muscle_shape_preserve_constr_debug.png)
+  <figcaption><b>Figure 11</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced
