@@ -96,7 +96,7 @@ In the specific case of muscle deformers, the too will display the following att
     </figure>
 
   - **Sliding Distance Multiplier**
-    - Sliding distance Multiplier is set to 1.0 by default. With this value, every vertex of the geometry will be able to slide along every vertex of the reference surface.
+    - Sliding distance Multiplier is set to 1.0 by default. With this value, every vertex of the geometry will be able to slide along every vertex of the target surface.
     - It is suggested to lower the value in those areas where slide constraints are less relevant or not present for better performance without losing quality.
   - **Tendons**
     - It is recommended to paint values of 1.0 wherever the tendon tissue is and values of 0.0 in the rest of the mesh.
@@ -118,20 +118,20 @@ In the specific case of an AdnSkin deformer, the tool will display the following
     - By default, this map is set to 1.0.
     - This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
   - **Hard Constraints**
-    - Hard constraints are set to 1.0 by default. With this value the solver will apply the corrections to the vertices needed to keep them at a constant transformation, local to the closest point on the reference mesh at initialisation.
+    - Hard constraints are set to 1.0 by default. With this value the solver will apply the corrections to the vertices needed to keep them at a constant transformation, local to the closest point on the closest target mesh at initialisation.
     - This value is normalised alongside Soft Constraints and Slide Constraints.
   - **Masses**
     - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.
   - **Shape Preservation**
     - Shape preservation weights are set to 0.0 by default in AdnSkin. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the shape formed with the surrounding vertices.
   - **Slide Constraints**
-    - Slide constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the sliding of the simulated mesh along the reference surface.
+    - Slide constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the sliding of the simulated mesh along the target surface.
     - This value is normalised alongside Hard Constraints and Soft Constraints.
   - **Sliding Distance Multiplier**
-    - Sliding distance Multiplier is set to 1.0 by default. With this value, every vertex of the geometry will be able to slide along every vertex of the reference surface.
+    - Sliding distance Multiplier is set to 1.0 by default. With this value, every vertex of the geometry will be able to slide along every vertex of the target surface.
     - It is suggested to lower the value in those areas where slide constraints are less relevant or not present for better performance without losing quality.
   - **Soft Constraints**
-    - Soft constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the vertices keeping a constant distance to the closest point of the reference mesh.
+    - Soft constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the vertices keeping a constant distance to the closest point on the closest target mesh.
     - This value is normalised alongside Hard Constraints and Slide Constraints.
 
 ## Importer

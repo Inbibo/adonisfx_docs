@@ -6,10 +6,10 @@ This page is dedicated to explain, step by step, a simple process of creating an
 
 To create a basic scenario using the AdnSkin deformer, start with a scene with the following elements:
 
-  - A target mesh with deformation.
+  - One or more target meshes with deformation.
   - A skin mesh without animation or deformation.
 
-The AdnSkin deformer will get applied to the second mesh which will become the simulated mesh.
+The AdnSkin deformer will get applied to the last mesh which will become the simulated mesh.
 
 <figure>
   <img src="images/setup_skin_0.png"> 
@@ -18,7 +18,7 @@ The AdnSkin deformer will get applied to the second mesh which will become the s
 
 ### Create Deformer
 
-To create the AdnSkin deformer select the target mesh and then the skin mesh. Then press the ![AdnSkins](images/adn_skin.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Skin*.
+To create the AdnSkin deformer select one or more target meshes (optional, they can be added later) and then the skin mesh. Then press the ![AdnSkins](images/adn_skin.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Skin*.
 
 To create the AdnSkin deformer with some initial customisation, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow to do some initial customisation, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
@@ -31,21 +31,21 @@ To create the AdnSkin deformer with some initial customisation, double-click the
 
 Once the AdnSkin deformer is properly created it is possible now to paint its weights to correctly setup the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
 
-Start by painting *Soft Constraints* by selecting the option from the attribute enumerator. Flood this weight to a low value of 0.2 to have a uniform distribution of soft constraints. This will help the skin to follow the reference mesh.
+Start by painting *Soft Constraints* by selecting the option from the attribute enumerator. Flood this weight to a low value of 0.2 to have a uniform distribution of soft constraints. This will help the skin to follow the target mesh.
 
 <figure>
   <img src="images/setup_skin_soft.png"> 
   <figcaption><b>Figure 3</b>: Soft Constraints weights paint.</figcaption>
 </figure>
 
-Now paint *Hard Constraints* in two steps. First, flood this weight to a value of 0.1 to help the skin (together with the soft weights) to follow the reference mesh. Then, set the edges to 1.0 to attach them strongly to the reference mesh.  
+Now paint *Hard Constraints* in two steps. First, flood this weight to a value of 0.1 to help the skin (together with the soft weights) to follow the target mesh. Then, set the edges to 1.0 to attach them strongly to the target mesh.
 
 <figure>
   <img src="images/setup_skin_hard.png"> 
   <figcaption><b>Figure 4</b>: Hard Constraints weights paint.</figcaption>
 </figure>
 
-Then select the *Slide Constraints* attribute and paint weights only in those areas where the skin is supposed to slide over the reference mesh. In this case, focus these weights over the scapulas and the joints of the limbs.
+Then select the *Slide Constraints* attribute and paint weights only in those areas where the skin is supposed to slide over the target mesh. In this case, focus these weights over the scapulas and the joints of the limbs.
 
 <figure>
   <img src="images/setup_skin_slide.png"> 
@@ -61,7 +61,7 @@ Finally, select the *Sliding Distance Multiplier* attribute and paint weights to
 
 The order of painting is important because after every stroke a normalisation of weights soft, hard and slide is performed to ensure that the sum is less or equal to 1.0. In this example, after painting *Slide Constraints*, both *Hard Constraints* and *Soft Constraints* will update reducing their respective values in the areas painted with maximum sliding.
 
-With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the reference target mesh. However, the possible parameters and tweaks to display high fidelity dynamics can be seen in the documentation for [AdnSkin](skin).
+With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the target mesh. However, the possible parameters and tweaks to display high fidelity dynamics can be seen in the documentation for [AdnSkin](skin).
 
 ## AdnMuscle
 
