@@ -207,7 +207,7 @@ To better visualise deformer constraints and attributes in the Maya viewport the
 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to visualise, choose it from the list provided in *Features*. The features that can be visualised with the debugger in the AdnSimshape deformer are:
 
- - **Distance Constraints**: For each connected vertex pairs forming the constraint a line will be drawn. If the "Triangulate Mesh" option is disabled the debugged lines will align with the edges of the simulated mesh. If the "Triangulate Mesh" option is enabled the debugged lines will align with the edges of the underlying triangulation of the simulated mesh without necessarily being aligned with the edges of the mesh.
+ - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the "Triangulate Mesh" option is disabled the debugged lines will align with the edges of the mesh polygons. If the "Triangulate Mesh" option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider. The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
