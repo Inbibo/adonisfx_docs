@@ -10,15 +10,15 @@ The AdnSkin deformer is of great simplicity to set up and apply to a mesh within
 
 To create an AdnSkin deformer within a Maya scene, the following inputs must be provided:
 
-  - **Targets (T)**: List of meshes to drive the simulation skin (e.g. fascia or muscles).
+  - **Targets (T)**: List of geometries to drive the simulation mesh (e.g. select the muscles to simulate the fascia, select the fascia to simulate the fat, select the fat to simulate the skin).
   - **Skin Mesh (S)**: Mesh to apply the deformer onto.
 
 > [!NOTE]
-> It is required to select at least one target on creation of the AdnSkin deformer. More targets can be added and removed after creating the deformer. For more information check the advanced [section](#targets).
+> It is not mandatory to select the targets on creation of the AdnSkin deformer, Targets can be added and removed after creating the deformer. For more information check the advanced [section](#targets).
 
 The process to create an AdnSkin deformer is:
 
-1. Select the **Targets** (at least one), then the **Skin Mesh**.
+1. Select the **Targets** (or add them later), then the **Skin Mesh**.
 2. Press ![Skin button](images/adn_skin.png){style="width:4%"} in the AdonisFX shelf or *Skin* in the AdonisFX menu, under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. A message box will notify you that AdnSkin has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customise their configuration.
 
@@ -105,7 +105,9 @@ The process to create an AdnSkin deformer is:
 | **Target World Matrix** | Matrix | Identity | ✓ | List of geometry matrices (from a compound attribute) used to evaluate external constraints. |
 
 > [!NOTE]
-> Multiple targets are supported thanks to the *Targets* array plug. It is recommended to use *Target World Mesh* and *Target World Matrix* instead of *Reference Mesh* and *Reference Matrix*.
+> Multiple targets are supported thanks to the *Targets* array plug.
+> It is recommended to use *Targets* array independently of having one or more target meshes.
+> The plugs *Reference Mesh* and *Reference Matrix* can also be used, although it is not recommended.
 
 ## Attribute Editor Template
 
@@ -185,3 +187,8 @@ Once the AdnSkin deformer is created, it is possible to add and remove new targe
     2. Select the mesh that has the AdnSkin deformer applied.
     3. Press the ![Remove Targets](images/adn_remove_skin_targets.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Skin submenu.
     4. Alternatively, if only the mesh with the AdnSkin deformer is selected, when pressing the ![Remove Targets](images/adn_remove_skin_targets.png){style="width:4%"} button, all targets will be removed.
+
+<figure markdown>
+  ![skin adding multiple targets](images/skin_add_multiple_targets.png)
+  <figcaption><b>Figure 7</b>: Addition of multiple targets.</figcaption>
+</figure>
