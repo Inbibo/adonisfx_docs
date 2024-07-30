@@ -185,7 +185,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
  - **Attachments To Geometry**: For each vertex with a geometry attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective geometry target closest point at rest.
  - **Attachments To Transform**: For each vertex with a transform attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective transform target.
-  - **Fiber Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the "Triangulate Mesh" option is disabled the debugged lines will align with the edges of the mesh polygons. If the "Triangulate Mesh" option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
+  - **Fiber Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the <i>Triangulate Mesh</i> option is disabled the debugged lines will align with the edges of the mesh polygons. If the <i>Triangulate Mesh</i> option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide On Geometry**: If the *Max Sliding Distance* value is greater than 0.0, for each vertex with a slide on geometry weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective geometry target.
@@ -198,12 +198,12 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![muscle editor fiber constraint debug](images/muscle_dist_constr_debug.png)
-  <figcaption><b>Figure 10</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 10</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle editor shape preservation constraint debug](images/muscle_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 11</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 11</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced

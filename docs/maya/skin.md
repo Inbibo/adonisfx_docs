@@ -157,7 +157,7 @@ In order to better visualise deformer constraints and attributes in the Maya vie
 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualise, choose it from the list provided in *Features*. The features that can be visualised with the debugger in the AdnSkin deformer are:
 
- - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the "Triangulate Mesh" option is disabled the debugged lines will align with the edges of the mesh polygons. If the "Triangulate Mesh" option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
+ - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the <i>Triangulate Mesh</i> option is disabled the debugged lines will align with the edges of the mesh polygons. If the <i>Triangulate Mesh</i> option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
  - **Hard Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Hard Constraints* weight is greater than 0.0.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Slide Constraints* weight is greater than 0.0.s
@@ -176,12 +176,12 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![skin editor distance constraint debug](images/skin_dist_constr_debug.png)
-  <figcaption><b>Figure 7</b>: In red the simulated skin. Debugger enabled displaying the <i>Distance Constraints</i> coloured in blue with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 7</b>: In red the simulated skin. Debugger enabled displaying the <i>Distance Constraints</i> coloured in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor shape preservation constraint debug](images/skin_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 8</b>: In red the simulated skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 8</b>: In red the simulated skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced
