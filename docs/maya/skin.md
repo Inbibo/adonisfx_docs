@@ -73,20 +73,21 @@ The process to create an AdnSkin deformer is:
 #### Dynamic Properties
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Global Damping Multiplier**   | Float      | 0.75 | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
-| **Inertia Damper**              | Float      | 0.0  | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
-| **Rest Length Multiplier**      | Float      | 1.0  | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Max Sliding Distance**        | Float      | 0.0  | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the closest target mesh computed on initialisation. The higher this value is, the higher quality and the lower performance. If the value provided is considered too high for a given target mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
-| **Compression Multiplier**      | Float      | 1.0  | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Stretching Multiplier**       | Float      | 1.0  | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Attenuation Velocity Factor** | Float      | 1.0  | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
-| **Sliding Constraints Mode**    | Enumerator | Fast | ✓ | Defines the mode of execution for the sliding constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
+| **Triangulate Mesh**            | Boolean    | False | ✗ | Use the internally triangulated mesh to build constraints. |
+| **Global Damping Multiplier**   | Float      | 0.75  | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Inertia Damper**              | Float      | 0.0   | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Rest Length Multiplier**      | Float      | 1.0   | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Max Sliding Distance**        | Float      | 0.0   | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the closest target mesh computed on initialisation. The higher this value is, the higher quality and the lower performance. If the value provided is considered too high for a given target mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. Upper limit is soft, higher values can be used.
+| **Compression Multiplier**      | Float      | 1.0   | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Stretching Multiplier**       | Float      | 1.0   | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Attenuation Velocity Factor** | Float      | 1.0   | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Sliding Constraints Mode**    | Enumerator | Fast  | ✓ | Defines the mode of execution for the sliding constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
 
 ### Debug Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False            | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer. |
-| **Feature**     | Enumerator   | Hard Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh to the target mesh.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide Constraints: Draw *Slide Constraints* connections from the simulated mesh to the target mesh.</li><li>Sliding Surface On Target: Draw outline of triangles covered by the *Max Sliding Distance* of each vertex.</li><li>Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the target mesh.</li></ul> |
+| **Feature**     | Enumerator   | Hard Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Distance Constraints: Draw *Distance Constraint* connections representing the constrained pair of vertices in the simulated mesh.</li><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh to the target mesh.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide Constraints: Draw *Slide Constraints* connections from the simulated mesh to the target mesh.</li><li>Sliding Surface On Target: Draw outline of triangles covered by the *Max Sliding Distance* of each vertex.</li><li>Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the target mesh.</li></ul> |
 | **Width Scale** | Float        | 3.0              | ✓ | Modifies the width of all lines. |
 | **Color**       | Color Picker |                  | ✓ | Selects the line colour from a colour wheel. Its saturation can be modified using the slider. |
 
@@ -156,6 +157,7 @@ In order to better visualise deformer constraints and attributes in the Maya vie
 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualise, choose it from the list provided in *Features*. The features that can be visualised with the debugger in the AdnSkin deformer are:
 
+ - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the <i>Triangulate Mesh</i> option is disabled the debugged lines will align with the edges of the mesh polygons. If the <i>Triangulate Mesh</i> option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
  - **Hard Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Hard Constraints* weight is greater than 0.0.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Slide Constraints* weight is greater than 0.0.s
@@ -170,6 +172,16 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 <figure markdown>
   ![skin editor sliding surface debug](images/skin_debug_slide_surface.png)
   <figcaption><b>Figure 6</b>: In gray the target mesh, in red the simulated skin. Debugger enabled displaying the <i>Sliding Surface</i> coloured in green.</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor distance constraint debug](images/skin_dist_constr_debug.png)
+  <figcaption><b>Figure 7</b>: In red the simulated skin. Debugger enabled displaying the <i>Distance Constraints</i> coloured in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor shape preservation constraint debug](images/skin_shape_preserve_constr_debug.png)
+  <figcaption><b>Figure 8</b>: In red the simulated skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced
@@ -190,5 +202,5 @@ Once the AdnSkin deformer is created, it is possible to add and remove new targe
 
 <figure markdown>
   ![skin adding multiple targets](images/skin_add_multiple_targets.png)
-  <figcaption><b>Figure 7</b>: Addition of multiple targets (e.g. Adding multiple muscle targets to a fascia/fat/skin simulation).</figcaption>
+  <figcaption><b>Figure 9</b>: Addition of multiple targets (e.g. Adding multiple muscle targets to a fascia/fat/skin simulation).</figcaption>
 </figure>

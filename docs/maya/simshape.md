@@ -106,12 +106,13 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 #### Dynamic Properties
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Global Damping Multiplier**   | Float | 0.75 | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
-| **Inertia Damper**              | Float | 0.0  | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
-| **Rest Length Multiplier**      | Float | 1.0  | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Compression Multiplier**      | Float | 1.0  | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Stretching Multiplier**       | Float | 1.0  | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
-| **Attenuation Velocity Factor** | Float | 1.0  | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Triangulate Mesh**            | Boolean | False | ✗ | Use the internally triangulated mesh to build constraints. |
+| **Global Damping Multiplier**   | Float   | 0.75  | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Inertia Damper**              | Float   | 0.0   | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Rest Length Multiplier**      | Float   | 1.0   | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Compression Multiplier**      | Float   | 1.0   | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Stretching Multiplier**       | Float   | 1.0   | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
+| **Attenuation Velocity Factor** | Float   | 1.0   | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 
 #### Collision Settings
 | Name | Type | Default | Animatable | Description |
@@ -141,7 +142,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False                       | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSimshape deformer. |
-| **Feature**     | Enumerator   | Slide Collision Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide Collision Constraints: Draw *Slide Collision Constraints* connections from the simulated mesh to the collider mesh.</li><li>Slide Surface On Collider: Draw outline of triangles covered by the *Max Sliding Distance* of each vertex.</li><ul> |
+| **Feature**     | Enumerator   | Slide Collision Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Distance Constraints: Draw *Distance Constraint* connections representing the constrained pair of vertices in the simulated mesh.</li><li>Muscle Fibers: Draw *Muscle Fibers* on the simulated mesh.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide Collision Constraints: Draw *Slide Collision Constraints* connections from the simulated mesh to the collider mesh.</li><li>Slide Surface On Collider: Draw outline of triangles covered by the *Max Sliding Distance* of each vertex.</li><ul> |
 | **Width Scale** | Float        | 3.0                         | ✓ | Modifies the width of all lines. |
 | **Color**       | Color Picker |                             | ✓ | Selects the line colour from a colour wheel. Its saturation can be modified using the slider. |
 | **Fiber Scale** | Float        | 3.0                         | ✓ | The scale can be modified to set a custom fiber length. |
@@ -206,7 +207,8 @@ To better visualise deformer constraints and attributes in the Maya viewport the
 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to visualise, choose it from the list provided in *Features*. The features that can be visualised with the debugger in the AdnSimshape deformer are:
 
-- **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
+ - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the <i>Triangulate Mesh</i> option is disabled the debugged lines will align with the edges of the mesh polygons. If the <i>Triangulate Mesh</i> option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
+ - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider. The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
  - **Sliding Surface On Collider**: For each vertex, lines will outline the collider triangles within the reach of its *Max Sliding Distance*
@@ -214,8 +216,18 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices. 
 
 <figure markdown>
-![skin editor debug menu](images/simshape_debug.png)
+![simshape editor debug menu](images/simshape_debug.png)
 <figcaption><b>Figure 6</b>: AdnSimshape Slide Collision Constraints, Muscle Fibers, Sliding Surface On Collider and Shape Preservation debugging.</figcaption>
+</figure>
+
+<figure markdown>
+  ![simshape editor distance constraint debug](images/simshape_dist_constr_debug.png)
+  <figcaption><b>Figure 7</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Distance Constraints</i> coloured in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+<figure markdown>
+  ![simshape editor shape preservation constraint debug](images/simshape_shape_preserve_constr_debug.png)
+  <figcaption><b>Figure 8</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced
@@ -225,7 +237,7 @@ AdnSimshape can emulate the behaviour of facial muscles by computing the muscle 
 
 <figure markdown>
   ![Activation modes from attribute editor](images/activation_modes.png)
-  <figcaption><b>Figure 7</b>: Activation Modes switch exposed in the Attribute Editor.</figcaption>
+  <figcaption><b>Figure 9</b>: Activation Modes switch exposed in the Attribute Editor.</figcaption>
 </figure>
 
 > [!NOTE = Activation Modes]
@@ -257,7 +269,7 @@ The Learn Muscle Patches tool allows the user to generate the AMP file:
 
 <figure style="width: 50%; padding-left: 5px;">
   <img src="images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
-  <figcaption><b>Figure 8</b>: Learn Muscle Patches UI.</figcaption>
+  <figcaption><b>Figure 10</b>: Learn Muscle Patches UI.</figcaption>
 </figure>
 
 1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](images/adn_learn_muscle_patches.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
@@ -271,7 +283,7 @@ The Learn Muscle Patches tool allows the user to generate the AMP file:
 <br>
 <figure style="width: 50%;" markdown>
   ![Simshape draw muscle patches example](images/simshape_debug_amp.png)
-  <figcaption><b>Figure 9</b>: Example of muscle patches generated with the Learn Muscle Patches UI.</figcaption>
+  <figcaption><b>Figure 11</b>: Example of muscle patches generated with the Learn Muscle Patches UI.</figcaption>
 </figure>
 
 Additional custom settings for the learning algorithm:
@@ -289,7 +301,7 @@ AdnSimshape integrates a debug mode to visualise the activations during the simu
 
 <figure style="width: 50%" markdown>
   ![Learn Muscle Patches UI window](images/nassim_debug.png)
-  <figcaption><b>Figure 10</b>: Example of AdnSimshape running in Debug mode.</figcaption>
+  <figcaption><b>Figure 12</b>: Example of AdnSimshape running in Debug mode.</figcaption>
 </figure>
 
 
