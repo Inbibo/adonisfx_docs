@@ -176,12 +176,12 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![skin editor distance constraint debug](images/skin_dist_constr_debug.png)
-  <figcaption><b>Figure 7</b>: In gray the target mesh, in red the simulated skin. Debugger enabled displaying the <i>Distance Constraints</i> coloured in purple with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 7</b>: In red the simulated skin. Debugger enabled displaying the <i>Distance Constraints</i> coloured in blue with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor shape preservation constraint debug](images/skin_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 8</b>: In gray the target mesh, in red the simulated skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in purple with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 8</b>: In red the simulated skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with "Triangulate Mesh" option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced
