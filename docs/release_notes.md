@@ -1,5 +1,30 @@
 # Release Notes
 
+## Version 1.2.0
+
+### Core
+
+- Added support for multiple targets in AdnSkin solver.
+- Extended the uber constraints initialisation to build constraints with the closest point on the closest target.
+- Allow all the solvers to use the internal triangulation of the geometry to build the constraints.
+- Extended the distance and shape preservation constraints initialisation to build constraints based on the triangulated mesh.
+- Added support in AdnSkin solver to simulate even if no targets are provided.
+
+### Maya
+
+- Added *Targets* array plug to AdnSkin deformer to connect multiple targets.
+- Added *Triangulate Mesh* option to all AdonisFX deformers to enable or disable the use of the triangulated version of the mesh for building the constraints.
+- Added two new buttons to the shelf and two new entries in the menu to add and remove targets from an AdnSkin deformer.
+- Added support for debugging distance and fiber constraints.
+
+### Known Limitations
+
+- Slide on geometry constraints in Fast mode are limited to simple setups. They need to run in Quality mode to ensure stability in complex scenarios. *AdonisFX-1213*
+- Volume ratio gain effect is dependent to the total volume of the muscle. This might require to use volume ratios with a range different to the default [0, 2] if needed. *AdonisFX-1137*
+- Interaction muscle-to-muscle is not supported. *AdonisFX-1211*
+- Exporter and Importer do not support locators and sensors. *AdonisFX-1215*
+- Fat simulation is limited to the current features in AdnSkin solver. *AdonisFX-879*
+
 ## Version 1.1.1
 
 ### Bug Fixes
