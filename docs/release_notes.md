@@ -7,7 +7,7 @@
 - Added support for multiple targets in AdnSkin solver.
 - Extended the uber constraints initialisation to build constraints with the closest point on the closest target.
 - Allow all the solvers to use the internal triangulation of the geometry to build the constraints.
-- Extended the distance and shape preservation constraints initialisation to build constraints based on the triangulated mesh.
+- Extended the distance, fiber and shape preservation constraints initialisation to build constraints based on the triangulated mesh.
 - Added support in AdnSkin solver to simulate even if no targets are provided.
 
 ### Maya
