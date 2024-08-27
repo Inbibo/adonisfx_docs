@@ -98,13 +98,14 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 #### Override Constraint Stiffness
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Solver Stiffness**            | Float |      | ✗ | Shows the global stiffness value currently used by the solver. |
-| **Distance Constraints**        | Float | -1.0 | ✓ | Sets the stiffness override value for distance constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. |
-| **Shape Preservation**          | Float | -1.0 | ✓ | Sets the stiffness override value for shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. |
-| **Slide Collision Constraints** | Float | -1.0 | ✓ | Sets the stiffness override value for slide collision constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. |
+| **Solver Stiffness**            | Float |  0.0 | ✗ | Shows the global stiffness value currently used by the solver. |
+| **Distance Constraints**        | Float | -1.0 | ✓ | Sets the stiffness override value for distance constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. Upper limit is soft, higher values can be used. |
+| **Shape Preservation**          | Float | -1.0 | ✓ | Sets the stiffness override value for shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. This value is only considered if the *Override Shape Preserve Stiffness* checkbox is disabled. Has a range of \[0.0, 10<sup>12</sup>\]. Upper limit is soft, higher values can be used. |
+| **Slide Collision Constraints** | Float | -1.0 | ✓ | Sets the stiffness override value for slide collision constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. Upper limit is soft, higher values can be used. |
 
 > [!NOTE]
 > The *Override Shape Preserve Stiffness* and *Shape Preserve Stiffness* attributes have been deprecated. If the *Override Shape Preserve Stiffness* checkbox is enabled, the *Shape Preserve Stiffness* value will be used to override the stiffness for shape preservation constraints. For that reason, we recommend to disable the *Override Shape Preserve Stiffness* checkbox and use the *Shape Preservation* attribute located in the Override Constraint Stiffness section.
+> Providing a stiffness override value of 0.0 will disable the computation of that constraint.
 
 #### Mass Properties
 
