@@ -2,7 +2,7 @@
 
 AdnFat is a Maya deformer for fat tissue simulation. Thanks to a combination of volume and shape preservation constraints, the deformer can produce dynamics that allow the fat geometry to produce realistic jiggle-like dynamics.
 
-The inputs to the deformer are two geometries coherent in terms of number of vertices and triangulation. One geometry is a deformed geometry which works as base mesh to drive the simulation (e.g. the simulated fascia), while the second geometry is the one to be simulated (i.e. the fat geometry to simulate). Given these two compatible surfaces, the solver procedurally constructs a volumetric internal structure between the them. This structure is then simulated by computing: 1) volume constraints to make it resistant to compression and expansion; 2) volume shape preservation constraints to make the internal volume resistant to deformation; and 3) shape preservation constraints to preserve the original shape between connected vertices.
+The inputs to the deformer are two geometries coherent in terms of number of vertices and triangulation. One geometry is a deformed geometry which works as base mesh to drive the simulation (e.g. the simulated fascia), while the second geometry is the one to be simulated (i.e. the fat geometry to simulate). Given these two compatible surfaces, the solver procedurally constructs a volumetric internal structure between them. This structure is then simulated by computing: 1) volume constraints to make it resistant to compression and expansion; 2) volume shape preservation constraints to make the internal volume resistant to deformation; and 3) shape preservation constraints to preserve the original shape between connected vertices.
 
 ### How To Use
 
