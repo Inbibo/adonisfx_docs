@@ -1,17 +1,17 @@
 # AdnFat
 
-AdnFat is a Maya deformer for fat tissues simulation. Thanks to a combination of volume and shape preservation constraints, the deformer can produce dynamics that allow the fat geometry to produce realistic dynamics like jiggle.
+AdnFat is a Maya deformer for fat tissue simulation. Thanks to a combination of volume and shape preservation constraints, the deformer can produce dynamics that allow the fat geometry to produce realistic jiggle-like dynamics.
 
-The inputs to the deformer are two geometries coherent in terms of number of vertices and triangulation. One geometry is a deformed geometry which works as base mesh to drive the simulation (e.g. the simulated fascia), while the second geometry is the one to be simulated (i.e. the fat geometry to simulate). Given this two compatible surfaces, the solver procedurally constructs a volumetric internal structure between the two. This structure is simulated by computing: 1) volume constraints to make it resistant to compression and expansion; 2) volume shape preservation constraints to make the internal volume resistant to deformation; and 3) shape preservation constraints to preserve the original shape between connected vertices.
+The inputs to the deformer are two geometries coherent in terms of number of vertices and triangulation. One geometry is a deformed geometry which works as base mesh to drive the simulation (e.g. the simulated fascia), while the second geometry is the one to be simulated (i.e. the fat geometry to simulate). Given these two compatible surfaces, the solver procedurally constructs a volumetric internal structure between the them. This structure is then simulated by computing: 1) volume constraints to make it resistant to compression and expansion; 2) volume shape preservation constraints to make the internal volume resistant to deformation; and 3) shape preservation constraints to preserve the original shape between connected vertices.
 
 ### How To Use
 
-The AdnFat deformer is easy to create and confgure in Maya. The deformer requires two input geometries that represent the inner and outer layers of the fat tissue. Typically, the inner layer corresponds to the simulated fascia, while the outer layer corresponds to the actual fat mesh to simulate. The inner layer works as a base mesh that the outer fat layer has to follow. The AdonisFX fat solver will take care of creating an internal volumetric structure between the two procedurally.
+The AdnFat deformer is easy to create and configure in Maya. The deformer requires two input geometries that represent the inner and outer layers of the fat tissue. Typically, the inner layer corresponds to the simulated fascia, while the outer layer corresponds to the actual fat mesh to simulate. The inner layer works as a base mesh that the outer fat layer has to follow.
 
 To create an AdnFat deformer within a Maya scene, the following inputs must be provided:
 
   - **Base Mesh (B)**: Mesh to drive the simulation mesh (e.g. the simulated fascia geometry).
-  - **Fat Mesh (F)**: Mesh to apply the deformer onto to simulate (e.g. the fat geometry).
+  - **Fat Mesh (F)**: Mesh to apply the deformer onto (e.g. the fat geometry).
 
 > [!NOTE]
 > - **B** and **F** must have the same vertex count and triangulation.
@@ -21,7 +21,7 @@ The process to create an AdnFat deformer is:
 
 1. Select the **Base Mesh**, then the **Fat Mesh**.
 2. Press ![Fat button](images/adn_fat.png){style="width:4%"} in the AdonisFX shelf or *Fat* in the AdonisFX menu, under the Create Solvers section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
-3. A message in the console will notify you that AdnFat has been created properly, meaning that it is ready to simulate. If an error occurred, a dialog will prompted. Check the next section to customise their configuration.
+3. A message in the console will notify you that AdnFat has been created properly, meaning that it is ready to simulate. If an error occurrs, a dialog will be prompted. Check the next section to customise their configuration.
 
 ## Attributes
 
@@ -91,13 +91,13 @@ The process to create an AdnFat deformer is:
 #### Volume Structure
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Divisions**   | Integer      | 1  | ✗ | Sets the number of desired divisions to create in the internal volume. The lower this value is, the faster the solver computes. Has a range of \[1, 10\]. Upper limit is soft, higher values can be used. |
+| **Divisions**   | Integer      | 1  | ✗ | Sets the number of divisions to create in the internal volume. The lower this value is, the faster the solver computes. Has a range of \[1, 10\]. Upper limit is soft, higher values can be used. |
 
 ### Debug Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False            | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnFat deformer. |
-| **Feature**     | Enumerator   | Volume Structure | ✓ | A list of debuggable features for this deformer.<ul><li>Volume Structure: Draw the structure generated procedurally to simulate the fat volume.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li></ul> |
+| **Feature**     | Enumerator   | Volume Structure | ✓ | A list of debuggable features for this deformer.<ul><li>Volume Structure: Draw all the connections in the *Volume Structure* generated procedurally.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li></ul> |
 | **Width Scale** | Float        | 3.0              | ✓ | Modifies the width of all lines. |
 | **Color**       | Color Picker |                  | ✓ | Selects the line colour from a colour wheel. Its saturation can be modified using the slider. |
 
