@@ -100,7 +100,6 @@ nav:
   - Release Notes: release_notes.md
   - Documentation:
     - Maya:
-      - maya/index.md
       - UI Overview         : maya/ui_overview.md
       - A Simple Setup      : maya/simple_setup.md
       - Locators            : maya/locators.md
