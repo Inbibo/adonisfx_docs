@@ -5,6 +5,7 @@
 - [Locators](locators)
 - [Sensors](sensors)
 - [AdnSkin](skin)
+- [AdnFat](fat)
 - [AdnMuscle](muscle)
 - [AdnRibbonMuscle](ribbon)
 - [AdnSimshape](simshape)
