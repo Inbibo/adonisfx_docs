@@ -21,7 +21,7 @@ The process to create an AdnFat deformer is:
 
 1. Select the **Base Mesh**, then the **Fat Mesh**.
 2. Press ![Fat button](images/adn_fat.png){style="width:4%"} in the AdonisFX shelf or *Fat* in the AdonisFX menu, under the Create Solvers section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
-3. A message in the console will notify you that AdnFat has been created properly, meaning that it is ready to simulate. If an error occurrs, a dialog will be prompted. Check the next section to customise their configuration.
+3. A message in the console will notify you that AdnFat has been created properly, meaning that it is ready to simulate. If an error occurs, a dialog will be prompted. Check the next section to customise their configuration.
 
 ## Attributes
 
