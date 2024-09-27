@@ -1,5 +1,30 @@
 # Release Notes
 
+## Version 1.3.0
+
+### Core
+
+- Implemented a new solver for fat simulation.
+- Implemented a new constraint to preserve the internal shape of volumetric geometries.
+- Implemented a new constraint to preserve the volume in tetrahedralized geometries.
+- Extended all existing solvers to support stiffness overrides per constraint type.
+
+### Maya
+
+- Added AdnFat deformer.
+- Added stiffness overrides per constraint type to all deformers.
+- Improved UX to prevent informative dialogs to prompt.
+- Improved UX to prevent dialogs to prompt when running commands from script.
+
+### Bug Fixes
+
+- Fixed a bug that was redistributing the masses per point in very specific cases and only if the painted masses map was not the default one.
+
+### Known Limitations
+
+- Interaction muscle-to-muscle is not supported. *AdonisFX-1211*
+- Exporter and Importer do not support locators and sensors. *AdonisFX-1215*
+
 ## Version 1.2.0
 
 ### Core
