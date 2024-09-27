@@ -1,21 +1,27 @@
 # AdnFat
 
-AdnFat is a Maya deformer for realistic simulation of fat tissues. Thanks to the combination of volume preservation and internal and external shape preservation, the deformer can produce dynamics that allow the fat geometry to produce jiggle and folds over time.
+AdnFat is a Maya deformer for fat tissues simulation. Thanks to a combination of volume and shape preservation constraints, the deformer can produce dynamics that allow the fat geometry to produce realistic dynamics like jiggle.
+
+The inputs to the deformer are two geometries coherent in terms of number of vertices and triangulation. One geometry is a deformed geometry which works as base mesh to drive the simulation (e.g. the simulated fascia), while the second geometry is the one to be simulated (i.e. the fat geometry to simulate). Given this two compatible surfaces, the solver procedurally constructs a volumetric internal structure between the two. This structure is simulated by computing: 1) volume constraints to make it resistant to compression and expansion; 2) volume shape preservation constraints to make the internal volume resistant to deformation; and 3) shape preservation constraints to preserve the original shape between connected vertices.
 
 ### How To Use
 
-The AdnFat deformer is easy to create and confgure in Maya. The deformer can be applied to a mesh that represents the outer surface fat tissue. The deformer requires of a base mesh which will work as the internal surface of the fat tissue. The AdonisFX fat solver will take care of creating the internla structure between the base and simulated meshes procedurally. Typically, the base mesh will be simulated fascia, so that the deformation of that mesh will drive the simulation of the fat volume over time.
+The AdnFat deformer is easy to create and confgure in Maya. The deformer requires two input geometries that represent the inner and outer layers of the fat tissue. Typically, the inner layer corresponds to the simulated fascia, while the outer layer corresponds to the actual fat mesh to simulate. The inner layer works as a base mesh that the outer fat layer has to follow. The AdonisFX fat solver will take care of creating an internal volumetric structure between the two procedurally.
 
 To create an AdnFat deformer within a Maya scene, the following inputs must be provided:
 
   - **Base Mesh (B)**: Mesh to drive the simulation mesh (e.g. the simulated fascia geometry).
   - **Fat Mesh (F)**: Mesh to apply the deformer onto to simulate (e.g. the fat geometry).
 
+> [!NOTE]
+> - **B** and **F** must have the same vertex count and triangulation.
+> - **B** must be provided, otherwise the Fat solver will abort the simulation.
+
 The process to create an AdnFat deformer is:
 
 1. Select the **Base Mesh**, then the **Fat Mesh**.
-2. Press ![Fat button](images/adn_fat.png){style="width:4%"} in the AdonisFX shelf or *Fat* in the AdonisFX menu, under the *Create > Solvers* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
-3. A message in the console will notify you that AdnFat has been created properly, meaning that it is ready to simulate with default settings. If an error occurred, a dialog will prompted. Check the next section to customise their configuration.
+2. Press ![Fat button](images/adn_fat.png){style="width:4%"} in the AdonisFX shelf or *Fat* in the AdonisFX menu, under the Create Solvers section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+3. A message in the console will notify you that AdnFat has been created properly, meaning that it is ready to simulate. If an error occurred, a dialog will prompted. Check the next section to customise their configuration.
 
 ## Attributes
 
@@ -60,8 +66,8 @@ The process to create an AdnFat deformer is:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Solver Stiffness**     | Float |  0.0 | ✗ | Shows the global stiffness value currently used by the solver. |
-| **Internal Shape Preservation**   | Float | -1.0 | ✓ | Sets the stiffness override value for the internal shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. Upper limit is soft, higher values can be used. |
-| **External Shape Preservation**   | Float | -1.0 | ✓ | Sets the stiffness override value for the external shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. Upper limit is soft, higher values can be used. |
+| **Shape Preservation**   | Float | -1.0 | ✓ | Sets the stiffness override value for the shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. Upper limit is soft, higher values can be used. |
+| **Volume Shape Preservation**   | Float | -1.0 | ✓ | Sets the stiffness override value for the volume shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. Upper limit is soft, higher values can be used. |
 
 
 > [!NOTE]
@@ -91,7 +97,7 @@ The process to create an AdnFat deformer is:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False            | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnFat deformer. |
-| **Feature**     | Enumerator   | Volume Structure | ✓ | A list of debuggable features for this deformer.<ul><li>Volume Structure: Draw the *Internal Structure* generated procedurally.</li><li>External Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li></ul> |
+| **Feature**     | Enumerator   | Volume Structure | ✓ | A list of debuggable features for this deformer.<ul><li>Volume Structure: Draw the structure generated procedurally to simulate the fat volume.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li></ul> |
 | **Width Scale** | Float        | 3.0              | ✓ | Modifies the width of all lines. |
 | **Color**       | Color Picker |                  | ✓ | Selects the line colour from a colour wheel. Its saturation can be modified using the slider. |
 
@@ -110,18 +116,18 @@ The process to create an AdnFat deformer is:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![skin editor first part](images/attribute_editor_part_one_skin.png) 
-  <figcaption><b>Figure 1</b>: AdnSkin Attribute Editor.</figcaption>
+  ![fat editor first part](images/attribute_editor_part_one_fat.png) 
+  <figcaption><b>Figure 1</b>: AdnFat Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor second part](images/attribute_editor_part_two_skin.png)
-  <figcaption><b>Figure 2</b>: AdnSkin Attribute Editor (Advanced Settings).</figcaption>
+  ![fat editor second part](images/attribute_editor_part_two_fat.png)
+  <figcaption><b>Figure 2</b>: AdnFat Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor debug menu](images/attribute_editor_skin_debug.png)
-  <figcaption><b>Figure 3</b>: AdnSkin Attribute Editor (Debug menu).</figcaption>
+  ![fat editor debug menu](images/attribute_editor_fat_debug.png)
+  <figcaption><b>Figure 3</b>: AdnFat Attribute Editor (Debug menu).</figcaption>
 </figure>
 
 ## Paintable Weights
@@ -132,14 +138,16 @@ In order to provide more artistic control, some key parameters of the AdnFat sol
 | :--- | :------ | :---------- |
 | **Global Damping**              | 1.0 | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more damping of velocities. |
 | **Masses**                      | 1.0 | Set individual mass values per vertex in the simulated mesh. |
-| **External Shape Preservation** | 0.0 | Amount of correction to apply to the a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
-| **Internal Shape Preservation** | 0.0 | Amount of correction to apply to the internal volume to preserve the initial volumetric shape and prevent from distorsion. |
+| **Shape Preservation**          | 1.0 | Amount of correction to apply to a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
+| **Volume Shape Preservation**   | 1.0 | Amount of correction to apply to the volume structure to preserve the initial volumetric shape and prevent it from distorsion. |
 
+<!--
+PENDING
 <figure>
-  <img src="images/skin_weights.png" caption="AdonisFX Paint Tool"> 
-  <figcaption><b>Figure 4</b>: Example of painted weights on the skin of a bear character, labeled as:<br/><b>a)</b> Compression Resistance, <b>b)</b> Global Damping, <b>c)</b> Hard Constraints, <b>d)</b> Mass,<br/><b>e)</b> Shape Preservation, <b>f)</b> Slide Constraints, <b>g)</b> Sliding Distance Multiplier, <b>h)</b> Soft Constraints, and <b>i)</b> Stretching Resistance.</figcaption>
+  <img src="images/fat_weights.png" caption="AdonisFX Paint Tool"> 
+  <figcaption><b>Figure 4</b>: Example of painted weights on the fat of a biped character, labeled as:<br/><b>a)</b> Compression Resistance, <b>b)</b> Global Damping, <b>c)</b> Hard Constraints, <b>d)</b> Mass,<br/><b>e)</b> Shape Preservation, <b>f)</b> Slide Constraints, <b>g)</b> Sliding Distance Multiplier, <b>h)</b> Soft Constraints, and <b>i)</b> Stretching Resistance.</figcaption>
 </figure>
-
+-->
 
 ## Debugger
 
@@ -147,9 +155,11 @@ In order to better visualise deformer constraints and attributes in the Maya vie
 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualise, choose it from the list provided in *Features*. The features that can be visualised with the debugger in the AdnFat deformer are:
 
- - **External Shape Preservation**: For each vertex with a external shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
+ - **Shape Preservation**: For each vertex with a external shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Volume Structure**: A line will be drawn for every connection between two points in the volume. A point can be either a vertex on the base mesh, a vertex on the simulated fat mesh or a virtual point that belongs to an internal layer generated by the procedural construction based on the *Divisions* attribute.
 
+<!--
+PENDING
 <figure markdown>
   ![skin editor debug example](images/skin_debug.png)
   <figcaption><b>Figure 5</b>: In gray the target mesh, in orange the simulated skin. Debugger enabled displaying a test example with <i>Soft Constraints</i> coloured in green.</figcaption>
@@ -169,6 +179,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
   ![skin editor shape preservation constraint debug](images/skin_shape_preserve_constr_debug.png)
   <figcaption><b>Figure 8</b>: In red the simulated skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
 </figure>
+-->
 
 ## Advanced
 
@@ -184,8 +195,3 @@ Once the AdnFat deformer is created, it is possible to add and remove the base m
     1. Select the geometry currently assigned as base mesh to the AdnFat. This step is optional.
     2. Select the geometry that has the AdnFat deformer applied.
     3. Press the *Remove Base Mesh* item in the AdonisFX menu from the Edit Fat submenu.
-
-<figure markdown>
-  ![skin adding multiple targets](images/skin_add_multiple_targets.png)
-  <figcaption><b>Figure 9</b>: Addition of multiple targets (e.g. Adding multiple muscle targets to a fascia/fat/skin simulation).</figcaption>
-</figure>
