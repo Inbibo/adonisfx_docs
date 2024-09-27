@@ -6,19 +6,21 @@
 
 - Implemented a new solver for fat simulation.
 - Implemented a new constraint to preserve the internal shape of volumetric geometries.
-- Implemented a new constraint to preserve the volume in tetrahedralized geometries.
+- Implemented a new constraint to preserve the volume in tetrahedralised geometries.
 - Extended all existing solvers to support stiffness overrides per constraint type.
 
 ### Maya
 
 - Added AdnFat deformer.
 - Added stiffness overrides per constraint type to all deformers.
+- Implemented dynamic loading of AdonisFX shelf and removed the `MAYA_SHELF_PATH` configuration from the module file.
 - Improved UX to prevent informative dialogs to prompt.
 - Improved UX to prevent dialogs to prompt when running commands from script.
 
 ### Bug Fixes
 
 - Fixed a bug that was redistributing the masses per point in very specific cases and only if the painted masses map was not the default one.
+- Fixed a bug that was causing the velocities damping not work when point masses were too large.
 
 ### Known Limitations
 
