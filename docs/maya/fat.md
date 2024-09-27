@@ -29,8 +29,8 @@ The process to create an AdnFat deformer is:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Enable**               | Boolean    | True    | ✓ | Flag to enable or disable the deformer computation. |
-| **Iterations**           | Integer    | 3       | ✓ | Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost. Has a range of \[1, 10\]. Upper limit is soft, higher values can be used. |
-| **Substeps**             | Integer    | 1       | ✓ | Number of substeps that the solver will execute per simulation step. Greater values mean greater computational cost. Has a range of \[1, 10\]. Upper limit is soft, higher values can be used. |
+| **Iterations**           | Integer    | 5       | ✓ | Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost. Has a range of \[1, 10\]. Upper limit is soft, higher values can be used. |
+| **Substeps**             | Integer    | 2       | ✓ | Number of steps that the solver will execute per simulation frame. Greater values mean greater computational cost. Has a range of \[1, 10\]. Upper limit is soft, higher values can be used. |
 | **Material**             | Enumerator | Fat     | ✓ | Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets: Fat: 10<sup>3</sup>, Muscle: 5e<sup>3</sup>, Rubber: 10<sup>6</sup>, Tendon: 5e<sup>7</sup>, Leather: 10<sup>6</sup>, Wood: 6e<sup>9</sup>, Concrete: 2.5e<sup>10</sup>. |
 | **Stiffness Multiplier** | Float      | 1.0     | ✓ | Multiplier factor to scale up or down the material stiffness. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
 
@@ -84,14 +84,14 @@ The process to create an AdnFat deformer is:
 #### Dynamic Properties
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Global Damping Multiplier**   | Float      | 0.75  | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
+| **Global Damping Multiplier**   | Float      | 0.1  | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 | **Inertia Damper**              | Float      | 0.0   | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 | **Attenuation Velocity Factor** | Float      | 1.0   | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. Upper limit is soft, higher values can be used. |
 
 #### Volume Structure
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Divisions**   | Integer      | 1  | ✗ | Sets the number of internal divisions to create during the internal structure procedural generation. Has a range of \[1, 10\]. Upper limit is soft, higher values can be used. |
+| **Divisions**   | Integer      | 1  | ✗ | Sets the number of desired divisions to create in the internal volume. The lower this value is, the faster the solver computes. Has a range of \[1, 10\]. Upper limit is soft, higher values can be used. |
 
 ### Debug Attributes
 | Name | Type | Default | Animatable | Description |
@@ -137,7 +137,7 @@ In order to provide more artistic control, some key parameters of the AdnFat sol
 | Name | Default | Description |
 | :--- | :------ | :---------- |
 | **Global Damping**              | 1.0 | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more damping of velocities. |
-| **Masses**                      | 1.0 | Set individual mass values per vertex in the simulated mesh. |
+| **Masses**                      | 1.0 | Multiplier to the individual mass values per vertex in the simulated volume. |
 | **Shape Preservation**          | 1.0 | Amount of correction to apply to a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
 | **Volume Shape Preservation**   | 1.0 | Amount of correction to apply to the volume structure to preserve the initial volumetric shape and prevent it from distorsion. |
 
