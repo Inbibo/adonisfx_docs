@@ -104,7 +104,7 @@ On the other hand, *Volume Shape Preservation* will also try to maintain the sha
 
 <figure>
   <img src="images/setup_fat_shape_preserve.png"> 
-  <figcaption><b>Figure 9</b>: Slide Constraints weights paint.</figcaption>
+  <figcaption><b>Figure 9</b>: Shape Preservation Constraints weights paint.</figcaption>
 </figure>
 
 ## AdnMuscle
