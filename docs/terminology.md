@@ -34,6 +34,12 @@ Constraints are rules that an AdonisFX solver applies during simulation to ensur
 
 **Volume Constraint**. A volume constraint defines the volume at rest of a geometry. During simulation, this constraints will try to preserve the volume of the geometry with the ability to introduce volume gain or lose modulated by the volume ratio parameter.
 
+**Volume Shape Preservation Constraint**. A volume shape preservation constraint defines the state of the shape of a unit of volume of a volumetric geometry on initialisation. This constraint is used by the fat solver to preserve the shape of every piece of volume existing in the structure generated between the inner and outer layers (fascia and fat geometries respectively) during simulation.
+
+## Fat
+
+Fat or **AdnFat** is an AdonisFX solver for fat simulation. This solver allows to simulate a mesh surface as if it were a closed volume of fat tissue. The volume is constructed procedurally using two compatible geometries: a base mesh to drive the simulation (i.e. the fascia) and a destination mesh (i.e. the fat) on which to apply the simulation. Thanks to that internal volume structure, the solver is able to produce reallistic dynamics typical of fat tissues.
+
 ## Locator
 
 Locators are intended to visualise the output of an AdonisFX sensor. There are three types of locators that require a specific number of inputs and adopt custom shapes in the viewport: AdnLocatorPosition (a squared box at the location of a node), AdnLocatorDistance (a parallelepiped with a line connecting two nodes) and AdnLocatorRotation (an angle with two segments connecting three nodes). Each type is associated with its homologous sensor.
