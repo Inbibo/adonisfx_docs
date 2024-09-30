@@ -106,6 +106,7 @@ nav:
       - Locators            : maya/locators.md
       - Sensors             : maya/sensors.md
       - AdnSkin             : maya/skin.md
+      - AdnFat              : maya/fat.md
       - AdnMuscle           : maya/muscle.md
       - AdnRibbonMuscle     : maya/ribbon.md
       - AdnSimshape         : maya/simshape.md
