@@ -5,8 +5,8 @@
 ### Core
 
 - Implemented a new solver for fat simulation.
-- Implemented a new constraint to preserve the internal shape in fat solver.
-- Implemented a new constraint to preserve the volume in fat solver.
+- Implemented a new constraint to preserve the internal shape of fat tissue.
+- Implemented a new constraint to preserve the volume of fat tissue.
 - Extended all existing solvers to support stiffness overrides per constraint type.
 
 ### Maya
