@@ -20,7 +20,7 @@ Skin can be simulated using the [AdnSkin](maya/skin) deformer. This deformer req
 
 Similarly to a skin simulation setup, the fascia can be simulated using [AdnSkin](maya/skin) deformer as well. In this case, it is recommended to use values of *Rest Length Multiplier* lower than 1. This deformer also requires one mesh (a single target, i.e. the muscle geometries combined) or multiple meshes (multiple targets, i.e. the muscle geometries separated) to drive the simulation and a mesh to apply the deformer to (fascia geometry).
 
-# How can I generate the fascia geometry?
+## How can I generate the fascia geometry?
 
 In order to obtain a plausible fascia geometry, we can use two techniques that require the muscle geometries and the skin geometry as inputs.
 
@@ -37,7 +37,7 @@ Another option is to perform a vacuum simulation using nCloth by following these
 - Simulate a few frames with pressure until the desired fascia geometry is achieved.
 - Stop the simulation and delete the history of the fascia geometry.
 
-# How can I simulate fat?
+## How can I simulate fat?
 
 Fat can be simulated using the [AdnFat](maya/fat) deformer. This deformer requires one base mesh (i.e. the fascia) to drive the fat simulation and a mesh to apply the deformer to (fat mesh). Both meshes must have the same vertex count and triangulation. A simple setup is explained [here](maya/simple_setup#adnfat).
 
