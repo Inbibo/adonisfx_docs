@@ -24,20 +24,23 @@ Similarly to a skin simulation setup, the fascia can be simulated using [AdnSkin
 
 In order to obtain a plausible fascia geometry, we can use two techniques that require the muscle geometries and the skin geometry as inputs.
 
-The first option is to use the shrinkwrap deformer provided by Maya:
+The easiest option is to use the shrinkwrap deformer provided by Maya. This solution works better for low poly geometries.
 
 - Create a copy of the skin geometry that will become your fascia.
 - Select the combined geometry of all muscles, then select the copy of the skin geometry.
 - Apply the shrinkwrap deformer and adjust its settings until the desired fascia geometry is achieved.
 - Delete the history of the fascia geometry.
 
-Another option is to perform a vacuum simulation using nCloth by following these steps:
+For high-end fascia simulations, a better option would be to create the fascia geometry using a pressured cloth simulation. nCloth can be used to achieve this:
 
 - Create a copy of the skin geometry that will become your fascia.
-- Add the muscle geometries as colliders.
-- Add the copy of the skin geometry as the deformed mesh.
-- Simulate a few frames with pressure until the desired fascia geometry is achieved.
-- Stop the simulation and delete the history of the fascia geometry.
+- Select the fascia geometry and click nCloth > Create nCloth.
+- Select the muscle geometries and click on nCloth > Create Passive Collider.
+- Select the nucleus node and set the gravity to 0.
+- Select the nCloth node and keyframe the pressure attribute to 0 at the first frame of the scene.
+- Advance some frames (e.g., ten frames) and keyframe the pressure to -1.
+- Select the fascia geometry and click nCloth > Create New nCache > nObject.
+- Once the simulation finishes, choose the fascia that looks best within the simulated frame range.
 
 ## How can I simulate fat?
 
