@@ -25,12 +25,14 @@ Similarly to a skin simulation setup, the fascia can be simulated using [AdnSkin
 In order to obtain a plausible fascia geometry, we can use two techniques that require the muscle geometries and the skin geometry as inputs.
 
 The first option is to use the shrinkwrap deformer provided by Maya:
+
 - Create a copy of the skin geometry that will become your fascia.
 - Select the combined geometry of all muscles, then select the copy of the skin geometry.
 - Apply the shrinkwrap deformer and adjust its settings until the desired fascia geometry is achieved.
 - Delete the history of the fascia geometry.
 
 Another option is to perform a vacuum simulation using nCloth by following these steps:
+
 - Create a copy of the skin geometry that will become your fascia.
 - Add the muscle geometries as colliders.
 - Add the copy of the skin geometry as the deformed mesh.
