@@ -92,14 +92,19 @@ To create the AdnFat deformer with some initial customisation, double-click the 
   <figcaption><b>Figure 8</b>: AdnFat deformer creation scenario.</figcaption>
 </figure>
 
-After basic configuration, to alter the dynamics of the fat layer (adding or reducing the jiggle effect) it is advisable to tweak the main attributes like; *Iterations*, *Substeps*, *Global Damping Multiplier* or the per-constraints stiffness values in the *Override Constraint stiffness* section.
+After basic configuration, to alter the dynamics of the fat layer (e.g adding or reducing the jiggle) it is advisable to tweak the main attributes like: *Iterations*, *Substeps*, *Global Damping Multiplier* or the per-constraint stiffness values in the *Override Constraint Stiffness* section.
 
 ### Paint Weights
 
-With the default paint setup provided when creating a new AdnFat, the simulation should already create plausible results. However, below we walk you through the 2 main maps that can be altered to modify the behavior of the fat simulation.
+> [!NOTE]
+> AdnFat requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the painted weights setup.
+
+With the default paint setup provided when creating a new AdnFat, the simulation should already create plausible results. However, below we walk you through the two main maps that can be altered to modify the behavior of the fat simulation.
 
 In the case of the AdnFat deformer use the Maya Paint tool to setup and paint its paintable weight attributes. The most important paintable maps are *Shape Preservation* and *Volume Shape Preservation* both with a flooded value of 1.0 by default.
+
 With the *Shape Preservation* being flooded to 1.0 by default the solver will try to maintain the internal structural shape properties of the fat layer. Reducing this map's values can increase the amount of jiggling in the fat tissue in combination with different other parameters. However, reducing the *Shape Preservation* map can decrease the fat layer's ability to maintain its shape. Finding the right balance will allow you to get the desired results. It may be advisable to keep this map flooded to 1.0 and reduce its value in areas that don't require any structural shape preservation.
+
 On the other hand, *Volume Shape Preservation* will also try to maintain the shape of the fat volume but with different computation mechanisms than *Shape Preservation*. It is advisable to keep this map flooded to 1.0 for best results and only reduce its value (by flooding the mesh) whenever the shape of the fat layer can be altered during simulation.
 
 <figure>
@@ -371,6 +376,9 @@ To add the deformation mesh to the deformer first select the deformation mesh, t
 
 ### Paint Weights
 
+> [!NOTE]
+> AdnSimshape requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the painted weights setup.
+
 In the case of the AdnSimshape use the Maya Paint tool to setup and paint its paintable weight attributes. The most important paintable map is the *Attraction Force* as this is the value that dictates how much of each simulated vertex should follow the animation. This value is flooded by default to 1.0, meaning that by default the simulated mesh will follow completely the animation, without displaying dynamics.
 
 In high deformation areas, such as around the mouth or under the eyes, add medium to low values (in this case painting with a value of 0.4).
@@ -441,6 +449,9 @@ When everything has been properly set up, press the *Create* button to create th
 </figure>
 
 ### Paint Weights
+
+> [!NOTE]
+> AdnSkinMerge requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the painted weights setup.
 
 Once the AdnSkinMerge deformer is created the weights can be painted to blend the animation and simulation meshes into the final mesh.
 
