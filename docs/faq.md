@@ -27,24 +27,26 @@ In order to obtain a plausible fascia geometry, we can use two techniques that r
 The first approach is to use the shrinkwrap deformer provided by Maya. This solution should produce good results for low poly geometries.
 
 - Create a copy of the skin geometry that will become your fascia.
-- Combine all muscle geometries into a single geometry.
+- Combine all muscle geometries into a single geometry. If an area is missing muscles, you can include some bone geometries along with the muscles to cover those areas.
 - Select the combined muscles geometry, then select the copy of the skin geometry.
 - Apply the shrinkwrap deformer and adjust its settings until the desired fascia geometry is achieved.
 - Delete the history of the fascia geometry.
 
-Ths second approach is to use nCloth to apply a pressured simulation. This solution could work better for high-end fascia simulations. The procedure is the following:
+The second approach is to use nCloth to apply a pressured simulation. This solution could work better for high-end fascia simulations. The procedure is the following:
 
 - Create a copy of the skin geometry that will become your fascia.
 - Optionally, subdivide the fascia geometry if you need more resolution.
-- Combine all muscle geometries into a single geometry.
+- Combine all muscle geometries into a single geometry. If an area is missing muscles, you can include some bone geometries along with the muscles to cover those areas.
 - Select the fascia geometry and click nCloth > Create nCloth.
 - Select the muscles geometry and click on nCloth > Create Passive Collider.
-- Select the nucleus node and set the gravity to 0.0.
+- Select the nucleus node, set the gravity to 0.0 and adjust the space scale according to your asset.
 - Select the nCloth node and keyframe the pressure attribute to 0.0 at the first frame of the scene.
 - Advance some frames (e.g. ten frames) and keyframe the pressure to -1.0.
 - Select the fascia geometry and click nCloth > Create New nCache > nObject.
 - Once the simulation finishes, choose the fascia that looks best within the simulated frame range.
 - Delete the history of the fascia geometry.
+
+As a final step for both approaches, you may want to smooth the resulting fascia geometry with sculpting tools to polish the final result.
 
 ## How can I simulate fat?
 
