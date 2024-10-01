@@ -38,7 +38,7 @@ For high-end fascia simulations, a better option would be to create the fascia g
 - Select the muscle geometries and click on nCloth > Create Passive Collider.
 - Select the nucleus node and set the gravity to 0.
 - Select the nCloth node and keyframe the pressure attribute to 0 at the first frame of the scene.
-- Advance some frames (e.g., ten frames) and keyframe the pressure to -1.
+- Advance some frames (e.g. ten frames) and keyframe the pressure to -1.
 - Select the fascia geometry and click nCloth > Create New nCache > nObject.
 - Once the simulation finishes, choose the fascia that looks best within the simulated frame range.
 
