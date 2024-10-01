@@ -20,15 +20,37 @@ Skin can be simulated using the [AdnSkin](maya/skin) deformer. This deformer req
 
 Similarly to a skin simulation setup, the fascia can be simulated using [AdnSkin](maya/skin) deformer as well. In this case, it is recommended to use values of *Rest Length Multiplier* lower than 1. This deformer also requires one mesh (a single target, i.e. the muscle geometries combined) or multiple meshes (multiple targets, i.e. the muscle geometries separated) to drive the simulation and a mesh to apply the deformer to (fascia geometry).
 
-## Can I simulate muscles, fascia and skin all coupled?
+# How can I generate the fascia geometry?
 
-Yes, you can simulate muscles, fascia and skin following these steps:
+In order to obtain a plausible fascia geometry, we can use two techniques that require the muscle geometries and the skin geometry as inputs.
+
+The first option is to use the shrinkwrap deformer provided by Maya:
+- Create a copy of the skin geometry that will become your fascia.
+- Select the combined geometry of all muscles, then select the copy of the skin geometry.
+- Apply the shrinkwrap deformer and adjust its settings until the desired fascia geometry is achieved.
+- Delete the history of the fascia geometry.
+
+Another option is to perform a vacuum simulation using nCloth by following these steps:
+- Create a copy of the skin geometry that will become your fascia.
+- Add the muscle geometries as colliders.
+- Add the copy of the skin geometry as the deformed mesh.
+- Simulate a few frames with pressure until the desired fascia geometry is achieved.
+- Stop the simulation and delete the history of the fascia geometry.
+
+# How can I simulate fat?
+
+Fat can be simulated using the [AdnFat](maya/fat) deformer. This deformer requires one base mesh (i.e. the fascia) to drive the fat simulation and a mesh to apply the deformer to (fat mesh). Both meshes must have the same vertex count and triangulation. A simple setup is explained [here](maya/simple_setup#adnfat).
+
+## Can I simulate muscles, fascia, fat and skin all coupled?
+
+Yes, you can simulate muscles, fascia, fat and skin following these steps:
 
 - Configure every muscle geometry with an AdnMuscle deformer.
 - Combine all muscle geometries into a single geometry.
-- Shrinkwrap the skin geometry to the combined muscles geometry to obtain the fascia geometry.
+- Shrinkwrap the skin geometry to the combined muscles geometry to obtain the fascia geometry. Alternatively, pressure can be simulated on the skin geometry so that it is adjusted to the muscle geometries to obtain the fascia geometry.
 - Configure the fascia with an AdnSkin deformer: Select the combined muscles geometry, then the fascia geometry and then create the skin deformer. It is recommended to use values of *Rest Length Multiplier* lower than 1.
-- Configure the skin with an AdnSkin deformer: Select the fascia, then the skin geo and then create the skin deformer.
+- Configure the fat with an AdnFat deformer: Select the fascia, then the fat geometry and then create the fat deformer.
+- Configure the skin with an AdnSkin deformer: Select the fat, then the skin geometry and then create the skin deformer.
 
 ## How can I simulate facial skin?
 
