@@ -1,5 +1,11 @@
 # Release Notes
 
+## Version 1.3.1
+
+### Improvements
+
+- Improved the floating licensing setup to allow connection with both interactive and batch servers without the need of a switch in the environment configuration. This change is fully backward compatible. *AdonisFX-1384*
+
 ## Version 1.3.0
 
 ### Core
