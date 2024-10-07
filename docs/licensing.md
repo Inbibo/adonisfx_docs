@@ -209,9 +209,10 @@ On Windows, it is also possible to install a service in charge of running the se
 To be able to run AdonisFX using floating license, make sure the floating server is running and the client machine intended to use AdonisFX has direct access to the floating server. Then, configure the licensing mode and the IP address in the environment of the client machine:
 
   1. Set `ADN_LICENSE_MODE` to `1`. Make sure to apply this change before launching AdonisFX.
-  2. Set `ADN_LICENSE_SERVER` to `<IP-ADDRESS>:<PORT-NUMBER>`. e.g. `127.0.0.1:13`. If no port number was provided the system will default to port `13`. Make sure to apply this change before launching AdonisFX.
+  2. Set `ADN_LICENSE_SERVER` for interactive licenses and `ADN_LICENSE_SERVER_BATCH` for batch licenses to `<IP-ADDRESS>:<PORT-NUMBER>` (e.g. `127.0.0.1:13`). If no port number was provided the system will default to port `13`.
 
-When launching AdonisFX in the target DCC, if the connection to the active license server could be established, it will try to obtain a valid lease and if granted it will activate the plug-in.
+When launching AdonisFX in the target DCC, if the connection to the active license server could be established, it will try to obtain a valid lease and if granted it will load the plug-in.
 
 > [!NOTE]
-> Node-Locked Licensing is defaulted in AdonisFX. If `ADN_LICENSE_MODE` is not set to `1` or not provided, then AdonisFX will attempt to load Node-Locked licenses.
+> - Make sure to configure the required environment variables before loading AdonisFX.
+> - Node-Locked Licensing is defaulted in AdonisFX meaning that if `ADN_LICENSE_MODE` is not set to `1` or not provided, then AdonisFX will attempt to load Node-Locked licenses.
