@@ -106,10 +106,10 @@ No, floating licensing requires internet access to activate the server. To be mo
 It depends on the purchased product plan. For Indie licenses, only one activation is allowed. To be able to move the license to a different machine, you will need to deactivate the license and reactivate it on the newly configured machine. Please, contact support if that is your case. For Solo licenses, up to two activations are allowed. This means that you can activate your product key in two different machines. For more flexibility and no hardware specific licensing restriction you should purchase floating licenses.
 
 ## How can I switch between node-locked licensing an floating licensing inside of AdonisFX?
-You can use the environment variable `ADN_LICENSE_MODE` set to `0` for node-locked licensing and `ADN_LICENSE_MODE` set to `1` for floating licensing.
+You can use the environment variable `ADN_LICENSE_MODE` set to `0` for node-locked licensing and `ADN_LICENSE_MODE` set to `1` for floating licensing. The license gets verified only once when the plug-in is loaded. This means that if a change like this one needs to be applied, then the application has to be restarted to load the plug-in again from a new process.
 
 ## What do I need to be able to use floating licensing?
-You will need to configure and activate the licensing server, make sure that client machines have access to it.
+First of all, the licensing server has to be installed, configured and activated previously (check this [section](licensing#floating-licensing)). Then, the client machine(s) on which AdonisFX will be used have to be configured to allow them to connect to the server to request leases. The configuration simply requires to set a few environment variables: `ADN_LICENSE_MODE` to `1`; and `ADN_LICENSE_SERVER` and `ADN_LICENSE_SERVER_BATCH` to the IP address and port (e.g. `127.0.0.1:13`) of the interactive and batch floating server respectively.
 
 ## Can I move the license server to a different machine?
 Yes. This process requires you to deactivate it and then activate it on the new machine. For more information visit the [licensing](licensing#activate-server) page or contact support.
