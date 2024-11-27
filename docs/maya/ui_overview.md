@@ -210,8 +210,8 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
   <figcaption><b>Figure 16</b>: AdonisFX Menu Edit Glue section.</figcaption>
 </figure>
 
-- **Add Inputs**. Adds input meshes to an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the object selected last.
-- **Remove Inputs**. Removes input meshes from an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the object selected last. If only the glue output mesh is selected, then all inputs will be removed.
+- **Add Inputs**. Adds input meshes to an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected.
+- **Remove Inputs**. Removes input meshes from an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected. If only the glue output mesh is selected, then all inputs will be removed.
 
 #### Debug
 
