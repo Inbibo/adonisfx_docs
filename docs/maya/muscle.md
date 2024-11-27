@@ -58,6 +58,13 @@ To create an AdnMuscle, follow these steps:
 
 ### Advanced Settings
 
+#### Initialization Settings
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Fiber Lengths At Start Time**    | Boolean | True | ✗ | Flag that forces the fiber constraints to reinitialize the rest length at start time. This attribute has effect only if preroll start time is lower than start time. |
+| **Shape Preservation At Start Time**    | Boolean | False | ✗ | Flag that forces the shape preservation constraints to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
+| **External Constraints At Start Time** | Boolean | True | ✗ | Flag that forces the external constraints (attachments to transform, attachments to geometry, slide on segment and slide on geometry) to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
+
 #### Stiffness Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |

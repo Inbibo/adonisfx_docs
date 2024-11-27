@@ -87,6 +87,14 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 
 ### Advanced Settings
 
+#### Initialization Settings
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Shape Preservation At Start Time**    | Boolean | True | ✗ | Flag that forces the shape preservation constraints to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
+| **Slide Collision At Start Time** | Boolean | True | ✗ | Flag that forces the slide collision constraints to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
+| **Animatable Rest Mesh**    | Boolean | False | ✓ | Flag that enables reading animated rest mesh data. |
+| **Initialize to Anim Mesh** | Boolean | False | ✗ | Flag to instantiate points at animated mesh instead of rest mesh on initialisation. |
+
 #### Stiffness Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -138,12 +146,6 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Attraction Multiplier** | Float      | 1.0       | ✓ | Sets the scaling factor applied to the Attraction. Has a range of \[0.0, 2.0\]. Upper limit is soft, higher values can be used. |
 | **Attraction Remap Mode** | Enumerator | Cube Root | ✓ | Remap mode used to compute the definitive attraction values. There are 4 different modes that folow different remap methods: Linear, Logarithmic, Square Root, Cube Root. |
-
-#### Initialization Settings
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Animatable Rest Mesh**    | Boolean | False | ✓ | Flag that enables reading animated rest mesh data. |
-| **Initialize to Anim Mesh** | Boolean | False | ✗ | Flag to instantiate points at animated mesh instead of rest mesh on initialisation. |
 
 #### Activation Remap
 | Name | Type | Default | Animatable | Description |
