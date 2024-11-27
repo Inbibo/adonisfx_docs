@@ -99,13 +99,15 @@ After basic configuration, to alter the dynamics of the fat layer (e.g adding or
 > [!NOTE]
 > AdnFat requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the painted weights setup.
 
-With the default paint setup provided when creating a new AdnFat, the simulation should already create plausible results. However, below we walk you through the two main maps that can be altered to modify the behavior of the fat simulation.
+With the default paint setup provided when creating a new AdnFat, the simulation should already create plausible results. However, below we walk you through the three main maps that can be altered to modify the behavior of the fat simulation.
 
-In the case of the AdnFat deformer use the Maya Paint tool to setup and paint its paintable weight attributes. The most important paintable maps are *Shape Preservation* and *Volume Shape Preservation* both with a flooded value of 1.0 by default.
+In the case of the AdnFat deformer, use the Maya Paint tool to set up and paint its paintable weight attributes. The most important paintable maps are *Shape Preservation*, *Volume Shape Preservation* and *Hard Constraints*. The first two are flooded to 1.0 by default, while the last one is flooded to 0.0.
 
 With the *Shape Preservation* being flooded to 1.0 by default the solver will try to maintain the internal structural shape properties of the fat layer. Reducing this map's values can increase the amount of jiggling in the fat tissue in combination with different other parameters. However, reducing the *Shape Preservation* map can decrease the fat layer's ability to maintain its shape. Finding the right balance will allow you to get the desired results. It may be advisable to keep this map flooded to 1.0 and reduce its value in areas that don't require any structural shape preservation.
 
 On the other hand, *Volume Shape Preservation* will also try to maintain the shape of the fat volume but with different computation mechanisms than *Shape Preservation*. It is advisable to keep this map flooded to 1.0 for best results and only reduce its value (by flooding the mesh) whenever the shape of the fat layer can be altered during simulation.
+
+Finally, the *Hard Constraints* map provides additional control for stronger attachments to the base mesh. In most cases, this map can be left unmodified so that the solver does not apply this constraint. However, when there is a large enough gap between the simulated mesh and the base mesh in areas close to edges (e.g. neck, wrists or ankles), it can be useful to paint them with a value of 1.0 to mitigate excessive motion.
 
 <figure>
   <img src="images/setup_fat_shape_preserve.png"> 

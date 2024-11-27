@@ -41,6 +41,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![Remove Targets](images/adn_remove_target.png) | Removes target objects assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Targets* |
 | ![Add Slide On Segment](images/adn_add_sliding_constraint.png) | Adds slide segments based on the two (or more) transform objects and the mesh with the deformer node applied (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Slide On Segment* |
 | ![Remove Slide On Segment](images/adn_remove_sliding_constraint.png) | Removes slide segments assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Slide On Segment* |
+| ![Create AdnGlue](images/adn_glue.png) | Creates an AdnGlue node and connects the selected geometries to the inputs array plug of the node. A new geometry will be generated as the result of gluing all the inputs together. | AdonisFX Menu > Create Solvers > *Glue* |
 |||
 | ![Importer Tool](images/adn_importer.png) | Launches the Importer to load and create nodes from an AdonisFX Asset Definition file (.JSON). | AdonisFX Menu > Tools *Importer* |
 | ![Exporter Tool](images/adn_exporter.png) | Launches the Exporter to save AdonisFX nodes information into an AdonisFX Asset Definition file (.JSON). | AdonisFX Menu > Tools *Exporter* |
@@ -117,6 +118,7 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
 - **Fat**. Applies an AdnFat deformer to the selected mesh. The deformer will be applied to the second element in the selection. The first element will be considered as base mesh. This item corresponds to the shelf button ![Create AdnFat](images/adn_fat.png){style="width:4%"}.
 - **Ribbon Muscle**. Creates AdnRibbonMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as attachment objects. This item corresponds to the shelf button ![Create AdnRibbonMuscle](images/adn_ribbon_muscle.png){style="width:4%"}.
 - **Muscle**. Creates AdnMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as attachment objects. This item corresponds to the shelf button ![Create AdnMuscle](images/adn_muscle.png){style="width:4%"}.
+- **Glue**. Creates an AdnGlue node and connects the selected geometries to the inputs array plug of the node. A new geometry will be generated as the result of gluing all the inputs together. This item corresponds to the shelf button ![Create AdnGlue](images/adn_glue.png){style="width:4%"}.
 
 Option boxes can be used to launch a UI to assign the name to the deformer and configure generic solver parameters.
 
@@ -201,16 +203,37 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 - **Draw Fibers**. Enables *Muscle Fibers* Debugging from all the AdnRibbonMuscle and AdnMuscle in the scene.
 - **Hide Fibers**. Disables *Muscle Fibers* Debugging from all the AdnRibbonMuscle and AdnMuscle in the scene.
 
+#### Glue
+
+<figure style="width: 50%;" markdown>
+  ![AdonisFX Menu Edit Muscle](images/adonis_menu_glue.png)
+  <figcaption><b>Figure 16</b>: AdonisFX Menu Edit Glue section.</figcaption>
+</figure>
+
+- **Add Inputs**. Adds input meshes to an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected.
+- **Remove Inputs**. Removes input meshes from an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected. If only the glue output mesh is selected, then all inputs will be removed.
+
 #### Debug
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Debug Section](images/adonis_menu_debug.png)
-  <figcaption><b>Figure 16</b>: AdonisFX Menu Debug section.</figcaption>
+  <figcaption><b>Figure 17</b>: AdonisFX Menu Debug section.</figcaption>
 </figure>
 
 - **Refresh Debugger**. Refreshes the scene graph for debugging purposes by making sure the AdnDataNode and the AdnDebugLocator exist in the scene and are properly connected.
 
 ### Tools section
+
+#### Utils
+
+<figure style="width: 50%;" markdown>
+  ![AdonisFX Menu Debug Section](images/adonis_menu_utils.png)
+  <figcaption><b>Figure 18</b>: AdonisFX Menu Utils section.</figcaption>
+</figure>
+
+- **Upgrade Deprecated Nodes**. Refreshes the node graph and upgrades all deprecated nodes making sure that the scene still works the same.
+
+<br/>
 
 - **Import**. Launches the AdonisFX Asset Definition Importer to load and create AdonisFX nodes from file (.JSON). This item corresponds to the shelf button ![Importer Tool](images/adn_importer.png){style="width:4%"}.
 - **Export**. Launches the AdonisFX Asset Definition Exporter to save AdonisFX nodes information into a file (.JSON). This item corresponds to the shelf button ![Exporter Tool](images/adn_exporter.png){style="width:4%"}.
