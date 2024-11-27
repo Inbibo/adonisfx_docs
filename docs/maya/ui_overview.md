@@ -41,7 +41,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![Remove Targets](images/adn_remove_target.png) | Removes target objects assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Targets* |
 | ![Add Slide On Segment](images/adn_add_sliding_constraint.png) | Adds slide segments based on the two (or more) transform objects and the mesh with the deformer node applied (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Slide On Segment* |
 | ![Remove Slide On Segment](images/adn_remove_sliding_constraint.png) | Removes slide segments assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Slide On Segment* |
-| ![Create AdnGlue](images/adn_glue.png) | Creates an AdnGlue node to the selected meshes. | AdonisFX Menu > Create Solvers > *Glue* |
+| ![Create AdnGlue](images/adn_glue.png) | Creates an AdnGlue node and connects the selected geometries to the inputs array plug of the node. A new geometry will be generated as the result of gluing all the inputs together. | AdonisFX Menu > Create Solvers > *Glue* |
 |||
 | ![Importer Tool](images/adn_importer.png) | Launches the Importer to load and create nodes from an AdonisFX Asset Definition file (.JSON). | AdonisFX Menu > Tools *Importer* |
 | ![Exporter Tool](images/adn_exporter.png) | Launches the Exporter to save AdonisFX nodes information into an AdonisFX Asset Definition file (.JSON). | AdonisFX Menu > Tools *Exporter* |
@@ -118,7 +118,7 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
 - **Fat**. Applies an AdnFat deformer to the selected mesh. The deformer will be applied to the second element in the selection. The first element will be considered as base mesh. This item corresponds to the shelf button ![Create AdnFat](images/adn_fat.png){style="width:4%"}.
 - **Ribbon Muscle**. Creates AdnRibbonMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as attachment objects. This item corresponds to the shelf button ![Create AdnRibbonMuscle](images/adn_ribbon_muscle.png){style="width:4%"}.
 - **Muscle**. Creates AdnMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as attachment objects. This item corresponds to the shelf button ![Create AdnMuscle](images/adn_muscle.png){style="width:4%"}.
-- **Glue**. Creates an AdnGlue node to the selected meshes. The node will be applied to all the elements in the selection. This item corresponds to the shelf button ![Create AdnGlue](images/adn_glue.png){style="width:4%"}.
+- **Glue**. Creates an AdnGlue node and connects the selected geometries to the inputs array plug of the node. A new geometry will be generated as the result of gluing all the inputs together. This item corresponds to the shelf button ![Create AdnGlue](images/adn_glue.png){style="width:4%"}.
 
 Option boxes can be used to launch a UI to assign the name to the deformer and configure generic solver parameters.
 
@@ -210,8 +210,8 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
   <figcaption><b>Figure 16</b>: AdonisFX Menu Edit Glue section.</figcaption>
 </figure>
 
-- **Add Inputs**. Adds input meshes to the selected AdnGlue. The glue output mesh must be the last element in the selection.
-- **Remove Inputs**. Removes input meshes from the selected AdnGlue. The glue output mesh must be the last element in the selection. If only the glue geometry is selected, then all inputs will be removed.
+- **Add Inputs**. Adds input meshes to an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the object selected last.
+- **Remove Inputs**. Removes input meshes from an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the object selected last. If only the glue output mesh is selected, then all inputs will be removed.
 
 #### Debug
 
@@ -231,7 +231,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
   <figcaption><b>Figure 18</b>: AdonisFX Menu Utils section.</figcaption>
 </figure>
 
-- **Upgrade Deprecated Nodes**. Refreshes the node graph and upgrades all deprecated nodes making sure that the scene still works the same. The deprecated nodes are: AdnWeightsDisplayNode (v1.4.0).
+- **Upgrade Deprecated Nodes**. Refreshes the node graph and upgrades all deprecated nodes making sure that the scene still works the same.
 
 <br/>
 
