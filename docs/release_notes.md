@@ -1,5 +1,46 @@
 # Release Notes
 
+## Version 1.4.0
+
+### Core
+
+- Implemented a new solver to make muscles behave more compact: AdnGlue solver.
+- Implemented Soft Constraints.
+- Added parallelization to Distance constraints.
+- Added parallelization to Shape Preservation constraints.
+- Added Hard Constraints to theAdnFat solver.
+- Added control to the minimum parallelizable chunk size via environment variable `MIN_PARALLEL_SIZE`.
+- Increased the Logger verbosity in Debug level.
+
+### Maya
+
+- Added AdnGlue node.
+- Added AdnActivation node.
+- Added support to unidirectional muscle to muscle constraints.
+- Added support to Hard Constraints in AdnFat solver including paintable map and stiffness override.
+- Optimized AdnFat deformer.
+- Optimized AdnSkin deformer.
+- Optimized AdonisFX Paint Tool.
+- Added color interpolation to the fibers debugger in AdnMuscle and AdnRibbonMuscle to encode the muscle activation.
+- Deprecated AdnWeightsDisplayNode.
+- Added a shortcut in the AdonisFX menu to upgrade deprecated nodes.
+- Added the ability to choose which constraints reinitialize at start time.
+
+
+### Bug Fixes
+
+- Fixed the solvers at start time to first compute one simulation step and then reinitialize the system. *AdonisFX-1445*
+- Fixed a bug in the normalization of the paintable weights on initialization to dump the resulting weights. *AdonisFX-1438*
+- Fixed a bug that was preventing the debugger from working if there were any intermediate nodes between the AdonisFX deformer and the shape node. *AdonisFX-1478*
+- Fixed a Maya crash when reopening a scene that was saved with an AdonisFX deformer disabled. *AdonisFX-1483*
+- Fixed fiber’s direction initialization at start time. *AdonisFX-1499*
+- Fixed a bug in the Volume Constraint that was causing flickering if the simulated geometry was far from the center of the world. *AdonisFX-1489*
+- Fixed the internal bounding box construction at start time to use the current point positions instead of the point positions at rest. *AdonisFX-1511*
+
+### Known Limitations
+
+- Undoing the removal of inputs in AdnGlue does not restore the previous painted weights. *AdonisFX-1523*
+
 ## Version 1.3.1
 
 ### Improvements
