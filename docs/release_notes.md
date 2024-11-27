@@ -5,10 +5,10 @@
 ### Core
 
 - Implemented a new solver to make muscles behave more compact: AdnGlue solver.
-- Implemented Soft Constraints.
+- Implemented Glue Constraints.
 - Added parallelization to Distance constraints.
 - Added parallelization to Shape Preservation constraints.
-- Added Hard Constraints to theAdnFat solver.
+- Added Hard Constraints to the AdnFat solver.
 - Added control to the minimum parallelizable chunk size via environment variable `MIN_PARALLEL_SIZE`.
 - Increased the Logger verbosity in Debug level.
 
