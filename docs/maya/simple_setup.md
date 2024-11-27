@@ -159,7 +159,7 @@ In order to add attachment constraints to the muscle select the targets (joints,
 Additionally, target geometries that have been added to an AdnMuscle deformer (see Figure 11) can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to follow better the animation.
 
 > [!NOTE]
-> - Attachments to geometry and slide on geometry constraints are meant to simulate interaction muscle to bones. The use of simulated muscles as geometry targets for other muscles is not supported.
+> - Attachments to geometry and slide on geometry constraints are meant to simulate muscle-to-bone and muscle-to-muscle interactions. For muscle-to-muscle interactions, only unidirectional relationships are supported. This means that having two muscles A and B, only one of them can be added as target of the other muscle.
 
 Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry a pair of joints of the rig will be specified representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
 
@@ -279,7 +279,7 @@ In order to add attachment constraints to the ribbon muscle select the targets (
 Additionally, target geometries that have been added to an AdnRibbonMuscle deformer (see Figure 24) can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to follow better the animation.
 
 > [!NOTE]
-> - Attachments to geometry and slide on geometry constraints are meant to simulate interaction muscle to bones. The use of simulated muscles as geometry targets for other muscles is not supported.
+> - Attachments to geometry and slide on geometry constraints are meant to simulate muscle-to-bone and muscle-to-muscle interactions. For muscle-to-muscle interactions, only unidirectional relationships are supported. This means that having two muscles A and B, only one of them can be added as target of the other muscle.
 
 Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry a pair of joints of the rig can be specified representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
 
