@@ -28,15 +28,10 @@ To open the tool:
 
 If the selection provided is valid, meaning the selected mesh has one of the AdonisFX deformers listed before, then the paint context will get configured and the user can paint. The map to be painted is the one associated with the selected attribute in the enumerator exposed at the top of the UI.
 
-The painted weights are visualised in the viewport thanks to the **AdnWeightsDisplayNode**. This node is in charge of setting the vertex colours from the selected attribute in the UI on the mesh. This node is created and removed dynamically by the Paint Tool on entering and exiting from the context. Because of that, it is strongly recommended to keep the AdonisFX Paint Tool open while painting.
-
-<figure markdown>
-  ![AdnWeightsDisplayNode in the Node Editor](images/paint_tool_weights_display_node.png) 
-  <figcaption><b>Figure 2</b>: AdnWeightsDisplayNode created by the AdonisFX Paint Tool. </figcaption>
-</figure>
-
 > [!NOTE]
-> - If the painted weights are not displayed, it is probably because the node got removed. Please, select the transform node of an AdonisFX paintable deformer and click *Refresh From Selection* or restart the AdonisFX Paint Tool.
+> - With the optimizations introduced to the AdonisFX Paint Tool in version 1.4.0, the AdnWeightsDisplayNode is deprecated and no longer needed.
+> - This deprecation is fully backward-compatible, meaning that scenes created in earlier versions will continue to work seamlessly in version 1.4.0.
+> - In addition, we recommend using the utility available under AdonisFX Menu > Utils > *Upgrade Deprecated Nodes*, which safely removes any instances of the AdnWeightsDisplayNode from your scenes.
 
 Depending on the deformer and the attribute selected the UI can adjust to support multi-influence attributes by exposing the influences or restricting certain functionalities of the tool. In the following sections, the specific behaviour of the tool for each deformer is presented.
 
