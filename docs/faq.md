@@ -2,11 +2,11 @@
 
 ## How can I simulate muscles?
 
-AdonisFX provides with two solvers for muscle simulation. The use of one or the other depends on the necessity of simulating volume preservation. In Maya, muscles with volume preservation can be simulated with [AdnMuscle](maya/muscle) deformer, while [AdnRibbonMuscle](maya/ribbon) is for planar muscles. For more information about a simple setup, please check their respective sections in this [page](maya/simple_setup).
+AdonisFX provides two solvers for muscle simulation. The use of one or the other depends on the necessity of simulating volume preservation. In Maya, muscles with volume preservation can be simulated with [AdnMuscle](maya/muscle) deformer, while [AdnRibbonMuscle](maya/ribbon) is for planar muscles. For more information about a simple setup, please check their respective sections in this [page](maya/simple_setup).
 
 ## How can I add activation to the muscles?
 
-In order to add activation to the muscles it is necessary to define the fibers direction. This can be achieved by: first, painting the tendon weights to generate an initial estimation of fibers direction; and second, combing the fibers through the AdonisFX Paint Tool to customise the final fibers flow along the surface. Once the muscle has a valid fiber direction at each vertex, then the activation attribute triggers the contraction of the fibers. Ultimately, the level of activation can be modulated by an AdonisFX sensor to connect the contraction of the muscle to the animation of the rig. For more information about connecting sensors to muscles, please check this [section](maya/simple_setup#connect-sensors).
+In order to add activation to the muscles it is necessary to define the fibers direction. This can be achieved by: first, painting the tendon weights to generate an initial estimation of fibers direction; and second, combing the fibers through the AdonisFX Paint Tool to customize the final fibers flow along the surface. Once the muscle has a valid fiber direction at each vertex, then the activation attribute triggers the contraction of the fibers. Ultimately, the level of activation can be modulated by an AdonisFX sensor to connect the contraction of the muscle to the animation of the rig. For more information about connecting sensors to muscles, please check this [section](maya/simple_setup#connect-sensors).
 
 ## How can I add volume gain to the muscles?
 
@@ -82,30 +82,30 @@ To add muscle activation via Machine Learning, the Learn Muscle Patches tool has
 
 AdnSimshape allows to add muscle activation alternatively without the need for the AdonisFX Muscle Patches file. To do this, the activation values must be plugged directly into the *ActivationList.Activation* attribute. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator tool. Read how to drive the activations of AdnSimshape using AdnEdgeEvaluator [here](maya/edge_evaluator#how-to-use).
 
-## Can I transfer AdonisFX nodes configuration to a different asset?
+## Can I transfer AdonisFX node configuration to a different asset?
 
-Yes, you can use the AdonisFX [Exporter](maya/tools#exporter) and [Importer](maya/tools#importer) Tools to generate and load respectively an AdonisFX Asset Definition (AAD) file. From an scene with an asset fully configured with AdonisFX deformers, you can select the parent transform object and launch the Exporter. From there, you can decide which settings to export and the destination path for the AAD file. Then, in a different scene with a compatible asset, you can launch the Importer, browse the AAD file and assign deformers from the file to the meshes in the hierarchy of the asset.
+Yes, you can use the AdonisFX [Exporter](maya/tools#exporter) and [Importer](maya/tools#importer) Tools to generate and load respectively an AdonisFX Asset Definition (AAD) file. From a scene with an asset fully configured with AdonisFX deformers, you can select the parent transform object and launch the Exporter. From there, you can decide which settings to export and the destination path for the AAD file. Then, in a different scene with a compatible asset, you can launch the Importer, browse the AAD file and assign deformers from the file to the meshes in the hierarchy of the asset.
 
 ## For what units is AdonisFX designed?
 
-The AdonisFX simulation engine works in centimeters. Maya units also works internally in centimeters, disregarding any preferences set for the viewport. AdonisFX then works in centimeters in conjunction with Maya, disregarding any working units set in the Maya preferences.
+The AdonisFX simulation engine works in centimeters. Maya units also work internally in centimeters, disregarding any preferences set for the viewport. AdonisFX then works in centimeters in conjunction with Maya, disregarding any working units set in the Maya preferences.
 
-It is typical in Maya to model creatures 10 times smaller in order to avoid precision issues. Imagine the example of a creature that is supposed to be 1.7 meters tall (170 Maya units). Then in Maya to avoid precision issues, this creacture may be modeled to be 17 centimeters tall (17 Maya units).
+It is typical in Maya to model creatures 10 times smaller in order to avoid precision issues. Imagine the example of a creature that is supposed to be 1.7 meters tall (170 Maya units). Then in Maya to avoid precision issues, this creature may be modeled to be 17 centimeters tall (17 Maya units).
 In this case you can adjust the simulation for this scaling factor by applying the AdonisFX Space Scale attribute to 10. This will ensure that AdonisFX will scale everything internally so that the simulation of the 17 units creature will look like if it was actually 170 units tall.
 
 ## Does AdonisFX require internet access?
-The use of AdonisFX itself does not require access to the internet but the licensing system does. In node-locked licenses, the workstation needs connection to the internet to validate the activation on plug-in load at least every 19 days. After that, the product can be used without internet connection. In floating licenses, it is the server that will need to connect to the internet at least every 19 days to validate the activation, meaning that users' workstations or nodes on farm do not need internet access.
+The use of AdonisFX itself does not require access to the internet but the licensing system does. In node-locked licenses, the workstation needs connection to the internet to validate the activation on plug-in load at least every 19 days. After that, the product can be used without internet connection. In floating licenses, it is the server that will need to connect to the internet at least every 19 days to validate the activation, meaning that users' workstations or nodes on farms do not need internet access.
 
-## Can I activate node-locked licenses offline?
+## Can I activate the node-locked licenses offline?
 No, node-locked licensing requires internet access to activate. Check the [licensing](licensing#node-locked-licensing) page for more information.
 
-## Can I activate floating licensing server offline?
+## Can I activate the floating licensing server offline?
 No, floating licensing requires internet access to activate the server. To be more specific, only the machine running the server needs access, while the users' machines do not require connection to the internet. Check the [licensing](licensing#floating-licensing) page for more information.
 
 ## Can I use my node-locked license on more than one machine?
 It depends on the purchased product plan. For Indie licenses, only one activation is allowed. To be able to move the license to a different machine, you will need to deactivate the license and reactivate it on the newly configured machine. Please, contact support if that is your case. For Solo licenses, up to two activations are allowed. This means that you can activate your product key in two different machines. For more flexibility and no hardware specific licensing restriction you should purchase floating licenses.
 
-## How can I switch between node-locked licensing an floating licensing inside of AdonisFX?
+## How can I switch between node-locked licensing and floating licensing inside of AdonisFX?
 You can use the environment variable `ADN_LICENSE_MODE` set to `0` for node-locked licensing and `ADN_LICENSE_MODE` set to `1` for floating licensing. The license gets verified only once when the plug-in is loaded. This means that if a change like this one needs to be applied, then the application has to be restarted to load the plug-in again from a new process.
 
 ## What do I need to be able to use floating licensing?
@@ -117,7 +117,7 @@ Yes. This process requires you to deactivate it and then activate it on the new 
 ## How can I change the port number of my licensing server?
 Change the server `port` number in the `TurboFloatServer-config.xml` before running the server.
 
-## I want to know more about how leases are dropped, how can I see the notifications in my server?
+## I want to know more about how leases are dropped, how can I see the notifications on my server?
 You can find and modify when leases are dropped inside of the `TurboFloatServer-config.xml` file. In there you can also specify where to store the log file and with which verbosity it will write to it.
 For more information visit the [licensing](licensing#install-server) page or visit this [link](https://wyday.com/limelm/help/turbofloat-server/).
 

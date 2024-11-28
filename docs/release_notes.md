@@ -9,7 +9,7 @@
 - Added parallelization to Distance constraints.
 - Added parallelization to Shape Preservation constraints.
 - Added Hard constraints to the AdnFat solver.
-- Added control to the minimum parallelizable chunk size via environment variable `MIN_PARALLEL_SIZE`.
+- Added control to the minimum parallelizable chunk size via the environment variable `MIN_PARALLEL_SIZE`.
 - Increased the Logger verbosity in Debug level.
 
 ### Maya
@@ -67,7 +67,7 @@
 ### Bug Fixes
 
 - Fixed a bug that was redistributing the masses per point in very specific cases and only if the painted masses map was not the default one.
-- Fixed a bug that was causing the velocities damping not work when point masses were too large.
+- Fixed a bug that was causing the velocity damping not to work when point masses were too large.
 
 ### Known Limitations
 
@@ -94,7 +94,7 @@
 ### Known Limitations
 
 - Slide on geometry constraints in Fast mode are limited to simple setups. They need to run in Quality mode to ensure stability in complex scenarios. *AdonisFX-1213*
-- Volume ratio gain effect is dependent to the total volume of the muscle. This might require to use volume ratios with a range different to the default [0, 2] if needed. *AdonisFX-1137*
+- Volume ratio gain effect is dependent on the total volume of the muscle. This might require using volume ratios with a range different to the default [0, 2] if needed. *AdonisFX-1137*
 - Interaction muscle-to-muscle is not supported. *AdonisFX-1211*
 - Exporter and Importer do not support locators and sensors. *AdonisFX-1215*
 - Fat simulation is limited to the current features in AdnSkin solver. *AdonisFX-879*
@@ -109,7 +109,7 @@
 
 ### Bug Fixes
 
-- Fixed a bug in how the gravity was evaluated. Now the value from the UI represented in m/s<sup>2</sup> is converted to cm/s<sup>2</sup>. *AdonisFX-1250*
+- Fixed a bug in how gravity was evaluated. Now the value from the UI represented in m/s<sup>2</sup> is converted to cm/s<sup>2</sup>. *AdonisFX-1250*
 
 ### Considerations for backward compatibility
 
@@ -133,7 +133,7 @@
 - Added support for shape preservation in AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape solvers.
 - Added mass attributes in AdnMuscle and AndRibbonMuscle deformers to provide more control over the dynamics of the simulated object.
 - Added *Point Mass Mode* to AdnSimshape, AdnSkin, AdnMuscle and AdnRibbonMuscle which allows to specify either a mass per point or a density value from which point masses will be computed.
-- Debugger system improved to be dependent to the visibility of the simulated geometry.
+- The debugger system improved to be dependent on the visibility of the simulated geometry.
 - Added a sanity check to *Max Sliding Distance* attribute to warn the user if the input value is too high for the given target mesh.
 - Updated debugger system to visualise attachment to geometry constraints, slide on geometry constraints, shape preservation constraints and sliding surface.
 - Extended Importer and Exporter tools to support AdnSkinMerge deformer and new constraints (attachment to geometry and slide on geometry).
@@ -144,19 +144,19 @@
 ### Bug Fixes
 
 - Fixed AdonisFX Paint Tool initialization of simulated nodes with intermediate nodes. *AdonisFX-1184*
-- Fixed a bug that caused sliding constraints to not find valid triangles to slide on if the initial closest point on the target lied on an edge. *AdonisFX-1165*
+- Fixed a bug that caused sliding constraints to not find valid triangles to slide on if the initial closest point on the target lies on an edge. *AdonisFX-1165*
 - Fixed importer to support sparse array maps. *AdonisFX-1155*
 - Fixed manipulation of referenced nodes while using the AdonisFX paint tool. *AdonisFX-1147*
 - Fixed paint flood operation not normalising the weights properly. *AdonisFX-1146*
 - Fixed error messages not displaying the proper status of the AdnSimshape collider connections. *AdonisFX-1034*
 - Filtered characters to get valid identifiers when creating nodes with a custom name in Linux. *AdonisFX-1033*
-- Prevent Exporter to generate the AAD file if there is no valid data to export. *AdonisFX-1032*
-- Fixed a bug that did not allow to add attachments on a muscle deformer created on referenced geometry. *AdonisFX-506*
+- Prevent Exporter from generating the AAD file if there is no valid data to export. *AdonisFX-1032*
+- Fixed a bug that did not allow adding attachments on a muscle deformer created on referenced geometry. *AdonisFX-506*
 
 ### Known Limitations
 
 - Slide on geometry constraints in Fast mode are limited to simple setups. They need to run in Quality mode to ensure stability in complex scenarios. *AdonisFX-1213*
-- Volume ratio gain effect is dependent to the total volume of the muscle. This might require to use volume ratios with a range different to the default [0, 2] if needed. *AdonisFX-1137*
+- Volume ratio gain effect is dependent on the total volume of the muscle. This might require using volume ratios with a range different to the default [0, 2] if needed. *AdonisFX-1137*
 - Interaction muscle-to-muscle is not supported. *AdonisFX-1211*
 - Exporter and Importer do not support locators and sensors. *AdonisFX-1215*
 - Fat simulation is limited to the current features in AdnSkin solver. *AdonisFX-879*
@@ -171,7 +171,7 @@
 
 ### Bug Fixes
 
-- Fixed a bug that caused muscles simulation to fail in very specific scenarios due to a precision issue in the initialisation of Slide On Segment constraints. *AdonisFX-1138*
+- Fixed a bug that caused muscle simulation to fail in very specific scenarios due to a precision issue in the initialisation of Slide On Segment constraints. *AdonisFX-1138*
 
 ### Improvements
 
@@ -193,7 +193,7 @@
 ### Bug Fixes
 
 - Fixed a bug that was making Maya freeze when creating an AdnSkin deformer with the playback cache enabled. *AdonisFX-1087*
-- Fixed a bug in the validation of floating licenses that was preventing to load the plugin without admin permissions. *AdonisFX-724*
+- Fixed a bug in the validation of floating licenses that was preventing loading the plugin without admin permissions. *AdonisFX-724*
 - Fixed a bug that was preventing the licensing system to locate the licensing configuration file properly in some cases. *AdonisFX-1072*
 - Fixed a bug in the AdnSimshape activations debugger to support DG evaluation mode. *AdonisFX-1026*
 - Fixed a bug in the importer tool where it was attempting to assign a string value to a matrix plug. *AdonisFX-1090*
@@ -210,7 +210,7 @@
 - Solver for skin simulation.
 - Solver for volumetric and planar muscle simulation.
 - Solver for facial simulation.
-- Propietary set of constraints integrated in AdonisFX solvers:
+- Proprietary set of constraints integrated in AdonisFX solvers:
     - Fibers contraction
     - Volume preservation
     - Attachments
@@ -237,11 +237,11 @@
 - Learn Muscle Patches Tool: An intuitive UI to configure and run the AdnLearnMusclePatches command.
 - Sensors Connection Editor: A simple UI to make connections easily from sensors and locators to AdonisFX deformers.
 - AdonisFX Paint Tool: Custom tool to manipulate the paintable maps of the AdonisFX deformers to ensure that the solvers receive valid distribution of weights.
-- A debugger system compound by an AdnData node and an AdnDebugLocator to visualise information internal to the solvers such as connections to attachments, fiber directions, etc.
+- A debugger system composed by an AdnData node and an AdnDebugLocator to visualise information internal to the solvers such as connections to attachments, fiber directions, etc.
 
 ### Known Limitations
 
-- The *Max Sliding Distance* parameter in AdnSkin and AdnSimshape is represented in scene units. The higher this value is, the more units in the space the sliding constraint allows a vertex to slide on. If the polygons of the target geometry to slide on are very little compared to that value, then the sliding constraint will be time and memory consuming. *AdonisFX-997*
+- The *Max Sliding Distance* parameters in AdnSkin and AdnSimshape are represented in scene units. The higher this value is, the more units in the space the sliding constraint allows a vertex to slide on. If the polygons of the target geometry to slide on are very little compared to that value, then the sliding constraint will be time and memory consuming. *AdonisFX-997*
 - The activations debugger in AdnSimshape is limited to the Parallel and Serial evaluation modes. *AdonisFX-1026*
 - The debugger system draws debug data independently to the visibility of the mesh. *AdonisFX-802*
 - Enabling and disabling fibers display from the AdonisFX menu does not restore the previous status of the debug settings of the affected deformers. *AdonisFX-998*
