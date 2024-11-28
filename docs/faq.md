@@ -8,9 +8,21 @@ AdonisFX provides two solvers for muscle simulation. The use of one or the other
 
 In order to add activation to the muscles it is necessary to define the fibers direction. This can be achieved by: first, painting the tendon weights to generate an initial estimation of fibers direction; and second, combing the fibers through the AdonisFX Paint Tool to customize the final fibers flow along the surface. Once the muscle has a valid fiber direction at each vertex, then the activation attribute triggers the contraction of the fibers. Ultimately, the level of activation can be modulated by an AdonisFX sensor to connect the contraction of the muscle to the animation of the rig. For more information about connecting sensors to muscles, please check this [section](maya/simple_setup#connect-sensors).
 
+## How can I combine multiple activation values?
+
+Multiple activation values from different AdonisFX sensors (AdnSensorPosition, AdnSensorDistance, AdnSensorRotation) can be combined into a single value using the **AdnActivation** node. This node allows overriding, adding, subtracting, multiplying and dividing multiple input activations to compute a single output value. For more details about the **AdnActivation** node, please refer to the [AdnActivation](maya/activation.md) page.
+
 ## How can I add volume gain to the muscles?
 
 The *Volume Ratio* attribute of an AdnMuscle allows to simulate volume gain (volume ratio greater than 1) and loss (volume ratio lower than 1). The influence of this attribute depends on the value of *Volume Preservation*, where 0 means no effect, and 1 means maximum effect.
+
+## How can I simulate interaction between muscles?
+
+AdonisFX provides two ways of simulating muscle-to-muscle interactions:
+
+- Using the AdnMuscle deformer. The AdnMuscle deformer allows configuring geometry targets to simulate external constraints (e.g. attachment to geometry and slide on geometry constraints). A simulated muscle can be assigned as a target to another simulated muscle in the same way as any other geometry target would be added (e.g. bones). Detailed instructions for adding and removing targets can be found in this [section](maya/muscle.md#advanced).
+
+- Using the AdnGlue node. A set of muscles already simulated with AdnMuscle deformers can be further processed using the [AdnGlue](maya/glue) node. This node glues the muscles together, making them behave more compact and reducing large gaps thanks to the glue constraints. For more information on how to configure a simple setup, refer to this [section](maya/simple_setup#adnglue).
 
 ## How can I simulate skin?
 
@@ -126,3 +138,11 @@ Make sure that your firewall configuration allows the connection and try using t
 
 ## How can I transfer the results of skin simulation to the final mesh?
 Make use of the [AdnSkinMerge](maya/skin_merge) deformer to blend animated and simulated meshes into a single final mesh. Launch the Skin Merge tool, select the final mesh, add the animated and simulated target meshes and click on Create. Then you only need to paint the blend weight to define the influence of the simulated mesh targets over the animated ones. You can find more information [here](maya/simple_setup#adnskinmerge).
+
+## How can I change the logger level?
+
+AdonisFX Logger has different levels of execution: (0) Debug, (1) Info, (2) Warning, (3) Error. The level is determined by an environment variable `ADN_LOGGER_LEVEL`. If not defined, AdonisFX Logger Level is set to Info by default. This allows the system to print Info, Warning and Error messages to the console. If more verbosity is required, it is possible to modify the level to Debug. For that, the environment variable `ADN_LOGGER_LEVEL` has to be set to `0`. Note that for this change to take effect, the AdonisFX plugin must be reloaded.
+
+## How can I control the multithreading of AdonisFX solvers?
+
+AdonisFX nodes use multithreading based on a threshold that determines the minimum number of elements required for parallel processing. If the number of elements to process exceeds this threshold, multithreading will be applied, otherwise, the code will execute sequentially. This threshold is set to `16` by default, but can be adjusted by modifying the value of the `ADN_MIN_PARALLEL_SIZE` environment variable. Modify this value carefully, as it can improve performance in some cases but may also reduce it depending on your CPU.
