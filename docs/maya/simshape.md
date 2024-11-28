@@ -93,7 +93,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | **Shape Preservation At Start Time** | Boolean | True  | ✗ | Flag that forces the shape preservation constraints to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
 | **Slide Collision At Start Time**    | Boolean | True  | ✗ | Flag that forces the slide collision constraints to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
 | **Animatable Rest Mesh**             | Boolean | False | ✓ | Flag that enables reading animated rest mesh data. |
-| **Initialize to Anim Mesh**          | Boolean | False | ✗ | Flag to instantiate points at animated mesh instead of rest mesh on initialisation. |
+| **Initialize to Anim Mesh**          | Boolean | False | ✗ | Flag to instantiate points at animated mesh instead of rest mesh on initialization. |
 
 #### Stiffness Settings
 | Name | Type | Default | Animatable | Description |
@@ -173,7 +173,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | **Attenuation Matrix**         | Matrix | Identity | ✓ | Transformation matrix to drive the attenuation. |
 | **Collision Mesh**             | Mesh   |          | ✓ | Collision mesh used to drive the collision logic. |
 | **Collision Mesh Matrix**      | Matrix | Identity | ✓ | Collision matrix used to drive the collision logic. |
-| **Collision Rest Mesh**        | Mesh   |          | ✗ | Collision rest mesh used to drive the initialisation of the collision logic. |
+| **Collision Rest Mesh**        | Mesh   |          | ✗ | Collision rest mesh used to drive the initialization of the collision logic. |
 | **Collision Rest Mesh Matrix** | Matrix | Identity | ✗ | Collision rest matrix at rest used for initialising. |
 | **Deform Mesh**                | Mesh   |          | ✓ | Deform mesh used to estimate the muscle patches activation. |
 | **Rest Mesh**                  | Mesh   |          | ✓ | Rest mesh used for initialising the system and to compute the activations against the deform mesh. |
@@ -326,7 +326,7 @@ In order to toggle and untoggle the debug mode, follow these steps:
 3. Press ![Simshape debug icon](images/adn_simshape_debugger.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Activations Debugger*.
 
 > [!NOTE]
-> - The active status of the debugger is evaluated at initialisation only.
+> - The active status of the debugger is evaluated at initialization only.
 > - If by enabling the debugger the vertex colours are not displayed automatically, then force to initialise the system (e.g. press rewind button in the timeline).
 > - The debugger is limited to the Parallel and Serial evaluation modes.
 
@@ -352,7 +352,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 
 #### Add Rest Collider
 
-The use of rest collider is recommended when the pre-roll simulation is not computed and the initialisation to the animated mesh is enabled (see attribute *Initialize to Anim Mesh*). In order to allow the solver to build consistent collision data in those cases, it is necessary to provide both the rest mesh and the rest collider in the same space.
+The use of rest collider is recommended when the pre-roll simulation is not computed and the initialization to the animated mesh is enabled (see attribute *Initialize to Anim Mesh*). In order to allow the solver to build consistent collision data in those cases, it is necessary to provide both the rest mesh and the rest collider in the same space.
 
 1. Select the rest collider object.
 2. Select the mesh with the AdnSimshape deformer.

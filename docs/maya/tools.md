@@ -4,14 +4,14 @@ AdonisFX includes several tools that allow for a smoother experience when intera
 
 ## Paint Tool
 
-The **AdonisFX Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalisation of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
+The **AdonisFX Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalization of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
 
 <figure>
   <img src="images/paint_tool.png" caption="AdonisFX Paint Tool"> 
   <figcaption><b>Figure 1</b>: AdonisFX Paint Tool.</figcaption>
 </figure>
 
-The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. After every stroke, the internal logic processes the painted map and updates all dependent maps to keep the configuration of the solver safe. For example, if the influence of one target of an AdnMuscle which has two targets assigned is painted, then the tool will update the weights of the other target to ensure that the addition of both is normalised at each vertex (the normalisation process is independent for transform and geometry targets). The same applies if hard constraints of an AdnSkin deformer are painted: the soft and slide constraints maps will be updated internally to keep the addition of the three maps normalised. Thanks to this logic, switching attributes (see Figure 3) or selecting influences (see Figure 4) from the AdonisFX Paint Tool provides automatic feedback to the user of the current status of all the maps.
+The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. After every stroke, the internal logic processes the painted map and updates all dependent maps to keep the configuration of the solver safe. For example, if the influence of one target of an AdnMuscle which has two targets assigned is painted, then the tool will update the weights of the other target to ensure that the addition of both is normalised at each vertex (the normalization process is independent for transform and geometry targets). The same applies if hard constraints of an AdnSkin deformer are painted: the soft and slide constraints maps will be updated internally to keep the addition of the three maps normalised. Thanks to this logic, switching attributes (see Figure 3) or selecting influences (see Figure 4) from the AdonisFX Paint Tool provides automatic feedback to the user of the current status of all the maps.
 
 > [!NOTE]
 > AdnSimshape and AdnSkinMerge do not require this tool. Their paintable maps can be manipulated through the standard Maya paint context.
@@ -113,7 +113,7 @@ In the specific case of an AdnSkin deformer, the tool will display the following
     - By default, this map is set to 1.0.
     - This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
   - **Hard Constraints**
-    - Hard constraints are set to 1.0 by default. With this value the solver will apply the corrections to the vertices needed to keep them at a constant transformation, local to the closest point on the closest target mesh at initialisation.
+    - Hard constraints are set to 1.0 by default. With this value the solver will apply the corrections to the vertices needed to keep them at a constant transformation, local to the closest point on the closest target mesh at initialization.
     - This value is normalised alongside Soft Constraints and Slide Constraints.
   - **Masses**
     - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.

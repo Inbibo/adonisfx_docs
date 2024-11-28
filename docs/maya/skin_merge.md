@@ -33,7 +33,7 @@ The process to create an AdnSkinMerge deformer is:
     - If you wish to remove a single element from the list, select it in the Skin Merge UI and press the Remove Selected button.
     - You may also clear any list fully by pressing the respective Clear button.
 
-4. Set a custom name to the deformer and specify the initialisation time.
+4. Set a custom name to the deformer and specify the initialization time.
 
 5. Press the *Create* button and a message box will notify you that AdnSkinMerge has been created properly. The final mesh will follow the animation mesh inputs by default.
 

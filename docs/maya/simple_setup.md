@@ -20,7 +20,7 @@ The AdnSkin deformer will get applied to the last mesh which will become the sim
 
 To create the AdnSkin deformer select one or more target meshes (optional, they can be added later) and then the skin mesh. Then press the ![AdnSkins](images/adn_skin.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Skin*.
 
-To create the AdnSkin deformer with some initial customisation, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial customisation, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
+To create the AdnSkin deformer with some initial specialization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial specialization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
 <figure>
   <img src="images/setup_skin_1.png"> 
@@ -59,7 +59,7 @@ Finally, select the *Sliding Distance Multiplier* attribute and paint weights to
   <figcaption><b>Figure 6</b>: Sliding Distance Multiplier weights paint.</figcaption>
 </figure>
 
-The order of painting is important because after every stroke a normalisation of weights soft, hard and slide is performed to ensure that the sum is less or equal to 1.0. In this example, after painting *Slide Constraints*, both *Hard Constraints* and *Soft Constraints* will update, reducing their respective values in the areas painted with maximum sliding.
+The order of painting is important because after every stroke a normalization of weights soft, hard and slide is performed to ensure that the sum is less or equal to 1.0. In this example, after painting *Slide Constraints*, both *Hard Constraints* and *Soft Constraints* will update, reducing their respective values in the areas painted with maximum sliding.
 
 With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the target mesh. However, the possible parameters and tweaks to display high fidelity dynamics can be seen in the documentation for [AdnSkin](skin).
 
@@ -85,7 +85,7 @@ The AdnFat deformer will get applied to the second selected mesh which will beco
 
 To create the AdnFat deformer first select the base mesh and then the fat tissue mesh. Then press the ![AdnFat](images/adn_fat.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Fat*.
 
-To create the AdnFat deformer with some initial customisation, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial customisation, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
+To create the AdnFat deformer with some initial specialization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial specialization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
 <figure>
   <img src="images/setup_fat_1.png"> 
@@ -137,7 +137,7 @@ To create the AdnMuscle deformer select the mesh of the muscle, then press the !
   <figcaption><b>Figure 11</b>: AdnMuscle deformer creation scenario.</figcaption>
 </figure>
 
-To create the AdnMuscle deformer with some initial customisation, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial customisation, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
+To create the AdnMuscle deformer with some initial specialization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial specialization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
 <figure>
   <img src="images/setup_muscle_2.png"> 
@@ -257,7 +257,7 @@ Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the mesh 
   <figcaption><b>Figure 24</b>: AdnRibbonMuscle deformer creation scenario.</figcaption>
 </figure>
 
-To create the AdnRibbonMuscle deformer with some initial customisation, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial customisation, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
+To create the AdnRibbonMuscle deformer with some initial specialization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial specialization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
 <figure>
   <img src="images/setup_ribbon_muscle_2.png">
@@ -363,7 +363,7 @@ To create the AdnSimshape deformer it is required to select first the rest mesh 
 
 Press the ![AdnSimshape](images/adn_simshape.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Simshape*.
 
-To create the AdnSimshape deformer with some initial customisation, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial customisation, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
+To create the AdnSimshape deformer with some initial specialization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial specialization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
 <figure>
   <img src="images/setup_simshape_1.png"> 
@@ -435,14 +435,14 @@ The AdnSkinMerge deformer will be applied to the final mesh which will  be the r
 
 <figure>
   <img src="images/setup_skin_merge_0.png"> 
-  <figcaption><b>Figure 42</b>: Basic setup for skin merge. Meshes isolated for better visualisation. From left to right: Final Mesh, Animation Mesh, Simulation Mesh.</figcaption>
+  <figcaption><b>Figure 42</b>: Basic setup for skin merge. Meshes isolated for better visualization. From left to right: Final Mesh, Animation Mesh, Simulation Mesh.</figcaption>
 </figure>
 
 ### Create Deformer
 
 To create the AdnSkinMerge deformer press the ![AdnSkinMerge](images/adn_skin_merge.png){style="width:4%"} shelf button or go to *AdonisFX Menu* > *Deformers* (on the *Create* group) > *Skin Merge*.
 
-With this action the Create Skin Merge UI will open, allowing to add all the required elements to create the deformer. To add the required meshes select the mesh in the scene and press the corresponding *Add Selected* button. You may also set up a custom name and initialisation time in this window before creating the deformer. Make sure the initialisation time corresponds to the start time where all the geometries are in rest pose.
+With this action the Create Skin Merge UI will open, allowing to add all the required elements to create the deformer. To add the required meshes select the mesh in the scene and press the corresponding *Add Selected* button. You may also set up a custom name and initialization time in this window before creating the deformer. Make sure the initialization time corresponds to the start time where all the geometries are in rest pose.
 
 When everything has been properly set up, press the *Create* button to create the AdnSkinMerge deformer.
 

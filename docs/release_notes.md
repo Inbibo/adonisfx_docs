@@ -83,9 +83,9 @@
 ### Core
 
 - Added support for multiple targets in AdnSkin solver.
-- Extended the uber constraints initialisation to build constraints with the closest point on the closest target.
+- Extended the uber constraints initialization to build constraints with the closest point on the closest target.
 - Allow all the solvers to use the internal triangulation of the geometry to build the constraints.
-- Extended the distance, fiber and shape preservation constraints initialisation to build constraints based on the triangulated mesh.
+- Extended the distance, fiber and shape preservation constraints initialization to build constraints based on the triangulated mesh.
 - Added support in AdnSkin solver to simulate even if no targets are provided.
 
 ### Maya
@@ -175,11 +175,11 @@
 
 ### Bug Fixes
 
-- Fixed a bug that caused muscle simulation to fail in very specific scenarios due to a precision issue in the initialisation of Slide On Segment constraints. *AdonisFX-1138*
+- Fixed a bug that caused muscle simulation to fail in very specific scenarios due to a precision issue in the initialization of Slide On Segment constraints. *AdonisFX-1138*
 
 ### Improvements
 
-- Improved the update of painted maps for Attachments and Slide On Segment constraints at initialisation. *AdonisFX-1136*
+- Improved the update of painted maps for Attachments and Slide On Segment constraints at initialization. *AdonisFX-1136*
 
 ## Version 1.0.2
 
@@ -234,7 +234,7 @@
     - AdnSimshape
 - Nodes to evaluate relative distances, angles, velocities and accelerations between transform nodes in the scene: AdnSensorPosition, AdnSensorDistance, AdnSensorRotation.
 - Locators to visualise relative distances, angles, velocities and accelerations between transform nodes in the scene: AdnLocatorPosition, AdnLocatorDistance, AdnLocatorRotation.
-- Plain AdnLocator with a custom shape for visualisation purposes.
+- Plain AdnLocator with a custom shape for visualization purposes.
 - AdnEdgeEvaluator: A node to compute the compression map of a deformed geometry.
 - AdnWeightsDisplayNode: A node to visualise the paintable maps while painting from the AdonisFX Paint Tool.
 - AdnLearnMusclePatches: Command to execute the ML process for facial muscles generation.
