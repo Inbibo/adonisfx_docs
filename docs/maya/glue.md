@@ -12,7 +12,7 @@ To create an AdnSkin deformer within a Maya scene, the following inputs must be 
 
   - **Input Geometries** (IG): List of geometries to be simulated and attached together by the glue solver.
 
-> [NOTE]
+> [!NOTE]
 > - Applying the AdnGlue node will automatically create a new mesh in your scene, which will display the results of the solver.
 
 
@@ -90,7 +90,7 @@ The process to create an AdnGlue deformer is:
 
 <figure markdown>
   ![glue editor](images/glue_attribute_editor_00.png) 
-  <figcaption><b>Figure 1</b>: AdnSkin Attribute Editor.</figcaption>
+  <figcaption><b>Figure 1</b>: AdnGlue Attribute Editor.</figcaption>
 </figure>
 
 ## Paintable Weights
