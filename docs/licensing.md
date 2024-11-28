@@ -35,26 +35,26 @@ To activate AdonisFX in Node-Locked Interactive mode:
   3. Go to AdonisFX Menu > *Activate License*. A dialog will show up with two options: *Activate* to enter a valid `PRODUCT KEY` in order to enable the full license; *Continue With Trial* to continue with the 30 day trial period.
 
 <figure style="width:80%; margin-left:10%" markdown>
-      ![Activation Dialog](images/adn_activation_dialog.png)
+      ![Activation Dialog](images/licensing_activation_dialog.png)
       <figcaption><b>Figure 1</b>: Activation Dialog.</figcaption>
 </figure>
 
   4. Click on Activate. A dialog will show up to introduce a product key.
 
 <figure style="width:80%; margin-left:10%" markdown>
-      ![Activation Add Product Key](images/adn_add_product_key_dialog.png)
+      ![Activation Add Product Key](images/licensing_add_product_key_dialog.png)
       <figcaption><b>Figure 2</b>: Activation Add Product Key.</figcaption>
 </figure>
     
   5. Enter the product key associated to your Interactive Node-Locked License. A confirmation dialog will appear (Figure 3). If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to retry the activation (Figure 4).
 
 <figure style="width:80%; margin-left:10%" markdown>
-      ![Product Activated Dialog](images/adn_activated_product_key_dialog.png)
+      ![Product Activated Dialog](images/licensing_activated_product_key_dialog.png)
       <figcaption><b>Figure 3</b>: Product Activated Dialog.</figcaption>
 </figure>
 
 <figure style="width:80%; margin-left:10%" markdown>
-      ![Activation Retry Adding Product Key](images/adn_try_again_product_key_dialog.png)
+      ![Activation Retry Adding Product Key](images/licensing_try_again_product_key_dialog.png)
       <figcaption><b>Figure 4</b>: Activation Retry Adding Product Key.</figcaption>
 </figure>
 
@@ -132,7 +132,7 @@ The first step to be able to serve leases from the lease pool is to activate, co
     - Find the full list of customizable parameters in the `.xml` file comments.
 
 <figure style="width:80%; margin-left:10%" markdown>
-  ![Turbo Float Folder](images/adn_turbo_float_folder.png)
+  ![Turbo Float Folder](images/licensing_turbo_float_folder.png)
   <figcaption><b>Figure 11</b>: Folder containing the TurboFloatServer (Windows) and the configuration files.</figcaption>
 </figure>
 
