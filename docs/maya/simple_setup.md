@@ -191,7 +191,7 @@ Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from 
 
 Once tendons are painted, when selecting the *Fibers* attribute from the *Attribute* enumerator, painted fibers will be displayed, with a default direction set by the painted tendons. It is now possible to freely comb these fibers if it is desired.
 
-To change the fiber size or its colour, go to the Attribute Editor in the debug submenu, and customize the colour, width and length of the drawn lines.
+To change the fiber size or its color, go to the Attribute Editor in the debug submenu, and customize the color, width and length of the drawn lines.
 
 <figure>
   <img src="images/setup_muscle_4.png">
@@ -312,7 +312,7 @@ Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from 
 
 Now that tendons are painted, when selecting the *Fibers* attribute from the *Attribute* enumerator, painted fibers will be displayed, with a default direction set by the painted tendons. It is now possible to freely comb these fibers if it is desired.
 
-In case the fiber or its colour has to be manipulated, go to the Attribute Editor, in the debug submenu, and customize the colour, width and length of the drawn lines.
+In case the fiber or its color has to be manipulated, go to the Attribute Editor, in the debug submenu, and customize the color, width and length of the drawn lines.
 
 <figure>
   <img src="images/setup_ribbon_muscle_5.png">
@@ -421,7 +421,7 @@ Refer to this [section](simshape#muscle-activations) to see how to use Muscle Pa
   <figcaption><b>Figure 41</b>: Connecting Edge Evaluator Node to AdnSimshape Deformer.</figcaption>
 </figure>
 
-In the attribute editor of the AdnSimshape deformer, under the *Muscles Activation* section, the *Plug Values* will be enabled as a new valid *Activation Mode* option. To better visualise activations, press the ![AdnMuscle](images/adn_simshape_debugger.png){style="width:4%"} shelf button or go to AdonisFX Menu > Simshape (on the *Edit* group) > *Activations Debugger*.
+In the attribute editor of the AdnSimshape deformer, under the *Muscles Activation* section, the *Plug Values* will be enabled as a new valid *Activation Mode* option. To better visualize activations, press the ![AdnMuscle](images/adn_simshape_debugger.png){style="width:4%"} shelf button or go to AdonisFX Menu > Simshape (on the *Edit* group) > *Activations Debugger*.
 
 ## AdnSkinMerge
 

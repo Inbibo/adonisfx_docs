@@ -18,13 +18,13 @@ Constraints are rules that an AdonisFX solver applies during simulation to ensur
 
 **Distance Constraint**. A distance constraint defines the relationship between two points of a geometry. During simulation, distance constraints will try to keep the edge lengths of the mesh at rest.
 
-**Fiber Constraint**. A fiber constraint defines the relationship between two points of a muscle geometry. It is a specialization of the distance constraint where the muscle fibers flow is taken into consideration to emulate the behaviour of a real fiber contraction.
+**Fiber Constraint**. A fiber constraint defines the relationship between two points of a muscle geometry. It is a specialization of the distance constraint where the muscle fibers flow is taken into consideration to emulate the behavior of a real fiber contraction.
 
 **Glue Constraint**. A glue constraint defines the relationship between a geometry point and another point on an external geometry. These constraints aim to keep the point at a certain distance to the external geometry point without any restrictions of relative orientation. The constraint behavior aligns with Soft Constraints that are used to glue muscles together.
 
 **Hard Constraint**. A hard constraint defines the location of a geometry point in the tangent space of a polygon. This constraint type is similar to the attachment constraint but in this case the transformation used is the one given by the tangent space at the closest point on an external geometry.
 
-**Shape Preservation Constraint**. A shape preservation constraint defines the state of the shape formed by a vertex with its adjacents on initialization. During simulation, a shape preservation constraint will try to maintain the rest shape of the geometry with its neighbouring vertices.
+**Shape Preservation Constraint**. A shape preservation constraint defines the state of the shape formed by a vertex with its adjacents on initialization. During simulation, a shape preservation constraint will try to maintain the rest shape of the geometry with its neighboring vertices.
 
 **Slide Constraint**. A slide constraint defines the distance between a geometry point and a surface. This constraint allows the point to travel along the surface. During simulation, this constraint will try to keep the point at a constant distance to the surface in a given radius.
 
@@ -52,7 +52,7 @@ Glue or **AdnGlue** is an AdonisFX solver for gluing muscles together after simu
 
 ## Locator
 
-Locators are intended to visualise the output of an AdonisFX sensor. There are three types of locators that require a specific number of inputs and adopt custom shapes in the viewport: AdnLocatorPosition (a squared box at the location of a node), AdnLocatorDistance (a parallelepiped with a line connecting two nodes) and AdnLocatorRotation (an angle with two segments connecting three nodes). Each type is associated with its homologous sensor.
+Locators are intended to visualize the output of an AdonisFX sensor. There are three types of locators that require a specific number of inputs and adopt custom shapes in the viewport: AdnLocatorPosition (a squared box at the location of a node), AdnLocatorDistance (a parallelepiped with a line connecting two nodes) and AdnLocatorRotation (an angle with two segments connecting three nodes). Each type is associated with its homologous sensor.
 
 ## Muscle
 
@@ -70,7 +70,7 @@ The ribbon muscle or **AdnRibbonMuscle** is an AdonisFX solver for muscle simula
 
 ## Sensor
 
-Sensors are nodes to measure positions, distances, angles, velocities and accelerations. There are three types of sensors that require different number of input transform objects: AdnSensorPosition (one single input to compute its velocity and acceleration), AdnSensorDistance (two inputs to compute the distance between them and their relative velocity and acceleration) and AdnSensorRotation (three inputs to compute the angle between them and the angular velocity and acceleration). Each type is associated with its homologous locator that will allow visualising the output values.
+Sensors are nodes to measure positions, distances, angles, velocities and accelerations. There are three types of sensors that require different number of input transform objects: AdnSensorPosition (one single input to compute its velocity and acceleration), AdnSensorDistance (two inputs to compute the distance between them and their relative velocity and acceleration) and AdnSensorRotation (three inputs to compute the angle between them and the angular velocity and acceleration). Each type is associated with its homologous locator that will allow visualizing the output values.
 
 ## Simshape
 
