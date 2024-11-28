@@ -6,6 +6,7 @@
 - [Sensors](sensors)
 - [AdnSkin](skin)
 - [AdnFat](fat)
+- [AdnGlue](glue)
 - [AdnMuscle](muscle)
 - [AdnRibbonMuscle](ribbon)
 - [AdnSimshape](simshape)
