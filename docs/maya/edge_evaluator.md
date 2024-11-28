@@ -46,6 +46,6 @@ In order to disconnect the plug, repeat the selection and instead of pressing *C
 ## Attribute Editor Template
 
 <figure markdown>
-  ![Edge Evaluator editor](images/attribute_editor_edge_evaluator.png)
+  ![Edge Evaluator editor](images/edge_evaluator_attribute_editor.png)
   <figcaption><b>Figure 2</b>: Edge Evaluator Attribute Editor.</figcaption>
 </figure>

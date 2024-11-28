@@ -46,7 +46,7 @@ Once the AdnSkinMerge deformer is created, to modify its input meshes (animation
 2. The following UI will get displayed. Here you will see listed the current animation and simulation meshes the deformer has connected. From this UI you may freely add or remove from either list. Note that at least one element must be present in each list to be able to apply the changes. 
 
 <figure markdown>
-  ![edit skin merge UI](images/edit_skin_merge.png) 
+  ![edit skin merge UI](images/skin_merge_edit.png) 
   <figcaption><b>Figure 2</b>: Edit Skin Merge UI.</figcaption>
 </figure>
 
@@ -63,7 +63,7 @@ Once the AdnSkinMerge deformer is created, to modify its input meshes (animation
 ## Attribute Editor Template
 
 <figure markdown>
-  ![AdnSkinMerge editor](images/attribute_editor_skin_merge.png)
+  ![AdnSkinMerge editor](images/skin_merge_attribute_editor.png)
   <figcaption><b>Figure 3</b>: AdnSkinMerge Attribute Editor.</figcaption>
 </figure>
 
