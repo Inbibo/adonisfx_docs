@@ -89,18 +89,8 @@ The process to create an AdnGlue deformer is:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![glue editor first part](images/attribute_editor_part_one_fat.png) 
-  <figcaption><b>Figure 1</b>: AdnGlue Attribute Editor.</figcaption>
-</figure>
-
-<figure markdown>
-  ![glue editor second part](images/attribute_editor_part_two_fat.png)
-  <figcaption><b>Figure 2</b>: AdnGlue Attribute Editor (Advanced Settings).</figcaption>
-</figure>
-
-<figure markdown>
-  ![glue editor debug menu](images/attribute_editor_fat_debug.png)
-  <figcaption><b>Figure 3</b>: AdnGlue Attribute Editor (Debug menu).</figcaption>
+  ![glue editor](images/glue_attribute_editor_00.png) 
+  <figcaption><b>Figure 1</b>: AdnSkin Attribute Editor.</figcaption>
 </figure>
 
 ## Paintable Weights
