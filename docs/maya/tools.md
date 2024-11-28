@@ -192,7 +192,7 @@ To ease with the connection of sensors to deformers AdonisFX provides the **Sens
 To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *Connection Editor*.
 
 <figure markdown> 
-  ![Connection Editor](images/sensor_conection_editor_empty.png) 
+  ![Connection Editor](images/sensors_connection_editor_empty.png) 
   <figcaption><b>Figure 11</b>: Sensor connection editor after opening it for the first time. </figcaption>
 </figure>
 
@@ -203,7 +203,7 @@ To retrieve these objects and display them in the tool, select the desired eleme
 For Source elements (sensors) press the *Reload Left* button and for Destination elements (deformers) press the *Reload Right* button.
 
 <figure markdown> 
-  ![Connection Editor Setup](images/sensor_conection_editor.png) 
+  ![Connection Editor Setup](images/sensors_connection_editor.png) 
   <figcaption><b>Figure 12</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
 </figure>
 

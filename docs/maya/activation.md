@@ -76,6 +76,6 @@ The *inputs* attribute is presented as an array of 3 attributes which can be fou
 ## Attribute Editor Template
 
 <figure markdown>
-  ![AdnActivation editor](images/attribute_editor_activation.png)
+  ![AdnActivation editor](images/activation_attribute_editor.png)
   <figcaption><b>Figure 3</b>: AdnActivation Attribute Editor.</figcaption>
 </figure>
