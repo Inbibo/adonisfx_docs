@@ -26,7 +26,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![Add AdnSimshape Collider](images/adn_add_collider.png) | Adds a collider to AdnSimshape selecting the collider and the mesh with AdnSimshape applied. | AdonisFX Menu > Edit Simshape > *Add Collider* |
 | ![Remove AdnSimshape Collider](images/adn_remove_collider.png) | Removes a collider from AdnSimshape selecting the collider and the mesh with AdnSimshape applied. | AdonisFX Menu > Edit Simshape > *Remove Collider* |
 | ![AdnSimshape Learn Muscle Patches Tool](images/adn_learn_muscle_patches.png) | Launches the Learn Muscle Patches UI used to generate the *AdonisFX Muscle Patches* file (.amp) file. | AdonisFX Menu > Edit Simshape > *Learn Muscle Patches UI* |
-| ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png) | Toggles the AdnSimshape activations debug mode. Current frame has to match the preroll or start frame in the AdnSimshape deformer for this toggle to work. | AdonisFX Menu > Edit Simshape > *Activations Debugger* |
+| ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png) | Toggles the AdnSimshape activations debug mode. The current frame has to match the preroll or start frame in the AdnSimshape deformer for this toggle to work. | AdonisFX Menu > Edit Simshape > *Activations Debugger* |
 |||
 | ![Create AdnSkin](images/adn_skin.png) | Creates AdnSkin deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as target meshes. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Skin* |
 | ![Create AdnSkinMerge](images/adn_skin_merge.png) | Launches the Create Skin Merge UI used to create an AdnSkinMerge deformer. | AdonisFX Menu > Create Deformers > *Skin Merge* |
@@ -77,7 +77,7 @@ The AdonisFX Menu provides access to the options in the shelf and other more adv
   <figcaption><b>Figure 4</b>: AdonisFX Menu Create Sensors section.</figcaption>
 </figure>
 
-- **Position**. Creates an AdnSensorPosition from the transform object and the AdnLocatorPosition selected. If only the transform nodes is provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorPosition](images/adn_point_sensor.png){style="width:4%"}.
+- **Position**. Creates an AdnSensorPosition from the transform object and the AdnLocatorPosition selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorPosition](images/adn_point_sensor.png){style="width:4%"}.
 - **Distance**. Creates an AdnSensorDistance from the two transform nodes and the AdnLocatorDistance selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorDistance](images/adn_distance_sensor.png){style="width:4%"}.
 - **Rotation**. Creates an AdnSensorRotation from the three transform nodes and the AdnLocatorRotation selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorRotation](images/adn_angle_locator.png){style="width:4%"}.
 
@@ -145,7 +145,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
   <figcaption><b>Figure 11</b>: AdonisFX Menu Edit Deformers section.</figcaption>
 </figure>
 
-- **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the edition of simulation and animation meshes lists of an AdnSkinMerge deformer. To open this UI a mesh with an AdnSkinMerge applied must be selected.
+- **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the editing of simulation and animation meshes lists of an AdnSkinMerge deformer. To open this UI a mesh with an AdnSkinMerge applied must be selected.
 
 #### Simshape
 
@@ -242,7 +242,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 ### License section
 
-- **Activate License**. Checks the license status and if it is not activated yet, then a dialog will be prompted to guide on the product key registration. This functionality is only available in Interactive Node-Locked license.
+- **Activate License**. Checks the license status and if it is not activated yet, then a dialog will be prompted to guide on the product key registration. This functionality is only available in the Interactive Node-Locked license.
 
 ### Help section
 

@@ -4,7 +4,7 @@ AdonisFX Sensors are nodes in charge of interpreting data extracted from transfo
 
 ## AdnSensorPosition
 
-AdnSensorPosition is the sensor for computing meaningful output values representing the velocity or acceleration of a transform node. The values of velocity an acceleration can then be remapped to produce desirable activation values to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorPosition both for setup and visualisation. An example use case for this sensor would be applying it to the wrist connection of an arm outputting velocities while swinging.
+AdnSensorPosition is the sensor for computing meaningful output values representing the velocity or acceleration of a transform node. The values of velocity and acceleration can then be remapped to produce desirable activation values to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorPosition both for setup and visualisation. An example use case for this sensor would be applying it to the wrist connection of an arm outputting velocities while swinging.
 
 ### How To Use
 
@@ -34,7 +34,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Current transform node position. |
+| **Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the transform node. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
@@ -56,7 +56,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 
 ## AdnSensorDistance
 
-AdnSensorDistance is the sensor for computing meaningful output values representing the distance, velocity or acceleration between two transform nodes. The values of distance, velocity an acceleration can then be remapped to produce desirable activation values to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorDistance both for setup and visualisation. An example use case for this sensor would be applying it to the connection made between bones which would compute the distance between two bones moving together.
+AdnSensorDistance is the sensor for computing meaningful output values representing the distance, velocity or acceleration between two transform nodes. The values of distance, velocity and acceleration can then be remapped to produce desirable activation values to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorDistance both for setup and visualisation. An example use case for this sensor would be applying it to the connection made between bones which would compute the distance between two bones moving together.
 
 ### How To Use
 
@@ -86,8 +86,8 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Start transform node position. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | End transform node position. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. |
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
@@ -140,9 +140,9 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Start transform node position. |
-| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Mid transform node position. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | End transform node position. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. |
+| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. |
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the third transform node. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
@@ -164,7 +164,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 
 ## Connect To Deformers
 
-Sensors are meant to be connected to a deformer, tipically to a muscle deformer, so that they can automatically control attributes, enabling the deformer to react to external inputs from the scene.
+Sensors are meant to be connected to a deformer, typically to a muscle deformer, so that they can automatically control attributes, enabling the deformer to react to external inputs from the scene.
 
 When creating a sensor, a remap node for each output attribute is created. Through these remap nodes, and their output, it is possible to modulate and connect the information obtained by the sensor to a deformer and display its remapped value to its corresponding locator.
 

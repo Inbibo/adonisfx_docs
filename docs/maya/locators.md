@@ -27,7 +27,7 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Current transform node position. |
+| **Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the transform node. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
@@ -65,8 +65,8 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Start transform node position. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | End transform node position. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. |
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
@@ -108,9 +108,9 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Start transform node position. |
-| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Mid transform node position. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | End transform node position. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. |
+| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. |
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the third transform node. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |

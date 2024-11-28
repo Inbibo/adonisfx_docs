@@ -27,9 +27,9 @@ The process to create an AdnSkinMerge deformer is:
 
 3. Add the animation and simulation meshes taking into consideration the following requirements:
     - At least one mesh must be added in each field.
-    - To add meshes to any list, select the meshes in the scene and click the respecitve *Add Selected* button.
+    - To add meshes to any list, select the meshes in the scene and click the respective *Add Selected* button.
     - Adding the same mesh twice to a list is not supported.
-    - Adding the same mesh as a Simulation Mesh and as an Animation Mesh is not adviced.
+    - Adding the same mesh as a Simulation Mesh and as an Animation Mesh is not advised.
     - If you wish to remove a single element from the list, select it in the Skin Merge UI and press the Remove Selected button.
     - You may also clear any list fully by pressing the respective Clear button.
 
@@ -37,7 +37,7 @@ The process to create an AdnSkinMerge deformer is:
 
 5. Press the *Create* button and a message box will notify you that AdnSkinMerge has been created properly. The final mesh will follow the animation mesh inputs by default.
 
-6. To modulate the influence of the simulation mesh inputs, use the maya paintable context and customise the blend weights map.
+6. To modulate the influence of the simulation mesh inputs, use the maya paintable context and customize the blend weights map.
 
 Once the AdnSkinMerge deformer is created, to modify its input meshes (animation mesh list, simulation mesh list or both) the follow process can be followed:
 

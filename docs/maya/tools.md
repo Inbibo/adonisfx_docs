@@ -1,6 +1,6 @@
 # Tools
 
-AdonisFX includes several tools that allow for a smoother experience when interacting or configuring nodes and deformers. This page is intended to provide detailed explanation of the use, setup and application of each tool.
+AdonisFX includes several tools that allow for a smoother experience when interacting or configuring nodes and deformers. This page is intended to provide a detailed explanation of the use, setup and application of each tool.
 
 ## Paint Tool
 
@@ -24,9 +24,9 @@ To open the tool:
 > [!NOTE]
 > - The paint context is configured from the given selection to allow painting.
 > - Make sure to select the transform node of the mesh.
-> - If the context does not allow to paint, it is probably because the selected node is not a transform mesh node with an AdonisFx paintable deformer. Please, select the transform mesh node and click *Refresh From Selection* or restart the AdonisFX Paint Tool.
+> - If the context does not allow painting, it is probably because the selected node is not a transform mesh node with an AdonisFx paintable deformer. Please, select the transform mesh node and click *Refresh From Selection* or restart the AdonisFX Paint Tool.
 
-If the selection provided is valid, meaning the selected mesh has one of the AdonisFX deformers listed before, then the paint context will get configured and the user can paint. The map to be painted is the one associated to the selected attribute in the enumerator exposed at the top of the UI.
+If the selection provided is valid, meaning the selected mesh has one of the AdonisFX deformers listed before, then the paint context will get configured and the user can paint. The map to be painted is the one associated with the selected attribute in the enumerator exposed at the top of the UI.
 
 The painted weights are visualised in the viewport thanks to the **AdnWeightsDisplayNode**. This node is in charge of setting the vertex colours from the selected attribute in the UI on the mesh. This node is created and removed dynamically by the Paint Tool on entering and exiting from the context. Because of that, it is strongly recommended to keep the AdonisFX Paint Tool open while painting.
 
@@ -42,7 +42,7 @@ Depending on the deformer and the attribute selected the UI can adjust to suppor
 
 #### Paint Tool on AdnMuscle and AdnRibbonMuscle
 
-In the specific case of muscle deformers, the too will display the following attributes:
+In the specific case of muscle deformers, the tool will display the following attributes:
 
 <figure markdown>
   ![Pain Tool Skin Attributes example](images/paint_tool_ribbon_attributes.png) 
@@ -81,7 +81,7 @@ In the specific case of muscle deformers, the too will display the following att
     - If this attribute is selected, a list widget is shown with the names of the targets connected to the deformer (see Figure 4).
     - Select the desired target to paint from the list widget and paint the weight values.
     - When selecting a target in the list, the object will also get selected in the scene, facilitating its identification.
-    - If more than one target was added to the system, then the paint tool will normalise the weights automatically after a stroke has been completed, meaning that the sum of all slide on geometry constraint weights in a vertex will always add up to a maximum value of 1.0.
+    - If more than one target was added to the system, then the paint tool will normalise the weights automatically after a stroke has been completed, meaning that the sum of all sliding on geometry constraint weights in a vertex will always add up to a maximum value of 1.0.
     - If any target is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
   - **Slide On Segment**
     - Slide on Segment Constraints operate similarly to attachment constraints, as they are both multi-influence attributes.
@@ -212,7 +212,7 @@ For Source elements (sensors) press the *Reload Left* button and for Destination
   <figcaption><b>Figure 12</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
 </figure>
 
-To make the connections select the two specific attribute to connect (one from *source* and one from *destination*) and press the *Make Connection* button. A message will then get displayed informing that the connection has been properly made.
+To make the connections select the two specific attributes to connect (one from *source* and one from *destination*) and press the *Make Connection* button. A message will then get displayed informing that the connection has been properly made.
 
 To clear the selection and reset the tool to its initial state, press the *Clear All* button.
 
