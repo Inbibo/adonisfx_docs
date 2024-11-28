@@ -7,7 +7,7 @@ The AdonisFX UI for Maya can be separated into two main elements presented in th
 The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*. It allows for quick access to the main AdonisFX functionalities.
 
 <figure style="width: 100%;" markdown>
-  ![AdnLocatorPosition within a scene](images/shelf.png)
+  ![AdnLocatorPosition within a scene](images/ui_overview_shelf.png)
   <figcaption><b>Figure 1</b>: AdonisFX shelf.</figcaption>
 </figure>
 
@@ -53,7 +53,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 The AdonisFX Menu provides access to the options in the shelf and other more advanced utilities that are organised in 5 groups: Create, Edit, Tools, License and Help.
 
 <figure style="width: 30%;" markdown>
-  ![AdnLocatorPosition within a scene](images/menu_1.png)
+  ![AdnLocatorPosition within a scene](images/ui_overview_menu.png)
   <figcaption><b>Figure 2</b>: AdonisFX Menu.</figcaption>
 </figure>
 
@@ -62,18 +62,18 @@ The AdonisFX Menu provides access to the options in the shelf and other more adv
 #### Locators
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Locators](images/menu_locators.png)
+  ![AdonisFX Menu Create Locators](images/ui_overview_menu_locators.png)
   <figcaption><b>Figure 3</b>: AdonisFX Menu Create Locators section.</figcaption>
 </figure>
 
-- **Position**. Creates an AdnLocatorPosition from the selected transform node. The locator shape represents the position change of the element provided. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnLocator](images/adn_locator_position.png){style="width:4%"}.
+- **Position**. Creates an AdnLocatorPosition from the selected transform node. The locator shape represents the position change of the element provided. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnLocator](images/adn_point_locator.png){style="width:4%"}.
 - **Distance**. Creates an AdnLocatorDistance from the two selected transform nodes. The locator shape represents the distance between the two elements provided. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnLocatorDistance](images/adn_distance_locator.png){style="width:4%"}.
 - **Rotation**. Creates an AdnLocatorRotation from the three selected transform nodes. The locator shape corresponds to the angle between the two segments represented by the three nodes. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnLocatorRotation](images/adn_angle_locator.png){style="width:4%"}.
 
 #### Sensors
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Sensors](images/menu_sensors.png)
+  ![AdonisFX Menu Create Sensors](images/ui_overview_menu_sensors.png)
   <figcaption><b>Figure 4</b>: AdonisFX Menu Create Sensors section.</figcaption>
 </figure>
 
@@ -84,14 +84,14 @@ The AdonisFX Menu provides access to the options in the shelf and other more adv
 Both in Locators and Sensors there are option boxes to launch a simple UI to provide a custom name for the node to create.
 
 <figure style="width: 50%;" markdown>
-  ![Locator Sensor Creator UI](images/position_locator_sensor_locator_creator.png)
+  ![Locator Sensor Creator UI](images/ui_overview_position_locator_creator.png)
   <figcaption><b>Figure 5</b>: Locators and Sensors creator UI.</figcaption>
 </figure>
 
 #### Nodes
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit AdnSimshape](images/menu_nodes.png)
+  ![AdonisFX Menu Edit AdnSimshape](images/ui_overview_menu_nodes.png)
   <figcaption><b>Figure 6</b>: AdonisFX Menu Create Nodes section.</figcaption>
 </figure>
 
@@ -100,7 +100,7 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
 #### Deformers
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Deformers](images/menu_deformers.png)
+  ![AdonisFX Menu Create Deformers](images/ui_overview_menu_deformers.png)
   <figcaption><b>Figure 7</b>: AdonisFX Menu Create Deformers section.</figcaption>
 </figure>
 
@@ -109,7 +109,7 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
 #### Solvers
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Solvers](images/menu_solvers.png)
+  ![AdonisFX Menu Create Solvers](images/ui_overview_menu_solvers.png)
   <figcaption><b>Figure 8</b>: AdonisFX Menu Create Solvers section.</figcaption>
 </figure>
 
@@ -123,7 +123,7 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
 Option boxes can be used to launch a UI to assign the name to the deformer and configure generic solver parameters.
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX AdnSkin Deformer Creator](images/skin_deformer_creator.png)
+  ![AdonisFX AdnSkin Deformer Creator](images/ui_overview_skin_deformer_creator.png)
   <figcaption><b>Figure 9</b>: Deformer Creator UI creating for an AdnSkin deformer.</figcaption>
 </figure>
 
@@ -132,7 +132,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Sensors
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit Sensors](images/menu_connection_editor.png)
+  ![AdonisFX Menu Edit Sensors](images/ui_overview_menu_connection_editor.png)
   <figcaption><b>Figure 10</b>: AdonisFX Menu Edit Sensors section.</figcaption>
 </figure>
 
@@ -141,7 +141,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Deformers
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Solvers](images/menu_edit_deformers.png)
+  ![AdonisFX Menu Create Solvers](images/ui_overview_menu_edit_deformers.png)
   <figcaption><b>Figure 11</b>: AdonisFX Menu Edit Deformers section.</figcaption>
 </figure>
 
@@ -150,7 +150,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Simshape
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit AdnSimshape](images/menu_simshape.png)
+  ![AdonisFX Menu Edit AdnSimshape](images/ui_overview_menu_simshape.png)
   <figcaption><b>Figure 12</b>: AdonisFX Menu Edit AdnSimshape section.</figcaption>
 </figure>
 
@@ -172,7 +172,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Skin
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit Skin](images/menu_skin.png)
+  ![AdonisFX Menu Edit Skin](images/ui_overview_menu_skin.png)
   <figcaption><b>Figure 13</b>: AdonisFX Menu Edit Skin section.</figcaption>
 </figure>
 
@@ -182,7 +182,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 ### Fat
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit Fat](images/menu_fat.png)
+  ![AdonisFX Menu Edit Fat](images/ui_overview_menu_fat.png)
   <figcaption><b>Figure 14</b>: AdonisFX Menu Edit Fat section.</figcaption>
 </figure>
 
@@ -192,7 +192,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Muscle
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit Muscle](images/menu_muscle.png)
+  ![AdonisFX Menu Edit Muscle](images/ui_overview_menu_muscle.png)
   <figcaption><b>Figure 15</b>: AdonisFX Menu Edit Muscle section.</figcaption>
 </figure>
 
@@ -206,7 +206,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Glue
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit Muscle](images/menu_glue.png)
+  ![AdonisFX Menu Edit Muscle](images/ui_overview_menu_glue.png)
   <figcaption><b>Figure 16</b>: AdonisFX Menu Edit Glue section.</figcaption>
 </figure>
 
@@ -216,7 +216,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Debug
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Debug Section](images/menu_debug.png)
+  ![AdonisFX Menu Debug Section](images/ui_overview_menu_debug.png)
   <figcaption><b>Figure 17</b>: AdonisFX Menu Debug section.</figcaption>
 </figure>
 
@@ -227,7 +227,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Utils
 
 <figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Debug Section](images/menu_utils.png)
+  ![AdonisFX Menu Debug Section](images/ui_overview_menu_utils.png)
   <figcaption><b>Figure 18</b>: AdonisFX Menu Utils section.</figcaption>
 </figure>
 
