@@ -37,6 +37,10 @@
 - Fixed a bug in the Volume Constraint that was causing flickering if the simulated geometry was far from the center of the world. *AdonisFX-1489*
 - Fixed the internal bounding box construction at start time to use the current point positions instead of the point positions at rest. *AdonisFX-1511*
 
+### Deprecated
+
+- The AdnWeightsDisplayNode has been deprecated. This deprecation is fully backward-compatible, ensuring that scenes created in earlier versions will work as expected in version 1.4.0. To safely remove deprecated nodes from your scenes, use the utility available in AdonisFX Menu > Utils > *Upgrade Deprecated Nodes*.
+
 ### Known Limitations
 
 - Undoing the removal of inputs in AdnGlue does not restore the previous painted weights. *AdonisFX-1523*
