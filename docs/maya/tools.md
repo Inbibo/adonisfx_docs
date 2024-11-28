@@ -29,7 +29,7 @@ To open the tool:
 If the selection provided is valid, meaning the selected mesh has one of the AdonisFX deformers listed before, then the paint context will get configured and the user can paint. The map to be painted is the one associated to the selected attribute in the enumerator exposed at the top of the UI.
 
 > [!NOTE]
-> - With the optimizations introduced to the AdonisFX Paint Tool in version 1.4.0, the AdnWeightsDisplayNode is no longer needed and has been deprecated in this release.
+> - With the optimizations introduced to the AdonisFX Paint Tool in version 1.4.0, the AdnWeightsDisplayNode is deprecated and no longer needed.
 > - This deprecation is fully backward-compatible, meaning that scenes created in earlier versions will continue to work seamlessly in version 1.4.0.
 > - In addition, we recommend using the utility available under AdonisFX Menu > Utils > *Upgrade Deprecated Nodes*, which safely removes any instances of the AdnWeightsDisplayNode from your scenes.
 
