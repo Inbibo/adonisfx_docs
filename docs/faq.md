@@ -10,7 +10,7 @@ In order to add activation to the muscles it is necessary to define the fibers d
 
 ## How can I combine multiple activation values?
 
-Multiple activation values from different AdonisFX sensors (AdnSensorPosition, AdnSensorDistance, AdnSensorRotation) can be combined into a single value using the **AdnActivation** node. This node allows to override, add, subtract, multiply or divide multiple input activations to compute a single output value. For more details about the **AdnActivation** node, please refer to the [AdnActivation](maya/activation.md) page.
+Multiple activation values from different AdonisFX sensors (AdnSensorPosition, AdnSensorDistance, AdnSensorRotation) can be combined into a single value using the **AdnActivation** node. This node allows overriding, adding, subtracting, multiplying and dividing multiple input activations to compute a single output value. For more details about the **AdnActivation** node, please refer to the [AdnActivation](maya/activation.md) page.
 
 ## How can I add volume gain to the muscles?
 
@@ -20,7 +20,7 @@ The *Volume Ratio* attribute of an AdnMuscle allows to simulate volume gain (vol
 
 AdonisFX provides two ways of simulating muscle-to-muscle interactions:
 
-- Using the AdnMuscle deformer. The AdnMuscle deformer allows to configure a muscle as a target for another muscle to simulate external geometry constraints (e.g. attachment to geometry and slide on geometry constraints). A muscle can be added as a target for another muscle in the same way as any other target geometry would be added. Detailed instructions for adding and removing targets can be found in this [section](maya/muscle.md#advanced).
+- Using the AdnMuscle deformer. The AdnMuscle deformer allows configuring geometry targets to simulate external constraints (e.g. attachment to geometry and slide on geometry constraints). A simulated muscle can be assigned as a target to another simulated muscle in the same way as any other geometry target would be added (e.g. bones). Detailed instructions for adding and removing targets can be found in this [section](maya/muscle.md#advanced).
 
 - Using the AdnGlue node. A set of muscles already simulated with AdnMuscle deformers can be further processed using the [AdnGlue](maya/glue) node. This node glues the muscles together, making them behave more compact and reducing large gaps thanks to the glue constraints. For more information on how to configure a simple setup, refer to this [section](maya/simple_setup#adnglue).
 
@@ -141,8 +141,8 @@ Make use of the [AdnSkinMerge](maya/skin_merge) deformer to blend animated and s
 
 ## How can I change the logger level?
 
-By default, AdonisFX solvers print log messages to the console if their level is `Info`, `Warning`, or `Error`. However, `Debug` log messages can be enabled to assist with troubleshooting. To enable `Debug` messages, set the environment variable `ADN_LOGGER_LEVEL` to `0`. To disable `Debug` messages again, set the environment variable to `1`. Note that for these changes to take effect, the AdonisFX plugin must be reloaded.
+AdonisFX Logger has different levels of execution: (0) Debug, (1) Info, (2) Warning, (3) Error. The level is determined by an environment variable `ADN_LOGGER_LEVEL`. If not defined, AdonisFX Logger Level is set to Info by default. This allows the system to print Info, Warning and Error messages to the console. If more verbosity is required, it is possible to modify the level to Debug. For that, the environment variable `ADN_LOGGER_LEVEL` has to be set to `0`. Note that for this change to take effect, the AdonisFX plugin must be reloaded.
 
 ## How can I control the multithreading of AdonisFX solvers?
 
-AdonisFX nodes use multithreading based on a threshold that determines the minimum number of elements required for parallel processing. If the number of elements to process exceeds this threshold, multithreading will be applied, otherwise, the code will execute sequentially. This threshold is set to `16` by default, but can be adjusted by modifying the value of the `ADN_MIN_PARALLEL_SIZE` environment variable. Modify this value carefully, as it can improve performance in some cases but may also reduce it depending on your CPU. Note that for these changes to take effect, the AdonisFX plugin must be reloaded.
+AdonisFX nodes use multithreading based on a threshold that determines the minimum number of elements required for parallel processing. If the number of elements to process exceeds this threshold, multithreading will be applied, otherwise, the code will execute sequentially. This threshold is set to `16` by default, but can be adjusted by modifying the value of the `ADN_MIN_PARALLEL_SIZE` environment variable. Modify this value carefully, as it can improve performance in some cases but may also reduce it depending on your CPU.
