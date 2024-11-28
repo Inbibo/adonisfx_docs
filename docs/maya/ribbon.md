@@ -212,7 +212,7 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 </figure>
 
 <figure markdown>
-  ![ribbon muscle fibers activation debug](images/activation_fibers_debug.png)
+  ![ribbon muscle fibers activation debug](images/ribbon_muscle_fibers_activation_debug.png)
   <figcaption><b>Figure 10</b>: On the left side the Muscle Fibers mode is set when the muscle is not activated. On the right side the Muscle Fibers mode is set when the muscle is activated. </figcaption>
 </figure>
 
