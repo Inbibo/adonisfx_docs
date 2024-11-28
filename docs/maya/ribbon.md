@@ -110,7 +110,7 @@ Follow this steps to create an AndRibbonMuscle deformer:
 | **Color**            | Color Picker | Red           | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
 | **Fiber Scale**      | Float        | 3.0           | ✓ | The scale can be modified to set a custom fiber length. |
 | **Fiber Color**      | Color Picker | Blue          | ✓ | The fibers color when Muscle Fibers debug mode is selected and the muscle is not activated (*Activation* Attribute). |
-| **Activation Color** | Float        | Red           | ✓ | The fibers color when Muscle Fibers debug mode is selected and the muscle is activated (*Activation* Attribute). |
+| **Activation Color** | Color Picker | Red           | ✓ | The fibers color when Muscle Fibers debug mode is selected and the muscle is activated (*Activation* Attribute). |
 
 ### Deformer Attributes
 | Name | Type | Default | Animatable | Description |
