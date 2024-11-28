@@ -124,17 +124,17 @@ The process to create an AdnFat deformer is:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![fat editor first part](images/attribute_editor_part_one_fat.png) 
+  ![fat editor first part](images/fat_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnFat Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![fat editor second part](images/attribute_editor_part_two_fat.png)
+  ![fat editor second part](images/fat_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnFat Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![fat editor debug menu](images/attribute_editor_fat_debug.png)
+  ![fat editor debug menu](images/fat_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnFat Attribute Editor (Debug menu).</figcaption>
 </figure>
 
