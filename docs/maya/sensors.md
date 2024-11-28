@@ -11,7 +11,7 @@ AdnSensorPosition is the sensor for computing meaningful output values represent
 An AdnSensorPosition will be in charge of feeding, after remapping, activation (or other) values into AdonisFX deformers for driving the simulation and the AdnLocatorPosition for visualisation purposes. The value of the sensor can be used, for example, to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
 <figure markdown>
-  ![AdnSensorPosition velocity display on AdnLocatorPosition within a scene](images/adn_sensor_position.png)
+  ![AdnSensorPosition velocity display on AdnLocatorPosition within a scene](images/sensor_position.png)
   <figcaption><b>Figure 1</b>: AdnSensorPosition used in a human model.</figcaption>
 </figure>
 
@@ -63,7 +63,7 @@ AdnSensorDistance is the sensor for computing meaningful output values represent
 An AdnSensorDistance will be in charge of feeding, after remapping, activation (or other) values into the deformer for driving the simulation and the AdnLocatorDistance for visualisation purposes. The value of the sensor can be used to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
 <figure markdown>
-  ![AdnSensorDistance distance display on AdnLocatorDistance within a scene](images/adn_sensor_distance.png)
+  ![AdnSensorDistance distance display on AdnLocatorDistance within a scene](images/sensor_distance.png)
   <figcaption><b>Figure 2</b>: AdnSensorDistance used in a human model.</figcaption>
 </figure>
 
@@ -117,7 +117,7 @@ AdnSensorRotation is the sensor for computing meaningful output values represent
 An AdnSensorRotation will be in charge of feeding, after remapping, activation (or other) values into the deformer for driving the simulation and the AdnLocatorRotation for visualisation purposes. The value of the sensor can be used to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
 <figure markdown>
-  ![AdnSensorRotation angle display on AdnLocatorRotation within a scene](images/adn_sensor_rotation.png)
+  ![AdnSensorRotation angle display on AdnLocatorRotation within a scene](images/sensor_rotation.png)
   <figcaption><b>Figure 3</b>: AdnSensorRotation used in a human model.</figcaption>
 </figure>
 
@@ -186,7 +186,7 @@ When creating a sensor, a remap node for each output attribute is created. Throu
 Connecting the sensor to the target deformer can be done using the Node Editor in Maya:
 
 <figure markdown>
-  ![AdnSensorDistance connected to the activation of an AdnMuscle](images/adn_sensor_to_deformer_connect.png)
+  ![AdnSensorDistance connected to the activation of an AdnMuscle](images/sensor_to_deformer_connect.png)
   <figcaption><b>Figure 7</b>: AdnSensorDistance connected to the activation of an AdnMuscle.</figcaption>
 </figure>
 

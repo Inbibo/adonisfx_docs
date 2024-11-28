@@ -13,7 +13,7 @@ The activation node can now be used to override, add, subtract, multiply or divi
 For example, multiple distance sensors of a character can be merged together to produce different kinds of activations throughout the simulation.
 
 <figure markdown>
-  ![AdnActivation example](images/adn_activation_create.png)
+  ![AdnActivation example](images/activation_create.png)
   <figcaption><b>Figure 1</b>: Use case in which AdnActivation is created for merging two activations to drive a muscle's activation.</figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ To add new inputs to the AdnActivation node:
 ## Example
 
 <figure markdown>
-  ![AdnActivation example setup](images/adn_activation_example.png)
+  ![AdnActivation example setup](images/activation_example.png)
   <figcaption><b>Figure 1</b>: Closeup use case in which AdnActivation is created for merging two activations to drive a muscle's activation.</figcaption>
 </figure>
 
