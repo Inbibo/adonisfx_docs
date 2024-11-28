@@ -7,7 +7,7 @@ AdonisFX includes several tools that allow for a smoother experience when intera
 The **AdonisFX Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalisation of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
 
 <figure>
-  <img src="images/paint_tool.png" caption="AdonisFX Paint Tool"> 
+  <img src="images/tools_paint_tool.png" caption="AdonisFX Paint Tool"> 
   <figcaption><b>Figure 1</b>: AdonisFX Paint Tool.</figcaption>
 </figure>
 
@@ -164,7 +164,7 @@ The **Exporter** allows the user to export the configuration for a specific defo
 from an already existing setup containing data like weight maps, connections and attribute values.
 
 <figure>
-  <img src="images/export_tool_empty.png" caption="AdonisFX Export Tool Default">
+  <img src="images/tools_export_tool_empty.png" caption="AdonisFX Export Tool Default">
   <figcaption><b>Figure 9</b>: AdonisFX Export Tool Default State.</figcaption>
 </figure>
 
@@ -178,7 +178,7 @@ To open the tool press the ![Import Tool](images/adn_exporter.png){style="width:
 The AAD file that has been exported can then be imported in a scene with similar characteristics.
 
 <figure>
-  <img src="images/export_tool_full.png" caption="AdonisFX Export Tool Active State">
+  <img src="images/tools_export_tool_full.png" caption="AdonisFX Export Tool Active State">
   <figcaption><b>Figure 10</b>: AdonisFX Export Tool Active State.</figcaption>
 </figure>
 
