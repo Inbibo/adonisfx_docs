@@ -57,8 +57,8 @@ The process to create an AdnSkin deformer is:
 #### Initialization Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Shape Preservation At Start Time**    | Boolean | True | ✗ | Flag that forces the shape preservation constraints to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
-| **Uber At Start Time** | Boolean | True | ✗ | Flag that forces the uber constraints (hard, soft and slide) to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
+| **Shape Preservation At Start Time** | Boolean | True | ✗ | Flag that forces the shape preservation constraints to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
+| **Uber At Start Time**               | Boolean | True | ✗ | Flag that forces the uber constraints (hard, soft and slide) to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
 
 #### Stiffness Settings
 | Name | Type | Default | Animatable | Description |
