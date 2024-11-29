@@ -490,7 +490,7 @@ After the node creation, input muscles can be added or removed from the existing
 
 <figure>
   <img src="images/simple_setup_glue_01.png"> 
-  <figcaption><b>Figure 46</b>: Removing muscles on the AdnGlue node.</figcaption>
+  <figcaption><b>Figure 46</b>: Removing muscles from the AdnGlue node.</figcaption>
 </figure>
 
 The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the glue constraints to take effect, this value must be adjusted. We recommend enabling the debugger and selecting the *Glue Constraints* option to inspect the connections created based on the specified *Max Glue Distance*.

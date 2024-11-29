@@ -79,7 +79,7 @@ In this case you can adjust the simulation for this scaling factor by applying t
  How can I transfer the results of skin simulation to the final mesh?
 Make use of the [AdnSkinMerge](maya/skin_merge) deformer to blend animated and simulated meshes into a single final mesh. Launch the Skin Merge tool, select the final mesh, add the animated and simulated target meshes and click on Create. Then you only need to paint the blend weight to define the influence of the simulated mesh targets over the animated ones. You can find more information [here](maya/simple_setup#adnskinmerge).
 
-## Setup
+## Workflows
 
 ### Can I transfer AdonisFX node configuration to a different asset?
 
