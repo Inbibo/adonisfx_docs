@@ -1,6 +1,6 @@
 # Index
 
-- [UI Overview test](ui_overview)
+- [UI Overview](ui_overview)
 - [A Simple Setup](simple_setup)
 - Deformers </br>
     - [AdnMuscle](muscle) </br>
