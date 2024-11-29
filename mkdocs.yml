@@ -100,9 +100,9 @@ nav:
   - Release Notes: release_notes.md
   - Documentation:
     - Maya:
-      - maya/index.md
-      - UI Overview         : maya/ui_overview.md
-      - A Simple Setup      : maya/simple_setup.md
+      - Index                 : maya/index.md
+      - UI Overview           : maya/ui_overview.md
+      - A Simple Setup        : maya/simple_setup.md
       - Deformers:
         - AdnMuscle           : maya/deformers/muscle.md
         - AdnRibbonMuscle     : maya/deformers/ribbon.md
@@ -116,4 +116,4 @@ nav:
         - AdnActivation       : maya/nodes/activation.md
         - AdnEdgeEvaluator    : maya/nodes/edge_evaluator.md
         - AdnGlue             : maya/nodes/glue.md
-      - Tools               : maya/tools.md
+      - Tools                 : maya/tools.md
