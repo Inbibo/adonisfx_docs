@@ -109,7 +109,6 @@ nav:
       - AdnSkin             : maya/skin.md
       - AdnSkinMerge        : maya/skin_merge.md
       - AdnSimshape         : maya/simshape.md
-      - Nodes:
       - Locators            : maya/locators.md
       - Sensors             : maya/sensors.md
       - AdnActivation       : maya/activation.md
