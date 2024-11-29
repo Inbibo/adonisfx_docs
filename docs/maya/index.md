@@ -14,5 +14,5 @@
     - [Sensors](maya/nodes/sensors.md) </br>
     - [AdnActivation](maya/nodes/activation.md) </br>
     - [AdnEdgeEvaluator](maya/nodes/edge_evaluator.md) </br>
-    - [AdnGlue](maya/nodes/glue) </br>
+    - [AdnGlue](maya/nodes/glue.md) </br>
 - [Tools](tools.md)

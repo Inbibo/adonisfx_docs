@@ -2,7 +2,7 @@
 
 ## How can I simulate muscles?
 
-AdonisFX provides two solvers for muscle simulation. The use of one or the other depends on the necessity of simulating volume preservation. In Maya, muscles with volume preservation can be simulated with [AdnMuscle](maya/muscle) deformer, while [AdnRibbonMuscle](maya/ribbon) is for planar muscles. For more information about a simple setup, please check their respective sections in this [page](maya/simple_setup).
+AdonisFX provides two solvers for muscle simulation. The use of one or the other depends on the necessity of simulating volume preservation. In Maya, muscles with volume preservation can be simulated with [AdnMuscle](maya/deformers/muscle) deformer, while [AdnRibbonMuscle](maya/deformers/ribbon) is for planar muscles. For more information about a simple setup, please check their respective sections in this [page](maya/simple_setup).
 
 ## How can I add activation to the muscles?
 
