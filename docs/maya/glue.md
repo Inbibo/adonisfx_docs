@@ -1,26 +1,31 @@
 # AdnGlue
 
-AdnGlue is a Maya node that can be used to attach multiple muscles together. This solver uses as input a series of simulated muscles and allows the user to define glue connections between those muscles by using a maximum distance value and painted maps.
+AdnGlue is a Maya node that can be used to attach multiple muscles together. This solver uses as input a series of simulated muscles and allows the user to define glue connections between those muscles by using a maximum glue distance value and painted maps.
 
 The maps required to control the AdnGlue solver can be painted using the standard Maya Paint tool.
 
 ### How To Use
 
-The AdnGlue node can be applied to any set of geometries. For each geometry, their mesh at each frame is gathered and simulated to ensure the original distance between the neighboring geometries. This is achieved by creating attachments between each vertex of a geometry and the closest point on the surface of the other geometries. More aspects are then computed to ensure that the simulated output preserves the original shape, edge-lengths and volume of the simulated meshes. The output of the node is a mesh that combines all the input geometries together and adds the results of the solver.
+The AdnGlue node can be applied to any set of geometries. For each geometry, their mesh at each frame is gathered and simulated to ensure the original distance between the neighboring geometries. This is achieved by creating attachments between each vertex of a geometry and the closest point on the surface of the other geometries. More aspects are then computed to ensure that the simulated output preserves the original shape and edge-lengths of the simulated meshes. The output of the node is a mesh that combines all the input geometries together and adds the results of the solver.
 
-To create an AdnSkin deformer within a Maya scene, the following inputs must be provided:
+To create an AdnGlue node within a Maya scene, the following inputs must be provided:
 
   - **Input Geometries** (IG): List of geometries to be simulated and attached together by the glue solver.
 
 > [!NOTE]
 > - Applying the AdnGlue node will automatically create a new mesh in your scene, which will display the results of the solver.
+> - The naming of the new mesh created follows the format "AdnGlue1_GEO".
 
 
-The process to create an AdnGlue deformer is:
+The process to create an AdnGlue node is:
 
 1. Select the Input Geometries.
 2. Press ![Glue button](images/adn_glue.png){style="width:4%"} in the AdonisFX shelf or the Glue action in the AdonisFX’s Solvers menu, under the Create section. 
 3. A message in the terminal will notify you that AdnGlue has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customize their configuration.
+
+> [!NOTE]
+> - By default, no glue connections are created, resulting in the output geometry being identical to the input meshes combined.
+> - Check the description of *Max Glue Distance* attribute and also the paintable maps to control the amount of glue connections to create and the areas where they have to be created.
 
 ## Attributes
 
@@ -30,7 +35,7 @@ The process to create an AdnGlue deformer is:
 | **Enable**     | Boolean    | True    | ✓ | Flag to enable or disable the node computation. |
 | **Iterations** | Integer    | 3       | ✓ | Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
 | **Stiffness**  | Float      | 5000.0  | ✓ | Defines the overall stiffness of the material to be used for the simulation. This value can be later overridden for each different aspect of the solver to fit creative needs. |
-| **Bypass**     | Boolean    | False   | ✓ | When set to True, this attribute makes the input geometry pass through the solver without any simulation being applied. This is very useful if you want to compare results between having and not having the glue simulation performed. |
+| **Bypass**     | Boolean    | False   | ✓ | When set to True, this attribute makes the input geometry pass through the solver without any simulation being applied. The solver does only transfer the input geometries into the output combined mesh. This is very useful if you want to compare results between having and not having the glue simulation performed. |
 
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
@@ -42,7 +47,7 @@ The process to create an AdnGlue deformer is:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of [0.0, 2.0]. The upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 
 ### Advanced Settings
 
@@ -68,8 +73,8 @@ The process to create an AdnGlue deformer is:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Triangulate Mesh**      | Boolean  | False | ✗ | Use the internally triangulated mesh to build constraints. |
-| **Glue Multiplier**       | Float    | 1.0   | ✓ | Sets the multiplier factor for the weights of the glue constraint. Has a range of [0.0, 1.0]. |
-| **Max Glue Distance**     | Float    | 1.0   | ✓ | Sets maximum distance at which a vertex has to be from neighbor surfaces to create a glue constraint. Depending on the scale of your creature, higher values might be required to guarantee dense glue connections to be created. Use the debugger to help you define the value that fits your creature the best. |
+| **Glue Multiplier**       | Float    | 1.0   | ✓ | Sets the multiplier factor for the weights of the glue constraint. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Max Glue Distance**     | Float    | 0.0   | ✓ | Sets maximum distance at which a vertex has to be from neighbor surfaces to create a glue constraint. Depending on the scale of your creature, higher values might be required to guarantee dense glue connections to be created. Use the debugger to help you define the value that fits your creature the best. |
 | **Compression Multiplier** | Float   | 1.0   | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Stretching Multiplier** | Float    | 1.0   | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 
@@ -99,12 +104,12 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
-| **Compression Resistance**      | 1.0 | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on.</li><li>*Tip*: Reducing the value of the weight in some areas will contribute to reduce wrinkling effect.</li></ul> |
-| **Glue Resistance**      | 1.0 | Force to preserve the distance to the closest point on the closest neighbor surface. A higher value represents higher correction.<ul><li>*Tip*: Paint a value of 0.0 in those areas where the gluing effect is not needed and it will increase the performance.</li></ul> |
-| **Masses**                      | 1.0 | Multiplier to the individual mass values per vertex. |
+| **Compression Resistance**       | 1.0 | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on.</li><li>*Tip*: Reducing the value of the weight in some areas will contribute to reduce wrinkling effect.</li></ul> |
+| **Glue Resistance**              | 1.0 | Force to preserve the distance to the closest point on the closest neighbor surface. A higher value represents higher correction.<ul><li>*Tip*: Paint a value of 0.0 in those areas where the gluing effect is not needed and it will increase the performance.</li></ul> |
+| **Masses**                       | 1.0 | Multiplier to the individual mass values per vertex. |
 | **Max Glue Distance Multiplier** | 1.0 | Multiplier to the individual values of the max glue distance per vertex. |
-| **Shape Preservation**          | 0.0 | Amount of correction to apply to a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
-| **Stretching Resistance**       | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
+| **Shape Preservation**           | 0.0 | Amount of correction to apply to a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
+| **Stretching Resistance**        | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
 
 <!--
 PENDING FIGURE WITH PAINTED WEIGHTS
@@ -139,6 +144,10 @@ Once the AdnGlue node is created, it is possible to add new inputs and remove cu
     2. Select the AdnGlue output mesh.
     3. Press *Remove Inputs* in the AdonisFX menu from the Edit Glue submenu.
     4. Alternatively, if only the AdnGlue output mesh is selected, when pressing the *Remove Inputs* button, all inputs will be removed.
+
+> [!NOTE]
+> Adding and removing inputs will automatically update the painted maps.
+> Undoing the removal of inputs does not restore the previously painted values for the restored inputs. The painted values are set to the default value.
 
 <!--
 PENDING FIGURE ADD INPUTS
