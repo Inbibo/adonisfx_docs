@@ -12,7 +12,7 @@ In order to add activation to the muscles it is necessary to define the fibers d
 
 ### How can I combine multiple activation values?
 
-Multiple activation values from different AdonisFX sensors (AdnSensorPosition, AdnSensorDistance, AdnSensorRotation) can be combined into a single value using the **AdnActivation** node. This node allows overriding, adding, subtracting, multiplying and dividing multiple input activations to compute a single output value. For more details about the **AdnActivation** node, please refer to the [AdnActivation](maya/activation.md) page.
+Multiple activation values from different AdonisFX sensors (AdnSensorPosition, AdnSensorDistance, AdnSensorRotation) can be combined into a single value using the **AdnActivation** node. This node allows overriding, adding, subtracting, multiplying and dividing multiple input activations to compute a single output value. For more details about the **AdnActivation** node, please refer to the [AdnActivation](maya/nodes/activation) page.
 
 ### How can I add volume gain to the muscles?
 
@@ -22,21 +22,21 @@ The *Volume Ratio* attribute of an AdnMuscle allows to simulate volume gain (vol
 
 AdonisFX provides two ways of simulating muscle-to-muscle interactions:
 
-- Using the AdnMuscle deformer. The AdnMuscle deformer allows configuring geometry targets to simulate external constraints (e.g. attachment to geometry and slide on geometry constraints). A simulated muscle can be assigned as a target to another simulated muscle in the same way as any other geometry target would be added (e.g. bones). Detailed instructions for adding and removing targets can be found in this [section](maya/muscle.md#advanced).
+- Using the AdnMuscle deformer. The AdnMuscle deformer allows configuring geometry targets to simulate external constraints (e.g. attachment to geometry and slide on geometry constraints). A simulated muscle can be assigned as a target to another simulated muscle in the same way as any other geometry target would be added (e.g. bones). Detailed instructions for adding and removing targets can be found in this [section](maya/deformers/muscle#advanced).
 
-- Using the AdnGlue node. A set of muscles already simulated with AdnMuscle deformers can be further processed using the [AdnGlue](maya/glue) node. This node glues the muscles together, making them behave more compact and reducing large gaps thanks to the glue constraints. For more information on how to configure a simple setup, refer to this [section](maya/simple_setup#adnglue).
+- Using the AdnGlue node. A set of muscles already simulated with AdnMuscle deformers can be further processed using the [AdnGlue](maya/nodes/glue) node. This node glues the muscles together, making them behave more compact and reducing large gaps thanks to the glue constraints. For more information on how to configure a simple setup, refer to this [section](maya/simple_setup#adnglue).
 
 ### How can I simulate skin?
 
-Skin can be simulated using the [AdnSkin](maya/skin) deformer. This deformer requires one or more target meshes (i.e. the fat) to drive the skin simulation and a mesh to apply the deformer to (skin mesh). A simple setup is explained [here](maya/simple_setup#adnskin).
+Skin can be simulated using the [AdnSkin](maya/deformers/skin) deformer. This deformer requires one or more target meshes (i.e. the fat) to drive the skin simulation and a mesh to apply the deformer to (skin mesh). A simple setup is explained [here](maya/simple_setup#adnskin).
 
 ### How can I simulate fascia?
 
-Similarly to a skin simulation setup, the fascia can be simulated using [AdnSkin](maya/skin) deformer as well. In this case, it is recommended to use values of *Rest Length Multiplier* lower than 1. This deformer also requires one mesh (a single target, i.e. the muscle geometries combined) or multiple meshes (multiple targets, i.e. the muscle geometries separated) to drive the simulation and a mesh to apply the deformer to (fascia geometry).
+Similarly to a skin simulation setup, the fascia can be simulated using [AdnSkin](maya/deformers/skin) deformer as well. In this case, it is recommended to use values of *Rest Length Multiplier* lower than 1. This deformer also requires one mesh (a single target, i.e. the muscle geometries combined) or multiple meshes (multiple targets, i.e. the muscle geometries separated) to drive the simulation and a mesh to apply the deformer to (fascia geometry).
 
 ### How can I simulate fat?
 
-Fat can be simulated using the [AdnFat](maya/fat) deformer. This deformer requires one base mesh (i.e. the fascia) to drive the fat simulation and a mesh to apply the deformer to (fat mesh). Both meshes must have the same vertex count and triangulation. A simple setup is explained [here](maya/simple_setup#adnfat).
+Fat can be simulated using the [AdnFat](maya/deformers/fat) deformer. This deformer requires one base mesh (i.e. the fascia) to drive the fat simulation and a mesh to apply the deformer to (fat mesh). Both meshes must have the same vertex count and triangulation. A simple setup is explained [here](maya/simple_setup#adnfat).
 
 ### Can I simulate muscles, fascia, fat and skin all coupled?
 
@@ -50,24 +50,24 @@ Yes, you can simulate muscles, fascia, fat and skin following these steps:
 
 ### How can I simulate facial skin?
 
-You can use [AdnSimshape](maya/simshape) deformer. This deformer allows to reproduce the elasticity and the change in stiffness of a facial geometry thanks to the features of the AdnSimshape solver. Please, check this [section](maya/simple_setup#adnsimshape) where a simple setup is explained or this [page](maya/simshape) to know more about this solver.
+You can use [AdnSimshape](maya/deformers/simshape) deformer. This deformer allows to reproduce the elasticity and the change in stiffness of a facial geometry thanks to the features of the AdnSimshape solver. Please, check this [section](maya/simple_setup#adnsimshape) where a simple setup is explained or this [page](maya/deformers/simshape) to know more about this solver.
 
 ### How can I add muscle activations to facial simulation?
 
 The AdnSimshape deformer allows to add muscle activation in two ways:
 
  - Providing a deform mesh together with an AdonisFX Muscle Patches file previously generated using the Learn Muscle Patches tool.
- - Plugging the activation values directly into the *ActivationList.Activation* attribute. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator node (visit this [page](maya/edge_evaluator)).
+ - Plugging the activation values directly into the *ActivationList.Activation* attribute. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator node (visit this [page](maya/nodes/edge_evaluator)).
 
 More details can be found [here](maya/simple_setup#add-muscle-activations).
 
 ### How can I use Machine Learning to add muscle activations to AdnSimshape?
 
-To add muscle activation via Machine Learning, the Learn Muscle Patches tool has to be used to generate the AdonisFX Muscle Patches file. The requirements for this tool are a neutral mesh (facial geometry at rest) and a set of target meshes with deformation representing all facial expressions to drive the learning. Follow this [link](maya/simshape#generate-muscle-patches) to know more.
+To add muscle activation via Machine Learning, the Learn Muscle Patches tool has to be used to generate the AdonisFX Muscle Patches file. The requirements for this tool are a neutral mesh (facial geometry at rest) and a set of target meshes with deformation representing all facial expressions to drive the learning. Follow this [link](maya/deformers/simshape#generate-muscle-patches) to know more.
 
 ### Can I add muscle activations to AdnSimshape without an AdonisFX Muscle Patches file?
 
-AdnSimshape allows to add muscle activation alternatively without the need for the AdonisFX Muscle Patches file. To do this, the activation values must be plugged directly into the *ActivationList.Activation* attribute. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator tool. Read how to drive the activations of AdnSimshape using AdnEdgeEvaluator [here](maya/edge_evaluator#how-to-use).
+AdnSimshape allows to add muscle activation alternatively without the need for the AdonisFX Muscle Patches file. To do this, the activation values must be plugged directly into the *ActivationList.Activation* attribute. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator tool. Read how to drive the activations of AdnSimshape using AdnEdgeEvaluator [here](maya/nodes/edge_evaluator#how-to-use).
 
 ### For what units is AdonisFX designed?
 
@@ -77,7 +77,7 @@ It is typical in Maya to model creatures 10 times smaller in order to avoid prec
 In this case you can adjust the simulation for this scaling factor by applying the AdonisFX Space Scale attribute to 10. This will ensure that AdonisFX will scale everything internally so that the simulation of the 17 units creature will look like if it was actually 170 units tall.
 
  How can I transfer the results of skin simulation to the final mesh?
-Make use of the [AdnSkinMerge](maya/skin_merge) deformer to blend animated and simulated meshes into a single final mesh. Launch the Skin Merge tool, select the final mesh, add the animated and simulated target meshes and click on Create. Then you only need to paint the blend weight to define the influence of the simulated mesh targets over the animated ones. You can find more information [here](maya/simple_setup#adnskinmerge).
+Make use of the [AdnSkinMerge](maya/deformers/skin_merge) deformer to blend animated and simulated meshes into a single final mesh. Launch the Skin Merge tool, select the final mesh, add the animated and simulated target meshes and click on Create. Then you only need to paint the blend weight to define the influence of the simulated mesh targets over the animated ones. You can find more information [here](maya/simple_setup#adnskinmerge).
 
 ## Workflows
 
