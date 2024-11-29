@@ -112,7 +112,7 @@ nav:
         - AdnSimshape         : maya/deformers/simshape.md
       - Nodes:
         - Locators            : maya/nodes/locators.md
-        - Sensors             : maya/nodes/deformers/sensors.md
+        - Sensors             : maya/nodes/sensors.md
         - AdnActivation       : maya/nodes/activation.md
         - AdnEdgeEvaluator    : maya/nodes/edge_evaluator.md
         - AdnGlue             : maya/nodes/glue.md
