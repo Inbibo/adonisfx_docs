@@ -137,17 +137,17 @@ Follow this steps to create an AndRibbonMuscle deformer:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![AdnRibbonMuscle editor first part](images/attribute_editor_part_one_ribbon.png) 
+  ![AdnRibbonMuscle editor first part](images/ribbon_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnRibbonMuscle Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnRibbonMuscle editor second part](images/attribute_editor_part_two_ribbon.png)
+  ![AdnRibbonMuscle editor second part](images/ribbon_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnRibbonMuscle Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnRibbonMuscle editor debug menu](images/attribute_editor_muscle_debug.png)
+  ![AdnRibbonMuscle editor debug menu](images/muscle_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnRibbonMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 

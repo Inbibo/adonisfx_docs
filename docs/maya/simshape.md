@@ -181,17 +181,17 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![simshape editor first part](images/attribute_editor_part_one_simshape.png) 
+  ![simshape editor first part](images/simshape_attribute_editor_00.png) 
   <figcaption><b>Figure 2</b>: AdnSimshape Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![simshape editor second part](images/attribute_editor_part_two_simshape.png)
+  ![simshape editor second part](images/simshape_attribute_editor_01.png)
   <figcaption><b>Figure 3</b>: AdnSimshape Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor debug menu](images/attribute_editor_simshape_debug.png)
+  ![skin editor debug menu](images/simshape_attribute_editor_debug.png)
   <figcaption><b>Figure 4</b>: AdnSimshape Attribute Editor (Debug menu).</figcaption>
 </figure>
 
@@ -250,7 +250,7 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 AdnSimshape can emulate the behavior of facial muscles by computing the muscle activation directly on the vertices of the skin geometry. The activation of the vertices is an advanced and optional feature that can work in two modes: from **muscle patches data** or from **plug values**.
 
 <figure markdown>
-  ![Activation modes from attribute editor](images/activation_modes.png)
+  ![Activation modes from attribute editor](images/simshape_activation_modes.png)
   <figcaption><b>Figure 9</b>: Activation Modes switch exposed in the Attribute Editor.</figcaption>
 </figure>
 
@@ -314,7 +314,7 @@ Additional custom settings for the learning algorithm:
 AdnSimshape integrates a debug mode to visualize the activations during the simulation. If this mode is enabled, then AdnSimshape will display a map of vertex colors from black to red on the simulation mesh where the black color is mapped to no activation and the red color is mapped to maximum activation.
 
 <figure style="width: 50%" markdown>
-  ![Learn Muscle Patches UI window](images/nassim_debug.png)
+  ![Learn Muscle Patches UI window](images/simshape_nassim_debug.png)
   <figcaption><b>Figure 12</b>: Example of AdnSimshape running in Debug mode.</figcaption>
 </figure>
 
