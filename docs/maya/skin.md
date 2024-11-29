@@ -133,17 +133,17 @@ The process to create an AdnSkin deformer is:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![skin editor first part](images/attribute_editor_part_one_skin.png) 
+  ![skin editor first part](images/skin_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnSkin Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor second part](images/attribute_editor_part_two_skin.png)
+  ![skin editor second part](images/skin_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnSkin Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor debug menu](images/attribute_editor_skin_debug.png)
+  ![skin editor debug menu](images/skin_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnSkin Attribute Editor (Debug menu).</figcaption>
 </figure>
 

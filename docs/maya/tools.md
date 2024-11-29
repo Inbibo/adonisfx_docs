@@ -7,7 +7,7 @@ AdonisFX includes several tools that allow for a smoother experience when intera
 The **AdonisFX Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalization of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
 
 <figure>
-  <img src="images/paint_tool.png" caption="AdonisFX Paint Tool"> 
+  <img src="images/tools_paint_tool.png" caption="AdonisFX Paint Tool"> 
   <figcaption><b>Figure 1</b>: AdonisFX Paint Tool.</figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ Depending on the deformer and the attribute selected the UI can adjust to suppor
 In the specific case of muscle deformers, the tool will display the following attributes:
 
 <figure markdown>
-  ![Pain Tool Skin Attributes example](images/paint_tool_ribbon_attributes.png) 
+  ![Pain Tool Muscle Attributes example](images/tools_paint_tool_ribbon_attributes.png) 
   <figcaption><b>Figure 3</b>: Paintable attributes in AdonisFX muscle deformer. </figcaption>
 </figure>
 
@@ -52,7 +52,7 @@ In the specific case of muscle deformers, the tool will display the following at
     - If any target is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
 
     <figure>
-      <img src="images/paint_tool_attachment_attribute.png"> 
+      <img src="images/tools_paint_tool_attachment_attribute.png"> 
       <figcaption><b>Figure 4</b>: AdonisFX Paint Tool listing multiple transform attachments.</figcaption>
     </figure>
 
@@ -86,7 +86,7 @@ In the specific case of muscle deformers, the tool will display the following at
     - If more than one segment was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the addition of all slide on segment constraint weights in a vertex will always add up to a maximum value of 1.0.
 
     <figure>
-      <img src="images/paint_tool_sos_attribute.png"> 
+      <img src="images/tools_paint_tool_sos_attribute.png"> 
       <figcaption><b>Figure 5</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
     </figure>
 
@@ -102,7 +102,7 @@ In the specific case of muscle deformers, the tool will display the following at
 In the specific case of an AdnSkin deformer, the tool will display the following attributes:
 
 <figure markdown> 
-  ![Pain Tool Skin Attributes example](images/paint_tool_skin_attributes.png) 
+  ![Paint Tool Skin Attributes example](images/tools_paint_tool_skin_attributes.png) 
   <figcaption><b>Figure 6</b>: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
 </figure>
 
@@ -134,7 +134,7 @@ In the specific case of an AdnSkin deformer, the tool will display the following
 The **Importer** allows the user to import the configuration for a specific deformer from a previously exported AAD file. It allows the user to easily configure a deformer from an already known setup which includes data like weight maps, connections and attribute values.
 
 <figure>
-  <img src="images/import_tool_empty.png" caption="AdonisFX Import Tool">
+  <img src="images/tools_import_tool_empty.png" caption="AdonisFX Import Tool">
   <figcaption><b>Figure 7</b>: AdonisFX Import Tool UI.</figcaption>
 </figure>
 
@@ -151,7 +151,7 @@ To open the importer tool press the ![Import Tool](images/adn_importer.png){styl
 After following the previous steps the tool will inform about the status of the import: if failed, only partial data could be imported or all data could be imported.
 
 <figure>
-  <img src="images/import_tool_full.png" caption="AdonisFX Import Tool Active">
+  <img src="images/tools_import_tool_full.png" caption="AdonisFX Import Tool Active">
   <figcaption><b>Figure 8</b>: AdonisFX Import Tool Active State.</figcaption>
 </figure>
 
@@ -164,7 +164,7 @@ The **Exporter** allows the user to export the configuration for a specific defo
 from an already existing setup containing data like weight maps, connections and attribute values.
 
 <figure>
-  <img src="images/export_tool_empty.png" caption="AdonisFX Export Tool Default">
+  <img src="images/tools_export_tool_empty.png" caption="AdonisFX Export Tool Default">
   <figcaption><b>Figure 9</b>: AdonisFX Export Tool Default State.</figcaption>
 </figure>
 
@@ -178,7 +178,7 @@ To open the tool press the ![Import Tool](images/adn_exporter.png){style="width:
 The AAD file that has been exported can then be imported in a scene with similar characteristics.
 
 <figure>
-  <img src="images/export_tool_full.png" caption="AdonisFX Export Tool Active State">
+  <img src="images/tools_export_tool_full.png" caption="AdonisFX Export Tool Active State">
   <figcaption><b>Figure 10</b>: AdonisFX Export Tool Active State.</figcaption>
 </figure>
 
@@ -192,7 +192,7 @@ To ease with the connection of sensors to deformers AdonisFX provides the **Sens
 To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *Connection Editor*.
 
 <figure markdown> 
-  ![Connection Editor](images/sensor_conection_editor_empty.png) 
+  ![Connection Editor](images/tools_sensors_connection_editor_empty.png) 
   <figcaption><b>Figure 11</b>: Sensor connection editor after opening it for the first time. </figcaption>
 </figure>
 
@@ -203,7 +203,7 @@ To retrieve these objects and display them in the tool, select the desired eleme
 For Source elements (sensors) press the *Reload Left* button and for Destination elements (deformers) press the *Reload Right* button.
 
 <figure markdown> 
-  ![Connection Editor Setup](images/sensor_conection_editor.png) 
+  ![Connection Editor Setup](images/tools_sensors_connection_editor.png) 
   <figcaption><b>Figure 12</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
 </figure>
 
