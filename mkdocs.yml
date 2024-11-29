@@ -103,17 +103,16 @@ nav:
       - maya/index.md
       - UI Overview         : maya/ui_overview.md
       - A Simple Setup      : maya/simple_setup.md
-      - Deformers:
-        - AdnMuscle           : maya/muscle.md
-        - AdnRibbonMuscle     : maya/ribbon.md
-        - AdnFat              : maya/fat.md
-        - AdnSkin             : maya/skin.md
-        - AdnSkinMerge        : maya/skin_merge.md
-        - AdnSimshape         : maya/simshape.md
+      - AdnMuscle           : maya/muscle.md
+      - AdnRibbonMuscle     : maya/ribbon.md
+      - AdnFat              : maya/fat.md
+      - AdnSkin             : maya/skin.md
+      - AdnSkinMerge        : maya/skin_merge.md
+      - AdnSimshape         : maya/simshape.md
       - Nodes:
-        - Locators            : maya/locators.md
-        - Sensors             : maya/sensors.md
-        - AdnActivation       : maya/activation.md
-        - AdnEdgeEvaluator    : maya/edge_evaluator.md
-        - AdnGlue             : maya/glue.md
+      - Locators            : maya/locators.md
+      - Sensors             : maya/sensors.md
+      - AdnActivation       : maya/activation.md
+      - AdnEdgeEvaluator    : maya/edge_evaluator.md
+      - AdnGlue             : maya/glue.md
       - Tools               : maya/tools.md
