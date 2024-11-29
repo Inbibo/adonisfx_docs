@@ -97,7 +97,7 @@ After basic configuration, to alter the dynamics of the fat layer (e.g. adding o
 ### Paint Weights
 
 > [!NOTE]
-> AdnFat requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the painted weights setup.
+> AdnFat requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
 
 With the default paint setup provided when creating a new AdnFat, the simulation should already create plausible results. However, below we walk you through the three main maps that can be altered to modify the behavior of the fat simulation.
 
@@ -380,7 +380,7 @@ To add the deformation mesh to the deformer first select the deformation mesh, t
 ### Paint Weights
 
 > [!NOTE]
-> AdnSimshape requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the painted weights setup.
+> AdnSimshape requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
 
 In the case of the AdnSimshape, use the Maya Paint tool to set up and paint its paintable weight attributes. The most important paintable map is the *Attraction Force* as this is the value that dictates how much of each simulated vertex should follow the animation. This value is flooded by default to 1.0, meaning that by default the simulated mesh will follow the animation completely, without displaying dynamics.
 
@@ -454,7 +454,7 @@ When everything has been properly set up, press the *Create* button to create th
 ### Paint Weights
 
 > [!NOTE]
-> AdnSkinMerge requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the painted weights setup.
+> AdnSkinMerge requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
 
 Once the AdnSkinMerge deformer is created the weights can be painted to blend the animation and simulation meshes into the final mesh.
 
@@ -477,25 +477,35 @@ To make the simulated muscles behave more compact and avoid large gaps between t
 
 The AdnGlue node will take all the simulated muscles provided as inputs and generate one combined output mesh with glue constraints applied.
 
+<!-- PENDING screenshot showing all the muscles that will be ingested to the AdnGlue node -->
+
 ### Create Node
 
 To create the AdnGlue node, select the simulated muscles and press the ![AdnGlue](images/adn_glue.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Solvers* > *Glue*. This will connect the selected muscles to the inputs plug of the AdnGlue node and create a combined output mesh as the result of the simulation.
 
 After the node creation, input muscles can be added or removed from the existing AdnGlue by pressing AdonisFX > Glue > *Add Inputs* or AdonisFX > Glue > *Remove Inputs* respectively.
 
+The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the glue constraints to take effect, this value must be adjusted. We recommend enabling the debugger and selecting the *Glue Constraints* option to inspect the connections created based on the specified *Max Glue Distance*.
+
+<!-- PENDING screenshot showing the glue connections with a specific max glue distance -->
+
 ### Paint Weights
 
 > [!NOTE]
-> AdnGlue requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the painted weights setup.
+> AdnGlue requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
 
-Once the AdnGlue node is properly created, you can use Maya Paint Tool to paint its weights and correctly set up the node properties. With the default paint settings provided when creating a new AdnGlue, only distance constraints will be applied, so the output mesh will look the same as the input meshes.
+Once the AdnGlue node is properly created, you can use Maya Paint Tool to paint its weights and correctly set up the node properties. With the *Max Glue Distance* previously adjusted, the default values of the paintable maps already allow the node to compute the glue constraints.
 
 The most important maps are *Glue Resistance*, *Max Glue Distance Multiplier*, and *Shape Preservation*. The first two are flooded with a value of 1.0 by default, while the last one is flooded with 0.0.
 
-The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the glue constraints to take effect, this value must be adjusted. We recommend enabling the debugger and selecting the glue constraints to inspect the connections created based on the specified *Max Glue Distance*.
+Since the *Max Glue Distance* is initially the same for all muscles, you may want to adjust it for specific areas. This can be done by painting the *Max Glue Distance Multiplier* map. You can paint this map with a value of 0.0 in areas where you do not want the glue constraint to apply. This prevents the creation of the constraint in those areas and can improve the simulation performance.
 
-Since the *Max Glue Distance* is initially the same for all muscles, you may want to adjust it for specific areas. This can be done by painting the *Max Glue Distance Multiplier* map. You can paint this map with a value of 0.0 in areas where you do not want the glue constraint to apply. This prevents the creation of the constraint in those areas and improves the simulation performance.
+<!-- PENDING screenshot of the max glue distance multiplier map -->
 
-The *Glue Resistance* map modulates the strength of the glue constraint. To reduce the effect of the constraint in specific areas, lower the values in this map accordingly.
+The *Glue Resistance* map modulates the strength of the glue constraint. To reduce the effect of the constraint in specific areas, lower the values in this map accordingly. Glue constraints won't be computed for vertices with a weight value of 0.0.
 
-Finally, shape preservation constraints help maintain the original shape of the muscles. Increase the values of the *Shape Preservation* map for muscles whose shape has been altered during the simulation.
+<!-- PENDING screenshot of the glue resistance map -->
+
+Finally, shape preservation constraints help to maintain the original shape of the muscles. These constraints are useful if the gluing produces undesired shape on the output mesh. If that is not the case, then this map can stay unmodified (0.0) which will make the solver run faster. If shape preservation is required, then increase the values on those areas where the shape has been altered during the simulation.
+
+<!-- PENDING screenshot of the shape preservation map -->
