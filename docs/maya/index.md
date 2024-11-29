@@ -1,18 +1,18 @@
 # Index
 
 - [UI Overview](ui_overview.md)
-- [A Simple Setup](simple_setup)
+- [A Simple Setup](simple_setup.md)
 - Deformers </br>
-    - [AdnMuscle](muscle) </br>
-    - [AdnRibbonMuscle](ribbon) </br>
-    - [AdnFat](fat) </br>
-    - [AdnSkin](skin) </br>
-    - [AdnSkinMerge](skin_merge) </br>
-    - [AdnSimshape](simshape) </br>
+    - [AdnMuscle](maya/deformers/muscle.md) </br>
+    - [AdnRibbonMuscle](maya/deformers/ribbon.md) </br>
+    - [AdnFat](maya/deformers/fat.md) </br>
+    - [AdnSkin](maya/deformers/skin.md) </br>
+    - [AdnSkinMerge](maya/deformers/skin_merge.md) </br>
+    - [AdnSimshape](maya/deformers/simshape.md) </br>
 - Nodes </br>
-    - [Locators](locators) </br>
-    - [Sensors](sensors) </br>
-    - [AdnActivation](activation) </br>
-    - [AdnEdgeEvaluator](edge_evaluator) </br>
-    - [AdnGlue](glue) </br>
-- [Tools](tools)
+    - [Locators](maya/nodes/locators.md) </br>
+    - [Sensors](maya/nodes/sensors.md) </br>
+    - [AdnActivation](maya/nodes/activation.md) </br>
+    - [AdnEdgeEvaluator](maya/nodes/edge_evaluator.md) </br>
+    - [AdnGlue](maya/nodes/glue) </br>
+- [Tools](tools.md)
