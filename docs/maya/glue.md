@@ -112,6 +112,11 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
 | **Shape Preservation**           | 0.0 | Amount of correction to apply to a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
 | **Stretching Resistance**        | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
 
+<figure markdown>
+  ![AdnGlue weights](images/glue_weights.png)
+  <figcaption><b>Figure 2</b>: Example of painted weights on the glue layer, labeled as: <b>a)</b> Glue Resistance, <b>b)</b> Max Glue Distance Multiplier and <b>c)</b> Shape Preservation (Optional painting). All other weights maps are flooded to 1.0.</figcaption>
+</figure>
+
 ## Debugger
 
 In order to better visualize node constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled *Debug* in the Attribute Editor.
@@ -122,9 +127,10 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Glue Constraint**: A line will be drawn for every vertex to the closest point on the closest neighbor surface.
 
-<!--
-PENDING FIGURE WITH DEBUG FEATURES
--->
+<figure markdown>
+  ![AdnGlue debug](images/glue_debug.png)
+  <figcaption><b>Figure 3</b>: AdnGlue debug features. From left to right: Glue Constraints, Distance Constraints and Shape Preservation.</figcaption>
+</figure>
 
 ## Advanced
 
