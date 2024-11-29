@@ -11,5 +11,6 @@
 - [AdnSimshape](simshape)
 - [AdnSkinMerge](skin_merge)
 - [AdnEdgeEvaluator](edge_evaluator)
+- [AdnGlue](glue)
 - [AdnActivation](activation)
 - [Tools](tools)
