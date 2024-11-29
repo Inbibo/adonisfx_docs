@@ -3,7 +3,7 @@
 - [UI Overview](ui_overview)
 - [A Simple Setup](simple_setup)
 - Deformers </br>
-    - [AdnMuscle](muscle) </br>
+    - [MyAdnMuscle](muscle) </br>
     - [AdnRibbonMuscle](ribbon) </br>
     - [AdnFat](fat) </br>
     - [AdnSkin](skin) </br>
