@@ -164,7 +164,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 ### Deformer Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
+| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. The upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
 ### Connectable Attributes
 | Name | Type | Default | Animatable | Description |
@@ -181,17 +181,17 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![simshape editor first part](images/attribute_editor_part_one_simshape.png) 
+  ![simshape editor first part](images/simshape_attribute_editor_00.png) 
   <figcaption><b>Figure 2</b>: AdnSimshape Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![simshape editor second part](images/attribute_editor_part_two_simshape.png)
+  ![simshape editor second part](images/simshape_attribute_editor_01.png)
   <figcaption><b>Figure 3</b>: AdnSimshape Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor debug menu](images/attribute_editor_simshape_debug.png)
+  ![skin editor debug menu](images/simshape_attribute_editor_debug.png)
   <figcaption><b>Figure 4</b>: AdnSimshape Attribute Editor (Debug menu).</figcaption>
 </figure>
 
@@ -221,7 +221,7 @@ To better visualize deformer constraints and attributes in the Maya viewport the
 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnSimshape deformer are:
 
- - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the <i>Triangulate Mesh</i> option is disabled the debugged lines will align with the edges of the mesh polygons. If the <i>Triangulate Mesh</i> option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
+ - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the *Triangulate Mesh* option is disabled the debugged lines will align with the edges of the mesh polygons. If the *Triangulate Mesh* option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider. The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
@@ -236,12 +236,12 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![simshape editor distance constraint debug](images/simshape_dist_constr_debug.png)
-  <figcaption><b>Figure 7</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 7</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![simshape editor shape preservation constraint debug](images/simshape_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 8</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 8</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced
@@ -250,7 +250,7 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 AdnSimshape can emulate the behavior of facial muscles by computing the muscle activation directly on the vertices of the skin geometry. The activation of the vertices is an advanced and optional feature that can work in two modes: from **muscle patches data** or from **plug values**.
 
 <figure markdown>
-  ![Activation modes from attribute editor](images/activation_modes.png)
+  ![Activation modes from attribute editor](images/simshape_activation_modes.png)
   <figcaption><b>Figure 9</b>: Activation Modes switch exposed in the Attribute Editor.</figcaption>
 </figure>
 
@@ -314,7 +314,7 @@ Additional custom settings for the learning algorithm:
 AdnSimshape integrates a debug mode to visualize the activations during the simulation. If this mode is enabled, then AdnSimshape will display a map of vertex colors from black to red on the simulation mesh where the black color is mapped to no activation and the red color is mapped to maximum activation.
 
 <figure style="width: 50%" markdown>
-  ![Learn Muscle Patches UI window](images/nassim_debug.png)
+  ![Learn Muscle Patches UI window](images/simshape_nassim_debug.png)
   <figcaption><b>Figure 12</b>: Example of AdnSimshape running in Debug mode.</figcaption>
 </figure>
 

@@ -125,7 +125,7 @@ To create an AdnMuscle, follow these steps:
 ### Deformer Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
+| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. The upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
 ### Connectable Attributes
 | Name | Type | Default | Animatable | Description |
@@ -140,17 +140,17 @@ To create an AdnMuscle, follow these steps:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![AdnMuscle editor first part](images/attribute_editor_part_one_muscle.png) 
+  ![AdnMuscle editor first part](images/muscle_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnMuscle Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnMuscle editor second part](images/attribute_editor_part_two_muscle.png)
+  ![AdnMuscle editor second part](images/muscle_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnMuscle Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnMuscle editor debug menu](images/attribute_editor_muscle_debug.png)
+  ![AdnMuscle editor debug menu](images/muscle_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 
@@ -198,6 +198,11 @@ In order to provide more artistic control, some key parameters of the muscle sol
   <figcaption><b>Figure 8</b>: Example of painted weights on a biceps, labeled as: <b>a)</b> Tendons, <b>b)</b> Compression Resistance, <b>c)</b> Stretching Resistance, <b>d)</b> Global Damping, <b>e)</b> Masses, and <b>f)</b> Shape Preservation.</figcaption>
 </figure>
 
+<figure>
+  <img src="images/muscle_to_muscle_weights.png">
+  <figcaption><b>Figure 9</b>: Muscle to muscle attachments to geo painted map example between biceps and brachialis.</figcaption>
+</figure>
+
 > [!NOTE]
 > - The attachment weights are normalized at each vertex. This normalization is applied when a stroke is finished. The use of the AdonisFX Paint Tool is mandatory for that.
 > - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalization overriding them in further strokes.
@@ -210,7 +215,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
  - **Attachments To Geometry**: For each vertex with a geometry attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective geometry target closest point at rest.
  - **Attachments To Transform**: For each vertex with a transform attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective transform target.
-  - **Fiber Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the <i>Triangulate Mesh</i> option is disabled the debugged lines will align with the edges of the mesh polygons. If the <i>Triangulate Mesh</i> option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
+  - **Fiber Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the *Triangulate Mesh* option is disabled the debugged lines will align with the edges of the mesh polygons. If the *Triangulate Mesh* option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. In addition, the colors of the fibers will be modulated given the *Activation* value by interpolating the *Fibers Color* and the *Activation Color*. This will allow debugging the activation of the muscle more precisely.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide On Geometry**: If the *Max Sliding Distance* value is greater than 0.0, for each vertex with a slide on geometry weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective geometry target.
@@ -218,22 +223,27 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![AdnMuscle debug](images/muscle_debug.png)
-  <figcaption><b>Figure 9</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
+  <figcaption><b>Figure 10</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle fibers activation debug](images/muscle_fibers_activation_debug.png)
-  <figcaption><b>Figure 10</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
+  <figcaption><b>Figure 11</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
 </figure>
 
 <figure markdown>
   ![muscle editor fiber constraint debug](images/muscle_dist_constr_debug.png)
-  <figcaption><b>Figure 11</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 12</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle editor shape preservation constraint debug](images/muscle_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 12</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 13</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+<figure>
+  <img src="images/muscle_to_muscle_debugger.png">
+  <figcaption><b>Figure 14</b>: Muscle to muscle attachments to geo debugging example between biceps and brachialis.</figcaption>
 </figure>
 
 ## Advanced

@@ -114,7 +114,7 @@ The process to create an AdnSkin deformer is:
 ### Deformer Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
+| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. The upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
 ### Connectable Attributes
 | Name | Type | Default | Animatable | Description |
@@ -133,17 +133,17 @@ The process to create an AdnSkin deformer is:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![skin editor first part](images/attribute_editor_part_one_skin.png) 
+  ![skin editor first part](images/skin_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnSkin Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor second part](images/attribute_editor_part_two_skin.png)
+  ![skin editor second part](images/skin_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnSkin Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor debug menu](images/attribute_editor_skin_debug.png)
+  ![skin editor debug menu](images/skin_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnSkin Attribute Editor (Debug menu).</figcaption>
 </figure>
 
@@ -177,7 +177,7 @@ In order to better visualize deformer constraints and attributes in the Maya vie
 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnSkin deformer are:
 
- - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the <i>Triangulate Mesh</i> option is disabled the debugged lines will align with the edges of the mesh polygons. If the <i>Triangulate Mesh</i> option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
+ - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the *Triangulate Mesh* option is disabled the debugged lines will align with the edges of the mesh polygons. If the *Triangulate Mesh* option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
  - **Hard Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Hard Constraints* weight is greater than 0.0.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Slide Constraints* weight is greater than 0.0.s
@@ -196,12 +196,12 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![skin editor distance constraint debug](images/skin_dist_constr_debug.png)
-  <figcaption><b>Figure 7</b>: In red the simulated skin. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 7</b>: In red the simulated skin. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor shape preservation constraint debug](images/skin_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 8</b>: In red the simulated skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 8</b>: In red the simulated skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced

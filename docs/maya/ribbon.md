@@ -122,7 +122,7 @@ Follow this steps to create an AndRibbonMuscle deformer:
 ### Deformer Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
+| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. The upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
 ### Connectable Attributes
 | Name | Type | Default | Animatable | Description |
@@ -137,17 +137,17 @@ Follow this steps to create an AndRibbonMuscle deformer:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![AdnRibbonMuscle editor first part](images/attribute_editor_part_one_ribbon.png) 
+  ![AdnRibbonMuscle editor first part](images/ribbon_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnRibbonMuscle Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnRibbonMuscle editor second part](images/attribute_editor_part_two_ribbon.png)
+  ![AdnRibbonMuscle editor second part](images/ribbon_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnRibbonMuscle Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnRibbonMuscle editor debug menu](images/attribute_editor_muscle_debug.png)
+  ![AdnRibbonMuscle editor debug menu](images/muscle_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnRibbonMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 
@@ -207,7 +207,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
  - **Attachments To Geometry**: For each vertex with a geometry attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective geometry target closest point at rest.
  - **Attachments To Transform**: For each vertex with a transform attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective transform target.
-  - **Fiber Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the <i>Triangulate Mesh</i> option is disabled the debugged lines will align with the edges of the mesh polygons. If the <i>Triangulate Mesh</i> option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
+  - **Fiber Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the *Triangulate Mesh* option is disabled the debugged lines will align with the edges of the mesh polygons. If the *Triangulate Mesh* option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
  - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. In addition, the colors of the fibers will be modulated given the *Activation* value by interpolating the *Fibers Color* and the *Activation Color*. This will allow debugging the activation of the muscle more precisely.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide On Geometry**: If the *Max Sliding Distance* value is greater than 0.0, for each vertex with a slide on geometry weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective geometry target.
@@ -227,12 +227,12 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![ribbon muscle editor fiber constraint debug](images/ribbon_muscle_dist_constr_debug.png)
-  <figcaption><b>Figure 11</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 11</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![ribbon muscle editor shape preservation constraint debug](images/ribbon_muscle_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 12</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with <i>Triangulate Mesh</i> option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 12</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced

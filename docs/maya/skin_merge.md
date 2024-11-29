@@ -19,7 +19,7 @@ The process to create an AdnSkinMerge deformer is:
 1. Press ![Skin merge button](images/adn_skin_merge.png){style="width:4%"} in the AdonisFX shelf or *Skin Merge* in the AdonisFX menu, under the *Deformers* submenu in the *Create* section to open the following UI.
 
 <figure markdown>
-  ![create skin merge UI](images/create_skin_merge.png) 
+  ![create skin merge UI](images/skin_merge_create.png) 
   <figcaption><b>Figure 1</b>: Create Skin Merge UI.</figcaption>
 </figure>
 
@@ -46,7 +46,7 @@ Once the AdnSkinMerge deformer is created, to modify its input meshes (animation
 2. The following UI will get displayed. Here you will see listed the current animation and simulation meshes the deformer has connected. From this UI you may freely add or remove from either list. Note that at least one element must be present in each list to be able to apply the changes. 
 
 <figure markdown>
-  ![edit skin merge UI](images/edit_skin_merge.png) 
+  ![edit skin merge UI](images/skin_merge_edit.png) 
   <figcaption><b>Figure 2</b>: Edit Skin Merge UI.</figcaption>
 </figure>
 
@@ -58,12 +58,12 @@ Once the AdnSkinMerge deformer is created, to modify its input meshes (animation
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Initialization Time** | Time  | *Current frame* | ✗ | Sets the frame at which the deformer will be initialized. |
-| **Envelope**            | Float | 1.0             | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. Upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
+| **Envelope**            | Float | 1.0             | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. The upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
 ## Attribute Editor Template
 
 <figure markdown>
-  ![AdnSkinMerge editor](images/attribute_editor_skin_merge.png)
+  ![AdnSkinMerge editor](images/skin_merge_attribute_editor.png)
   <figcaption><b>Figure 3</b>: AdnSkinMerge Attribute Editor.</figcaption>
 </figure>
 
