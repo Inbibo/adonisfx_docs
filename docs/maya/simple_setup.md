@@ -477,17 +477,28 @@ To make the simulated muscles behave more compact and avoid large gaps between t
 
 The AdnGlue node will take all the simulated muscles provided as inputs and generate one combined output mesh with glue constraints applied.
 
-<!-- PENDING screenshot showing all the muscles that will be ingested to the AdnGlue node -->
-
 ### Create Node
 
 To create the AdnGlue node, select the simulated muscles and press the ![AdnGlue](images/adn_glue.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Solvers* > *Glue*. This will connect the selected muscles to the inputs plug of the AdnGlue node and create a combined output mesh as the result of the simulation.
 
+<figure>
+  <img src="images/simple_setup_glue_00.png"> 
+  <figcaption><b>Figure 45</b>: AdnGlue deformer creation scenario.</figcaption>
+</figure>
+
 After the node creation, input muscles can be added or removed from the existing AdnGlue by pressing AdonisFX > Glue > *Add Inputs* or AdonisFX > Glue > *Remove Inputs* respectively.
+
+<figure>
+  <img src="images/simple_setup_glue_01.png"> 
+  <figcaption><b>Figure 46</b>: Removing muscles on the AdnGlue node.</figcaption>
+</figure>
 
 The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the glue constraints to take effect, this value must be adjusted. We recommend enabling the debugger and selecting the *Glue Constraints* option to inspect the connections created based on the specified *Max Glue Distance*.
 
-<!-- PENDING screenshot showing the glue connections with a specific max glue distance -->
+<figure>
+  <img src="images/simple_setup_glue_02.png"> 
+  <figcaption><b>Figure 47</b>: Debugging the Glue Constraints connections with a Max Glue Distance of 0.1.</figcaption>
+</figure>
 
 ### Paint Weights
 
@@ -500,12 +511,21 @@ The most important maps are *Glue Resistance*, *Max Glue Distance Multiplier*, a
 
 Since the *Max Glue Distance* is initially the same for all muscles, you may want to adjust it for specific areas. This can be done by painting the *Max Glue Distance Multiplier* map. You can paint this map with a value of 0.0 in areas where you do not want the glue constraint to apply. This prevents the creation of the constraint in those areas and can improve the simulation performance.
 
-<!-- PENDING screenshot of the max glue distance multiplier map -->
+<figure>
+  <img src="images/simple_setup_glue_03.png"> 
+  <figcaption><b>Figure 48</b>: Glue Distance Multiplier map painted in specific areas where muscles are supposed to be glued together.</figcaption>
+</figure>
+
+<figure>
+  <img src="images/simple_setup_glue_04.png"> 
+  <figcaption><b>Figure 48</b>: Displaying the Glue Constraints debugger after painting the Glue Distance Multiplier in the target area.</figcaption>
+</figure>
 
 The *Glue Resistance* map modulates the strength of the glue constraint. To reduce the effect of the constraint in specific areas, lower the values in this map accordingly. Glue constraints won't be computed for vertices with a weight value of 0.0.
 
-<!-- PENDING screenshot of the glue resistance map -->
+<figure>
+  <img src="images/simple_setup_glue_05.png"> 
+  <figcaption><b>Figure 49</b>: Glue Resistance map painted in specific areas where muscles are supposed to be glued together.</figcaption>
+</figure>
 
 Finally, shape preservation constraints help to maintain the original shape of the muscles. These constraints are useful if the gluing produces undesired shape on the output mesh. If that is not the case, then this map can stay unmodified (0.0) which will make the solver run faster. If shape preservation is required, then increase the values on those areas where the shape has been altered during the simulation.
-
-<!-- PENDING screenshot of the shape preservation map -->
