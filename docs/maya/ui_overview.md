@@ -179,7 +179,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 - **Add Targets**. Adds target meshes to the selected skin. The mesh with the deformer applied must be the last element in the selection. This item corresponds to the shelf button ![Add Targets](images/adn_add_skin_targets.png){style="width:4%"}.
 - **Remove Targets**. Removes target meshes from the selected skin. The mesh with the deformer applied must be the last element in the selection. If only the skin geometry is selected, then all targets are removed. This item corresponds to the shelf button ![Remove Targets](images/adn_remove_skin_targets.png){style="width:4%"}.
 
-### Fat
+#### Fat
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Edit Fat](images/ui_overview_menu_fat.png)
