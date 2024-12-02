@@ -6,7 +6,7 @@ In this page the different licensing components of AdonisFX will be explained in
 AdonisFX supports two *Licensing Modes*:
 
 - **Node-Locked Licensing:** License mode that locks AdonisFX to one particular computer with a particular hardware footprint. After the activation on a computer, using the license key on a different computer would disable the ability to activate the software.
-- **Floating Licensing:** License mode that allows different users to request licenses from a common license pool (served by a server) avoiding so the use restriction of the software to a single machine.
+- **Floating Licensing:** License mode that allows different users to request licenses from a common license pool (served by a server) avoiding the use restriction of the software to a single machine.
 
 AdonisFX also distinguishes between two *Licensing Types*:
 
@@ -15,7 +15,7 @@ AdonisFX also distinguishes between two *Licensing Types*:
 
 To be able to activate AdonisFX it is required to purchase a `PRODUCT KEY`. Product keys can be purchased through Inbibo's official [website](https://inbibo.co.uk/adonisfx#prices). AdonisFX product keys have the following characteristics:
 
-- A `PRODUCT KEY` is associated to one single license type: Interactive or Batch. If the user wants to use AdonisFX both in Interactive and Batch mode, two separate product keys have to be purchased.
+- A `PRODUCT KEY` is associated with one single license type: Interactive or Batch. If the user wants to use AdonisFX both in Interactive and Batch mode, two separate product keys have to be purchased.
 - A product key consists of **28** alphanumeric characters separated by "-" which is provided to the user when purchasing AdonisFX through the website: `XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX`.
 
 ## Node-Locked Licensing
@@ -23,11 +23,11 @@ To be able to activate AdonisFX it is required to purchase a `PRODUCT KEY`. Prod
 Node-Locked Licensing in AdonisFX requires the activation of a `PRODUCT KEY` on one single machine. As commented before, this activation process requires the user to activate the product for batch and interactive modes separately.
 
 > [!NOTE]
-> Node-Locked Licensing is the default license mode in AdonisFX. To explicitly switch to Node-Locked licensing in AdonisFX set the environment variable `ADN_LICENSE_MODE` to `0`.
+> Node-Locked Licensing is the default license mode in AdonisFX. To explicitly switch to Node-Locked licensing in AdonisFX, set the environment variable `ADN_LICENSE_MODE` to `0`.
 
 ### Interactive
 
-Whenever activating AdonisFX for the first time for a specific DCC in interactive mode, a series of dialogs requesting information are prompted. These dialogs allow to enter a valid `PRODUCT KEY` or to launch AdonisFX in trial mode for non-commercial purposes.
+Whenever activating AdonisFX for the first time for a specific DCC in interactive mode, a series of dialogs requesting information are prompted. These dialogs allow users to enter a valid `PRODUCT KEY` or to launch AdonisFX in trial mode for non-commercial purposes.
 
 To activate AdonisFX in Node-Locked Interactive mode:
   1. Launch Maya.
@@ -35,26 +35,26 @@ To activate AdonisFX in Node-Locked Interactive mode:
   3. Go to AdonisFX Menu > *Activate License*. A dialog will show up with two options: *Activate* to enter a valid `PRODUCT KEY` in order to enable the full license; *Continue With Trial* to continue with the 30 day trial period.
 
 <figure style="width:80%; margin-left:10%" markdown>
-      ![Activation Dialog](images/adn_activation_dialog.png)
+      ![Activation Dialog](images/licensing_activation_dialog.png)
       <figcaption><b>Figure 1</b>: Activation Dialog.</figcaption>
 </figure>
 
   4. Click on Activate. A dialog will show up to introduce a product key.
 
 <figure style="width:80%; margin-left:10%" markdown>
-      ![Activation Add Product Key](images/adn_add_product_key_dialog.png)
+      ![Activation Add Product Key](images/licensing_add_product_key_dialog.png)
       <figcaption><b>Figure 2</b>: Activation Add Product Key.</figcaption>
 </figure>
     
-  5. Enter the product key associated to your Interactive Node-Locked License. A confirmation dialog will appear (Figure 3). If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to retry the activation (Figure 4).
+  5. Enter the product key associated with the Interactive Node-Locked License. A confirmation dialog will appear (Figure 3). If the product key is invalid or connecting with the licensing servers failed, a dialog will appear suggesting to retry the activation (Figure 4).
 
 <figure style="width:80%; margin-left:10%" markdown>
-      ![Product Activated Dialog](images/adn_activated_product_key_dialog.png)
+      ![Product Activated Dialog](images/licensing_activated_product_key_dialog.png)
       <figcaption><b>Figure 3</b>: Product Activated Dialog.</figcaption>
 </figure>
 
 <figure style="width:80%; margin-left:10%" markdown>
-      ![Activation Retry Adding Product Key](images/adn_try_again_product_key_dialog.png)
+      ![Activation Retry Adding Product Key](images/licensing_try_again_product_key_dialog.png)
       <figcaption><b>Figure 4</b>: Activation Retry Adding Product Key.</figcaption>
 </figure>
 
@@ -132,7 +132,7 @@ The first step to be able to serve leases from the lease pool is to activate, co
     - Find the full list of customizable parameters in the `.xml` file comments.
 
 <figure style="width:80%; margin-left:10%" markdown>
-  ![Turbo Float Folder](images/adn_turbo_float_folder.png)
+  ![Turbo Float Folder](images/licensing_turbo_float_folder.png)
   <figcaption><b>Figure 11</b>: Folder containing the TurboFloatServer (Windows) and the configuration files.</figcaption>
 </figure>
 
@@ -165,7 +165,7 @@ The activation command assumes that the server executable, the `.xml` file and t
 >
 > `./turbofloatserver -a="PRODUCT-KEY" -pdets="YourTurboActivate.dat" -config="Config.xml"`
 
-Remind that floating licenses require internet access only for the machine running the server, while the workstations intended to query leases to the server can remain disconnected and protected.
+Remember that floating licenses require internet access only for the machine running the server, while the workstations intended to query leases to the server can remain disconnected and protected.
 
 To deactivate an activated license on the server, execute:
 
@@ -180,7 +180,7 @@ To deactivate an activated license on the server, execute:
 
 ### Run Server
 
-To run the floating server on Windows execute one of the commands below. The second one is to specify custom destinations of the `.xml` and `.dat` files if they are not in the same folder. To configure the server properly from the configuration file it is required to do the modifications prior to launching the server. Note that if the configuration files need to be located in a different folder, then the use of `-pdets` and `-config` flags is required to especify their locations.
+To run the floating server on Windows execute one of the commands below. The second one is to specify custom destinations of the `.xml` and `.dat` files if they are not in the same folder. To configure the server properly from the configuration file it is required to do the modifications prior to launching the server. Note that if the configuration files need to be located in a different folder, then the use of `-pdets` and `-config` flags is required to specify their locations.
 
 > [!NOTE = Run Server]
 > === Windows
@@ -206,7 +206,7 @@ On Windows, it is also possible to install a service in charge of running the se
 
 ### Client Configuration
 
-To be able to run AdonisFX using floating license, make sure the floating server is running and the client machine intended to use AdonisFX has direct access to the floating server. Then, configure the licensing mode and the IP address in the environment of the client machine:
+To be able to run AdonisFX using a floating license, make sure the floating server is running and the client machine intended to use AdonisFX has direct access to the floating server. Then, configure the licensing mode and the IP address in the environment of the client machine:
 
   1. Set `ADN_LICENSE_MODE` to `1`. Make sure to apply this change before launching AdonisFX.
   2. Set `ADN_LICENSE_SERVER` for interactive licenses and `ADN_LICENSE_SERVER_BATCH` for batch licenses to `<IP-ADDRESS>:<PORT-NUMBER>` (e.g. `127.0.0.1:13`). If no port number was provided the system will default to port `13`.
