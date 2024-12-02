@@ -21,7 +21,7 @@ To add new inputs to the AdnActivation node:
 
 1. Go to the Attribute Editor and press *Add New Item*.
 2. Set the desired *Operator*.
-3. Type in a fixed value in *Value*, animated it or connect the plug with an AdonisFX sensor's output.
+3. Type in a fixed value in *Value*, animate it or connect the plug with an AdonisFX sensor's output.
 
 > [!NOTE]
 > All operators will be evaluated from top to bottom (starting from index 0 and ending on the last index used).
