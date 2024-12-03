@@ -282,7 +282,7 @@ The data required to generate an AMP file is:
 The Learn Muscle Patches tool allows the user to generate the AMP file:
 
 <figure style="width: 50%; padding-left: 5px;">
-  <img src="images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
+  <img src="../images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
   <figcaption><b>Figure 10</b>: Learn Muscle Patches UI.</figcaption>
 </figure>
 

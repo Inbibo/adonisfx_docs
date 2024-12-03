@@ -174,32 +174,32 @@ In order to provide more artistic control, some key parameters of the muscle sol
 | **Tendons**                     | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
 
 <figure>
-  <img src="images/muscle_w_att.png">
+  <img src="../images/muscle_w_att.png">
   <figcaption><b>Figure 4</b>: Example of attachment to transform weights painted on a biceps with 4 transform targets.</figcaption>
 </figure>
 
 <figure>
-  <img src="images/muscle_w_att_geo.png">
+  <img src="../images/muscle_w_att_geo.png">
   <figcaption><b>Figure 5</b>: Example of attachments to geometry weights painted on a biceps with 4 geometry targets.</figcaption>
 </figure>
 
 <figure>
-  <img src="images/muscle_w_slide_geo.png">
+  <img src="../images/muscle_w_slide_geo.png">
   <figcaption><b>Figure 6</b>: Example of slide on geometry weights painted on a biceps with different setups, labeled as: <b>a)</b> Multi-influenced: two bones, <b>b)</b> One single geometry.</figcaption>
 </figure>
 
 <figure>
-  <img src="images/muscle_w_slide_seg.png" style="width:40%;">
+  <img src="../images/muscle_w_slide_seg.png" style="width:40%;">
   <figcaption><b>Figure 7</b>: Example of slide on segment weights painted on a biceps with a single influence.</figcaption>
 </figure>
 
 <figure>
-  <img src="images/muscle_weights.png">
+  <img src="../images/muscle_weights.png">
   <figcaption><b>Figure 8</b>: Example of painted weights on a biceps, labeled as: <b>a)</b> Tendons, <b>b)</b> Compression Resistance, <b>c)</b> Stretching Resistance, <b>d)</b> Global Damping, <b>e)</b> Masses, and <b>f)</b> Shape Preservation.</figcaption>
 </figure>
 
 <figure>
-  <img src="images/muscle_to_muscle_weights.png">
+  <img src="../images/muscle_to_muscle_weights.png">
   <figcaption><b>Figure 9</b>: Muscle to muscle attachments to geo painted map example between biceps and brachialis.</figcaption>
 </figure>
 
@@ -242,7 +242,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 </figure>
 
 <figure>
-  <img src="images/muscle_to_muscle_debugger.png">
+  <img src="../images/muscle_to_muscle_debugger.png">
   <figcaption><b>Figure 14</b>: Muscle to muscle attachments to geo debugging example between biceps and brachialis.</figcaption>
 </figure>
 

@@ -151,7 +151,7 @@ In order to provide more artistic control, some key parameters of the AdnFat sol
 | **Volume Shape Preservation**   | 1.0 | Amount of correction to apply to the volume structure to preserve the initial volumetric shape and prevent it from distortion. |
 
 <figure>
-  <img src="images/fat_weights.png">
+  <img src="../images/fat_weights.png">
   <figcaption><b>Figure 4</b>: Example of painted weights on the fat layer, labeled as: <b>a)</b> Shape Preservation, <b>b)</b> Volume Shape Preservation, <b>c)</b> Hard Constraints (Optional painting).</figcaption>
 </figure>
 
