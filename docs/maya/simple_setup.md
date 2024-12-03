@@ -61,7 +61,7 @@ Finally, select the *Sliding Distance Multiplier* attribute and paint weights to
 
 The order of painting is important because after every stroke a normalization of weights soft, hard and slide is performed to ensure that the sum is less or equal to 1.0. In this example, after painting *Slide Constraints*, both *Hard Constraints* and *Soft Constraints* will update, reducing their respective values in the areas painted with maximum sliding.
 
-With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the target mesh. However, the possible parameters and tweaks to display high fidelity dynamics can be seen in the documentation for [AdnSkin](skin).
+With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the target mesh. However, the possible parameters and tweaks to display high fidelity dynamics can be seen in the documentation for [AdnSkin](deformers/skin).
 
 ## AdnFat
 
@@ -232,7 +232,7 @@ With the Connection Editor opened, select the locator from the scene and press t
 
 When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation will get higher, simulating a much more realistic scenario.
 
-To tweak additional parameters of the AdnMuscle deformer, check this [page](muscle).
+To tweak additional parameters of the AdnMuscle deformer, check this [page](deformers/muscle).
 
 ## AdnRibbonMuscle
 
@@ -340,7 +340,7 @@ The process to connect and AdnSensor to an AdnRibbonMuscle is the exact same to 
   <figcaption><b>Figure 34</b>: Connection Editor tool with AdnRotation sensor connected to AdnRibbonMuscle.</figcaption>
 </figure>
 
-To tweak additional parameters of the AdnRibbonMuscle deformer, check this [page](ribbon).
+To tweak additional parameters of the AdnRibbonMuscle deformer, check this [page](deformers/ribbon).
 
 ## AdnSimshape
 
@@ -405,7 +405,7 @@ The lowest values (0.1 in this case) will be applied to the area under the jaw w
   <figcaption><b>Figure 40</b>: Attraction Force weights for highest dynamics areas.</figcaption>
 </figure>
 
-After painting similar weights to the ones displayed and pressing playback to check the animation, realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are available and fully explained in the documentation for [AdnSimshape](simshape).
+After painting similar weights to the ones displayed and pressing playback to check the animation, realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are available and fully explained in the documentation for [AdnSimshape](deformers/simshape).
 
 ### Add muscle activations
 
@@ -414,7 +414,7 @@ To further have a realistic depiction of facial dynamics, facial muscle activati
  - AdonisFX Muscle Patches file.
  - Edge Evaluator Node.
 
-Refer to this [section](simshape#muscle-activations) to see how to use Muscle Patches files. However, in this example, it is taken advantage of the AdnEdgeEvaluator Node. To create this node, select the rest mesh, then the deformation mesh, and then go to AdonisFX Menu > Nodes > *Edge Evaluator*. Then, once created, connect it to the AdnSimshape deformer via AdonisFX Menu > Simshape (on the *Edit* group) > *Connect Activations Plug*. 
+Refer to this [section](deformers/simshape#muscle-activations) to see how to use Muscle Patches files. However, in this example, it is taken advantage of the AdnEdgeEvaluator Node. To create this node, select the rest mesh, then the deformation mesh, and then go to AdonisFX Menu > Nodes > *Edge Evaluator*. Then, once created, connect it to the AdnSimshape deformer via AdonisFX Menu > Simshape (on the *Edit* group) > *Connect Activations Plug*. 
 
 <figure>
   <img src="images/simple_setup_simshape_06.png"> 
