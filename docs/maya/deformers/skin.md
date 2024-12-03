@@ -2,7 +2,7 @@
 
 AdnSkin is a Maya deformer for fast, robust and easy-to-configure skin simulation for digital assets. Thanks to the combination of internal and external constraints, the deformer can produce dynamics that allow the skin mesh to realistically react to the deformations of internal tissues (e.g. muscles, fascia) over time.
 
-The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools#paint-tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the skin's dynamics and behavior to a wide array of options.
+The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](../tools#paint-tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the skin's dynamics and behavior to a wide array of options.
 
 ### How To Use
 
@@ -19,7 +19,7 @@ To create an AdnSkin deformer within a Maya scene, the following inputs must be 
 The process to create an AdnSkin deformer is:
 
 1. Select the **Targets** (optional, they can be added later), then the **Skin Mesh**.
-2. Press ![Skin button](images/adn_skin.png){style="width:4%"} in the AdonisFX shelf or *Skin* in the AdonisFX menu, under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press ![Skin button](../images/adn_skin.png){style="width:4%"} in the AdonisFX shelf or *Skin* in the AdonisFX menu, under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. A message box will notify you that AdnSkin has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
@@ -133,23 +133,23 @@ The process to create an AdnSkin deformer is:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![skin editor first part](images/skin_attribute_editor_00.png) 
+  ![skin editor first part](../images/skin_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnSkin Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor second part](images/skin_attribute_editor_01.png)
+  ![skin editor second part](../images/skin_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnSkin Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor debug menu](images/skin_attribute_editor_debug.png)
+  ![skin editor debug menu](../images/skin_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnSkin Attribute Editor (Debug menu).</figcaption>
 </figure>
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the AdnSkin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools#paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the AdnSkin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](../tools#paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
@@ -164,7 +164,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 | **Stretching Resistance**       | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
 
 <figure>
-  <img src="images/skin_weights.png" caption="AdonisFX Paint Tool"> 
+  <img src="../images/skin_weights.png" caption="AdonisFX Paint Tool"> 
   <figcaption><b>Figure 4</b>: Example of painted weights on the skin of a bear character, labeled as:<br/><b>a)</b> Compression Resistance, <b>b)</b> Global Damping, <b>c)</b> Hard Constraints, <b>d)</b> Mass,<br/><b>e)</b> Shape Preservation, <b>f)</b> Slide Constraints, <b>g)</b> Sliding Distance Multiplier, <b>h)</b> Soft Constraints, and <b>i)</b> Stretching Resistance.</figcaption>
 </figure>
 
@@ -185,22 +185,22 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
  - **Soft Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Soft Constraints* weight is greater than 0.0.
 
 <figure markdown>
-  ![skin editor debug example](images/skin_debug.png)
+  ![skin editor debug example](../images/skin_debug.png)
   <figcaption><b>Figure 5</b>: In gray the target mesh, in orange the simulated skin. Debugger enabled displaying a test example with <i>Soft Constraints</i> colored in green.</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor sliding surface debug](images/skin_debug_slide_surface.png)
+  ![skin editor sliding surface debug](../images/skin_debug_slide_surface.png)
   <figcaption><b>Figure 6</b>: In gray the target mesh, in red the simulated skin. Debugger enabled displaying the <i>Sliding Surface</i> colored in green.</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor distance constraint debug](images/skin_dist_constr_debug.png)
+  ![skin editor distance constraint debug](../images/skin_dist_constr_debug.png)
   <figcaption><b>Figure 7</b>: In red the simulated skin. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor shape preservation constraint debug](images/skin_shape_preserve_constr_debug.png)
+  ![skin editor shape preservation constraint debug](../images/skin_shape_preserve_constr_debug.png)
   <figcaption><b>Figure 8</b>: In red the simulated skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
@@ -213,14 +213,14 @@ Once the AdnSkin deformer is created, it is possible to add and remove new targe
 - **Add targets**:
     1. Select one or more mesh nodes to be assigned as targets to the AdnSkin.
     2. Select the mesh that has the AdnSkin deformer applied.
-    3. Press the ![Add Targets](images/adn_add_skin_targets.png){style="width:4%"} button in the AdonisFX shelf or press *Add Targets* in the AdonisFX menu from the Edit Skin submenu.
+    3. Press the ![Add Targets](../images/adn_add_skin_targets.png){style="width:4%"} button in the AdonisFX shelf or press *Add Targets* in the AdonisFX menu from the Edit Skin submenu.
 - **Remove targets**:
     1. Select one or more mesh nodes that are assigned as targets to the AdnSkin.
     2. Select the mesh that has the AdnSkin deformer applied.
-    3. Press the ![Remove Targets](images/adn_remove_skin_targets.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Skin submenu.
-    4. Alternatively, if only the mesh with the AdnSkin deformer is selected, when pressing the ![Remove Targets](images/adn_remove_skin_targets.png){style="width:4%"} button, all targets will be removed.
+    3. Press the ![Remove Targets](../images/adn_remove_skin_targets.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Skin submenu.
+    4. Alternatively, if only the mesh with the AdnSkin deformer is selected, when pressing the ![Remove Targets](../images/adn_remove_skin_targets.png){style="width:4%"} button, all targets will be removed.
 
 <figure markdown>
-  ![skin adding multiple targets](images/skin_add_multiple_targets.png)
+  ![skin adding multiple targets](../images/skin_add_multiple_targets.png)
   <figcaption><b>Figure 9</b>: Addition of multiple targets (e.g. Adding multiple muscle targets to a fascia/fat/skin simulation).</figcaption>
 </figure>

@@ -2,7 +2,7 @@
 
 AdnRibbonMuscle is a Maya deformer for fast, robust and easy-to-configure tissue muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachment and slide) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a ribbon with fibers activations to modulate the rigidity, and attachments to external objects to follow the global kinematics of the character.
 
-The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](tools#paint-tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behavior to a wide array of options.
+The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](../tools#paint-tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behavior to a wide array of options.
 
 ### How To Use
 
@@ -19,7 +19,7 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 Follow this steps to create an AndRibbonMuscle deformer:
 
 1. Select the **Targets** (if any) and the **Muscle Geometry** in that order.
-2. Press the ![AdnRibbonMuscle button](images/adn_ribbon_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Ribbon Muscle* in the *Solvers* submenu from the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press the ![AdnRibbonMuscle button](../images/adn_ribbon_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Ribbon Muscle* in the *Solvers* submenu from the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnRibbonMuscle is ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
@@ -31,7 +31,7 @@ Follow this steps to create an AndRibbonMuscle deformer:
 | **Iterations**           | Integer    | 10     | ✓ | Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
 | **Material**             | Enumerator | Muscle | ✓ | Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 7 different presets: Fat: 10<sup>3</sup>, Muscle: 5e<sup>3</sup>, Rubber: 10<sup>6</sup>, Tendon: 5e<sup>7</sup>, Leather: 10<sup>6</sup>, Wood: 6e<sup>9</sup>, Concrete: 2.5e<sup>10</sup>. |
 | **Stiffness Multiplier** | Float      | 1.0    | ✓ | Multiplier factor to scale up or down the material stiffness. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Activation**           | Float      | 0.0    | ✓ | Current activation of the deformed ribbon muscle. The activation modifies the stiffness of the muscle depending on the fibers direction of the muscle. Has a range of \[0.0, 1.0\]. To ingest activations driven by multiple sensors into the muscle, refer to the [AdnActivation](activation#adnactivation) page. |
+| **Activation**           | Float      | 0.0    | ✓ | Current activation of the deformed ribbon muscle. The activation modifies the stiffness of the muscle depending on the fibers direction of the muscle. Has a range of \[0.0, 1.0\]. To ingest activations driven by multiple sensors into the muscle, refer to the [AdnActivation](../nodes/activation#adnactivation) page. |
 | **Rest Activation**      | Float      | 0.0    | ✓ | Value representing the amount of rest activation to apply to the muscle. Has a range of \[0.0, 1.0\]. |
 
 ### Time Attributes
@@ -137,23 +137,23 @@ Follow this steps to create an AndRibbonMuscle deformer:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![AdnRibbonMuscle editor first part](images/ribbon_attribute_editor_00.png) 
+  ![AdnRibbonMuscle editor first part](../images/ribbon_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnRibbonMuscle Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnRibbonMuscle editor second part](images/ribbon_attribute_editor_01.png)
+  ![AdnRibbonMuscle editor second part](../images/ribbon_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnRibbonMuscle Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnRibbonMuscle editor debug menu](images/muscle_attribute_editor_debug.png)
+  ![AdnRibbonMuscle editor debug menu](../images/muscle_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnRibbonMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the AdnRibbonMuscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](tools#paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the AdnRibbonMuscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](../tools#paint-tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
@@ -171,27 +171,27 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 | **Tendons**                     | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
 
 <figure>
-  <img src="images/ribbon_w_att.png">
+  <img src="../images/ribbon_w_att.png">
   <figcaption><b>Figure 4</b>: Example of attachment to transform weights painted on a planar biceps.</figcaption>
 </figure>
 
 <figure>
-  <img src="images/ribbon_w_att_geo.png">
+  <img src="../images/ribbon_w_att_geo.png">
   <figcaption><b>Figure 5</b>: Example of attachments to geometry weights painted on a biceps with 4 geometry targets.</figcaption>
 </figure>
 
 <figure>
-  <img src="images/ribbon_w_slide_geo.png">
+  <img src="../images/ribbon_w_slide_geo.png">
   <figcaption><b>Figure 6</b>: Example of slide on geometry weights painted on a biceps with different setups, labeled as: <b>a)</b> Multi-influenced: two bones, <b>b)</b> One single geometry.</figcaption>
 </figure>
 
 <figure>
-  <img src="images/ribbon_w_slide_seg.png" style="width:40%;">
+  <img src="../images/ribbon_w_slide_seg.png" style="width:40%;">
   <figcaption><b>Figure 7</b>: Example of slide on segment weights painted on a biceps with a single influence.</figcaption>
 </figure>
 
 <figure>
-  <img src="images/ribbon_weights.png">
+  <img src="../images/ribbon_weights.png">
   <figcaption><b>Figure 8</b>: Example of painted weights on a planar biceps, labeled as: <b>a)</b> Tendons, <b>b)</b> Compression Resistance, <b>c)</b> Stretching Resistance, <b>d)</b> Global Damping, <b>e)</b> Masses, and <b>f)</b> Shape Preservation.</figcaption>
 </figure>
 
@@ -216,22 +216,22 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices.
 
 <figure markdown>
-  ![AdnRibbonMuscle debug](images/ribbon_debug.png)
+  ![AdnRibbonMuscle debug](../images/ribbon_debug.png)
   <figcaption><b>Figure 9</b>: AdnRibbonMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
 </figure>
 
 <figure markdown>
-  ![ribbon muscle fibers activation debug](images/ribbon_muscle_fibers_activation_debug.png)
+  ![ribbon muscle fibers activation debug](../images/ribbon_muscle_fibers_activation_debug.png)
   <figcaption><b>Figure 10</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
 </figure>
 
 <figure markdown>
-  ![ribbon muscle editor fiber constraint debug](images/ribbon_muscle_dist_constr_debug.png)
+  ![ribbon muscle editor fiber constraint debug](../images/ribbon_muscle_dist_constr_debug.png)
   <figcaption><b>Figure 11</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
-  ![ribbon muscle editor shape preservation constraint debug](images/ribbon_muscle_shape_preserve_constr_debug.png)
+  ![ribbon muscle editor shape preservation constraint debug](../images/ribbon_muscle_shape_preserve_constr_debug.png)
   <figcaption><b>Figure 12</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
@@ -244,14 +244,14 @@ Once the AdnRibbonMuscle deformer is created, it is possible to add and remove n
 - **Add targets**:  
     1. Select the transform or mesh nodes (one or more) to be assigned as targets to the AdnRibbonMuscle.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press the ![Add Targets button](images/adn_add_target.png){style="width:4%"} button in the AdonisFX shelf or press *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Add Targets button](../images/adn_add_target.png){style="width:4%"} button in the AdonisFX shelf or press *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove targets**:
     1. Select one or more transform or mesh nodes that are assigned as targets to the AdnRibbonMuscle.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu.
-    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button, all targets will get removed (transform and mesh targets).
+    3. Press the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu.
+    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button, all targets will get removed (transform and mesh targets).
 
-Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](simple_setup#AdnRibbonMuscle) for more information on how to paint the influence maps for the mentioned constraints.
+Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](../simple_setup#AdnRibbonMuscle) for more information on how to paint the influence maps for the mentioned constraints.
 
 > [!NOTE]
 > - Attachments to geometry and slide on geometry constraints are meant to simulate muscle-to-bone and muscle-to-muscle interactions.

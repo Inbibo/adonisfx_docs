@@ -11,14 +11,14 @@ AdnLocatorPosition is the locator for visualizing the position of a single trans
 An AdnLocatorPosition will only visualize the information of the transform node to which it is applied. To be able to read, process and visualize information like the velocity or acceleration an [AdnSensorPosition](sensors#adnsensorposition) has to be applied.
 
 <figure markdown>
-  ![AdnLocatorPosition within a scene](images/locators_position.png)
+  ![AdnLocatorPosition within a scene](../images/locators_position.png)
   <figcaption><b>Figure 1</b>: AdnLocatorPosition used in a human model.</figcaption>
 </figure>
 
 Only one transform will be required to create the AdnLocatorPosition. The creation process is the following:
 
  1. Select a transform node in the scene.
- 2. Press the ![AdnLocatorPosition button](images/adn_point_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+ 2. Press the ![AdnLocatorPosition button](../images/adn_point_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorPosition is created and ready to be used.
 
 
@@ -50,14 +50,14 @@ AdnLocatorDistance is the locator for visualizing the distance between two trans
 An AdnLocatorDistance will only visualize the information of the distance between two transform nodes to which it is applied. To be able to read, process and visualize information like the distance magnitude, velocity or acceleration an [AdnSensorDistance](sensors#adnsensordistance) has to be applied.
 
 <figure markdown>
-  ![AdnLocatorDistance within a scene](images/locators_distance.png)
+  ![AdnLocatorDistance within a scene](../images/locators_distance.png)
   <figcaption><b>Figure 2</b>: AdnLocatorDistance used in a human model.</figcaption>
 </figure>
 
 Two transform nodes will be required to create an AdnLocatorDistance representing each extremity. The creation process is the following:
 
  1. Select two transform nodes in the scene.
- 2. Press the ![AdnLocatorDistance button](images/adn_distance_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+ 2. Press the ![AdnLocatorDistance button](../images/adn_distance_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorDistance is created and ready to be used.
 
 ### Attributes
@@ -90,7 +90,7 @@ AdnLocatorRotation is the locator for visualizing the angle between three transf
 An AdnLocatorRotation will only visualize the information of the connections and angle between the three transform nodes. To be able to read, process and visualize information like the angle, angular velocity or angular acceleration an [AdnSensorRotation](sensors#adnsensorrotation) has to be applied.
 
 <figure markdown>
-  ![AdnLocatorRotation within a scene](images/locators_rotation.png)
+  ![AdnLocatorRotation within a scene](../images/locators_rotation.png)
   <figcaption><b>Figure 3</b>: AdnLocatorRotation locator used in a human model.</figcaption>
 </figure>
 
@@ -100,7 +100,7 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
     - First selected object: Start point of the angle.
     - Second selected object: Middle point of the angle.
     - Third selected object: End point of the angle.
- 2. Press the ![AdnLocatorRotation button](images/adn_angle_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+ 2. Press the ![AdnLocatorRotation button](../images/adn_angle_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorRotation is created and ready to be used.
 
 ### Attributes
@@ -131,9 +131,9 @@ The AdnLocator is an native alternative to Maya locators. This locator can be us
 
 ### How To Use
 
-To create an AdnLocator just click on the ![AdonisFX Logo locator button](images/adn_adonis_locator.png){style="width:4%"} button in the AdonisFX shelf. The locator will be created at the origin of your scene.
+To create an AdnLocator just click on the ![AdonisFX Logo locator button](../images/adn_adonis_locator.png){style="width:4%"} button in the AdonisFX shelf. The locator will be created at the origin of your scene.
 
 <figure markdown>
-  ![AdnLocator within a scene](images/locators_adonis.png)
+  ![AdnLocator within a scene](../images/locators_adonis.png)
   <figcaption><b>Figure 4</b>: AdnLocator used for distance constraints.</figcaption>
 </figure>
