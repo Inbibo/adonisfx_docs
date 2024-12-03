@@ -4,7 +4,7 @@ Welcome to the technical documentation of AdonisFX where we provide you with all
 
 ## Key Values
 
-AdonisFX is a fast and intuitive solution for creature effects simulation with muscle, skin and face solvers. Currently, it is implemented as a plug-in for Maya (and Houdini coming soon). The key values of AdonisFX are:
+AdonisFX is a fast and intuitive solution for creature effects simulation with muscle, fat, skin and face solvers. Currently, it is implemented as a plug-in for Maya (and Houdini coming soon). The key values of AdonisFX are:
 
 - **Fast Computation**. Typically, high quality creatures simulation requires hours to compute even if running on modern hardware components. The objective of AdonisFX is to break the current limits in terms of execution times in order to deliver high quality results in seconds which is possible thanks to the latest research in the simulation field for VFX and with Inbibo's proprietary technology. 
 

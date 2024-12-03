@@ -6,7 +6,7 @@ The maps required to control the AdnGlue solver can be painted using the standar
 
 ### How To Use
 
-The AdnGlue node can be applied to any set of geometries. For each geometry, their mesh at each frame is gathered and simulated to ensure the original distance between the neighboring geometries. This is achieved by creating attachments between each vertex of a geometry and the closest point on the surface of the other geometries. More aspects are then computed to ensure that the simulated output preserves the original shape and edge-lengths of the simulated meshes. The output of the node is a mesh that combines all the input geometries together and adds the results of the solver.
+The AdnGlue node can be applied to any set of geometries. For each geometry, their mesh at each frame is gathered and simulated to ensure the original distance between the neighboring geometries. This is achieved by creating attachments between each vertex of a geometry and the closest point on the surface of one of the other geometries (i.e. the closest one). More aspects are then computed to ensure that the simulated output preserves the original shape and edge-lengths of the simulated meshes. The output of the node is a mesh that combines all the input geometries together and adds the results of the solver.
 
 To create an AdnGlue node within a Maya scene, the following inputs must be provided:
 

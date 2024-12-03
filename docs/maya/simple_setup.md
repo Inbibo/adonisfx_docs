@@ -518,14 +518,14 @@ Since the *Max Glue Distance* is initially the same for all muscles, you may wan
 
 <figure>
   <img src="images/simple_setup_glue_04.png"> 
-  <figcaption><b>Figure 48</b>: Displaying the Glue Constraints debugger after painting the Glue Distance Multiplier in the target area.</figcaption>
+  <figcaption><b>Figure 49</b>: Displaying the Glue Constraints debugger after painting the Glue Distance Multiplier in the target area.</figcaption>
 </figure>
 
 The *Glue Resistance* map modulates the strength of the glue constraint. To reduce the effect of the constraint in specific areas, lower the values in this map accordingly. Glue constraints won't be computed for vertices with a weight value of 0.0.
 
 <figure>
   <img src="images/simple_setup_glue_05.png"> 
-  <figcaption><b>Figure 49</b>: Glue Resistance map painted in specific areas where muscles are supposed to be glued together.</figcaption>
+  <figcaption><b>Figure 50</b>: Glue Resistance map painted in specific areas where muscles are supposed to be glued together.</figcaption>
 </figure>
 
 Finally, shape preservation constraints help to maintain the original shape of the muscles. These constraints are useful if the gluing produces undesired shape on the output mesh. If that is not the case, then this map can stay unmodified (0.0) which will make the solver run faster. If shape preservation is required, then increase the values on those areas where the shape has been altered during the simulation.

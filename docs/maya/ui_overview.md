@@ -20,7 +20,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 |||
 | ![AdnSensorPosition](images/adn_point_sensor.png) | Creates an AdnSensorPosition from the transform object and the AdnLocatorPosition selected. If only the transform node is provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Sensors > *Position* |
 | ![AdnSensorDistance](images/adn_distance_sensor.png) | Creates an AdnSensorDistance from the two transform nodes and the AdnLocatorDistance selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Sensors > *Distance* |
-| ![AdnSensorRotation](images/adn_angle_locator.png) | Creates an AdnSensorRotation from the three transform nodes and the AdnLocatorRotation selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Sensors > *Rotation* |
+| ![AdnSensorRotation](images/adn_angle_sensor.png) | Creates an AdnSensorRotation from the three transform nodes and the AdnLocatorRotation selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Sensors > *Rotation* |
 |||
 | ![Create AdnSimshape](images/adn_simshape.png) | Applies an AdnSimshape deformer to the selected mesh. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Simshape* |
 | ![Add AdnSimshape Collider](images/adn_add_collider.png) | Adds a collider to AdnSimshape selecting the collider and the mesh with AdnSimshape applied. | AdonisFX Menu > Edit Simshape > *Add Collider* |
@@ -79,7 +79,7 @@ The AdonisFX Menu provides access to the options in the shelf and other more adv
 
 - **Position**. Creates an AdnSensorPosition from the transform object and the AdnLocatorPosition selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorPosition](images/adn_point_sensor.png){style="width:4%"}.
 - **Distance**. Creates an AdnSensorDistance from the two transform nodes and the AdnLocatorDistance selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorDistance](images/adn_distance_sensor.png){style="width:4%"}.
-- **Rotation**. Creates an AdnSensorRotation from the three transform nodes and the AdnLocatorRotation selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorRotation](images/adn_angle_locator.png){style="width:4%"}.
+- **Rotation**. Creates an AdnSensorRotation from the three transform nodes and the AdnLocatorRotation selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorRotation](images/adn_angle_sensor.png){style="width:4%"}.
 
 Both in Locators and Sensors there are option boxes to launch a simple UI to provide a custom name for the node to create.
 
@@ -179,7 +179,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 - **Add Targets**. Adds target meshes to the selected skin. The mesh with the deformer applied must be the last element in the selection. This item corresponds to the shelf button ![Add Targets](images/adn_add_skin_targets.png){style="width:4%"}.
 - **Remove Targets**. Removes target meshes from the selected skin. The mesh with the deformer applied must be the last element in the selection. If only the skin geometry is selected, then all targets are removed. This item corresponds to the shelf button ![Remove Targets](images/adn_remove_skin_targets.png){style="width:4%"}.
 
-### Fat
+#### Fat
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX Menu Edit Fat](images/ui_overview_menu_fat.png)

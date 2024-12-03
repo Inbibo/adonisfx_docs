@@ -43,8 +43,9 @@ Fat can be simulated using the [AdnFat](maya/deformers/fat) deformer. This defor
 Yes, you can simulate muscles, fascia, fat and skin following these steps:
 
 - Configure every muscle geometry with an AdnMuscle deformer.
+- Optionally apply AdnGlue to reduce gaps between muscles.
 - Generate the fascia geometry. Check this [answer](faq#how-can-i-generate-the-fascia-geometry) to know how to complete this step.
-- Configure the fascia with an AdnSkin deformer: Select the muscle geometries, then the fascia geometry and then create the skin deformer. It is recommended to use values of *Rest Length Multiplier* lower than 1.
+- Configure the fascia with an AdnSkin deformer: Select the muscle geometries (or the output of AdnGlue if applied), then the fascia geometry and then create the skin deformer. It is recommended to use values of *Rest Length Multiplier* lower than 1.
 - Configure the fat with an AdnFat deformer: Select the fascia, then the fat geometry and then create the fat deformer.
 - Configure the skin with an AdnSkin deformer: Select the fat, then the skin geometry and then create the skin deformer.
 
