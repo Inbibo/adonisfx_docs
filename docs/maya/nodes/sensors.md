@@ -11,7 +11,7 @@ AdnSensorPosition is the sensor for computing meaningful output values represent
 An AdnSensorPosition will be in charge of feeding, after remapping, activation (or other) values into AdonisFX deformers for driving the simulation and the AdnLocatorPosition for visualization purposes. The value of the sensor can be used, for example, to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
 <figure markdown>
-  ![AdnSensorPosition velocity display on AdnLocatorPosition within a scene](images/sensors_position.png)
+  ![AdnSensorPosition velocity display on AdnLocatorPosition within a scene](../images/sensors_position.png)
   <figcaption><b>Figure 1</b>: AdnSensorPosition used in a human model.</figcaption>
 </figure>
 
@@ -20,13 +20,13 @@ There are two different methods of creating an AdnSensorPosition, depending if i
  - If applying to an already existing AdnLocatorPosition:
 
     1. Select an AdnLocatorPosition from your scene.
-    2. Press the ![AdnSensorPosition button](images/adn_point_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorPosition button](../images/adn_point_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnSensorPosition is created, applied to the selected AdnLocatorPosition.
 
  - If creating the locator alongside the sensor:
 
     1. Select a transform node in the scene.
-    2. Press the ![AdnSensorPosition button](images/adn_point_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorPosition button](../images/adn_point_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnSensorPosition is created, alongside a new AdnLocatorPosition applied to the same transform node.
 
 ### Attributes
@@ -63,7 +63,7 @@ AdnSensorDistance is the sensor for computing meaningful output values represent
 An AdnSensorDistance will be in charge of feeding, after remapping, activation (or other) values into the deformer for driving the simulation and the AdnLocatorDistance for visualization purposes. The value of the sensor can be used to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
 <figure markdown>
-  ![AdnSensorDistance distance display on AdnLocatorDistance within a scene](images/sensors_distance.png)
+  ![AdnSensorDistance distance display on AdnLocatorDistance within a scene](../images/sensors_distance.png)
   <figcaption><b>Figure 2</b>: AdnSensorDistance used in a human model.</figcaption>
 </figure>
 
@@ -72,13 +72,13 @@ There are two different methods of creating an AdnSensorDistance, depending if i
  - If applying to an already existing AdnLocatorDistance:
 
     1. Select an AdnLocatorDistance from your scene.
-    2. Press the ![AdnSensorDistance button](images/adn_distance_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorDistance button](../images/adn_distance_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnSensorDistance is created, applied to the selected AdnLocatorDistance.
 
  - If creating the locator alongside the sensor:
 
     1. Select two transform nodes in the scene.
-    2. Press the ![AdnSensorDistance button](images/adn_distance_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorDistance button](../images/adn_distance_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnSensorDistance is created, alongside a new AdnLocatorDistance applied to the same transform nodes.
 
 ### Attributes
@@ -117,7 +117,7 @@ AdnSensorRotation is the sensor for computing meaningful output values represent
 An AdnSensorRotation will be in charge of feeding, after remapping, activation (or other) values into the deformer for driving the simulation and the AdnLocatorRotation for visualization purposes. The value of the sensor can be used to drive the activation of a muscle simulating contraction to increase its stiffness. Find more information for connecting the sensor to the deformer in sections below.
 
 <figure markdown>
-  ![AdnSensorRotation angle display on AdnLocatorRotation within a scene](images/sensors_rotation.png)
+  ![AdnSensorRotation angle display on AdnLocatorRotation within a scene](../images/sensors_rotation.png)
   <figcaption><b>Figure 3</b>: AdnSensorRotation used in a human model.</figcaption>
 </figure>
 
@@ -126,13 +126,13 @@ There are two different methods of creating an AdnSensorRotation, depending if i
  - If applying to an already existing AdnLocatorRotation:
 
     1. Select an AdnLocatorRotation from your scene.
-    2. Press the ![AdnSensorRotation button](images/adn_angle_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorRotation button](../images/adn_angle_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnLocatorRotation is created, applied to the selected AdnLocatorRotation.
 
  - If creating the locator alongside the sensor:
 
     1. Select three transform nodes in the scene.
-    2. Press the ![AdnSensorRotation button](images/adn_angle_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+    2. Press the ![AdnSensorRotation button](../images/adn_angle_sensor.png){style="width:4%"} button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Sensor* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
     3. The AdnSensorRotation is created, alongside a new AdnLocatorRotation applied to the same transform nodes.
 
 ### Attributes
@@ -169,25 +169,25 @@ Sensors are meant to be connected to a deformer, typically to a muscle deformer,
 When creating a sensor, a remap node for each output attribute is created. Through these remap nodes, and their output, it is possible to modulate and connect the information obtained by the sensor to a deformer and display its remapped value to its corresponding locator.
 
 <figure markdown>
-  ![AdnLocatorPosition within a scene](images/sensors_position_sensor_nodes.png)
+  ![AdnLocatorPosition within a scene](../images/sensors_position_sensor_nodes.png)
   <figcaption><b>Figure 4</b>: Nodes created by an AdnSensorPosition.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnLocatorPosition within a scene](images/sensors_distance_sensor_nodes.png)
+  ![AdnLocatorPosition within a scene](../images/sensors_distance_sensor_nodes.png)
   <figcaption><b>Figure 5</b>: Nodes created by an AdnSensorDistance.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnLocatorPosition within a scene](images/sensors_rotation_sensor_nodes.png)
+  ![AdnLocatorPosition within a scene](../images/sensors_rotation_sensor_nodes.png)
   <figcaption><b>Figure 6</b>: Nodes created by an AdnSensorRotation.</figcaption>
 </figure>
 
 Connecting the sensor to the target deformer can be done using the Node Editor in Maya:
 
 <figure markdown>
-  ![AdnSensorDistance connected to the activation of an AdnMuscle](images/sensors_to_deformer_connect.png)
+  ![AdnSensorDistance connected to the activation of an AdnMuscle](../images/sensors_to_deformer_connect.png)
   <figcaption><b>Figure 7</b>: AdnSensorDistance connected to the activation of an AdnMuscle.</figcaption>
 </figure>
 
-However, these connections are made in a much more user friendly way by making use of the Sensors Connection Editor presented [here](tools#sensors-connection-editor).
+However, these connections are made in a much more user friendly way by making use of the Sensors Connection Editor presented [here](../tools#sensors-connection-editor).
