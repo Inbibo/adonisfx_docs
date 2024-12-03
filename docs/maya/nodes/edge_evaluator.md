@@ -20,7 +20,7 @@ To create this node, follow these steps:
 The evaluator node can be used to drive the activations of an AdnSimshape deformer by connecting the output map of this node to the activations plug of AdnSimshape deformer. The *Plug Values* mode (see this [section](simshape#muscle-activations)) must be enabled.
 
 <figure markdown>
-  ![Edge Evaluator example](images/edge_evaluator_example.png)
+  ![Edge Evaluator example](../images/edge_evaluator_example.png)
   <figcaption><b>Figure 1</b>: From left to right: rest mesh, deform mesh and simulated mesh with AdnSimshape deformer receiving the compression map from an AdnEdgeEvaluator node to drive activations (activations debugger is enabled).</figcaption>
 </figure>
 
@@ -46,6 +46,6 @@ In order to disconnect the plug, repeat the selection and instead of pressing *C
 ## Attribute Editor Template
 
 <figure markdown>
-  ![Edge Evaluator editor](images/edge_evaluator_attribute_editor.png)
+  ![Edge Evaluator editor](../images/edge_evaluator_attribute_editor.png)
   <figcaption><b>Figure 2</b>: Edge Evaluator Attribute Editor.</figcaption>
 </figure>

@@ -19,7 +19,7 @@ An AdnMuscle requires the following inputs to be provided:
 To create an AdnMuscle, follow these steps:
 
 1. Select the **Targets** (if any), then the **Muscle Geometry**.
-2. Press the ![Muscle button](images/adn_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Muscle* in the *Solvers* submenu from the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press the ![Muscle button](../images/adn_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Muscle* in the *Solvers* submenu from the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnMuscle is ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
@@ -140,17 +140,17 @@ To create an AdnMuscle, follow these steps:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![AdnMuscle editor first part](images/muscle_attribute_editor_00.png) 
+  ![AdnMuscle editor first part](../images/muscle_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnMuscle Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnMuscle editor second part](images/muscle_attribute_editor_01.png)
+  ![AdnMuscle editor second part](../images/muscle_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnMuscle Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnMuscle editor debug menu](images/muscle_attribute_editor_debug.png)
+  ![AdnMuscle editor debug menu](../images/muscle_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 
@@ -222,22 +222,22 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
  - **Slide On Segment**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective segment.
 
 <figure markdown>
-  ![AdnMuscle debug](images/muscle_debug.png)
+  ![AdnMuscle debug](../images/muscle_debug.png)
   <figcaption><b>Figure 10</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
 </figure>
 
 <figure markdown>
-  ![muscle fibers activation debug](images/muscle_fibers_activation_debug.png)
+  ![muscle fibers activation debug](../images/muscle_fibers_activation_debug.png)
   <figcaption><b>Figure 11</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
 </figure>
 
 <figure markdown>
-  ![muscle editor fiber constraint debug](images/muscle_dist_constr_debug.png)
+  ![muscle editor fiber constraint debug](../images/muscle_dist_constr_debug.png)
   <figcaption><b>Figure 12</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
-  ![muscle editor shape preservation constraint debug](images/muscle_shape_preserve_constr_debug.png)
+  ![muscle editor shape preservation constraint debug](../images/muscle_shape_preserve_constr_debug.png)
   <figcaption><b>Figure 13</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
@@ -255,12 +255,12 @@ Once the AdnMuscle deformer is created, it is possible to add and remove new tar
 - **Add targets**:
     1. Select the transform or mesh nodes (one or more) to be assigned as targets to the AdnMuscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press the ![Add Targets button](images/adn_add_target.png){style="width:4%"} button in the AdonisFX shelf or press *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Add Targets button](../images/adn_add_target.png){style="width:4%"} button in the AdonisFX shelf or press *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove targets**:
     1. Select one or more transform or mesh nodes that are assigned as targets to the AdnMuscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu. 
-    4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button, all targets will be removed (transform and mesh targets).
+    3. Press the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu. 
+    4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button, all targets will be removed (transform and mesh targets).
 
 Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](simple_setup#AdnMuscle) for more information on how to paint the influence maps for the mentioned constraints.
 

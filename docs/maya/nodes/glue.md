@@ -21,7 +21,7 @@ To create an AdnGlue node within a Maya scene, the following inputs must be prov
 The process to create an AdnGlue node is:
 
 1. Select the Input Geometries.
-2. Press ![Glue button](images/adn_glue.png){style="width:4%"} in the AdonisFX shelf or the Glue action in the AdonisFX’s Solvers menu, under the Create section. 
+2. Press ![Glue button](../images/adn_glue.png){style="width:4%"} in the AdonisFX shelf or the Glue action in the AdonisFX’s Solvers menu, under the Create section. 
 3. A message in the terminal will notify you that AdnGlue has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customize their configuration.
 
 > [!NOTE]
@@ -95,7 +95,7 @@ The process to create an AdnGlue node is:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![glue editor](images/glue_attribute_editor_00.png) 
+  ![glue editor](../images/glue_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnGlue Attribute Editor.</figcaption>
 </figure>
 
@@ -113,7 +113,7 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
 | **Stretching Resistance**        | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
 
 <figure markdown>
-  ![AdnGlue weights](images/glue_weights.png)
+  ![AdnGlue weights](../images/glue_weights.png)
   <figcaption><b>Figure 2</b>: Example of painted weights on the glue layer, labeled as: <b>a)</b> Glue Resistance, <b>b)</b> Max Glue Distance Multiplier and <b>c)</b> Shape Preservation (Optional painting). </figcaption>
 </figure>
 
@@ -128,7 +128,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
  - **Glue Constraint**: A line will be drawn for every vertex to the closest point on the closest neighbor surface.
 
 <figure markdown>
-  ![AdnGlue debug](images/glue_debug.png)
+  ![AdnGlue debug](../images/glue_debug.png)
   <figcaption><b>Figure 3</b>: AdnGlue debug features. From left to right: Glue Constraints, Distance Constraints and Shape Preservation.</figcaption>
 </figure>
 

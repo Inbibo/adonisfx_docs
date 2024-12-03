@@ -19,7 +19,7 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 Follow this steps to create an AndRibbonMuscle deformer:
 
 1. Select the **Targets** (if any) and the **Muscle Geometry** in that order.
-2. Press the ![AdnRibbonMuscle button](images/adn_ribbon_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Ribbon Muscle* in the *Solvers* submenu from the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press the ![AdnRibbonMuscle button](../images/adn_ribbon_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Ribbon Muscle* in the *Solvers* submenu from the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnRibbonMuscle is ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
@@ -137,17 +137,17 @@ Follow this steps to create an AndRibbonMuscle deformer:
 ## Attribute Editor Template
 
 <figure markdown>
-  ![AdnRibbonMuscle editor first part](images/ribbon_attribute_editor_00.png) 
+  ![AdnRibbonMuscle editor first part](../images/ribbon_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnRibbonMuscle Attribute Editor.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnRibbonMuscle editor second part](images/ribbon_attribute_editor_01.png)
+  ![AdnRibbonMuscle editor second part](../images/ribbon_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnRibbonMuscle Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnRibbonMuscle editor debug menu](images/muscle_attribute_editor_debug.png)
+  ![AdnRibbonMuscle editor debug menu](../images/muscle_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnRibbonMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 
@@ -216,22 +216,22 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 Enabling the debugger and selecting one of these constraints will draw lines from the influenced vertices in the simulated mesh to their corresponding reference vertices.
 
 <figure markdown>
-  ![AdnRibbonMuscle debug](images/ribbon_debug.png)
+  ![AdnRibbonMuscle debug](../images/ribbon_debug.png)
   <figcaption><b>Figure 9</b>: AdnRibbonMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
 </figure>
 
 <figure markdown>
-  ![ribbon muscle fibers activation debug](images/ribbon_muscle_fibers_activation_debug.png)
+  ![ribbon muscle fibers activation debug](../images/ribbon_muscle_fibers_activation_debug.png)
   <figcaption><b>Figure 10</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
 </figure>
 
 <figure markdown>
-  ![ribbon muscle editor fiber constraint debug](images/ribbon_muscle_dist_constr_debug.png)
+  ![ribbon muscle editor fiber constraint debug](../images/ribbon_muscle_dist_constr_debug.png)
   <figcaption><b>Figure 11</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
-  ![ribbon muscle editor shape preservation constraint debug](images/ribbon_muscle_shape_preserve_constr_debug.png)
+  ![ribbon muscle editor shape preservation constraint debug](../images/ribbon_muscle_shape_preserve_constr_debug.png)
   <figcaption><b>Figure 12</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
@@ -244,12 +244,12 @@ Once the AdnRibbonMuscle deformer is created, it is possible to add and remove n
 - **Add targets**:  
     1. Select the transform or mesh nodes (one or more) to be assigned as targets to the AdnRibbonMuscle.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press the ![Add Targets button](images/adn_add_target.png){style="width:4%"} button in the AdonisFX shelf or press *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Add Targets button](../images/adn_add_target.png){style="width:4%"} button in the AdonisFX shelf or press *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
 - **Remove targets**:
     1. Select one or more transform or mesh nodes that are assigned as targets to the AdnRibbonMuscle.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu.
-    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing the ![Remove Targets button](images/adn_remove_target.png){style="width:4%"} button, all targets will get removed (transform and mesh targets).
+    3. Press the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu.
+    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button, all targets will get removed (transform and mesh targets).
 
 Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](simple_setup#AdnRibbonMuscle) for more information on how to paint the influence maps for the mentioned constraints.
 
