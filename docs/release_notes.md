@@ -1,5 +1,15 @@
 # Release Notes
 
+## Version 1.4.1
+
+### Bug Fixes
+
+- Fixed Attribute Editor Template of AdnSimshape to merge all initialization settings into a single collapsible menu.
+
+### Improvements
+
+- Improved the parallelization handling in AdnSimshape solver.
+
 ## Version 1.4.0
 
 ### Core
