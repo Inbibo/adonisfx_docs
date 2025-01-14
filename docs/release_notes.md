@@ -12,7 +12,7 @@
 
 ### Known Limitations
 
-- AdonisFX debugger is not compatible with Maya Cached Playback. *AdonisFX-*
+- AdonisFX debugger is not compatible with Maya Cached Playback. *AdonisFX-1113*
 
 ## Version 1.4.1
 
