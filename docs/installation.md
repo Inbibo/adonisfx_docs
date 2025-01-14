@@ -17,7 +17,7 @@ When Maya starts up, it evaluates all paths pointed by the `MAYA_MODULE_PATH` en
 In the following sections these two methods for Windows and Linux are explained.
 
 > [!NOTE]
-> AdonisFX is distributed for Maya 2022, 2023 and 2024. If you have multiple Maya versions installed, make sure to [download](https://inbibo.co.uk/adonisfx/downloads) the right AdonisFX build and configure the environment to point to the right AdonisFX version. Remember that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
+> AdonisFX is distributed for Maya 2022, 2023, 2024 and 2025. If you have multiple Maya versions installed, make sure to [download](https://inbibo.co.uk/adonisfx/downloads) the right AdonisFX build and configure the environment to point to the right AdonisFX version. Remember that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
 
 ### Windows
 
