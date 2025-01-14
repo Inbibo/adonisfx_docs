@@ -1,19 +1,5 @@
 # Release Notes
 
-## Version 1.4.2
-
-### Maya
-
-- Added support to AdonisFX for Maya 2025.
-
-### Bug Fixes
-
-- Fixed a bug that allowed the Sensors Connection Editor to list non-writable attributes. *AdonisFX-1601*
-
-### Known Limitations
-
-- AdonisFX debugger is not compatible with Maya Cached Playback. *AdonisFX-*
-
 ## Version 1.4.1
 
 ### Bug Fixes
