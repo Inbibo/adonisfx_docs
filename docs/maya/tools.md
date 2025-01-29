@@ -137,7 +137,7 @@ To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *C
 
 <figure markdown> 
   ![Connection Editor](images/tools_sensors_connection_editor_empty.png) 
-  <figcaption><b>Figure 11</b>: Sensor connection editor after opening it for the first time. </figcaption>
+  <figcaption><b>Figure 7</b>: Sensor connection editor after opening it for the first time. </figcaption>
 </figure>
 
 Two main sections can be distinguished in this tool, labeled *source* and *destination*. The source section is intended to display the signal attributes of sensors and locators, but it can also display the float attributes of any node. Meanwhile, the destination section will display the deformers along with their possible input attributes.
@@ -148,7 +148,7 @@ For Source elements (sensors) press the *Reload Left* button and for Destination
 
 <figure markdown> 
   ![Connection Editor Setup](images/tools_sensors_connection_editor.png) 
-  <figcaption><b>Figure 12</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
+  <figcaption><b>Figure 8</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
 </figure>
 
 To make the connections select the two specific attributes to connect (one from *source* and one from *destination*) and press the *Make Connection* button. A message will then get displayed informing that the connection has been properly made.
