@@ -98,7 +98,7 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
 </figure>
 
 - **Edge Evaluator**. Creates an AdnEdgeEvaluator node from two selected meshes with the same topology. 
-- **Activation**. Creates an AdnActivation node. If meshes with an AdnMuscle or AdnRibbonMuscle deformer applied are provided in the selection, the new AdnActivation node will be connected to the activation plug of those deformers.
+- **Activation**. Creates an AdnActivation node. If meshes with a muscle deformer applied are provided in the selection, the new AdnActivation node will be connected to the activation plug of those deformers.
 
 #### Deformers
 
@@ -149,11 +149,15 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
   <figcaption><b>Figure 11</b>: AdonisFX Menu Edit Sensors section.</figcaption>
 </figure>
 
-- **Remove Inputs**. Removes inputs from an AdnActivation node. The selection must be one of the following:
-    - The locators to remove and the AdnActivation node to remove the inputs from.
-    - Only the AdnActivation node to remove all the inputs.
-    - First the locators to remove and lastly the mesh with an AdnMuscle or AdnRibbonMuscle deformer applied which has a connection from an AdnActivation node.
-    - Only the mesh with an AdnMuscle or AdnRibbonMuscle deformer applied which has a connection from an AdnActivation node.
+- **Remove Inputs**: Removes inputs from an AdnActivation node.
+
+    - To remove all inputs, do one of the following:
+        1. Select the AdnActivation node.
+        2. Select the mesh with a muscle deformer applied that is connected to an AdnActivation node.
+
+    - To remove specific inputs, do one of the following:
+        1. Select the locators to remove and the AdnActivation node.
+        2. First select the locators to remove, lastly select the mesh with a muscle deformer applied that is connected to an AdnActivation node.
 
 #### Deformers
 
