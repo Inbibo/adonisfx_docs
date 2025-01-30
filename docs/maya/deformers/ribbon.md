@@ -198,7 +198,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 
 <figure>
   <img src="../images/ribbon_w_fibers_mult.png" style="width:40%;">
-  <figcaption><b>Figure 9</b>: Example of fibers multiplier map painted on a biceps ribbon concentrating the activations in the head of the muscle.</figcaption>
+  <figcaption><b>Figure 9</b>: Example of fibers multiplier map painted on a biceps ribbon concentrating the activations in the belly of the muscle.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -207,20 +207,11 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 
 ## Activation Control (Fibers Multiplier)
 Painting the fibers multiplier map allows to concentrate the activation of a muscle in certain areas which would allow for more artistic control over the final shape of the muscle after contraction (activation).
-Not painting the fibers multiplier map will cause the muscle to contract uniformly over its whole area without concentrating the activations in the head of the muscle. Painting to 0.0 the tendinous areas and painting to 1.0 the head of the muscle will allow (after combing fibers and activating the muscle) to activate only the areas that had been painted with a value of 1.0.
-
-Here is an example of the fibers multiplier painting:
+Not painting the fibers multiplier map will cause the muscle to contract uniformly over its whole area without concentrating the activations in the belly of the muscle. Painting to 0.0 the tendinous areas and painting to 1.0 the belly of the muscle will allow (after combing fibers and activating the muscle) to activate only the areas that had been painted with a value of 1.0.
 
 <figure>
-  <img src="../images/ribbon_fibers_multiplier_painting.png">
-  <figcaption><b>Figure 10</b>: Example of fibers multiplier map painted on a calve ribbon. a) represents the painting without concentrated activations; b) represents the painting with concentrated activations in the head of the muscle.</figcaption>
-</figure>
-
-Here is the result of using the fibers multiplier map when the muscle is fully activated:
-
-<figure>
-  <img src="../images/ribbon_fibers_multiplier_result.png">
-  <figcaption><b>Figure 11</b>: a) represents the results of not concentrating the activations using the fibers multiplier paintable map; b) represents the results of concentrating the activations on the head of the muscle using the fibers multiplier paintable map.</figcaption>
+  <img src="../images/ribbon_fibers_multiplier.png">
+  <figcaption><b>Figure 10</b>: Example use case of the fibers multiplier map on a biceps ribbon muscle. Top-Left) represents the painting without concentrated activations; Top-Right) represents the painting with concentrated activations in the belly of the muscle; Bottom-Left) Shows the results of the non-concentrated activations when the muscle is fully activated; Bottom-Right) Shows the results of the concentrated activations when the muscle is fully activated.</figcaption>
 </figure>
 
 ## Debugger
@@ -241,22 +232,22 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![AdnRibbonMuscle debug](../images/ribbon_debug.png)
-  <figcaption><b>Figure 12</b>: AdnRibbonMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
+  <figcaption><b>Figure 11</b>: AdnRibbonMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
 </figure>
 
 <figure markdown>
   ![ribbon muscle fibers activation debug](../images/ribbon_muscle_fibers_activation_debug.png)
-  <figcaption><b>Figure 13</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
+  <figcaption><b>Figure 12</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
 </figure>
 
 <figure markdown>
   ![ribbon muscle editor fiber constraint debug](../images/ribbon_muscle_dist_constr_debug.png)
-  <figcaption><b>Figure 14</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 13</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![ribbon muscle editor shape preservation constraint debug](../images/ribbon_muscle_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 15</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 14</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced

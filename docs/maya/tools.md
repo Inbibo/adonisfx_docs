@@ -72,7 +72,7 @@ In the specific case of muscle deformers, the tool will display the following at
     - To get all fibers more tightly aligned in a homogeneous way, press the flood button while having the *Smooth* brush selected.
   - **Fibers Multiplier**
     - Fibers Multiplier is set to 1.0 by default. With this value the solver will apply the activation uniformly throughout the muscle.
-    - Set a value lower than 1.0 to decrease the effect of the activation in those areas. For example, paint only the head of the muscle to 1.0 to concentrate activations in that area and paint the map to 0.0 in the tendinous area.
+    - Set a value lower than 1.0 to decrease the effect of the activation in those areas. For example, paint only the belly of the muscle to 1.0 to concentrate activations in that area and paint the map to 0.0 in the tendinous area.
   - **Global Damping**
     - By default, this map is set to 1.0.
     - This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
