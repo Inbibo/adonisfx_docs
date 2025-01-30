@@ -82,7 +82,7 @@ Make use of the [AdnSkinMerge](maya/deformers/skin_merge) deformer to blend anim
 
 ### How can I control the area in which my muscle should activate?
 
-For AdnMuscle and AdnRibbonMuscle, controlling the area in which the muscle should activate and bulge (in the case of AdnMuscle) can be achieved by painting the 'Fibers Multiplier' paintable map. Painting this map allows the muscle to contract and concentrate activations in certain areas without affecting unpainted areas. For example, painting the 'Fibers Multiplier' map to 0.0 in the tendinous area will concentrate activations and volume (in the case of AdnMuscle) in the head of the muscle, which is painted with a value of 1.0, giving a more realistic and controlled look to the activation.
+For AdnMuscle and AdnRibbonMuscle, controlling the area in which the muscle should activate and bulge (in the case of AdnMuscle) can be achieved by painting the fibers multiplier paintable map. Painting this map allows the muscle to contract and concentrate activations in certain areas without affecting unpainted areas. For example, painting the fibers multiplier map to 0.0 in the tendinous area will concentrate activations and volume (in the case of AdnMuscle) in the head of the muscle, which is painted with a value of 1.0, giving a more realistic and controlled look to the activation. Read how to use the fibers multiplier map in AdnMuscle [here](maya/deformers/muscle) and AdnRibbonMuscle [here](maya/deformers/ribbon).
 
 ## Workflows
 
