@@ -9,6 +9,8 @@ To create this node, follow these steps:
 1. Open the Node Editor from Windows > Node Editor.
 2. Press the Tab key, type *AdnActivation* and press Enter to create a new instance of this node.
 
+Alternatively, press the option located in AdonisFX > Nodes > *Activation* to create a new AdnActivation node.
+
 The activation node can now be used to override, add, subtract, multiply or divide the activations from different sources (sensors) into one final activation value.
 For example, multiple distance sensors of a character can be merged together to produce different kinds of activations throughout the simulation.
 
@@ -79,3 +81,11 @@ The *inputs* attribute is presented as an array of 3 attributes which can be fou
   ![AdnActivation editor](../images/activation_attribute_editor.png)
   <figcaption><b>Figure 3</b>: AdnActivation Attribute Editor.</figcaption>
 </figure>
+
+## Advanced
+
+### Create AdnActivation
+
+### Remove inputs
+
+Once an AdnActivation node is created, it is possible to remove inputs by using the utility provided in AdonisFX > Activation > *Remove Inputs*.
