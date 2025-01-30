@@ -164,6 +164,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
 | **Attachments To Transform**    | 0.0             | Multi-influence weight to indicate the influence of each transform attachment at each vertex of the muscle. |
 | **Compression Resistance**      | 1.0             | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
 | **Fibers**                      | {0.0, 0.0, 0.0} | The deformer estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the paint tool can be used to comb the fibers manually. The fibers can be displayed using the *Muscle Fibers* option in the [debugger](#debugger). |
+| **Fibers Multiplier**           | 1.0             | Controls the area in which to concentrate the activation and volume of the muscle. |
 | **Global Damping**              | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
 | **Masses**                      | 1.0             | Set individual mass values per vertex in the simulated mesh. |
 | **Shape Preservation**          | 0.0             | Amount of correction to apply to the current vertex to maintain the initial state of the shape formed with the surrounding vertices. |
@@ -203,9 +204,32 @@ In order to provide more artistic control, some key parameters of the muscle sol
   <figcaption><b>Figure 9</b>: Muscle to muscle attachments to geo painted map example between biceps and brachialis.</figcaption>
 </figure>
 
+<figure>
+  <img src="../images/muscle_w_fibers_mult.png" style="width:40%;">
+  <figcaption><b>Figure 10</b>: Example of fibers multiplier map painted on a biceps concentrating the activations in the head of the muscle.</figcaption>
+</figure>
+
 > [!NOTE]
 > - The attachment weights are normalized at each vertex. This normalization is applied when a stroke is finished. The use of the AdonisFX Paint Tool is mandatory for that.
 > - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalization overriding them in further strokes.
+
+## Activation Control (Fibers Multiplier)
+Painting the 'Fibers Multiplier' map allows to concentrate the activation and volume of a muscle in certain areas which would allow for more artistic control over the final shape of the muscle after contraction (activation).
+Not painting the 'Fibers Multiplier' map will cause the muscle to contract uniformly over its whole volume without concentrating the activations in the head of the muscle. Painting to 0.0 the tendinous areas and painting to 1.0 the head of the muscle will allow (after combing fibers and activating the muscle) to activate only the areas that had been painted with a value of 1.0.
+
+Here is an example of the 'Fibers Multiplier' painting:
+
+<figure>
+  <img src="../images/muscle_fibers_multiplier_painting.png">
+  <figcaption><b>Figure 11</b>: Example of fibers multiplier map painted on a calve. a) represents the painting without concentrated activations; b) represents the painting with concentrated activations in the head of the muscle.</figcaption>
+</figure>
+
+Here is the result of using the 'Fibers Multiplier' map when the muscle is fully activated:
+
+<figure>
+  <img src="../images/muscle_fibers_multiplier_result.png">
+  <figcaption><b>Figure 12</b>: a) represents the results of not concentrating the activations using the 'Fibers Multiplier' paintable map; b) represents the results of concentrating the activations on the head of the muscle using the 'Fibers Multiplier' paintable map.</figcaption>
+</figure>
 
 ## Debugger
 
@@ -223,27 +247,27 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![AdnMuscle debug](../images/muscle_debug.png)
-  <figcaption><b>Figure 10</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
+  <figcaption><b>Figure 13</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle fibers activation debug](../images/muscle_fibers_activation_debug.png)
-  <figcaption><b>Figure 11</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
+  <figcaption><b>Figure 14</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
 </figure>
 
 <figure markdown>
   ![muscle editor fiber constraint debug](../images/muscle_dist_constr_debug.png)
-  <figcaption><b>Figure 12</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 15</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle editor shape preservation constraint debug](../images/muscle_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 13</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 16</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure>
   <img src="../images/muscle_to_muscle_debugger.png">
-  <figcaption><b>Figure 14</b>: Muscle to muscle attachments to geo debugging example between biceps and brachialis.</figcaption>
+  <figcaption><b>Figure 17</b>: Muscle to muscle attachments to geo debugging example between biceps and brachialis.</figcaption>
 </figure>
 
 ## Advanced
