@@ -8,14 +8,14 @@
 
 ### Maya
 
-- Added support to Maya 2025.
+- Added support for Maya 2025.
 - Implemented an experimental Python API.
 - Implemented a mirroring script in Python to transfer the setup (muscles, locators and sensors) from one side of the character to the other.
 - Added AdnRelax deformer that applies the relaxation algorithm to the given geometry.
-- Added fibers multiplier map to AdnMuscle and AdnRibbonMuscle to control the distribution of the activation across the surface of a muscle.
+- Added fibers multiplier map to AdnMuscle and AdnRibbonMuscle to control the distribution of the activation across the muscle.
 - Added a utility to create AdnActivation nodes from the menu.
 - Added a utility to remove inputs from an AdnActivation node.
-- Prevent painting fibers and tendons on a simulated frame.
+- Prevent the Paint Tool UI from selecting fibers and tendons attributes on a simulated frame.
 
 ### Improvements
 
@@ -25,11 +25,11 @@
 
 ### Bug Fixes
 
-- Fixed a bug that prevented to generate the fibers flow driven by the tendon weights when a Maya preset was applied onto a muscle deformer. *AdonisFX-1652*
+- Fixed a bug where applying a Maya preset to a muscle deformer triggered an unintended recomputation of the fibers flow upon scene open when the source muscle, from which the preset was saved, had a differing vertex count. *AdonisFX-1652*
 
 ### Deprecated
 
-- The Exporter and Importer tools are deprecated and removed from the UI. The internal logic in Python is still available but it will be removed or rewritten in an upcoming release.
+- The Exporter and Importer tools are deprecated and removed from the UI. The internal logic in Python is still available but it will be removed or rewritten in an upcoming release. Continuing using it is not advisable.
 
 ### Known Limitations
 
