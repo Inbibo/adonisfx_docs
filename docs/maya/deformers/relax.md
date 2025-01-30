@@ -1,18 +1,14 @@
 # AdnRelax
 
-AdnRelax is a Maya deformer designed to smooth creases and correct over-compression or over-stretching on geometry surfaces. This deformer can help refining the fascia and skin meshes resulting from the simulation by applying a combination of smoothing, relaxation, and volume correction algorithms. The AdnRelax deformer applies smoothing and relaxation in each iteration, while push in and push out adjustments are applied during the final iteration.
+AdnRelax is a Maya deformer designed to smooth creases and correct over-compression or over-stretching on geometry surfaces. This deformer can help refining different types of meshes, like the fascia and skin resulting from the simulation by computing an iterative algorithm that combines smoothing, relaxation, and volume corrections. The AdnRelax deformer applies smoothing and relaxation in each iteration, while the volume correction (i.e. a push in and push out adjustment in the direction of the point normals) is applied during the final iteration.
 
 ### How to use
 
-The AdnRelax deformer is easy to create and configure in Maya. Ann AdnRelax deformer requires the following input:
+The AdnRelax deformer is easy to create and configure in Maya. It only requires the mesh to apply the relaxation onto. Typically, this mesh would be the simulated fascia or skin.
 
-**Input Mesh (I)**: The mesh to apply the relaxation algorithm onto. This should typically be a fascia or skin mesh already simulated.
-
-To create an AdnRelax deformer, follow these steps:
-
-1. Select the **Input Mesh**.
-2. Press ![Relax button](../images/adn_relax.png){style="width:4%"} in the AdonisFX shelf or *Relax* in the AdonisFX menu, under the Create Solvers section.
-3. A message in the terminal will notify you that AdnRelax has been created properly, meaning that it is ready to deform the mesh with default settings. Check the next section to customize their configuration.
+1. Select the mesh on which to apply the deformer.
+2. Press ![Relax button](../images/adn_relax.png){style="width:4%"} in the AdonisFX shelf or *Relax* in the AdonisFX menu, under the Create Deformers section.
+3. A message in the terminal will notify that AdnRelax has been created properly. Increase the number of iterations to see the effect of the deformation. Check the [Attributes](relax#attributes) section to customize their configuration.
 
 ## Attributes
 
