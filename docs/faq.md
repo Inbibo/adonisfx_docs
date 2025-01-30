@@ -82,10 +82,6 @@ Make use of the [AdnSkinMerge](maya/deformers/skin_merge) deformer to blend anim
 
 ## Workflows
 
-### Can I transfer AdonisFX node configuration to a different asset?
-
-Yes, you can use the AdonisFX [Exporter](maya/tools#exporter) and [Importer](maya/tools#importer) Tools to generate and load respectively an AdonisFX Asset Definition (AAD) file. From a scene with an asset fully configured with AdonisFX deformers, you can select the parent transform object and launch the Exporter. From there, you can decide which settings to export and the destination path for the AAD file. Then, in a different scene with a compatible asset, you can launch the Importer, browse the AAD file and assign deformers from the file to the meshes in the hierarchy of the asset.
-
 ### How can I generate the fascia geometry?
 
 In order to obtain a plausible fascia geometry, we can use two techniques that require the muscle geometries and the skin geometry as inputs.

@@ -45,8 +45,6 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![Remove Slide On Segment](images/adn_remove_sliding_constraint.png) | Removes slide segments assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Slide On Segment* |
 | ![Create AdnGlue](images/adn_glue.png) | Creates an AdnGlue node and connects the selected geometries to the inputs array plug of the node. A new geometry will be generated as the result of gluing all the inputs together. | AdonisFX Menu > Create Solvers > *Glue* |
 |||
-| ![Importer Tool](images/adn_importer.png) | Launches the Importer to load and create nodes from an AdonisFX Asset Definition file (.JSON). | AdonisFX Menu > Tools *Importer* |
-| ![Exporter Tool](images/adn_exporter.png) | Launches the Exporter to save AdonisFX nodes information into an AdonisFX Asset Definition file (.JSON). | AdonisFX Menu > Tools *Exporter* |
 | ![Paint Tool](images/adn_paint_tool.png) | Opens the AdonisFX Paint Tool to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. | AdonisFX Menu > *Tools* Paint Tool |
 | ![Interactive Playback](images/adn_interactive_playback.png) | Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. | AdonisFX Menu > Tools *Interactive Playback* |
 
@@ -256,8 +254,6 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 <br/>
 
-- **Import**. Launches the AdonisFX Asset Definition Importer to load and create AdonisFX nodes from file (.JSON). This item corresponds to the shelf button ![Importer Tool](images/adn_importer.png){style="width:4%"}.
-- **Export**. Launches the AdonisFX Asset Definition Exporter to save AdonisFX nodes information into a file (.JSON). This item corresponds to the shelf button ![Exporter Tool](images/adn_exporter.png){style="width:4%"}.
 - **Paint Tool**. Opens the Paint Tool UI to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. This item corresponds to the shelf button ![Paint Tool](images/adn_paint_tool.png){style="width:4%"}.
 - **Interactive Playback**. Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. This item corresponds to the shelf button ![Interactive Playback](images/adn_interactive_playback.png){style="width:4%"}.
 
