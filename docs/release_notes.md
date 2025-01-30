@@ -10,7 +10,7 @@
 
 - Added support to Maya 2025.
 - Implemented an experimental Python API.
-- Implemented a mirroring script in Python to transfer the muscle setup (muscles and sensors) from one side of the character to the other.
+- Implemented a mirroring script in Python to transfer the setup (muscles, locators and sensors) from one side of the character to the other.
 - Added AdnRelax deformer that applies the relaxation algorithm to the given geometry.
 - Added fibers multiplier map to AdnMuscle and AdnRibbonMuscle to control the distribution of the activation across the surface of a muscle.
 - Added a utility to create AdnActivation nodes from the menu.
@@ -21,7 +21,7 @@
 
 - Added further optimizations to AdnSimshape solver.
 - Added further optimizations to AdnSkin solver.
-- Improved the automation of the Paint Tool to include the AdnDebugLocator in the current selection to easy the debugging process while painting.
+- Improved the automation of the Paint Tool to include the AdnDebugLocator in the current selection to ease the debugging process while painting.
 
 ### Bug Fixes
 
@@ -33,7 +33,9 @@
 
 ### Known Limitations
 
-- Painting functionalities on AdnGlue are not supported if other deformers are applied to the AdnGlue output mesh directly. *AdonisFX-1644*
+- Painting weight maps on AdnGlue are not supported if other deformers are applied to the AdnGlue output mesh directly. *AdonisFX-1644*
+- Maya Cached Playback can be used for simulation preview but in order to get the correct simulation results it is required to disable the Cached Playback. *AdonisFX-1624*
+- Features debugging in the viewport is not supported with Maya Cached Playback enabled. *AdonisFX-1600*
 
 ## Version 1.4.1
 
