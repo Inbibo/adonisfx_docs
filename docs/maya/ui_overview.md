@@ -151,13 +151,13 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 - **Remove Inputs**: Removes inputs from an AdnActivation node.
 
-    - To remove all inputs, do one of the following:
-        1. Select the AdnActivation node.
-        2. Select the mesh with a muscle deformer applied that is connected to an AdnActivation node.
+    - To remove all inputs, do one of the following selections:
+        1. The AdnActivation node.
+        2. The mesh with a muscle deformer applied that is connected to an AdnActivation node.
 
-    - To remove specific inputs, do one of the following:
-        1. Select the locators to remove and the AdnActivation node.
-        2. First select the locators to remove, lastly select the mesh with a muscle deformer applied that is connected to an AdnActivation node.
+    - To remove specific inputs, do one of the following selections:
+        1. The locators to remove and the AdnActivation node.
+        2. First the locators to remove, lastly the mesh with a muscle deformer applied that is connected to an AdnActivation node.
 
 #### Deformers
 
