@@ -40,12 +40,17 @@ Depending on the deformer and the attribute selected the UI can adjust to suppor
 In the specific case of muscle deformers, the tool will display the following attributes:
 
 <figure markdown>
-  ![Pain Tool Muscle Attributes example](images/tools_paint_tool_ribbon_attributes.png) 
-  <figcaption><b>Figure 3</b>: Paintable attributes in AdonisFX muscle deformer. </figcaption>
+  ![Pain Tool Muscle Attributes example](images/tools_paint_tool_muscle_attributes_00.png) 
+  <figcaption><b>Figure 3</b>: Paintable attributes in AdonisFX muscle deformer (Part 1). </figcaption>
+</figure>
+
+<figure markdown>
+  ![Pain Tool Muscle Attributes example](images/tools_paint_tool_muscle_attributes_01.png) 
+  <figcaption><b>Figure 4</b>: Paintable attributes in AdonisFX muscle deformer (Part 2). </figcaption>
 </figure>
 
   - **Attachments To Geometry** and **Attachments To Transform**
-    - If any of these attribute types is selected, then a list widget is shown with the names of the targets connected to the deformer (see Figure 4).
+    - If any of these attribute types is selected, then a list widget is shown with the names of the targets connected to the deformer (see Figure 5).
     - Select the desired target to paint from the list widget and paint the weight values.
     - When selecting a target in the list, the object will also get selected in the scene, facilitating its identification.
     - If more than one target was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all attachment constraint weights in a vertex will always add up to a maximum value of 1.0.
@@ -53,7 +58,7 @@ In the specific case of muscle deformers, the tool will display the following at
 
     <figure>
       <img src="images/tools_paint_tool_attachment_attribute.png"> 
-      <figcaption><b>Figure 4</b>: AdonisFX Paint Tool listing multiple transform attachments.</figcaption>
+      <figcaption><b>Figure 5</b>: AdonisFX Paint Tool listing multiple transform attachments.</figcaption>
     </figure>
 
   - **Compression Resistance** and **Stretching Resistance**
@@ -65,6 +70,9 @@ In the specific case of muscle deformers, the tool will display the following at
     - To modify the fibers direction, comb the fibers towards the desired direction.
     - For better precision adjust the set direction using the *Smooth* brush.
     - To get all fibers more tightly aligned in a homogeneous way, press the flood button while having the *Smooth* brush selected.
+  - **Fibers Multiplier**
+    - Fibers Multiplier is set to 1.0 by default. With this value the solver will apply the activation uniformly throughout the muscle.
+    - Set a value lower than 1.0 to decrease the effect of the activation in those areas. For example, paint only the belly of the muscle to 1.0 to concentrate activations in that area and paint the map to 0.0 in the tendinous area.
   - **Global Damping**
     - By default, this map is set to 1.0.
     - This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
@@ -73,7 +81,7 @@ In the specific case of muscle deformers, the tool will display the following at
   - **Shape Preservation**
     - Shape preservation weights are set to 0.0 by default in AdnMuscle and AdnRibbonMuscle. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the shape formed with the surrounding vertices.
   - **Slide On Geometry**
-    - If this attribute is selected, a list widget is shown with the names of the targets connected to the deformer (see Figure 4).
+    - If this attribute is selected, a list widget is shown with the names of the targets connected to the deformer (see Figure 5).
     - Select the desired target to paint from the list widget and paint the weight values.
     - When selecting a target in the list, the object will also get selected in the scene, facilitating its identification.
     - If more than one target was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all sliding on geometry constraint weights in a vertex will always add up to a maximum value of 1.0.
@@ -87,7 +95,7 @@ In the specific case of muscle deformers, the tool will display the following at
 
     <figure>
       <img src="images/tools_paint_tool_sos_attribute.png"> 
-      <figcaption><b>Figure 5</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
+      <figcaption><b>Figure 6</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
     </figure>
 
   - **Sliding Distance Multiplier**
@@ -103,7 +111,7 @@ In the specific case of an AdnSkin deformer, the tool will display the following
 
 <figure markdown> 
   ![Paint Tool Skin Attributes example](images/tools_paint_tool_skin_attributes.png) 
-  <figcaption><b>Figure 6</b>: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
+  <figcaption><b>Figure 7</b>: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
 </figure>
 
   - **Compression Resistance** and **Stretching Resistance**
@@ -137,7 +145,7 @@ To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *C
 
 <figure markdown> 
   ![Connection Editor](images/tools_sensors_connection_editor_empty.png) 
-  <figcaption><b>Figure 7</b>: Sensor connection editor after opening it for the first time. </figcaption>
+  <figcaption><b>Figure 8</b>: Sensor connection editor after opening it for the first time. </figcaption>
 </figure>
 
 Two main sections can be distinguished in this tool, labeled *source* and *destination*. The source section is intended to display the signal attributes of sensors and locators, but it can also display the float attributes of any node. Meanwhile, the destination section will display the deformers along with their possible input attributes.
@@ -148,7 +156,7 @@ For Source elements (sensors) press the *Reload Left* button and for Destination
 
 <figure markdown> 
   ![Connection Editor Setup](images/tools_sensors_connection_editor.png) 
-  <figcaption><b>Figure 8</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
+  <figcaption><b>Figure 9</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
 </figure>
 
 To make the connections select the two specific attributes to connect (one from *source* and one from *destination*) and press the *Make Connection* button. A message will then get displayed informing that the connection has been properly made.
