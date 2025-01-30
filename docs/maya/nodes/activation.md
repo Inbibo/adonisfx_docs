@@ -88,7 +88,7 @@ The *inputs* attribute is presented as an array of 3 attributes which can be fou
 
 It is possible to create an AdnActivation node by using the utility provided in AdonisFX > Nodes > *Activation*. This utility will create a new AdnActivation node. If muscle deformers are provided in the selection, the new AdnActivation node will be connected to the activation plug of those deformers.
 
-### Remove inputs
+### Remove Inputs
 
 Once an AdnActivation node is created, connected inputs can be removed by using the utility provided in AdonisFX > Activation > *Remove Inputs*.
 
