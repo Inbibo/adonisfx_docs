@@ -1,6 +1,6 @@
 # Scripts
 
-## Mirroring
+## Mirror
 
 The mirroring script is a Python script that provides the ability to transfer the AdonisFX muscle setup of an asset side to side. For example, a user can complete the muscle rig for the left side of an asset and thanks to this script it would be possible to get the full rig done instantly. 
 
@@ -38,19 +38,18 @@ Once the scene fulfils the requirements, then the procedure to follow is:
 
 3. Run the following command in a Python Script tab.
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">
-from adn.scripts.maya import mirror
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import mirror
 mirror.apply_mirror(left_convention="L_*", right_convention="R_*")
 </code></pre>
 
-4. A confirm dialog will be displayed. This dialog reminds that it is recommended to have a saved version of the scene because the mirroring process can't be undone.
+4. A confirmation dialog will be displayed. This dialog reminds that it is recommended to have a saved version of the scene because the mirroring process can't be undone.
 
-<figure>
-  <img src="images/mirror_script_02.png">
-  <figcaption><b>Figure 3</b>: Question dialog displayed to ask for confirmation before executing.</figcaption>
+<figure style="width:80%; margin-left:10%" markdown>
+      ![Mirror Script Confirmation Dialog](images/mirror_script_02.png)
+      <figcaption><b>Figure 3</b>: Question dialog displayed to ask for confirmation before executing.</figcaption>
 </figure>
 
-5. Press "Yes" in the question dialog to proceed with the mirroring.
+5. Click "Yes" in the question dialog to proceed with the mirroring.
 
 Depending on the complexity of the rig, this process might take a few seconds to compute. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the resolution.
 

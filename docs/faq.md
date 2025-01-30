@@ -82,6 +82,10 @@ Make use of the [AdnSkinMerge](maya/deformers/skin_merge) deformer to blend anim
 
 ## Workflows
 
+### Can I mirror the muscles setup?
+
+Yes, a Python script is provided to transfer the muscle setup of an asset from left to right and vice versa. This scripts includes the mirroring of AdonisFX muscles, locators and sensors. It mirrors not only the scalar attributes and paintable maps, but also the connections and dependencies between all of them. Know more about the mirroring in [this page](maya/scripts).
+
 ### How can I generate the fascia geometry?
 
 In order to obtain a plausible fascia geometry, we can use two techniques that require the muscle geometries and the skin geometry as inputs.
