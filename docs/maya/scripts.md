@@ -2,14 +2,64 @@
 
 ## Mirroring
 
+The mirroring script is a Python script that provides the ability to transfer the AdonisFX muscle setup of an asset side to side. For example, a user can complete the muscle rig for the left side of an asset and thanks to this script it would be possible to get the full rig done instantly. 
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">
-  from adn.scripts.maya import mirror
+Currently, the script allows to mirror:
+
+- AdnMuscle (settings, paintable maps, geometry targets, connections to sensors)
+- AdnLocators (position, distance, rotation)
+- AdnRotation (position, distance, rotation).
+
+Please, check this [section](#limitations) to know more about the current limitations.
+
+### How To Use
+
+The character rig to apply the mirroring onto needs to satisfy some requirements for this script to work:
+
+- One side of the rig (i.e. left or right) completed. This side will work as source, while the other will work as destination.
+- Apply a naming convention to all the objects involved in the mirroring (geometries, muscle deformers, locators and sensors) to allow the script to differentiate between left and right side objects. For example, use "l_" and "r_", or "L_" and "R_", or "\_l" and "\_r", or "\_L" and "\_R".
+- It is recommended to saves the scene before executing the script.
+
+<figure>
+  <img src="../images/mirror_script_00.png">
+  <figcaption><b>Figure 1</b>: Starting point to execute the mirroring script onto a biped asset. The left side is fully configured with muscle deformers, locators and sensors following the naming "L_*".</figcaption>
+</figure>
+
+Once the scene fulfils the requirements, then the procedure to follow is:
+
+1. Select all geometries from the source side with an AdnMuscle applied that need to be mirrored.
+
+2. Add to the selection all the AdonisFX Locators from the same source side that need to be mirrored. Note that sensors (as not being DAG objects) do not need to be added to the selection. The script will take care of mirroring them too.
+
+<figure>
+  <img src="../images/mirror_script_01.png">
+  <figcaption><b>Figure 2</b>: All geometry muscles and locators on the left side selected.</figcaption>
+</figure>
+
+3. Run the following command in a Python Script tab.
+
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import mirror
   mirror.apply_mirror("L_*", "R_*")
 </code></pre>
 
+4. A confirm dialog will be displayed. This dialog reminds that it is recommended to have a saved version of the scene because the mirroring process can't be undone.
+
+<figure>
+  <img src="../images/mirror_script_02.png">
+  <figcaption><b>Figure 3</b>: Question dialog displayed to ask for confirmation before executing.</figcaption>
+</figure>
+
+5. Press "Yes" in the question dialog to proceed with the mirroring.
+
+Depending on the complexity of the rig, this process might take a few seconds to compute. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the resolution.
+
+<figure>
+  <img src="../images/mirror_script_02.png">
+  <figcaption><b>Figure 4</b>: Result of the execution: all AdnMuscle from the left side are replicated on the right side. Also, all the locators and sensors from the left side are created and connected on the right side.</figcaption>
+</figure>
+
 ### Limitations
 
-- AdnRibbonMuscle not supported
-- AdnActivation not included
-- Naming convention requirements
+- Nodes not supported yet by the script: AdnRibbonMuscle deformer, AdnActivation nodes.
+- Settings in AdnMuscle not supported yet by the script: Attachments To Transform.
+- The naming convention does not allow to place the side identifier at the middle of the name (e.g. biceps_L_muscle)
