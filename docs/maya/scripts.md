@@ -20,7 +20,7 @@ The character rig to apply the mirroring onto needs to satisfy some requirements
 - Apply a naming convention to all the objects involved in the mirroring (geometries, muscle deformers, locators and sensors) to allow the script to differentiate between left and right side objects. For example, use "l_" and "r_", or "L_" and "R_", or "\_l" and "\_r", or "\_L" and "\_R".
 - It is recommended to saves the scene before executing the script.
 
-<figure style="width:80%; margin-left:10%" markdown>
+<figure style="width:90%; margin-left:5%" markdown>
       ![Maya Scene Ready To Execute The Mirroring](images/mirror_script_00.png)
       <figcaption><b>Figure 1</b>: Starting point to execute the mirroring script onto a biped asset. The left side is fully configured with muscle deformers, locators and sensors following the naming "L_*".</figcaption>
 </figure>
@@ -31,8 +31,8 @@ Once the scene fulfils the requirements, then the procedure to follow is:
 
 2. Add to the selection all the AdonisFX Locators from the same source side that need to be mirrored. Note that sensors (as not being DAG objects) do not need to be added to the selection. The script will take care of mirroring them too.
 
-<figure style="width:80%; margin-left:10%" markdown>
-      ![Mirror Script Selection](images/mirror_script_00.png)
+<figure style="width:90%; margin-left:5%" markdown>
+      ![Mirror Script Selection](images/mirror_script_01.png)
       <figcaption><b>Figure 2</b>: All geometry muscles and locators on the left side selected.</figcaption>
 </figure>
 
@@ -53,8 +53,8 @@ mirror.apply_mirror(left_convention="L_*", right_convention="R_*")
 
 Depending on the complexity of the rig, this process might take a few seconds to compute. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the resolution.
 
-<figure style="width:80%; margin-left:10%" markdown>
-      ![Mirroring Execution Completed](images/mirror_script_00.png)
+<figure style="width:90%; margin-left:5%" markdown>
+      ![Mirroring Execution Completed](images/mirror_script_03.png)
       <figcaption><b>Figure 4</b>: Result of the execution: all AdnMuscle from the left side are replicated on the right side. Also, all the locators and sensors from the left side are created and connected on the right side.</figcaption>
 </figure>
 
