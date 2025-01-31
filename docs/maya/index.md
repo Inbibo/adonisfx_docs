@@ -7,6 +7,7 @@
     - [AdnRibbonMuscle](deformers/ribbon)
     - [AdnFat](deformers/fat)
     - [AdnSkin](deformers/skin)
+    - [AdnRelax](deformers/relax)
     - [AdnSkinMerge](deformers/skin_merge)
     - [AdnSimshape](deformers/simshape)
 - Nodes
