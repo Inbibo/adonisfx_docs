@@ -18,6 +18,7 @@ The character rig to apply the mirroring onto needs to satisfy some requirements
 
 - One side of the rig (i.e. left or right) completed. This side will work as source, while the other will work as destination.
 - Apply a naming convention to all the objects involved in the mirroring (geometries, muscle deformers, locators and sensors) to allow the script to differentiate between left and right side objects. For example, use "l_" and "r_", or "L_" and "R_", or "\_l" and "\_r", or "\_L" and "\_R".
+- The left and right muscles must be symmetric in topology. This means that both the number of vertices and the vertex IDs of a muscle (e.g. "L_biceps") must match those of its counterpart muscle (e.g. "R_biceps") to ensure the paintable maps are mirrored properly.
 - It is recommended to save the scene before executing the script.
 
 <figure style="width:90%; margin-left:5%" markdown>
