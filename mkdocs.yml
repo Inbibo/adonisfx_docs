@@ -107,6 +107,7 @@ nav:
       - AdnRibbonMuscle   : maya/deformers/ribbon.md
       - AdnFat            : maya/deformers/fat.md
       - AdnSkin           : maya/deformers/skin.md
+      - AdnRelax          : maya/deformers/relax.md
       - AdnSkinMerge      : maya/deformers/skin_merge.md
       - AdnSimshape       : maya/deformers/simshape.md
     - Nodes:
