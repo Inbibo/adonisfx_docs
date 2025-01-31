@@ -423,19 +423,58 @@ Refer to this [section](deformers/simshape#muscle-activations) to see how to use
 
 In the attribute editor of the AdnSimshape deformer, under the *Muscles Activation* section, the *Plug Values* will be enabled as a new valid *Activation Mode* option. To better visualize activations, press the ![AdnMuscle](images/adn_simshape_debugger.png){style="width:4%"} shelf button or go to AdonisFX Menu > Simshape (on the *Edit* group) > *Activations Debugger*.
 
+## AdnRelax
+
+To create a basic scenario using the AdnRelax deformer, start with a scene with a mesh to apply the relaxation onto.
+
+<figure>
+  <img src="images/simple_setup_relax_00.png">
+  <figcaption><b>Figure 42</b>: Basic setup for AdnRelax. The mesh is the result of the fascia simulation. </figcaption>
+</figure>
+
+### Create Deformer
+
+To create the AdnRelax deformer select the desired mesh and press the ![AdnRelax](images/adn_relax.png){style="width:4%"} shelf button or go to AdonisFX Menu > Deformers > *Relax*.
+
+<figure>
+  <img src="images/simple_setup_relax_01.png">
+  <figcaption><b>Figure 43</b>: AdnRelax creation scenario. </figcaption>
+</figure>
+
+Iterations are set to 0 by default, increase the number to see the effect of the relaxation algorithm.
+
+### Paint Weights
+
+> [!NOTE]
+> AdnRelax requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
+
+The AdnRelax paintable maps are flooded to 1.0 by default because they act as multipliers for the main relax attributes (i.e., *Smooth*, *Relax*, *Push In Ratio*, and *Push Out Ratio*). Therefore, the relaxation algorithm will be applied uniformly over the entire mesh unless the maps are adjusted.
+
+The deformed mesh can be refined in specific areas by modifying the multiplier maps. Flood a specific map to 0.0 and paint higher values in the areas where you want the relaxation algorithm to take effect.
+
+The smoothing is modulated by the *Smooth Multiplier* map. Keep it flooded to 1.0 to smooth the surface of the entire mesh, or flood it to 0.0 and paint values of 1.0 in the areas that need smoothing (e.g., regions with undesired creases).
+
+The relaxation is modulated by the *Relax Multiplier* map. Keep it flooded to 1.0 to relax the surface of the entire mesh, or flood it to 0.0 and paint values of 1.0 in the areas that need relaxation (e.g., regions with over-compression or over-stretching).
+
+After smoothing and relaxation are applied, the mesh may lose some volume or detail. Push in and push out adjustments can be used to recover volume and detail. The attributes *Push In Ratio* and *Push Out Ratio* are set to 0.0 by default, to apply these adjustments, increase their values. Then, use the *Push In Ratio Multiplier* and *Push Out Ratio Multiplier* maps to modulate the specific areas where these adjustments will take effect.
+
+If a specific area shows volume loss, flood the *Push Out Ratio Multiplier* to 0.0 and paint values of 1.0 in areas that need to recover volume so that the push out adjustment moves the vertices outward in the direction of their normals.
+
+If a specific area has lost detail, flood the *Push In Ratio Multiplier* to 0.0 and paint values of 1.0 in areas that need more detail so that the push in adjustment moves the vertices inward, opposite to the direction of their normals.
+
 ## AdnSkinMerge
 
 To create a basic scenario using the AdnSkinMerge deformer, start with a scene with the following elements:
 
   - One or more animation meshes with deformation.
   - One or more simulation meshes, for example with an AdnSkin deformer applied and properly configured.
-   - A final mesh without animation or deformation.
+  - A final mesh without animation or deformation.
 
 The AdnSkinMerge deformer will be applied to the final mesh which will  be the result of blending the animation and simulation meshes.
 
 <figure>
   <img src="images/simple_setup_skin_merge_00.png"> 
-  <figcaption><b>Figure 42</b>: Basic setup for skin merge. Meshes isolated for better visualization. From left to right: Final Mesh, Animation Mesh, Simulation Mesh.</figcaption>
+  <figcaption><b>Figure 44</b>: Basic setup for skin merge. Meshes isolated for better visualization. From left to right: Final Mesh, Animation Mesh, Simulation Mesh.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -448,7 +487,7 @@ When everything has been properly set up, press the *Create* button to create th
 
 <figure>
   <img src="images/simple_setup_skin_merge_01.png"> 
-  <figcaption><b>Figure 43</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
+  <figcaption><b>Figure 45</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -464,7 +503,7 @@ To have a smooth transition from the simulated mesh to the animated mesh, smooth
 
 <figure>
   <img src="images/simple_setup_skin_merge_02.png"> 
-  <figcaption><b>Figure 44</b>: Blend weights painted map.</figcaption>
+  <figcaption><b>Figure 46</b>: Blend weights painted map.</figcaption>
 </figure>
 
 With this basic paint setup the AdnSkinMerge deformer will now show the results of skin simulation transferred to the final mesh.
@@ -483,21 +522,21 @@ To create the AdnGlue node, select the simulated muscles and press the ![AdnGlue
 
 <figure>
   <img src="images/simple_setup_glue_00.png"> 
-  <figcaption><b>Figure 45</b>: AdnGlue deformer creation scenario.</figcaption>
+  <figcaption><b>Figure 47</b>: AdnGlue deformer creation scenario.</figcaption>
 </figure>
 
 After the node creation, input muscles can be added or removed from the existing AdnGlue by pressing AdonisFX > Glue > *Add Inputs* or AdonisFX > Glue > *Remove Inputs* respectively.
 
 <figure>
   <img src="images/simple_setup_glue_01.png"> 
-  <figcaption><b>Figure 46</b>: Removing muscles from the AdnGlue node.</figcaption>
+  <figcaption><b>Figure 48</b>: Removing muscles from the AdnGlue node.</figcaption>
 </figure>
 
 The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the glue constraints to take effect, this value must be adjusted. We recommend enabling the debugger and selecting the *Glue Constraints* option to inspect the connections created based on the specified *Max Glue Distance*.
 
 <figure>
   <img src="images/simple_setup_glue_02.png"> 
-  <figcaption><b>Figure 47</b>: Debugging the Glue Constraints connections with a Max Glue Distance of 0.1.</figcaption>
+  <figcaption><b>Figure 49</b>: Debugging the Glue Constraints connections with a Max Glue Distance of 0.1.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -513,19 +552,19 @@ Since the *Max Glue Distance* is initially the same for all muscles, you may wan
 
 <figure>
   <img src="images/simple_setup_glue_03.png"> 
-  <figcaption><b>Figure 48</b>: Glue Distance Multiplier map painted in specific areas where muscles are supposed to be glued together.</figcaption>
+  <figcaption><b>Figure 50</b>: Glue Distance Multiplier map painted in specific areas where muscles are supposed to be glued together.</figcaption>
 </figure>
 
 <figure>
   <img src="images/simple_setup_glue_04.png"> 
-  <figcaption><b>Figure 49</b>: Displaying the Glue Constraints debugger after painting the Glue Distance Multiplier in the target area.</figcaption>
+  <figcaption><b>Figure 51</b>: Displaying the Glue Constraints debugger after painting the Glue Distance Multiplier in the target area.</figcaption>
 </figure>
 
 The *Glue Resistance* map modulates the strength of the glue constraint. To reduce the effect of the constraint in specific areas, lower the values in this map accordingly. Glue constraints won't be computed for vertices with a weight value of 0.0.
 
 <figure>
   <img src="images/simple_setup_glue_05.png"> 
-  <figcaption><b>Figure 50</b>: Glue Resistance map painted in specific areas where muscles are supposed to be glued together.</figcaption>
+  <figcaption><b>Figure 52</b>: Glue Resistance map painted in specific areas where muscles are supposed to be glued together.</figcaption>
 </figure>
 
 Finally, shape preservation constraints help to maintain the original shape of the muscles. These constraints are useful if the gluing produces undesired shape on the output mesh. If that is not the case, then this map can stay unmodified (0.0) which will make the solver run faster. If shape preservation is required, then increase the values on those areas where the shape has been altered during the simulation.
