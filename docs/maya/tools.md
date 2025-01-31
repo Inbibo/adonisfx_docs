@@ -107,7 +107,7 @@ In the specific case of muscle deformers, the tool will display the following at
 
 > [!NOTE]
 > - Fibers and Tendon weights should only be painted on the initialization frame for AdnMuscle and AdnRibbonMuscle, being the initialization frame the lowest value between Preroll Start Time and Start Time.
-> - Some of he Paint Tool's paintable attributes will be disabled given certain conditions in the scene, like for example a time constraint. For example, Fibers and Tendons are not supposed to be paintable on a frame that is not the initialization frame and will be disabled in the Paint Tool UI if on a simulated frame. Hovering over the disabled attribute can inform about the action to be taken to remedy the warning.
+> - Some of the Paint Tool's paintable attributes will be disabled given certain conditions in the scene, like for example a time constraint. For example, Fibers and Tendons are not supposed to be paintable on a frame that is not the initialization frame and will be disabled in the Paint Tool UI if on a simulated frame. Hovering over the disabled attribute can inform about the action to be taken to remedy the warning.
 
 #### Paint Tool on AdnSkin
 
