@@ -13,7 +13,7 @@ The AdnSkin deformer will get applied to the last mesh which will become the sim
 
 <figure>
   <img src="images/simple_setup_skin_00.png"> 
-  <figcaption><b>Figure 1</b>: Basic setup for skin simulations.</figcaption>
+  <figcaption><b>Figure 1</b>: Basic setup for skin simulations: target mesh (grey) and skin mesh to simulate (red).</figcaption>
 </figure>
 
 ### Create Deformer
