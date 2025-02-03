@@ -60,7 +60,7 @@ Depending on the complexity of the rig, this process might take a few seconds to
 </figure>
 
 > [!NOTE]
-> Depending on the needs, the mirroring script allows mirroring only the muscle deformers (i.e. neither locators nor sensors) or vice versa, therefore steps 1 and 2 can be applied together or not.
+> Depending on the need, the script can mirror only the muscles (selection from step 1), only the locators and sensors (selection from step 2), or everything at once (including both selections from step 1 and 2).
 
 ### Limitations
 
