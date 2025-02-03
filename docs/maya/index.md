@@ -17,3 +17,4 @@
     - [AdnEdgeEvaluator](nodes/edge_evaluator)
     - [AdnGlue](nodes/glue)
 - [Tools](tools)
+- [Scripts](scripts)
