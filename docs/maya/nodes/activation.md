@@ -43,7 +43,7 @@ To add new inputs to the AdnActivation node:
 
 <figure markdown>
   ![AdnActivation example setup](../images/activation_example.png)
-  <figcaption><b>Figure 1</b>: Closeup use case in which AdnActivation is created for merging two activations to drive a muscle's activation.</figcaption>
+  <figcaption><b>Figure 2</b>: Closeup use case in which AdnActivation is created for merging two activations to drive a muscle's activation.</figcaption>
 </figure>
 
 In the above setup we have the following characteristics:
