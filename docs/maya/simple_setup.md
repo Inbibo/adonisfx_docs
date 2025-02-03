@@ -425,11 +425,11 @@ In the attribute editor of the AdnSimshape deformer, under the *Muscles Activati
 
 ## AdnRelax
 
-To create a basic scenario using the AdnRelax deformer, start with a scene with a mesh to apply the relaxation onto.
+To create a basic scenario using the AdnRelax deformer, start with a scene with a mesh to apply the relaxation onto. This could be for example the simulated fascia layer.
 
 <figure>
   <img src="images/simple_setup_relax_00.png">
-  <figcaption><b>Figure 42</b>: Basic setup for AdnRelax. The mesh is the result of the fascia simulation. </figcaption>
+  <figcaption><b>Figure 42</b>: Basic setup for AdnRelax. The mesh is the result of the fascia simulation to which AdnRelax is going be applied. </figcaption>
 </figure>
 
 ### Create Deformer
@@ -441,7 +441,7 @@ To create the AdnRelax deformer select the desired mesh and press the ![AdnRelax
   <figcaption><b>Figure 43</b>: AdnRelax creation scenario. </figcaption>
 </figure>
 
-Iterations are set to 0 by default, increase the number to see the effect of the relaxation algorithm.
+Iterations are set to 0 by default. To see the effect of the relaxation algorithm increase this number of iterations.
 
 ### Paint Weights
 
@@ -450,7 +450,7 @@ Iterations are set to 0 by default, increase the number to see the effect of the
 
 The AdnRelax paintable maps are flooded to 1.0 by default because they act as multipliers for the main relax attributes (i.e., *Smooth*, *Relax*, *Push In Ratio*, and *Push Out Ratio*). Therefore, the relaxation algorithm will be applied uniformly over the entire mesh unless the maps are adjusted.
 
-The deformed mesh can be refined in specific areas by modifying the multiplier maps. Flood a specific map to 0.0 and paint higher values in the areas where you want the relaxation algorithm to take effect.
+The deformed mesh can be refined in specific areas by modifying the multiplier maps. Flood a specific map to 0.0 and paint higher values in the areas where the relaxation algorithm should take effect.
 
 The smoothing is modulated by the *Smooth Multiplier* map. Keep it flooded to 1.0 to smooth the surface of the entire mesh, or flood it to 0.0 and paint values of 1.0 in the areas that need smoothing (e.g., regions with undesired creases).
 
@@ -458,7 +458,7 @@ The relaxation is modulated by the *Relax Multiplier* map. Keep it flooded to 1.
 
 After smoothing and relaxation are applied, the mesh may lose some volume or detail. Push in and push out adjustments can be used to recover volume and detail. The attributes *Push In Ratio* and *Push Out Ratio* are set to 0.0 by default, to apply these adjustments, increase their values. Then, use the *Push In Ratio Multiplier* and *Push Out Ratio Multiplier* maps to modulate the specific areas where these adjustments will take effect.
 
-If a specific area shows volume loss, flood the *Push Out Ratio Multiplier* to 0.0 and paint values of 1.0 in areas that need to recover volume so that the push out adjustment moves the vertices outward in the direction of their normals.
+If a specific area shows volume loss, flood the *Push Out Ratio Multiplier* to 0.0 and paint values of 1.0 in areas that need to recover volume so that the push out adjustment moves the vertices outward along their normals.
 
 If a specific area has lost detail, flood the *Push In Ratio Multiplier* to 0.0 and paint values of 1.0 in areas that need more detail so that the push in adjustment moves the vertices inward, opposite to the direction of their normals.
 
