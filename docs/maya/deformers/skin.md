@@ -219,8 +219,3 @@ Once the AdnSkin deformer is created, it is possible to add and remove new targe
     2. Select the mesh that has the AdnSkin deformer applied.
     3. Press the ![Remove Targets](../images/adn_remove_skin_targets.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Skin submenu.
     4. Alternatively, if only the mesh with the AdnSkin deformer is selected, when pressing the ![Remove Targets](../images/adn_remove_skin_targets.png){style="width:4%"} button, all targets will be removed.
-
-<figure markdown>
-  ![skin adding multiple targets](../images/skin_add_multiple_targets.png)
-  <figcaption><b>Figure 9</b>: Addition of multiple targets (e.g. Adding multiple muscle targets to a fascia/fat/skin simulation).</figcaption>
-</figure>

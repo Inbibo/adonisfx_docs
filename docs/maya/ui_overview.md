@@ -61,21 +61,11 @@ The AdonisFX Menu provides access to the options in the shelf and other more adv
 
 #### Locators
 
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Locators](images/ui_overview_menu_locators.png)
-  <figcaption><b>Figure 3</b>: AdonisFX Menu Create Locators section.</figcaption>
-</figure>
-
 - **Position**. Creates an AdnLocatorPosition from the selected transform node. The locator shape represents the position change of the element provided. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnLocator](images/adn_point_locator.png){style="width:4%"}.
 - **Distance**. Creates an AdnLocatorDistance from the two selected transform nodes. The locator shape represents the distance between the two elements provided. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnLocatorDistance](images/adn_distance_locator.png){style="width:4%"}.
 - **Rotation**. Creates an AdnLocatorRotation from the three selected transform nodes. The locator shape corresponds to the angle between the two segments represented by the three nodes. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnLocatorRotation](images/adn_angle_locator.png){style="width:4%"}.
 
 #### Sensors
-
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Sensors](images/ui_overview_menu_sensors.png)
-  <figcaption><b>Figure 4</b>: AdonisFX Menu Create Sensors section.</figcaption>
-</figure>
 
 - **Position**. Creates an AdnSensorPosition from the transform object and the AdnLocatorPosition selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorPosition](images/adn_point_sensor.png){style="width:4%"}.
 - **Distance**. Creates an AdnSensorDistance from the two transform nodes and the AdnLocatorDistance selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. This item corresponds to the shelf button ![AdnSensorDistance](images/adn_distance_sensor.png){style="width:4%"}.
@@ -85,35 +75,20 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
 
 <figure style="width: 50%;" markdown>
   ![Locator Sensor Creator UI](images/ui_overview_position_locator_creator.png)
-  <figcaption><b>Figure 5</b>: Locators and Sensors creator UI.</figcaption>
+  <figcaption><b>Figure 3</b>: Locators and Sensors creator UI.</figcaption>
 </figure>
 
 #### Nodes
-
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit AdnSimshape](images/ui_overview_menu_nodes.png)
-  <figcaption><b>Figure 6</b>: AdonisFX Menu Create Nodes section.</figcaption>
-</figure>
 
 - **Edge Evaluator**. Creates an AdnEdgeEvaluator node from two selected meshes with the same topology. 
 - **Activation**. Creates an AdnActivation node. If meshes with a muscle deformer applied are provided in the selection, the new AdnActivation node will be connected to the activation plug of those deformers.
 
 #### Deformers
 
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Deformers](images/ui_overview_menu_deformers.png)
-  <figcaption><b>Figure 7</b>: AdonisFX Menu Create Deformers section.</figcaption>
-</figure>
-
 - **Relax**. Applies an AdnRelax deformer to the selected mesh. This item corresponds to the shelf button ![Create AdnRelax](images/adn_relax.png){style="width:4%"}.
 - **Skin Merge**. Launches the Create Skin Merge UI used to create an AdnSkinMerge deformer. This item corresponds to the shelf button ![Create AdnSkinMerge](images/adn_skin_merge.png){style="width:4%"}.
 
 #### Solvers
-
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Solvers](images/ui_overview_menu_solvers.png)
-  <figcaption><b>Figure 8</b>: AdonisFX Menu Create Solvers section.</figcaption>
-</figure>
 
 - **Simshape**. Applies an AdnSimshape deformer to the selected mesh. This item corresponds to the shelf button ![Create AdnSimshape](images/adn_simshape.png){style="width:4%"}.
 - **Skin**. Creates an AdnSkin deformer to the selected mesh. This item corresponds to the shelf button ![Create AdnSkin](images/adn_skin.png){style="width:4%"}.
@@ -126,26 +101,16 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX AdnSkin Deformer Creator](images/ui_overview_skin_deformer_creator.png)
-  <figcaption><b>Figure 9</b>: Deformer Creator UI creating for an AdnSkin deformer.</figcaption>
+  <figcaption><b>Figure 4</b>: Deformer Creator UI creating for an AdnSkin deformer.</figcaption>
 </figure>
 
 ### Edit Section
 
 #### Sensors
 
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit Sensors](images/ui_overview_menu_connection_editor.png)
-  <figcaption><b>Figure 10</b>: AdonisFX Menu Edit Sensors section.</figcaption>
-</figure>
-
 - **Connection Editor**. Launches the Sensors Connection Editor UI. This tool will assist with the connection of the locators and sensors output plugs with the AdonisFX deformer nodes.
 
 #### Activation
-
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit Activation](images/ui_overview_menu_edit_activation.png)
-  <figcaption><b>Figure 11</b>: AdonisFX Menu Edit Sensors section.</figcaption>
-</figure>
 
 - **Remove Inputs**: Removes inputs from an AdnActivation node.
 
@@ -159,19 +124,9 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 #### Deformers
 
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Create Solvers](images/ui_overview_menu_edit_deformers.png)
-  <figcaption><b>Figure 12</b>: AdonisFX Menu Edit Deformers section.</figcaption>
-</figure>
-
 - **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the editing of simulation and animation meshes lists of an AdnSkinMerge deformer. To open this UI a mesh with an AdnSkinMerge applied must be selected.
 
 #### Simshape
-
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit AdnSimshape](images/ui_overview_menu_simshape.png)
-  <figcaption><b>Figure 13</b>: AdonisFX Menu Edit AdnSimshape section.</figcaption>
-</figure>
 
 - **Learn Muscle Patches UI**. Launches the Learn Muscle Patches UI required to generate the *AdonisFX Muscle Patches* (.amp) file. This item corresponds to the shelf button ![AdnSimshape Learn Muscle Patches Tool](images/adn_learn_muscle_patches.png){style="width:4%"}.
 - **Activations Debugger**. Toggles the AdnSimshape activations debug mode. The current frame must match the specified initialization frame at the AdnSimshape deformer to toggle. This item corresponds to the shelf button ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png){style="width:4%"}. 
@@ -190,30 +145,15 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 #### Skin
 
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit Skin](images/ui_overview_menu_skin.png)
-  <figcaption><b>Figure 14</b>: AdonisFX Menu Edit Skin section.</figcaption>
-</figure>
-
 - **Add Targets**. Adds target meshes to the selected skin. The mesh with the deformer applied must be the last element in the selection. This item corresponds to the shelf button ![Add Targets](images/adn_add_skin_targets.png){style="width:4%"}.
 - **Remove Targets**. Removes target meshes from the selected skin. The mesh with the deformer applied must be the last element in the selection. If only the skin geometry is selected, then all targets are removed. This item corresponds to the shelf button ![Remove Targets](images/adn_remove_skin_targets.png){style="width:4%"}.
 
 #### Fat
 
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit Fat](images/ui_overview_menu_fat.png)
-  <figcaption><b>Figure 15</b>: AdonisFX Menu Edit Fat section.</figcaption>
-</figure>
-
 - **Add Base Mesh**. Assigns a base mesh to the selected fat. The selection must consist of: first the mesh to assign as Base Mesh and lastly the mesh with the deformer applied.
 - **Remove Base Mesh**. Removes the base mesh from the selected fat. The selection must consist of: the mesh with the deformer applied.
 
 #### Muscle
-
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit Muscle](images/ui_overview_menu_muscle.png)
-  <figcaption><b>Figure 16</b>: AdonisFX Menu Edit Muscle section.</figcaption>
-</figure>
 
 - **Add Targets**. Adds target objects to the selected muscle. The mesh with the deformer applied must be the last element in the selection. This item corresponds to the shelf button ![Add Targets](images/adn_add_target.png){style="width:4%"}.
 - **Remove Targets**. Removes target objects from the selected muscle. The mesh with the deformer applied must be the last element in the selection. If only the muscle geometry is selected, then all targets are removed. This item corresponds to the shelf button ![Remove Targets](images/adn_remove_target.png){style="width:4%"}.
@@ -224,31 +164,16 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 #### Glue
 
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Edit Muscle](images/ui_overview_menu_glue.png)
-  <figcaption><b>Figure 17</b>: AdonisFX Menu Edit Glue section.</figcaption>
-</figure>
-
 - **Add Inputs**. Adds input meshes to an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected.
 - **Remove Inputs**. Removes input meshes from an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected. If only the glue output mesh is selected, then all inputs will be removed.
 
 #### Debug
-
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Debug Section](images/ui_overview_menu_debug.png)
-  <figcaption><b>Figure 18</b>: AdonisFX Menu Debug section.</figcaption>
-</figure>
 
 - **Refresh Debugger**. Refreshes the scene graph for debugging purposes by making sure the AdnDataNode and the AdnDebugLocator exist in the scene and are properly connected.
 
 ### Tools section
 
 #### Utils
-
-<figure style="width: 50%;" markdown>
-  ![AdonisFX Menu Debug Section](images/ui_overview_menu_utils.png)
-  <figcaption><b>Figure 19</b>: AdonisFX Menu Utils section.</figcaption>
-</figure>
 
 - **Upgrade Deprecated Nodes**. Refreshes the node graph and upgrades all deprecated nodes making sure that the scene still works the same.
 
