@@ -2,7 +2,7 @@
 
 ## Mirror
 
-The mirroring script is a Python script that provides the ability to transfer the AdonisFX muscle setup of an asset side to side. For example, a user can complete the muscle rig for the left side of an asset and thanks to this script it would be possible to get the full rig done instantly. 
+The mirroring script is a Python script that allows to transfer the AdonisFX muscle setup of an asset from one side to the other. For example, a user can complete the muscle rig for the left side of an asset and thanks to this script mirror the setup quickly and efficiently to the right side. 
 
 Currently, the script allows to mirror:
 
@@ -16,14 +16,14 @@ Please, check this [section](#limitations) to know more about the current limita
 
 The character rig to apply the mirroring onto needs to satisfy some requirements for this script to work:
 
-- One side of the rig (i.e. left or right) completed. This side will work as source, while the other will work as destination.
-- Apply a naming convention to all the objects involved in the mirroring (geometries, muscle deformers, locators and sensors) to allow the script to differentiate between left and right side objects. For example, use "l_" and "r_", or "L_" and "R_", or "\_l" and "\_r", or "\_L" and "\_R".
-- The left and right muscles must be symmetric in topology. This means that both the number of vertices and the vertex IDs of a muscle (e.g. "L_biceps") must match those of its counterpart muscle (e.g. "R_biceps") to ensure the paintable maps are mirrored properly.
+- One completed side of the rig (i.e. left or right). This side will work as source, while the other will work as destination.
+- Apply a naming convention to all the objects involved in the mirroring (geometries, muscle deformers, locators and sensors) to allow the script to differentiate between left and right side objects. For example, use a "l_" and "r_", or "L_" and "R_" prefix, or "\_l" and "\_r", or "\_L" and "\_R" suffix.
+- The left and right muscles must be symmetric in topology. This means that both the number of vertices and the vertex IDs of a muscle (e.g. "L_biceps") must match those of its counterpart muscle (e.g. "R_biceps") to ensure the paintable maps are mirrored correctly.
 - It is recommended to save the scene before executing the script.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Maya Scene Ready To Execute The Mirroring](images/mirror_script_00.png)
-  <figcaption><b>Figure 1</b>: Starting point to execute the mirroring script onto a biped asset. The left side is fully configured with muscle deformers, locators and sensors following the naming "L_*".</figcaption>
+  <figcaption><b>Figure 1</b>: Starting point to execute the mirroring script onto a biped asset. The left side is fully configured with muscle deformers, locators and sensors following the prefix naming convention "L_*".</figcaption>
 </figure>
 
 Once the scene fulfills the requirements, then the procedure to follow is:
@@ -43,7 +43,7 @@ Once the scene fulfills the requirements, then the procedure to follow is:
 mirror.apply_mirror(left_convention="L_*", right_convention="R_*")
 </code></pre>
 
-4. A confirmation dialog will be displayed. This dialog reminds that it is recommended to have a saved version of the scene because the mirroring process can't be undone.
+4. A confirmation dialog will be displayed, reminding the user that it is recommended to have a saved version of the scene, as the mirroring process cannot be undone.
 
 <figure style="width:60%; margin-left:20%" markdown>
   ![Mirror Script Confirmation Dialog](images/mirror_script_02.png)
@@ -52,7 +52,7 @@ mirror.apply_mirror(left_convention="L_*", right_convention="R_*")
 
 5. Click *Yes* in the question dialog to proceed with the mirroring.
 
-Depending on the complexity of the rig, this process might take a few seconds to compute. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the resolution.
+Depending on the complexity of the rig, this process might take a few seconds to compute. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the troubleshooting.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Mirroring Execution Completed](images/mirror_script_03.png)
@@ -61,6 +61,6 @@ Depending on the complexity of the rig, this process might take a few seconds to
 
 ### Limitations
 
-- Node types not supported: AdnRibbonMuscle deformer, AdnActivation nodes.
-- Settings in AdnMuscle not included in the mirroring: Attachments To Transform.
+- Node types that are not supported: AdnRibbonMuscle deformer, AdnActivation nodes.
+- Settings in AdnMuscle that are not included in the mirroring: Attachments To Transform.
 - The naming convention does not allow to place the side identifier at the middle of the name (e.g. biceps_L_muscle).
