@@ -204,6 +204,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 > [!NOTE]
 > - The attachment weights are normalized at each vertex. This normalization is applied when a stroke is finished. The use of the AdonisFX Paint Tool is mandatory for that.
 > - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalization overriding them in further strokes.
+> - Fibers and Tendon weights should only be painted on the initialization frame, being the initialization frame the lowest value between Preroll Start Time and Start Time.
 
 ## Activation Control (Fibers Multiplier)
 Painting the fibers multiplier map allows to concentrate the activation of a muscle in certain areas which would allow for more artistic control over the final shape of the muscle after contraction (activation).
