@@ -450,7 +450,7 @@ The AdnRelax paintable maps are flooded to 1.0 by default because they act as mu
 The deformed mesh can be refined in specific areas by modifying the multiplier maps. Flood a specific map to 0.0 and paint higher values in the areas where the relaxation algorithm should take effect.
 
 <figure markdown>
-  ![relax paintable maps](../images/relax_weights.png)
+  ![relax paintable maps](images/relax_weights.png)
   <figcaption><b>Figure 43</b>: Example of paintable weights of AdnRelax deformer applied to a fascia layer. From left to right: smooth multiplier, relax multiplier, push in ratio multiplier, push out ratio multiplier.</figcaption>
 </figure>
 
@@ -465,8 +465,8 @@ If a specific area shows volume loss, flood the *Push Out Ratio Multiplier* to 0
 If a specific area has lost detail, flood the *Push In Ratio Multiplier* to 0.0 and paint values of 1.0 in areas that need more detail so that the push in adjustment moves the vertices inward, opposite to the direction of their normals.
 
 <figure markdown>
-  ![relax paintable maps](../images/simple_setup_relax_01.png)
-  <figcaption><b>Figure 44</b>: Example of AdnRelax results with a distribution of weights shown in Figure 43. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The scalar parameters of the node in this example are 25 iterations, pin enabled, smooth and relax set to 0.5, push-in and push-out ratio set to 1.0, thresholds set to -1.0.</figcaption>
+  ![relax example results](images/simple_setup_relax_01.png)
+  <figcaption><b>Figure 44</b>: Example of AdnRelax results with a distribution of weights shown in Figure 43. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the deformer in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
 </figure>
 
 ## AdnSkinMerge
