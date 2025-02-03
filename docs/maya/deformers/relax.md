@@ -46,3 +46,8 @@ In order to provide more control, some key parameters of the AdnRelax deformer a
 | **Push Out Ratio Multiplier** | 1.0 | Weight to multiply the push out adjustment applied to the geometry surface. |
 | **Smooth Multiplier**         | 1.0 | Weight to multiply the smoothing applied to the geometry surface. |
 | **Relax Multiplier**          | 1.0 | Weight to multiply the relaxation applied to the geometry surface.  |
+
+<figure markdown>
+  ![relax paintable maps](../images/relax_weights.png)
+  <figcaption><b>Figure 2</b>: Example of paintable weights of AdnRelax deformer applied to the fascia layer of a biped. From left to right: smooth multiplier, relax multiplier, push in ratio multiplier, push out ratio multiplier.</figcaption>
+</figure>

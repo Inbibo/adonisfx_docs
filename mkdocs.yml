@@ -117,3 +117,4 @@ nav:
       - AdnEdgeEvaluator  : maya/nodes/edge_evaluator.md
       - AdnGlue           : maya/nodes/glue.md
     - Tools               : maya/tools.md
+    - Scripts             : maya/scripts.md
