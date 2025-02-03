@@ -75,7 +75,7 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
 
 <figure style="width: 50%;" markdown>
   ![Locator Sensor Creator UI](images/ui_overview_position_locator_creator.png)
-  <figcaption><b>Figure 5</b>: Locators and Sensors creator UI.</figcaption>
+  <figcaption><b>Figure 3</b>: Locators and Sensors creator UI.</figcaption>
 </figure>
 
 #### Nodes
@@ -101,7 +101,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX AdnSkin Deformer Creator](images/ui_overview_skin_deformer_creator.png)
-  <figcaption><b>Figure 9</b>: Deformer Creator UI creating for an AdnSkin deformer.</figcaption>
+  <figcaption><b>Figure 4</b>: Deformer Creator UI creating for an AdnSkin deformer.</figcaption>
 </figure>
 
 ### Edit Section
