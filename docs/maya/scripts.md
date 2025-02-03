@@ -6,8 +6,8 @@ The mirroring script is a Python script that allows to transfer the AdonisFX mus
 
 Currently, the script allows to mirror:
 
-- AdnMuscle (settings, paintable maps, geometry targets, connections to sensors)
-- AdnLocators (position, distance, rotation)
+- AdnMuscle (settings, paintable maps, geometry targets, connections to sensors).
+- AdnLocators (position, distance, rotation).
 - AdnSensors (position, distance, rotation).
 
 Please, check this [section](#limitations) to know more about the current limitations.
@@ -58,6 +58,9 @@ Depending on the complexity of the rig, this process might take a few seconds to
   ![Mirroring Execution Completed](images/mirror_script_03.png)
   <figcaption><b>Figure 4</b>: Result of the execution: all AdnMuscle from the left side are replicated on the right side. Also, all the locators and sensors from the left side are created and connected on the right side.</figcaption>
 </figure>
+
+> [!NOTE]
+> Depending on the needs, the mirroring script allows mirroring only the muscle deformers (i.e. neither locators nor sensors) or vice versa, therefore steps 1 and 2 can be applied together or not.
 
 ### Limitations
 
