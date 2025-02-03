@@ -118,3 +118,4 @@ nav:
       - AdnGlue           : maya/nodes/glue.md
     - Tools               : maya/tools.md
     - Scripts             : maya/scripts.md
+    - API                 : maya/api.md
