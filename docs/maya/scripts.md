@@ -65,5 +65,5 @@ Depending on the complexity of the rig, this process might take a few seconds to
 ### Limitations
 
 - Node types that are not supported: AdnRibbonMuscle deformer, AdnActivation nodes.
-- Settings in AdnMuscle that are not included in the mirroring: Attachments To Transform.
+- Settings in AdnMuscle that are not included in the mirroring: Attachments To Transform, Slide On Segment.
 - The naming convention does not allow to place the side identifier at the middle of the name (e.g. biceps_L_muscle).
