@@ -2,7 +2,7 @@
 
 ### Experimental Python API
 
-> [!CAUTION]
+> [!NOTE]
 > - This API is experimental, and will be subject to changes in following versions of AdonisFX.
 > - The use of this API in production applications is not supported.
 
