@@ -80,11 +80,15 @@ In this case you can adjust the simulation for this scaling factor by applying t
  How can I transfer the results of skin simulation to the final mesh?
 Make use of the [AdnSkinMerge](maya/deformers/skin_merge) deformer to blend animated and simulated meshes into a single final mesh. Launch the Skin Merge tool, select the final mesh, add the animated and simulated target meshes and click on Create. Then you only need to paint the blend weight to define the influence of the simulated mesh targets over the animated ones. You can find more information [here](maya/simple_setup#adnskinmerge).
 
+### How can I control the area in which my muscle should activate?
+
+For muscles, controlling the area in which the muscle should activate and bulge can be achieved by painting the fibers multiplier paintable map. Painting this map allows the muscle to contract and concentrate activations in certain areas without affecting unpainted areas. For example, painting the fibers multiplier map to 0.0 in the tendinous area will concentrate activations in the belly of the muscle, which is painted with a value of 1.0, giving a more realistic and controlled look to the activation. Read how to use the fibers multiplier map in AdnMuscle [here](maya/deformers/muscle) and AdnRibbonMuscle [here](maya/deformers/ribbon).
+
 ## Workflows
 
-### Can I transfer AdonisFX node configuration to a different asset?
+### Can I mirror the muscles setup?
 
-Yes, you can use the AdonisFX [Exporter](maya/tools#exporter) and [Importer](maya/tools#importer) Tools to generate and load respectively an AdonisFX Asset Definition (AAD) file. From a scene with an asset fully configured with AdonisFX deformers, you can select the parent transform object and launch the Exporter. From there, you can decide which settings to export and the destination path for the AAD file. Then, in a different scene with a compatible asset, you can launch the Importer, browse the AAD file and assign deformers from the file to the meshes in the hierarchy of the asset.
+Yes, a Python script is provided to transfer the muscle setup of an asset from left to right and vice versa. This script includes the mirroring of AdonisFX muscles, locators and sensors. It mirrors not only the scalar attributes and paintable maps, but also the connections and dependencies between all of them. Know more about the mirroring in [this page](maya/scripts#mirror).
 
 ### How can I generate the fascia geometry?
 

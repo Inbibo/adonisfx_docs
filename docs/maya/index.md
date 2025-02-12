@@ -7,6 +7,7 @@
     - [AdnRibbonMuscle](deformers/ribbon)
     - [AdnFat](deformers/fat)
     - [AdnSkin](deformers/skin)
+    - [AdnRelax](deformers/relax)
     - [AdnSkinMerge](deformers/skin_merge)
     - [AdnSimshape](deformers/simshape)
 - Nodes
@@ -16,3 +17,5 @@
     - [AdnEdgeEvaluator](nodes/edge_evaluator)
     - [AdnGlue](nodes/glue)
 - [Tools](tools)
+- [Scripts](scripts)
+- [API](api)

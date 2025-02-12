@@ -11,7 +11,7 @@ The **AdonisFX Paint Tool** is meant to be used for the manipulation of the pain
   <figcaption><b>Figure 1</b>: AdonisFX Paint Tool.</figcaption>
 </figure>
 
-The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. After every stroke, the internal logic processes the painted map and updates all dependent maps to keep the configuration of the solver safe. For example, if the influence of one target of an AdnMuscle which has two targets assigned is painted, then the tool will update the weights of the other target to ensure that the addition of both is normalized at each vertex (the normalization process is independent for transform and geometry targets). The same applies if hard constraints of an AdnSkin deformer are painted: the soft and slide constraints maps will be updated internally to keep the addition of the three maps normalized. Thanks to this logic, switching attributes (see Figure 3) or selecting influences (see Figure 4) from the AdonisFX Paint Tool provides automatic feedback to the user of the current status of all the maps.
+The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. After every stroke, the internal logic processes the painted map and updates all dependent maps to keep the configuration of the solver safe. For example, if the influence of one target of an AdnMuscle which has two targets assigned is painted, then the tool will update the weights of the other target to ensure that the addition of both is normalized at each vertex (the normalization process is independent for transform and geometry targets). The same applies if hard constraints of an AdnSkin deformer are painted: the soft and slide constraints maps will be updated internally to keep the addition of the three maps normalized. Thanks to this logic, switching attributes (see Figure 2 and Figure 3) or selecting influences (see Figure 4) from the AdonisFX Paint Tool provides automatic feedback to the user of the current status of all the maps.
 
 > [!NOTE]
 > AdnSimshape and AdnSkinMerge do not require this tool. Their paintable maps can be manipulated through the standard Maya paint context.
@@ -40,8 +40,13 @@ Depending on the deformer and the attribute selected the UI can adjust to suppor
 In the specific case of muscle deformers, the tool will display the following attributes:
 
 <figure markdown>
-  ![Pain Tool Muscle Attributes example](images/tools_paint_tool_ribbon_attributes.png) 
-  <figcaption><b>Figure 3</b>: Paintable attributes in AdonisFX muscle deformer. </figcaption>
+  ![Pain Tool Muscle Attributes example](images/tools_paint_tool_muscle_attributes_00.png) 
+  <figcaption><b>Figure 2</b>: Paintable attributes in AdonisFX muscle deformer (Part 1). </figcaption>
+</figure>
+
+<figure markdown>
+  ![Pain Tool Muscle Attributes example](images/tools_paint_tool_muscle_attributes_01.png) 
+  <figcaption><b>Figure 3</b>: Paintable attributes in AdonisFX muscle deformer (Part 2). </figcaption>
 </figure>
 
   - **Attachments To Geometry** and **Attachments To Transform**
@@ -65,6 +70,9 @@ In the specific case of muscle deformers, the tool will display the following at
     - To modify the fibers direction, comb the fibers towards the desired direction.
     - For better precision adjust the set direction using the *Smooth* brush.
     - To get all fibers more tightly aligned in a homogeneous way, press the flood button while having the *Smooth* brush selected.
+  - **Fibers Multiplier**
+    - Fibers Multiplier is set to 1.0 by default. With this value the solver will apply the activation uniformly throughout the muscle.
+    - Set a value lower than 1.0 to decrease the effect of the activation in those areas. For example, paint only the belly of the muscle to 1.0 to concentrate activations in that area and paint the map to 0.0 in the tendinous area.
   - **Global Damping**
     - By default, this map is set to 1.0.
     - This value is scaled by the *Global Damping Multiplier* during simulation to control the amount of damping the solver will apply at each vertex.
@@ -96,6 +104,10 @@ In the specific case of muscle deformers, the tool will display the following at
   - **Tendons**
     - It is recommended to paint values of 1.0 wherever the tendon tissue is and values of 0.0 in the rest of the mesh.
     - This painting will internally trigger an automatic estimation of fibers direction which can be displayed using the debug functionalities of the deformer.
+
+> [!NOTE]
+> - Fibers and Tendon weights should only be painted on the initialization frame for AdnMuscle and AdnRibbonMuscle, being the initialization frame the lowest value between Preroll Start Time and Start Time.
+> - Some of the Paint Tool's paintable attributes will be disabled given certain conditions in the scene, like for example a time constraint. For example, Fibers and Tendons are not supposed to be paintable on a frame that is not the initialization frame and will be disabled in the Paint Tool UI if on a simulated frame. Hovering over the disabled attribute can inform about the action to be taken to remedy the warning.
 
 #### Paint Tool on AdnSkin
 
@@ -129,62 +141,6 @@ In the specific case of an AdnSkin deformer, the tool will display the following
     - Soft constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the vertices keeping a constant distance to the closest point on the closest target mesh.
     - This value is normalized alongside Hard Constraints and Slide Constraints.
 
-## Importer
-
-The **Importer** allows the user to import the configuration for a specific deformer from a previously exported AAD file. It allows the user to easily configure a deformer from an already known setup which includes data like weight maps, connections and attribute values.
-
-<figure>
-  <img src="images/tools_import_tool_empty.png" caption="AdonisFX Import Tool">
-  <figcaption><b>Figure 7</b>: AdonisFX Import Tool UI.</figcaption>
-</figure>
-
-To open the importer tool press the ![Import Tool](images/adn_importer.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Import*. To import and apply an ADD file to an entity in the current open scene with the deformer information follow these steps:
-
-1. Locate the ADD file by going to *Input File Path's* folder button and select an AAD file from a directory.
-2. Locate the available deformer names that were fetched from the AAD file on the left section of the tool ("Node" | "Node Type").
-3. Locate the available nodes found in the current scene selection to which the AAD file configuration can be applied to ("Mesh" | "Candidate Node"). The selection can be redone and expanded by selecting elements from the scene and pressing the *Add Selected* button or can be cleared using the *Clear* button.
-4. Select the deformer from which the AAD file data will be fetched in the left hand panel.
-5. Select the node to which to apply the selected deformer configuration in the right hand panel.
-6. Press the *Assign* button to temporarily assign the configuration to the target node. Or clear the assignment using *Delete*.
-7. The assignments can then be imported using the *Import* button or everything can be cleared using the *Clear All* button.
-
-After following the previous steps the tool will inform about the status of the import: if failed, only partial data could be imported or all data could be imported.
-
-<figure>
-  <img src="images/tools_import_tool_full.png" caption="AdonisFX Import Tool Active">
-  <figcaption><b>Figure 8</b>: AdonisFX Import Tool Active State.</figcaption>
-</figure>
-
-> [!NOTE]
-> When using this tool take into consideration that the mesh from which the AAD file was exported **must have the same number of vertices** as the one to which the configuration is getting imported.
-
-## Exporter
-
-The **Exporter** allows the user to export the configuration for a specific deformer into an AAD file. It allows the user to easily save a deformer configuration 
-from an already existing setup containing data like weight maps, connections and attribute values.
-
-<figure>
-  <img src="images/tools_export_tool_empty.png" caption="AdonisFX Export Tool Default">
-  <figcaption><b>Figure 9</b>: AdonisFX Export Tool Default State.</figcaption>
-</figure>
-
-To open the tool press the ![Import Tool](images/adn_exporter.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Export*. To export an ADD file from the current scene follow these steps:
-
-1. If the tool had been opened on an already active selection containing an AdonisFX deformer the node will appear in the *Select Export Data* list. To add and remove a new selection press *Add Selection* or *Clear*.
-2. Select, using the checkboxes, the deformers and the individual settings to export to the AAD file. For example selecting *Maps* and *Attachments* would export the painted attribute maps and the matrices for the transform attachments relative to an AdnMuscle or AdnRibbonMuscle deformer.
-3. Define a name for the ADD file by going to *Output File Path* and selecting the folder icon.
-4. Finally, pressing the *Export* button will generate the file in the designated location.
-
-The AAD file that has been exported can then be imported in a scene with similar characteristics.
-
-<figure>
-  <img src="images/tools_export_tool_full.png" caption="AdonisFX Export Tool Active State">
-  <figcaption><b>Figure 10</b>: AdonisFX Export Tool Active State.</figcaption>
-</figure>
-
-> [!NOTE]
-> When using this tool to export more than one AdonisFX deformer, all meshes with deformers must be contained within the same group in the scene.
-
 ## Sensors Connection Editor
 
 To ease with the connection of sensors to deformers AdonisFX provides the **Sensors Connection Editor** in charge of facilitating the connection of sensors to the active deformers in the scene.
@@ -193,7 +149,7 @@ To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *C
 
 <figure markdown> 
   ![Connection Editor](images/tools_sensors_connection_editor_empty.png) 
-  <figcaption><b>Figure 11</b>: Sensor connection editor after opening it for the first time. </figcaption>
+  <figcaption><b>Figure 7</b>: Sensor connection editor after opening it for the first time. </figcaption>
 </figure>
 
 Two main sections can be distinguished in this tool, labeled *source* and *destination*. The source section is intended to display the signal attributes of sensors and locators, but it can also display the float attributes of any node. Meanwhile, the destination section will display the deformers along with their possible input attributes.
@@ -204,7 +160,7 @@ For Source elements (sensors) press the *Reload Left* button and for Destination
 
 <figure markdown> 
   ![Connection Editor Setup](images/tools_sensors_connection_editor.png) 
-  <figcaption><b>Figure 12</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
+  <figcaption><b>Figure 8</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
 </figure>
 
 To make the connections select the two specific attributes to connect (one from *source* and one from *destination*) and press the *Make Connection* button. A message will then get displayed informing that the connection has been properly made.
