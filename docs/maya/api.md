@@ -8,9 +8,6 @@
 
 A Python API has been developed to allow Technical Directors implementing custom Python scripts to export and rebuild AdonisFX rigs from script. It allows users to extract the setup from a rig in Maya and rebuild it in another Maya scene. As this API is experimental, please do not hesitate to send an email to **adnsupport@inbibo.co.uk** to provide any feedback and/or requests. The support and development teams will work together to incorporate users' feedback and refine the implementation.
 
-The API definitions can be imported with this command:
+The API can be found in `AdonisFX/python/adn/api/maya/adnx.py` and the definitions can be imported with this command:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.api.maya.adnx import *</code></pre>
-
-> [!NOTE]
-> - The Python API can be found in `AdonisFX/python/adn/api/maya/adnx.py`.
