@@ -176,11 +176,18 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Utils
 
 - **Upgrade Deprecated Nodes**. Refreshes the node graph and upgrades all deprecated nodes making sure that the scene still works the same.
+- **Clear**. Removes all AdonisFX nodes from the scene.
 
 <br/>
 
+- **Mirror**. Opens the Mirror Tool UI to mirror the muscle setup from one side of the body to the other.
 - **Paint Tool**. Opens the Paint Tool UI to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. This item corresponds to the shelf button ![Paint Tool](images/adn_paint_tool.png){style="width:4%"}.
 - **Interactive Playback**. Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. This item corresponds to the shelf button ![Interactive Playback](images/adn_interactive_playback.png){style="width:4%"}.
+
+### I/O section
+
+- **Import (beta)**. Opens the Import UI which allows to import an AdonisFX rig into the scene.
+- **Export (beta)**. Opens the Export UI which allows to export an AdonisFX rig from the scene.
 
 ### License section
 
