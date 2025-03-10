@@ -50,7 +50,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 
 ## AdonisFX Maya Menu
 
-The AdonisFX Menu provides access to the options in the shelf and other more advanced utilities that are organized in 5 groups: Create, Edit, Tools, License and Help.
+The AdonisFX Menu provides access to the options in the shelf and other more advanced utilities that are organized in six groups: Create, Edit, Tools, I/O, License and Help.
 
 <figure style="width: 30%;" markdown>
   ![AdnLocatorPosition within a scene](images/ui_overview_menu.png)
@@ -176,11 +176,18 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Utils
 
 - **Upgrade Deprecated Nodes**. Refreshes the node graph and upgrades all deprecated nodes making sure that the scene still works the same.
+- **Clear**. Removes all AdonisFX nodes from the scene.
 
 <br/>
 
+- **Mirror**. Opens the Mirror Tool UI which allows to mirror the muscle setup (locators, sensors and muscles) from one side of the character to the other based on left and right naming rules.
 - **Paint Tool**. Opens the Paint Tool UI to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. This item corresponds to the shelf button ![Paint Tool](images/adn_paint_tool.png){style="width:4%"}.
 - **Interactive Playback**. Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. This item corresponds to the shelf button ![Interactive Playback](images/adn_interactive_playback.png){style="width:4%"}.
+
+### I/O section
+
+- **Import (beta)**. Opens the Import UI which allows to import an AdonisFX rig from a file in disk into the scene.
+- **Export (beta)**. Opens the Export UI which allows to export an AdonisFX rig from the scene into a file in disk.
 
 ### License section
 
