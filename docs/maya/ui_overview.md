@@ -50,7 +50,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 
 ## AdonisFX Maya Menu
 
-The AdonisFX Menu provides access to the options in the shelf and other more advanced utilities that are organized in 5 groups: Create, Edit, Tools, I/O, License and Help.
+The AdonisFX Menu provides access to the options in the shelf and other more advanced utilities that are organized in six groups: Create, Edit, Tools, I/O, License and Help.
 
 <figure style="width: 30%;" markdown>
   ![AdnLocatorPosition within a scene](images/ui_overview_menu.png)
