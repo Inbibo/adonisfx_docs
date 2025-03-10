@@ -27,7 +27,8 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the transform node. |
+| **Position**        | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the transform node. This plug has priority over *Position Matrix*. This means that the position will always be read from this plug unless it has no connection and *Position Matrix* has it.|
+| **Position Matrix** | Matrix | Identity        | ✓ | Matrix containing the position in world space of the transform node. The position will be read from this plug only when it has a connection and the *Position* plug has no connections. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
@@ -65,8 +66,10 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug has priority over *Start Matrix*. This means that the position will always be read from this plug unless it has no connection and *Start Matrix* has it.|
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug has priority over *End Matrix*. This means that the position will always be read from this plug unless it has no connection and *End Matrix* has it.|
+| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. The position will be read from this plug only when it has a connection and the *Start Position* plug has no connections. |
+| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. The position will be read from this plug only when it has a connection and the *End Position* plug has no connections. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
@@ -108,9 +111,12 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. |
-| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. |
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the third transform node. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug has priority over *Start Matrix*. This means that the position will always be read from this plug unless it has no connection and *Start Matrix* has it.|
+| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug has priority over *Mid Matrix*. This means that the position will always be read from this plug unless it has no connection and *Mid Matrix* has it.|
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the third transform node. This plug has priority over *End Matrix*. This means that the position will always be read from this plug unless it has no connection and *End Matrix* has it.|
+| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. The position will be read from this plug only when it has a connection and the *Start Position* plug has no connections. |
+| **Mid Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. The position will be read from this plug only when it has a connection and the *Mid Position* plug has no connections. |
+| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the third transform node. The position will be read from this plug only when it has a connection and the *End Position* plug has no connections. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
