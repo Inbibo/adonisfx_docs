@@ -20,7 +20,7 @@ The process to create an AdnSkin deformer is:
 
 1. Select the **Targets** (optional, they can be added later), then the **Skin Mesh**.
 2. Press ![Skin button](../images/adn_skin.png){style="width:4%"} in the AdonisFX shelf or *Skin* in the AdonisFX menu, under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
-3. A message box will notify you that AdnSkin has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customize their configuration. The *Material* attribute will be set to *Skin* automatically.
+3. A message box will notify you that AdnSkin has been created properly, meaning that it is ready to simulate with default settings and *Material* set to *Skin*. Check the next section to customize their configuration.
 
 ## Attributes
 
