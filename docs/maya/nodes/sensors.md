@@ -39,7 +39,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Position**        | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Position Matrix* does not have input connection either. Otherwise, *Position Matrix* is used instead.|
+| **Position**        | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Position Matrix* does not have input connection neither. Otherwise, *Position Matrix* is used instead.|
 | **Position Matrix** | Matrix | Identity        | ✓ | Matrix containing the position in world space of the transform node. This plug is used if: 1) it has input connection and *Position* does not have input connections. Otherwise, *Position* is used instead. |
 
 #### Output
@@ -56,9 +56,9 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 
 #### Remap Settings
 
-##### Velocity
+#### Velocity
 
-###### Velocity Remap
+#### Velocity Remap
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -66,7 +66,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
 | **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
-###### Input and Output Ranges
+#### Input and Output Ranges
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -75,9 +75,9 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 | **Output Min Velocity** | Float | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 | **Output Max Velocity** | Float | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 
-##### Acceleration
+#### Acceleration
 
-###### Acceleration Remap
+#### Acceleration Remap
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -85,7 +85,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
 | **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
-###### Input and Output Ranges
+#### Input and Output Ranges
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -143,8 +143,8 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Start Matrix* does not have input connection either. Otherwise, *Start Matrix* is used instead.|
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *End Matrix* does not have input connection either. Otherwise, *End Matrix* is used instead.|
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Start Matrix* does not have input connection neither. Otherwise, *Start Matrix* is used instead.|
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *End Matrix* does not have input connection neither. Otherwise, *End Matrix* is used instead.|
 | **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This plug is used if: 1) it has input connection and *Start Position* does not have input connections. Otherwise, *Start Position* is used instead. |
 | **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This plug is used if: 1) it has input connection and *End Position* does not have input connections. Otherwise, *End Position* is used instead. |
 
@@ -164,9 +164,9 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 
 #### Remap Settings
 
-##### Distance
+#### Distance
 
-###### Distance Remap
+#### Distance Remap
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -174,7 +174,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
 | **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
-###### Input and Output Ranges
+#### Input and Output Ranges
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -183,9 +183,9 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | **Output Min Distance** | Float | 0.0 | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
 | **Output Max Distance** | Float | 1.0 | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
 
-##### Velocity
+#### Velocity
 
-###### Velocity Remap
+#### Velocity Remap
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -193,7 +193,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
 | **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
-###### Input and Output Ranges
+#### Input and Output Ranges
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -202,9 +202,9 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | **Output Min Velocity** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 | **Output Max Velocity** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 
-##### Acceleration
+#### Acceleration
 
-###### Acceleration Remap
+#### Acceleration Remap
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -212,7 +212,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
 | **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
-###### Input and Output Ranges
+#### Input and Output Ranges
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -270,9 +270,9 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Start Matrix* does not have input connection either. Otherwise, *Start Matrix* is used instead.|
-| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Mid Matrix* does not have input connection either. Otherwise, *Mid Matrix* is used instead.|
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the third transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *End Matrix* does not have input connection either. Otherwise, *End Matrix* is used instead.|
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Start Matrix* does not have input connection neither. Otherwise, *Start Matrix* is used instead.|
+| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Mid Matrix* does not have input connection neither. Otherwise, *Mid Matrix* is used instead.|
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the third transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *End Matrix* does not have input connection neither. Otherwise, *End Matrix* is used instead.|
 | **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This plug is used if: 1) it has input connection and *Start Position* does not have input connections. Otherwise, *Start Position* is used instead. |
 | **Mid Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This plug is used if: 1) it has input connection and *Mid Position* does not have input connections. Otherwise, *Mid Position* is used instead. |
 | **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the third transform node. This plug is used if: 1) it has input connection and *End Position* does not have input connections. Otherwise, *End Position* is used instead. |
@@ -293,9 +293,9 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 
 #### Remap Settings
 
-##### Angle
+#### Angle
 
-###### Angle Remap
+#### Angle Remap
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -303,7 +303,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
 | **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
-###### Input and Output Ranges
+#### Input and Output Ranges
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -312,9 +312,9 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | **Output Min Angle** | Float | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped angle. |
 | **Output Max Angle** | Float | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped angle. |
 
-##### Velocity
+#### Velocity
 
-###### Velocity Remap
+#### Velocity Remap
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -322,7 +322,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
 | **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
-###### Input and Output Ranges
+#### Input and Output Ranges
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -331,9 +331,9 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | **Output Min Velocity** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 | **Output Max Velocity** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 
-##### Acceleration
+#### Acceleration
 
-###### Acceleration Remap
+#### Acceleration Remap
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -341,7 +341,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
 | **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
-###### Input and Output Ranges
+#### Input and Output Ranges
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
