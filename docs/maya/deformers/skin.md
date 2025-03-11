@@ -217,7 +217,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 </figure>
 
 <figure markdown>
-  ![skin editor shape preservation constraint debug](../images/skin_self_collisions_volume_debug.png)
+  ![skin self collision volume debug](../images/skin_self_collisions_volume_debug.png)
   <figcaption><b>Figure 9</b>: In red the simulated skin. Debugger enabled displaying the <i>Self Collisions Volume</i> colored in blue.</figcaption>
 </figure>
 
