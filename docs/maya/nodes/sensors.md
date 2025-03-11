@@ -70,10 +70,10 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Velocity**  | Float      | 0.0  | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Input Max Velocity**  | Float      | 10.0 | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Output Min Velocity** | Enumerator | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
-| **Output Max Velocity** | Float      | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
+| **Input Min Velocity**  | Float | 0.0  | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Input Max Velocity**  | Float | 10.0 | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Output Min Velocity** | Float | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
+| **Output Max Velocity** | Float | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 
 ##### Acceleration
 
@@ -89,10 +89,10 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Acceleration**  | Float      | 0.0  | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Input Max Acceleration**  | Float      | 10.0 | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Output Min Acceleration** | Enumerator | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
-| **Output Max Acceleration** | Float      | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Input Min Acceleration**  | Float | -10.0 | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Input Max Acceleration**  | Float | 10.0  | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Output Min Acceleration** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Output Max Acceleration** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
 
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
@@ -178,10 +178,10 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Distance**  | Float      | 0.0  | ✓ | Lower limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
-| **Input Max Distance**  | Float      | 10.0 | ✓ | Upper limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
-| **Output Min Distance** | Enumerator | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
-| **Output Max Distance** | Float      | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
+| **Input Min Distance**  | Float | 0.0 | ✓ | Lower limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
+| **Input Max Distance**  | Float | 0.0 | ✓ | Upper limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
+| **Output Min Distance** | Float | 0.0 | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
+| **Output Max Distance** | Float | 1.0 | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
 
 ##### Velocity
 
@@ -197,10 +197,10 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Velocity**  | Float      | 0.0  | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Input Max Velocity**  | Float      | 10.0 | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Output Min Velocity** | Enumerator | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
-| **Output Max Velocity** | Float      | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
+| **Input Min Velocity**  | Float | -10.0 | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Input Max Velocity**  | Float | 10.0  | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Output Min Velocity** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
+| **Output Max Velocity** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 
 ##### Acceleration
 
@@ -216,10 +216,10 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Acceleration**  | Float      | 0.0  | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Input Max Acceleration**  | Float      | 10.0 | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Output Min Acceleration** | Enumerator | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
-| **Output Max Acceleration** | Float      | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Input Min Acceleration**  | Float | -10.0 | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Input Max Acceleration**  | Float | 10.0  | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Output Min Acceleration** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Output Max Acceleration** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
 
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
@@ -307,10 +307,10 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Angle**  | Float      | 0.0  | ✓ | Lower limit of the range used to map the *Out Angle* value before evaluating it on the ramp attribute. |
-| **Input Max Angle**  | Float      | 10.0 | ✓ | Upper limit of the range used to map the *Out Angle* value before evaluating it on the ramp attribute. |
-| **Output Min Angle** | Enumerator | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped angle. |
-| **Output Max Angle** | Float      | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped angle. |
+| **Input Min Angle**  | Float | 3.14 | ✓ | Lower limit of the range used to map the *Out Angle* value before evaluating it on the ramp attribute. |
+| **Input Max Angle**  | Float | 0.0  | ✓ | Upper limit of the range used to map the *Out Angle* value before evaluating it on the ramp attribute. |
+| **Output Min Angle** | Float | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped angle. |
+| **Output Max Angle** | Float | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped angle. |
 
 ##### Velocity
 
@@ -326,10 +326,10 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Velocity**  | Float      | 0.0  | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Input Max Velocity**  | Float      | 10.0 | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Output Min Velocity** | Enumerator | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
-| **Output Max Velocity** | Float      | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
+| **Input Min Velocity**  | Float | 10.0  | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Input Max Velocity**  | Float | -10.0 | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Output Min Velocity** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
+| **Output Max Velocity** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 
 ##### Acceleration
 
@@ -345,10 +345,10 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Acceleration**  | Float      | 0.0  | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Input Max Acceleration**  | Float      | 10.0 | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Output Min Acceleration** | Enumerator | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
-| **Output Max Acceleration** | Float      | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Input Min Acceleration**  | Float | 10.0  | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Input Max Acceleration**  | Float | -10.0 | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Output Min Acceleration** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Output Max Acceleration** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
 
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
