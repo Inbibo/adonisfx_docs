@@ -39,8 +39,8 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Position**        | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Position Matrix* does not have input connection neither. Otherwise, *Position Matrix* is used instead.|
-| **Position Matrix** | Matrix | Identity        | ✓ | Matrix containing the position in world space of the transform node. This plug is used if: 1) it has input connection and *Position* does not have input connections. Otherwise, *Position* is used instead. |
+| **Position**        | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the transform node. This plug is used if: 1) it has input connections; 2) it does not have input connections and *Position Matrix* does not have input connections neither. Otherwise, *Position Matrix* is used instead.|
+| **Position Matrix** | Matrix | Identity        | ✓ | Matrix containing the position in world space of the transform node. This plug is used if: 1) it has input connections and *Position* does not have input connections. Otherwise, *Position* is used instead. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
@@ -143,10 +143,10 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Start Matrix* does not have input connection neither. Otherwise, *Start Matrix* is used instead.|
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *End Matrix* does not have input connection neither. Otherwise, *End Matrix* is used instead.|
-| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This plug is used if: 1) it has input connection and *Start Position* does not have input connections. Otherwise, *Start Position* is used instead. |
-| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This plug is used if: 1) it has input connection and *End Position* does not have input connections. Otherwise, *End Position* is used instead. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug is used if: 1) it has input connections; 2) it does not have input connections and *Start Matrix* does not have input connections neither. Otherwise, *Start Matrix* is used instead.|
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug is used if: 1) it has input connections; 2) it does not have input connections and *End Matrix* does not have input connections neither. Otherwise, *End Matrix* is used instead.|
+| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This plug is used if: 1) it has input connections and *Start Position* does not have input connections. Otherwise, *Start Position* is used instead. |
+| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This plug is used if: 1) it has input connections and *End Position* does not have input connections. Otherwise, *End Position* is used instead. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
@@ -270,12 +270,12 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Start Matrix* does not have input connection neither. Otherwise, *Start Matrix* is used instead.|
-| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Mid Matrix* does not have input connection neither. Otherwise, *Mid Matrix* is used instead.|
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the third transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *End Matrix* does not have input connection neither. Otherwise, *End Matrix* is used instead.|
-| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This plug is used if: 1) it has input connection and *Start Position* does not have input connections. Otherwise, *Start Position* is used instead. |
-| **Mid Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This plug is used if: 1) it has input connection and *Mid Position* does not have input connections. Otherwise, *Mid Position* is used instead. |
-| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the third transform node. This plug is used if: 1) it has input connection and *End Position* does not have input connections. Otherwise, *End Position* is used instead. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug is used if: 1) it has input connections; 2) it does not have input connections and *Start Matrix* does not have input connections neither. Otherwise, *Start Matrix* is used instead.|
+| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug is used if: 1) it has input connections; 2) it does not have input connections and *Mid Matrix* does not have input connections neither. Otherwise, *Mid Matrix* is used instead.|
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the third transform node. This plug is used if: 1) it has input connections; 2) it does not have input connections and *End Matrix* does not have input connections neither. Otherwise, *End Matrix* is used instead.|
+| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This plug is used if: 1) it has input connections and *Start Position* does not have input connections. Otherwise, *Start Position* is used instead. |
+| **Mid Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This plug is used if: 1) it has input connections and *Mid Position* does not have input connections. Otherwise, *Mid Position* is used instead. |
+| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the third transform node. This plug is used if: 1) it has input connections and *End Position* does not have input connections. Otherwise, *End Position* is used instead. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
