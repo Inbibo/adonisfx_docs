@@ -54,45 +54,29 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 | **Out Velocity Remap**     | Float | 0.0 | ✗ | Output remapped velocity. It is the result of remapping the *Out Velocity*. |
 | **Out Acceleration Remap** | Float | 0.0 | ✗ | Output remapped acceleration. It is the result of remapping the *Out Acceleration*. |
 
-#### Remap Settings
-
-#### Velocity
-
-#### Velocity Remap
+#### Velocity Remap Settings
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
-| **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Selected Position**   | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
+| **Selected Value**      | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
+| **Interpolation**       | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Input Min Velocity**  | Float      | 0.0    | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Input Max Velocity**  | Float      | 10.0   | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Output Min Velocity** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
+| **Output Max Velocity** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 
-#### Input and Output Ranges
-
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Velocity**  | Float | 0.0  | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Input Max Velocity**  | Float | 10.0 | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Output Min Velocity** | Float | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
-| **Output Max Velocity** | Float | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
-
-#### Acceleration
-
-#### Acceleration Remap
+#### Acceleration Remap Settings
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
-| **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
-
-#### Input and Output Ranges
-
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Acceleration**  | Float | -10.0 | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Input Max Acceleration**  | Float | 10.0  | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Output Min Acceleration** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
-| **Output Max Acceleration** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Selected Position**       | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
+| **Selected Value**          | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
+| **Interpolation**           | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Input Min Acceleration**  | Float      | -10.0  | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Input Max Acceleration**  | Float      | 10.0   | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Output Min Acceleration** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Output Max Acceleration** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
 
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
@@ -162,64 +146,41 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | **Out Velocity Remap**     | Float | 0.0 | ✗ | Output remapped velocity. It is the result of remapping the *Out Velocity*. |
 | **Out Acceleration Remap** | Float | 0.0 | ✗ | Output remapped acceleration. It is the result of remapping the *Out Acceleration*. |
 
-#### Remap Settings
-
-#### Distance
-
-#### Distance Remap
+#### Distance Remap Settings
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
-| **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Selected Position**   | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
+| **Selected Value**      | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
+| **Interpolation**       | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Input Min Distance**  | Float      | 0.0    | ✓ | Lower limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
+| **Input Max Distance**  | Float      | 0.0    | ✓ | Upper limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
+| **Output Min Distance** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
+| **Output Max Distance** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
 
-#### Input and Output Ranges
-
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Distance**  | Float | 0.0 | ✓ | Lower limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
-| **Input Max Distance**  | Float | 0.0 | ✓ | Upper limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
-| **Output Min Distance** | Float | 0.0 | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
-| **Output Max Distance** | Float | 1.0 | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
-
-#### Velocity
-
-#### Velocity Remap
+#### Velocity Remap Settings
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
-| **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Selected Position**   | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
+| **Selected Value**      | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
+| **Interpolation**       | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Input Min Velocity**  | Float      | -10.0  | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Input Max Velocity**  | Float      | 10.0   | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Output Min Velocity** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
+| **Output Max Velocity** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 
-#### Input and Output Ranges
-
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Velocity**  | Float | -10.0 | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Input Max Velocity**  | Float | 10.0  | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Output Min Velocity** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
-| **Output Max Velocity** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
-
-#### Acceleration
-
-#### Acceleration Remap
+#### Acceleration Remap Settings
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
-| **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
-
-#### Input and Output Ranges
-
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Acceleration**  | Float | -10.0 | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Input Max Acceleration**  | Float | 10.0  | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Output Min Acceleration** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
-| **Output Max Acceleration** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Selected Position**       | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
+| **Selected Value**          | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
+| **Interpolation**           | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Input Min Acceleration**  | Float      | -10.0  | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Input Max Acceleration**  | Float      | 10.0   | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Output Min Acceleration** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Output Max Acceleration** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
 
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
@@ -291,64 +252,41 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | **Out Velocity Remap**     | Float | 0.0 | ✗ | Output remapped velocity. It is the result of remapping the *Out Velocity*. |
 | **Out Acceleration Remap** | Float | 0.0 | ✗ | Output remapped acceleration. It is the result of remapping the *Out Acceleration*. |
 
-#### Remap Settings
-
-#### Angle
-
-#### Angle Remap
+#### Angle Remap Settings
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
 | **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Input Min Angle**   | Float      | 3.14   | ✓ | Lower limit of the range used to map the *Out Angle* value before evaluating it on the ramp attribute. |
+| **Input Max Angle**   | Float      | 0.0    | ✓ | Upper limit of the range used to map the *Out Angle* value before evaluating it on the ramp attribute. |
+| **Output Min Angle**  | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped angle. |
+| **Output Max Angle**  | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped angle. |
 
-#### Input and Output Ranges
-
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Angle**  | Float | 3.14 | ✓ | Lower limit of the range used to map the *Out Angle* value before evaluating it on the ramp attribute. |
-| **Input Max Angle**  | Float | 0.0  | ✓ | Upper limit of the range used to map the *Out Angle* value before evaluating it on the ramp attribute. |
-| **Output Min Angle** | Float | 0.0  | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped angle. |
-| **Output Max Angle** | Float | 1.0  | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped angle. |
-
-#### Velocity
-
-#### Velocity Remap
+#### Velocity Remap Settings
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
-| **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Selected Position**   | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
+| **Selected Value**      | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
+| **Interpolation**       | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Input Min Velocity**  | Float      | 10.0   | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Input Max Velocity**  | Float      | -10.0  | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
+| **Output Min Velocity** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
+| **Output Max Velocity** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 
-#### Input and Output Ranges
-
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Velocity**  | Float | 10.0  | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Input Max Velocity**  | Float | -10.0 | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
-| **Output Min Velocity** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
-| **Output Max Velocity** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
-
-#### Acceleration
-
-#### Acceleration Remap
+#### Acceleration Remap Settings
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
-| **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
-
-#### Input and Output Ranges
-
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Input Min Acceleration**  | Float | 10.0  | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Input Max Acceleration**  | Float | -10.0 | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
-| **Output Min Acceleration** | Float | 0.0   | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
-| **Output Max Acceleration** | Float | 1.0   | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Selected Position**       | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
+| **Selected Value**          | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
+| **Interpolation**           | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
+| **Input Min Acceleration**  | Float      | 10.0   | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Input Max Acceleration**  | Float      | -10.0  | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
+| **Output Min Acceleration** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Output Max Acceleration** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
 
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
