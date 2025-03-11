@@ -36,12 +36,12 @@ Depending on the deformer and the attribute selected the UI can adjust to suppor
 In the specific case of muscle deformers, the tool will display the following attributes:
 
 <figure markdown>
-  ![Pain Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_00.png) 
+  ![Paint Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_00.png) 
   <figcaption><b>Figure 2</b>: Paintable attributes in AdonisFX muscle deformer (Part 1). </figcaption>
 </figure>
 
 <figure markdown>
-  ![Pain Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_01.png) 
+  ![Paint Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_01.png) 
   <figcaption><b>Figure 3</b>: Paintable attributes in AdonisFX muscle deformer (Part 2). </figcaption>
 </figure>
 
