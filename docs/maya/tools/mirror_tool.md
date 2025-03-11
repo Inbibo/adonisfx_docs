@@ -92,4 +92,4 @@ Depending on the complexity of the rig, this process might take a few seconds to
 ## Limitations (WIP)
 
 - The naming convention does not allow to place the side identifier at the middle of the name (e.g. biceps_L_muscle).
-- Having a remap node between the AdnActivation and the AdnMuscle deformer.
+- The mirroring logic does not allow to mirror intermediate nodes between the AdnActivation and the AdnMuscle deformer.
