@@ -99,23 +99,26 @@ nav:
   - FAQ: faq.md
   - Release Notes: release_notes.md
   - Maya:
-    - Index               : maya/index.md
-    - UI Overview         : maya/ui_overview.md
-    - A Simple Setup      : maya/simple_setup.md
+    - Index                       : maya/index.md
+    - UI Overview                 : maya/ui_overview.md
+    - A Simple Setup              : maya/simple_setup.md
     - Deformers:
-      - AdnMuscle         : maya/deformers/muscle.md
-      - AdnRibbonMuscle   : maya/deformers/ribbon.md
-      - AdnFat            : maya/deformers/fat.md
-      - AdnSkin           : maya/deformers/skin.md
-      - AdnRelax          : maya/deformers/relax.md
-      - AdnSkinMerge      : maya/deformers/skin_merge.md
-      - AdnSimshape       : maya/deformers/simshape.md
+      - AdnMuscle                 : maya/deformers/muscle.md
+      - AdnRibbonMuscle           : maya/deformers/ribbon.md
+      - AdnFat                    : maya/deformers/fat.md
+      - AdnSkin                   : maya/deformers/skin.md
+      - AdnRelax                  : maya/deformers/relax.md
+      - AdnSkinMerge              : maya/deformers/skin_merge.md
+      - AdnSimshape               : maya/deformers/simshape.md
     - Nodes:
-      - Locators          : maya/nodes/locators.md
-      - Sensors           : maya/nodes/sensors.md
-      - AdnActivation     : maya/nodes/activation.md
-      - AdnEdgeEvaluator  : maya/nodes/edge_evaluator.md
-      - AdnGlue           : maya/nodes/glue.md
-    - Tools               : maya/tools.md
-    - Scripts             : maya/scripts.md
-    - API                 : maya/api.md
+      - Locators                  : maya/nodes/locators.md
+      - Sensors                   : maya/nodes/sensors.md
+      - AdnActivation             : maya/nodes/activation.md
+      - AdnEdgeEvaluator          : maya/nodes/edge_evaluator.md
+      - AdnGlue                   : maya/nodes/glue.md
+    - Tools:
+      - Paint Tool                : maya/tools/paint_tool.md
+      - Sensors Connection Editor : maya/tools/sensors_connection_editor.md
+      - Mirror Tool               : maya/tools/mirror_tool.md
+    - Scripts                     : maya/scripts.md
+    - API                         : maya/api.md

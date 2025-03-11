@@ -16,6 +16,9 @@
     - [AdnActivation](nodes/activation)
     - [AdnEdgeEvaluator](nodes/edge_evaluator)
     - [AdnGlue](nodes/glue)
-- [Tools](tools)
+- Tools
+    - [Paint Tool](tools/paint_tool)
+    - [Sensor Connection Editor](tools/sensors_connection_editor)
+    - [Mirror Tool](tools/mirror_tool)
 - [Scripts](scripts)
 - [API](api)

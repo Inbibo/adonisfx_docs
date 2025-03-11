@@ -62,8 +62,10 @@ Depending on the complexity of the rig, this process might take a few seconds to
 > [!NOTE]
 > Depending on the need, the script can mirror only the muscles (selection from step 1), only the locators and sensors (selection from step 2), or everything at once (including both selections from step 1 and 2).
 
+> [!NOTE]
+> The mirroring process can also be executed with the **Mirror Tool**. For more details, please refer to the [Mirror Tool page](tools/mirror_tool).
+
 ### Limitations
 
-- Node types that are not supported: AdnRibbonMuscle deformer, AdnActivation nodes.
-- Settings in AdnMuscle that are not included in the mirroring: Attachments To Transform, Slide On Segment.
 - The naming convention does not allow to place the side identifier at the middle of the name (e.g. biceps_L_muscle).
+- The mirroring logic does not allow to mirror intermediate nodes between the AdnActivation and the AdnMuscle deformer.
