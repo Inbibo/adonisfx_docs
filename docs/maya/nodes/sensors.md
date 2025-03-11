@@ -1,10 +1,10 @@
 # Sensors
 
-AdonisFX Sensors are nodes in charge of interpreting data extracted from transform nodes and compute information that can be fed into the deformers to alter their behavior. Sensors work in combination with [Locators](locators) to display the computed information in an intuitive way using coloring. To be able to display the information computed, the sensors remap the computed data (e.g. *Out Angle*) to a valid value (e.g. *Out Angle Remap*) in a given range of activation that will drive the coloring of the locators and the activation of an AdnMuscle for example.
+AdonisFX Sensors are nodes in charge of interpreting data extracted from transform nodes and compute information that can be fed into the deformers to alter their behavior. Sensors work in combination with [Locators](locators) to display the computed information in an intuitive way using coloring. The sensors produce the results in two separated outputs: the raw value result of the evaluation of the input transform nodes (e.g. *Out Angle*); and the remapped value result of the evaluation of the raw value into the existing remap ramp attributes (e.g. *Out Angle Remap*). Thanks to this, the remapped values are already adjusted within a custom range of activation that will drive the coloring of the locators and the activation of an AdnMuscle for example.
 
 ## AdnSensorPosition
 
-AdnSensorPosition is the sensor for computing meaningful output raw values representing the velocity or acceleration of a transform node. Additionally, the sensor remaps the values of velocity and acceleration to produce desirable activation values to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorPosition both for setup and visualization. An example use case for this sensor would be applying it to the wrist connection of an arm outputting velocities while swinging.
+AdnSensorPosition is the sensor for computing meaningful output raw values representing the velocity or acceleration of a transform node. Additionally, the sensor remaps the values of velocity and acceleration to produce desirable activation values within a certain range to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorPosition both for setup and visualization. An example use case for this sensor would be applying it to the wrist connection of an arm outputting velocities while swinging.
 
 ### How To Use
 
@@ -39,8 +39,8 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Position**        | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the transform node. This plug has priority over *Position Matrix*. This means that the position will always be read from this plug unless it has no connection and *Position Matrix* has it.|
-| **Position Matrix** | Matrix | Identity        | ✓ | Matrix containing the position in world space of the transform node. The position will be read from this plug only when it has a connection and the *Position* plug has no connections. |
+| **Position**        | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Position Matrix* does not have input connection either. Otherwise, *Position Matrix* is used instead.|
+| **Position Matrix** | Matrix | Identity        | ✓ | Matrix containing the position in world space of the transform node. This plug is used if: 1) it has input connection and *Position* does not have input connections. Otherwise, *Position* is used instead. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
@@ -64,7 +64,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used. There are four options: None, Linear, Smooth and Spline. |
+| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
 ###### Input and Output Ranges
 
@@ -83,7 +83,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method used. There are four options: None, Linear, Smooth and Spline. |
+| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
 ###### Input and Output Ranges
 
@@ -108,7 +108,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 
 ## AdnSensorDistance
 
-AdnSensorDistance is the sensor for computing meaningful output raw values representing the distance, velocity or acceleration between two transform nodes. Additionally, the sensor remaps the values of distance, velocity and acceleration to produce desirable activation values to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorDistance both for setup and visualization. An example use case for this sensor would be applying it to the connection made between bones which would compute the distance between two bones moving together.
+AdnSensorDistance is the sensor for computing meaningful output raw values representing the distance, velocity or acceleration between two transform nodes. Additionally, the sensor remaps the values of distance, velocity and acceleration to produce desirable activation values within a certain range to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorDistance both for setup and visualization. An example use case for this sensor would be applying it to the connection made between bones which would compute the distance between two bones moving together.
 
 ### How To Use
 
@@ -143,10 +143,10 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug has priority over *Start Matrix*. This means that the position will always be read from this plug unless it has no connection and *Start Matrix* has it.|
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug has priority over *End Matrix*. This means that the position will always be read from this plug unless it has no connection and *End Matrix* has it.|
-| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. The position will be read from this plug only when it has a connection and the *Start Position* plug has no connections. |
-| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. The position will be read from this plug only when it has a connection and the *End Position* plug has no connections. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Start Matrix* does not have input connection either. Otherwise, *Start Matrix* is used instead.|
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *End Matrix* does not have input connection either. Otherwise, *End Matrix* is used instead.|
+| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This plug is used if: 1) it has input connection and *Start Position* does not have input connections. Otherwise, *Start Position* is used instead. |
+| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This plug is used if: 1) it has input connection and *End Position* does not have input connections. Otherwise, *End Position* is used instead. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
@@ -172,7 +172,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used. There are four options: None, Linear, Smooth and Spline. |
+| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
 ###### Input and Output Ranges
 
@@ -191,7 +191,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used. There are four options: None, Linear, Smooth and Spline. |
+| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
 ###### Input and Output Ranges
 
@@ -210,7 +210,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method used. There are four options: None, Linear, Smooth and Spline. |
+| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
 ###### Input and Output Ranges
 
@@ -235,7 +235,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 
 ## AdnSensorRotation
 
-AdnSensorRotation is the sensor for computing meaningful output raw values representing the angle, angular velocity or angular acceleration between three transform nodes. Additionally, the sensor remaps the values of angle, velocity and acceleration to produce desirable activation values to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorRotation both for setup and visualization. An example use case for this sensor would be applying it to the arc connection made between bones which would compute the angle between two bones rotating.
+AdnSensorRotation is the sensor for computing meaningful output raw values representing the angle, angular velocity or angular acceleration between three transform nodes. Additionally, the sensor remaps the values of angle, velocity and acceleration to produce desirable activation values within a certain range to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorRotation both for setup and visualization. An example use case for this sensor would be applying it to the arc connection made between bones which would compute the angle between two bones rotating.
 
 ### How To Use
 
@@ -270,12 +270,12 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug has priority over *Start Matrix*. This means that the position will always be read from this plug unless it has no connection and *Start Matrix* has it.|
-| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug has priority over *Mid Matrix*. This means that the position will always be read from this plug unless it has no connection and *Mid Matrix* has it.|
-| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the third transform node. This plug has priority over *End Matrix*. This means that the position will always be read from this plug unless it has no connection and *End Matrix* has it.|
-| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. The position will be read from this plug only when it has a connection and the *Start Position* plug has no connections. |
-| **Mid Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. The position will be read from this plug only when it has a connection and the *Mid Position* plug has no connections. |
-| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the third transform node. The position will be read from this plug only when it has a connection and the *End Position* plug has no connections. |
+| **Start Position** | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the first transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Start Matrix* does not have input connection either. Otherwise, *Start Matrix* is used instead.|
+| **Mid Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the second transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *Mid Matrix* does not have input connection either. Otherwise, *Mid Matrix* is used instead.|
+| **End Position**   | Float3 | {0.0, 0.0, 0.0} | ✓ | Position in world space of the third transform node. This plug is used if: 1) it has input connection; 2) it does not have input connection and *End Matrix* does not have input connection either. Otherwise, *End Matrix* is used instead.|
+| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This plug is used if: 1) it has input connection and *Start Position* does not have input connections. Otherwise, *Start Position* is used instead. |
+| **Mid Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This plug is used if: 1) it has input connection and *Mid Position* does not have input connections. Otherwise, *Mid Position* is used instead. |
+| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the third transform node. This plug is used if: 1) it has input connection and *End Position* does not have input connections. Otherwise, *End Position* is used instead. |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
@@ -301,7 +301,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used. There are four options: None, Linear, Smooth and Spline. |
+| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
 ###### Input and Output Ranges
 
@@ -320,7 +320,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used. There are four options: None, Linear, Smooth and Spline. |
+| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
 ###### Input and Output Ranges
 
@@ -339,7 +339,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Selected Position** | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
 | **Selected Value**    | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method used. There are four options: None, Linear, Smooth and Spline. |
+| **Interpolation**     | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
 
 ###### Input and Output Ranges
 
