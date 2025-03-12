@@ -135,4 +135,4 @@ adnio.export_data(file_path, enabled_features=None)
 - `enabled_features`: A dictionary where keys are feature names and values are flags to determine if a feature has to be exported or not. If this is not provided, all features will be exported. Example: 
   <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'SENSOR_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
 
-Find more information about the use of the import feature in the [Exporter](maya/tools/exporter#exporter) page.
+Find more information about the use of the export feature in the [Exporter](maya/tools/exporter#exporter) page.
