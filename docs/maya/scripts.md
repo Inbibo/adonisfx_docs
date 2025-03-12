@@ -6,35 +6,50 @@ The mirroring script is a Python script that allows to transfer the AdonisFX mus
 
 Currently, the script allows to mirror:
 
-- AdnMuscle (settings, paintable maps, geometry targets, connections to sensors).
-- AdnLocators (position, distance, rotation).
-- AdnSensors (position, distance, rotation).
+- **AdnMuscle deformers**, including their configurations, paintable maps, geometry targets, and connections to locators.​
+- The three types of **AdonisFX locators** (i.e. AdnLocatorPosition, AdnLocatorDistance, and AdnLocatorRotation).
+- The three types of **AdonisFX sensors** (i.e. AdnSensorPosition, AdnSensorDistance, and AdnSensorRotation).
+- **AdnActivation nodes**, including their input and output connections.
 
 Please, check this [section](#limitations) to know more about the current limitations.
 
+### Requirements
+
+In order to use the mirroring script, the rig must meet the following requirements to ensure a successful transfer of the muscle setup:
+
+- **A completed setup on one side**: One side of the rig (either left or right) must be fully configured. This completed side will serve as the **source**, while the opposite side will be the **destination** for the mirrored setup.
+
+- **Consistent naming convention**: All objects involved in the mirroring process (including geometries, muscle deformers, locators, sensors, activation nodes and any other attachment nodes like rig joints) must follow a naming convention based on prefixes or suffixes (see Figure 1). This allows the tool to differentiate between left and right-side entities. Naming conventions can use:
+    - **Prefixes**: e.g., "L_" and "R_" or "l_" and "r_".
+    - **Suffixes**: e.g., "_L" and "_R" or "_l" and "_r".
+
+- **Symmetric muscle topology**: The left and right muscles must have identical topology. This means that:
+    - The **vertex count** must be the same on both sides.
+    - The **vertex IDs** of a muscle (e.g., "L_biceps") must match those of its counterpart (e.g., "R_biceps").
+
+    This ensures that paintable maps and deformer weights are transferred accurately during the mirroring process.
+
+<figure style="width:90%; margin-left:5%" markdown>
+  ![Example of naming convention](images/example_naming_convention_mirroring.png)
+  <figcaption><b>Figure 1</b>: Example of the naming convention (using "L_" prefix) applied to muscles, joints, sensors, locators and activation nodes.</figcaption>
+</figure>
+
 ### How To Use
 
-The character rig to apply the mirroring onto needs to satisfy some requirements for this script to work:
-
-- One completed side of the rig (i.e. left or right). This side will work as source, while the other will work as destination.
-- Apply a naming convention to all the objects involved in the mirroring (geometries, muscle deformers, locators and sensors) to allow the script to differentiate between left and right side objects. For example, use a "l_" and "r_", or "L_" and "R_" prefix, or "\_l" and "\_r", or "\_L" and "\_R" suffix.
-- The left and right muscles must be symmetric in topology. This means that both the number of vertices and the vertex IDs of a muscle (e.g. "L_biceps") must match those of its counterpart muscle (e.g. "R_biceps") to ensure the paintable maps are mirrored correctly.
-- It is recommended to save the scene before executing the script.
+Open a scene that fulfills the requirements listed previously and follow the next steps:
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Maya Scene Ready To Execute The Mirroring](images/mirror_script_00.png)
-  <figcaption><b>Figure 1</b>: Starting point to execute the mirroring script onto a biped asset. The left side is fully configured with muscle deformers, locators and sensors following the prefix naming convention "L_*".</figcaption>
+  <figcaption><b>Figure 2</b>: Starting point to execute the mirroring onto a biped asset. The left side is fully configured with muscle deformers, locators, sensors and activation nodes following the prefix naming convention "L_".</figcaption>
 </figure>
 
-Once the scene fulfills the requirements, then the procedure to follow is:
+1. Select all geometries from the source side that have an AdnMuscle deformer applied and need to be mirrored.
 
-1. Select all geometries from the source side with an AdnMuscle applied that need to be mirrored.
-
-2. Add to the selection all the AdonisFX Locators from the same source side that need to be mirrored. Note that sensors (as not being DAG objects) do not need to be added to the selection. The script will take care of mirroring them too.
+2. Add to the selection all the AdonisFX locators from the same source side that need to be mirrored. Note that sensors and activation nodes (as not being DAG objects) do not need to be added to the selection. The Mirror Tool will automatically handle their mirroring.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Mirror Script Selection](images/mirror_script_01.png)
-  <figcaption><b>Figure 2</b>: All geometry muscles and locators on the left side selected.</figcaption>
+  <figcaption><b>Figure 3</b>: All geometry muscles and locators on the left side selected.</figcaption>
 </figure>
 
 3. Run the following command in a Python Script tab.
@@ -43,11 +58,11 @@ Once the scene fulfills the requirements, then the procedure to follow is:
 mirror.apply_mirror(left_convention="L_*", right_convention="R_*")
 </code></pre>
 
-4. A confirmation dialog will be displayed, reminding the user that it is recommended to have a saved version of the scene, as the mirroring process cannot be undone.
+4. A confirmation dialog will appear, recommending the user to save a version of the scene before proceeding, since the mirroring process cannot be undone.
 
 <figure style="width:60%; margin-left:20%" markdown>
   ![Mirror Script Confirmation Dialog](images/mirror_script_02.png)
-  <figcaption><b>Figure 3</b>: Question dialog displayed to ask for confirmation before executing.</figcaption>
+  <figcaption><b>Figure 4</b>: Question dialog displayed to ask for confirmation before executing.</figcaption>
 </figure>
 
 5. Click *Yes* in the question dialog to proceed with the mirroring.
@@ -56,7 +71,7 @@ Depending on the complexity of the rig, this process might take a few seconds to
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Mirroring Execution Completed](images/mirror_script_03.png)
-  <figcaption><b>Figure 4</b>: Result of the execution: all AdnMuscle from the left side are replicated on the right side. Also, all the locators and sensors from the left side are created and connected on the right side.</figcaption>
+  <figcaption><b>Figure 5</b>: Result of the execution: all AdnMuscle from the left side are replicated on the right side. Additionally, all the locators, sensors and activation nodes from the left side are created and connected on the right side.</figcaption>
 </figure>
 
 > [!NOTE]
