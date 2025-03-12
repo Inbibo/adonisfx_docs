@@ -1,15 +1,15 @@
-# Importer
+# Import
 
-The AdonisFX Importer is a tool designed to facilitate the import of a complete AdonisFX rig into a Maya scene. This tool enables users to restore previously exported rigs by reading the data from a JSON file and rebuilding all selected components in the scene. The tool ensures a structured and efficient workflow for transferring, reusing, or backing up AdonisFX rigs.
+The AdonisFX Import is a tool designed to facilitate the import of a complete AdonisFX rig into a Maya scene. This tool enables users to restore previously exported rigs by reading the data from a JSON file and rebuilding all selected components in the scene. The tool ensures a structured and efficient workflow for transferring, reusing, or backing up AdonisFX rigs.
 
 ## UI
 
 <figure markdown>
-  ![AdonisFX Importer Tool](../images/importer_ui.png)
-  <figcaption><b>Figure 1</b>: AdonisFX Importer UI.</figcaption>
+  ![AdonisFX Import Tool](../images/importer_ui.png)
+  <figcaption><b>Figure 1</b>: AdonisFX Import UI.</figcaption>
 </figure>
 
-The Importer Tool offers an intuitive interface (see Figure 1), allowing users to configure import settings according to their specific requirements. Below is a breakdown of the available UI elements:
+The Import Tool offers an intuitive interface (see Figure 1), allowing users to configure import settings according to their specific requirements. Below is a breakdown of the available UI elements:
 
 - **Filepath**. Specifies the path to the JSON file containing the data to be imported. Clicking the folder icon opens a file browser to select the desired file.
 
@@ -51,7 +51,7 @@ To import an AdonisFX rig, ensure that you have a valid exported JSON file and f
   <figcaption><b>Figure 2</b>: Scene of a biped character after executing the *Clear* and ready to import.</figcaption>
 </figure>
 
-2. Go to *AdonisFX menu > I/O > Import (beta)* to open the *Importer* window.
+2. Go to *AdonisFX menu > I/O > Import (beta)* to open the *Import* window.
 
 3. Specify the file path of the JSON file that contains the exported rig data (see Figure 3).
 
