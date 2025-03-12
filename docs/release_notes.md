@@ -1,5 +1,56 @@
 # Release Notes
 
+## Version 1.6.0
+
+### Core
+- Added self-collisions support in AdnSkin solver.
+
+### Maya
+- Integrated self-collisions in AdnSkin deformer.
+- Implemented Mirror tool UI.
+- Implemented Export and Import tools with UI.
+- Implemented `adnio.py` script to export and import rigs from Python.
+- Integrated remapping functionalities in sensors.
+- Added input matrix plugs to locators and sensors.
+- Added Skin materials to all deformers.
+- Added Maya deformer weights to AdnRelax.
+
+### Improvements
+- Extended mirror script to support:
+    - Mirroring of remapping settings for sensors.
+    - Input matrix plugs in locators and sensors.
+    - Slide on segment constraints for muscle deformers.
+    - Attachment to transform constraints for muscle deformers.
+    - Mirroring of AdnRibbonMuscle deformers.
+    - Mirroring of AdnActivation nodes.
+    - Mirroring connections to the volumeRatio plug of muscle deformers.
+
+- Extended API to support:
+    - AdnSkinMerge deformers.
+    - Sparse arrays in input target plugs.
+    - Missing attributes in different classes.
+    - AdnSensorRotation and AdnLocatorRotation.
+    - AdnSensorPosition and AdnLocatorPosition.
+    - Slide on segment constraints for muscle deformers
+    - Attach to transform constraints for muscle deformers.
+    - Self-collisions attributes and maps.
+    - AdnLocator.
+    - Remapping functionalities in sensors.
+    - Input matrix plugs in locators and sensors.
+
+- Updated menu with new items: *Mirror*, *Export (beta)*, *Import (beta)* and *Clear*.
+- Updated locator creator utils to use input matrix plugs and remapping functionalities in sensors.
+- Updated sensor creator utils to use input matrix plugs and remapping functionalities in sensors.
+- Improved AdonisFX logger to display messages on idle.
+- Displayed warning log when both the AdonisFX debugger and the Maya Cached Playback are enabled.
+
+### Bug Fixes
+- Fixed *Refresh Debugger* utility to support namespaces.
+- Fixed the bounding box of locators.
+
+### Deprecated
+- The Exporter and Importer tools are deprecated and removed from the UI. The internal logic in Python is still available but it will be removed or rewritten in version 1.7.0. Continuing using it is not advisable.
+
 ## Version 1.5.0
 
 ### Core
