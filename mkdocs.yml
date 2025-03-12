@@ -120,5 +120,6 @@ nav:
       - Paint Tool                : maya/tools/paint_tool.md
       - Sensors Connection Editor : maya/tools/sensors_connection_editor.md
       - Mirror                    : maya/tools/mirror_tool.md
+      - Importer                  : maya/tools/importer.md
     - Scripts                     : maya/scripts.md
     - API                         : maya/api.md
