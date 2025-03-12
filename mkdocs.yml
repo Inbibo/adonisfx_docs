@@ -119,6 +119,6 @@ nav:
     - Tools:
       - Paint Tool                : maya/tools/paint_tool.md
       - Sensors Connection Editor : maya/tools/sensors_connection_editor.md
-      - Mirror Tool               : maya/tools/mirror_tool.md
+      - Mirror                    : maya/tools/mirror_tool.md
     - Scripts                     : maya/scripts.md
     - API                         : maya/api.md
