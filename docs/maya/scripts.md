@@ -93,7 +93,7 @@ adnio.gather_from_scene(enabled_features=None)
 </code></pre>
 
 - `enabled_features`: A dictionary where keys are feature names and values are flags to determine if a feature has to be gathered or bypassed. If this is not provided, all features will be gathered. An example of a feature could be AdnSkin nodes.
-  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
+  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'SENSOR_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
 
 
 ### Clean all AdonisFX data from scene
@@ -110,7 +110,7 @@ adnio.build_from_data(in_data, enabled_features=None)
 
 - `in_data`: AdonisFX dictionary with the mapped data.
 - `enabled_features`: A dictionary where keys are feature names and values are flags to determine if a feature has to be built or bypassed. An example of a feature could be AdnSkin nodes.
-  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
+  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'SENSOR_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
 
 ### Import AdonisFX data
 Reads the content of a JSON file provided by the `file_path` and calls `build_from_data`to rebuild the AdonisFX data in the scene.
@@ -120,7 +120,7 @@ adnio.import_data(file_path, enabled_features=None)
 
 - `file_path`: Path to the JSON file with the AdonisFX setup.
 - `enabled_features`: A dictionary where keys are feature names and values are flags to determine if a feature has to be imported or not. If this is not provided, all features will be imported. An example of a feature could be AdnSkin nodes.
-  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
+  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'SENSOR_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
 
 <!-- TODO: Add reference to import section-->
 
@@ -133,6 +133,6 @@ adnio.export_data(file_path, enabled_features=None)
 
 - `file_path`: Path to the JSON file with the AdonisFX setup.
 - `enabled_features`: A dictionary where keys are feature names and values are flags to determine if a feature has to be exported or not. If this is not provided, all features will be exported. Example: 
-  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
+  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'SENSOR_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
 
 <!-- TODO: Add reference to export section-->
