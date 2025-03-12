@@ -93,8 +93,8 @@ adnio.build_from_data(in_data, enabled_features=None)
 - `enabled_features`: A dictionary where keys are feature names and values are flags to determine if a feature has to be built or bypassed. An example of a feature could be AdnSkin nodes.
 
 ### Import AdonisFX data
-Reads the content of a JSON file provided by the `file_path` and calls `build_from_data`
-Reads the content of a JSON file provided by `file_path` and calls `build_from_data` to rebuild the AdonisFX data in the scene.
+Reads the content of a JSON file provided by the `file_path` and calls `build_from_data`to rebuild the AdonisFX data in the scene.
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
 adnio.import_data(file_path, enabled_features=None)
 </code></pre>
 
