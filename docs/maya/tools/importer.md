@@ -4,12 +4,17 @@ The AdonisFX Importer is a tool designed to facilitate the import of a complete 
 
 ## UI
 
+<figure markdown>
+  ![AdonisFX Importer Tool](../images/importer_ui.png)
+  <figcaption><b>Figure 1</b>: AdonisFX Importer UI.</figcaption>
+</figure>
+
 The Importer Tool offers an intuitive interface (see Figure 1), allowing users to configure import settings according to their specific requirements. Below is a breakdown of the available UI elements:
 
 - **Filepath**. Specifies the path to the JSON file containing the data to be imported. Clicking the folder icon opens a file browser to select the desired file.
 
 - **Solvers**. Defines which solvers should be imported. Options include:
-    - Muscles: imports AdnMuscle nodes and their settings.
+    - Muscles: imports AdnMuscle and AdnRibbonMuscle nodes and their settings.
     - Glue: imports AdnGlue nodes and their settings.
     - Fat: imports AdnFat nodes and their settings.
     - Skin: imports AdnSkin nodes and their settings.
@@ -26,11 +31,6 @@ The Importer Tool offers an intuitive interface (see Figure 1), allowing users t
     - Accept: executes the export process based on the selected options and closes the window.
     - Export: executes the export process based on the selected options without closing the window.
     - Close: closes the window without exporting.
-
-<figure markdown>
-  ![AdonisFX Importer Tool](../images/importer_ui.png)
-  <figcaption><b>Figure 1</b>: AdonisFX Importer UI.</figcaption>
-</figure>
 
 ## Requirements
 
@@ -53,7 +53,7 @@ To import an AdonisFX rig, ensure that you have a valid exported JSON file and f
 
 2. Go to *AdonisFX menu > I/O > Import (beta)* to open the *Importer* window.
 
-3. Specify the file path of the JSON file that contains the exported rig data (see figure 3).
+3. Specify the file path of the JSON file that contains the exported rig data (see Figure 3).
 
 <figure markdown>
   ![Select JSON file](../images/file_to_import.png)
@@ -74,6 +74,9 @@ Depending on the complexity of the rig, the import process might take a few seco
 The previous steps corresponds to importing a rig that was exported from the same scene. However the same steps can be followed to transfer the exported rig to a different asset as long as the target scene fulfills the requirements listed in this [section](#requirements).
 
 <!-- To complete if we are finally allowed to expose Kobun asset) -->
+
+> [!NOTE]
+> The Import Tool is labeled as *Beta* since it relies on the experimental [API](../api).
 
 ## Limitations
 
