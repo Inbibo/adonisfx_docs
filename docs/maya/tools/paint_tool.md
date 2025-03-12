@@ -1,13 +1,9 @@
-# Tools
-
-AdonisFX includes several tools that allow for a smoother experience when interacting or configuring nodes and deformers. This page is intended to provide a detailed explanation of the use, setup and application of each tool.
-
-## Paint Tool
+# Paint Tool
 
 The **AdonisFX Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalization of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
 
 <figure>
-  <img src="images/tools_paint_tool.png" caption="AdonisFX Paint Tool"> 
+  <img src="../images/tools_paint_tool.png" caption="AdonisFX Paint Tool"> 
   <figcaption><b>Figure 1</b>: AdonisFX Paint Tool.</figcaption>
 </figure>
 
@@ -19,7 +15,7 @@ The use of this tool is required for the correct setup of skin, muscle and ribbo
 To open the tool:
 
   1. Select the mesh with the AdonisFX deformer applied to.
-  2. Press the paint tool ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
+  2. Press the paint tool ![paint tool](../images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
 
 > [!NOTE]
 > - The paint context is configured from the given selection to allow painting.
@@ -35,17 +31,17 @@ If the selection provided is valid, meaning the selected mesh has one of the Ado
 
 Depending on the deformer and the attribute selected the UI can adjust to support multi-influence attributes by exposing the influences or restricting certain functionalities of the tool. In the following sections, the specific behavior of the tool for each deformer is presented.
 
-#### Paint Tool on AdnMuscle and AdnRibbonMuscle
+### Paint Tool on AdnMuscle and AdnRibbonMuscle
 
 In the specific case of muscle deformers, the tool will display the following attributes:
 
 <figure markdown>
-  ![Pain Tool Muscle Attributes example](images/tools_paint_tool_muscle_attributes_00.png) 
+  ![Paint Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_00.png) 
   <figcaption><b>Figure 2</b>: Paintable attributes in AdonisFX muscle deformer (Part 1). </figcaption>
 </figure>
 
 <figure markdown>
-  ![Pain Tool Muscle Attributes example](images/tools_paint_tool_muscle_attributes_01.png) 
+  ![Paint Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_01.png) 
   <figcaption><b>Figure 3</b>: Paintable attributes in AdonisFX muscle deformer (Part 2). </figcaption>
 </figure>
 
@@ -57,7 +53,7 @@ In the specific case of muscle deformers, the tool will display the following at
     - If any target is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
 
     <figure>
-      <img src="images/tools_paint_tool_attachment_attribute.png"> 
+      <img src="../images/tools_paint_tool_attachment_attribute.png"> 
       <figcaption><b>Figure 4</b>: AdonisFX Paint Tool listing multiple transform attachments.</figcaption>
     </figure>
 
@@ -94,7 +90,7 @@ In the specific case of muscle deformers, the tool will display the following at
     - If more than one segment was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the addition of all slide on segment constraint weights in a vertex will always add up to a maximum value of 1.0.
 
     <figure>
-      <img src="images/tools_paint_tool_sos_attribute.png"> 
+      <img src="../images/tools_paint_tool_sos_attribute.png"> 
       <figcaption><b>Figure 5</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
     </figure>
 
@@ -109,12 +105,12 @@ In the specific case of muscle deformers, the tool will display the following at
 > - Fibers and Tendon weights should only be painted on the initialization frame for AdnMuscle and AdnRibbonMuscle, being the initialization frame the lowest value between Preroll Start Time and Start Time.
 > - Some of the Paint Tool's paintable attributes will be disabled given certain conditions in the scene, like for example a time constraint. For example, Fibers and Tendons are not supposed to be paintable on a frame that is not the initialization frame and will be disabled in the Paint Tool UI if on a simulated frame. Hovering over the disabled attribute can inform about the action to be taken to remedy the warning.
 
-#### Paint Tool on AdnSkin
+### Paint Tool on AdnSkin
 
 In the specific case of an AdnSkin deformer, the tool will display the following attributes:
 
 <figure markdown> 
-  ![Paint Tool Skin Attributes example](images/tools_paint_tool_skin_attributes.png) 
+  ![Paint Tool Skin Attributes example](../images/tools_paint_tool_skin_attributes.png) 
   <figcaption><b>Figure 6</b>: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
 </figure>
 
@@ -140,32 +136,3 @@ In the specific case of an AdnSkin deformer, the tool will display the following
   - **Soft Constraints**
     - Soft constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the vertices keeping a constant distance to the closest point on the closest target mesh.
     - This value is normalized alongside Hard Constraints and Slide Constraints.
-
-## Sensors Connection Editor
-
-To ease with the connection of sensors to deformers AdonisFX provides the **Sensors Connection Editor** in charge of facilitating the connection of sensors to the active deformers in the scene.
-
-To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *Connection Editor*.
-
-<figure markdown> 
-  ![Connection Editor](images/tools_sensors_connection_editor_empty.png) 
-  <figcaption><b>Figure 7</b>: Sensor connection editor after opening it for the first time. </figcaption>
-</figure>
-
-Two main sections can be distinguished in this tool, labeled *source* and *destination*. The source section is intended to display the signal attributes of sensors and locators, but it can also display the float attributes of any node. Meanwhile, the destination section will display the deformers along with their possible input attributes.
-
-To retrieve these objects and display them in the tool, select the desired element from the scene (an AdonisFX locator containing a sensor or a deformer) and press their respective *Reload Left* or *Reload Right* button.
-
-For Source elements (sensors) press the *Reload Left* button and for Destination elements (deformers) press the *Reload Right* button.
-
-<figure markdown> 
-  ![Connection Editor Setup](images/tools_sensors_connection_editor.png) 
-  <figcaption><b>Figure 8</b>: Sensor connection editor after adding sensors and deformers from the selection. </figcaption>
-</figure>
-
-To make the connections select the two specific attributes to connect (one from *source* and one from *destination*) and press the *Make Connection* button. A message will then get displayed informing that the connection has been properly made.
-
-To clear the selection and reset the tool to its initial state, press the *Clear All* button.
-
-> [!NOTE]
-> - If the history of a muscle geometry is deleted having any AdonisFX locator attribute connected to the deformer, Maya will also delete the shape node corresponding to the AdonisFX locator. To avoid this behavior it is recommended to connect the remap node attributes to the deformer instead of connecting the AdonisFX locator directly.
