@@ -20,5 +20,6 @@
     - [Paint Tool](tools/paint_tool)
     - [Sensor Connection Editor](tools/sensors_connection_editor)
     - [Mirror](tools/mirror_tool)
+    - [Export](tools/exporter)
 - [Scripts](scripts)
 - [API](api)
