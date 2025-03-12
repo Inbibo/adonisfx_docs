@@ -31,8 +31,8 @@
     - Missing attributes in different classes.
     - AdnSensorRotation and AdnLocatorRotation.
     - AdnSensorPosition and AdnLocatorPosition.
-    - Slide on segment constraints for muscle deformers
-    - Attach to transform constraints for muscle deformers.
+    - Slide on segment constraints for muscle deformers.
+    - Attachment to transform constraints for muscle deformers.
     - Self-collisions attributes and maps.
     - AdnLocator.
     - Remapping functionalities in sensors.
