@@ -1,6 +1,6 @@
 # Exporter
 
-The AdonisFX Exporter is a comprehensive tool designed to facilitate the export of  a complete AdonisFX rig from a Maya scene. This tool enables users to selectively export various components of an AdonisFX rig, ensuring a structured and efficient workflow for data transfer, backup, or reuse across different projects.
+The AdonisFX Exporter is a tool designed to facilitate the export of a complete AdonisFX rig from a Maya scene. This tool enables users to selectively export various components of an AdonisFX rig, ensuring a structured and efficient workflow for data transfer, backup, or reuse across different projects.
 
 ## UI
 
@@ -15,8 +15,8 @@ The Exporter Tool offers an intuitive interface (see figure 1), allowing users t
     - Skin: include AdnSkin nodes in the exported data.
 
 - **Deformers**: Specifies which deformers should be included in the export. Options include:
-    - **Skin Merge**: include AdnSkinMerge nodes in the exported data.
-    - **Relax**: include AdnRelax nodes in the exported data.
+    - Skin Merge: include AdnSkinMerge nodes in the exported data.
+    - Relax: include AdnRelax nodes in the exported data.
 
 - **Utils**: Allows exporting additional utility components from the setup. Options include:
     - Sensors & Locators: include AdonisFX sensors and locators in the exported data, ensuring proper connections between components.
@@ -32,18 +32,30 @@ The Exporter Tool offers an intuitive interface (see figure 1), allowing users t
   <figcaption><b>Figure 1</b>: AdonisFX Exporter UI. </figcaption>
 </figure>
 
-
 ## How To Use
 
-1. Go to *AdonisFX menu > I/O > Export (beta)* to open the Exporter window.
+Open the scene of a fully configured AdonisFX rig (see Figure 2) and follow these steps:
 
-2. Provide the path to the JSON file in which the exported data will be written.
+<figure markdown>
+  ![AdonisFX Exporter Tool](../images/fully_configured_biped_rig.png)
+  <figcaption><b>Figure 2</b>: Fully configured rig of a biped character. The rig includes sensors, locators, activation nodes, muscles, glue, fascia, fat, skin, skin merge, and relax.</figcaption>
+</figure>
 
-3. Select the features that will be exported from the *Solvers*, *Deformers* and *Utils* sections.
+1. Go to *AdonisFX menu > I/O > Export (beta)* to open the *Exporter* window.
 
-4. Press *Accept* or *Export* to run the export process.
+2. Specify the file path where the exported data will be saved (e.g., `path/to/the/file.json`).
 
-Depending on the complexity of the rig, the export process might take a few seconds to complete. After that, the file will be created in the path provided containing the exported data.
+3. Select the features to export from the *Solvers*, *Deformers* and *Utils* sections. To export the entire rig, enable all options.
+
+4. Click *Accept* or *Export* to execute the export process.
+
+Depending on the complexity of the rig, the export process might take a few seconds to complete. Once finished, a JSON file containing the exported data will be created in the specified path.
+
+<figure markdown>
+  ![AdonisFX Exporter Tool](../images/exported_file.png)
+  <figcaption><b>Figure 3</b>: Example of the generated JSON file after exporting.</figcaption>
+</figure>
 
 ## Limitations
 
+- If Maya nodes are applied to the simulated geometries (e.g. Delta Mush applied to the simulated skin), it is not guaranteed that the node order in the Maya node graph will be preserved after importing.
