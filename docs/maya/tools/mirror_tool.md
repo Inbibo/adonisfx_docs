@@ -93,7 +93,7 @@ Depending on the complexity of the rig, this process might take a few seconds to
 > [!NOTE]
 > The mirroring process can also be executed via Python scripting. For more details, please refer to the [Mirror Script section](../scripts#mirror).
 
-## Limitations (WIP)
+## Limitations
 
 - The naming convention does not allow to place the side identifier at the middle of the name (e.g. biceps_L_muscle).
 - The mirroring logic does not allow to mirror intermediate nodes between the AdnActivation and the AdnMuscle deformer.
