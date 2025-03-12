@@ -44,14 +44,14 @@ Before importing an AdonisFX rig, the target Maya scene must meet the following 
 
 To import an AdonisFX rig, ensure that you have a valid exported JSON file and follow these steps:
 
-1. Optionally, if the target scene contain any dirty or unwanted AdonisFX nodes, it may be advisable to remove all of them by using the *Clear* option provided in *AdonisFX menu > Tools > Utils > Clear*.
+1. Optionally, if the target scene contains any dirty or unwanted AdonisFX nodes, it may be advisable to remove all of them by using the *Clear* option provided in *AdonisFX menu > Tools > Utils > Clear*.
 
 <figure markdown>
   ![Biped scene before importing](../images/scene_ready_to_import_after_clear.png)
   <figcaption><b>Figure 2</b>: Scene of a biped character after executing the *Clear* and ready to import.</figcaption>
 </figure>
 
-2. Go to to *AdonisFX menu > I/O > Import (beta)* to open the *Importer* window.
+2. Go to *AdonisFX menu > I/O > Import (beta)* to open the *Importer* window.
 
 3. Specify the file path of the JSON file that contains the exported rig data (see figure 3).
 
@@ -60,7 +60,7 @@ To import an AdonisFX rig, ensure that you have a valid exported JSON file and f
   <figcaption><b>Figure 3</b>: File exported from an AdonisFX rig.</figcaption>
 </figure>
 
-4. Select the features to import from the from the *Solvers*, *Deformers* and *Utils* sections. To import the entire rig, enable all options.
+4. Select the features to import from the *Solvers*, *Deformers* and *Utils* sections. To import the entire rig, enable all options.
 
 5. Click *Accept* or *Import* to execute the import process.
 
