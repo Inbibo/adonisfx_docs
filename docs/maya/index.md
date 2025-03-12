@@ -21,5 +21,6 @@
     - [Sensor Connection Editor](tools/sensors_connection_editor)
     - [Mirror](tools/mirror_tool)
     - [Export](tools/exporter)
+    - [Import](tools/importer)
 - [Scripts](scripts)
 - [API](api)

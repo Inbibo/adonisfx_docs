@@ -121,5 +121,6 @@ nav:
       - Sensors Connection Editor : maya/tools/sensors_connection_editor.md
       - Mirror                    : maya/tools/mirror_tool.md
       - Export                    : maya/tools/exporter.md
+      - Import                    : maya/tools/importer.md
     - Scripts                     : maya/scripts.md
     - API                         : maya/api.md
