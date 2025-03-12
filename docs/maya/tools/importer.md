@@ -28,9 +28,9 @@ The Importer Tool offers an intuitive interface (see Figure 1), allowing users t
     - Activation: imports activation nodes and their connections to AdnMuscle nodes.
 
 - **Buttons**:
-    - Accept: executes the export process based on the selected options and closes the window.
-    - Export: executes the export process based on the selected options without closing the window.
-    - Close: closes the window without exporting.
+    - Accept: executes the import process based on the selected options and closes the window.
+    - Import: executes the import process based on the selected options without closing the window.
+    - Close: closes the window without importing.
 
 ## Requirements
 
