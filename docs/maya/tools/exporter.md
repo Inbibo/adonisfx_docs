@@ -4,12 +4,17 @@ The AdonisFX Exporter is a tool designed to facilitate the export of a complete 
 
 ## UI
 
-The Exporter Tool offers an intuitive interface (see figure 1), allowing users to configure export settings according to their specific requirements. Below is a breakdown of the available UI elements:​
+<figure markdown>
+  ![AdonisFX Exporter Tool](../images/exporter_ui.png)
+  <figcaption><b>Figure 1</b>: AdonisFX Exporter UI. </figcaption>
+</figure>
 
-- **Filepath**. Specifies the destination file path where the exported data will be saved. Clicking the folder icon opens a file browser to select the desired directory.
+The Exporter Tool offers an intuitive interface (see Figure 1), allowing users to configure export settings according to their specific requirements. Below is a breakdown of the available UI elements:​
+
+- **Filepath**. Specifies the destination path of the JSON file where the exported data will be saved. Clicking the folder icon opens a file browser to select the desired directory.
 
 - **Solvers**. Defines which solvers should be exported. Options include:
-    - Muscles: include AdnMuscle nodes in the exported data.
+    - Muscles: include AdnMuscle and AdnRibbonMuscle nodes in the exported data.
     - Glue: include AdnGlue nodes in the exported data.
     - Fat: include AdnFat nodes in the exported data.
     - Skin: include AdnSkin nodes in the exported data.
@@ -26,11 +31,6 @@ The Exporter Tool offers an intuitive interface (see figure 1), allowing users t
     - Accept: executes the export process based on the selected options and closes the window.
     - Export: executes the export process based on the selected options without closing the window.
     - Close: closes the window without exporting.
-
-<figure markdown>
-  ![AdonisFX Exporter Tool](../images/exporter_ui.png)
-  <figcaption><b>Figure 1</b>: AdonisFX Exporter UI. </figcaption>
-</figure>
 
 ## How To Use
 
@@ -55,6 +55,9 @@ Depending on the complexity of the rig, the export process might take a few seco
   ![AdonisFX Exporter Tool](../images/exported_file.png)
   <figcaption><b>Figure 3</b>: Example of the generated JSON file after exporting.</figcaption>
 </figure>
+
+> [!NOTE]
+> The Export Tool is labeled as *Beta* since it relies on the experimental [API](../api).
 
 ## Limitations
 
