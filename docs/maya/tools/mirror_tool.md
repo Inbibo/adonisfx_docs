@@ -95,5 +95,5 @@ Depending on the complexity of the rig, this process might take a few seconds to
 
 ## Limitations
 
-- The naming convention does not allow to place the side identifier at the middle of the name (e.g. biceps_L_muscle).
+- The naming convention does not allow placing the side identifier at the middle of the name (e.g. biceps_L_muscle).
 - The mirroring logic does not allow to mirror intermediate nodes between the AdnActivation and the AdnMuscle deformer.
