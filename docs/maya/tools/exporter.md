@@ -57,7 +57,5 @@ Depending on the complexity of the rig, the export process might take a few seco
 </figure>
 
 > [!NOTE]
-> The Export Tool is labeled as *Beta* since it relies on the experimental [API](../api).
-
-> [!NOTE]
-> Exporting data is required to be executed on rest frame.
+> - The Export Tool is labeled as *Beta* since it relies on the experimental [API](../api).
+> - Exporting data is required to be executed on rest frame.

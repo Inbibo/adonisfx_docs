@@ -256,14 +256,8 @@ The *Glue Resistance* map modulates the strength of the glue constraint. To redu
 
 Finally, shape preservation constraints help to maintain the original shape of the muscles. These constraints are useful if the gluing produces undesired shape on the output mesh. If that is not the case, then this map can stay unmodified (0.0) which will make the solver run faster. If shape preservation is required, then increase the values on those areas where the shape has been altered during the simulation.
 
-### Workaround for Painting AdnGlue Weights
-After creating the AdnGlue node, it may be possible to smoothen out the resulting geometry (generally called *AdnGlue1_GEO*). This can be done using an AdnRelax node or any other deformer to reduce artifacts (like deltaMush).
-In such cases, painting the AdnGlue weights on the output geometry using Maya's paint tool may not be possible.
-Here is a workaround to enable painting AdnGlue weights again:
-1. Create a cube from the Poly Modelling shelf (remove the *polyCube* node and keep only *pCubeShape1*).
-2. Using a script or the node editor, connect *AdnGlue1.outputMesh* to *pCubeShape1.inMesh*
-3. Using a script or the node editor, connect *pCubeShape1.outMesh* to *AdnGlue1_GEOShapeOrig.inMesh* (the original mesh created by Maya after applying AdnRelax, for example).
-4. To paint AdnGlue weights, select the *pCube* and follow the standard Maya procedure for painting weights. To paint AdnRelax weights, select the *AdnGlue1_GEO* and follow the same procedure.
+> [!NOTE]
+> In case you are experiencing issues trying to paint weights on the AdnGlue output geometry, find in the [limitations section](nodes/glue#limitations) a proposed workaround.
 
 ## AdnFat
 
