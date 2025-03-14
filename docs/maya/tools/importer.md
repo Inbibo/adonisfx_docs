@@ -77,3 +77,4 @@ The previous steps corresponds to importing a rig that was exported from the sam
 
 > [!NOTE]
 > The Import Tool is labeled as *Beta* since it relies on the experimental [API](../api).
+> Importing data is required to be executed on rest frame.
