@@ -118,7 +118,7 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
 </figure>
 
 > [!NOTE]
-> In case you are experiencing issues trying to paint weights on the AdnGlue output geometry, find in this [Simple Setup Section for AdnGlue](/maya/simple_setup#adnglue) a proposed workaround.
+> In case you are experiencing issues trying to paint weights on the AdnGlue output geometry, find in this [simple setup section for AdnGlue](../simple_setup#AdnGlue) a proposed workaround.
 
 ## Debugger
 
