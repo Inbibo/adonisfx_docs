@@ -57,8 +57,5 @@ Depending on the complexity of the rig, the export process might take a few seco
 </figure>
 
 > [!NOTE]
-> The Export Tool is labeled as *Beta* since it relies on the experimental [API](../api).
-
-## Limitations
-
-- If Maya nodes are applied to the simulated geometries (e.g. Delta Mush applied to the simulated skin), it is not guaranteed that the node order in the Maya node graph will be preserved after importing.
+> - The Export Tool is labeled as *Beta* since it relies on the experimental [API](../api).
+> - Exporting data is required to be executed on rest frame.

@@ -117,6 +117,9 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
   <figcaption><b>Figure 2</b>: Example of painted weights on the glue layer, labeled as: <b>a)</b> Glue Resistance, <b>b)</b> Max Glue Distance Multiplier and <b>c)</b> Shape Preservation (Optional painting). </figcaption>
 </figure>
 
+> [!NOTE]
+> In case you are experiencing issues trying to paint weights on the AdnGlue output geometry, find in the [limitations section](glue#limitations) a proposed workaround.
+
 ## Debugger
 
 In order to better visualize node constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled *Debug* in the Attribute Editor.
@@ -151,3 +154,12 @@ Once the AdnGlue node is created, it is possible to add new inputs and remove cu
 > [!NOTE]
 > Adding and removing inputs will automatically update the painted maps.
 > Undoing the removal of inputs does not restore the previously painted values for the restored inputs. The painted values are set to the default value.
+
+## Limitations
+After creating the AdnGlue node, it may be possible to smoothen out the resulting geometry (generally called *AdnGlue1_GEO*). This can be done using an AdnRelax node or any other deformer to reduce artifacts (like deltaMush).
+In such cases, painting the AdnGlue weights on the output geometry using Maya's paint tool may not be possible.
+Here is a workaround to enable painting AdnGlue weights again:
+1. Create a cube from the Poly Modelling shelf (remove the *polyCube* node and keep only *pCubeShape1*).
+2. Using a script or the node editor, connect *AdnGlue1.outputMesh* to *pCubeShape1.inMesh*
+3. Using a script or the node editor, connect *pCubeShape1.outMesh* to *AdnGlue1_GEOShapeOrig.inMesh* (the original mesh created by Maya after applying AdnRelax, for example).
+4. To paint AdnGlue weights, select the *pCube* and follow the standard Maya procedure for painting weights. To paint AdnRelax weights, select the *AdnGlue1_GEO* and follow the same procedure.
