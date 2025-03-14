@@ -77,7 +77,3 @@ The previous steps corresponds to importing a rig that was exported from the sam
 
 > [!NOTE]
 > The Import Tool is labeled as *Beta* since it relies on the experimental [API](../api).
-
-## Limitations
-
-- If Maya nodes are applied to the simulated geometries (e.g. Delta Mush applied to the simulated skin), it is not guaranteed that the node order in the Maya node graph will be preserved after importing.

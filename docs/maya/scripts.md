@@ -11,8 +11,6 @@ Currently, the script allows to mirror:
 - The three types of **AdonisFX sensors** (i.e. AdnSensorPosition, AdnSensorDistance, and AdnSensorRotation).
 - **AdnActivation nodes**, including their input and output connections.
 
-Please, check this [section](#limitations) to know more about the current limitations.
-
 ### Requirements
 
 In order to use the mirroring script, the rig must meet the following requirements to ensure a successful transfer of the muscle setup:
