@@ -257,7 +257,7 @@ The *Glue Resistance* map modulates the strength of the glue constraint. To redu
 Finally, shape preservation constraints help to maintain the original shape of the muscles. These constraints are useful if the gluing produces undesired shape on the output mesh. If that is not the case, then this map can stay unmodified (0.0) which will make the solver run faster. If shape preservation is required, then increase the values on those areas where the shape has been altered during the simulation.
 
 > [!NOTE]
-> In case you are experiencing issues trying to paint weights on the AdnGlue output geometry, find in the [limitations section](nodes/glue#limitations) a proposed workaround.
+> In case you are experiencing issues trying to paint weights on the AdnGlue output geometry, find in the [limitations section of AdnGlue](nodes/glue#limitations) a proposed workaround.
 
 ## AdnFat
 
