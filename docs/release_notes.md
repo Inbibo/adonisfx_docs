@@ -1,6 +1,59 @@
 # Release Notes
 
+## Version 1.6.0
+2025-03-18
+
+### Core
+- Added self-collisions support in AdnSkin solver.
+- Added Skin material to core with a stiffness value of 12e<sup>3</sup>.
+
+### Maya
+- Integrated self-collisions in AdnSkin deformer.
+- Implemented Mirror tool UI.
+- Implemented Export and Import tools with UI.
+- Implemented `adnio.py` script to export and import rigs from Python.
+- Integrated remapping functionalities in sensors.
+- Added input matrix plugs to locators and sensors.
+- Added Skin material to the Material dropdown menu in all deformers.
+- Added Maya deformer weights to AdnRelax.
+
+### Improvements
+- Extended mirror script to support:
+    - Mirroring of remapping settings for sensors.
+    - Input matrix plugs in locators and sensors.
+    - Slide on segment constraints for muscle deformers.
+    - Attachment to transform constraints for muscle deformers.
+    - Mirroring of AdnRibbonMuscle deformers.
+    - Mirroring of AdnActivation nodes.
+    - Mirroring connections to the volumeRatio plug of muscle deformers.
+
+- Extended Experimental API to support:
+    - AdnSkinMerge deformers.
+    - Sparse arrays in input target plugs.
+    - AdnSensorRotation and AdnLocatorRotation.
+    - AdnSensorPosition and AdnLocatorPosition.
+    - Slide on segment constraints for muscle deformers.
+    - Attachment to transform constraints for muscle deformers.
+    - Self-collisions attributes and maps.
+    - AdnLocator.
+    - Remapping functionalities in sensors.
+    - Input matrix plugs in locators and sensors.
+
+- Updated menu with new items: *Mirror*, *Export (beta)*, *Import (beta)* and *Clear*.
+- Updated locator creator utils to use input matrix plugs and remapping functionalities in sensors.
+- Updated sensor creator utils to use input matrix plugs and remapping functionalities in sensors.
+- Improved AdonisFX logger to display messages on idle.
+- Displayed warning log when both the AdonisFX debugger and the Maya Cached Playback are enabled.
+
+### Bug Fixes
+- Fixed *Refresh Debugger* utility to support namespaces.
+- Fixed the bounding box of locators.
+
+### Deprecated
+- The old Exporter and Importer tools deprecated in version 1.5.0 will be completely removed in the next version 1.7.0.
+
 ## Version 1.5.0
+2025-02-12
 
 ### Core
 
@@ -38,6 +91,7 @@
 - Features debugging in the viewport is not supported with Maya Cached Playback enabled. *AdonisFX-1600*
 
 ## Version 1.4.1
+2024-12-09
 
 ### Bug Fixes
 
@@ -48,6 +102,7 @@
 - Improved the parallelization handling in AdnSimshape solver.
 
 ## Version 1.4.0
+2024-12-02
 
 ### Core
 
@@ -93,12 +148,14 @@
 - Undoing the removal of inputs in AdnGlue does not restore the previous painted weights. *AdonisFX-1523*
 
 ## Version 1.3.1
+2024-11-28
 
 ### Improvements
 
 - Improved the floating licensing setup to allow connection with both interactive and batch servers without the need of a switch in the environment configuration. This change is fully backward compatible. *AdonisFX-1384*
 
 ## Version 1.3.0
+2024-09-30
 
 ### Core
 
@@ -126,6 +183,7 @@
 - Exporter and Importer do not support locators and sensors. *AdonisFX-1215*
 
 ## Version 1.2.0
+2024-08-05
 
 ### Core
 
@@ -151,12 +209,14 @@
 - Fat simulation is limited to the current features in AdnSkin solver. *AdonisFX-879*
 
 ## Version 1.1.2
+2024-07-23
 
 ### Bug Fixes
 
 - Fixed a bug in the Slide Collision Constraints that was overcorrecting in case of intersection with the collider with a magnitude greater than the collision threshold. *AdonisFX-1258*
 
 ## Version 1.1.1
+2024-07-04
 
 ### Bug Fixes
 
@@ -167,6 +227,7 @@
 - Due to the fix introduced in this version, in order to have the scenes created with previous versions work the same way, it is needed to set the gravity value in all AdonisFX nodes divided by 100. For example, if the AdonisFX setup in v1.1.0 (or older) used a gravity of 980, now this attribute needs to be changed to 9.8. If the setup did not use gravity, no adjustment needs to be done.
 
 ## Version 1.1.0
+2024-06-17
 
 ### Core
 
@@ -182,7 +243,7 @@
 - Added support for attachment to geometry in AdnMuscle and AdnRibbonMuscle solvers.
 - Added support to slide on geometry in AdnMuscle and AdnRibbonMuscle solvers.
 - Added support for shape preservation in AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape solvers.
-- Added mass attributes in AdnMuscle and AndRibbonMuscle deformers to provide more control over the dynamics of the simulated object.
+- Added mass attributes in AdnMuscle and AdnRibbonMuscle deformers to provide more control over the dynamics of the simulated object.
 - Added *Point Mass Mode* to AdnSimshape, AdnSkin, AdnMuscle and AdnRibbonMuscle which allows to specify either a mass per point or a density value from which point masses will be computed.
 - The debugger system improved to be dependent on the visibility of the simulated geometry.
 - Added a sanity check to *Max Sliding Distance* attribute to warn the user if the input value is too high for the given target mesh.
@@ -213,12 +274,14 @@
 - Fat simulation is limited to the current features in AdnSkin solver. *AdonisFX-879*
 
 ## Version 1.0.4
+2024-06-05
 
 ### Bug Fixes
 
 - Updated third party libraries to address a problem in the licensing system that raised the Server Error Code 28 and prevented the activation of the product. *AdonisFX-1182*
 
 ## Version 1.0.3
+2024-05-16
 
 ### Bug Fixes
 
@@ -229,6 +292,7 @@
 - Improved the update of painted maps for Attachments and Slide On Segment constraints at initialization. *AdonisFX-1136*
 
 ## Version 1.0.2
+2024-04-30
 
 ### Bug Fixes
 
@@ -240,6 +304,7 @@
 - Extended the licensing system to support Trial Extension requests. *AdonisFX-1108*
 
 ## Version 1.0.1
+2024-04-17
 
 ### Bug Fixes
 
@@ -255,6 +320,7 @@
 
 
 ## Version 1.0.0
+2024-03-25
 
 ### Core
 
