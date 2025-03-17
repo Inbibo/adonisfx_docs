@@ -243,7 +243,7 @@
 - Added support for attachment to geometry in AdnMuscle and AdnRibbonMuscle solvers.
 - Added support to slide on geometry in AdnMuscle and AdnRibbonMuscle solvers.
 - Added support for shape preservation in AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape solvers.
-- Added mass attributes in AdnMuscle and AndRibbonMuscle deformers to provide more control over the dynamics of the simulated object.
+- Added mass attributes in AdnMuscle and AdnRibbonMuscle deformers to provide more control over the dynamics of the simulated object.
 - Added *Point Mass Mode* to AdnSimshape, AdnSkin, AdnMuscle and AdnRibbonMuscle which allows to specify either a mass per point or a density value from which point masses will be computed.
 - The debugger system improved to be dependent on the visibility of the simulated geometry.
 - Added a sanity check to *Max Sliding Distance* attribute to warn the user if the input value is too high for the given target mesh.
