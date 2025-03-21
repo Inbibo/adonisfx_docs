@@ -1,7 +1,7 @@
 # Release Notes
 
 ## Version 1.6.0
-2025-03-18
+2025-03-21
 
 ### Core
 - Added self-collisions support in AdnSkin solver.
