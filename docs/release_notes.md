@@ -1,5 +1,11 @@
 # Release Notes
 
+## Version 1.6.1
+2025-04-01
+
+### Bug Fixes
+- Fixed memory reallocation issue of certain utility methods on initialization.
+
 ## Version 1.6.0
 2025-03-21
 
