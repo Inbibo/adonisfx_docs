@@ -2,7 +2,7 @@
 
 ## Mirror
 
-The mirroring script is a Python script that allows to transfer the AdonisFX muscle setup of an asset from one side to the other. For example, a user can complete the muscle rig for the left side of an asset and thanks to this script mirror the setup quickly and efficiently to the right side. 
+The mirroring script is a Python script that allows the transfer of the AdonisFX muscle setup of an asset from one side to the other. For example, a user can complete the muscle rig for the left side of an asset and thanks to this script mirror the setup quickly and efficiently to the right side. 
 
 Currently, the script allows to mirror:
 
@@ -59,7 +59,7 @@ report_data = {"errors": [], "warnings": []}
 result = mirror.apply_mirror(left_convention="L_*", right_convention="R_*", report_data=report_data)
 </code></pre>
 
-5. Depending on the complexity of the rig, this process might take a few seconds to compute. The `result` returned by the function will be `True` if there was any muscles or locators properly mirrored, and `False` if nothing was mirrored (e.g. if the selection is empty).
+5. Depending on the complexity of the rig, this process might take a few seconds to compute. The `result` returned by the function will be `True` if there were any muscles or locators properly mirrored, and `False` if nothing was mirrored (e.g. if the selection was empty).
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Mirroring Execution Completed](images/mirror_tool_08.png)
@@ -81,7 +81,7 @@ for warn in report_data["warnings"]:
 
 ### Limitations
 
-- The naming convention does not allow to place the side identifier at the middle of the name (e.g. biceps_L_muscle).
+- The naming convention does not allow placing the side identifier at the middle of the name (e.g. biceps_L_muscle).
 - The mirroring logic does not allow to mirror intermediate nodes between the AdnActivation and the AdnMuscle deformer.
 
 ## I/O

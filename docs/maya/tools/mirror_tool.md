@@ -71,7 +71,7 @@ In order to use the **Mirror Tool**, the rig must meet the following requirement
 
 4. Go to *AdonisFX Menu > Tools > Mirror* to open the Mirror Tool window (see Figure 1). Provide the naming-related settings (*Mirror by*, *Left* and *Right*) that the rig follows and click *Accept* or *Apply* to start the mirroring process.
 
-5. If the selection does not contain muscle geometries or locators, then a dialog will be prompted informing about what is missing in the selection and asking for confirmation (respectively Figure 5 and 6). Also, if there are no muscle geometries nor locators found in the selection, then another dialog is displayed informing that the tool can't proceed with the mirroring (Figure 7).
+5. If the selection does not contain muscle geometries or locators, dedicated dialogs (Figure 5 and 6 respectively) will be displayed informing about what is missing in the selection and asking for confirmation to continue. Also, if there are no muscle geometries nor locators found in the selection, then another dialog is displayed informing that the tool can't proceed with the mirroring (Figure 7).
 
 <figure style="width:60%; margin-left:20%" markdown>
   ![Mirror Script Confirmation Dialog No Muscles Selected](../images/mirror_tool_03.png)
@@ -104,7 +104,7 @@ In order to use the **Mirror Tool**, the rig must meet the following requirement
   <figcaption><b>Figure 9</b>: Dialog displayed to report all errors occurred during the mirroring process.</figcaption>
 </figure>
 
-7. If the process completes successfully, following the example of proper selection provided in Figure 4, then the expected result is shown in Figure 10.
+7. If the process completed successfully the expected result is shown in Figure 10 (following the selection example provided in Figure 4).
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Mirroring Execution Completed](../images/mirror_tool_08.png)
