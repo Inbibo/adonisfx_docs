@@ -95,16 +95,16 @@ In order to use the **Mirror Tool**, the rig must meet the following requirement
   <figcaption><b>Figure 8</b>: Question dialog displayed to ask for confirmation before executing.</figcaption>
 </figure>
 
-6. Click *Yes* in the confirmation dialog to proceed with the mirroring.
+7. Click *Yes* in the confirmation dialog to proceed with the mirroring.
 
-7. Depending on the complexity of the rig, this process might take a few seconds to compute. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the troubleshooting. Note that the whole mirroring process can be undone.
+8. Depending on the complexity of the rig, this process might take a few seconds to compute. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the troubleshooting. Note that the whole mirroring process can be undone.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Mirroring Execution Completed With Errors](../images/mirror_tool_07.png)
   <figcaption><b>Figure 9</b>: Dialog displayed to report all errors occurred during the mirroring process.</figcaption>
 </figure>
 
-8. If the process completed successfully the expected result is shown in Figure 10 (following the selection example provided in Figure 4).
+9. If the process completed successfully the expected result is shown in Figure 10 (following the selection example provided in Figure 4).
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Mirroring Execution Completed](../images/mirror_tool_08.png)
