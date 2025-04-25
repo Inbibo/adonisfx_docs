@@ -1,5 +1,12 @@
 # Release Notes
 
+## Version 1.6.2
+2025-04-25
+
+### Improvements
+- Improved warnings and errors handling in mirror tool to help with troubleshooting.
+- Added Self Collision Weights paintable map in AdnSkin solver to control the influence of the self-collisions solving per vertex.
+
 ## Version 1.6.1
 2025-04-01
 
