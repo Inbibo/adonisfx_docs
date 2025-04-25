@@ -72,7 +72,7 @@ result = mirror.apply_mirror(left_convention="L_*", right_convention="R_*", repo
 for err in report_data["errors"]:
     logging.error(err)
 for warn in report_data["warnings"]:
-    logging.warning(err)
+    logging.warning(warn)
 </code></pre>
 
 > [!NOTE]
