@@ -30,55 +30,54 @@ In order to use the mirroring script, the rig must meet the following requiremen
     This ensures that paintable maps and deformer weights are transferred accurately during the mirroring process.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Example of naming convention](images/example_naming_convention_mirroring.png)
+  ![Example of naming convention](images/mirror_tool_00.png)
   <figcaption><b>Figure 1</b>: Example of the naming convention (using "L_" prefix) applied to muscles, joints, sensors, locators and activation nodes.</figcaption>
 </figure>
 
 ### How To Use
 
-Open a scene that fulfills the requirements listed previously and follow the next steps:
+1. Open a scene that fulfills the requirements listed previously.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Maya Scene Ready To Execute The Mirroring](images/mirror_script_00.png)
+  ![Maya Scene Ready To Execute The Mirroring](images/mirror_tool_01.png)
   <figcaption><b>Figure 2</b>: Starting point to execute the mirroring onto a biped asset. The left side is fully configured with muscle deformers, locators, sensors and activation nodes following the prefix naming convention "L_".</figcaption>
 </figure>
 
-1. Select all geometries from the source side that have an AdnMuscle deformer applied and need to be mirrored.
+2. Select all geometries from the source side that have an AdnMuscle deformer applied and need to be mirrored.
 
-2. Add to the selection all the AdonisFX locators from the same source side that need to be mirrored. Note that sensors and activation nodes (as not being DAG objects) do not need to be added to the selection. The Mirror Tool will automatically handle their mirroring.
+3. Add to the selection all the AdonisFX locators from the same source side that need to be mirrored. Note that sensors and activation nodes (as not being DAG objects) do not need to be added to the selection. The Mirror Tool will automatically handle their mirroring.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Mirror Script Selection](images/mirror_script_01.png)
+  ![Mirror Script Selection](images/mirror_tool_02.png)
   <figcaption><b>Figure 3</b>: All geometry muscles and locators on the left side selected.</figcaption>
 </figure>
 
-3. Run the following command in a Python Script tab.
+4. Run the following command in a Python Script tab.
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import mirror
-mirror.apply_mirror(left_convention="L_*", right_convention="R_*")
+report_data = {"errors": [], "warnings": []}
+result = mirror.apply_mirror(left_convention="L_*", right_convention="R_*", report_data=report_data)
 </code></pre>
 
-4. A confirmation dialog will appear, recommending the user to save a version of the scene before proceeding, since the mirroring process cannot be undone.
-
-<figure style="width:60%; margin-left:20%" markdown>
-  ![Mirror Script Confirmation Dialog](images/mirror_script_02.png)
-  <figcaption><b>Figure 4</b>: Question dialog displayed to ask for confirmation before executing.</figcaption>
-</figure>
-
-5. Click *Yes* in the question dialog to proceed with the mirroring.
-
-Depending on the complexity of the rig, this process might take a few seconds to compute. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the troubleshooting.
+5. Depending on the complexity of the rig, this process might take a few seconds to compute. The `result` returned by the function will be `True` if there was any muscles or locators properly mirrored, and `False` if nothing was mirrored (e.g. if the selection is empty).
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Mirroring Execution Completed](images/mirror_script_03.png)
+  ![Mirroring Execution Completed](images/mirror_tool_08.png)
   <figcaption><b>Figure 5</b>: Result of the execution: all AdnMuscle from the left side are replicated on the right side. Additionally, all the locators, sensors and activation nodes from the left side are created and connected on the right side.</figcaption>
 </figure>
 
-> [!NOTE]
-> Depending on the need, the script can mirror only the muscles (selection from step 1), only the locators and sensors (selection from step 2), or everything at once (including both selections from step 1 and 2).
+6. If something goes wrong during the execution, error and warning messages will be added to the `report_data` dictionary. Execute the following code to log all the information in the terminal for troubleshooting.
+
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">import logging
+for err in report_data["errors"]:
+    logging.error(err)
+for warn in report_data["warnings"]:
+    logging.warning(err)
+</code></pre>
 
 > [!NOTE]
-> The mirroring process can also be executed with the **Mirror Tool**. For more details, please refer to the [Mirror Tool page](tools/mirror_tool).
+> - Depending on the need, the script can mirror only the muscles (selection from step 2), only the locators and sensors (selection from step 3), or everything at once (including both selections from step 2 and 3).
+> - The mirroring process can also be executed with the **Mirror Tool**. For more details, please refer to the [Mirror Tool page](tools/mirror_tool).
 
 ### Limitations
 
