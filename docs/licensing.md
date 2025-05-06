@@ -98,7 +98,7 @@ To activate AdonisFX in Offline Node-Locked Interactive Trial mode:
 
   1. Go to `AdonisFX/bin` in the AdonisFX installation folder.
   2. Run `TrialOfflineRequest` with admin privileges. An XML file `TrialOfflineRequest.xml` will be generated in the same folder.
-  4. Send the request file to **adnsupport@inbibo.co.uk** providing enough information to backtrack the source of the activation request.
+  4. Send the request file to **adonis.support@inbibo.co.uk** providing enough information to backtrack the source of the activation request.
   5. In a maximum of 24h a `TrialOfflineResponse.xml` will be returned to the source e-mail address.
   6. Download and save the response in the same folder `AdonisFX/bin`.
   7. Execute `TrialOfflineResponse` (also in `AdonisFX/bin`) with admin privileges.
