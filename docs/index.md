@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to the technical documentation of AdonisFX where we provide you with all the information you need to use the software in your digital characters. If you need more information or help, please do not hesitate to send an email to **adnsupport@inbibo.co.uk** with your consultation.
+Welcome to the technical documentation of AdonisFX where we provide you with all the information you need to use the software in your digital characters. If you need more information or help, please do not hesitate to send an email to **adonis.support@inbibo.co.uk** with your consultation.
 
 ## Key Values
 
