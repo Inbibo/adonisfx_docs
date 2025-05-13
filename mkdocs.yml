@@ -116,6 +116,7 @@ nav:
       - AdnActivation             : maya/nodes/activation.md
       - AdnEdgeEvaluator          : maya/nodes/edge_evaluator.md
       - AdnGlue                   : maya/nodes/glue.md
+      - AdnRemap                  : maya/nodes/remap.md
     - Tools:
       - Paint Tool                : maya/tools/paint_tool.md
       - Sensors Connection Editor : maya/tools/sensors_connection_editor.md
