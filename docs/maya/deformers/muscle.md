@@ -60,11 +60,11 @@ To create an AdnMuscle, follow these steps:
 ### Activation Layers
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Solver Activation**               | Float   | 0.0       | ✗ | Shows the global activation value currently used by the solver. This global activation is the result of applying all the activation layers configured in the **activation** and **activation list** attributes. |
-| **Activation List**                 | List    | Empty     | ✗ | List of activation layers where each item is a compound attribute of three elements: bypass operator, value and operator. |
-| **Activation List Bypass Operator** | Boolean | True      | ✓ | If enabled, it bypasses the current operator in the activation list, which will not contribute to the final activation value. |
-| **Activation List Value**           | Float   | 0.0       | ✓ | Activation value that will contribute, given the operator type, to the final activation. |
-| **Activation List Operator**        | Enum    | 0 (Over)  | ✓ | Operator used to contribute to the final activation. This can be: (0) Over; (1) Add; (2) Sub; (3) Mult; (4) Divide. |
+| **Solver Activation**               | Float       | 0.0       | ✗ | Shows the global activation value currently used by the solver. This global activation is the result of applying all the activation layers configured in the **activation** and **activation list** attributes. |
+| **Activation List**                 | List        | Empty     | ✗ | List of activation layers where each item is a compound attribute of three elements: bypass operator, value and operator. |
+| **Activation List Bypass Operator** | Boolean     | True      | ✓ | If enabled, it bypasses the current operator in the activation list, which will not contribute to the final activation value. |
+| **Activation List Value**           | Float       | 0.0       | ✓ | Activation value that will contribute, given the operator type, to the final activation. |
+| **Activation List Operator**        | Enumerator  | 0 (Over)  | ✓ | Operator used to contribute to the final activation. This can be: Over, Add, Sub, Mult, Divide. |
 
 ### Advanced Settings
 
@@ -240,27 +240,27 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![AdnMuscle debug](../images/muscle_debug.png)
-  <figcaption><b>Figure 12</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
+  <figcaption><b>Figure 11</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle fibers activation debug](../images/muscle_fibers_activation_debug.png)
-  <figcaption><b>Figure 13</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
+  <figcaption><b>Figure 12</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
 </figure>
 
 <figure markdown>
   ![muscle editor fiber constraint debug](../images/muscle_dist_constr_debug.png)
-  <figcaption><b>Figure 14</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 13</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle editor shape preservation constraint debug](../images/muscle_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 15</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 14</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with *Triangulate Mesh* option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure>
   <img src="../images/muscle_to_muscle_debugger.png">
-  <figcaption><b>Figure 16</b>: Muscle to muscle attachments to geo debugging example between biceps and brachialis.</figcaption>
+  <figcaption><b>Figure 15</b>: Muscle to muscle attachments to geo debugging example between biceps and brachialis.</figcaption>
 </figure>
 
 ## Advanced
@@ -312,7 +312,7 @@ Not painting the fibers multiplier map will cause the muscle to contract uniform
 
 <figure>
   <img src="../images/muscle_fibers_multiplier.png">
-  <figcaption><b>Figure 11</b>: Example use case of the fibers multiplier map on a biceps muscle. Top-Left) represents the painting without concentrated activations; Top-Right) represents the painting with concentrated activations in the belly of the muscle; Bottom-Left) Shows the results of the non-concentrated activations when the muscle is fully activated; Bottom-Right) Shows the results of the concentrated activations when the muscle is fully activated.</figcaption>
+  <figcaption><b>Figure 16</b>: Example use case of the fibers multiplier map on a biceps muscle. Top-Left) represents the painting without concentrated activations; Top-Right) represents the painting with concentrated activations in the belly of the muscle; Bottom-Left) Shows the results of the non-concentrated activations when the muscle is fully activated; Bottom-Right) Shows the results of the concentrated activations when the muscle is fully activated.</figcaption>
 </figure>
 
 ### Activation Layers
@@ -337,7 +337,7 @@ The sensors can be connected to the activation list using the [Sensors Connectio
 
 <figure style="width: 75%;" markdown>
   ![sensors connection editor to connect activation layers](../images/tools_sensors_connection_editor_activation_layers.png)
-  <figcaption><b>Figure 12</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
+  <figcaption><b>Figure 17</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
 </figure>
 
 The removal of input sensors connected to the activation list can be done from the AdonisFX menu in Activation > Remove Inputs option.
