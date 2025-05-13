@@ -34,8 +34,8 @@ To create an AdnMuscle, follow these steps:
 | **Activation**              | Float      | 0.0    | ✓ | Current activation of the deformed muscle. The activation modifies the stiffness of the muscle depending on the fibers direction of the muscle. Has a range of \[0.0, 1.0\]. To ingest activations driven by multiple sensors into the muscle, refer to the [AdnActivation](../nodes/activation#adnactivation) page. |
 | **Rest Activation**         | Float      | 0.0    | ✓ | Value representing the amount of rest activation to apply to the muscle. Has a range of \[0.0, 1.0\]. |
 | **Volume Preservation**     | Float      | 1.0    | ✓ | The amount of volume to preserve the current simulated muscle. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
-| **Volume Activation Ratio** | Float      | 1.0    | ✓ | The ratio to increase or decrease the volume of the muscle driven by the global activation. For example, with a value of 1.2, the muscle will gain 20% of volume when the activation is maximum. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Volume Ratio**            | Float      | 1.0    | ✓ | The ratio to increase or decrease the volume of the muscle. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Volume Activation Ratio** | Float      | 1.0    | ✓ | Controls the activation-dependent volume change of the muscle. For example, with a value of 1.2, the muscle will gain 20% of volume when the activation is maximum. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Volume Ratio**            | Float      | 1.0    | ✓ | Controls the volume change of the muscle, independent of activation. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
