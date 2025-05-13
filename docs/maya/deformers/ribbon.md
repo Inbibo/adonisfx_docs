@@ -54,6 +54,15 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 | **Gravity**           | Float  | 0.0              | ✓ | Sets the magnitude of the gravity acceleration in m/s<sup>2</sup>. The value is internally converted to cm/s<sup>2</sup>. Has a range of \[0.0, 100.0\]. The upper limit is soft, higher values can be used. |
 | **Gravity Direction** | Float3 | {0.0, -1.0, 0.0} | ✓ | Sets the direction of the gravity acceleration. Vectors introduced do not need to be normalized, but they will get normalized internally. |
 
+### Activation Layers
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Solver Activation**               | Float   | 0.0       | ✗ | Shows the global activation value currently used by the solver. This global activation is the result of applying all the activation layers configured in the "Activation List" on top of the "Activation" scalar attribute shown in "Solver Attributes". |
+| **Activation List**                 | List    | Empty     | ✗ | List of activation layers where each item is a compound attribute of 3 elements: bypass operator, operator and value. |
+| **Activation List Bypass Operator** | Boolean | True      | ✓ | If enabled, it bypasses the current operator in the activation list, which will not contribute to the final activation value. |
+| **Activation List Value**           | Float   | 0.0       | ✓ | Activation value that will contribute, given the operator type, to the final activation. |
+| **Activation List Operator**        | Enum    | 0 (Over)  | ✓ | Operator used to contribute to the final activation. This can be: (0) Over; (1) Add; (2) Sub; (3) Mult; (4) Divide. |
+
 ### Advanced Settings
 
 #### Initialization Settings
@@ -293,3 +302,41 @@ Additionally to all previously mentioned constraints, ribbon muscles can have an
     3. Press *Remove Slide On Segment Constraint* in the AdonisFX menu from the *Edit* Muscle submenu.
     4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing *Remove Slide On Segment Constraint* in the AdonisFX menu, all segments will be removed.
 
+### Activation Control
+
+#### Fibers Multiplier
+
+Painting the fibers multiplier map allows to concentrate the activation and volume of a muscle in certain areas which would allow for more artistic control over the final shape of the muscle after contraction (activation).
+Not painting the fibers multiplier map will cause the muscle to contract uniformly over its whole volume without concentrating the activations in the belly of the muscle. Painting to 0.0 the tendinous areas and painting to 1.0 the belly of the muscle will allow (after combing fibers and activating the muscle) to activate only the areas that had been painted with a value of 1.0.
+
+<figure>
+  <img src="../images/muscle_fibers_multiplier.png">
+  <figcaption><b>Figure 11</b>: Example use case of the fibers multiplier map on a biceps muscle. Top-Left) represents the painting without concentrated activations; Top-Right) represents the painting with concentrated activations in the belly of the muscle; Bottom-Left) Shows the results of the non-concentrated activations when the muscle is fully activated; Bottom-Right) Shows the results of the concentrated activations when the muscle is fully activated.</figcaption>
+</figure>
+
+#### Activation Layers
+
+The activation layers allow to drive the muscle activation by multiple sensors combined together without the need of using an [AdnActivation](../nodes#activation) node. In practice, having an AdnActivation node with multiple input sensors connected to the **activation** attribute of an AdnRibbonMuscle is equivalent to connect those sensors directly to the activation list of that muscle.
+
+The activation layers contribute to the final activation of the muscle solver, where the first layer will always be the **activation** scalar attribute. Then, every value in the **activation list** array plug is applied on top taking into consideration the operator and the bypass flag. The resulting value is the global activation that the solver will use for the simulation, and it is written onto the read-only **output solver activation** attribute.
+
+The operators available are:
+
+1. **Over (Override)**: Overrides the accumulated solver activation value with Value. If the current accumulated activation value is 1.0 and Value is 2.0 then the new accumulated value will be 2.0.
+2. **Add (Add)**: Adds the accumulated solver activation value with Value. If the current accumulated activation value is 1.0 and Value is 2.0 then the new accumulated value will be 3.0.
+3. **Sub (Subtract)**: Subtracts the accumulated solver activation value with Value. If the current accumulated activation value is 1.0 and Value is 2.0 then the new accumulated value will be -1.0.
+4. **Mult (Multiply)**: Multiplies the accumulated solver activation value with Value. If the current accumulated activation value is 1.0 and Value is 2.0 then the new accumulated value will be 2.0.
+5. **Div (Divide)**: Divides the accumulated solver activation value with Value. If the current accumulated activation value is 1.0 and Value is 2.0 then the new accumulated value will be 0.5.
+
+> [!NOTE]
+> - All operators will be evaluated from top to bottom (starting from the lowest index and ending on the last index used).
+> - The final value will be clamped in the range 0 to 1 to ensure that the solver activation is always normalized.
+
+The sensors can be connected to the activation list using the [Sensors Connection Editor](../tools/sensors_connection_editor) tool. By selecting the geometry with a muscle applied and loading it in the list on the right side of the UI, the plug values of each activation layer will be listed to overwrite the connection, plus the next available index in the array plug.
+
+<figure>
+  <img src="../images/tools_sensors_connection_editor_activation_layers.png">
+  <figcaption><b>Figure 12</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
+</figure>
+
+The removal of input sensors connected to the activation list can be done from the AdonisFX menu in Activation > Remove Inputs option.

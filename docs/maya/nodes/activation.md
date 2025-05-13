@@ -26,7 +26,7 @@ To add new inputs to the AdnActivation node:
 3. Type in a fixed value in *Value*, animate it or connect the plug with an AdonisFX sensor's output.
 
 > [!NOTE]
-> All operators will be evaluated from top to bottom (starting from index 0 and ending on the last index used).
+> All operators will be evaluated from top to bottom (starting from the lowest index and ending on the last index used).
 
 ## Operators
 
