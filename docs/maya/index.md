@@ -22,5 +22,7 @@
     - [Mirror](tools/mirror_tool)
     - [Export](tools/exporter)
     - [Import](tools/importer)
-- [Scripts](scripts)
+- Scripts
+    - [Mirror](scripts/mirror)
+    - [I/O](scripts/io)
 - [API](api)
