@@ -1,6 +1,6 @@
 # AdnRemap
 
-The AdnRemap node is an AdonisFX node that aims to provide with the same key functionalities that a Maya remapValue node has and are typically used in an AdonisFX rig, for example to remap the raw output of a sensor to drive the activation or the volume ratio gain of a muscle. The objective of using AdnRemap nodes instead of a Maya remapValue nodes is to enhance the portability of the whole AdonisFX rig, including not only the input and output connections but also the configuration of the remap ramp attribute.
+The AdnRemap node is an AdonisFX node that aims to provide the same key functionalities that a Maya remapValue node has. This node type is typically used in an AdonisFX rig, for example, to remap the output of a sensor into a value to drive muscle activation or volume ratio gain. The objective of using AdnRemap nodes instead of Maya remapValue nodes is to enhance the portability of the whole AdonisFX rig, including not only the input and output connections but also the configuration of the remap ramp attribute.
 
 ## How To Use
 
@@ -19,7 +19,7 @@ graph.upgrade_remap_nodes(delete=True)
 
 > [!NOTE]
 > - The argument `delete` is optional and defaults to `True`.
-> - If enabled, all the existing Maya remapValue nodes are deleted after replaced by the new AdnRemap nodes.
+> - If enabled, all the existing Maya remapValue nodes are deleted after being replaced by the new AdnRemap nodes.
 
 ## Example
 
