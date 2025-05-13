@@ -57,8 +57,8 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 ### Activation Layers
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Solver Activation**               | Float   | 0.0       | ✗ | Shows the global activation value currently used by the solver. This global activation is the result of applying all the activation layers configured in the "Activation List" on top of the "Activation" scalar attribute shown in "Solver Attributes". |
-| **Activation List**                 | List    | Empty     | ✗ | List of activation layers where each item is a compound attribute of 3 elements: bypass operator, operator and value. |
+| **Solver Activation**               | Float   | 0.0       | ✗ | Shows the global activation value currently used by the solver. This global activation is the result of applying all the activation layers configured in the **activation** and **activation list** attributes. |
+| **Activation List**                 | List    | Empty     | ✗ | List of activation layers where each item is a compound attribute of three elements: bypass operator, value and operator. |
 | **Activation List Bypass Operator** | Boolean | True      | ✓ | If enabled, it bypasses the current operator in the activation list, which will not contribute to the final activation value. |
 | **Activation List Value**           | Float   | 0.0       | ✓ | Activation value that will contribute, given the operator type, to the final activation. |
 | **Activation List Operator**        | Enum    | 0 (Over)  | ✓ | Operator used to contribute to the final activation. This can be: (0) Over; (1) Add; (2) Sub; (3) Mult; (4) Divide. |
@@ -145,17 +145,17 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 
 ## Attribute Editor Template
 
-<figure style="width: 50%;" markdown>
+<figure style="width: 75%;" markdown>
   ![AdnRibbonMuscle editor first part](../images/ribbon_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnRibbonMuscle Attribute Editor.</figcaption>
 </figure>
 
-<figure style="width: 50%;" markdown>
+<figure style="width: 75%;" markdown>
   ![AdnRibbonMuscle editor second part](../images/ribbon_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnRibbonMuscle Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
-<figure style="width: 50%;" markdown>
+<figure style="width: 75%;" markdown>
   ![AdnRibbonMuscle editor debug menu](../images/muscle_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnRibbonMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
@@ -332,7 +332,7 @@ The operators available are:
 
 The sensors can be connected to the activation list using the [Sensors Connection Editor](../tools/sensors_connection_editor) tool. By selecting the geometry with a muscle applied and loading it in the list on the right side of the UI, the plug values of each activation layer will be listed to overwrite the connection, plus the next available index in the array plug.
 
-<figure style="width: 50%;" markdown>
+<figure style="width: 75%;" markdown>
   ![sensors connection editor to connect activation layers](../images/tools_sensors_connection_editor_activation_layers.png)
   <figcaption><b>Figure 12</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
 </figure>
