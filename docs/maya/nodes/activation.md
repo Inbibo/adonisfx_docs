@@ -65,9 +65,9 @@ The *inputs* attribute is presented as an array of 3 attributes which can be fou
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Bypass Operator** | Boolean     | True            | ✓ | If enabled, it bypasses the current operator in the input list, which will not contribute to the final activation value. |
-| **Value**           | Float       | 0.0             | ✓ | Activation value that will contribute, given the operator type, to the final activation. |
-| **Operator**        | Enumerator  | 0 (Over)        | ✓ | Operator used to contribute to the final activation. This can be: Over, Add, Sub, Mult, Divide. |
+| **Bypass Operator** | Boolean     | True  | ✓ | If enabled, it bypasses the current operator in the input list, which will not contribute to the final activation value. |
+| **Value**           | Float       | 0.0   | ✓ | Activation value that will contribute, given the operator type, to the final activation. |
+| **Operator**        | Enumerator  | Over  | ✓ | Operator used to contribute to the final activation. This can be: Over, Add, Sub, Mult, Divide. |
 
 ### Output Attributes
 | Name | Type | Default | Animatable | Description |

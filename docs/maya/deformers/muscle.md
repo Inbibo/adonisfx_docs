@@ -60,11 +60,11 @@ To create an AdnMuscle, follow these steps:
 ### Activation Layers
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Solver Activation**               | Float       | 0.0       | ✗ | Shows the global activation value currently used by the solver. This global activation is the result of applying all the activation layers configured in the **activation** and **activation list** attributes. |
-| **Activation List**                 | List        | Empty     | ✗ | List of activation layers where each item is a compound attribute of three elements: bypass operator, value and operator. |
-| **Activation List Bypass Operator** | Boolean     | True      | ✓ | If enabled, it bypasses the current operator in the activation list, which will not contribute to the final activation value. |
-| **Activation List Value**           | Float       | 0.0       | ✓ | Activation value that will contribute, given the operator type, to the final activation. |
-| **Activation List Operator**        | Enumerator  | 0 (Over)  | ✓ | Operator used to contribute to the final activation. This can be: Over, Add, Sub, Mult, Divide. |
+| **Solver Activation**               | Float       | 0.0   | ✗ | Shows the global activation value currently used by the solver. This global activation is the result of applying all the activation layers configured in the **activation** and **activation list** attributes. |
+| **Activation List**                 | List        | Empty | ✗ | List of activation layers where each item is a compound attribute of three elements: bypass operator, value and operator. |
+| **Activation List Bypass Operator** | Boolean     | True  | ✓ | If enabled, it bypasses the current operator in the activation list, which will not contribute to the final activation value. |
+| **Activation List Value**           | Float       | 0.0   | ✓ | Activation value that will contribute, given the operator type, to the final activation. |
+| **Activation List Operator**        | Enumerator  | Over  | ✓ | Operator used to contribute to the final activation. This can be: Over, Add, Sub, Mult, Divide. |
 
 ### Advanced Settings
 
