@@ -24,5 +24,5 @@
     - [Import](tools/importer)
 - Scripts
     - [Mirror](scripts/mirror)
-    - [I\/O](scripts/io)
+    - [Input & Output](scripts/io)
 - [API](api)

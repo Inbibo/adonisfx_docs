@@ -1,4 +1,4 @@
-# I/O
+# Input & Output
 
 In `adn.scripts.maya.adnio` module, a set of Python functions are provided to allow users to:
 
