@@ -75,7 +75,7 @@ for warn in report_data["warnings"]:
 
 > [!NOTE]
 > - Depending on the need, the script can mirror only the muscles (selection from step 2), only the locators and sensors (selection from step 3), or everything at once (including both selections from step 2 and 3).
-> - The mirroring process can also be executed with the **Mirror Tool**. For more details, please refer to the [Mirror Tool page](tools/mirror_tool).
+> - The mirroring process can also be executed with the **Mirror Tool**. For more details, please refer to the [Mirror Tool page](../tools/mirror_tool).
 
 ## Limitations
 
