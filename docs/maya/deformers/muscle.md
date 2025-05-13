@@ -149,17 +149,17 @@ To create an AdnMuscle, follow these steps:
 
 ## Attribute Editor Template
 
-<figure markdown>
+<figure style="width: 50%;" markdown>
   ![AdnMuscle editor first part](../images/muscle_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnMuscle Attribute Editor.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 50%;" markdown>
   ![AdnMuscle editor second part](../images/muscle_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnMuscle Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 50%;" markdown>
   ![AdnMuscle editor debug menu](../images/muscle_attribute_editor_debug.png)
   <figcaption><b>Figure 3</b>: AdnMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
@@ -305,9 +305,7 @@ Additionally to all previously mentioned constraints, muscles can have an additi
     3. Press *Remove Slide On Segment Constraint* in the AdonisFX menu from the Edit Muscle submenu. 
     4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing *Remove Slide On Segment Constraint* in the AdonisFX menu, all segments will be removed.
 
-### Activation Control
-
-#### Fibers Multiplier
+### Fibers Multiplier
 
 Painting the fibers multiplier map allows to concentrate the activation and volume of a muscle in certain areas which would allow for more artistic control over the final shape of the muscle after contraction (activation).
 Not painting the fibers multiplier map will cause the muscle to contract uniformly over its whole volume without concentrating the activations in the belly of the muscle. Painting to 0.0 the tendinous areas and painting to 1.0 the belly of the muscle will allow (after combing fibers and activating the muscle) to activate only the areas that had been painted with a value of 1.0.
@@ -317,7 +315,7 @@ Not painting the fibers multiplier map will cause the muscle to contract uniform
   <figcaption><b>Figure 11</b>: Example use case of the fibers multiplier map on a biceps muscle. Top-Left) represents the painting without concentrated activations; Top-Right) represents the painting with concentrated activations in the belly of the muscle; Bottom-Left) Shows the results of the non-concentrated activations when the muscle is fully activated; Bottom-Right) Shows the results of the concentrated activations when the muscle is fully activated.</figcaption>
 </figure>
 
-#### Activation Layers
+### Activation Layers
 
 The activation layers allow to drive the muscle activation by multiple sensors combined together without the need of using an [AdnActivation](../nodes#activation) node. In practice, having an AdnActivation node with multiple input sensors connected to the **activation** attribute of an AdnMuscle is equivalent to connect those sensors directly to the activation list of that muscle.
 
@@ -337,8 +335,8 @@ The operators available are:
 
 The sensors can be connected to the activation list using the [Sensors Connection Editor](../tools/sensors_connection_editor) tool. By selecting the geometry with a muscle applied and loading it in the list on the right side of the UI, the plug values of each activation layer will be listed to overwrite the connection, plus the next available index in the array plug.
 
-<figure>
-  <img src="../images/tools_sensors_connection_editor_activation_layers.png">
+<figure style="width: 50%;" markdown>
+  ![sensors connection editor to connect activation layers](../images/tools_sensors_connection_editor_activation_layers.png)
   <figcaption><b>Figure 12</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
 </figure>
 
