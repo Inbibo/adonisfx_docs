@@ -124,5 +124,5 @@ nav:
       - Import                    : maya/tools/importer.md
     - Scripts:
       - Mirror                    : maya/scripts/mirror.md
-      - I\/O                      : maya/scripts/io.md
+      - I//O                      : maya/scripts/io.md
     - API                         : maya/api.md

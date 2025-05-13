@@ -1,6 +1,6 @@
 # I/O
 
-In `adn.scripts.maya.adnio` module, a set of useful python functions are provided to allow users to:
+In `adn.scripts.maya.adnio` module, a set of Python functions are provided to allow users to:
 
 - Gather the AdonisFX nodes setup from the scene.
 - Clear the scene by removing all AdonisFX nodes.
@@ -10,7 +10,7 @@ In `adn.scripts.maya.adnio` module, a set of useful python functions are provide
 
 In the following sections, we provide a brief overview of how to use the utilities provided in this Python module.
 
-## Gather data
+## Gather Data
 
 To gather all AdonisFX nodes from the scene and store their setup into a dictionary, run this command in Python:
 
@@ -36,7 +36,7 @@ enabled_features = {
 }</code></pre>
 
 
-## Clear all
+## Clear All
 
 To clear all AdonisFX related nodes from the scene, run the command below in Python. This is useful for when AdonisFX data has to be imported onto a clean version of the rig.
 
