@@ -15,7 +15,7 @@ In the following sections, we provide a brief overview of how to use the utiliti
 To gather all AdonisFX nodes from the scene and store their setup into a dictionary, run this command in Python:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
-adnio.gather_from_scene(enabled_features)
+data = adnio.gather_from_scene(enabled_features)
 </code></pre>
 
 The argument `enabled_features` is optional and it is a dictionary where keys are feature names (i.e. AdonisFX solver nodes and other util nodes) and values are flags to determine if a feature has to be gathered or bypassed. If this is not provided, all features will be gathered.
@@ -49,16 +49,17 @@ adnio.clear_scene()
 To build an AdonisFX setup in Python, it is required to provide the setup information in dictionary format. This dictionary data can be the value returned by the function `gather_from_scene` or the result of loading a JSON file exported perviously with the function `export_data`. The code to build the AdonisFX setup is:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
-adnio.build_from_data(in_data, enabled_features)
+adnio.build_from_data(data, enabled_features)
 </code></pre>
 
-The first argument `in_data` is required and it is the dictionary with the mapped data. The second argument `enabled_features` is optional and corresponds to a dictionary where keys are feature names and values are flags to determine if a feature has to be built or bypassed (same format used for gathering data).
+The first argument `data` is required and it is the dictionary with the mapped data. The second argument `enabled_features` is optional and corresponds to a dictionary where keys are feature names and values are flags to determine if a feature has to be built or bypassed (same format used for gathering data).
 
 ## Import
 
 To import an AdonisFX setup from a JSON file, run the command below:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
+file_path = "path/to/source/file.json"
 adnio.import_data(file_path, enabled_features)
 </code></pre>
 
@@ -71,7 +72,8 @@ Find more information about the use of the import feature in the [Import](tools/
 To export the AdonisFX setup in the current scene into a file, run this command:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
-adnio.export_data(file_path, enabled_features=None)
+file_path = "path/to/destination/file.json"
+adnio.export_data(file_path, enabled_features)
 </code></pre>
 
 The first argument `file_path` is required and it is the full path to the JSON file to export the data into. The second argument `enabled_features` is optional and corresponds to a dictionary where keys are feature names and values are flags to determine if a feature has to be exported or bypassed (same format used for gathering data).

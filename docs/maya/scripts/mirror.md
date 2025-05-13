@@ -28,7 +28,7 @@ In order to use the mirroring script, the rig must meet the following requiremen
     This ensures that paintable maps and deformer weights are transferred accurately during the mirroring process.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Example of naming convention](images/mirror_tool_00.png)
+  ![Example of naming convention](../images/mirror_tool_00.png)
   <figcaption><b>Figure 1</b>: Example of the naming convention (using "L_" prefix) applied to muscles, joints, sensors, locators and activation nodes.</figcaption>
 </figure>
 
@@ -37,7 +37,7 @@ In order to use the mirroring script, the rig must meet the following requiremen
 1. Open a scene that fulfills the requirements listed previously.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Maya Scene Ready To Execute The Mirroring](images/mirror_tool_01.png)
+  ![Maya Scene Ready To Execute The Mirroring](../images/mirror_tool_01.png)
   <figcaption><b>Figure 2</b>: Starting point to execute the mirroring onto a biped asset. The left side is fully configured with muscle deformers, locators, sensors and activation nodes following the prefix naming convention "L_".</figcaption>
 </figure>
 
@@ -46,7 +46,7 @@ In order to use the mirroring script, the rig must meet the following requiremen
 3. Add to the selection all the AdonisFX locators from the same source side that need to be mirrored. Note that sensors and activation nodes (as not being DAG objects) do not need to be added to the selection. The Mirror Tool will automatically handle their mirroring.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Mirror Script Selection](images/mirror_tool_02.png)
+  ![Mirror Script Selection](../images/mirror_tool_02.png)
   <figcaption><b>Figure 3</b>: All geometry muscles and locators on the left side selected.</figcaption>
 </figure>
 
@@ -60,7 +60,7 @@ result = mirror.apply_mirror(left_convention="L_*", right_convention="R_*", repo
 5. Depending on the complexity of the rig, this process might take a few seconds to compute. The `result` returned by the function will be `True` if there were any muscles or locators properly mirrored, and `False` if nothing was mirrored (e.g. if the selection was empty).
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Mirroring Execution Completed](images/mirror_tool_08.png)
+  ![Mirroring Execution Completed](../images/mirror_tool_08.png)
   <figcaption><b>Figure 5</b>: Result of the execution: all AdnMuscle from the left side are replicated on the right side. Additionally, all the locators, sensors and activation nodes from the left side are created and connected on the right side.</figcaption>
 </figure>
 
