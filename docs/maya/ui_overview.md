@@ -112,7 +112,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 #### Activation
 
-- **Remove Inputs**: Removes activation inputs from AdnActivation node(s) and from the activation list attribute of muscle deformers (AdnMuscle and AdnRibbonMuscle). On execute, this option processes the selection to extract all AdnActivation nodes and muscle deformers to remove inputs from. It is possible to remove all the inputs or only some of them.
+- **Remove Inputs**: Removes activation inputs from AdnActivation node(s) and from the activation list attribute of muscle deformers (AdnMuscle and AdnRibbonMuscle). On execute, this option reads the current selection and extracts all AdnActivation nodes and muscle deformers to remove inputs from. It is possible to remove all the inputs or only some of them.
 
     - To remove all inputs, select directly the AdnActivation node(s) and/or the mesh(es) with a muscle deformer applied.
     - To remove specific inputs, first select the locator(s) to remove and then the AdnActivation node(s) and/or the mesh(es) with a muscle deformer applied.
@@ -176,7 +176,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 <br/>
 
 - **Mirror**. Opens the Mirror Tool UI which allows to mirror the muscle setup (locators, sensors and muscles) from one side of the character to the other based on left and right naming rules.
-- **Turbo**. Opens the Turbo UI which allows to build an AdonisFX rig on a clean asset from scratch. This UI exposes different sections for each one of the simulation layers that the AdnTurbo can configure. From each section, the user can toggle on and off the layer to be included or skipped in the execution, as well as select the objects from the scene required to create and configure the solvers.
+- **Turbo**. Opens the Turbo UI, which allows users to build an AdonisFX rig on a clean asset from scratch. The UI is divided into sections for each simulation layer that the AdnTurbo can configure. Users can toggle layers on or off to include or skip them in the execution and select scene objects required to create and configure the solvers.
 - **Paint Tool**. Opens the Paint Tool UI to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. This item corresponds to the shelf button ![Paint Tool](images/adn_paint_tool.png){style="width:4%"}.
 - **Interactive Playback**. Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. This item corresponds to the shelf button ![Interactive Playback](images/adn_interactive_playback.png){style="width:4%"}.
 
