@@ -4,7 +4,7 @@ The AdonisFX Export is a tool designed to facilitate the export of a complete Ad
 
 ## UI
 
-<figure markdown>
+<figure style="width:60%;" markdown>
   ![AdonisFX Export Tool](../images/exporter_ui.png)
   <figcaption><b>Figure 1</b>: AdonisFX Export UI. </figcaption>
 </figure>
@@ -18,6 +18,7 @@ The Export Tool offers an intuitive interface (see Figure 1), allowing users to 
     - Glue: include AdnGlue nodes in the exported data.
     - Fat: include AdnFat nodes in the exported data.
     - Skin: include AdnSkin nodes in the exported data.
+    - Simshape: include AdnSimshape nodes in the exported data.
 
 - **Deformers**: Specifies which deformers should be included in the export. Options include:
     - Skin Merge: include AdnSkinMerge nodes in the exported data.
@@ -26,6 +27,8 @@ The Export Tool offers an intuitive interface (see Figure 1), allowing users to 
 - **Utils**: Allows exporting additional utility components from the setup. Options include:
     - Sensors & Locators: include AdonisFX sensors and locators in the exported data, ensuring proper connections between components.
     - Activation: include activation nodes and their existing connections to AdnMuscle nodes in the exported data.
+    - Remap: include AdnRemap nodes in the exported data.
+    - Edge Evaluator: include AdnEdgeEvaluator nodes in the exported data.
 
 - **Buttons**:
     - Accept: executes the export process based on the selected options and closes the window.

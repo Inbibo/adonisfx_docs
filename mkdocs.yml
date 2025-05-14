@@ -122,5 +122,7 @@ nav:
       - Mirror                    : maya/tools/mirror_tool.md
       - Export                    : maya/tools/exporter.md
       - Import                    : maya/tools/importer.md
-    - Scripts                     : maya/scripts.md
+    - Scripts:
+      - Mirror                    : maya/scripts/mirror.md
+      - Input & Output            : maya/scripts/io.md
     - API                         : maya/api.md
