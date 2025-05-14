@@ -1,6 +1,4 @@
-# Scripts
-
-## Mirror
+# Mirror
 
 The mirroring script is a Python script that allows the transfer of the AdonisFX muscle setup of an asset from one side to the other. For example, a user can complete the muscle rig for the left side of an asset and thanks to this script mirror the setup quickly and efficiently to the right side. 
 
@@ -13,7 +11,7 @@ Currently, the script allows to mirror:
 
 Please, check this [section](#limitations) to know more about the current limitations.
 
-### Requirements
+## Requirements
 
 In order to use the mirroring script, the rig must meet the following requirements to ensure a successful transfer of the muscle setup:
 
@@ -30,16 +28,16 @@ In order to use the mirroring script, the rig must meet the following requiremen
     This ensures that paintable maps and deformer weights are transferred accurately during the mirroring process.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Example of naming convention](images/mirror_tool_00.png)
+  ![Example of naming convention](../images/mirror_tool_00.png)
   <figcaption><b>Figure 1</b>: Example of the naming convention (using "L_" prefix) applied to muscles, joints, sensors, locators and activation nodes.</figcaption>
 </figure>
 
-### How To Use
+## How To Use
 
 1. Open a scene that fulfills the requirements listed previously.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Maya Scene Ready To Execute The Mirroring](images/mirror_tool_01.png)
+  ![Maya Scene Ready To Execute The Mirroring](../images/mirror_tool_01.png)
   <figcaption><b>Figure 2</b>: Starting point to execute the mirroring onto a biped asset. The left side is fully configured with muscle deformers, locators, sensors and activation nodes following the prefix naming convention "L_".</figcaption>
 </figure>
 
@@ -48,7 +46,7 @@ In order to use the mirroring script, the rig must meet the following requiremen
 3. Add to the selection all the AdonisFX locators from the same source side that need to be mirrored. Note that sensors and activation nodes (as not being DAG objects) do not need to be added to the selection. The Mirror Tool will automatically handle their mirroring.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Mirror Script Selection](images/mirror_tool_02.png)
+  ![Mirror Script Selection](../images/mirror_tool_02.png)
   <figcaption><b>Figure 3</b>: All geometry muscles and locators on the left side selected.</figcaption>
 </figure>
 
@@ -62,7 +60,7 @@ result = mirror.apply_mirror(left_convention="L_*", right_convention="R_*", repo
 5. Depending on the complexity of the rig, this process might take a few seconds to compute. The `result` returned by the function will be `True` if there were any muscles or locators properly mirrored, and `False` if nothing was mirrored (e.g. if the selection was empty).
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Mirroring Execution Completed](images/mirror_tool_08.png)
+  ![Mirroring Execution Completed](../images/mirror_tool_08.png)
   <figcaption><b>Figure 5</b>: Result of the execution: all AdnMuscle from the left side are replicated on the right side. Additionally, all the locators, sensors and activation nodes from the left side are created and connected on the right side.</figcaption>
 </figure>
 
@@ -77,61 +75,9 @@ for warn in report_data["warnings"]:
 
 > [!NOTE]
 > - Depending on the need, the script can mirror only the muscles (selection from step 2), only the locators and sensors (selection from step 3), or everything at once (including both selections from step 2 and 3).
-> - The mirroring process can also be executed with the **Mirror Tool**. For more details, please refer to the [Mirror Tool page](tools/mirror_tool).
+> - The mirroring process can also be executed with the **Mirror Tool**. For more details, please refer to the [Mirror Tool page](../tools/mirror_tool).
 
-### Limitations
+## Limitations
 
 - The naming convention does not allow placing the side identifier at the middle of the name (e.g. biceps_L_muscle).
 - The mirroring logic does not allow to mirror intermediate nodes between the AdnActivation and the AdnMuscle deformer.
-
-## I/O
-### Gather AdonisFX data from scene
-Gather AdonisFX nodes from a scene into a dictionary that can then be stored into a JSON file.
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
-adnio.gather_from_scene(enabled_features=None)
-</code></pre>
-
-- `enabled_features`: A dictionary where keys are feature names and values are flags to determine if a feature has to be gathered or bypassed. If this is not provided, all features will be gathered. An example of a feature could be AdnSkin nodes.
-  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'SENSOR_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
-
-
-### Clean all AdonisFX data from scene
-Clears all AdonisFX related nodes from the scene. This is useful for when AdonisFX data has to be imported on a clean version of the rig.
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
-adnio.clear_scene()
-</code></pre>
-
-### Rebuild AdonisFX data into scene
-Builds the AdonisFX data from a dictionary into the scene, using data generated by `gather_from_scene` and stored in a JSON file.
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
-adnio.build_from_data(in_data, enabled_features=None)
-</code></pre>
-
-- `in_data`: AdonisFX dictionary with the mapped data.
-- `enabled_features`: A dictionary where keys are feature names and values are flags to determine if a feature has to be built or bypassed. An example of a feature could be AdnSkin nodes.
-  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'SENSOR_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
-
-### Import AdonisFX data
-Reads the content of a JSON file provided by the `file_path` and calls `build_from_data`to rebuild the AdonisFX data in the scene.
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
-adnio.import_data(file_path, enabled_features=None)
-</code></pre>
-
-- `file_path`: Path to the JSON file with the AdonisFX setup.
-- `enabled_features`: A dictionary where keys are feature names and values are flags to determine if a feature has to be imported or not. If this is not provided, all features will be imported. An example of a feature could be AdnSkin nodes.
-  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'SENSOR_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
-
-Find more information about the use of the import feature in the [Import](tools/importer) page.
-
-### Export AdonisFX data
-Calls `gather_from_scene` gathering all AdonisFX scene data into a file and stores it as a JSON
-in the file provided by `file_path`.
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
-adnio.export_data(file_path, enabled_features=None)
-</code></pre>
-
-- `file_path`: Path to the JSON file with the AdonisFX setup.
-- `enabled_features`: A dictionary where keys are feature names and values are flags to determine if a feature has to be exported or not. If this is not provided, all features will be exported. Example: 
-  <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">enabled_features = {'MUSCLE_DATA': True, 'GLUE_DATA': True, 'FAT_DATA': True, 'SKIN_DATA': True, 'SKIN_MERGE_DATA': True, 'RELAX_DATA': True, 'SENSOR_DATA': True, 'ACTIVATION_DATA': True}</code></pre>
-
-Find more information about the use of the export feature in the [Export](tools/exporter) page.
