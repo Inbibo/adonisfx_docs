@@ -10,9 +10,7 @@ The Turbo script is a Python script that automates the setup of an AdonisFX rig 
 
 Please, check this [section](#limitations) to know more about the current limitations.
 
-## Arguments
-
-In this section we provide a brief overview of the arguments of the `apply_turbo` function.
+The main function to run turbo is `apply_turbo`, which is defined as follows:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.turbo import apply_turbo
 
@@ -31,20 +29,6 @@ def apply_turbo(
 )
 </code></pre>
 
-| Argument | Required | Type | Default | Description |
-| :------- | :------- | :--- | :------ | :---------- |
-| **mummy**             | Yes      | string         |       | Skeletal mesh that drives the muscle simulation. It can be: 1) the name of the geometry (short name or full path); 2) a group containing the geometry. |
-| **muscles**           | Yes      | string or list |       | Geometries to apply a muscle deformer to. It can be: 1) name of one single geometry; 2) a transform group containing multiple geometries; 3) a list of geometry names; 4) a list of groups containing multiple geometries. |
-| **fascia**            | Optional | string         | None  | Geometry to apply the skin deformer to. It can be: 1) name of the fascia geometry; 2) group containing the fascia geometry. Requires `glue=True`. |
-| **fat**               | Optional | string         | None  | Geometry to apply the fat deformer to. It can be: 1) name of the fat geometry; 2) group containing the fat geometry. Requires fascia to be provided first. |
-| **skin**              | Optional | string         | None  | Geometry to apply the skin deformer to. It can be: 1) name of the skin geometry; 2) group containing the skin geometry. Requires fat to be provided first. |
-| **glue**              | Optional | bool           | False | If True, creates an AdnGlue node using all muscles as inputs. |
-| **glue_group**        | Optional | string         | None  | Name of the group where the glue geometry will be placed. |
-| **create_glue_group** | Optional | bool           | True  | If True and `glue_group` is provided, the group is created if it does not exist. |
-| **space_scale**       | Optional | float          | 1.0   | Factor to scale simulation space. It will be set to the space scale attribute of all the solvers created. |
-| **force**             | Optional | bool           | False | If True, deletes all existing AdonisFX nodes before executing to create the new nodes from a clean scene. Note that auxiliary nodes (e.g. rivets) or meshes created by an existing AdnGlue node will not be deleted. |
-| **report_data**       | Optional | dictionary     | None  | A dictionary (`{"errors": [], "warnings": []}`) to capture any issues during execution. |
-
 ## Requirements
 
 Each layer builds upon the previous one, this means that a specific layer cannot be created unless all the previous layer inputs have been provided.
@@ -62,6 +46,24 @@ To configure the downstream layers, the following inputs have to be provided:
 - **fascia**: the fascia mesh to which AdnSkin is applied. The **glue** input must be `True` for the fascia layer to be built.
 - **fat**: the fat mesh to which AdnFat is applied. The **fascia** input must be provided for the fat layer to be built.
 - **skin**: the skin mesh to which AdnSkin is applied. The **fat** input must be provided for the skin layer to be built.
+
+## Arguments
+
+In this section we provide a brief overview of the arguments of the `apply_turbo` function.
+
+| Argument | Required | Type | Default | Description |
+| :------- | :------- | :--- | :------ | :---------- |
+| **mummy**             | Yes      | string         |       | Skeletal mesh that drives the muscle simulation. It can be: 1) the name of the geometry (short name or full path); 2) a group containing the geometry. |
+| **muscles**           | Yes      | string or list |       | Geometries to apply a muscle deformer to. It can be: 1) name of one single geometry; 2) a transform group containing multiple geometries; 3) a list of geometry names; 4) a list of groups containing multiple geometries. |
+| **fascia**            | Optional | string         | None  | Geometry to apply the skin deformer to. It can be: 1) name of the fascia geometry; 2) group containing the fascia geometry. Requires `glue=True`. |
+| **fat**               | Optional | string         | None  | Geometry to apply the fat deformer to. It can be: 1) name of the fat geometry; 2) group containing the fat geometry. Requires fascia to be provided first. |
+| **skin**              | Optional | string         | None  | Geometry to apply the skin deformer to. It can be: 1) name of the skin geometry; 2) group containing the skin geometry. Requires fat to be provided first. |
+| **glue**              | Optional | bool           | False | If True, creates an AdnGlue node using all muscles as inputs. |
+| **glue_group**        | Optional | string         | None  | Name of the group where the glue geometry will be placed. |
+| **create_glue_group** | Optional | bool           | True  | If True and `glue_group` is provided, the group is created if it does not exist. |
+| **space_scale**       | Optional | float          | 1.0   | Factor to scale simulation space. It will be set to the space scale attribute of all the solvers created. |
+| **force**             | Optional | bool           | False | If True, deletes all existing AdonisFX nodes before executing to create the new nodes from a clean scene. Note that auxiliary nodes (e.g. rivets) or meshes created by an existing AdnGlue node will not be deleted. |
+| **report_data**       | Optional | dictionary     | None  | A dictionary (`{"errors": [], "warnings": []}`) to capture any issues during execution. |
 
 ## How to use
 
