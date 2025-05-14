@@ -59,7 +59,7 @@ When these two inputs are provided, the muscle layer will be completely configur
 To configure the downstream layers, the following inputs have to be provided:
 
 - **glue**: flag indicating if the glue layer has to be built.
-- **fascia**: the fascia mesh to which AdnSkin is applied. The **glue** flag must be `True` for the fascia layer to be built.
+- **fascia**: the fascia mesh to which AdnSkin is applied. The **glue** input must be `True` for the fascia layer to be built.
 - **fat**: the fat mesh to which AdnFat is applied. The **fascia** input must be provided for the fat layer to be built.
 - **skin**: the skin mesh to which AdnSkin is applied. The **fat** input must be provided for the skin layer to be built.
 
@@ -140,7 +140,7 @@ for warn in report_data["warnings"]:
 
 > [!NOTE]
 > - If multiple geometries or groups share the same name in different groups (e.g. group1|geo and group2|geo, group1|group3 and group2|group3), providing the full DAG path will be required.
-> - If there are AdonisFX nodes in the scene and the `force` argument is set to `False` the Turbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force = True` to automatically delete all the AdonisFX nodes.
+> - If there are AdonisFX nodes in the scene and the `force` argument is set to `False` the turbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force=True` to automatically delete all the AdonisFX nodes.
 > - The turbo process can also be executed with the **AdnTurbo tool**. For more details, please refer to the [Turbo Tool page](../tools/turbo_tool).
 
 ## Result
@@ -160,5 +160,4 @@ As a result of executing the script by providing the geometries for all the laye
 
 - The glue layer cannot be bypassed. This means that if the `fascia` argument is provided, the `glue` flag must be `True` for the script to complete successfully.
 - If the `force` flag is set to `True` the script will automatically remove all the AdonisFX nodes from the scene (if any). However, other auxiliary nodes created in previous executions of the script will not be removed (i.e. glue output geometry, rivet nodes).
-- Self-collisions are not configured by the turbo script.
 - The default values that the turbo script will use to configure each deformer cannot be customized.
