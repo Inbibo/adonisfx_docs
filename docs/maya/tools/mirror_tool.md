@@ -113,7 +113,7 @@ In order to use the **Mirror Tool**, the rig must meet the following requirement
 
 > [!NOTE]
 > - Depending on the need, the script can mirror only the muscles (selection from step 2), only the locators and sensors (selection from step 3), or everything at once (including both selections from step 2 and 3).
-> - The mirroring process can also be executed via Python scripting. For more details, please refer to the [Mirror Script section](../scripts#mirror).
+> - The mirroring process can also be executed via Python scripting. For more details, please refer to the [Mirror Script page](../scripts/mirror).
 
 ## Limitations
 

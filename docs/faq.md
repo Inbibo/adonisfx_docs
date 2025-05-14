@@ -88,7 +88,7 @@ For muscles, controlling the area in which the muscle should activate and bulge 
 
 ### Can I mirror the muscles setup?
 
-Yes, a Python script is provided to transfer the muscle setup of an asset from left to right and vice versa. This script includes the mirroring of AdonisFX muscles, locators and sensors. It mirrors not only the scalar attributes and paintable maps, but also the connections and dependencies between all of them. Know more about the mirroring in [this page](maya/scripts#mirror).
+Yes, a Python script is provided to transfer the muscle setup of an asset from left to right and vice versa. This script includes the mirroring of AdonisFX muscles, locators and sensors. It mirrors not only the scalar attributes and paintable maps, but also the connections and dependencies between all of them. Know more about the mirroring in [this page](maya/scripts/mirror).
 
 ### How can I generate the fascia geometry?
 

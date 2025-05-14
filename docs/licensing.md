@@ -167,7 +167,7 @@ The activation command assumes that the server executable, the `.xml` file and t
 
 Remember that floating licenses require internet access only for the machine running the server, while the workstations intended to query leases to the server can remain disconnected and protected.
 
-To deactivate an activated license on the server, execute:
+If the server needs to be installed in a different machine, it will be required to deactivate the license before being able to activate it again in the new machine. To deactivate a license, execute:
 
 > [!NOTE = Activate Server]
 > === Windows
@@ -180,7 +180,7 @@ To deactivate an activated license on the server, execute:
 
 ### Run Server
 
-To run the floating server on Windows execute one of the commands below. The second one is to specify custom destinations of the `.xml` and `.dat` files if they are not in the same folder. To configure the server properly from the configuration file it is required to do the modifications prior to launching the server. Note that if the configuration files need to be located in a different folder, then the use of `-pdets` and `-config` flags is required to specify their locations.
+To run the floating server execute the command below. To configure the server properly from the configuration file, it is required to do any modifications to the file prior to launching the server.
 
 > [!NOTE = Run Server]
 > === Windows
@@ -191,7 +191,7 @@ To run the floating server on Windows execute one of the commands below. The sec
 >
 > `./turbofloatserver -x`
 
-Again, the command above assumes that the server executable, the `.xml` file and the `.dat` file are located in the same folder. To provide a custom path to the configuration files, run the following command instead:
+The command above assumes that the server executable, the `.xml` file and the `.dat` file are located in the same folder. To provide a custom path to the configuration files, run the following command instead:
 
 > [!NOTE = Run Server]
 > === Windows

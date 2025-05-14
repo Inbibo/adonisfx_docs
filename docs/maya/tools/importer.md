@@ -4,7 +4,7 @@ The AdonisFX Import is a tool designed to facilitate the import of a complete Ad
 
 ## UI
 
-<figure markdown>
+<figure style="width:60%;" markdown>
   ![AdonisFX Import Tool](../images/importer_ui.png)
   <figcaption><b>Figure 1</b>: AdonisFX Import UI.</figcaption>
 </figure>
@@ -18,6 +18,7 @@ The Import Tool offers an intuitive interface (see Figure 1), allowing users to 
     - Glue: imports AdnGlue nodes and their settings.
     - Fat: imports AdnFat nodes and their settings.
     - Skin: imports AdnSkin nodes and their settings.
+    - Simshape: imports AdnSimshape nodes and their settings.
 
 - **Deformers**. Specifies which deformers should be imported. Options include:
     - Skin Merge: imports AdnSkinMerge nodes and their settings.
@@ -26,6 +27,8 @@ The Import Tool offers an intuitive interface (see Figure 1), allowing users to 
 - **Utils**. Allows importing utility components from the JSON file. Options include:
     - Sensors & Locators: imports AdonisFX sensors and locators, ensuring proper connections between components.
     - Activation: imports activation nodes and their connections to AdnMuscle nodes.
+    - Remap: imports AdnRemap nodes, including their settings and connections to other nodes.
+    - Edge Evaluator: imports EdgeEvaluator nodes, including their settings and connections to other nodes.
 
 - **Buttons**:
     - Accept: executes the import process based on the selected options and closes the window.

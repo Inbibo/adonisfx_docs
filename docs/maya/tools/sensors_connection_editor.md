@@ -25,4 +25,4 @@ To make the connections select the two specific attributes to connect (one from 
 To clear the selection and reset the tool to its initial state, press the *Clear All* button.
 
 > [!NOTE]
-> - If the history of a muscle geometry is deleted having any AdonisFX locator attribute connected to the deformer, Maya will also delete the shape node corresponding to the AdonisFX locator. To avoid this behavior it is recommended to connect the remap node attributes to the deformer instead of connecting the AdonisFX locator directly.
+> - If an AdonisFX locator (i.e. typically the shape node) is connected to a muscle deformer and the history of the muscle geometry is deleted, Maya will also delete the shape node of that AdonisFX locator. To avoid this, it is recommended to connect either the AdonisFX sensor or the intermediate [AdnRemap](../nodes/remap) node instead.
