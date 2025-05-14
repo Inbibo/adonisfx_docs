@@ -71,12 +71,9 @@ Note that if any input is wrong or missing, the corresponding input text will tu
   <figcaption><b>Figure 6</b>: All simulation layers configured after the execution: muscles, glue, fascia, fat and skin.</figcaption>
 </figure>
 
-
-## Limitations
-
 > [!NOTE]
 > - If multiple geometries or groups share the same name in different groups (e.g. group1|geo and group2|geo, group1|group3 and group2|group3), providing the full DAG path will be required.
-> - The turbo process can also be executed via Python scripting. For more details, please refer to the [Turbo Script page](../tools/turbo_tool).
+> - The turbo process can also be executed via Python scripting. For more details, please refer to the [Turbo Script page](../scripts/turbo).
 
 ## Result
 
