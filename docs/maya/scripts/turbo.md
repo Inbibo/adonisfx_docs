@@ -1,6 +1,6 @@
-# Turbo
+# AdnTurbo
 
-The Turbo script is a Python script that automates the setup of an AdonisFX rig on a clean asset. It configures the following simulation layers in sequence:
+The AdnTurbo script is a Python script that automates the setup of an AdonisFX rig on a clean asset. It configures the following simulation layers in sequence:
 
 - **Muscle layer**  
 - **Glue layer**  
@@ -10,7 +10,7 @@ The Turbo script is a Python script that automates the setup of an AdonisFX rig 
 
 Please, check this [section](#limitations) to know more about the current limitations.
 
-The main function to run turbo is `apply_turbo`, which is defined as follows:
+The main function to run AdnTurbo is `apply_turbo`, which is defined as follows:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.turbo import apply_turbo
 
@@ -70,8 +70,8 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 1. Open a scene containing the geometries for all the layers to be built.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Maya Scene Ready To Execute The Turbo Script](../images/turbo_script_01.png)
-  <figcaption><b>Figure 1</b>: Starting point to execute the turbo script onto an arm asset. The scene contains the geometries for: mummy, muscles, fascia, fat and skin.</figcaption>
+  ![Maya Scene Ready To Execute The AdnTurbo Script](../images/turbo_script_01.png)
+  <figcaption><b>Figure 1</b>: Starting point to execute the AdnTurbo script onto an arm asset. The scene contains the geometries for: mummy, muscles, fascia, fat and skin.</figcaption>
 </figure>
 
 2. Create the arguments for the `apply_turbo` function.
@@ -99,7 +99,7 @@ apply_turbo(
 )
 </code></pre>
 
-4. Additionally, to place the output glue geometry in a specific group, the group name can be provided via the `glue_group` argument. If the specified group does not exist, setting `create_glue_group` to `True` will make the turbo script to create it automatically.
+4. Additionally, to place the output glue geometry in a specific group, the group name can be provided via the `glue_group` argument. If the specified group does not exist, setting `create_glue_group` to `True` will make the AdnTurbo script to create it automatically.
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.turbo import apply_turbo
 
@@ -127,7 +127,7 @@ apply_turbo(
 </code></pre>
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Turbo Execution Completed](../images/turbo_script_02.png)
+  ![AdnTurbo Execution Completed](../images/turbo_script_02.png)
   <figcaption><b>Figure 2</b>: All simulation layers configured after the execution: muscles, glue, fascia, fat and skin.</figcaption>
 </figure>
 
@@ -140,12 +140,11 @@ for warn in report_data["warnings"]:
     logging.warning(warn)
 </code></pre>
 
-Note that the whole turbo process can be undone.
-
 > [!NOTE]
+> - Note that the whole AdnTurbo can be undone.
 > - If multiple geometries or groups share the same name in different groups (e.g. group1|geo and group2|geo, group1|group3 and group2|group3), providing the full DAG path will be required.
-> - If there are AdonisFX nodes in the scene and the `force` argument is set to `False` the turbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force=True` to automatically delete all the AdonisFX nodes.
-> - The turbo process can also be executed with the **AdnTurbo tool**. For more details, please refer to the [Turbo Tool page](../tools/turbo_tool).
+> - If there are AdonisFX nodes in the scene and the `force` argument is set to `False` the AdnTurbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force=True` to automatically delete all the AdonisFX nodes.
+> - AdnTurbo can also be executed with the **AdnTurbo Tool**. For more details, please refer to the [AdnTurbo Tool page](../tools/turbo_tool).
 
 ## Result
 
@@ -164,4 +163,4 @@ As a result of executing the script by providing the geometries for all the laye
 
 - The glue layer cannot be bypassed. This means that if the `fascia` argument is provided, the `glue` flag must be `True` for the script to complete successfully.
 - If the `force` flag is set to `True` the script will automatically remove all the AdonisFX nodes from the scene (if any). However, other auxiliary nodes created in previous executions of the script will not be removed (i.e. glue output geometry, rivet nodes).
-- The default values that the turbo script will use to configure each deformer cannot be customized.
+- The default values that the AdnTurbo script will use to configure each deformer cannot be customized.

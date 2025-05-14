@@ -1,6 +1,6 @@
-# Turbo Tool
+# AdnTurbo
 
-The **AdonisFX Turbo Tool** is a feature designed to automate the creation of an AdonisFX rig from scratch on a clean asset within Maya, from which fine-tuning and customization can proceed. It sequentially configures the following simulation layers:
+The **AdnTurbo Tool** is a feature designed to automate the creation of an AdonisFX rig from scratch on a clean asset within Maya, from which fine-tuning and customization can proceed. It sequentially configures the following simulation layers:
 
 - **Muscle layer**
 - **Glue layer**
@@ -9,18 +9,18 @@ The **AdonisFX Turbo Tool** is a feature designed to automate the creation of an
 - **Skin layer**
 
 <figure style="width:45%;" markdown>
-  ![AdonisFX Turbo Tool Empty](../images/turbo_tool_01.png) 
-  <figcaption><b>Figure 1</b>: AdnTurbo tool UI without providing any input. The <i>Apply Turbo</i> button is disabled because there are missing inputs. </figcaption>
+  ![AdnTurbo UI Empty](../images/turbo_tool_01.png)
+  <figcaption><b>Figure 1</b>: AdnTurbo UI without providing any input. The <i>Apply Turbo</i> button is disabled because there are missing inputs. </figcaption>
 </figure>
 
 <figure style="width:45%;" markdown>
-  ![AdonisFX Turbo Tool Minimum Requirements](../images/turbo_tool_02.png) 
-  <figcaption><b>Figure 2</b>: AdnTurbo tool UI with the minimum requirements. </figcaption>
+  ![AdnTurbo UI Minimum Requirements](../images/turbo_tool_02.png)
+  <figcaption><b>Figure 2</b>: AdnTurbo UI with the minimum requirements. </figcaption>
 </figure>
 
 <figure style="width:45%;" markdown>
-  ![AdonisFX Turbo Tool All Inputs](../images/turbo_tool_03.png) 
-  <figcaption><b>Figure 3</b>: AdnTurbo tool UI providing all the inputs. </figcaption>
+  ![AdnTurbo UI All Inputs](../images/turbo_tool_03.png)
+  <figcaption><b>Figure 3</b>: AdnTurbo UI providing all the inputs. </figcaption>
 </figure>
 
 Please, check this [section](#limitations) to know more about the current limitations.
@@ -34,7 +34,7 @@ To configure at least the muscle layer, the following inputs are required:
 - **Mummy**: the skeletal mesh that drives the muscle simulation.
 - **Muscles**: one or more meshes representing muscles. The **Muscle Layer** checkbox must be enabled to provide this input.
 
-When these two inputs are provided and the following layers are unchecked, the Turbo Tool will be ready to be executed.
+When these two inputs are provided and the following layers are unchecked, AdnTurbo will be ready to be executed.
 
 To configure the downstream layers, the following inputs have to be provided:
 
@@ -49,22 +49,22 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 1. Open a scene containing the geometries for all the layers to be built.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Maya Scene Ready To Execute The Turbo Tool](../images/turbo_script_01.png)
-  <figcaption><b>Figure 4</b>: Starting point to execute the turbo tool onto an arm asset. The scene contains the geometries for: mummy, muscles, fascia, fat and skin.</figcaption>
+  ![Maya Scene Ready To Execute AdnTurbo](../images/turbo_script_01.png)
+  <figcaption><b>Figure 4</b>: Starting point to execute AdnTurbo onto an arm asset. The scene contains the geometries for: mummy, muscles, fascia, fat and skin.</figcaption>
 </figure>
 
-2. Provide the inputs in the Turbo Tool according to the layers that have to be built. Refer to figure 3 to build all the layers.
+2. Provide the inputs in the Turbo UI according to the layers that have to be built. Refer to Figure 3 to build all the layers.
 
-3. Additionally, to place the output glue geometry in a specific group, check the *Group Glue* option and provide a *Glue Group*. If the specified group does not exist, checking the *Create if not exist* option will make the turbo tool to create it automatically.
+3. Additionally, to place the output glue geometry in a specific group, check the *Group Glue* option and provide a *Glue Group*. If the specified group does not exist, checking the *Create if not exist* option will make AdnTurbo to create it automatically.
 
-4. If the scene contains AdonisFX nodes, a confirmation dialog will appear informing about it. Press *Yes* to automatically delete all AdonisFX nodes or *No* to cancel the turbo process.
+4. If the scene contains AdonisFX nodes, a confirmation dialog will appear informing about it. Press *Yes* to automatically delete all AdonisFX nodes or *No* to cancel the execution.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Turbo Execution Completed](../images/turbo_tool_confirmation_dialog.png)
   <figcaption><b>Figure 5</b>: Question dialog informing about AdonisFX nodes in the scene before executing.</figcaption>
 </figure>
 
-5. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the troubleshooting. Note that the whole turbo process can be undone.
+5. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the troubleshooting. Note that the whole AdnTurbo can be undone.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Turbo Execution Completed](../images/turbo_script_02.png)
@@ -73,7 +73,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 
 > [!NOTE]
 > - If multiple geometries or groups share the same name in different groups (e.g. group1|geo and group2|geo, group1|group3 and group2|group3), providing the full DAG path will be required.
-> - The turbo process can also be executed via Python scripting. For more details, please refer to the [Turbo Script page](../scripts/turbo).
+> - AdnTurbo can also be executed via Python scripting. For more details, please refer to the [Turbo Script page](../scripts/turbo).
 
 ## Result
 
@@ -92,4 +92,4 @@ As a result of executing the tool by providing the geometries for all the layers
 
 - The **Glue Layer** cannot be bypassed. This means that for the **Fascia Layer** to be enabled, the **Glue Layer** checkbox must be checked.
 - If the *Yes* button is pressed in the question dialog (see figure 5) the tool will automatically remove all the AdonisFX nodes from the scene. However, other auxiliary nodes created in previous executions of the script will not be removed (i.e. glue output geometry, rivet nodes).
-- The default values that the turbo tool will use to configure each deformer cannot be customized.
+- The default values that AdnTurbo will use to configure each deformer cannot be customized.
