@@ -128,7 +128,7 @@ apply_turbo(
 </code></pre>
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Mirroring Execution Completed](../images/turbo_script_02.png)
+  ![Turbo Execution Completed](../images/turbo_script_02.png)
   <figcaption><b>Figure 2</b>: All simulation layers configured after the execution: muscles, glue, fascia, fat and skin.</figcaption>
 </figure>
 
