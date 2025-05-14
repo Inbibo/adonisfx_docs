@@ -140,6 +140,8 @@ for warn in report_data["warnings"]:
     logging.warning(warn)
 </code></pre>
 
+Note that the whole turbo process can be undone.
+
 > [!NOTE]
 > - If multiple geometries or groups share the same name in different groups (e.g. group1|geo and group2|geo, group1|group3 and group2|group3), providing the full DAG path will be required.
 > - If there are AdonisFX nodes in the scene and the `force` argument is set to `False` the turbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force=True` to automatically delete all the AdonisFX nodes.

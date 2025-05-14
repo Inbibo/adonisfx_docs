@@ -21,6 +21,7 @@
     - [Paint Tool](tools/paint_tool)
     - [Sensor Connection Editor](tools/sensors_connection_editor)
     - [Mirror](tools/mirror_tool)
+    - [Turbo](tools/turbo_tool)
     - [Export](tools/exporter)
     - [Import](tools/importer)
 - Scripts
