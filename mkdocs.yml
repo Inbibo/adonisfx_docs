@@ -125,5 +125,6 @@ nav:
       - Import                    : maya/tools/importer.md
     - Scripts:
       - Mirror                    : maya/scripts/mirror.md
+      - Turbo                     : maya/scripts/turbo.md
       - Input & Output            : maya/scripts/io.md
     - API                         : maya/api.md
