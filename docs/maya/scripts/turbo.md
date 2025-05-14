@@ -60,7 +60,7 @@ def apply_turbo(
 | **skin**              | string         | None       | Skin mesh or group name. Requires fat to be provided first. |
 | **glue**              | bool           | False      | If True, creates an AdnGlue node using all muscles as inputs. |
 | **glue_group**        | string         | None       | Name of the group where the glue geometry will be placed. |
-| **create_glue_group** | bool           | False      | If True and `glue_group` is set, the group is created if it does not exist. |
+| **create_glue_group** | bool           | True       | If True and `glue_group` is set, the group is created if it does not exist. |
 | **space_scale**       | float          | 1.0        | Factor to scale simulation space. |
 | **force**             | bool           | False      | If True, removes existing AdonisFX nodes before applying new ones (does not remove rivets or old glue meshes created by the turbo script). |
 | **report_data**       | dictionary     | None       | A dictionary (`{"errors": [], "warnings": []}`) to capture any issues during execution. |
