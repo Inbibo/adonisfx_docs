@@ -1,5 +1,39 @@
 # Release Notes
 
+## Version 1.7.0
+2025-05-22
+
+### Core
+- Added a layered activation system in AdnMuscle and AdnRibbonMuscle solvers.
+- Added activation-driven volume gain to AdnMuscle solver.
+- Improved AdnGlue solver to support two simulation modes: static and dynamic.
+- Added substeps to the AdnGlue solver.
+- Added Self-Collisions to the AdnGlue solver.
+- Added volume preservation to the AdnGlue solver.
+
+### Maya
+- Added an AdnTurbo script to build the whole AdonisFX rig from Python.
+- Implemented a UI to execute AdnTurbo.
+- Added dynamic attributes to the AdnGlue node (e.g. substeps, gravity, soft constraints, attenuation, damping).
+- Added volume preservation attribute to the AdnGlue node.
+- Added AdnRemap node to remove dependency with the Maya remapValue nodes.
+- Added a new array attribute to the AdnMuscle and AdnRibbonMuscle to support activation layers.
+- Added a read-only attribute to expose the muscle activation result of the activation layers in AdnMuscle and AdnRibbonMuscle nodes.
+- Extended Experimental API to support AdnRibbonMuscle, AdnSimshape, AdnEdgeEvaluator and AdnRemap nodes.
+- Extended mirror script and tool to support AdnRemap node.
+- Extended mirror script and tool to support activation layers.
+
+### Improvements
+- Place steps attribute above iterations attribute in the Attribute Editor Template of AdnSkin and AdnFat deformers.
+- Updated support email address in the EULA.
+- Improved AdnActivation node support in the Experimental API to support value plugs without connections.
+
+### Bug Fixes
+- Fixed a bug that was preventing skipping the computation of the slide collision constraints when the Compute Collisions checkbox was disabled in AdnSimshape. *AdonisFX-2043*
+
+### Deprecated
+- Removed Python code (UI, tools and utils) that was supporting the outdated Import and Export tools deprecated in 1.5.0.
+
 ## Version 1.6.2
 2025-04-25
 
