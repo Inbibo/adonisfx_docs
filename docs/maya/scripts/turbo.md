@@ -10,26 +10,6 @@ The Turbo script is a Python script that automates the setup of an AdonisFX rig 
 
 Please, check this [section](#limitations) to know more about the current limitations.
 
-## Requirements
-
-Each layer builds upon the previous one, this means that a specific layer cannot be created unless all the previous layer inputs have been provided.
-
-To configure at least the muscle layer, the following inputs are required:
-
-- **Mummy geometry**: the skeletal mesh that drives the muscle simulation.  
-- **Muscle geometries**: one or more meshes representing muscles.
-
-When these two inputs are provided, the muscle layer will be completely configured including AdonisFX locators and sensors.
-
-Additional layers require cumulative inputs as follows:
-
-| Target Layer | Required Inputs |
-| :----------- | :-------------- |
-| Glue         | `mummy`, `muscles`, `glue = True` |
-| Fascia       | previous inputs + `fascia = "<fascia_geometry_name>"` |
-| Fat          | previous inputs + `fat = "<fat_geometry_name>"` |
-| Skin         | previous inputs + `skin = "<skin_geometry_name>"` |
-
 ## Arguments
 
 In this section we provide a brief overview of the arguments of the `apply_turbo` function.
@@ -51,20 +31,37 @@ def apply_turbo(
 )
 </code></pre>
 
-| Argument | Type | Default | Description |
-| :------- | :--- | :------ | :---------- |
-| **mummy**             | string         | *required* | Name or full path of the skeletal mesh or group containing it. |
-| **muscles**           | string or list | *required* | Single mesh, group, or list of groups and/or meshes representing muscles. |
-| **fascia**            | string         | None       | Fascia mesh or group name. Requires `glue = True`. |
-| **fat**               | string         | None       | Fat mesh or group name. Requires fascia to be provided first. |
-| **skin**              | string         | None       | Skin mesh or group name. Requires fat to be provided first. |
-| **glue**              | bool           | False      | If True, creates an AdnGlue node using all muscles as inputs. |
-| **glue_group**        | string         | None       | Name of the group where the glue geometry will be placed. |
-| **create_glue_group** | bool           | True       | If True and `glue_group` is set, the group is created if it does not exist. |
-| **space_scale**       | float          | 1.0        | Factor to scale simulation space. |
-| **force**             | bool           | False      | If True, removes existing AdonisFX nodes before applying new ones (does not remove rivets or old glue meshes created by the turbo script). |
-| **report_data**       | dictionary     | None       | A dictionary (`{"errors": [], "warnings": []}`) to capture any issues during execution. |
+| Argument | Required | Type | Default | Description |
+| :------- | :------- | :--- | :------ | :---------- |
+| **mummy**             | Yes      | string         |       | Skeletal mesh that drives the muscle simulation. It can be: 1) the name of the geometry (short name or full path); 2) a group containing the geometry. |
+| **muscles**           | Yes      | string or list |       | Geometries to apply a muscle deformer to. It can be: 1) name of one single geometry; 2) a transform group containing multiple geometries; 3) a list of geometry names; 4) a list of groups containing multiple geometries. |
+| **fascia**            | Optional | string         | None  | Geometry to apply the skin deformer to. It can be: 1) name of the fascia geometry; 2) group containing the fascia geometry. Requires `glue=True`. |
+| **fat**               | Optional | string         | None  | Geometry to apply the fat deformer to. It can be: 1) name of the fat geometry; 2) group containing the fat geometry. Requires fascia to be provided first. |
+| **skin**              | Optional | string         | None  | Geometry to apply the skin deformer to. It can be: 1) name of the skin geometry; 2) group containing the skin geometry. Requires fat to be provided first. |
+| **glue**              | Optional | bool           | False | If True, creates an AdnGlue node using all muscles as inputs. |
+| **glue_group**        | Optional | string         | None  | Name of the group where the glue geometry will be placed. |
+| **create_glue_group** | Optional | bool           | True  | If True and `glue_group` is provided, the group is created if it does not exist. |
+| **space_scale**       | Optional | float          | 1.0   | Factor to scale simulation space. It will be set to the space scale attribute of all the solvers created. |
+| **force**             | Optional | bool           | False | If True, deletes all existing AdonisFX nodes before executing to create the new nodes from a clean scene. Note that auxiliary nodes (e.g. rivets) or meshes created by an existing AdnGlue node will not be deleted. |
+| **report_data**       | Optional | dictionary     | None  | A dictionary (`{"errors": [], "warnings": []}`) to capture any issues during execution. |
 
+## Requirements
+
+Each layer builds upon the previous one, this means that a specific layer cannot be created unless all the previous layer inputs have been provided.
+
+To configure at least the muscle layer, the following inputs are required:
+
+- **mummy**: the skeletal mesh that drives the muscle simulation.
+- **muscles**: one or more meshes representing muscles.
+
+When these two inputs are provided, the muscle layer will be completely configured including AdonisFX locators and sensors.
+
+To configure the downstream layers, the following inputs have to be provided:
+
+- **glue**: flag indicating if the glue layer has to be built.
+- **fascia**: the fascia mesh to which AdnSkin is applied. The **glue** flag must be `True` for the fascia layer to be built.
+- **fat**: the fat mesh to which AdnFat is applied. The **fascia** input must be provided for the fat layer to be built.
+- **skin**: the skin mesh to which AdnSkin is applied. The **fat** input must be provided for the skin layer to be built.
 
 ## How to use
 
@@ -142,7 +139,7 @@ for warn in report_data["warnings"]:
 </code></pre>
 
 > [!NOTE]
-> - If multiple geometries share the same name in different groups (e.g. group1|geo vs. group2|geo), provide the full DAG path.
+> - If multiple geometries or groups share the same name in different groups (e.g. group1|geo and group2|geo, group1|group3 and group2|group3), providing the full DAG path will be required.
 > - If there are AdonisFX nodes in the scene and the `force` argument is set to `False` the Turbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force = True` to automatically delete all the AdonisFX nodes.
 > - The turbo process can also be executed with the **AdnTurbo tool**. For more details, please refer to the [Turbo Tool page](../tools/turbo_tool).
 
@@ -151,7 +148,7 @@ for warn in report_data["warnings"]:
 As a result of executing the script by providing the geometries for all the layers, the following nodes will be created:
 
 - An AdnMuscle for each muscle geometry with the mummy geometry as target.
-- An AdonisFX locator and sensor for each AdnMuscle.
+- An AdonisFX locator and sensor for each AdnMuscle to drive the muscle activation.
 - An AdnGlue node (including its glue output geometry) with all the muscles as inputs.
 - An AdnSkin node for the fascia geometry with the mummy and glue geometries as targets.
 - An AdnRelax node applied on top of the fascia AdnSkin.
@@ -162,6 +159,6 @@ As a result of executing the script by providing the geometries for all the laye
 ## Limitations
 
 - The glue layer cannot be bypassed. This means that if the `fascia` argument is provided, the `glue` flag must be `True` for the script to complete successfully.
-- If the `force` flag is set to `True` the script will automatically remove all the AdonisFX nodes from the scene (if any). However, other nodes created in previous executions of the script will not be removed (i.e. glue geometry, rivet nodes).
+- If the `force` flag is set to `True` the script will automatically remove all the AdonisFX nodes from the scene (if any). However, other auxiliary nodes created in previous executions of the script will not be removed (i.e. glue output geometry, rivet nodes).
 - Self-collisions are not configured by the turbo script.
 - The default values that the turbo script will use to configure each deformer cannot be customized.
