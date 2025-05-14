@@ -16,6 +16,7 @@
     - [AdnActivation](nodes/activation)
     - [AdnEdgeEvaluator](nodes/edge_evaluator)
     - [AdnGlue](nodes/glue)
+    - [AdnRemap](nodes/remap)
 - Tools
     - [Paint Tool](tools/paint_tool)
     - [Sensor Connection Editor](tools/sensors_connection_editor)
