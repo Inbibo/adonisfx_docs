@@ -16,7 +16,7 @@
 - Implemented a UI to execute AdnTurbo.
 - Added dynamic attributes to the AdnGlue node (e.g. substeps, gravity, soft constraints, attenuation, damping).
 - Added volume preservation attribute to the AdnGlue node.
-- Added AdnRemap node to remove dependency with the Maya remapValue nodes.
+- Added AdnRemap node to remove dependency on the Maya remapValue nodes.
 - Added a new array attribute to the AdnMuscle and AdnRibbonMuscle to support activation layers.
 - Added a read-only attribute to expose the muscle activation result of the activation layers in AdnMuscle and AdnRibbonMuscle nodes.
 - Extended Experimental API to support AdnRibbonMuscle, AdnSimshape, AdnEdgeEvaluator and AdnRemap nodes.
