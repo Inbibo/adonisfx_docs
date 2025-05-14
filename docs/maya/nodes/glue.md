@@ -4,8 +4,8 @@ AdnGlue is a Maya node that can be used to attach multiple muscles together. Thi
 
 There are two differentiated modes that this solver can run in:
 
-- Static. The solver ingests the input geometry data at each simulated frame and computes the glue connections, as well as the distance, shape and volume constraints directly over the point positions of that input geometry data. There is no influence of the gravity nor inertia propagated from one frame to the next one.
-- Dynamic. The solver behaves as a standard time-dependent simulation solver where the external forces (i.e. gravity) are integrated to introduce inertia to the system. The input geometries become a target geometry used by the solver to compute soft constraints against to. Glue, distance, shape and volume constraints are computed too. By default, the AdnGlue runs in static mode, but there is a boolean attribute exposed to allow switching to dynamic mode.
+- **Static**. The solver ingests the input geometry data at each simulated frame and computes the glue connections, as well as the distance, shape and volume constraints directly over the point positions of that input geometry data. There is no influence of gravity nor inertia propagated from one frame to the next one.
+- **Dynamic**. The solver behaves as a standard time-dependent simulation solver where the external forces (i.e. gravity) are integrated to introduce inertia to the system. The input geometries become a target geometry used by the solver to compute soft constraints against. Glue, distance, shape and volume constraints are computed too. By default, the AdnGlue runs in static mode, but there is a boolean attribute exposed to allow switching to dynamic mode.
 
 The maps required to control the AdnGlue solver can be painted using the standard Maya Paint tool.
 
@@ -147,7 +147,7 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
 | **Self Collision Point Radius Multiplier**  | 1.0 | Multiply the point radius of each vertex.<ul><li>*Tip*: Paint with a value of 0.0 the areas that should not compute self collisions to reduce the computational impact.</li></ul> |
 | **Self Collision Weights**                  | 1.0 | Amount of correction to apply to the current vertex when a collision with another vertex is detected.<ul><li>*Tip*: Paint with a value of 0.0 the areas that should not compute self collisions to reduce the computational impact.</li><li>*Tip*: Paint with higher value the areas that should receive more correction due to self-intersections, and with lower value the areas that should receive less correction.</li></ul> |
 | **Shape Preservation**                      | 0.0 | Amount of correction to apply to a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
-| **Soft Constraints**                        | 1.0 | Weight to modulate the correction applied to the vertices to keep them at a constant distance to the correspondent vertex on the input geometries at initialization. These constraint weights will allow the glued geometry to follow the input geometries in dynamic mode. Only available in dynamic mode. |
+| **Soft Constraints**                        | 1.0 | Weight to modulate the correction applied to the vertices to keep them at a constant distance to the corresponding vertex on the input geometries at initialization. These constraint weights will allow the glued geometry to follow the input geometries in dynamic mode. Only available in dynamic mode. |
 | **Stretching Resistance**                   | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
 
 <figure markdown>
@@ -157,12 +157,12 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
 
 <figure markdown>
   ![AdnGlue weights](../images/glue_weights_01.png)
-  <figcaption><b>Figure 4</b>: Example of painted map for self-collisions point radius multiplier (left: front view; right: back view). It is flooded to 0.0 to reduce computational cost. Then, painted with value of 1.0 on the areas that intersections can appear during simulation when the arms and the legs flex.  </figcaption>
+  <figcaption><b>Figure 4</b>: Example of painted map for self-collisions point radius multiplier (left: front view; right: back view). Flood to 0.0 to reduce computational cost. Then, paint with a value of 1.0 on the areas that intersections can appear during simulation when the arms and the legs flex.  </figcaption>
 </figure>
 
 <figure markdown>
   ![AdnGlue weights](../images/glue_weights_02.png)
-  <figcaption><b>Figure 5</b>: Example of painted map for self-collisions weights (left: front view; right: back view). It is flooded to 0.0 to reduce computational cost. Then, painted with value of 1.0 on the legs (back) and on the upper part of the arms. Finally, painted with a value of 0.5 on the forearms. This difference on the arms is an example of how to make the solver apply more correction during self-collisions solving on the upper part (higher value). </figcaption>
+  <figcaption><b>Figure 5</b>: Example of painted map for self-collisions weights (left: front view; right: back view). Flood to 0.0 to reduce computational cost. Then, paint with a value of 1.0 on the legs (back) and on the upper part of the arms. Finally, painted with a value of 0.5 on the forearms. This difference on the arms is an example of how to make the solver apply more correction during self-collisions solving on the upper part (higher value). </figcaption>
 </figure>
 
 > [!NOTE]
