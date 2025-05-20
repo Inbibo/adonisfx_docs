@@ -93,3 +93,4 @@ As a result of executing the tool by providing the geometries for all the layers
 - The **Glue Layer** cannot be bypassed. This means that for the **Fascia Layer** to be enabled, the **Glue Layer** checkbox must be checked.
 - If the *Yes* button is pressed in the question dialog (see figure 5) the tool will automatically remove all the AdonisFX nodes from the scene. However, other auxiliary nodes created in previous executions of the script will not be removed (i.e. glue output geometry, rivet nodes).
 - The default values that AdnTurbo will use to configure each deformer cannot be customized.
+- AdnTurbo does not support namespaces in object paths.
