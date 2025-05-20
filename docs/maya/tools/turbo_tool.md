@@ -3,6 +3,7 @@
 The **AdnTurbo Tool** is a feature designed to automate the creation of an AdonisFX rig from scratch on a clean asset within Maya, from which fine-tuning and customization can proceed. It sequentially configures the following simulation layers:
 
 - **Muscle layer**
+- **Locators and Sensors**
 - **Glue layer**
 - **Fascia layer**
 - **Fat layer**
