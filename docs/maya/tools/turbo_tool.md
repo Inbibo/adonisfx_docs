@@ -51,7 +51,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Maya Scene Ready To Execute AdnTurbo](../images/turbo_script_01.png)
-  <figcaption><b>Figure 4</b>: Starting point to execute AdnTurbo onto an arm asset. The scene contains the geometries for: mummy, muscles, fascia, fat and skin.</figcaption>
+  <figcaption><b>Figure 4</b>: Starting point to execute AdnTurbo onto an arm asset. The scene contains the geometries for: mummy, muscles, fascia, fat and skin. Additionally the groups for the glue geometry and the locators are present in the scene.</figcaption>
 </figure>
 
 2. Provide the inputs in the Turbo UI according to the layers that have to be built. Refer to Figure 3 to build all the layers.
@@ -74,6 +74,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 
 > [!NOTE]
 > - If multiple geometries or groups share the same name in different groups (e.g. group1|geo and group2|geo, group1|group3 and group2|group3), providing the full DAG path will be required.
+> - Fascia and fat meshes must have the same topology for the AdnFat deformer to be created by AdnTurbo.
 > - AdnTurbo can also be executed via Python scripting. For more details, please refer to the [Turbo Script page](../scripts/turbo).
 
 ## Result

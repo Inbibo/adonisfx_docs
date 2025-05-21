@@ -79,7 +79,7 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Maya Scene Ready To Execute The AdnTurbo Script](../images/turbo_script_01.png)
-  <figcaption><b>Figure 1</b>: Starting point to execute the AdnTurbo script onto an arm asset. The scene contains the geometries for: mummy, muscles, fascia, fat and skin.</figcaption>
+  <figcaption><b>Figure 1</b>: Starting point to execute the AdnTurbo script onto an arm asset. The scene contains the geometries for: mummy, muscles, fascia, fat and skin. Additionally the groups for the glue geometry and the locators are present in the scene.</figcaption>
 </figure>
 
 2. Create the arguments for the `apply_turbo` function.
@@ -160,6 +160,7 @@ for warn in report_data["warnings"]:
 > - Note that the whole AdnTurbo can be undone.
 > - If multiple geometries or groups share the same name in different groups (e.g. group1|geo and group2|geo, group1|group3 and group2|group3), providing the full DAG path will be required.
 > - If there are AdonisFX nodes in the scene and the `force` argument is set to `False` the AdnTurbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force=True` to automatically delete all the AdonisFX nodes.
+> - Fascia and fat meshes must have the same topology for the AdnFat deformer to be created by AdnTurbo.
 > - AdnTurbo can also be executed with the **AdnTurbo Tool**. For more details, please refer to the [AdnTurbo Tool page](../tools/turbo_tool).
 
 ## Result
