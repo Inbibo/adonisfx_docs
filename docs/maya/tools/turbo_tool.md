@@ -1,6 +1,6 @@
 # AdnTurbo
 
-The **AdnTurbo Tool** is a feature designed to automate the creation of an AdonisFX rig from scratch on a clean asset within Maya, from which fine-tuning and customization can proceed. It sequentially configures the following simulation layers:
+The **AdnTurbo Tool** is a feature designed to automate the creation of an AdonisFX rig from scratch on a clean asset within Maya, from which fine-tuning and customization can proceed. It sequentially configures the following layers:
 
 - **Muscle layer**
 - **Locators and Sensors**
@@ -28,14 +28,14 @@ Please, check this [section](#limitations) to know more about the current limita
 
 ## Requirements
 
-Each layer builds upon the previous one, this means that a specific layer will be disabled in the UI unless all the previous layer checkboxes have been checked.
+Each layer builds upon the previous one, this means that a specific layer will be disabled in the UI unless all the previous layer checkboxes have been checked. This rule applies to all the layers except for **Locators and Sensors**, which can be enabled or disabled without affecting the building of other layers.
 
 To configure at least the muscle layer, the following inputs are required:
 
 - **Mummy**: the skeletal mesh that drives the muscle simulation.
 - **Muscles**: one or more meshes representing muscles. The **Muscle Layer** checkbox must be enabled to provide this input.
 
-When these two inputs are provided and the following layers are unchecked, AdnTurbo will be ready to be executed.
+When these two inputs are provided and the following layers are unchecked, AdnTurbo will be ready to be executed. If the **Locators & Sensors** checkbox is checked, locators and sensors will be built for each muscle.
 
 To configure the downstream layers, the following inputs have to be provided:
 
@@ -56,7 +56,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 
 2. Provide the inputs in the Turbo UI according to the layers that have to be built. Refer to Figure 3 to build all the layers.
 
-3. Additionally, to place the output glue geometry in a specific group, check the *Group Glue* option and provide a *Glue Group*. If the specified group does not exist, checking the *Create if not exist* option will make AdnTurbo to create it automatically.
+3. Additionally, to place the output glue geometry in a specific group, check the *Group* option and provide a *Group name* in the *Glue Layer* UI group. Likewise, to place locator and rivet nodes into their own group, use the same options in the counterpart group *Locators & Sensors*. If the specified group does not exist, checking the *Create if not exist* option will make AdnTurbo to create it automatically.
 
 4. If the scene contains AdonisFX nodes, a confirmation dialog will appear informing about it. Press *Yes* to automatically delete all AdonisFX nodes or *No* to cancel the execution.
 
@@ -69,7 +69,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Turbo Execution Completed](../images/turbo_script_02.png)
-  <figcaption><b>Figure 6</b>: All simulation layers configured after the execution: muscles, glue, fascia, fat and skin.</figcaption>
+  <figcaption><b>Figure 6</b>: All simulation layers configured after the execution: muscles, glue, fascia, fat and skin (including locators and sensors).</figcaption>
 </figure>
 
 > [!NOTE]
