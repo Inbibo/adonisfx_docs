@@ -1,5 +1,12 @@
 # Release Notes
 
+
+## Version 1.7.1
+2025-05-28
+
+### Bug Fixes
+- Fixed a bug that was preventing the logger to display messages in batch mode. *AdonisFX-2100*
+
 ## Version 1.7.0
 2025-05-22
 
