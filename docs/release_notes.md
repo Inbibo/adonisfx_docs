@@ -1,7 +1,7 @@
 # Release Notes
 
 ## Version 1.7.0
-2025-05-22
+2025-05-28
 
 ### Core
 - Added a layered activation system in AdnMuscle and AdnRibbonMuscle solvers.
