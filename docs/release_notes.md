@@ -8,7 +8,7 @@
 - Fixed a bug that was preventing the logger from displaying messages in batch mode. *AdonisFX-2100*
 
 ## Version 1.7.0
-2025-05-22
+2025-05-28
 
 ### Core
 - Added a layered activation system in AdnMuscle and AdnRibbonMuscle solvers.
