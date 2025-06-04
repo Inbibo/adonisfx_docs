@@ -34,6 +34,12 @@
 ### Deprecated
 - Removed Python code (UI, tools and utils) that was supporting the outdated Import and Export tools deprecated in 1.5.0.
 
+## Version 1.6.3
+2025-06-02
+
+### Bug Fixes
+- Fixed a bug that was preventing the logger from displaying messages in batch mode. *AdonisFX-2100*
+
 ## Version 1.6.2
 2025-04-25
 
