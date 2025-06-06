@@ -1,5 +1,11 @@
 # Release Notes
 
+## Version 1.6.3
+2025-06-06
+
+### Improvements
+- Improved logger to display more information in batch mode. *AdonisFX-2100*
+
 ## Version 1.6.2
 2025-04-25
 
