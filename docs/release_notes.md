@@ -1,11 +1,10 @@
 # Release Notes
 
-
 ## Version 1.7.1
-2025-06-02
+2025-06-11
 
-### Bug Fixes
-- Fixed a bug that was preventing the logger from displaying messages in batch mode. *AdonisFX-2100*
+### Improvements
+- Improved logger to display more information in batch mode. *AdonisFX-2100*
 
 ## Version 1.7.0
 2025-05-28
@@ -40,6 +39,12 @@
 
 ### Deprecated
 - Removed Python code (UI, tools and utils) that was supporting the outdated Import and Export tools deprecated in 1.5.0.
+
+## Version 1.6.3
+2025-06-06
+
+### Improvements
+- Improved logger to display more information in batch mode. *AdonisFX-2100*
 
 ## Version 1.6.2
 2025-04-25
