@@ -1,5 +1,15 @@
 # Release Notes
 
+## Version 1.6.4
+2025-06-09
+
+### Improvements
+- Improved floating licenses to drop the lease instantly when the plugin is unloaded or the Maya process ends.
+- Improved material switch in the Paint Tool to support multiple materials on the same paintable geometry.
+
+### Bug Fixes
+- Fixed a bug that was preventing the muscle solver from initializing if the input geometry had disconnected primitives. *AdonisFX-2111*
+
 ## Version 1.6.3
 2025-06-06
 
