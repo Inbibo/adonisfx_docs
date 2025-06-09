@@ -4,7 +4,7 @@
 2025-06-09
 
 ### Improvements
-- Improved floating licenses to drop the lease instantly when the plugin is unloaded or the Maya process ends.
+- Improved floating licensing system to drop the lease instantly on Maya exit.
 - Improved material switch in the Paint Tool to support multiple materials on the same paintable geometry.
 
 ### Bug Fixes
