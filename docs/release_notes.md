@@ -1,7 +1,7 @@
 # Release Notes
 
 ## Version 1.7.2
-2025-06-13
+2025-06-12
 
 ### Improvements
 - Improved floating licensing system to drop the lease instantly on Maya exit.
