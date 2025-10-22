@@ -4,7 +4,7 @@
 2025-10-22
 
 ### Bug Fixes
-- Fixed an error that was making the custom paint context fail in Maya 2026. *AdonisFX-2419*
+- Resolved an issue that caused the custom paint context to fail in Maya 2026. *AdonisFX-2419*
 
 ## Version 1.7.2
 2025-06-12
