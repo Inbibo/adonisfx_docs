@@ -102,21 +102,23 @@ nav:
     - Index                       : maya/index.md
     - UI Overview                 : maya/ui_overview.md
     - A Simple Setup              : maya/simple_setup.md
+    - Solvers:
+      - AdnMuscle                 : maya/solvers/muscle.md
+      - AdnRibbonMuscle           : maya/solvers/ribbon.md
+      - AdnGlue                   : maya/solvers/glue.md
+      - AdnFat                    : maya/solvers/fat.md
+      - AdnSkin                   : maya/solvers/skin.md
+      - AdnSkinMerge              : maya/solvers/skin_merge.md
+      - AdnSimshape               : maya/solvers/simshape.md
     - Deformers:
-      - AdnMuscle                 : maya/deformers/muscle.md
-      - AdnRibbonMuscle           : maya/deformers/ribbon.md
-      - AdnFat                    : maya/deformers/fat.md
-      - AdnSkin                   : maya/deformers/skin.md
       - AdnRelax                  : maya/deformers/relax.md
-      - AdnSkinMerge              : maya/deformers/skin_merge.md
-      - AdnSimshape               : maya/deformers/simshape.md
-    - Nodes:
-      - Locators                  : maya/nodes/locators.md
-      - Sensors                   : maya/nodes/sensors.md
-      - AdnActivation             : maya/nodes/activation.md
-      - AdnEdgeEvaluator          : maya/nodes/edge_evaluator.md
-      - AdnGlue                   : maya/nodes/glue.md
-      - AdnRemap                  : maya/nodes/remap.md
+      - AdnPush                   : maya/deformers/push.md
+    - Utils:
+      - AdnLocators               : maya/utils/locators.md
+      - AdnSensors                : maya/utils/sensors.md
+      - AdnActivation             : maya/utils/activation.md
+      - AdnRemap                  : maya/utils/remap.md
+      - AdnEdgeEvaluator          : maya/utils/edge_evaluator.md
     - Tools:
       - Paint Tool                : maya/tools/paint_tool.md
       - Sensors Connection Editor : maya/tools/sensors_connection_editor.md
@@ -129,3 +131,34 @@ nav:
       - Turbo                     : maya/scripts/turbo.md
       - Input & Output            : maya/scripts/io.md
     - API                         : maya/api.md
+  - Houdini:
+    - Index                       : houdini/index.md
+    - UI Overview                 : houdini/ui_overview.md
+    - A Simple Setup              : houdini/simple_setup.md
+    - Solvers:
+      - AdnMuscle                 : houdini/solvers/muscle.md
+      - AdnRibbonMuscle           : houdini/solvers/ribbon.md
+      - AdnGlue                   : houdini/solvers/glue.md
+      - AdnFat                    : houdini/solvers/fat.md
+      - AdnSkin                   : houdini/solvers/skin.md
+      - AdnSkinMerge              : houdini/solvers/skin_merge.md
+      - AdnSimshape               : houdini/solvers/simshape.md
+    - Deformers:
+      - AdnRelax                  : houdini/deformers/relax.md
+      - AdnPush                   : houdini/deformers/push.md
+    - Utils:
+      - AdnLocators               : houdini/utils/locators.md
+      - AdnSensors                : houdini/utils/sensors.md
+      - AdnActivation             : houdini/utils/activation.md
+      - AdnRemap                  : houdini/utils/remap.md
+      - AdnEdgeEvaluator          : houdini/utils/edge_evaluator.md
+      - AdnFiberGroom             : houdini/utils/fiber_groom.md
+      - AdnLearnMusclePatches     : houdini/utils/learn_muscle_patches.md
+    - Tools:
+      - Turbo                     : houdini/tools/turbo_tool.md
+      - Export                    : houdini/tools/exporter.md
+      - Import                    : houdini/tools/importer.md
+    - Scripts:
+      - Turbo                     : houdini/scripts/turbo.md
+      - Input & Output            : houdini/scripts/io.md
+    - API                         : houdini/api.md
