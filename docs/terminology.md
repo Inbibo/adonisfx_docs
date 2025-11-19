@@ -2,106 +2,91 @@
 
 ## Activation Node
 
-The Activation Node, or **AdnActivation**, is an AdonisFX node that performs operations on input activation values to produce a final activation value. This value can be used to drive the activation of a muscle. The node supports operations such as overriding, adding, subtracting, multiplying, and dividing multiple input activations to generate a single output. Input activations can be derived from AdonisFX sensor data (e.g., AdnSensorPosition, AdnSensorDistance, AdnSensorRotation). This node is recommended for on-demand activations or when multiple activations from several sensors need to be merged into one value.
+Activation Node or **AdnActivation** is an AdonisFX node that allows to perform operations on input activation values to produce a final activation value that can be used to drive the activation of a muscle. This node allows to override, add, subtract, multiply, divide, etc. multiple input activations to produce one single output. The input activations can be used by ingesting AdonisFX sensor data (AdnSensorPosition, AdnSensorDistance, AdnSensorRotation). This node is recommended to be used when on-demand activations are required or when multiple activations from several sensors have to be merged into one value.
 
 ## Constraints
 
-Constraints are rules applied by an AdonisFX solver during simulation to maintain relationships between elements, such as distances between geometry points, external attachments, rig joints, or external meshes. Below is a catalog of constraints:
+Constraints are rules that an AdonisFX solver applies during simulation to ensure that the relationship between elements involved in the simulation is maintained, such as distance between geometry points, distance between geometry points and external attachments, rig joints or external meshes, etc. The catalog of constraints is presented below.
 
-- **Attachment To Transform**: Defines the relationship between a geometry point and an external transform object. During simulation, it keeps the geometry point at a constant location relative to the transform.
+**Attachment To Transform**. An attachment to transform constraint defines the relationship between a geometry point and an external transform object. During simulation, an attachment constraint will try to keep the geometry point at a constant location relative to the transform.
 
-- **Attachment To Geometry**: Defines the relationship between a geometry point and an external mesh object. During simulation, it keeps the geometry point at a constant location relative to the closest point on the target geometry at rest.
+**Attachment To Geometry**. An attachment to geometry constraint defines the relationship between a geometry point and an external mesh object. During simulation, an attachment constraint will try to keep the geometry point at a constant location relative to the closest point to the target geometry at rest.
 
-- **Distance**: Defines the relationship between two points of a geometry. During simulation, it maintains the edge lengths of the mesh at rest.
+**Distance**. A distance constraint defines the relationship between two points of a geometry. During simulation, distance constraints will try to keep the edge lengths of the mesh at rest.
 
-- **Fiber**: A specialization of the distance constraint that considers the muscle fiber flow to emulate real fiber contraction behavior.
+**Fiber**. A fiber constraint defines the relationship between two points of a muscle geometry. It is a specialization of the distance constraint where the muscle fibers flow is taken into consideration to emulate the behavior of a real fiber contraction.
 
-- **Glue**: Defines the relationship between a geometry point and another point on an external geometry. It keeps the point at a certain distance from the external geometry point without restricting relative orientation. This constraint is used to glue muscles together.
+**Glue**. A glue constraint defines the relationship between a geometry point and another point on an external geometry. These constraints aim to keep the point at a certain distance to the external geometry point without any restrictions of relative orientation. The constraint behavior aligns with Soft Constraints that are used to glue muscles together.
 
-- **Hard**: Defines the location of a geometry point in the tangent space of a polygon. Similar to the attachment constraint, but the transformation used is derived from the tangent space at the closest point on an external geometry.
+**Hard**. A hard constraint defines the location of a geometry point in the tangent space of a polygon. This constraint type is similar to the attachment constraint but in this case the transformation used is the one given by the tangent space at the closest point on an external geometry.
 
-- **Self-Collision**: Corrects points that intersect with the geometry itself. There are two modes:
-  - **Point-to-Point**: Detects intersections when the volume around a point overlaps with another point's volume (e.g., spheres or spheroids).
-  - **Triangle-to-Triangle**: Detects intersections when edges of one triangle cross the area of another triangle.
+**Self-Collision**. Applies corrections to the points that are intersecting with the geometry itself. There are two modes of self-collisions correction in AdonisFX: point-to-point and triangle-to-triangle. In point-to-point mode, an intersection occurs if the volume around a point intersects with the volume of another point. This volume can be a perfect sphere (uniform, defined by a radius) or a spheroid (when there is thickness and differs with the radius). In triangle-to-triangle mode, an intersection occurs if two triangles are intersecting each other, which can happen if one or two edges of one triangle cross the area of the other triangle.
 
-- **Shape Preservation**: Maintains the shape formed by a vertex and its adjacent vertices during simulation.
+**Shape Preservation**. A shape preservation constraint defines the state of the shape formed by a vertex with its adjacents on initialization. During simulation, a shape preservation constraint will try to maintain the rest shape of the geometry with its neighboring vertices.
 
-- **Slide**: Defines the distance between a geometry point and a surface, allowing the point to travel along the surface while maintaining a constant distance.
+**Slide**. A slide constraint defines the distance between a geometry point and a surface. This constraint allows the point to travel along the surface. During simulation, this constraint will try to keep the point at a constant distance to the surface in a given radius.
 
-- **Slide Collision**: Extends the slide constraint by including information about the point's relative orientation to the surface (inside/outside) and allowing proximity adjustments up to a threshold.
+**Slide Collision**. A slide collision constraint is an extension of a slide constraint that includes information about the relative orientation of the point against the surface (inside/outside) plus the ability to allow the point to be closer to the surface up to a given threshold.
 
-- **Slide On Segment**: Defines the relationship between a geometry point and a segment defined by two transform objects (e.g., rig joints). It allows the point to travel along the segment while maintaining a certain distance and restricting twisting.
+**Slide On Segment**. A slide on segment constraint defines the relationship between a geometry point and a segment defined by two transform objects (i.e. two joints of a rig). This constraint aims to keep the point at a certain distance to the segment but with the possibility of traveling along the segment. It also includes a restriction by angle, preventing the simulated point to twist around the segment.
 
-- **Slide On Geometry**: Defines the relationship between a geometry point and the surface of an external mesh object. It allows the point to travel along the surface while maintaining a constant distance.
+**Slide On Geometry**. A slide on geometry constraint defines the relationship between a geometry point and a surface of an external mesh object. This constraint allows the point to travel along the surface. During simulation, this constraint aims to keep the point at a constant distance to the surface in a given radius.
 
-- **Soft**: Similar to the glue constraint, it keeps a geometry point at a certain distance from an external geometry point without restricting relative orientation.
+**Soft**. A soft constraint defines the relationship between a geometry point and another point on an external geometry. This constraint aims to keep the point at a certain distance to the external geometry point without any restrictions of relative orientation.
 
-- **Uber**: A compound constraint that combines hard, slide, and soft constraints.
+**Uber**. A uber constraint is a compound of hard, slide and soft constraints.
 
-- **Volume**: Preserves the volume of a geometry during simulation, with the ability to modulate volume gain or loss using the volume ratio parameter.
+**Volume**. A volume constraint defines the volume at rest of a geometry. During simulation, this constraint will try to preserve the volume of the geometry with the ability to introduce volume gain or loss modulated by the volume ratio parameter.
 
-- **Volume Shape Preservation**: Maintains the shape of volumetric geometry units during simulation. Used by the fat solver to preserve the shape of the volume between inner and outer layers (fascia and fat geometries).
+**Volume Shape Preservation**. A volume shape preservation constraint defines the state of the shape of a unit of volume of a volumetric geometry on initialization. This constraint is used by the fat solver to preserve the shape of every piece of volume existing in the structure generated between the inner and outer layers (fascia and fat geometries respectively) during simulation.
 
 ## Fat
 
-Fat, or **AdnFat**, is an AdonisFX solver for fat simulation. It simulates a mesh surface as if it were a closed volume of fat tissue. The volume is procedurally constructed using two compatible geometries: a base mesh (e.g., fascia) to drive the simulation and a destination mesh (e.g., fat) to apply the simulation. This solver produces realistic dynamics typical of fat tissues.
+Fat or **AdnFat** is an AdonisFX solver for fat simulation. This solver allows simulating a mesh surface as if it were a closed volume of fat tissue. The volume is constructed procedurally using two compatible geometries: a base mesh to drive the simulation (i.e. the fascia) and a destination mesh (i.e. the fat) on which to apply the simulation. Thanks to that internal volume structure, the solver is able to produce realistic dynamics typical of fat tissues.
 
 ## Glue
 
-Glue, or **AdnGlue**, is an AdonisFX solver for gluing muscles together after simulation. It creates a more compact muscle layer by combining muscles into one output mesh with glue constraints. The gluing effect can be modulated using a maximum glue distance to reduce unwanted effects. This solver is useful for improving fascia layer simulations by minimizing gaps between muscles.
+Glue or **AdnGlue** is an AdonisFX solver for gluing muscles together after simulation. This solver allows to glue muscles together giving the simulation of the muscles layer a more compact look. The gluing is achieved by ingesting the muscles into the solver and generating one combined output mesh with Glue Constraints applied. Given a maximum glue distance the gluing can be modulated and controlled to reduce the gluing effect against unwanted muscles. Glue can be useful for improving the simulation of the fascia layer by creating a more compact version of the muscles layer avoiding big gaps.
 
 ## Locator
 
-Locators visualize the output of AdonisFX sensors. There are three types of locators, each requiring specific inputs and adopting custom shapes in the viewport:
-- **AdnLocatorPosition**: A square box at the location of a node.
-- **AdnLocatorDistance**: A parallelepiped with a line connecting two nodes.
-- **AdnLocatorRotation**: An angle with two segments connecting three nodes.
-
-Each locator type corresponds to its associated sensor.
+Locators are intended to visualize the output of an AdonisFX sensor. There are three types of locators that require a specific number of inputs and adopt custom shapes in the viewport: AdnLocatorPosition (a squared box at the location of a node), AdnLocatorDistance (a parallelepiped with a line connecting two nodes) and AdnLocatorRotation (an angle with two segments connecting three nodes). Each type is associated with its homologous sensor.
 
 ## Muscle
 
-**AdnMuscle** is an AdonisFX solver for muscle simulation, including volume preservation. It applies dynamics such as fiber contraction and volume gain to a geometry.
+**AdnMuscle** is an AdonisFX solver for muscle simulation including volume preservation. It allows applying dynamics such as fibers contraction and volume gain to a geometry.
 
-## Muscle Anisotropy
+## Muscle anisotropy
 
-Muscle anisotropy refers to the property of muscle tissue that causes it to behave differently depending on the direction of applied force. In AdonisFX, this property affects edge stiffness based on alignment with the fiber flow:
+Muscle anisotropy refers to the property of muscle tissue that causes it to behave differently depending on the direction of the applied forces. In AdonisFX, this property affects the edge stiffness based on the alignment with the fiber flow:
+
 - Edges aligned with the fiber direction have stiffness equal to the object's overall stiffness.
 - Edges orthogonal to the fiber direction have reduced stiffness.
 
-This behavior is modulated at the muscle solver level, where:
-- A value of `0.0` (default) makes the object fully isotropic.
-- A value of `1.0` makes the object fully anisotropic.
-
-The anisotropy ratio parameter controls the softening of non-aligned edges.
+This behavior is modulated with the anisotropy parameter where a value of 0.0 (default) makes the object fully isotropic, and a value of 1.0 makes the object fully anisotropic.
 
 ## Muscle Patches
 
-A muscle patch is a group of connected geometry vertices representing an internal muscle projected onto the skin. Muscle patches are not physically modeled geometries. They are used by the AdnSimshape solver for facial simulation. Muscle patches can be generated using the Learn Muscle Patches Tool, which applies machine learning to estimate muscle distribution based on a facial rig's expressions.
+A muscle patch is a group of connected geometry vertices that represent an internal muscle projected onto the skin. A muscle patch is not an actual modelled geometry. Muscle patches are used by AdnSimshape solver for facial simulation. The muscle patches of a facial geometry can be generated with the Learn Muscle Patches Tool which applies Machine Learning techniques to estimate the distribution of muscles based on the set of facial expressions that a facial rig can reproduce.
 
-**AdonisFX Muscle Patches File**: A proprietary file format (`.amp`) that stores the distribution of muscle patches generated by the Learn Muscle Patches Tool.
+**AdonisFX Muscle Patches File**. The AdonisFX Muscle Patches File is a proprietary file format that stores the distribution of muscle patches generated by the Learn Muscle Patches tool. The file extension is `amp`.
 
 ## Ribbon Muscle
 
-The Ribbon Muscle, or **AdnRibbonMuscle**, is an AdonisFX solver for muscle simulation. It applies dynamics, such as fiber contraction, to planar geometries.
+The ribbon muscle or **AdnRibbonMuscle** is an AdonisFX solver for muscle simulation. It allows applying dynamics such as fibers contraction to a planar geometry.
 
 ## Sensor
 
-Sensors measure positions, distances, angles, velocities, and accelerations. There are three types of sensors:
-- **AdnSensorPosition**: Requires one input to compute velocity and acceleration.
-- **AdnSensorDistance**: Requires two inputs to compute the distance and relative velocity/acceleration.
-- **AdnSensorRotation**: Requires three inputs to compute angles, angular velocity, and acceleration.
-
-Each sensor type corresponds to its associated locator for visualizing output values.
+Sensors are nodes to measure positions, distances, angles, velocities and accelerations. There are three types of sensors that require different number of input transform objects: AdnSensorPosition (one single input to compute its velocity and acceleration), AdnSensorDistance (two inputs to compute the distance between them and their relative velocity and acceleration) and AdnSensorRotation (three inputs to compute the angle between them and the angular velocity and acceleration). Each type is associated with its homologous locator that will allow visualizing the output values.
 
 ## Simshape
 
-Simshape, or **AdnSimshape**, is an AdonisFX solver for facial simulation. It applies dynamics on top of facial rig deformations and mimics changes in skin rigidity due to internal muscle patch activation.
+Simshape or **AdnSimshape** is an AdonisFX solver for facial simulation. It allows applying dynamics on top of the deformation driven by a facial rig. Also, it has the ability to mimic the change in rigidity of the skin due to the activation of the internal facial muscle patches.
 
 ## Skin
 
-Skin, or **AdnSkin**, is an AdonisFX solver for skin and fascia simulation. It applies dynamics to character skin, producing realistic effects like wrinkles.
+Skin or **AdnSkin** is an AdonisFX solver for skin and fascia simulation. It allows applying dynamics to the skin of a character to produce realistic effects like wrinkles.
 
 ## Skin Merge
 
-Skin Merge, or **AdnSkinMerge**, is a Maya deformer that merges simulation and animation meshes into a single final mesh. It allows dynamic blending of multiple animated and simulated skin geometries.
+Skin Merge or **AdnSkinMerge** is a Maya deformer to merge simulation and animation meshes into a single final mesh. It allows selecting multiple animated and simulated skin geometries and dynamically blending their results.

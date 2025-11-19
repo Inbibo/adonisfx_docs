@@ -4,7 +4,7 @@
 
 AdonisFX is distributed for Maya as a **standard module**. To install the module, follow these steps:
 
-1. Download the AdonisFX zipped package from [Inbibo’s website](https://inbibo.co.uk/adonisfx/downloads).
+1. Download the AdonisFX package from [Inbibo’s website](https://inbibo.co.uk/adonisfx/downloads).
 2. Extract the contents into any folder of your choice.
 3. Add the path to that extracted folder to the `MAYA_MODULE_PATH` environment variable (details below).
 4. Launch Maya and load AdonisFX from **Windows > Settings/Preferences > Plug-in Manager**.
@@ -13,12 +13,12 @@ When Maya starts, it evaluates all directories listed in `MAYA_MODULE_PATH` to l
 
 There are two ways to configure `MAYA_MODULE_PATH`:
 
-- **Method 1:** Set the value inside the `Maya.env` configuration file  
+- **Method 1:** Set the value inside the `Maya.env` configuration file
 - **Method 2:** Set the value as a system-wide or user-wide environment variable
 
 > [!NOTE]
-> AdonisFX is distributed for Maya 2022, 2023, 2024, 2025, and 2026.  
-> Multiple versions of AdonisFX may coexist, but **only one can be loaded at a time**.
+> - AdonisFX is distributed for Maya 2022, 2023, 2024, 2025, and 2026. If you have multiple Maya versions installed, make sure to [download](https://inbibo.co.uk/adonisfx/downloads) the right AdonisFX build and configure the environment to point to the right AdonisFX version.
+> - Remember that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
 
 ### Windows
 
@@ -29,7 +29,7 @@ There are two ways to configure `MAYA_MODULE_PATH`:
 3. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple paths, concatenate them separated by ";" characters.
+> If you need to configure multiple modules, concatenate them separated by ";" characters.
 
 #### Method 2: Configure System Environment
 
@@ -39,7 +39,7 @@ There are two ways to configure `MAYA_MODULE_PATH`:
 4. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple paths, concatenate them separated by ";" characters.
+> If you need to configure multiple modules, concatenate them separated by ";" characters.
 
 
 ### Linux
@@ -51,38 +51,39 @@ There are two ways to configure `MAYA_MODULE_PATH`:
 3. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple paths, concatenate them separated by ":" characters.
+> If you need to configure multiple modules, concatenate them separated by ":" characters.
 
 #### Method 2: Configure System Environment
 
 1. From the terminal, open your preferred text editor to modify the file `~/.bashrc`.
-2. Add the command to export the environment variable as follows.
+2. Add this command to export the environment variable:
 
    `export MAYA_MODULE_PATH="/path/to/AdonisFX/folder:${MAYA_MODULE_PATH}"`
 
 3. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple paths, concatenate them separated by ":" characters.
+> If you need to configure multiple modules, concatenate them separated by ":" characters.
 
 
 ## Houdini
 
 AdonisFX is distributed for Houdini as a standard package. To install the package, please do the following:
 
-1. Download the AdonisFX zipped package from [Inbibo’s website](https://inbibo.co.uk/adonisfx/downloads).
+1. Download the AdonisFX package from [Inbibo’s website](https://inbibo.co.uk/adonisfx/downloads).
 2. Extract the contents into any folder of your choice.
 3. Add the path to that extracted folder to the `HOUDINI_PACKAGE_DIR` and `ADONISFX_INSTALL_PATH` environment variables.
 4. Launch Houdini and AdonisFX package will automatically loaded.
 
-When Houdini starts up, it evaluates all paths pointed by the `HOUDINI_PACKAGE_DIR` environment variable to search for packages like AdonisFX. Packages are defined in JSON files that specify how to modify the environment. In order to allow Houdini to find AdonisFX, that environment variable has to include the path where the `AdonisFX.json` file is located.
+When Houdini starts up, it evaluates all paths pointed by the `HOUDINI_PACKAGE_DIR` environment variable to search for packages that are typically defined as JSON files. In order to allow Houdini to find AdonisFX, that environment variable has to include the path where the `AdonisFX.json` file is located.
 
 The need of setting `ADONISFX_INSTALL_PATH` as well is to allow Houdini to complete the environment configuration using paths relative to the AdonisFX installation folder.
 
 In the following sections we explain how to do this for Windows and Linux.
 
 > [!NOTE]
-> AdonisFX is distributed for Houdini 20.0, 20.5 and 21.0. If you have multiple Houdini versions installed, make sure to [download](https://inbibo.co.uk/adonisfx/downloads) the right AdonisFX build and configure the environment to point to the right AdonisFX version. Remember that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
+> - AdonisFX is distributed for Houdini 20.0, 20.5 and 21.0. If you have multiple Houdini versions installed, make sure to [download](https://inbibo.co.uk/adonisfx/downloads) the right AdonisFX build and configure the environment to point to the right AdonisFX version.
+> - Remember that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
 
 ### Windows
 
@@ -93,7 +94,7 @@ In the following sections we explain how to do this for Windows and Linux.
 5. AdonisFX will be loaded the next time you launch Houdini.
 
 > [!NOTE]
-> If you need to configure multiple paths, concatenate them separated by ";" characters.
+> If you need to configure multiple packages, concatenate them separated by ";" characters.
 > In the case of `ADONISFX_INSTALL_PATH` only the installation path is provided.
 
 
@@ -111,5 +112,5 @@ In the following sections we explain how to do this for Windows and Linux.
 4. AdonisFX will be loaded the next time you launch Houdini.
 
 > [!NOTE]
-> If you need to configure multiple paths, concatenate them separated by ":" characters.
+> If you need to configure multiple packages, concatenate them separated by ":" characters.
 > In the case of `ADONISFX_INSTALL_PATH` only the installation path is provided.
