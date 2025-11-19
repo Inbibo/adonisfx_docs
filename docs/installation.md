@@ -29,7 +29,7 @@ There are two ways to configure `MAYA_MODULE_PATH`:
 3. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple modules, concatenate them separated by ";" characters.
+> If you need to configure other modules, concatenate them separated by ";" characters.
 
 #### Method 2: Configure System Environment
 
@@ -39,7 +39,7 @@ There are two ways to configure `MAYA_MODULE_PATH`:
 4. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple modules, concatenate them separated by ";" characters.
+> If you need to configure other modules, concatenate them separated by ";" characters.
 
 
 ### Linux
@@ -51,7 +51,7 @@ There are two ways to configure `MAYA_MODULE_PATH`:
 3. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple modules, concatenate them separated by ":" characters.
+> If you need to configure other modules, concatenate them separated by ":" characters.
 
 #### Method 2: Configure System Environment
 
@@ -63,7 +63,7 @@ There are two ways to configure `MAYA_MODULE_PATH`:
 3. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple modules, concatenate them separated by ":" characters.
+> If you need to configure other modules, concatenate them separated by ":" characters.
 
 
 ## Houdini
@@ -73,11 +73,11 @@ AdonisFX is distributed for Houdini as a standard package. To install the packag
 1. Download the AdonisFX package from [Inbibo’s website](https://inbibo.co.uk/adonisfx/downloads).
 2. Extract the contents into any folder of your choice.
 3. Add the path to that extracted folder to the `HOUDINI_PACKAGE_DIR` and `ADONISFX_INSTALL_PATH` environment variables.
-4. Launch Houdini and AdonisFX package will automatically loaded.
+4. Launch Houdini and the AdonisFX package will be automatically loaded.
 
 When Houdini starts up, it evaluates all paths pointed by the `HOUDINI_PACKAGE_DIR` environment variable to search for packages that are typically defined as JSON files. In order to allow Houdini to find AdonisFX, that environment variable has to include the path where the `AdonisFX.json` file is located.
 
-The need of setting `ADONISFX_INSTALL_PATH` as well is to allow Houdini to complete the environment configuration using paths relative to the AdonisFX installation folder.
+The need to set `ADONISFX_INSTALL_PATH` as well is to allow Houdini to complete the environment configuration using paths relative to the AdonisFX installation folder.
 
 In the following sections we explain how to do this for Windows and Linux.
 
@@ -94,8 +94,8 @@ In the following sections we explain how to do this for Windows and Linux.
 5. AdonisFX will be loaded the next time you launch Houdini.
 
 > [!NOTE]
-> If you need to configure multiple packages, concatenate them separated by ";" characters.
-> In the case of `ADONISFX_INSTALL_PATH` only the installation path is provided.
+> - If you need to configure other packages for `HOUDINI_PACKAGE_DIR`, concatenate them separated by ";" characters.
+> - For `ADONISFX_INSTALL_PATH`, only a single installation path should be provided.
 
 
 ### Linux
@@ -112,5 +112,5 @@ In the following sections we explain how to do this for Windows and Linux.
 4. AdonisFX will be loaded the next time you launch Houdini.
 
 > [!NOTE]
-> If you need to configure multiple packages, concatenate them separated by ":" characters.
-> In the case of `ADONISFX_INSTALL_PATH` only the installation path is provided.
+> - If you need to configure other packages for `HOUDINI_PACKAGE_DIR`, concatenate them separated by ":" characters.
+> - For `ADONISFX_INSTALL_PATH`, only a single installation path should be provided.
