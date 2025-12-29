@@ -199,7 +199,7 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 </figure>
 
 <figure markdown>
-  ![  ](../images/simshape_attribute_editor_debug.png)
+  ![simshape editor debug part](../images/simshape_attribute_editor_02.png)
   <figcaption><b>Figure 3</b>: AdnSimshape Attribute Editor (Debug menu).</figcaption>
 </figure>
 
