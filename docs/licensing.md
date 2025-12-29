@@ -245,14 +245,14 @@ This utility works in **Windows** and **Linux** and can be used to save the serv
 
 About the server address:
 
-- Be non-empty
-- Contain only letters (`A–Z`, `a–z`), digits (`0–9`), dots (`.`) and dashes (`-`)
+- Must be non-empty
+- Must contain only letters (`A–Z`, `a–z`), digits (`0–9`), dots (`.`) and dashes (`-`)
 - Valid examples: `123.123.123.123`, `license-server`, `license-server.mycompany.com`
 
 About the server port:
 
-- Be a valid integer
-- Be in the range **1–65535**
+- Must be a valid integer
+- Must be in the range **1–65535**
 
 #### How To Use
 
@@ -291,9 +291,9 @@ If the program has to be executed from a different working directory, then the d
 If the program is executed **without required arguments**, it prompts the user for the necessary inputs in this order: license product, server address and server port. This is an example session:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">[AdonisFX] Save Floating License Server
-Select license product ([b]atch / [i]nteractive):
-Enter server address (e.g., 123.123.123.123 or hostname):
-Enter server port (1-65535):
+Select license product ([b]atch / [i]nteractive): i
+Enter server address (e.g., 123.123.123.123 or hostname): 127.0.0.1
+Enter server port (1-65535): 13
 [AdonisFX] License server settings saved successfully.
 </code></pre>
 
