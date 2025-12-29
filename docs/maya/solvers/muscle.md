@@ -95,7 +95,7 @@ To create an AdnMuscle, follow these steps:
 | **Volume Constraints**       | Float | -1.0 | ✓ | Sets the stiffness override value for volume constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
 
 > [!NOTE]
-> - Providing a stiffness override value of 0.0 will disable the computation of that constraint.
+> Providing a stiffness override value of 0.0 will disable the computation of that constraint.
 
 #### Mass Properties
 
@@ -124,7 +124,7 @@ To create an AdnMuscle, follow these steps:
 | **Anisotropy**                  | Float      | 0.0      | ✓ | Sets the anisotropic behavior of the fibers: 0 fully isotropic material, 1 fully anisotropic material. Has a range of \[0.0, 1.0\]. |
 | **Anisotropy Ratio**            | Float      | 9.0      | ✓ | Sets the ratio of anisotropy of the muscle fibers to lower the stiffness on edges not aligned with the fibers flow: the higher this value is, the lower the stiffness of the orthogonal edges when the muscle is anisotropic. Has a range of \[1.0, 50.0\]. The upper limit is soft, higher values can be used. |
 | **Attenuation Velocity Factor** | Float      | 1.0      | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
-| **Substeps Interp. Exp.**       | Float      | 1.0      | ✓ | Sets the exponential factor to weight the interpolation at each substep. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. A value of 0.0 disables the interpolation: input geometry targets and attenuation matrix are not interpolated. A value of 1.0 applies linear interpolation (input geometry targets and attenuation matrix) between previous and current frame based on a linear weight, i.e. weight = substep / num_substeps. A value between 0.0 and 1.0 applies exponential interpolation (input geometry targets and attenuation matrix) between previous and current frame based on an exponential weight, i.e. `weight = (substep / num_substeps) ^ exponent`. |
+| **Substeps Interp. Exp.**       | Float      | 1.0      | ✓ | Sets the exponential factor to weight the interpolation at each substep. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. A value of 0.0 disables the interpolation: input geometry targets and attenuation matrix are not interpolated. A value of 1.0 applies linear interpolation (input geometry targets and attenuation matrix) between previous and current frame based on a linear weight, i.e. `weight = substep / num_substeps`. A value between 0.0 and 1.0 applies exponential interpolation (input geometry targets and attenuation matrix) between previous and current frame based on an exponential weight, i.e. `weight = (substep / num_substeps) ^ exponent`. |
 | **Hard Attachments**            | Boolean    | False    | ✓ | If enabled, attachment constraints will force the vertices to stick to the target transformation completely. |
 | **Sliding Constraints Mode**    | Enumerator | Quality  | ✓ | Defines the mode of execution for the slide on geometry constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
 
