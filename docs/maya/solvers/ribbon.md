@@ -105,7 +105,7 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Rest Shape Weight** | Float | 0.0 | ✓ | Defines the influence of the given rest shape to the final shape of the muscle. Has a range of \[0.0, 1.0\]. A value of 0.0 makes the solver to ignore the rest shape. A value of 1.0 makes the solver to refresh the data of fibers, shape preservation and volume constraints at each frame to align with the rest shape. A value between 0.0 and 1.0 applies an interpolation between the original constraints data (0.0) and the rest shape constraints data (1.0). Note that this parameter is ignored if there is no rest shape connected to the solver. |
+| **Rest Shape Weight** | Float | 0.0 | ✓ | Defines the influence of the given rest shape to the final shape of the muscle. Has a range of \[0.0, 1.0\]. A value of 0.0 makes the solver ignore the rest shape. A value of 1.0 makes the solver refresh the data of fibers, shape preservation and volume constraints at each frame to align with the rest shape. A value between 0.0 and 1.0 applies an interpolation between the original constraints data (0.0) and the rest shape constraints data (1.0). Note that this parameter is ignored if there is no rest shape connected to the solver. |
 
 #### Dynamic Properties
 | Name | Type | Default | Animatable | Description |
@@ -308,7 +308,7 @@ Additionally to all previously mentioned constraints, ribbon muscles can have an
 
 ### Rest Shape
 
-The muscle solver supports an art-directed shape to drive the fibers, shape and volume constraints. This shape is typically an sculpt version of the muscle (it must be topologically identical) that represents the muscle when it is fully activated. The artist can add and remove the custom shape from dedicated entries in the AdonisFX muscle submenu.
+The muscle solver supports an art-directed shape to drive the fibers, shape and volume constraints. This shape is typically a sculpted version of the muscle (it must be topologically identical) that represents the muscle when it is fully activated. The artist can add and remove the custom shape from dedicated entries in the AdonisFX muscle submenu.
 
 - **Add Rest Shape**:
     1. Select the transform or mesh node to be assigned as rest shape to the AdnRibbonMuscle.
@@ -337,7 +337,7 @@ Not painting the fibers multiplier map will cause the muscle to contract uniform
 
 ### Activation Layers
 
-The activation layers allow to drive the muscle activation by multiple sensors combined together without the need of using an [AdnActivation](../nodes#activation) node. In practice, having an AdnActivation node with multiple input sensors connected to the **activation** attribute of an AdnRibbonMuscle is equivalent to connect those sensors directly to the activation list of that muscle.
+The activation layers allow to drive the muscle activation by multiple sensors combined together without the need of using an [AdnActivation](../nodes#activation) node. In practice, having an AdnActivation node with multiple input sensors connected to the **activation** attribute of an AdnRibbonMuscle is equivalent to connecting those sensors directly to the activation list of that muscle.
 
 The activation layers contribute to the final activation of the muscle solver, where the first layer will always be the **activation** scalar attribute. Then, every value in the **activation list** array plug is applied on top taking into consideration the operator and the bypass flag. The resulting value is the global activation that the solver will use for the simulation, and it is written onto the read-only **output solver activation** attribute.
 
