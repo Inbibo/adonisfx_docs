@@ -216,3 +216,118 @@ When launching AdonisFX in the target DCC, if the connection to the active licen
 > [!NOTE]
 > - Make sure to configure the required environment variables before loading AdonisFX.
 > - Node-Locked Licensing is defaulted in AdonisFX meaning that if `ADN_LICENSE_MODE` is not set to `1` or not provided, then AdonisFX will attempt to load Node-Locked licenses.
+
+### Save Server Tool (Optional)
+
+The first time that the client attempts to load AdonisFX with a floating license, the IP address and the port specified in the environment variables are saved in the machine. Optionally, you can execute the **SaveServer** utility to save the server information before launching the DCC process that will attempt to load AdonisFX. In some specific environments where the client machines do not have permission to store this information, using this tool with admin privileges would become a requirement.
+
+This utility works in **Windows** and **Linux** and can be used to save the server information of Interactive licenses or Batch licenses. It can be executed by providing the settings either via prompts in the terminal or via command-line arguments. Internally, the program does the following:
+
+1. Parses command-line flags and required arguments.
+2. Prompts the user if required information is missing.
+3. Locates the correct `TurboActivate.dat` file in the AdonisFX package to retrieve the necessary information to process the request.
+4. Saves the server address and port.
+5. Verifies the configuration by requesting a license lease.
+6. Drops the lease (non-critical if it fails).
+
+#### Arguments
+
+| Argument | Required | Description |
+|---------|---------|-------------|
+| `<server_address>`    | yes | License server hostname or IP address. |
+| `<server_port>`       | yes | License server port (1–65535). |
+| `-b`, `--batch`       | no  | Use **batch** license (default). |
+| `-i`, `--interactive` | no  | Use **interactive** license. |
+| `-d`, `--directory`   | no  | Base directory of the AdonisFX package containing the `AdonisFX` subfolder. |
+
+#### Input validation
+
+About the server address:
+
+- Must be non-empty
+- Must contain only letters (`A–Z`, `a–z`), digits (`0–9`), dots (`.`) and dashes (`-`)
+- Valid examples: `123.123.123.123`, `license-server`, `license-server.mycompany.com`
+
+About the server port:
+
+- Must be a valid integer
+- Must be in the range **1–65535**
+
+#### How To Use
+
+1. Go to AdonisFX/bin in the AdonisFX installation folder.
+2. Run the SaveServer program using one of the following examples depending on the needs.
+
+> [!NOTE = Batch license (default)]
+> === Windows
+> 
+> `SaveServer.exe 127.0.0.1 14`
+>
+>  === Linux
+>
+> `./SaveServer 127.0.0.1 14`
+
+> [!NOTE = Interactive license]
+> === Windows
+> 
+> `SaveServer.exe -i 127.0.0.1 13`
+>
+>  === Linux
+>
+> `./SaveServer -i 127.0.0.1 13`
+
+If the program has to be executed from a different working directory, then the directory argument must be specified.
+
+> [!NOTE = Using a custom base directory]
+> === Windows
+> 
+> `<ADONISFX_INSTALL_PATH>/SaveServer.exe -i -d <ADONISFX_INSTALL_PATH> 127.0.0.1 13`
+>
+>  === Linux
+>
+> `<ADONISFX_INSTALL_PATH>/SaveServer -i -d <ADONISFX_INSTALL_PATH> 127.0.0.1 13`
+
+If the program is executed **without required arguments**, it prompts the user for the necessary inputs in this order: license product, server address and server port. This is an example session:
+
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">[AdonisFX] Save Floating License Server
+Select license product ([b]atch / [i]nteractive): i
+Enter server address (e.g., 123.123.123.123 or hostname): 127.0.0.1
+Enter server port (1-65535): 13
+[AdonisFX] License server settings saved successfully.
+</code></pre>
+
+#### Common errors and troubleshooting
+
+**1. Failed to find the data file**
+
+`[AdonisFX] Failed to retrieve the license data file at: ...`
+
+Cause:
+- `TurboActivate.dat` could not be found.
+
+Fix:
+- Run the program from `AdonisFX/bin`, or
+- Use `--directory` to point to the folder containing `AdonisFX`.
+
+**2. Failed to obtain the server handle**
+
+`[AdonisFX] Failed to get the handle to contact the server.`
+
+Cause:
+- Missing or incorrect license data file
+- Invalid folder layout
+
+Fix:
+- Verify the `licensing/<batch|interactive>/TurboActivate.dat` path.
+- Use the correct base directory.
+
+**3. Failed to save the server information**
+
+`[AdonisFX] TF_SaveServer failed: Error Code <X>`
+
+Cause:
+- TurboFloat rejected the server configuration.
+
+Fix:
+- Verify the server address and port.
+- Ensure the TurboFloat licensing runtime is properly installed and configured.
