@@ -219,7 +219,7 @@ When launching AdonisFX in the target DCC, if the connection to the active licen
 
 ### Save Server Tool (Optional)
 
-The first time that the client attempts to load AdonisFX with a floating license, the IP address and the port specified in the environment variables are saved in the machine. Optionally, you can execute the **SaveServer** utility to save the server information before launching the Maya or Houdini process that will attempt to load AdonisFX. In some specific environments where the client machines do not have permission to store this information, using this tool with admin privileges would become a requirement.
+The first time that the client attempts to load AdonisFX with a floating license, the IP address and the port specified in the environment variables are saved in the machine. Optionally, you can execute the **SaveServer** utility to save the server information before launching the DCC process that will attempt to load AdonisFX. In some specific environments where the client machines do not have permission to store this information, using this tool with admin privileges would become a requirement.
 
 This utility works in **Windows** and **Linux** and can be used to save the server information of Interactive licenses or Batch licenses. It can be executed by providing the settings either via prompts in the terminal or via command-line arguments. Internally, the program does the following:
 
@@ -234,12 +234,11 @@ This utility works in **Windows** and **Linux** and can be used to save the serv
 
 | Argument | Required | Description |
 |---------|---------|-------------|
-| `<server_address>`        | yes | License server hostname or IP address. |
-| `<server_port>`           | yes | License server port (1–65535). |
-| `-b`, `--batch`           | no  | Use **batch** license (default). |
-| `-i`, `--interactive`     | no  | Use **interactive** license. |
-| `-d <base_dir>`           | no  | Base directory of the AdonisFX package containing the `AdonisFX` subfolder. |
-| `--directory=<base_dir>`  | no  | Same as above, using `=` syntax. |
+| `<server_address>`    | yes | License server hostname or IP address. |
+| `<server_port>`       | yes | License server port (1–65535). |
+| `-b`, `--batch`       | no  | Use **batch** license (default). |
+| `-i`, `--interactive` | no  | Use **interactive** license. |
+| `-d`, `--directory`   | no  | Base directory of the AdonisFX package containing the `AdonisFX` subfolder. |
 
 #### Input validation
 
