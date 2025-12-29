@@ -174,7 +174,7 @@ To create an AdnMuscle, follow these steps:
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnMuscle editor debug menu](../images/muscle_attribute_editor_debug.png)
+  ![AdnMuscle editor debug menu](../images/muscle_attribute_editor_02.png)
   <figcaption><b>Figure 3</b>: AdnMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 

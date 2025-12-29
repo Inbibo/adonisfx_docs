@@ -170,7 +170,7 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnRibbonMuscle editor debug menu](../images/muscle_attribute_editor_debug.png)
+  ![AdnRibbonMuscle editor debug menu](../images/ribbon_attribute_editor_02.png)
   <figcaption><b>Figure 3</b>: AdnRibbonMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 
