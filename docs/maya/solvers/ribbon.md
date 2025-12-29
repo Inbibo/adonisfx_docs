@@ -28,6 +28,7 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Enable**               | Boolean    | True   | ✓ | Flag to enable or disable the deformer computation. |
+| **Substeps**             | Integer    | 1      | ✓ | Number of steps that the solver will execute per simulation frame. Greater values mean greater computational cost. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
 | **Iterations**           | Integer    | 10     | ✓ | Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
 | **Material**             | Enumerator | Muscle | ✓ | Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 8 different presets: Fat: 10<sup>3</sup>, Muscle: 5e<sup>3</sup>, Rubber: 10<sup>6</sup>, Tendon: 5e<sup>7</sup>, Leather: 10<sup>6</sup>, Wood: 6e<sup>9</sup>, Concrete: 2.5e<sup>10</sup>, Skin: 12e<sup>3</sup>. |
 | **Stiffness Multiplier** | Float      | 1.0    | ✓ | Multiplier factor to scale up or down the material stiffness. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
@@ -46,7 +47,7 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale Mode** | Enumerator | Forces          | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li><ul> |
+| **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li><ul> |
 
 ### Gravity
 | Name | Type | Default | Animatable | Description |
@@ -77,8 +78,6 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Use Custom Stiffness**                  | Boolean | False          | ✓ | Toggles the use of a custom stiffness value. If custom stiffness is used, *Material* and *Stiffness Multiplier* will be disabled and *Stiffness* will be used instead. |
 | **Stiffness**                             | Float   | 10<sup>5</sup> | ✓ | Sets the custom stiffness value. Its value must be greater than 0.0. |
-| **Override Shape Preserve Stiffness**     | Boolean | False          | ✓ | Override the shape preservation stiffness with a custom value. If disabled it will use either the material stiffness or the custom stiffness value. |
-| **Shape Preserve Stiffness**              | Float   | 10<sup>3</sup> | ✓ | Sets the stiffness shape preservation override value. Its value must be greater than 0.0. |
 
 #### Override Constraint Stiffness
 | Name | Type | Default | Animatable | Description |
@@ -87,35 +86,54 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 | **Attachments To Geometry**  | Float | -1.0 | ✓ | Sets the stiffness override value for attachment to geometry constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
 | **Attachments To Transform** | Float | -1.0 | ✓ | Sets the stiffness override value for attachment to transform constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
 | **Fiber Constraints**        | Float | -1.0 | ✓ | Sets the stiffness override value for fiber constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
-| **Shape Preservation**       | Float | -1.0 | ✓ | Sets the stiffness override value for shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. This value is only considered if the *Override Shape Preserve Stiffness* checkbox is disabled. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **Shape Preservation**       | Float | -1.0 | ✓ | Sets the stiffness override value for shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
 | **Slide On Geometry**        | Float | -1.0 | ✓ | Sets the stiffness override value for slide on geometry constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
 | **Slide On Segment**         | Float | -1.0 | ✓ | Sets the stiffness override value for slide on segment constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
 
 > [!NOTE]
-> - The *Override Shape Preserve Stiffness* and *Shape Preserve Stiffness* attributes have been deprecated. If the *Override Shape Preserve Stiffness* checkbox is enabled, the *Shape Preserve Stiffness* value will be used to override the stiffness for shape preservation constraints. For that reason, we recommend to disable the *Override Shape Preserve Stiffness* checkbox and use the *Shape Preservation* attribute located in the Override Constraint Stiffness section.
 > - Providing a stiffness override value of 0.0 will disable the computation of that constraint.
 
 #### Mass Properties
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Point Mass Mode**        | Enumerator | By Uniform Value | ✓ | Defines how masses should be used in the solver.<ul><li>*By Density* allows to estimate the mass value by multiplying Density * Area.</li><li>*By Uniform Value* allows to set a uniform mass value.</li></ul> |
-| **Density**                | Float      | 1060.0           | ✓ | Sets the density value in kg/m<sup>3</sup> to be able to estimate mass values with *By Density* mode. The value is internally converted to g/cm<sup>3</sup>. Has a range of \[0.001, 10<sup>6</sup>\]. Lower and upper limits are soft, lower and higher values can be used. |
-| **Global Mass Multiplier** | Float      | 1.0              | ✓ | Sets the scaling factor applied to the mass of every point. Has a range of \[0.001, 10.0\]. Lower and upper limits are soft, lower and higher values can be used. |
+| **Point Mass Mode**        | Enumerator | By Density  | ✓ | Defines how masses should be used in the solver.<ul><li>*By Density* allows to estimate the mass value by multiplying Density * Area.</li><li>*By Uniform Value* allows to set a uniform mass value.</li></ul> |
+| **Density**                | Float      | 1060.0      | ✓ | Sets the density value in kg/m<sup>3</sup> to be able to estimate mass values with *By Density* mode. The value is internally converted to g/cm<sup>3</sup>. Has a range of \[0.001, 10<sup>6</sup>\]. Lower and upper limits are soft, lower and higher values can be used. |
+| **Global Mass Multiplier** | Float      | 1.0         | ✓ | Sets the scaling factor applied to the mass of every point. Has a range of \[0.001, 10.0\]. Lower and upper limits are soft, lower and higher values can be used. |
+
+#### Rest Shapes Attributes
+
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Rest Shape Weight** | Float | 0.0 | ✓ | Defines the influence of the given rest shape to the final shape of the muscle. Has a range of \[0.0, 1.0\]. A value of 0.0 makes the solver ignore the rest shape. A value of 1.0 makes the solver refresh the data of fibers, shape preservation and volume constraints at each frame to align with the rest shape. A value between 0.0 and 1.0 applies an interpolation between the original constraints data (0.0) and the rest shape constraints data (1.0). Note that this parameter is ignored if there is no rest shape connected to the solver. |
 
 #### Dynamic Properties
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Triangulate Mesh**            | Boolean    | False | ✗ | Use the internally triangulated mesh to build constraints. |
-| **Global Damping Multiplier**   | Float      | 0.75  | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
-| **Inertia Damper**              | Float      | 0.0   | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
-| **Rest Length Multiplier**      | Float      | 1.0   | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Max Sliding Distance**        | Float      | 0.0   | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. The higher this value is, the higher quality and the lower performance. If the value provided is considered too high for a given target mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
-| **Compression Multiplier**      | Float      | 1.0   | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Stretching Multiplier**       | Float      | 1.0   | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Attenuation Velocity Factor** | Float      | 1.0   | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
-| **Hard Attachments**            | Boolean    | True  | ✓ | If enabled, attachment constraints will force the vertices to stick to the target transformation completely. |
-| **Sliding Constraints Mode**    | Enumerator | Fast  | ✓ | Defines the mode of execution for the slide on geometry constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
+| **Triangulate Mesh**            | Boolean    | True     | ✗ | Use the internally triangulated mesh to build constraints. |
+| **Global Damping Multiplier**   | Float      | 0.75     | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
+| **Inertia Damper**              | Float      | 0.0      | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
+| **Rest Length Multiplier**      | Float      | 1.0      | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Max Sliding Distance**        | Float      | 0.0      | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. The higher this value is, the higher quality and the lower performance. If the value provided is considered too high for a given target mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
+| **Compression Multiplier**      | Float      | 1.0      | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Stretching Multiplier**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Anisotropy**                  | Float      | 0.0      | ✓ | Sets the anisotropic behavior of the fibers: 0 fully isotropic material, 1 fully anisotropic material. Has a range of \[0.0, 1.0\]. |
+| **Anisotropy Ratio**            | Float      | 9.0      | ✓ | Sets the ratio of anisotropy of the muscle fibers to lower the stiffness on edges not aligned with the fibers flow: the higher this value is, the lower the stiffness of the orthogonal edges when the muscle is anisotropic. Has a range of \[1.0, 50.0\]. The upper limit is soft, higher values can be used. |
+| **Attenuation Velocity Factor** | Float      | 1.0      | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
+| **Substeps Interp. Exp.**       | Float      | 1.0      | ✓ | Sets the exponential factor to weight the interpolation at each substep. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. A value of 0.0 disables the interpolation: input geometry targets and attenuation matrix are not interpolated. A value of 1.0 applies linear interpolation (input geometry targets and attenuation matrix) between previous and current frame based on a linear weight, i.e. weight = substep / num_substeps. A value between 0.0 and 1.0 applies exponential interpolation (input geometry targets and attenuation matrix) between previous and current frame based on an exponential weight, i.e. `weight = (substep / num_substeps) ^ exponent`. |
+| **Hard Attachments**            | Boolean    | False    | ✓ | If enabled, attachment constraints will force the vertices to stick to the target transformation completely. |
+| **Sliding Constraints Mode**    | Enumerator | Quality  | ✓ | Defines the mode of execution for the slide on geometry constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
+
+### Maps
+
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Maps Remap Mode** | Enumerator   | Squared | ✗ | Defines the mode of remapping the painted values of attachments to geometry, slide on geometry, attachments to transform, slide on segment and shape preservation constraints. The other paintable maps remain unmodified. Each remap mode applies a function to the input painted values (x) to get the final value used for the simulation (y).<ul><li>Linear: `y = x`</li><li>Squared: `y = x^2`</li><li>Cubic: `y = x^3`</li><li>Square Root: `y = x^(1/2)`</li><li>Cube Root: `y = x^(1/3)`</li><li>Logarithmic: `y = log((exp(1) - 1) * x + 1)`</li></ul> |
+
+### Deformer Attributes
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. The upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
 ### Debug Attributes
 | Name | Type | Default | Animatable | Description |
@@ -124,14 +142,9 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 | **Feature**          | Enumerator   | Muscle Fibers | ✓ | A list of debuggable features for this deformer. <ul><li>Attachments To Geometry: Draw *Attachment To Geometry Constraints* connections from the simulated mesh to the geometry targets.</li><li>Attachments To Transform: Draw *Attachment To Transform Constraints* connections from the simulated mesh to the transform targets.</li><li>Fiber Constraints: Draw *Fiber Constraint* connections representing the constrained pair of vertices in the simulated mesh.</li><li>Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface. When the muscle is activated the color of the fibers will change according to the *Activation Color*.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide On Geometry: Draw *Slide On Geometry Constraints* connections from the simulated mesh to the geometry targets the simulated mesh is sliding on.</li><li>Slide On Segment: Draw *Slide On Segment Constraints* connections from the simulated mesh to the segment the simulated mesh is sliding on.</li></ul> |
 | **Width Scale**      | Float        | 1.0           | ✓ | Modifies the width of all lines. |
 | **Color**            | Color Picker | Red           | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
-| **Fiber Scale**      | Float        | 3.0           | ✓ | The scale can be modified to set a custom fiber length. |
-| **Fiber Color**      | Color Picker | Blue          | ✓ | The fibers color when Muscle Fibers debug mode is selected and the muscle is not activated (*Activation* Attribute). |
+| **Fibers Scale**     | Float        | 3.0           | ✓ | The scale can be modified to set a custom fiber length. |
+| **Fibers Color**     | Color Picker | Blue          | ✓ | The fibers color when Muscle Fibers debug mode is selected and the muscle is not activated (*Activation* Attribute). |
 | **Activation Color** | Color Picker | Red           | ✓ | The fibers color when Muscle Fibers debug mode is selected and the muscle is activated (*Activation* Attribute). |
-
-### Deformer Attributes
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. The upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
 ### Connectable Attributes
 | Name | Type | Default | Animatable | Description |
@@ -142,6 +155,7 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 | **Slide On Segment Tip Matrix**  | Matrix | Identity | ✓ | List of tip matrices (from a compound attribute) used for setting up segments of slide on segment constraints. |
 | **Target World Mesh**            | Mesh   |          | ✓ | List of geometry meshes (from a compound attribute) used for setting up attachment to geometry and slide on geometry constraints. |
 | **Target World Matrix**          | Matrix | Identity | ✓ | List of geometry matrices (from a compound attribute) used for setting up attachment to geometry and slide on geometry constraints. |
+| **Rest Shape Mesh**              | Mesh   |          | ✓ | Geometry to drive the goal shape of the muscle during simulation. This geometry is used to refresh the data of the fibers, shape preservation and volume constraints at each frame. |
 
 ## Attribute Editor Template
 
@@ -156,7 +170,7 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnRibbonMuscle editor debug menu](../images/muscle_attribute_editor_debug.png)
+  ![AdnRibbonMuscle editor debug menu](../images/ribbon_attribute_editor_02.png)
   <figcaption><b>Figure 3</b>: AdnRibbonMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 
@@ -173,7 +187,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 | **Fibers Multiplier**           | 1.0             | Controls the area in which to concentrate the activation of the muscle. A higher value means more concentrated activation. |
 | **Global Damping**              | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
 | **Masses**                      | 1.0             | Set individual mass values per vertex in the simulated mesh. |
-| **Shape Preservation**          | 0.0             | Amount of correction to apply to the current vertex to maintain the initial state of the shape formed with the surrounding vertices. |
+| **Shape Preservation**          | 1.0             | Amount of correction to apply to the current vertex to maintain the initial state of the shape formed with the surrounding vertices. |
 | **Slide On Geometry**           | 0.0             | Multi-influence weight to force vertices to displace only on the target geometry area defined by the *Max Sliding Distance* value. |
 | **Slide On Segment**            | 0.0             | Multi-influence weight to force vertices to displace only in the direction of a user-specified group of segments. |
 | **Sliding Distance Multiplier** | 1.0             | Determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. Greater values will allow for larger sliding areas but will also increase the computational cost.<ul><li>*Tip*: For areas where sliding is not required paint to 0.0. Use values closer to 1.0 in areas where more sliding freedom should be prioritized.</li></ul> |
@@ -293,6 +307,25 @@ Additionally to all previously mentioned constraints, ribbon muscles can have an
     3. Press *Remove Slide On Segment Constraint* in the AdonisFX menu from the *Edit* Muscle submenu.
     4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing *Remove Slide On Segment Constraint* in the AdonisFX menu, all segments will be removed.
 
+### Rest Shape
+
+The muscle solver supports an art-directed shape to drive the fibers, shape and volume constraints. This shape is typically a sculpted version of the muscle (it must be topologically identical) that represents the muscle when it is fully activated. The artist can add and remove the custom shape from dedicated entries in the AdonisFX muscle submenu.
+
+- **Add Rest Shape**:
+    1. Select the transform or mesh node to be assigned as rest shape to the AdnRibbonMuscle.
+    2. Select the mesh that has the AdnRibbonMuscle deformer applied.
+    3. Press *Add Rest Shape* in the AdonisFX menu from the Edit Muscle submenu.
+
+> [!NOTE]
+> - The topology of the rest shape and the muscle geometry must be identical (i.e. vertex count, vertex connectivity, polygonal information, etc.).
+
+- **Remove Rest Shape**: 
+    1. Select the transform node of the rest mesh assigned to the AdnRibbonMuscle (optional).
+    2. Select the mesh that has the AdnRibbonMuscle deformer applied.
+    3. Press *Remove Rest Shape* in the AdonisFX menu from the Edit Muscle submenu.
+
+On top of this, if the input activation of the muscle is also connected to the *Rest Shape Weight*, then the influence of the rest shape over the final result will be coherent with the variation of the level of activation during the simulation.
+
 ### Fibers Multiplier
 
 Painting the fibers multiplier map allows to concentrate the activation of a muscle in certain areas which would allow for more artistic control over the final shape of the muscle after contraction (activation).
@@ -305,7 +338,7 @@ Not painting the fibers multiplier map will cause the muscle to contract uniform
 
 ### Activation Layers
 
-The activation layers allow to drive the muscle activation by multiple sensors combined together without the need of using an [AdnActivation](../nodes#activation) node. In practice, having an AdnActivation node with multiple input sensors connected to the **activation** attribute of an AdnRibbonMuscle is equivalent to connect those sensors directly to the activation list of that muscle.
+The activation layers allow to drive the muscle activation by multiple sensors combined together without the need of using an [AdnActivation](../nodes#activation) node. In practice, having an AdnActivation node with multiple input sensors connected to the **activation** attribute of an AdnRibbonMuscle is equivalent to connecting those sensors directly to the activation list of that muscle.
 
 The activation layers contribute to the final activation of the muscle solver, where the first layer will always be the **activation** scalar attribute. Then, every value in the **activation list** array plug is applied on top taking into consideration the operator and the bypass flag. The resulting value is the global activation that the solver will use for the simulation, and it is written onto the read-only **output solver activation** attribute.
 
