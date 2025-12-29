@@ -15,7 +15,7 @@ The AdnRelax deformer is easy to create and configure in Maya. It only requires 
 ### Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Iterations**         | Integer | 0      | X | Number of iterations of the relaxation algorithm. Greater values mean greater computational cost. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
+| **Iterations**         | Integer | 1      | X | Number of iterations of the relaxation algorithm. Greater values mean greater computational cost. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
 | **Pin**                | Boolean | False  | ✓ | Flag to pin the vertices on the boundaries. |
 | **Smooth**             | Float   | 0.5    | ✓ | Amount of smoothing to apply. Has a range of \[0.0, 1.0\]. |
 | **Relax**              | Float   | 0.5    | ✓ | Amount of relaxation to apply. Has a range of \[0.0, 1.0\]. |
