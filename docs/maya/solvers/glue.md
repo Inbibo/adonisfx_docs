@@ -121,15 +121,9 @@ The process to create an AdnGlue node is:
 | **Push Out Threshold**          | Float       | -1.0                  | ✓ | Maximum correction applied by the push out adjustment for self collision affected points. The threshold will be ignored if its value is 0.0 or less. Has a range of \[-1.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Last Substep Only**           | Boolean     | False                 | ✗ | If enabled, self-collisions are only computed in the last substep of the simulation. |
 | **Last Iteration Only**         | Boolean     | False                 | ✗ | If enabled, self-collisions are only computed in the last iteration of each substep. |
-
-##### Point To Point Properties
-
 | **Point Radius Mode**           | Enumerator | Average Edge           | ✗ | Determines how the point radius is computed for self-collisions.<ul><li>Uniform Value: uses the uniform value to estimate the radius.</li><li>Average Edge: uses the average edge length of the connected edges per vertex.</li><li>Minimum Edge: uses the minimum edge length of the connected edges per vertex.</li></ul> |
 | **Point Radius Scale**          | Float      | 1.0                    | ✗ | Sets the scaling factor applied to the point radius. It uses the value directly if the *Point Radius Mode* is set to *Uniform Value*. Has a range of \[0.0, 3.0\]. The upper limit is soft, higher values can be used. |
 | **Search Radius**               | Float      | -1.0                   | ✓ | Sets the search radius for the self collision detection. It is used to determine the maximum distance to search for self collisions. If a value lower than 0.0 is used, the search radius will be estimated from the number of steps and the average edge length of the whole mesh. A value greater than 0.0 will represent a search radius in scene units. Has a range of \[-1.0, 1.0\]. The upper limit is soft, higher values can be used. |
-
-##### Triangle To Triangle Properties
-
 | **Quality Mode**                | Enumerator | Quality                | ✓ | Sets the quality mode for self-collision detection. <ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
 | **Ignore Rest Intersections**   | Boolean    | True                   | ✗ | Ignore self-collision detection and correction for primitives that are intersecting in the rest pose. |
 
@@ -151,10 +145,6 @@ The process to create an AdnGlue node is:
 | **Feature**     | Enumerator   | Distance Constraints | ✓ | A list of debuggable features for this node.<ul><li>Distance Constraints: Draw *Distance Constraint* connections representing the constrained pair of vertices in the simulated mesh.</li><li>Glue Constraints: Draw *Glue* connections between every vertex and its closest point on the closest neighbor surface.</li><li>Self Collisions Volume: For each vertex draw a sphere whose volume depends on the point radius that the vertex has.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the target mesh.</li><li>Acceleration Structure: Draw a bounding box encapsulating all the collision primitives present in the internal acceleration structure used to solve self-collisions at the level specified in the attribute *Debug Level Acceleration Structure*. If the level set is -1, then all levels are displayed. If the value is greater than the number of levels, then no levels are displayed. Otherwise, only the specified level is displayed.</li><li>Rest Self Collisions: Draw the edges of the triangles that are intersecting with the mesh at rest.</li></ul> |
 | **Width Scale** | Float        | 3.0                  | ✓ | Modifies the width of all lines. |
 | **Color**       | Color Picker | Red                  | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
-
-#### Debug Acceleration Structure
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
 | **Debug Level Accel. Struct.** | Integer | -1 | ✓ | Sets the level of detail to display the acceleration structure for debugging. Has a range of \[-1, 10\]. The upper limits is soft, higher values can be used. |
 
 ## Attribute Editor Template
@@ -166,12 +156,12 @@ The process to create an AdnGlue node is:
 
 <figure style="width: 75%;" markdown>
   ![glue editor advanced settings and debug menu](../images/glue_attribute_editor_01.png) 
-  <figcaption><b>Figure 2</b>: AdnGlue Attribute Editor (Advanced Settings I).</figcaption>
+  <figcaption><b>Figure 2</b>: AdnGlue Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![glue editor advanced settings and debug menu](../images/glue_attribute_editor_02.png) 
-  <figcaption><b>Figure 3</b>: AdnGlue Attribute Editor (Advanced Settings II, Maps, Node Attributes and Debug menu).</figcaption>
+  <figcaption><b>Figure 3</b>: AdnGlue Attribute Editor (Advanced Settings (Self-Collisions), Maps, Node Attributes and Debug menu).</figcaption>
 </figure>
 
 ## Paintable Weights
