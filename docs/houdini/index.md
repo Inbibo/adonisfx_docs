@@ -17,8 +17,8 @@
     - [AdnLocators](utils/locators)
     - [AdnSensors](utils/sensors)
     - [AdnActivation](utils/activation)
-    - [AdnEdgeEvaluator](utils/edge_evaluator)
     - [AdnRemap](utils/remap)
+    - [AdnEdgeEvaluator](utils/edge_evaluator)
     - [AdnFiberGroom](utils/fiber_groom)
     - [AdnLearnMusclePatches](utils/learn_muscle_patches)
 - Tools
