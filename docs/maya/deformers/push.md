@@ -9,7 +9,7 @@ The AdnPush deformer is easy to create and configure in Maya. It only requires a
 1. Select the mesh on which to apply the deformer.
 2. Press ![Push button](../images/adn_push.png){style="width:4%"} in the AdonisFX shelf or *Push* in the AdonisFX menu, under the Create Deformers section.
 3. A message in the terminal will notify that AdnPush has been created properly.
-4. Modify the value of the *Push Length* parameter to see the result of the push deformation. Check the [Attributes](relax#attributes) section to customize their configuration.
+4. Modify the value of the *Push Length* parameter to see the result of the push deformation. Check the [Attributes](push#attributes) section to customize their configuration.
 
 ## Attributes
 
