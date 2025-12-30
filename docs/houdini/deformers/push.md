@@ -36,7 +36,7 @@ The AdnPush deformer is easy to create and configure in Houdini. It only require
 
 <figure markdown>
   ![push parameter template maps tab](../images/push_parameter_template_01.png)
-  <figcaption><b>Figure 1</b>: AdnPush Parameter Template (Part 2): Maps.</figcaption>
+  <figcaption><b>Figure 2</b>: AdnPush Parameter Template (Part 2): Maps.</figcaption>
 </figure>
 
 ## Paintable Weights
@@ -50,5 +50,5 @@ To provide more control, the AdnPush deformer includes two paintable attributes.
 
 <figure markdown>
   ![push paintable maps](../images/push_weights.png)
-  <figcaption><b>Figure 2</b>: Example of Push Multiplier map of AdnPush deformer applied to the skin layer of a biped to obtain the fascia geometry. Left: front view. Right: back view.</figcaption>
+  <figcaption><b>Figure 3</b>: Example of Push Multiplier map of AdnPush deformer applied to the skin layer of a biped to obtain the fascia geometry. Left: front view. Right: back view.</figcaption>
 </figure>
