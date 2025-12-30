@@ -59,11 +59,15 @@ result = mirror.apply_mirror(left_convention="L_*", right_convention="R_*", repo
 </code></pre>
 
 > [!NOTE = More Examples]
-> === Using suffixes
+> === Using Prefix
 > 
-> `result = mirror.apply_mirror(left_convention="*_L", right_convention="*_R", report_data=report_data)`
+> `result = mirror.apply_mirror(left_convention="left_*", right_convention="right_*", report_data=report_data)`
 >
->  === Using tokens
+> === Using Suffix
+> 
+> `result = mirror.apply_mirror(left_convention="*_left", right_convention="*_right", report_data=report_data)`
+>
+>  === Using Token
 >
 > `result = mirror.apply_mirror(left_convention="*_left_*", right_convention="*_right_*", report_data=report_data)`
 
