@@ -419,7 +419,7 @@ If a specific area has lost detail, flood the *Push In Ratio Multiplier* to 0.0 
 
 ## AdnPush
 
-A good example of use case for the AdnPush deformer is to generate the internal fascia of a character from the outer skin mesh. To prepare this scenario, start with the skin mesh at rest, duplicate it, rename it and clear the history.
+A good example of a use case for the AdnPush deformer is to generate the internal fascia of a character from the outer skin mesh. To prepare this scenario, start with the skin mesh at rest, duplicate it, rename it and clear the history.
 
 <figure markdown>
   ![push initial setup](images/simple_setup_push_00.png)
