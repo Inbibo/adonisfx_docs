@@ -417,6 +417,47 @@ If a specific area has lost detail, flood the *Push In Ratio Multiplier* to 0.0 
   <figcaption><b>Figure 36</b>: Example of AdnRelax results with a distribution of weights shown in Figure 35. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the deformer in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
 </figure>
 
+## AdnPush
+
+A good example of use case for the AdnPush deformer is to generate the internal fascia of a character from the outer skin mesh. To prepare this scenario, start with the skin mesh at rest, duplicate it, rename it and clear the history.
+
+<figure>
+  <img src="images/simple_setup_push_00.png">
+  <figcaption><b>Figure 35</b>: Fascia geometry result of duplicating and renaming the outer skin mesh at rest.</figcaption>
+</figure>
+
+### Create Deformer
+
+To create the AdnPush deformer:
+
+1. Select the mesh to apply the deformer onto.
+2. Press the ![AdnPush](images/adn_push.png){style="width:4%"} shelf button or go to AdonisFX Menu > Deformers > *Push*.
+3. Set a negative value to the *Push Length* attribute to apply the push effect inwards (e.g. -2.0).
+
+<figure>
+  <img src="images/simple_setup_push_01.png">
+  <figcaption><b>Figure 36</b>: Result of applying a uniform *Push Length* of -2.0 to the whole input geometry.</figcaption>
+</figure>
+
+Keeping the muscle layer visible is helpful to drive the configuration of the AdnPush settings, specially the paintable maps. It is expected and intended to get intersections with the muscle layer at this point. Those intersections will be fixed by tweaking the maps.
+
+### Paint Weights
+
+> [!NOTE]
+> AdnPush requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
+
+The *push multiplier* and *weights* maps are flooded to 1.0 by default. The push multiplier is meant to modulate the amount of push across the entire mesh as it is the map that multiplies the global *Push Length* for each point. In the example with the muscle layer visible, this map can be tweaked to remove the intersections. The map  resultingof those tweaks is presented in Figure 37.
+
+<figure markdown>
+  ![relax paintable maps](images/push_weights.png)
+  <figcaption><b>Figure 37</b>: Example of *Push Multiplier* map of AdnPush deformer.</figcaption>
+</figure>
+
+<figure markdown>
+  ![relax example results](images/simple_setup_push_02.png)
+  <figcaption><b>Figure 38</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map exposed in Figure 37. Most of the intersections in Figure 36 introduced by a uniform push are fixed now.</figcaption>
+</figure>
+
 ## AdnSkinMerge
 
 To create a basic scenario using the AdnSkinMerge deformer, start with a scene with the following elements:
