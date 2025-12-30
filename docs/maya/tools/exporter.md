@@ -23,6 +23,7 @@ The Export Tool offers an intuitive interface (see Figure 1), allowing users to 
 - **Deformers**: Specifies which deformers should be included in the export. Options include:
     - Skin Merge: include AdnSkinMerge nodes in the exported data.
     - Relax: include AdnRelax nodes in the exported data.
+    - Push: include AdnPush nodes in the exported data.
 
 - **Utils**: Allows exporting additional utility components from the setup. Options include:
     - Sensors & Locators: include AdonisFX sensors and locators in the exported data, ensuring proper connections between components.
