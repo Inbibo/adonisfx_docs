@@ -36,12 +36,12 @@ Depending on the deformer and the attribute selected the UI can adjust to suppor
 In the specific case of muscle deformers, the tool will display the following attributes:
 
 <figure markdown>
-  ![Paint Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_00.png) 
+  ![Paint Tool Muscle Attributes example (Part 1)](../images/tools_paint_tool_muscle_attributes_00.png) 
   <figcaption><b>Figure 2</b>: Paintable attributes in AdonisFX muscle deformer (Part 1). </figcaption>
 </figure>
 
 <figure markdown>
-  ![Paint Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_01.png) 
+  ![Paint Tool Muscle Attributes example (Part 2)](../images/tools_paint_tool_muscle_attributes_01.png) 
   <figcaption><b>Figure 3</b>: Paintable attributes in AdonisFX muscle deformer (Part 2). </figcaption>
 </figure>
 
@@ -110,8 +110,13 @@ In the specific case of muscle deformers, the tool will display the following at
 In the specific case of an AdnSkin deformer, the tool will display the following attributes:
 
 <figure markdown> 
-  ![Paint Tool Skin Attributes example](../images/tools_paint_tool_skin_attributes.png) 
-  <figcaption><b>Figure 6</b>: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
+  ![Paint Tool Skin Attributes example (Part 1)](../images/tools_paint_tool_skin_attributes_00.png) 
+  <figcaption><b>Figure 6</b>: Paintable attributes listed in the UI for an AdnSkin deformer (Part 1). </figcaption>
+</figure>
+
+<figure markdown> 
+  ![Paint Tool Skin Attributes example (Part 2)](../images/tools_paint_tool_skin_attributes_01.png) 
+  <figcaption><b>Figure 7</b>: Paintable attributes listed in the UI for an AdnSkin deformer (Part 2). </figcaption>
 </figure>
 
   - **Compression Resistance** and **Stretching Resistance**
@@ -125,6 +130,21 @@ In the specific case of an AdnSkin deformer, the tool will display the following
     - This value is normalized alongside Soft Constraints and Slide Constraints.
   - **Masses**
     - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.
+  - **Self Collisions Radius Multiplier**
+    - By default, this map is set to 1.0.
+    - This value is scaled for each point by the *Point Radius Scale* attribute when the Self-Collisions are in *Point to Point* mode.
+    - The greater this value is for a given point, the larger the radius of the spherical volume used for collision detection is.
+    - Paint with a value of 0.0 the areas that should not compute self collisions to reduce the computational impact.
+  - **Self Collisions Thickness Multiplier**
+    - By default, this map is set to 1.0.
+    - This value is scaled for each point by the *Thickness* attribute in both *Point to Point* and *Triangle to Triangle* modes.
+    - In *Point to Point* mode, this value modulates the size of the spherical volume used for collision detection in the direction of the normal.
+    - In *Triangle to Triangle* mode, this value modulates the push-out applied to the surface used for collision detection in the direction of the normal.
+    - Paint with a value of 0.0 the areas to ignore the thickness; and with a value greater than 0.0 the areas to push along the direction of the normals.
+  - **Self Collisions Weights**
+    - By default, this map is set to 1.0.
+    - Paint with a value of 0.0 the areas that should not compute self collisions to reduce the computational impact.
+    - Paint with a higher value the areas that should receive more correction due to self-intersections, and with a lower value the areas that should receive less correction.
   - **Shape Preservation**
     - Shape preservation weights are set to 0.0 by default in AdnSkin. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the shape formed with the surrounding vertices.
   - **Slide Constraints**
