@@ -29,6 +29,7 @@ enabled_features = {
     IOFeaturesData.SKIN: True,
     IOFeaturesData.FAT: True,
     IOFeaturesData.RELAX: True,
+    IOFeaturesData.PUSH: True,
     IOFeaturesData.SKIN_MERGE: True,
     IOFeaturesData.SIMSHAPE: True,
     IOFeaturesData.EDGE_EVALUATOR: True,

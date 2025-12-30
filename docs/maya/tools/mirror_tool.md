@@ -18,11 +18,11 @@ The tool replicates the following components:​
 
 The Mirror Tool window is designed to be simple and intuitive, it contains the following elements:
 
-- **Mirror by**: This dropdown menu allows to specify whether the naming convention used for scene entities is based on a prefix or suffix. The selected option determines how the tool identifies corresponding elements on the opposite side.
+- **Mirror by**: This dropdown menu allows to specify whether the naming convention used for scene entities is based on **Prefix** (left/right must be at the start), **Suffix** (left/right must be at the end) or **Token** (left/right can appear anywhere). The selected option determines how the tool identifies corresponding elements on the opposite side.
 
-- **Left**: This input field is used to define the prefix or suffix for the left side of the character (e.g., "L_" for left-sided elements).
+- **Left**: This input field is used to define the prefix, suffix or token for the left side of the character (e.g., "L_" for left-sided elements).
 
-- **Right**: This input field is used to define the prefix or suffix for the right side of the character (e.g., "R_" for right-sided elements).
+- **Right**: This input field is used to define the prefix, suffix or token for the right side of the character (e.g., "R_" for right-sided elements).
 
 - **Accept**: Applies the mirroring process based on the provided settings and closes the window.
 
@@ -36,9 +36,10 @@ In order to use the **Mirror Tool**, the rig must meet the following requirement
 
 - **A completed setup on one side**: One side of the rig (either left or right) must be fully configured. This completed side will serve as the **source**, while the opposite side will be the **destination** for the mirrored setup.
 
-- **Consistent naming convention**: All objects involved in the mirroring process (including geometries, muscle deformers, locators, sensors, activation nodes and any other attachment nodes like rig joints) must follow a naming convention based on prefixes or suffixes (see Figure 2). This allows the tool to differentiate between left and right-side entities. Naming conventions can use:
-    - **Prefixes**: e.g., "L_" and "R_" or "l_" and "r_".
-    - **Suffixes**: e.g., "_L" and "_R" or "_l" and "_r".
+- **Consistent naming convention**: All objects involved in the mirroring process (including geometries, muscle deformers, locators, sensors, activation nodes and any other attachment nodes like rig joints) must follow a naming convention based on prefixes, suffixes or tokens (see Figure 2). This allows the tool to differentiate between left and right-side entities. Naming conventions can use:
+    - **Prefixes**: e.g., "L_" and "R_", "l_" and "r_", "left_" and "right_", etc.
+    - **Suffixes**: e.g., "_L" and "_R", "_l" and "_r", "_left" and "_right", etc.
+    - **Tokens**: e.g., "\_L\_" and "\_R\_", "\_l\_" and "\_r\_", "\_left\_" and "\_right\_", etc.
 
 - **Symmetric muscle topology**: The left and right muscles must have identical topology. This means that:
     - The **vertex count** must be the same on both sides.
@@ -117,5 +118,4 @@ In order to use the **Mirror Tool**, the rig must meet the following requirement
 
 ## Limitations
 
-- The naming convention does not allow placing the side identifier at the middle of the name (e.g. biceps_L_muscle).
 - The mirroring logic does not allow to mirror intermediate nodes between the AdnActivation and the AdnMuscle deformer.
