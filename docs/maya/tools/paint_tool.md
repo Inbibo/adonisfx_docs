@@ -36,12 +36,12 @@ Depending on the deformer and the attribute selected the UI can adjust to suppor
 In the specific case of muscle deformers, the tool will display the following attributes:
 
 <figure markdown>
-  ![Paint Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_00.png) 
+  ![Paint Tool Muscle Attributes example (Part 1)](../images/tools_paint_tool_muscle_attributes_00.png) 
   <figcaption><b>Figure 2</b>: Paintable attributes in AdonisFX muscle deformer (Part 1). </figcaption>
 </figure>
 
 <figure markdown>
-  ![Paint Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_01.png) 
+  ![Paint Tool Muscle Attributes example (Part 2)](../images/tools_paint_tool_muscle_attributes_01.png) 
   <figcaption><b>Figure 3</b>: Paintable attributes in AdonisFX muscle deformer (Part 2). </figcaption>
 </figure>
 
@@ -110,8 +110,13 @@ In the specific case of muscle deformers, the tool will display the following at
 In the specific case of an AdnSkin deformer, the tool will display the following attributes:
 
 <figure markdown> 
-  ![Paint Tool Skin Attributes example](../images/tools_paint_tool_skin_attributes.png) 
-  <figcaption><b>Figure 6</b>: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
+  ![Paint Tool Skin Attributes example (Part 1)](../images/tools_paint_tool_skin_attributes_00.png) 
+  <figcaption><b>Figure 6</b>: Paintable attributes listed in the UI for an AdnSkin deformer (Part 1). </figcaption>
+</figure>
+
+<figure markdown> 
+  ![Paint Tool Skin Attributes example (Part 2)](../images/tools_paint_tool_skin_attributes_01.png) 
+  <figcaption><b>Figure 7</b>: Paintable attributes listed in the UI for an AdnSkin deformer (Part 2). </figcaption>
 </figure>
 
   - **Compression Resistance** and **Stretching Resistance**
