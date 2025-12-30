@@ -423,7 +423,7 @@ A good example of use case for the AdnPush deformer is to generate the internal 
 
 <figure markdown>
   ![push initial setup](images/simple_setup_push_00.png)
-  <figcaption><b>Figure 35</b>: Fascia geometry result of duplicating and renaming the outer skin mesh at rest.</figcaption>
+  <figcaption><b>Figure 37</b>: Fascia geometry result of duplicating and renaming the outer skin mesh at rest.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -436,10 +436,10 @@ To create the AdnPush deformer:
 
 <figure markdown>
   ![push deformer applied](images/simple_setup_push_01.png)
-  <figcaption><b>Figure 36</b>: Result of applying a uniform Push Length of -2.0 to the whole input geometry.</figcaption>
+  <figcaption><b>Figure 38</b>: Result of applying a uniform Push Length of -2.0 to the whole input geometry.</figcaption>
 </figure>
 
-Keeping the muscle layer visible is helpful to drive the configuration of the AdnPush settings, specially the paintable maps. It is expected and intended to get intersections with the muscle layer at this point. Those intersections will be fixed by tweaking the maps.
+Keeping the muscle layer visible is helpful to drive the configuration of the AdnPush settings, especially the paintable maps. It is expected and intended to get intersections with the muscle layer at this point. Those intersections will be fixed by tweaking the maps.
 
 ### Paint Weights
 
@@ -450,12 +450,12 @@ The *push multiplier* and *weights* maps are flooded to 1.0 by default. The push
 
 <figure markdown>
   ![push paintable maps](images/push_weights.png)
-  <figcaption><b>Figure 37</b>: Example of Push Multiplier map of AdnPush deformer.</figcaption>
+  <figcaption><b>Figure 39</b>: Example of Push Multiplier map of AdnPush deformer.</figcaption>
 </figure>
 
 <figure markdown>
   ![push example results](images/simple_setup_push_02.png)
-  <figcaption><b>Figure 38</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 37. Most of the intersections in Figure 36 introduced by a uniform push are fixed now.</figcaption>
+  <figcaption><b>Figure 40</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 39. Most of the intersections present in Figure 38 introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
 </figure>
 
 ## AdnSkinMerge
@@ -470,7 +470,7 @@ The AdnSkinMerge deformer will be applied to the final mesh which will  be the r
 
 <figure>
   <img src="images/simple_setup_skin_merge_00.png"> 
-  <figcaption><b>Figure 39</b>: Basic setup for skin merge. Meshes isolated for better visualization. From left to right: Final Mesh, Animation Mesh, Simulation Mesh.</figcaption>
+  <figcaption><b>Figure 41</b>: Basic setup for skin merge. Meshes isolated for better visualization. From left to right: Final Mesh, Animation Mesh, Simulation Mesh.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -483,7 +483,7 @@ When everything has been properly set up, press the *Create* button to create th
 
 <figure>
   <img src="images/simple_setup_skin_merge_01.png"> 
-  <figcaption><b>Figure 40</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
+  <figcaption><b>Figure 42</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -499,7 +499,7 @@ To have a smooth transition from the simulated mesh to the animated mesh, smooth
 
 <figure>
   <img src="images/simple_setup_skin_merge_02.png"> 
-  <figcaption><b>Figure 41</b>: Blend weights painted map.</figcaption>
+  <figcaption><b>Figure 43</b>: Blend weights painted map.</figcaption>
 </figure>
 
 With this basic paint setup the AdnSkinMerge deformer will now show the results of skin simulation transferred to the final mesh.
@@ -516,7 +516,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 <figure>
   <img src="images/simple_setup_simshape_00.png"> 
-  <figcaption><b>Figure 42</b>: Basic setup for facial simulations.</figcaption>
+  <figcaption><b>Figure 44</b>: Basic setup for facial simulations.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -529,7 +529,7 @@ To create the AdnSimshape deformer with some initial specialization, double-clic
 
 <figure>
   <img src="images/simple_setup_simshape_01.png"> 
-  <figcaption><b>Figure 43</b>: AdnSimshape deformer creation scenario.</figcaption>
+  <figcaption><b>Figure 45</b>: AdnSimshape deformer creation scenario.</figcaption>
 </figure>
 
 To add the deformation mesh to the deformer first select the deformation mesh, then the simulated mesh (which is the animation mesh) and then go to AdonisFX Menu > Simshape (on the *Edit* group) > Add *Deform Mesh*. A message will notify that the addition of the rest mesh has been done correctly.
@@ -545,21 +545,21 @@ In high deformation areas, such as around the mouth or under the eyes, add mediu
 
 <figure>
   <img src="images/simple_setup_simshape_02.png"> 
-  <figcaption><b>Figure 44</b>: Attraction Force weights for medium dynamics areas.</figcaption>
+  <figcaption><b>Figure 46</b>: Attraction Force weights for medium dynamics areas.</figcaption>
 </figure>
 
 Painting lower Attraction Force weights in meatier areas of the face, such as under the neck or in the cheeks to show more dynamics in these regions. In this case a value of 0.15 will be applied.
 
 <figure>
   <img src="images/simple_setup_simshape_03.png"> 
-  <figcaption><b>Figure 45</b>: Attraction Force weights for high dynamics areas.</figcaption>
+  <figcaption><b>Figure 47</b>: Attraction Force weights for high dynamics areas.</figcaption>
 </figure>
 
 The lowest values (0.1 in this case) will be applied to the area under the jaw where dynamics will appear the most. 
 
 <figure>
   <img src="images/simple_setup_simshape_04.png"> 
-  <figcaption><b>Figure 46</b>: Attraction Force weights for highest dynamics areas.</figcaption>
+  <figcaption><b>Figure 48</b>: Attraction Force weights for highest dynamics areas.</figcaption>
 </figure>
 
 After painting similar weights to the ones displayed and pressing playback to check the animation, realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are available and fully explained in the documentation for [AdnSimshape](deformers/simshape).
