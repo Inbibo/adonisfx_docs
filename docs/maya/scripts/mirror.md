@@ -17,9 +17,10 @@ In order to use the mirroring script, the rig must meet the following requiremen
 
 - **A completed setup on one side**: One side of the rig (either left or right) must be fully configured. This completed side will serve as the **source**, while the opposite side will be the **destination** for the mirrored setup.
 
-- **Consistent naming convention**: All objects involved in the mirroring process (including geometries, muscle deformers, locators, sensors, activation nodes and any other attachment nodes like rig joints) must follow a naming convention based on prefixes or suffixes (see Figure 1). This allows the tool to differentiate between left and right-side entities. Naming conventions can use:
-    - **Prefixes**: e.g., "L_" and "R_" or "l_" and "r_".
-    - **Suffixes**: e.g., "_L" and "_R" or "_l" and "_r".
+- **Consistent naming convention**: All objects involved in the mirroring process (including geometries, muscle deformers, locators, sensors, activation nodes and any other attachment nodes like rig joints) must follow a naming convention based on prefixes, suffixes or tokens (see Figure 1). This allows the tool to differentiate between left and right-side entities. Naming conventions can use:
+    - **Prefixes**: e.g., "L_" and "R_", "l_" and "r_", "left_" and "right_", etc.
+    - **Suffixes**: e.g., "_L" and "_R", "_l" and "_r", "_left" and "_right", etc.
+    - **Tokens**: e.g., "\_L\_" and "\_R\_", "\_l\_" and "\_r\_", "\_left\_" and "\_right\_", etc.
 
 - **Symmetric muscle topology**: The left and right muscles must have identical topology. This means that:
     - The **vertex count** must be the same on both sides.
@@ -57,6 +58,15 @@ report_data = {"errors": [], "warnings": []}
 result = mirror.apply_mirror(left_convention="L_*", right_convention="R_*", report_data=report_data)
 </code></pre>
 
+> [!NOTE = More Examples]
+> === Using suffixes
+> 
+> `result = mirror.apply_mirror(left_convention="*_L", right_convention="*_R", report_data=report_data)`
+>
+>  === Using tokens
+>
+> `result = mirror.apply_mirror(left_convention="*_left_*", right_convention="*_right_*", report_data=report_data)`
+
 5. Depending on the complexity of the rig, this process might take a few seconds to compute. The `result` returned by the function will be `True` if there were any muscles or locators properly mirrored, and `False` if nothing was mirrored (e.g. if the selection was empty).
 
 <figure style="width:90%; margin-left:5%" markdown>
@@ -79,5 +89,4 @@ for warn in report_data["warnings"]:
 
 ## Limitations
 
-- The naming convention does not allow placing the side identifier at the middle of the name (e.g. biceps_L_muscle).
 - The mirroring logic does not allow to mirror intermediate nodes between the AdnActivation and the AdnMuscle deformer.
