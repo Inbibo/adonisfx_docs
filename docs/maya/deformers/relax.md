@@ -2,7 +2,7 @@
 
 AdnRelax is a Maya deformer designed to smooth creases and correct over-compression or over-stretching on geometry surfaces. This deformer can help refining different types of meshes, like the fascia and skin resulting from the simulation by computing an iterative algorithm that combines smoothing, relaxation, and volume corrections. The AdnRelax deformer applies smoothing and relaxation in each iteration, while the volume correction (i.e. a push in and push out adjustment in the direction of the point normals) is applied during the final iteration.
 
-### How to use
+## How to use
 
 The AdnRelax deformer is easy to create and configure in Maya. It only requires the mesh to apply the relaxation onto. Typically, this mesh would be the simulated fascia or skin.
 
@@ -38,7 +38,7 @@ The AdnRelax deformer is easy to create and configure in Maya. It only requires 
 
 ## Paintable Weights
 
-In order to provide more control, some key parameters of the AdnRelax deformer are exposed as paintable attributes. The Maya paint tool must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more control, some key parameters of the AdnRelax deformer are exposed as paintable attributes. The Maya paint tool must be used to paint those parameters to ensure that the values satisfy the deformation needs.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
