@@ -63,7 +63,7 @@ Once the AdnSkinMerge deformer is created, to modify its input meshes (animation
 ## Attribute Editor Template
 
 <figure markdown>
-  ![AdnSkinMerge editor](../images/skin_merge_attribute_editor.png)
+  ![AdnSkinMerge attribute editor](../images/skin_merge_attribute_editor.png)
   <figcaption><b>Figure 3</b>: AdnSkinMerge Attribute Editor.</figcaption>
 </figure>
 
@@ -74,6 +74,6 @@ Once the AdnSkinMerge deformer is created, to modify its input meshes (animation
 | **Weight**      | 1.0 | Default weight attribute to determine the influence of the deformer over the input geometry. |
 
 <figure markdown>
-  ![AdnSkinMerge editor](../images/skin_merge_blend_weights.png)
+  ![AdnSkinMerge attribute editor](../images/skin_merge_blend_weights.png)
   <figcaption><b>Figure 4</b>: Example of Blend weights painted.</figcaption>
 </figure>

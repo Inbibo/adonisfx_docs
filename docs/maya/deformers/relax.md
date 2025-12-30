@@ -2,7 +2,7 @@
 
 AdnRelax is a Maya deformer designed to smooth creases and correct over-compression or over-stretching on geometry surfaces. This deformer can help refining different types of meshes, like the fascia and skin resulting from the simulation by computing an iterative algorithm that combines smoothing, relaxation, and volume corrections. The AdnRelax deformer applies smoothing and relaxation in each iteration, while the volume correction (i.e. a push in and push out adjustment in the direction of the point normals) is applied during the final iteration.
 
-### How to use
+## How to use
 
 The AdnRelax deformer is easy to create and configure in Maya. It only requires the mesh to apply the relaxation onto. Typically, this mesh would be the simulated fascia or skin.
 
@@ -32,13 +32,13 @@ The AdnRelax deformer is easy to create and configure in Maya. It only requires 
 ## Attribute Editor Template
 
 <figure markdown>
-  ![fat editor first part](../images/relax_attribute_editor.png)
+  ![relax attribute editor](../images/relax_attribute_editor.png)
   <figcaption><b>Figure 1</b>: AdnRelax Attribute Editor.</figcaption>
 </figure>
 
 ## Paintable Weights
 
-In order to provide more control, some key parameters of the AdnRelax deformer are exposed as paintable attributes. The Maya paint tool must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more control, some key parameters of the AdnRelax deformer are exposed as paintable attributes. The Maya paint tool must be used to paint those parameters to ensure that the values satisfy the deformation needs.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
@@ -46,6 +46,7 @@ In order to provide more control, some key parameters of the AdnRelax deformer a
 | **Push Out Ratio Multiplier** | 1.0 | Weight to multiply the push out adjustment applied to the geometry surface. |
 | **Smooth Multiplier**         | 1.0 | Weight to multiply the smoothing applied to the geometry surface. |
 | **Relax Multiplier**          | 1.0 | Weight to multiply the relaxation applied to the geometry surface.  |
+| **Weights**                   | 1.0 | Maya standard weights map used to control the influence of the deformer at each vertex. |
 
 <figure markdown>
   ![relax paintable maps](../images/relax_weights.png)
