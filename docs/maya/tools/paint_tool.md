@@ -144,7 +144,7 @@ In the specific case of an AdnSkin deformer, the tool will display the following
   - **Self Collisions Weights**
     - By default, this map is set to 1.0.
     - Paint with a value of 0.0 the areas that should not compute self collisions to reduce the computational impact.
-    - Paint with higher value the areas that should receive more correction due to self-intersections, and with lower value the areas that should receive less correction.
+    - Paint with a higher value the areas that should receive more correction due to self-intersections, and with a lower value the areas that should receive less correction.
   - **Shape Preservation**
     - Shape preservation weights are set to 0.0 by default in AdnSkin. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the shape formed with the surrounding vertices.
   - **Slide Constraints**

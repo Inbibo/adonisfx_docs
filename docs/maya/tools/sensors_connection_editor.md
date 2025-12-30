@@ -1,6 +1,6 @@
 # Sensors Connection Editor
 
-To ease with the connection of sensors to the muscle activations AdonisFX provides the **Sensors Connection Editor** tool. Instead of connecting the sensors directly to the muscle deformers, this tool is designed to make the connection through the locators in order to keep the node graph aligned with the standard structure in AdonisFX of: (1) sensors connected to locators, (2) then locators connected to muscles.
+To ease the connection of the sensors to the muscle activations AdonisFX provides the **Sensors Connection Editor** tool. Instead of connecting the sensors directly to the muscle deformers, this tool is designed to make the connection through the locators in order to keep the node graph aligned with the standard structure in AdonisFX of: (1) sensors connected to locators, (2) then locators connected to muscles.
 
 To use this tool go to the AdonisFX Menu > Sensors (under the Edit section) > *Connection Editor*.
 
