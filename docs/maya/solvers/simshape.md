@@ -258,7 +258,7 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 AdnSimshape can emulate the behavior of facial muscles by computing the muscle activation directly on the vertices of the skin geometry. The activation of the vertices is an advanced and optional feature that can work in two modes: from **muscle patches data** or from **plug values**.
 
 <figure markdown>
-  ![Activation modes from attribute editor](../images/simshape_activation_modes.png)
+  ![Activation modes from attribute attribute editor](../images/simshape_activation_modes.png)
   <figcaption><b>Figure 8</b>: Activation Modes switch exposed in the Attribute Editor.</figcaption>
 </figure>
 

@@ -150,7 +150,7 @@ The process to create an AdnGlue node is:
 ## Attribute Editor Template
 
 <figure style="width: 75%;" markdown>
-  ![glue editor](../images/glue_attribute_editor_00.png) 
+  ![glue attribute editor](../images/glue_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnGlue Attribute Editor.</figcaption>
 </figure>
 

@@ -32,7 +32,7 @@ The AdnRelax deformer is easy to create and configure in Maya. It only requires 
 ## Attribute Editor Template
 
 <figure markdown>
-  ![fat editor first part](../images/relax_attribute_editor.png)
+  ![relax attribute editor](../images/relax_attribute_editor.png)
   <figcaption><b>Figure 1</b>: AdnRelax Attribute Editor.</figcaption>
 </figure>
 
@@ -46,6 +46,7 @@ In order to provide more control, some key parameters of the AdnRelax deformer a
 | **Push Out Ratio Multiplier** | 1.0 | Weight to multiply the push out adjustment applied to the geometry surface. |
 | **Smooth Multiplier**         | 1.0 | Weight to multiply the smoothing applied to the geometry surface. |
 | **Relax Multiplier**          | 1.0 | Weight to multiply the relaxation applied to the geometry surface.  |
+| **Weights**                   | 1.0 | MMaya standard weights map used to control the influence of the deformer at each vertex. |
 
 <figure markdown>
   ![relax paintable maps](../images/relax_weights.png)
