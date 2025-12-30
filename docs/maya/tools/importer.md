@@ -23,6 +23,7 @@ The Import Tool offers an intuitive interface (see Figure 1), allowing users to 
 - **Deformers**. Specifies which deformers should be imported. Options include:
     - Skin Merge: imports AdnSkinMerge nodes and their settings.
     - Relax: imports AdnRelax nodes and their settings.
+    - Push: imports AdnPush nodes and their settings.
 
 - **Utils**. Allows importing utility components from the JSON file. Options include:
     - Sensors & Locators: imports AdonisFX sensors and locators, ensuring proper connections between components.
