@@ -1,6 +1,6 @@
 AdnPush
 
-AdnPush is a Maya deformer designed to push a surface along the direction of its normals. This deformation can be applied outwards (i.e., the surface bulges and gains volume) or inwards (i.e., the surface shrinks and loses volume). This deformer is useful for refining meshes by increasing or decreasing their volume, as well as for modeling purposes. For example, a common use case is generating internal fascia geometry from skin geometry.
+AdnPush is a Maya deformer designed to push a surface along the direction of its normals. This deformation can be applied outwards (i.e., the surface bulges and gains volume) or inwards (i.e., the surface shrinks and loses volume). This deformer is useful for refining meshes by increasing or decreasing their volume, as well as for modeling purposes. For example, a common use case is generating internal fascia geometry from skin geometry. Check [this section](../simple_setup.md#AdnPush) to see a simple setup of this.
 
 How to use
 
@@ -37,9 +37,9 @@ To provide more control, the AdnPush deformer includes several paintable attribu
 | Name | Default | Description |
 | :--- | :------ | :---------- |
 | **Push Multiplier** | 1.0 | Weight used to multiply the global Push Length to determine the amount of adjustment applied at each vertex. |
-| **Weights**         | 1.0 | MMaya standard weights map used to control the influence of the deformer at each vertex. |
+| **Weights**         | 1.0 | Maya standard weights map used to control the influence of the deformer at each vertex. |
 
 <figure markdown>
-  ![relax paintable maps](../images/push_weights.png)
-  <figcaption><b>Figure 2</b>: Example of paintable weights of AdnPush deformer applied to the skin layer of a biped to obtain the fascia geometry.</figcaption>
+  ![push paintable maps](../images/push_weights.png)
+  <figcaption><b>Figure 2</b>: Example of Push Multiplier map of AdnPush deformer applied to the skin layer of a biped to obtain the fascia geometry. Left: front view. Right: back view.</figcaption>
 </figure>
