@@ -67,7 +67,7 @@ result = mirror.apply_mirror(left_convention="L_*", right_convention="R_*", repo
 > 
 > `result = mirror.apply_mirror(left_convention="*_left", right_convention="*_right", report_data=report_data)`
 >
->  === Using Token
+> === Using Token
 >
 > `result = mirror.apply_mirror(left_convention="*_left_*", right_convention="*_right_*", report_data=report_data)`
 
