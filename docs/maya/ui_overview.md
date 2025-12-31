@@ -49,7 +49,7 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![Paint Tool](images/adn_paint_tool.png) | Opens the AdonisFX Paint Tool to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. | AdonisFX Menu > *Tools* Paint Tool |
 | ![Interactive Playback](images/adn_interactive_playback.png) | Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. | AdonisFX Menu > Tools *Interactive Playback* |
 
-## AdonisFX Maya Menu
+## AdonisFX Menu
 
 The AdonisFX Menu provides access to the options in the shelf and other more advanced utilities that are organized in six groups: Create, Edit, Tools, I/O, License and Help.
 

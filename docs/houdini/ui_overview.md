@@ -11,35 +11,36 @@ The catalog of SOPs in AdonisFX can be inspected in the TAB Menu inside any geom
 
 | Icon | Description | TAB Submenu |
 | :--- | :---------- | :---------- |
-| ![AdnRelax](../images/adn_relax.png) | Creates an AdnRelax SOP. | AdonisFX > Deformers > *AdnRelax* |
-| ![AdnPush](../images/adn_push.png) | Creates an AdnPush SOP. | AdonisFX > Deformers > *AdnPush* |
+| ![AdnRelax](../images/adn_relax.png) | Creates an AdnRelax SOP. A deformer used to smooth creases and correct over-compression or over-stretching on geometry. | AdonisFX > Deformers > *AdnRelax* |
+| ![AdnPush](../images/adn_push.png) | Creates an AdnPush SOP. A deformer that pushes the geometry surface along the normal direction. | AdonisFX > Deformers > *AdnPush* |
 |||
-| ![AdnLocatorPosition](../images/adn_point_locator.png) | Creates an AdnLocatorPosition SOP. | AdonisFX > Locators > *AdnLocatorPosition* |
-| ![AdnLocatorDistance](../images/adn_distance_locator.png) | Creates an AdnLocatorDistance SOP. | AdonisFX > Locators > *AdnLocatorDistance* |
-| ![AdnLocatorRotation](../images/adn_angle_locator.png) | Creates an AdnLocatorRotation SOP. | AdonisFX > Locators > *AdnLocatorRotation* |
+| ![AdnLocatorPosition](../images/adn_point_locator.png) | Creates an AdnLocatorPosition SOP. Used to visualize the output values of an AdnSensorPosition SOP. | AdonisFX > Locators > *AdnLocatorPosition* |
+| ![AdnLocatorDistance](../images/adn_distance_locator.png) | Creates an AdnLocatorDistance SOP. Used to visualize the output values of an AdnSensorDistance SOP. | AdonisFX > Locators > *AdnLocatorDistance* |
+| ![AdnLocatorRotation](../images/adn_angle_locator.png) | Creates an AdnLocatorRotation SOP. Used to visualize the output values of an AdnSensorRotation SOP. | AdonisFX > Locators > *AdnLocatorRotation* |
 |||
-| ![AdnSensorPosition](../images/adn_point_sensor.png) | Creates an AdnSensorPosition SOP. | AdonisFX > Sensors > *AdnSensorPosition* |
-| ![AdnSensorDistance](../images/adn_distance_sensor.png) | Creates an AdnSensorDistance SOP. | AdonisFX > Sensors > *AdnSensorDistance* |
-| ![AdnSensorRotation](../images/adn_angle_sensor.png) | Creates an AdnSensorRotation SOP. | AdonisFX > Sensors > *AdnSensorRotation* |
+| ![AdnSensorPosition](../images/adn_point_sensor.png) | Creates an AdnSensorPosition SOP. Designed to interpret changes in a transformation matrix’s position and output velocity and acceleration over time. | AdonisFX > Sensors > *AdnSensorPosition* |
+| ![AdnSensorDistance](../images/adn_distance_sensor.png) | Creates an AdnSensorDistance SOP. Designed to interpret positional changes between two transformation matrices and output the distance, velocity, and acceleration over time. | AdonisFX > Sensors > *AdnSensorDistance* |
+| ![AdnSensorRotation](../images/adn_angle_sensor.png) | Creates an AdnSensorRotation SOP. Designed to interpret positional changes between three transformation matrices and output the resulting angle, angular velocity, and angular acceleration over time. | AdonisFX > Sensors > *AdnSensorRotation* |
 |||
-| ![AdnFat](../images/adn_fat.png) | Creates an AdnFat SOP. | AdonisFX > Solvers > *AdnFat* |
-| ![AdnGlue](../images/adn_glue.png) | Creates an AdnGlue SOP. | AdonisFX > Solvers > *AdnGlue* |
-| ![AdnMuscle](../images/adn_muscle.png) | Creates an AdnRelax SOP. | AdonisFX > Solvers > *AdnMuscle* |
-| ![AdnRibbonMuscle](../images/adn_ribbon_muscle.png) | Creates an AdnRibbonMuscle SOP. | AdonisFX > Solvers > *AdnRibbonMuscle* |
-| ![AdnSimshape](../images/adn_simshape.png) | Creates an AdnSimshape SOP. | AdonisFX > Solvers > *AdnSimshape* |
-| ![AdnSkin](../images/adn_skin.png) | Creates an AdnSkin SOP. | AdonisFX > Solvers > *AdnSkin* |
-| ![AdnSkinMerge](../images/adn_skin_merge.png) | Creates an AdnSkinMerge SOP. | AdonisFX > Solvers > *AdnSkinMerge* |
+| ![AdnFat](../images/adn_fat.png) | Creates an AdnFat SOP. Solver for fat tissue simulation. | AdonisFX > Solvers > *AdnFat* |
+| ![AdnGlue](../images/adn_glue.png) | Creates an AdnGlue SOP. Solver used to glue multiple muscles together, making them behave more compactly and react to each other. | AdonisFX > Solvers > *AdnGlue* |
+| ![AdnMuscle](../images/adn_muscle.png) | Creates an AdnMuscle SOP. Solver for volumetric muscle simulation. | AdonisFX > Solvers > *AdnMuscle* |
+| ![AdnRibbonMuscle](../images/adn_ribbon_muscle.png) | Creates an AdnRibbonMuscle SOP. Solver for planar muscle simulation. | AdonisFX > Solvers > *AdnRibbonMuscle* |
+| ![AdnSimshape](../images/adn_simshape.png) | Creates an AdnSimshape SOP. Solver for facial simulation. | AdonisFX > Solvers > *AdnSimshape* |
+| ![AdnSkin](../images/adn_skin.png) | Creates an AdnSkin SOP. Solver for fascia and skin simulation. | AdonisFX > Solvers > *AdnSkin* |
+| ![AdnSkinMerge](../images/adn_skin_merge.png) | Creates an AdnSkinMerge SOP. Node used to blend animation and simulation skin layers. | AdonisFX > Solvers > *AdnSkinMerge* |
 |||
-| ![AdnActivation](../images/adn_activation.png) | Creates an AdnActivation SOP. | AdonisFX > Solvers > *AdnActivation* |
-| ![AdnEdgeEvaluator](../images/adn_edge_evaluator.png) | Creates an AdnEdgeEvaluator SOP. | AdonisFX > Solvers > *AdnEdgeEvaluator* |
-| ![AdnFiberDiffusion](../images/adn_fiber_diffusion.png) | Creates an AdnFiberDiffusion SOP. | AdonisFX > Solvers > *AdnFiberDiffusion* |
-| ![AdnFiberGroom](../images/adn_fiber_groom.png) | Creates an AdnFiberGroom HDA. | AdonisFX > Solvers > *AdnFiberGroom* |
-| ![AdnFiberProjection](../images/adn_fiber_projection.png) | Creates an AdnFiberProjection SOP. | AdonisFX > Solvers > *AdnFiberProjection* |
-| ![AdnLearnMusclePatches](../images/adn_learn_muscle_patches.png) | Creates an AdnLearnMusclePatches SOP. | AdonisFX > Solvers > *AdnLearnMusclePatches* |
-| ![AdnSkinMerge](../images/adn_remap.png) | Creates an AdnSkinMerge SOP. | AdonisFX > Solvers > *AdnRemap* |
+| ![AdnActivation](../images/adn_activation.png) | Creates an AdnActivation SOP. Allows operations on a set of input values to compute a final value, which can be used, for example, to drive muscle activations. | AdonisFX > Solvers > *AdnActivation* |
+| ![AdnEdgeEvaluator](../images/adn_edge_evaluator.png) | Creates an AdnEdgeEvaluator SOP. Used to compute a compression map on geometry based on edge deformation. | AdonisFX > Solvers > *AdnEdgeEvaluator* |
+| ![AdnFiberDiffusion](../images/adn_fiber_diffusion.png) | Creates an AdnFiberDiffusion SOP. Utility SOP used by the *AdnFiberGroom* HDA to compute fiber vectors of a muscle driven by a tendons map. | AdonisFX > Solvers > *AdnFiberDiffusion* |
+| ![AdnFiberGroom](../images/adn_fiber_groom.png) | Creates an AdnFiberGroom HDA. Allows combing of muscle fibers. | AdonisFX > Solvers > *AdnFiberGroom* |
+| ![AdnFiberProjection](../images/adn_fiber_projection.png) | Creates an AdnFiberProjection SOP. Utility SOP used by the *AdnFiberGroom* HDA to process vectors resulting from fiber diffusion or combing and fully project them onto the muscle surface. | AdonisFX > Solvers > *AdnFiberProjection* |
+| ![AdnLearnMusclePatches](../images/adn_learn_muscle_patches.png) | Creates an AdnLearnMusclePatches SOP. A machine learning–powered SOP used to generate an *AdonisFX Muscle Patches* file, which stores per-vertex fiber information that is required by *AdnSimshape* solver to compute muscle activations. | AdonisFX > Solvers > *AdnLearnMusclePatches* |
+| ![AdnRemap](../images/adn_remap.png) | Creates an AdnRemap SOP. Utility SOP used to remap scalar values, typically to process sensor outputs for driving muscle activation or volume gain. | AdonisFX > Solvers > *AdnRemap* |
 |||
 
-## AdonisFX Maya Menu
+
+## AdonisFX Menu
 
 The AdonisFX Menu provides access to the options in the shelf and other more advanced utilities that are organized in four groups: Tools, I/O, License and Help.
 
