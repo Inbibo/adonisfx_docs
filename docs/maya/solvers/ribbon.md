@@ -19,7 +19,7 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 Follow these steps to create an AdnRibbonMuscle deformer:
 
 1. Select the **Targets** (if any) and the **Muscle Geometry** in that order.
-2. Press the ![AdnRibbonMuscle button](../images/adn_ribbon_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Ribbon Muscle* in the *Solvers* submenu from the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press the ![AdnRibbonMuscle button](../../images/adn_ribbon_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Ribbon Muscle* in the *Solvers* submenu from the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnRibbonMuscle is ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
@@ -32,7 +32,7 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 | **Iterations**           | Integer    | 10     | ✓ | Number of iterations that the solver will execute per simulation step. Greater values mean greater computational cost. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
 | **Material**             | Enumerator | Muscle | ✓ | Solver stiffness presets per material. The materials are listed from lowest to highest stiffness. There are 8 different presets: Fat: 10<sup>3</sup>, Muscle: 5e<sup>3</sup>, Rubber: 10<sup>6</sup>, Tendon: 5e<sup>7</sup>, Leather: 10<sup>8</sup>, Wood: 6e<sup>9</sup>, Skin: 12e<sup>3</sup>. |
 | **Stiffness Multiplier** | Float      | 1.0    | ✓ | Multiplier factor to scale up or down the material stiffness. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Activation**           | Float      | 0.0    | ✓ | Current activation of the deformed ribbon muscle. The activation modifies the stiffness of the muscle depending on the fibers direction of the muscle. Has a range of \[0.0, 1.0\]. To ingest activations driven by multiple sensors into the muscle, refer to the [AdnActivation](../nodes/activation#adnactivation) page. |
+| **Activation**           | Float      | 0.0    | ✓ | Current activation of the deformed ribbon muscle. The activation modifies the stiffness of the muscle depending on the fibers direction of the muscle. Has a range of \[0.0, 1.0\]. To ingest activations driven by multiple sensors into the muscle, refer to the [AdnActivation](../utils/activation#adnactivation) page. |
 | **Rest Activation**      | Float      | 0.0    | ✓ | Value representing the amount of rest activation to apply to the muscle. Has a range of \[0.0, 1.0\]. |
 
 ### Time Attributes
@@ -338,7 +338,7 @@ Not painting the fibers multiplier map will cause the muscle to contract uniform
 
 ### Activation Layers
 
-The activation layers allow to drive the muscle activation by multiple sensors combined together without the need of using an [AdnActivation](../nodes#activation) node. In practice, having an AdnActivation node with multiple input sensors connected to the **activation** attribute of an AdnRibbonMuscle is equivalent to connecting those sensors directly to the activation list of that muscle.
+The activation layers allow to drive the muscle activation by multiple sensors combined together without the need of using an [AdnActivation](../utils#activation) node. In practice, having an AdnActivation node with multiple input sensors connected to the **activation** attribute of an AdnRibbonMuscle is equivalent to connecting those sensors directly to the activation list of that muscle.
 
 The activation layers contribute to the final activation of the muscle solver, where the first layer will always be the **activation** scalar attribute. Then, every value in the **activation list** array plug is applied on top taking into consideration the operator and the bypass flag. The resulting value is the global activation that the solver will use for the simulation, and it is written onto the read-only **output solver activation** attribute.
 

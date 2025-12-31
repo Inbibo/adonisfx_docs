@@ -18,7 +18,7 @@ An AdnLocatorPosition will only visualize the information of the transform node 
 Only one transform will be required to create the AdnLocatorPosition. The creation process is the following:
 
  1. Select a transform node in the scene.
- 2. Press the ![AdnLocatorPosition button](../images/adn_point_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+ 2. Press the ![AdnLocatorPosition button](../../images/adn_point_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Position* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorPosition is created and ready to be used.
 
 
@@ -58,7 +58,7 @@ An AdnLocatorDistance will only visualize the information of the distance betwee
 Two transform nodes will be required to create an AdnLocatorDistance representing each extremity. The creation process is the following:
 
  1. Select two transform nodes in the scene.
- 2. Press the ![AdnLocatorDistance button](../images/adn_distance_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+ 2. Press the ![AdnLocatorDistance button](../../images/adn_distance_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Distance* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorDistance is created and ready to be used.
 
 ### Attributes
@@ -103,7 +103,7 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
     - First selected object: Start point of the angle.
     - Second selected object: Middle point of the angle.
     - Third selected object: End point of the angle.
- 2. Press the ![AdnLocatorRotation button](../images/adn_angle_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+ 2. Press the ![AdnLocatorRotation button](../../images/adn_angle_locator.png){style="width:4%"} button in the AdonisFX shelf or press *Rotation* in the AdonisFX menu, under the *Locators* submenu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
  3. The AdnLocatorRotation is created and ready to be used.
 
 ### Attributes

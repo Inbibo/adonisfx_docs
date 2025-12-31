@@ -16,7 +16,7 @@ To create an AdnSkinMerge deformer within a Maya scene, the following inputs mus
 
 The process to create an AdnSkinMerge deformer is:
 
-1. Press ![Skin merge button](../images/adn_skin_merge.png){style="width:4%"} in the AdonisFX shelf or *Skin Merge* in the AdonisFX menu, under the *Deformers* submenu in the *Create* section to open the following UI.
+1. Press ![Skin merge button](../../images/adn_skin_merge.png){style="width:4%"} in the AdonisFX shelf or *Skin Merge* in the AdonisFX menu, under the *Deformers* submenu in the *Create* section to open the following UI.
 
 <figure markdown>
   ![create skin merge UI](../images/skin_merge_create.png) 

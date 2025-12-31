@@ -7,7 +7,7 @@ AdnRelax is a Maya deformer designed to smooth creases and correct over-compress
 The AdnRelax deformer is easy to create and configure in Maya. It only requires the mesh to apply the relaxation onto. Typically, this mesh would be the simulated fascia or skin.
 
 1. Select the mesh on which to apply the deformer.
-2. Press ![Relax button](../images/adn_relax.png){style="width:4%"} in the AdonisFX shelf or *Relax* in the AdonisFX menu, under the Create Deformers section.
+2. Press ![Relax button](../../images/adn_relax.png){style="width:4%"} in the AdonisFX shelf or *Relax* in the AdonisFX menu, under the Create Deformers section.
 3. A message in the terminal will notify that AdnRelax has been created properly. Increase the number of iterations to see the effect of the deformation. Check the [Attributes](relax#attributes) section to customize their configuration.
 
 ## Attributes
