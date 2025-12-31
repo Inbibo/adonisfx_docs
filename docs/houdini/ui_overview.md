@@ -2,7 +2,7 @@
 
 ## AdonisFX TAB Menu
 
-The catalog of SOPs in AdonisFX can be inspected in the TAB Menu inside any geometry context under the submenu *AdonisFX*. It allows for quick access and creation of AdonisFX SOPs and HDAs. All of them are distributed in 5 submenus by type: Deformers, Locators, Sensors, Solvers and Utils.
+The AdonisFX nodes catalog can be inspected in the TAB Menu inside any geometry context under the submenu *AdonisFX*. It allows for quick access and creation of AdonisFX SOPs and HDAs. All of them are distributed in 5 submenus by type: Deformers, Locators, Sensors, Solvers and Utils.
 
 <figure style="width: 50%;" markdown>
   ![AdonisFX TAB menu](images/ui_overview_tab_menu.png)
@@ -42,7 +42,7 @@ The catalog of SOPs in AdonisFX can be inspected in the TAB Menu inside any geom
 
 ## AdonisFX Menu
 
-The AdonisFX Menu provides access to the options in the shelf and other more advanced utilities that are organized in four groups: Tools, I/O, License and Help.
+The AdonisFX Menu provides access to some tools and utilities that are organized in four groups: Tools, I/O, License and Help.
 
 <figure style="width: 30%;" markdown>
   ![AdnLocatorPosition within a scene](images/ui_overview_menu.png)
