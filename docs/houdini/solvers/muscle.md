@@ -1,25 +1,26 @@
 # AdnMuscle
 
-AdnMuscle is a Houdini SOP for fast, robust and easy-to-configure volumetric muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachment and slide) constraints, this SOP can produce dynamics that allow the mesh to acquire the simulated characteristics of a muscle with realistic volume preservation, fibers activations to modulate the rigidity, and attachments properties to external objects to follow the global kinematics of the character.
+AdnMuscle is a Houdini SOP for fast, robust, and easy-to-configure volumetric muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachment and slide) constraints, this SOP can produce dynamics that allow the mesh to acquire realistic muscle-like behavior, including volume preservation, fiber activation to modulate rigidity, and attachment properties that allow the muscle to follow the global kinematics of the character through external objects.
 
-The influence these constraints have on the simulated mesh can be freely modified by painting the different maps available or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behavior to a wide array of options.
+The influence of these constraints on the simulated mesh can be freely modified by painting the available maps or by uniformly adjusting their influence using multipliers in the SOP parameters. In addition to maps and multipliers, there are many other parameters available to control the muscle’s dynamics and behavior, offering a wide range of configuration options.
 
 ### How To Use
 
-The AdnMuscle SOP is of great simplicity to apply to a geometry and set up in a Houdini scene. The way this SOP works is by connecting the geometry to simulate to the single input of the SOP. Then, adding the attachment objects in the **Targets** tab and painting the maps to make the simulated geometry follow those objects. This will introduce a great part of the dynamics of the solver. Then, there are several intuitive easy to set up parameters and other paintable maps to tweak the simulation in order to get the desired results.
+The AdnMuscle SOP is very simple to apply to geometry and set up in a Houdini scene. It works by connecting the geometry to be simulated to the single input of the SOP. Then, attachment objects are added in the **Targets** tab, and maps are painted to make the simulated geometry follow those objects. This introduces a significant portion of the solver’s dynamics. Additionally, there are several intuitive, easy-to-set parameters and other paintable maps that allow further tweaking of the simulation to achieve the desired results.
 
-An AdnMuscle requires the following inputs to be provided:
+An AdnMuscle setup requires the following inputs:
 
-  - **Targets (T)**: List of objects with which the simulated muscle will interact. The targets can be any nodes to attach to their transformation matrix (e.g. rig joints, null nodes, etc) or geometries to attach to the closest point on their surface (e.g. bones). Providing a list of targets is optional. However, they are required to add attachment and sliding behaviors to the muscle. One or multiple targets are supported. Go to the [Targets Section](#targets) to know more about this.
-  - **Muscle Geometry (M)**: Mesh that the muscle SOP will be applied onto.
+- **Targets (T)**: A list of objects with which the simulated muscle will interact. Targets can be nodes to define attachment points via their transformation matrix (e.g., rig joints, null nodes, etc.) or geometries to define those attachment points via closest point queries on their surface (e.g., bones or other muscles). Providing a list of targets is optional; however, targets are required to enable attachment and sliding behaviors on the muscle. One or multiple targets are supported. Refer to the [Targets Section](#targets) for more information.
+- **Muscle Geometry (M)**: The mesh to which the AdnMuscle SOP will be applied.
 
 To create an AdnMuscle, follow these steps:
 
-1. Go to the geometry context of the rig containing the muscle geometries and make sure the muscle is a single geometry piece.
-2. Create the AdnMuscle SOP ![Muscle button](../../images/adn_muscle.png){style="width:4%"} and connect the geometry to the input.
-3. In the **Targets** tab, add a new entry to *Targets* (if the target is a geometry (i.e. mummy)) or to *Attachments To Transform* (if the target is a transformation matrix (i.e. rig joint)).
-4. Provide the object path of the target (in *Target World Mesh* or *Attachment Matrix*).
-5. AdnMuscle is ready to simulate with default settings. Check the next section to customize their configuration.
+1. Go to the geometry context of the rig containing the muscle geometries and ensure that the muscle is a single geometry piece.
+2. Press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnMuscle ![Muscle button](../../images/adn_muscle.png){style="width:4%"} SOP type.
+3. Create it and connect the geometry to the input.
+4. Go to the **Targets** tab in the AdnMuscle parameters, add a new entry either to *Targets* to add a geometry target (e.g., the mummy).
+5. Provide the object path of the geometry in *Target World Mesh*.
+6. The AdnMuscle is now ready to simulate using the default settings. Refer to the next section to customize its configuration.
 
 ## Attributes
 
@@ -241,64 +242,64 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 ### Targets
 
-Once the AdnMuscle SOP is created, it is possible to add and remove new attachments to the muscle from the *Targets* tab. A given target is evaluated as a mesh if the object path is added to the *Target World Mesh* under the *Targets* multiparam (i.e. to set up attachment to geometry and slide on geometry constraints); and as a transformation matrix if the object path is added to the *Attachment Matrix* under the *Attachments To Transform* multiparam (i.e. to set up attachment to transform constraints).
+Once the AdnMuscle SOP is created, it is possible to add and remove attachments from the muscle using the *Targets* tab. A target is evaluated as a **mesh** if its object path is added to *Target World Mesh* under the *Targets* multiparm (i.e., to set up attachment-to-geometry and slide-on-geometry constraints), and as a **transformation matrix** if its object path is added to *Attachment Matrix* under the *Attachments To Transform* multiparm (i.e., to set up attachment-to-transform constraints).
 
 - **Add geometry targets**:
-    1. Increment the number of entries in the *Targets* multiparm. This will add a new entry to the list.
-    2. Enter the object path of the geometry to add. It can be absolute or relative to the SOP.
+    1. Increment the number of entries in the *Targets* multiparm. This adds a new entry to the list.
+    2. Enter the object path of the geometry to add. The path can be absolute or relative to the SOP.
 - **Remove geometry targets**:
-    1. Find the target to remove in the *Targets* multiparam.
-    2. Remove it from the X button of that item.
-    3. Alternatively, to remove all the targets, click on the Clear button of the *Targets* multiparam.
+    1. Locate the target to remove in the *Targets* multiparm.
+    2. Remove it using the **X** button for that item.
+    3. Alternatively, to remove all targets, click the **Clear** button of the *Targets* multiparm.
 - **Add attachment matrices**:
-    1. Increment the number of entries in the *Attachments To Transform* multiparm. This will add a new entry to the list.
-    2. Enter the object path of the node to add. It can be absolute or relative to the SOP.
+    1. Increment the number of entries in the *Attachments To Transform* multiparm. This adds a new entry to the list.
+    2. Enter the object path of the node to add. The path can be absolute or relative to the SOP.
 - **Remove attachment matrices**:
-    1. Find the object to remove in the *Attachments To Transform* multiparam.
-    2. Remove it from the X button of that item.
-    3. Alternatively, to remove all the attachments, click on the Clear button of the *Attachments To Transform* multiparam.
+    1. Locate the object to remove in the *Attachments To Transform* multiparm.
+    2. Remove it using the **X** button for that item.
+    3. Alternatively, to remove all attachments, click the **Clear** button of the *Attachments To Transform* multiparm.
 
-On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](../simple_setup#AdnMuscle) for more information on how to paint the influence maps for the mentioned constraints.
+Transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. Meshes, on the other hand, are used to create attachment-to-geometry and slide-on-geometry constraints. Refer to [A Simple Setup](../simple_setup#AdnMuscle) for more information on painting influence maps for these constraints.
 
 > [!NOTE]
-> - Attachments to geometry and slide on geometry constraints are meant to simulate muscle-to-bone and muscle-to-muscle interactions.
-> - For muscle-to-muscle interactions, only unidirectional relationships are supported. This means that having muscles A and B, it is possible to assign A as target of B or B as target of A, but not the two at the same time.
+> - Attachment-to-geometry and slide-on-geometry constraints are intended to simulate muscle-to-bone and muscle-to-muscle interactions.
+> - For muscle-to-muscle interactions, only unidirectional relationships are supported. This means that for two muscles, A and B, it is possible to assign A as a target of B or B as a target of A, but not both simultaneously.
 
 ### Slide On Segment Constraint
 
-Additionally to all previously mentioned constraints, muscles can have an additional, optional constraint that can define a segment over which the muscle will slide. This type of constraint is controlled from the *Slide On Segment Constraints* section added to *Targets* tab.
+In addition to the previously described constraints, muscles can optionally use a constraint that defines a segment along which the muscle can slide. This constraint is configured in the *Slide On Segment Constraints* section of the *Targets* tab.
 
-- **Add Segment**:
-    1. Increment the number of entries in the *Slide On Segment Constraints* multiparm. This will add a new entry to the list.
-    2. Enter the object path of the node to add as the root of the segment. It can be absolute or relative to the SOP.
-    3. Enter the object path of the node to add as the tip of the segment. It can be absolute or relative to the SOP.
+- **Add segment**:
+    1. Increment the number of entries in the *Slide On Segment Constraints* multiparm. This adds a new entry to the list.
+    2. Enter the object path of the node to use as the root of the segment. The path can be absolute or relative to the SOP.
+    3. Enter the object path of the node to use as the tip of the segment. The path can be absolute or relative to the SOP.
 
 > [!NOTE]
-> - The transform nodes must follow a parent to child relationship in the hierarchy (like rig joints do).
-> - It is also recommended to paint only the vertices that are not attached to the rig, i.e. excluding the tendon vertices.
-> - This constraint is recommended especially for muscles on the limbs.
+> - The transform nodes must follow a parent-to-child relationship in the hierarchy (as rig joints typically do).
+> - It is recommended to paint only the vertices that are not attached to the rig, i.e., excluding tendon vertices.
+> - This constraint is especially recommended for muscles on the limbs.
 
-- **Remove Segment**: 
-    1. Find the segment to remove in the *Slide On Segment Constraints* multiparam.
-    2. Remove it from the X button of that item.
-    3. Alternatively, to remove all the attachments, click on the Clear button of the *Slide On Segment Constraints* multiparam.
+- **Remove segment**:
+    1. Locate the segment to remove in the *Slide On Segment Constraints* multiparm.
+    2. Remove it using the **X** button for that item.
+    3. Alternatively, to remove all segments, click the **Clear** button of the *Slide On Segment Constraints* multiparm.
 
 ### Rest Shape
 
-The muscle solver supports an art-directed shape to drive the fibers, shape and volume constraints. This shape is typically a sculpted version of the muscle (it must be topologically identical) that represents the muscle when it is fully activated. The artist can add and remove the custom shape from dedicated the *Rest Shape Attributes* section in *Advanced* tab.
+The muscle solver supports an art-directed shape that drives the fiber, shape, and volume constraints. This shape is typically a sculpted version of the muscle (and must be topologically identical) representing the muscle in its fully activated state. Artists can add or remove this custom shape from the dedicated *Rest Shape Attributes* section in the *Advanced* tab.
 
-- **Add Rest Shape**:
-    1. Enter the object path of the geometry to add as rest shape to the *Rest Shape Mesh* parameter.
-    2. Make sure to use a *Rest Shape Weight* greater than 0.0 for this feature to take effect.
+- **Add rest shape**:
+    1. Enter the object path of the geometry to use as the rest shape in the *Rest Shape Mesh* parameter.
+    2. Set the *Rest Shape Weight* to a value greater than 0.0 for the feature to take effect.
 
 > [!NOTE]
-> - The topology of the rest shape and the muscle geometry must be identical (i.e. vertex count, vertex connectivity, polygonal information, etc.).
+> - The topology of the rest shape and the muscle geometry must be identical (i.e., vertex count, vertex connectivity, polygonal structure, etc.).
 
-- **Remove Rest Shape**: 
+- **Remove rest shape**:
     1. Clear the object path in the *Rest Shape Mesh* parameter.
-    2. Alternatively, set the *Rest Shape Weight* to 0.0. The rest mesh will be ignored.
+    2. Alternatively, set the *Rest Shape Weight* to 0.0 to ignore the rest shape.
 
-On top of this, if the input activation of the muscle is also connected to the *Rest Shape Weight*, then the influence of the rest shape over the final result will be coherent with the variation of the level of activation during the simulation.
+Additionally, if the muscle activation input is connected to the *Rest Shape Weight*, the influence of the rest shape on the final result will vary coherently with the activation level during the simulation.
 
 ### Fibers Multiplier
 
