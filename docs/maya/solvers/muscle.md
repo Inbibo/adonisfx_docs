@@ -198,39 +198,19 @@ In order to provide more artistic control, some key parameters of the muscle sol
 | **Stretching Resistance**       | 1.0             | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
 | **Tendons**                     | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
 
-<figure>
-  <img src="../images/muscle_w_att.png">
-  <figcaption><b>Figure 4</b>: Example of attachment to transform weights painted on a biceps with 4 transform targets.</figcaption>
+<figure markdown>
+  ![AdnMuscle example of attachment to geometry with 4 targets](../images/muscle_w_att_geo.png) 
+  <figcaption><b>Figure 4</b>: Example of AdnMuscle attachment to geometry maps painted on a biceps with 4 targets (front view). From left to right, the targets are the mummy, the brachialis muscle, the palmaris longus muscle and the pronator teres muscle.</figcaption>
 </figure>
 
-<figure>
-  <img src="../images/muscle_w_att_geo.png">
-  <figcaption><b>Figure 5</b>: Example of attachments to geometry weights painted on a biceps with 4 geometry targets.</figcaption>
+<figure markdown>
+  ![AdnMuscle example of slide on geometry with 2 targets](../images/muscle_w_slide_geo.png) 
+  <figcaption><b>Figure 5</b>: Example of AdnMuscle slide on geometry maps painted on a biceps with 2 targets (back view). From left to right, the targets are the mummy and the brachialis muscle.</figcaption>
 </figure>
 
-<figure>
-  <img src="../images/muscle_w_slide_geo.png">
-  <figcaption><b>Figure 6</b>: Example of slide on geometry weights painted on a biceps with different setups, labeled as: <b>a)</b> Multi-influenced: two bones, <b>b)</b> One single geometry.</figcaption>
-</figure>
-
-<figure>
-  <img src="../images/muscle_w_slide_seg.png" style="width:40%;">
-  <figcaption><b>Figure 7</b>: Example of slide on segment weights painted on a biceps with a single influence.</figcaption>
-</figure>
-
-<figure>
-  <img src="../images/muscle_weights.png">
-  <figcaption><b>Figure 8</b>: Example of painted weights on a biceps, labeled as: <b>a)</b> Tendons, <b>b)</b> Compression Resistance, <b>c)</b> Stretching Resistance, <b>d)</b> Global Damping, <b>e)</b> Masses, and <b>f)</b> Shape Preservation.</figcaption>
-</figure>
-
-<figure>
-  <img src="../images/muscle_to_muscle_weights.png">
-  <figcaption><b>Figure 9</b>: Muscle to muscle attachments to geo painted map example between biceps and brachialis.</figcaption>
-</figure>
-
-<figure>
-  <img src="../images/muscle_w_fibers_mult.png" style="width:40%;">
-  <figcaption><b>Figure 10</b>: Example of fibers multiplier map painted on a biceps concentrating the activations in the belly of the muscle.</figcaption>
+<figure markdown>
+  ![AdnMuscle example of other paintable maps](../images/muscle_weights.png) 
+  <figcaption><b>Figure 6</b>: Example of other paintable maps on a biceps. On the left, the fibers multiplier map. In the middle, the tendons map. On the right, a map flooded with a value of 1.0 corresponding to all other remaining maps (compression, stretching, masses, global damping, shape preservation and sliding distance multiplier.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -254,28 +234,29 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![AdnMuscle debug](../images/muscle_debug.png)
-  <figcaption><b>Figure 11</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
+  <figcaption><b>Figure 7</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle fibers activation debug](../images/muscle_fibers_activation_debug.png)
-  <figcaption><b>Figure 12</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
+  <figcaption><b>Figure 8</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
 </figure>
 
 <figure markdown>
   ![muscle editor fiber constraint debug](../images/muscle_dist_constr_debug.png)
-  <figcaption><b>Figure 13</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 9</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle editor shape preservation constraint debug](../images/muscle_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 14</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 10</b>: In gray the target mesh, in red the simulated muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
-<figure>
-  <img src="../images/muscle_to_muscle_debugger.png">
-  <figcaption><b>Figure 15</b>: Muscle to muscle attachments to geo debugging example between biceps and brachialis.</figcaption>
+<figure markdown>
+  ![muscle to muscle debugger](../images/muscle_to_muscle_debugger.png)
+  <figcaption><b>Figure 11</b>: Muscle to muscle attachments to geo debugging example between biceps and brachialis.</figcaption>
 </figure>
+
 
 ## Advanced
 
@@ -321,12 +302,13 @@ Additionally to all previously mentioned constraints, muscles can have an additi
 
 ### Rest Shape
 
-The muscle solver supports an art-directed shape to drive the fibers, shape and volume constraints. This shape is typically a sculpted  version of the muscle (it must be topologically identical) that represents the muscle when it is fully activated. The artist can add and remove the custom shape from dedicated entries in the AdonisFX muscle submenu.
+The muscle solver supports an art-directed shape to drive the fibers, shape and volume constraints. This shape is typically a sculpted version of the muscle (it must be topologically identical) that represents the muscle when it is fully activated. The artist can add and remove the custom shape from dedicated entries in the AdonisFX muscle submenu.
 
 - **Add Rest Shape**:
     1. Select the transform or mesh node to be assigned as rest shape to the AdnMuscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
     3. Press *Add Rest Shape* in the AdonisFX menu from the Edit Muscle submenu.
+    4. Make sure to use a *Rest Shape Weight* greater than 0.0 for this feature to take effect.
 
 > [!NOTE]
 > - The topology of the rest shape and the muscle geometry must be identical (i.e. vertex count, vertex connectivity, polygonal information, etc.).
@@ -335,6 +317,7 @@ The muscle solver supports an art-directed shape to drive the fibers, shape and 
     1. Select the transform node of the rest mesh assigned to the AdnMuscle (optional).
     2. Select the mesh that has the AdnMuscle deformer applied.
     3. Press *Remove Rest Shape* in the AdonisFX menu from the Edit Muscle submenu.
+    4. Alternatively, set the *Rest Shape Weight* to 0.0. The rest mesh will be ignored.
 
 On top of this, if the input activation of the muscle is also connected to the *Rest Shape Weight*, then the influence of the rest shape over the final result will be coherent with the variation of the level of activation during the simulation.
 
@@ -343,9 +326,9 @@ On top of this, if the input activation of the muscle is also connected to the *
 Painting the fibers multiplier map allows to concentrate the activation and volume of a muscle in certain areas which would allow for more artistic control over the final shape of the muscle after contraction (activation).
 Not painting the fibers multiplier map will cause the muscle to contract uniformly over its whole volume without concentrating the activations in the belly of the muscle. Painting to 0.0 the tendinous areas and painting to 1.0 the belly of the muscle will allow (after combing fibers and activating the muscle) to activate only the areas that had been painted with a value of 1.0.
 
-<figure>
-  <img src="../images/muscle_fibers_multiplier.png">
-  <figcaption><b>Figure 16</b>: Example use case of the fibers multiplier map on a biceps muscle. Top-Left) represents the painting without concentrated activations; Top-Right) represents the painting with concentrated activations in the belly of the muscle; Bottom-Left) Shows the results of the non-concentrated activations when the muscle is fully activated; Bottom-Right) Shows the results of the concentrated activations when the muscle is fully activated.</figcaption>
+<figure markdown>
+  ![AdnMuscle fibers multiplier map example](../images/muscle_fibers_multiplier.png) 
+  <figcaption><b>Figure 12</b>: Example use case of the fibers multiplier map on a biceps muscle. Top-Left) represents the painting without concentrated activations; Top-Right) represents the painting with concentrated activations in the belly of the muscle; Bottom-Left) Shows the results of the non-concentrated activations when the muscle is fully activated; Bottom-Right) Shows the results of the concentrated activations when the muscle is fully activated.</figcaption>
 </figure>
 
 ### Activation Layers
@@ -370,7 +353,7 @@ The sensors can be connected to the activation list using the [Sensors Connectio
 
 <figure style="width: 75%;" markdown>
   ![sensors connection editor to connect activation layers](../images/tools_sensors_connection_editor_activation_layers.png)
-  <figcaption><b>Figure 17</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
+  <figcaption><b>Figure 13</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
 </figure>
 
 The removal of input sensors connected to the activation list can be done from the AdonisFX menu in Activation > Remove Inputs option.
