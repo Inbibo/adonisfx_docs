@@ -195,12 +195,12 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 | **Tendons**                     | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
 
 <figure markdown>
-  ![AdnRibbonMuscle example of attachment to geometry with 4 targets](../images/ribbon_w_att_geo.png) 
+  ![AdnRibbonMuscle example of attachment to geometry with 3 targets](../images/ribbon_w_att_geo.png) 
   <figcaption><b>Figure 4</b>: Example of AdnRibbonMuscle attachment to geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnRibbonMuscle example of slide on geometry with 2 targets](../images/ribbon_w_slide_geo.png) 
+  ![AdnRibbonMuscle example of slide on geometry with 3 targets](../images/ribbon_w_slide_geo.png) 
   <figcaption><b>Figure 5</b>: Example of AdnRibbonMuscle slide on geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
 </figure>
 
