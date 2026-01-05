@@ -23,7 +23,7 @@ The AdnRelax SOP is easy to create and configure in Houdini. It only requires th
 | **Push In Ratio**      | Float   | 0.0    | ✓ | Amount of correction applied by the push in adjustment. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Push In Threshold**  | Float   | -1.0   | ✓ | Maximum correction applied by the push in adjustment. The threshold will be ignored if its value is 0.0 or less. Has a range of \[-1.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Push Out Ratio**     | Float   | 0.0    | ✓ | Amount of correction applied by the push out adjustment. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Push Out Threshold** | Float   | -1.0   | ✓ | Maximum correction applied by the push out adjustment.. The threshold will be ignored if its value is 0.0 or less. Has a range of \[-1.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Push Out Threshold** | Float   | -1.0   | ✓ | Maximum correction applied by the push out adjustment. The threshold will be ignored if its value is 0.0 or less. Has a range of \[-1.0, 2.0\]. The upper limit is soft, higher values can be used. |
 
 ### Deformer Attributes
 | Name | Type | Default | Animatable | Description |
@@ -49,7 +49,7 @@ The AdnRelax SOP is easy to create and configure in Houdini. It only requires th
 
 ## Paintable Weights
 
-To provide more control, some key parameters of the AdnRelax deformer are exposed as paintable attributes.
+To provide more control, some key parameters of the AdnRelax SOP are exposed as paintable attributes.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
@@ -61,5 +61,5 @@ To provide more control, some key parameters of the AdnRelax deformer are expose
 
 <figure markdown>
   ![relax paintable maps](../images/relax_weights.png)
-  <figcaption><b>Figure 2</b>: Example of paintable weights of AdnRelax deformer applied to the fascia layer of a biped. From left to right: smooth multiplier, relax multiplier, push in ratio multiplier, push out ratio multiplier.</figcaption>
+  <figcaption><b>Figure 3</b>: Example of paintable weights of AdnRelax SOP applied to the fascia layer of a biped. From left to right: smooth multiplier, relax multiplier, push in ratio multiplier, push out ratio multiplier.</figcaption>
 </figure>
