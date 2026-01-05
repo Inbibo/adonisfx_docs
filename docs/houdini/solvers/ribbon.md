@@ -214,25 +214,17 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 <figure markdown>
   ![AdnRibbonMuscle example of attachment to geometry with 4 targets](../images/ribbon_w_att_geo.png) 
-  <figcaption><b>Figure 6</b>: Example of AdnRibbonMuscle attachment to geometry maps painted on a biceps with 4 targets (front view). From left to right, the targets are the mummy, the brachialis muscle, the palmaris longus muscle and the pronator teres muscle.</figcaption>
+  <figcaption><b>Figure 6</b>: Example of AdnRibbonMuscle attachment to geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnRibbonMuscle example of slide on geometry with 2 targets](../images/ribbon_w_slide_geo.png) 
-  <figcaption><b>Figure 7</b>: Example of AdnRibbonMuscle slide on geometry maps painted on a biceps with 2 targets (back view). From left to right, the targets are the mummy and the brachialis muscle.</figcaption>
+  <figcaption><b>Figure 7</b>: Example of AdnRibbonMuscle slide on geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
 </figure>
+
 <figure markdown>
   ![AdnRibbonMuscle example of other paintable maps](../images/ribbon_weights.png) 
-  <figcaption><b>Figure 8</b>: Example of other paintable maps on a biceps. On the left, the fibers multiplier map. In the middle, the tendons map. On the right, a map flooded with a value of 1.0 corresponding to all other remaining maps (compression, stretching, masses, global damping, shape preservation and sliding distance multiplier).</figcaption>
-</figure>
-
-> [!NOTE]
-> - The attachment and sliding weights are normalized on initialization if the sum of the values for the multiple influences exceed the upper limit of 1.0.
-> - If *AdnFiberGroom* HDA is used to comb the Fibers, it is recommended to place it after `attribpaint` nodes in charge of painting the Tendon weights, because the tendons map is an input to estimate an initial fibers flow.
-
-<figure style="width: 75%;" markdown>
-  ![AdnRibbonMuscle example of net with attribpaint and AdnFiberGroom HDA](../images/muscle_net_example.png) 
-  <figcaption><b>Figure 9</b>: Example of AdnRibbonMuscle net. The attribpaint node has to be placed prior to the AdnFiberGroom. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+  <figcaption><b>Figure 8</b>: Example of other paintable maps on a planar biceps. On the left, the fibers multiplier map. In the middle, the tendons map. On the right, a map flooded with a value of 1.0 corresponding to all other remaining maps (compression, stretching, masses, global damping, shape preservation and sliding distance multiplier).</figcaption>
 </figure>
 
 ## Advanced
@@ -302,11 +294,6 @@ Additionally, if the muscle activation input is connected to the *Rest Shape Wei
 
 Painting the fibers multiplier map allows to concentrate the activation of a muscle in certain areas which would allow for more artistic control over the final shape of the muscle after contraction (activation).
 Not painting the fibers multiplier map will cause the muscle to contract uniformly over its whole surface without concentrating the activations in the belly of the muscle. Painting to 0.0 the tendinous areas and painting to 1.0 the belly of the muscle will allow (after combing fibers and activating the muscle) to activate only the areas that had been painted with a value of 1.0.
-
-<figure markdown>
-  ![AdnRibbonMuscle fibers multiplier map example](../images/ribbon_fibers_multiplier.png) 
-  <figcaption><b>Figure 10</b>: Example use case of the fibers multiplier map on a biceps muscle. Top-Left) represents the painting without concentrated activations; Top-Right) represents the painting with concentrated activations in the belly of the muscle; Bottom-Left) Shows the results of the non-concentrated activations when the muscle is fully activated; Bottom-Right) Shows the results of the concentrated activations when the muscle is fully activated.</figcaption>
-</figure>
 
 ### Activation Layers
 
