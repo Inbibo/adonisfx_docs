@@ -6,8 +6,9 @@ AdnPush is a Houdini SOP designed to push a surface along the direction of its n
 
 The AdnPush deformer is easy to create and configure in Houdini. It only requires a mesh to apply the node to. Following the example mentioned above, this mesh would be the skin geometry at rest.
 
-1. Create an AdnPush SOP in the context of the mesh to apply the deformer to.
-2. Connect the mesh to the single input of the AdnPush.
+1. Go to the geometry context of the rig containing the geometry to apply the deformer to.
+2. Press TAB and navigate to the submenu AdonisFX > Deformer to find the AdnPush ![Relax button](../../images/adn_push.png){style="width:4%"} SOP type.
+3. Create it and connect the geometry to the input.
 3. Modify the value of the *Push Length* parameter to see the result of the push deformation. Check the [Attributes](push#attributes) section to customize their configuration.
 
 ## Attributes
