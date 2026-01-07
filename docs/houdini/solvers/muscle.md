@@ -18,8 +18,8 @@ To create an AdnMuscle, follow these steps:
 1. Go to the geometry context of the rig containing the muscle geometries and ensure that the muscle is a single geometry piece.
 2. Press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnMuscle ![Muscle button](../../images/adn_muscle.png){style="width:4%"} SOP type.
 3. Create it and connect the geometry to the input.
-4. Go to the **Targets** tab in the AdnMuscle parameters, add a new entry either to *Targets* to add a geometry target (e.g., the mummy).
-5. Provide the object path of the geometry in *Target World Mesh*.
+4. Go to the **Targets** tab in the AdnMuscle parameters, add a new entry to *Targets* to add a geometry target (e.g., the mummy).
+5. Provide the object path of the target geometry in *Target World Mesh*.
 6. The AdnMuscle is now ready to simulate using the default settings. Refer to the next section to customize its configuration.
 
 ## Attributes
@@ -65,7 +65,7 @@ To create an AdnMuscle, follow these steps:
 | **Activation List**                 | List        | Empty | ✗ | List of activation layers where each item is a multiparam  of three elements: bypass operator, value and operator. |
 | **Activation List Bypass Operator** | Boolean     | True  | ✓ | If enabled, it bypasses the current operator in the activation list, which will not contribute to the final activation value. |
 | **Activation List Value**           | Float       | 0.0   | ✓ | Activation value that will contribute, given the operator type, to the final activation. |
-| **Activation List Operator**        | Enumerator  | Over  | ✓ | Operator used to contribute to the final activation. This can be: Over, Add, Sub, Mult, Divide. |
+| **Activation List Operator**        | Enumerator  | Add   | ✓ | Operator used to contribute to the final activation. This can be: Over, Add, Sub, Mult, Divide. |
 
 ### Advanced Settings
 
