@@ -139,18 +139,18 @@ To create an AdnMuscle, follow these steps:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Targets**                             | List      | 0                                 | ✗ | List of geometry targets used for setting up attachment to geometry and slide on geometry constraints. Each item is a multiparam of three elements: target world mesh, attachment to geometry attribute and slide on geometry attribute. |
-| **Target World Mesh**                   | String    |                                   | ✓ | Object path of the mesh used for setting up attachment to geometry and slide on geometry constraints. |
-| **Attachments To Geometry Attribute**   | String    | adnAttachmentToGeoConstraints0    | ✗ | Specifies the name of the per-point attribute to read the attachment to geo weight values from. Expected range \[0.0, 1.0\]. |
-| **Slide On Geometry Attribute**         | String    | adnSlideOnGeometryConstraints0    | ✗ | Specifies the name of the per-point attribute to read the slide on geo weight values from. Expected range \[0.0, 1.0\]. |
+| **Target World Mesh**                   | Str    |                                   | ✓ | Object path of the mesh used for setting up attachment to geometry and slide on geometry constraints. |
+| **Attachments To Geometry Attribute**   | Str    | adnAttachmentToGeoConstraints0    | ✗ | Specifies the name of the per-point attribute to read the attachment to geo weight values from. Expected range \[0.0, 1.0\]. |
+| **Slide On Geometry Attribute**         | Str    | adnSlideOnGeometryConstraints0    | ✗ | Specifies the name of the per-point attribute to read the slide on geo weight values from. Expected range \[0.0, 1.0\]. |
 ||||||
 | **Attachments To Transform**            | List      | 0                                 | ✗ | List of objects used for setting up attachment to transform constraints. Each item is a multiparam of two elements: attachment matrix and attachment attribute. |
-| **Attachment Matrix**                   | String    |                                   | ✓ | Object path of the node used for setting up attachment to transform constraints. |
-| **Attachment Attribute**                | String    | adnAttachmentConstraints0         | ✗ | Specifies the name of the per-point attribute to read the attachment weight values from. Expected range \[0.0, 1.0\].  |
+| **Attachment Matrix**                   | Str    |                                   | ✓ | Object path of the node used for setting up attachment to transform constraints. |
+| **Attachment Attribute**                | Str    | adnAttachmentConstraints0         | ✗ | Specifies the name of the per-point attribute to read the attachment weight values from. Expected range \[0.0, 1.0\].  |
 ||||||
 | **Slide On Segments**                   | List      | 0                                 | ✗ | List of pair of objects used for setting up slide on segment constraints. |
-| **Slide On Segment Root Matrix**        | String    |                                   | ✓ | Defines the path to the root transformation matrix to drive the slide on segment constraint. The path can be relative or absolute. |
-| **Slide On Segment Tip Matrix**         | String    |                                   | ✓ | Defines the path to the tip transformation matrix to drive the slide on segment constraint. The path can be relative or absolute. |
-| **Slide On Segment Attribute**          | String    | adnSlideOnSegmentConstraints0     | ✗ | Specifies the name of the per-point attribute to read the slide on segment weight values from. Expected range \[0.0, 1.0\].  |
+| **Slide On Segment Root Matrix**        | Str    |                                   | ✓ | Defines the path to the root transformation matrix to drive the slide on segment constraint. The path can be relative or absolute. |
+| **Slide On Segment Tip Matrix**         | Str    |                                   | ✓ | Defines the path to the tip transformation matrix to drive the slide on segment constraint. The path can be relative or absolute. |
+| **Slide On Segment Attribute**          | Str    | adnSlideOnSegmentConstraints0     | ✗ | Specifies the name of the per-point attribute to read the slide on segment weight values from. Expected range \[0.0, 1.0\].  |
 
 > [!NOTE]
 > - All maps parameters are disabled in each entry added to these multiparams because the attribute names are fixed to drive specific functionalities of the solver.
