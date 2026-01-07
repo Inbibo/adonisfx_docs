@@ -18,8 +18,8 @@ To create an AdnMuscle, follow these steps:
 1. Go to the geometry context of the rig containing the muscle geometries and ensure that the muscle is a single geometry piece.
 2. Press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnMuscle ![Muscle button](../../images/adn_muscle.png){style="width:4%"} SOP type.
 3. Create it and connect the geometry to the input.
-4. Go to the **Targets** tab in the AdnMuscle parameters, add a new entry either to *Targets* to add a geometry target (e.g., the mummy).
-5. Provide the object path of the geometry in *Target World Mesh*.
+4. Go to the **Targets** tab in the AdnMuscle parameters, add a new entry to *Targets* to add a geometry target (e.g., the mummy).
+5. Provide the object path of the target geometry in *Target World Mesh*.
 6. The AdnMuscle is now ready to simulate using the default settings. Refer to the next section to customize its configuration.
 
 ## Attributes
@@ -65,7 +65,7 @@ To create an AdnMuscle, follow these steps:
 | **Activation List**                 | List        | Empty | ✗ | List of activation layers where each item is a multiparam  of three elements: bypass operator, value and operator. |
 | **Activation List Bypass Operator** | Boolean     | True  | ✓ | If enabled, it bypasses the current operator in the activation list, which will not contribute to the final activation value. |
 | **Activation List Value**           | Float       | 0.0   | ✓ | Activation value that will contribute, given the operator type, to the final activation. |
-| **Activation List Operator**        | Enumerator  | Over  | ✓ | Operator used to contribute to the final activation. This can be: Over, Add, Sub, Mult, Divide. |
+| **Activation List Operator**        | Enumerator  | Add   | ✓ | Operator used to contribute to the final activation. This can be: Over, Add, Sub, Mult, Divide. |
 
 ### Advanced Settings
 
@@ -138,35 +138,42 @@ To create an AdnMuscle, follow these steps:
 ### Targets Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Targets**                             | List      | 0                                 | ✗ | List of geometry targets used for setting up attachment to geometry and slide on geometry constraints. Each item is a multiparam of three elements: target world mesh, attachment to geometry attribute and slide on geometry attribute. |
-| **Target World Mesh**                   | String    |                                   | ✓ | Object path of the mesh used for setting up attachment to geometry and slide on geometry constraints. |
-| **Attachments To Geometry Attribute**   | String    | adnAttachmentToGeoConstraints0    | ✗ | Specifies the name of the per-point attribute to read the attachment to geo weight values from. Expected range \[0.0, 1.0\]. |
-| **Slide On Geometry Attribute**         | String    | adnSlideOnGeometryConstraints0    | ✗ | Specifies the name of the per-point attribute to read the slide on geo weight values from. Expected range \[0.0, 1.0\]. |
+| **Targets**                             | List      | 0     | ✗ | List of geometry targets used for setting up attachment to geometry and slide on geometry constraints. Each item is a multiparam of three elements: target world mesh, attachment to geometry attribute and slide on geometry attribute. |
+| **Target World Mesh**                   | String    |       | ✓ | Object path of the mesh used for setting up attachment to geometry and slide on geometry constraints. |
+| **Attachments To Geometry Attribute**   | float     | 0.0   | ✗ | Specifies the name of the per-point attribute to read the attachment to geo weight values from. The expected attribute name is `adnAttachmentToGeoConstraints#`. The expected range of the per-point values is \[0.0, 1.0\].  |
+| **Slide On Geometry Attribute**         | float     | 0.0   | ✗ | Specifies the name of the per-point attribute to read the slide on geo weight values from. The expected attribute name is `adnSlideOnGeometryConstraints#`. The expected range of the per-point values is \[0.0, 1.0\]. |
 ||||||
-| **Attachments To Transform**            | List      | 0                                 | ✗ | List of objects used for setting up attachment to transform constraints. Each item is a multiparam of two elements: attachment matrix and attachment attribute. |
-| **Attachment Matrix**                   | String    |                                   | ✓ | Object path of the node used for setting up attachment to transform constraints. |
-| **Attachment Attribute**                | String    | adnAttachmentConstraints0         | ✗ | Specifies the name of the per-point attribute to read the attachment weight values from. Expected range \[0.0, 1.0\]. |
+| **Attachments To Transform**            | List      | 0     | ✗ | List of objects used for setting up attachment to transform constraints. Each item is a multiparam of two elements: attachment matrix and attachment attribute. |
+| **Attachment Matrix**                   | String    |       | ✓ | Object path of the node used for setting up attachment to transform constraints. |
+| **Attachment Attribute**                | float     | 0.0   | ✗ | Specifies the name of the per-point attribute to read the attachment weight values from. The expected attribute name is `adnAttachmentConstraints#`. The expected range of the per-point values is \[0.0, 1.0\]. |
 ||||||
-| **Slide On Segments**                   | List      | 0                                 | ✗ | List of pair of objects used for setting up slide on segment constraints. |
-| **Slide On Segment Root Matrix**        | String    |                                   | ✓ | Defines the path to the root transformation matrix to drive the slide on segment constraint. The path can be relative or absolute. |
-| **Slide On Segment Tip Matrix**         | String    |                                   | ✓ | Defines the path to the tip transformation matrix to drive the slide on segment constraint. The path can be relative or absolute. |
-| **Slide On Segment Attribute**          | String    | adnSlideOnSegmentConstraints0     | ✗ | Specifies the name of the per-point attribute to read the slide on segment weight values from. Expected range \[0.0, 1.0\]. |
+| **Slide On Segments**                   | List      | 0     | ✗ | List of pair of objects used for setting up slide on segment constraints. |
+| **Slide On Segment Root Matrix**        | String    |       | ✓ | Defines the path to the root transformation matrix to drive the slide on segment constraint. The path can be relative or absolute. |
+| **Slide On Segment Tip Matrix**         | String    |       | ✓ | Defines the path to the tip transformation matrix to drive the slide on segment constraint. The path can be relative or absolute. |
+| **Slide On Segment Attribute**          | float     | 0.0   | ✗ | Specifies the name of the per-point attribute to read the slide on segment weight values from. The expected attribute name is `adnSlideOnSegmentConstraints#`. The expected range of the per-point values is \[0.0, 1.0\]. |
+
+> [!NOTE]
+> - All maps parameters are disabled in each entry added to these multiparams because the attribute names are fixed to drive specific functionalities of the solver.
+> - Fixed point attribute names also ensure compatibility with the API.
 
 ### Maps
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Compression Resistance Attribute**          | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the compression resistance values from. Expected range \[0.0, 1.0\]. |
-| **Fibers Attribute**                          | Vec3        | {0.0, 0.0, 0.0} | ✗            | Specifies the name of the per-point attribute to read the fiber values from. |
-| **Fibers Multiplier Attribute**               | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the fibers multiplier values from. Expected range \[0.0, 1.0\]. |
-| **Global Damping Attribute**                  | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the global damping from. Expected range \[0.0, 1.0\]. |
-| **Mass Attribute**                            | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the mass values from. Expected range \[0.001, 1.0\]. |
-| **Shape Preservation Attribute**              | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the shape preservation values from. Expected range \[0.0, 1.0\]. |
-| **Max Sliding Distance Multiplier Attribute** | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the maximum sliding distance multiplier from. Expected range \[0.0, 1.0\]. |
-| **Stretching Resistance Attribute**           | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the stretching resistance values from. Expected range \[0.0, 1.0\]. |
-| **Tendons Attribute**                         | float       | 0.0             | ✗            | Specifies the name of the per-point attribute to read the tendon values from. Expected range \[0.0, 1.0\]. |
+| **Compression Resistance Attribute**          | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the compression resistance values from. The expected attribute name is `adnCompressionResistance`. The expected range of the per-point values is \[0.0, 1.0\].  |
+| **Fibers Attribute**                          | Vec3        | {0.0, 0.0, 0.0} | ✗            | Specifies the name of the per-point attribute to read the fiber values from. The expected attribute name is `adnFibers`. The expected range of the per-component per-point values is \[0.0, 1.0\]. |
+| **Fibers Multiplier Attribute**               | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the fibers multiplier values from. The expected attribute name is `adnFibersMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Global Damping Attribute**                  | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the global damping from. The expected attribute name is `adnGlobalDamping`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Mass Attribute**                            | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the mass values from. The expected attribute name is `adnMass`. The expected range of the per-point values is \[0.001, 1.0\]. |
+| **Shape Preservation Attribute**              | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the shape preservation values from. The expected attribute name is `adnShapePreservation`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Max Sliding Distance Multiplier Attribute** | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the maximum sliding distance multiplier from. The expected attribute name is `adnMaxSlidingDistanceMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Stretching Resistance Attribute**           | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the stretching resistance values from. The expected attribute name is `adnStretchingResistance`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Tendons Attribute**                         | float       | 0.0             | ✗            | Specifies the name of the per-point attribute to read the tendon values from. The expected attribute name is `adnTendons`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Maps Remap Mode**                           | Enumerator  | Squared         | ✗            | Defines the mode of remapping the painted values of attachments to geometry, slide on geometry, attachments to transform, slide on segment and shape preservation constraints. The other paintable maps remain unmodified. Each remap mode applies a function to the input painted values (x) to get the final value used for the simulation (y).<ul><li>Linear: `y = x`</li><li>Squared: `y = x^2`</li><li>Cubic: `y = x^3`</li><li>Square Root: `y = x^(1/2)`</li><li>Cube Root: `y = x^(1/3)`</li><li>Logarithmic: `y = log((exp(1) - 1) * x + 1)`</li></ul> |
 
+> [!NOTE]
+> - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
+> - Fixed point attribute names also ensure compatibility with the API.
 
 ## Parameter Template
 

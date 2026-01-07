@@ -10,7 +10,7 @@ The AdnRibbonMuscle deformer is of great simplicity to set up and apply to a mes
 
 To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs must be provided:
 
-- **Targets (T)**: List of objects with which the simulated muscle will interact. The targets can be either transform nodes (e.g. rig joints, locators, etc) or geometries (e.g. bones). Providing a list of targets is optional on create. However, they are required to add attachment and sliding behaviors to the muscle. One or multiple targets are supported.
+- **Targets (T)**: List of objects with which the simulated muscle will interact. The targets can be either transform nodes (e.g. rig joints, locators, etc) or geometries (e.g. bones or other muscles). Providing a list of targets is optional on create. However, they are required to add attachment and sliding behaviors to the muscle. One or multiple targets are supported.
 - **Muscle Geometry (M)**: Mesh that the AdnRibbonMuscle deformer will be applied to.
 
 > [!NOTE]
@@ -62,7 +62,7 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 | **Activation List**                 | List        | Empty | ✗ | List of activation layers where each item is a compound attribute of three elements: bypass operator, value and operator. |
 | **Activation List Bypass Operator** | Boolean     | True  | ✓ | If enabled, it bypasses the current operator in the activation list, which will not contribute to the final activation value. |
 | **Activation List Value**           | Float       | 0.0   | ✓ | Activation value that will contribute, given the operator type, to the final activation. |
-| **Activation List Operator**        | Enumerator  | Over  | ✓ | Operator used to contribute to the final activation. This can be: Over, Add, Sub, Mult, Divide. |
+| **Activation List Operator**        | Enumerator  | Add   | ✓ | Operator used to contribute to the final activation. This can be: Over, Add, Sub, Mult, Divide. |
 
 ### Advanced Settings
 
