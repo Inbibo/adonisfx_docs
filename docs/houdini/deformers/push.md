@@ -4,11 +4,12 @@ AdnPush is a Houdini SOP designed to push a surface along the direction of its n
 
 ## How to use
 
-The AdnPush deformer is easy to create and configure in Houdini. It only requires a mesh to apply the node to. Following the example mentioned above, this mesh would be the skin geometry at rest.
+The AdnPush SOP is easy to create and configure in Houdini. It only requires a mesh to apply the node to. Following the example mentioned above, this mesh would be the skin geometry at rest.
 
-1. Create an AdnPush SOP in the context of the mesh to apply the deformer to.
-2. Connect the mesh to the single input of the AdnPush.
-3. Modify the value of the *Push Length* parameter to see the result of the push deformation. Check the [Attributes](push#attributes) section to customize their configuration.
+1. Go to the geometry context of the rig containing the geometry to apply the deformer to.
+2. Press TAB and navigate to the submenu AdonisFX > Deformer to find the AdnPush ![Push button](../../images/adn_push.png){style="width:4%"} SOP type.
+3. Create it and connect the geometry to the input.
+4. Modify the value of the *Push Length* parameter to see the result of the push deformation. Check the [Attributes](push#attributes) section to customize their configuration.
 
 ## Attributes
 
@@ -27,6 +28,17 @@ The AdnPush deformer is easy to create and configure in Houdini. It only require
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Update On Topology Change** | Boolean | True | ✓ | Toggles the update of the internal geometry connectivity data only when the topology of the input mesh changes. If enabled, the SOP runs faster by reusing that information at each frame. If disabled, the SOP runs slower because that information needs to be recomputed at each frame. |
 
+### Maps
+
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Push Multiplier Attribute** | float | 1.0 | ✗  | Specifies the name of the per-point attribute to read the multiplier of the push length. The expected attribute name is `adnPushMultiplier`. The expected range of the per-point values is \[0.0, 1.0\].  |
+| **Weights Attribute**         | float | 1.0 | ✗  | Specifies the name of the per-point attribute to read the weight of the deformation. The expected attribute name is `adnWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\]. |
+
+> [!NOTE]
+> - All maps parameters are disabled in each entry added to these multiparams because the attribute names are fixed to drive specific functionalities of the deformer.
+> - Fixed point attribute names also ensure compatibility with the API.
+
 ## Parameter Template
 
 <figure markdown>
@@ -41,7 +53,7 @@ The AdnPush deformer is easy to create and configure in Houdini. It only require
 
 ## Paintable Weights
 
-To provide more control, the AdnPush deformer includes two paintable attributes.
+To provide more control, the AdnPush SOP includes two paintable attributes.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
@@ -50,5 +62,5 @@ To provide more control, the AdnPush deformer includes two paintable attributes.
 
 <figure markdown>
   ![push paintable maps](../images/push_weights.png)
-  <figcaption><b>Figure 3</b>: Example of Push Multiplier map of AdnPush deformer applied to the skin layer of a biped to obtain the fascia geometry. Left: front view. Right: back view.</figcaption>
+  <figcaption><b>Figure 3</b>: Example of Push Multiplier map of AdnPush SOP applied to the skin layer of a biped to obtain the fascia geometry. Left: front view. Right: back view.</figcaption>
 </figure>
