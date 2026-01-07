@@ -1,6 +1,6 @@
 # AdnRibbonMuscle
 
-AdnRibbonMuscle is a Maya deformer for fast, robust and easy-to-configure tissue muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachment and slide) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a ribbon with fibers activations to modulate the rigidity, and attachments to external objects to follow the global kinematics of the character.
+AdnRibbonMuscle is a Maya deformer for fast, robust and easy-to-configure muscle simulation on a surface. Thanks to the combination of internal (structural) and external (attachment and slide) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a ribbon with fibers activations to modulate the rigidity, and attachments to external objects to follow the global kinematics of the character.
 
 The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](../tools#paint-tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behavior to a wide array of options.
 
@@ -194,34 +194,19 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 | **Stretching Resistance**       | 1.0             | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
 | **Tendons**                     | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
 
-<figure>
-  <img src="../images/ribbon_w_att.png">
-  <figcaption><b>Figure 4</b>: Example of attachment to transform weights painted on a planar biceps.</figcaption>
+<figure markdown>
+  ![AdnRibbonMuscle example of attachment to geometry with 3 targets](../images/ribbon_w_att_geo.png) 
+  <figcaption><b>Figure 4</b>: Example of AdnRibbonMuscle attachment to geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
 </figure>
 
-<figure>
-  <img src="../images/ribbon_w_att_geo.png">
-  <figcaption><b>Figure 5</b>: Example of attachments to geometry weights painted on a biceps with 4 geometry targets.</figcaption>
+<figure markdown>
+  ![AdnRibbonMuscle example of slide on geometry with 3 targets](../images/ribbon_w_slide_geo.png) 
+  <figcaption><b>Figure 5</b>: Example of AdnRibbonMuscle slide on geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
 </figure>
 
-<figure>
-  <img src="../images/ribbon_w_slide_geo.png">
-  <figcaption><b>Figure 6</b>: Example of slide on geometry weights painted on a biceps with different setups, labeled as: <b>a)</b> Multi-influenced: two bones, <b>b)</b> One single geometry.</figcaption>
-</figure>
-
-<figure>
-  <img src="../images/ribbon_w_slide_seg.png" style="width:40%;">
-  <figcaption><b>Figure 7</b>: Example of slide on segment weights painted on a biceps with a single influence.</figcaption>
-</figure>
-
-<figure>
-  <img src="../images/ribbon_weights.png">
-  <figcaption><b>Figure 8</b>: Example of painted weights on a planar biceps, labeled as: <b>a)</b> Tendons, <b>b)</b> Compression Resistance, <b>c)</b> Stretching Resistance, <b>d)</b> Global Damping, <b>e)</b> Masses, and <b>f)</b> Shape Preservation.</figcaption>
-</figure>
-
-<figure>
-  <img src="../images/ribbon_w_fibers_mult.png" style="width:40%;">
-  <figcaption><b>Figure 9</b>: Example of fibers multiplier map painted on a biceps ribbon concentrating the activations in the belly of the muscle.</figcaption>
+<figure markdown>
+  ![AdnRibbonMuscle example of other paintable maps](../images/ribbon_weights.png) 
+  <figcaption><b>Figure 6</b>: Example of other paintable maps on a planar biceps. On the left, the fibers multiplier map. In the middle, the tendons map. On the right, a map flooded with a value of 1.0 corresponding to all other remaining maps (compression, stretching, masses, global damping, shape preservation and sliding distance multiplier).</figcaption>
 </figure>
 
 > [!NOTE]
@@ -247,22 +232,22 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![AdnRibbonMuscle debug](../images/ribbon_debug.png)
-  <figcaption><b>Figure 10</b>: AdnRibbonMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
+  <figcaption><b>Figure 7</b>: AdnRibbonMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
 </figure>
 
 <figure markdown>
   ![ribbon muscle fibers activation debug](../images/ribbon_muscle_fibers_activation_debug.png)
-  <figcaption><b>Figure 11</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
+  <figcaption><b>Figure 8</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
 </figure>
 
 <figure markdown>
   ![ribbon muscle editor fiber constraint debug](../images/ribbon_muscle_dist_constr_debug.png)
-  <figcaption><b>Figure 12</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 9</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![ribbon muscle editor shape preservation constraint debug](../images/ribbon_muscle_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 13</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 10</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced
@@ -331,11 +316,6 @@ On top of this, if the input activation of the muscle is also connected to the *
 Painting the fibers multiplier map allows to concentrate the activation of a muscle in certain areas which would allow for more artistic control over the final shape of the muscle after contraction (activation).
 Not painting the fibers multiplier map will cause the muscle to contract uniformly over its whole surface without concentrating the activations in the belly of the muscle. Painting to 0.0 the tendinous areas and painting to 1.0 the belly of the muscle will allow (after combing fibers and activating the muscle) to activate only the areas that had been painted with a value of 1.0.
 
-<figure>
-  <img src="../images/muscle_fibers_multiplier.png">
-  <figcaption><b>Figure 14</b>: Example use case of the fibers multiplier map on a biceps muscle. Top-Left) represents the painting without concentrated activations; Top-Right) represents the painting with concentrated activations in the belly of the muscle; Bottom-Left) Shows the results of the non-concentrated activations when the muscle is fully activated; Bottom-Right) Shows the results of the concentrated activations when the muscle is fully activated.</figcaption>
-</figure>
-
 ### Activation Layers
 
 The activation layers allow to drive the muscle activation by multiple sensors combined together without the need of using an [AdnActivation](../utils#activation) node. In practice, having an AdnActivation node with multiple input sensors connected to the **activation** attribute of an AdnRibbonMuscle is equivalent to connecting those sensors directly to the activation list of that muscle.
@@ -358,7 +338,7 @@ The sensors can be connected to the activation list using the [Sensors Connectio
 
 <figure style="width: 75%;" markdown>
   ![sensors connection editor to connect activation layers](../images/tools_sensors_connection_editor_activation_layers.png)
-  <figcaption><b>Figure 15</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
+  <figcaption><b>Figure 11</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
 </figure>
 
 The removal of input sensors connected to the activation list can be done from the AdonisFX menu in Activation > Remove Inputs option.
