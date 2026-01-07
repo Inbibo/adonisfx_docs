@@ -20,7 +20,7 @@ data = adnio.gather_from_scene(enabled_features)
 
 The argument `enabled_features` is optional and it is a dictionary where keys are feature names (i.e. AdonisFX solver nodes and other util nodes) and values are flags to determine if a feature has to be gathered or bypassed. If this is not provided, all features will be gathered.
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.utils.maya.constants import IOFeaturesData
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.utils.constants import IOFeaturesData
 enabled_features = {
     IOFeaturesData.SENSOR: True,
     IOFeaturesData.ACTIVATION: True,

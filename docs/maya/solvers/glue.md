@@ -26,7 +26,7 @@ To create an AdnGlue node within a Maya scene, the following inputs must be prov
 The process to create an AdnGlue node is:
 
 1. Select the Input Geometries.
-2. Press ![Glue button](../images/adn_glue.png){style="width:4%"} in the AdonisFX shelf or the Glue action in the AdonisFX’s Solvers menu, under the Create section. 
+2. Press ![Glue button](../../images/adn_glue.png){style="width:4%"} in the AdonisFX shelf or the Glue action in the AdonisFX’s Solvers menu, under the Create section. 
 3. A message in the terminal will notify you that AdnGlue has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customize their configuration.
 
 > [!NOTE]
