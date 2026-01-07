@@ -145,12 +145,12 @@ To create an AdnMuscle, follow these steps:
 ||||||
 | **Attachments To Transform**            | List      | 0     | ✗ | List of objects used for setting up attachment to transform constraints. Each item is a multiparam of two elements: attachment matrix and attachment attribute. |
 | **Attachment Matrix**                   | String    |       | ✓ | Object path of the node used for setting up attachment to transform constraints. |
-| **Attachment Attribute**                | float     | 0.0   | ✗ | Specifies the name of the per-point attribute to read the attachment weight values from. The expected attribute name is `adnCompressionResistance#`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Attachment Attribute**                | float     | 0.0   | ✗ | Specifies the name of the per-point attribute to read the attachment weight values from. The expected attribute name is `adnAttachmentConstraints#`. The expected range of the per-point values is \[0.0, 1.0\]. |
 ||||||
 | **Slide On Segments**                   | List      | 0     | ✗ | List of pair of objects used for setting up slide on segment constraints. |
 | **Slide On Segment Root Matrix**        | String    |       | ✓ | Defines the path to the root transformation matrix to drive the slide on segment constraint. The path can be relative or absolute. |
 | **Slide On Segment Tip Matrix**         | String    |       | ✓ | Defines the path to the tip transformation matrix to drive the slide on segment constraint. The path can be relative or absolute. |
-| **Slide On Segment Attribute**          | float     | 0.0   | ✗ | Specifies the name of the per-point attribute to read the slide on segment weight values from. The expected attribute name is `adnCompressionResistance#`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Slide On Segment Attribute**          | float     | 0.0   | ✗ | Specifies the name of the per-point attribute to read the slide on segment weight values from. The expected attribute name is `adnSlideOnSegmentConstraints#`. The expected range of the per-point values is \[0.0, 1.0\]. |
 
 > [!NOTE]
 > - All maps parameters are disabled in each entry added to these multiparams because the attribute names are fixed to drive specific functionalities of the solver.
