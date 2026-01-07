@@ -35,6 +35,20 @@ The AdnRelax SOP is easy to create and configure in Houdini. It only requires th
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Update On Topology Change** | Boolean | True | ✓ | Toggles the update of the internal geometry connectivity data only when the topology of the input mesh changes. If enabled, the SOP runs faster by reusing that information at each frame. If disabled, the SOP runs slower because that information needs to be recomputed at each frame. |
 
+### Maps
+
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Smooth Multiplier Attribute**         | float | 1.0 | ✗  | Specifies the name of the per-point attribute to read the multiplier of the smoothing. The expected attribute name is `adnSmoothMultiplier`. The expected range of the per-point values is \[0.0, 1.0\].  |
+| **Relax Multiplier Attribute**          | float | 1.0 | ✗  | Specifies the name of the per-point attribute to read the multiplier of the relaxation. The expected attribute name is `adnRelaxMultiplier`. The expected range of the per-point values is \[0.0, 1.0\].  |
+| **Push In Ratio Multiplier Attribute**  | float | 1.0 | ✗  | Specifies the name of the per-point attribute to read the multiplier of the push in ratio. The expected attribute name is `adnPushInRatioMultiplier`. The expected range of the per-point values is \[0.0, 1.0\].  |
+| **Push Out Ratio Multiplier Attribute** | float | 1.0 | ✗  | Specifies the name of the per-point attribute to read the multiplier of the push out ratio. The expected attribute name is `adnPushOutRatioMultiplier`. The expected range of the per-point values is \[0.0, 1.0\].  |
+| **Weights Attribute**                   | float | 1.0 | ✗  | Specifies the name of the per-point attribute to read the weight of the deformation. The expected attribute name is `adnWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\]. |
+
+> [!NOTE]
+> - All maps parameters are disabled in each entry added to these multiparams because the attribute names are fixed to drive specific functionalities of the deformer.
+> - Fixed point attribute names also ensure compatibility with the API.
+
 ## Parameter Template
 
 <figure markdown>
