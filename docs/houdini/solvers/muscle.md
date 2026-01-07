@@ -160,15 +160,15 @@ To create an AdnMuscle, follow these steps:
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Compression Resistance Attribute**          | String      | adnCompressionResistance        | ✗  | Specifies the name of the per-point attribute to read the compression resistance values from. Expected range \[0.0, 1.0\]. |
-| **Fibers Attribute**                          | String      | adnFibers                       | ✗  | Specifies the name of the per-point attribute to read the fiber values from. |
-| **Fibers Multiplier Attribute**               | String      | adnFibersMultiplier             | ✗  | Specifies the name of the per-point attribute to read the fibers multiplier values from. Expected range \[0.0, 1.0\]. |
-| **Global Damping Attribute**                  | String      | adnGlobalDamping                | ✗  | Specifies the name of the per-point attribute to read the global damping from. Expected range \[0.0, 1.0\]. |
-| **Mass Attribute**                            | String      | adnMass                         | ✗  | Specifies the name of the per-point attribute to read the mass values from. Expected range \[0.001, 1.0\]. |
-| **Shape Preservation Attribute**              | String      | adnShapePreservation            | ✗  | Specifies the name of the per-point attribute to read the shape preservation values from. Expected range \[0.0, 1.0\]. |
-| **Max Sliding Distance Multiplier Attribute** | String      | adnMaxSlidingDistanceMultiplier | ✗  | Specifies the name of the per-point attribute to read the maximum sliding distance multiplier from. Expected range \[0.0, 1.0\]. |
-| **Stretching Resistance Attribute**           | String      | adnStretchingResistance         | ✗  | Specifies the name of the per-point attribute to read the stretching resistance values from. Expected range \[0.0, 1.0\]. |
-| **Tendons Attribute**                         | String      | adnTendons                      | ✗  | Specifies the name of the per-point attribute to read the tendon values from. Expected range \[0.0, 1.0\]. |
+| **Compression Resistance Attribute**          | Str      | adnCompressionResistance        | ✗  | Specifies the name of the per-point attribute to read the compression resistance values from. Expected range \[0.0, 1.0\]. |
+| **Fibers Attribute**                          | Str      | adnFibers                       | ✗  | Specifies the name of the per-point attribute to read the fiber values from. |
+| **Fibers Multiplier Attribute**               | Str      | adnFibersMultiplier             | ✗  | Specifies the name of the per-point attribute to read the fibers multiplier values from. Expected range \[0.0, 1.0\]. |
+| **Global Damping Attribute**                  | Str      | adnGlobalDamping                | ✗  | Specifies the name of the per-point attribute to read the global damping from. Expected range \[0.0, 1.0\]. |
+| **Mass Attribute**                            | Str      | adnMass                         | ✗  | Specifies the name of the per-point attribute to read the mass values from. Expected range \[0.001, 1.0\]. |
+| **Shape Preservation Attribute**              | Str      | adnShapePreservation            | ✗  | Specifies the name of the per-point attribute to read the shape preservation values from. Expected range \[0.0, 1.0\]. |
+| **Max Sliding Distance Multiplier Attribute** | Str      | adnMaxSlidingDistanceMultiplier | ✗  | Specifies the name of the per-point attribute to read the maximum sliding distance multiplier from. Expected range \[0.0, 1.0\]. |
+| **Stretching Resistance Attribute**           | Str      | adnStretchingResistance         | ✗  | Specifies the name of the per-point attribute to read the stretching resistance values from. Expected range \[0.0, 1.0\]. |
+| **Tendons Attribute**                         | Str      | adnTendons                      | ✗  | Specifies the name of the per-point attribute to read the tendon values from. Expected range \[0.0, 1.0\]. |
 | **Maps Remap Mode**                           | Enumerator  | Squared                         | ✗  | Defines the mode of remapping the painted values of attachments to geometry, slide on geometry, attachments to transform, slide on segment and shape preservation constraints. The other paintable maps remain unmodified. Each remap mode applies a function to the input painted values (x) to get the final value used for the simulation (y).<ul><li>Linear: `y = x`</li><li>Squared: `y = x^2`</li><li>Cubic: `y = x^3`</li><li>Square Root: `y = x^(1/2)`</li><li>Cube Root: `y = x^(1/3)`</li><li>Logarithmic: `y = log((exp(1) - 1) * x + 1)`</li></ul> |
 
 > [!NOTE]
