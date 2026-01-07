@@ -137,7 +137,7 @@ The process to create an AdnGlue node is:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Compression Resistance Attribute**                  | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the compression resistance values from. The expected attribute name is `adnCompressionResistance`. The expected range of the per-point values is \[0.0, 1.0\].  |
 | **Global Damping Attribute**                          | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the global damping from. The expected attribute name is `adnGlobalDamping`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Glue Resistance Attribute**                         | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the glue resistance weights from. The expected attribute name is `adnGlobalDamping`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Glue Resistance Attribute**                         | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the glue resistance weights from. The expected attribute name is `adnGlueResistance`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Self Collisions Point Radius Multiplier Attribute** | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the point radius multiplier values from used by the self-collisions constraints in Point-To-Point mode to detect intersecting points. The expected attribute name is `adnScPointRadiusMultiplier`. The expected range of the per-point values is \[0.001, 1.0\]. |
 | **Self Collisions Thickness Multiplier Attribute**    | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the thickness multiplier values from used by the self-collisions constraints to detect intersections. The expected attribute name is `adnScThicknessMultiplier`. The expected range of the per-point values is \[0.001, 1.0\]. |
 | **Self Collisions Weights Attribute**                 | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the self-collisions weights from to control the points that will be involved in self-collisions solving. The expected attribute name is `adnScWeights`. The expected range of the per-point values is \[0.001, 1.0\]. |
@@ -155,22 +155,22 @@ The process to create an AdnGlue node is:
 ## Parameter Template
 
 <figure style="width: 75%;" markdown>
-  ![glue parameter template solver](../images/glue_attribute_editor_00.png) 
+  ![glue parameter template solver](../images/glue_parameter_template_00.png) 
   <figcaption><b>Figure 1</b>: AdnGlue Parameter Template: Solver.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![glue parameter template advanced part 1](../images/glue_attribute_editor_01.png) 
+  ![glue parameter template advanced part 1](../images/glue_parameter_template_01.png) 
   <figcaption><b>Figure 2</b>: AdnGlue Parameter Template: Advanced (Part 1).</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![glue parameter template advanced part 2](../images/glue_attribute_editor_02.png) 
+  ![glue parameter template advanced part 2](../images/glue_parameter_template_02.png) 
   <figcaption><b>Figure 3</b>: AdnGlue Parameter Template: Advanced (Part 2).</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![glue parameter template maps](../images/glue_attribute_editor_03.png) 
+  ![glue parameter template maps](../images/glue_parameter_template_03.png) 
   <figcaption><b>Figure 4</b>: AdnGlue Parameter Template: Maps.</figcaption>
 </figure>
 
@@ -194,7 +194,7 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
 
 <figure markdown>
   ![AdnGlue weights](../images/glue_weights_00.png)
-  <figcaption><b>Figure 4</b>: Example of painted weights on the glue layer: on the left the map is flooded 1.0 used for compression, stretching, glue resistance, global damping, mass, max glue distance multiplier, shape preservation and soft constraints; in the middle the front view of the self-collisions weights map; on the right the back view of the self-collisions weights map.</figcaption>
+  <figcaption><b>Figure 4</b>: Example of painted weights on the glue layer: on the left the map is flooded to 1.0 used for compression, stretching, glue resistance, global damping, mass, max glue distance multiplier, shape preservation and soft constraints; in the middle the front view of the self-collisions weights map; on the right the back view of the self-collisions weights map.</figcaption>
 </figure>
 
 ## Advanced
@@ -213,4 +213,4 @@ Once the AdnGlue SOP is created, it is possible to add new inputs and remove cur
     3. Make sure to recook the AdnGlue at preroll start time for this change to take effect.
 
 > [!NOTE]
-> Adding and removing inputs will automatically update the painted maps.
+> Adding and removing inputs requires to revisit and update the paintable maps to ensure that the painted values are correct for the new list of geometries.

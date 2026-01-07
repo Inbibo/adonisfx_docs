@@ -184,7 +184,7 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
 
 <figure markdown>
   ![AdnGlue weights](../images/glue_weights_00.png)
-  <figcaption><b>Figure 4</b>: Example of painted weights on the glue layer: on the left the map is flooded 1.0 used for compression, stretching, glue resistance, global damping, mass, max glue distance multiplier, shape preservation and soft constraints; in the middle the front view of the self-collisions weights map; on the right the back view of the self-collisions weights map.</figcaption>
+  <figcaption><b>Figure 4</b>: Example of painted weights on the glue layer: on the left the map is flooded to 1.0 used for compression, stretching, glue resistance, global damping, mass, max glue distance multiplier, shape preservation and soft constraints; in the middle the front view of the self-collisions weights map; on the right the back view of the self-collisions weights map.</figcaption>
 </figure>
 
 > [!NOTE]
