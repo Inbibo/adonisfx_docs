@@ -2,11 +2,11 @@
 
 AdnFat is a Houdini SOP for fat tissue simulation. Thanks to a combination of volume, shape preservation and hard constraints, this SOP can produce dynamics that allow the fat geometry to produce realistic jiggle-like dynamics.
 
-The inputs to the SOP are two geometries coherent in terms of number of vertices and triangulation. The first one is the geometry to be simulated (i.e. the fat geometry to simulate), while the second one is a deformed geometry which works as base mesh to drive the simulation (e.g. the simulated fascia.) Given these two compatible surfaces, the solver procedurally constructs a volumetric internal structure between them. This structure is then simulated by computing: 1) volume constraints to make it resistant to compression and expansion; 2) volume shape preservation constraints to make the internal volume resistant to deformation; 3) hard constraints to attach the borders of the mesh to the base mesh; and 4) shape preservation constraints to preserve the original shape between connected vertices.
+The inputs to the SOP are two geometries coherent in terms of number of vertices and triangulation. The first one is the geometry to be simulated (i.e. the fat geometry to simulate), while the second one is a deformed geometry which works as base mesh to drive the simulation (e.g. the simulated fascia). Given these two compatible surfaces, the solver procedurally constructs a volumetric internal structure between them. This structure is then simulated by computing: 1) volume constraints to make it resistant to compression and expansion; 2) volume shape preservation constraints to make the internal volume resistant to deformation; 3) hard constraints to attach the borders of the mesh to the base mesh; and 4) shape preservation constraints to preserve the original shape between connected vertices.
 
 ### How To Use
 
-The AdnFat SOP is easy to create and configure in Houdini. The deformer requires two input geometries that represent the inner and outer layers of the fat tissue. Typically, the inner layer corresponds to the simulated fascia, while the outer layer corresponds to the actual fat mesh to simulate. The inner layer works as a base mesh that the outer fat layer has to follow.
+The AdnFat SOP is easy to create and configure in Houdini. The solver requires two input geometries that represent the inner and outer layers of the fat tissue. Typically, the inner layer corresponds to the simulated fascia, while the outer layer corresponds to the actual fat mesh to simulate. The inner layer works as a base mesh that the outer fat layer has to follow.
 
 An AdnFat setup requires the following inputs:
 
