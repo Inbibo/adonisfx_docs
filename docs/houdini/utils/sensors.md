@@ -17,11 +17,11 @@ An AdnSensorPosition will be in charge of computing, remapping and feeding activ
 
 Only one transform will be required to create the AdnSensorPosition. To create an AdnSensorPosition and connect it to an existing [AdnLocatorPosition](locators#adnlocatorposition):
 
-    1. Go to the geometry context of the rig containing the rig setup to which the sensors should be applied.
-    2. Press TAB and navigate to the submenu AdonisFX > Sensors to find the ![AdnSensorPosition button](../../images/adn_point_sensor.png){style="width:4%"} button SOP type.
-    3. Create it and connect the output of the AdnSensorPosition sensor to its corresponding AdnLocatorPosition input.
-    4. Go to the AdnSensorPosition's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
-    5. The AdnSensorPosition is created and ready to be used with its corresponding AdnLocatorPosition.
+  1. Go to the geometry context of the rig containing the rig setup to which the sensors should be applied.
+  2. Press TAB and navigate to the submenu AdonisFX > Sensors to find the ![AdnSensorPosition button](../../images/adn_point_sensor.png){style="width:4%"} button SOP type.
+  3. Create it and connect the output of the AdnSensorPosition sensor to its corresponding AdnLocatorPosition input.
+  4. Go to the AdnSensorPosition's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
+  5. The AdnSensorPosition is created and ready to be used with its corresponding AdnLocatorPosition.
 
 <figure markdown>
   ![AdnSensorPosition graph](../images/position_sensor_locator_graph.png)
@@ -103,11 +103,11 @@ An AdnSensorDistance will be in charge of computing, remapping and feeding activ
 
 Two transforms will be required to create the AdnSensorDistance. To create an AdnSensorDistance and connect it to an existing [AdnLocatorDistance](locators#adnlocatordistance):
 
-    1. Go to the geometry context of the rig containing the rig setup to which the sensors should be applied.
-    2. Press TAB and navigate to the submenu AdonisFX > Sensors to find the ![AdnSensorDistance button](../../images/adn_distance_sensor.png){style="width:4%"} button SOP type.
-    3. Create it and connect the output of the AdnSensorDistance sensor to its corresponding AdnLocatorDistance input.
-    4. Go to the AdnSensorDistance's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
-    5. The AdnSensorDistance is created and ready to be used with its corresponding AdnLocatorDistance.
+  1. Go to the geometry context of the rig containing the rig setup to which the sensors should be applied.
+  2. Press TAB and navigate to the submenu AdonisFX > Sensors to find the ![AdnSensorDistance button](../../images/adn_distance_sensor.png){style="width:4%"} button SOP type.
+  3. Create it and connect the output of the AdnSensorDistance sensor to its corresponding AdnLocatorDistance input.
+  4. Go to the AdnSensorDistance's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
+  5. The AdnSensorDistance is created and ready to be used with its corresponding AdnLocatorDistance.
 
 <figure markdown>
   ![AdnSensorDistance graph](../images/distance_sensor_locator_graph.png)
@@ -205,11 +205,11 @@ An AdnSensorRotation will be in charge of computing, remapping and feeding activ
 
 Three transforms will be required to create the AdnSensorRotation. To create an AdnSensorRotation and connect it to an existing [AdnLocatorRotation](locators#adnlocatorrotation):
 
-    1. Go to the geometry context of the rig containing the rig setup to which the sensors should be applied.
-    2. Press TAB and navigate to the submenu AdonisFX > Sensors to find the ![AdnSensorRotation button](../../images/adn_rotation_sensor.png){style="width:4%"} button SOP type.
-    3. Create it and connect the output of the AdnSensorRotation sensor to its corresponding AdnLocatorRotation input.
-    4. Go to the AdnSensorRotation's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
-    5. The AdnSensorRotation is created and ready to be used with its corresponding AdnLocatorRotation.
+  1. Go to the geometry context of the rig containing the rig setup to which the sensors should be applied.
+  2. Press TAB and navigate to the submenu AdonisFX > Sensors to find the ![AdnSensorRotation button](../../images/adn_rotation_sensor.png){style="width:4%"} button SOP type.
+  3. Create it and connect the output of the AdnSensorRotation sensor to its corresponding AdnLocatorRotation input.
+  4. Go to the AdnSensorRotation's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
+  5. The AdnSensorRotation is created and ready to be used with its corresponding AdnLocatorRotation.
 
 <figure markdown>
   ![AdnSensorRotation graph](../images/rotation_sensor_locator_graph.png)
