@@ -23,13 +23,13 @@ Only one transform will be required to create the AdnSensorPosition. To create a
     4. Go to the AdnSensorPosition's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
     5. The AdnSensorPosition is created and ready to be used with its corresponding AdnLocatorPosition.
 
-> [!NOTE]
-> - Activation values are output from the sensor nodes via detail attributes (`adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and its name should not be altered.
-
 <figure markdown>
   ![AdnSensorPosition graph](../images/position_sensor_locator_graph.png)
   <figcaption><b>Figure 2</b>: AdnSensorPosition and AdnLocatorPosition in the node graph .</figcaption>
 </figure>
+
+> [!NOTE]
+> - Activation values are output from the sensor nodes via detail attributes (`adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and its name should not be altered.
 
 ### Attributes
 
@@ -109,13 +109,13 @@ Two transforms will be required to create the AdnSensorDistance. To create an Ad
     4. Go to the AdnSensorDistance's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
     5. The AdnSensorDistance is created and ready to be used with its corresponding AdnLocatorDistance.
 
-> [!NOTE]
-> - Activation values are output from the sensor nodes via detail attributes (`adnActivationDistance`, `adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and its name should not be altered.
-
 <figure markdown>
   ![AdnSensorDistance graph](../images/distance_sensor_locator_graph.png)
   <figcaption><b>Figure 4</b>: AdnSensorDistance and AdnLocatorDistance in the node graph .</figcaption>
 </figure>
+
+> [!NOTE]
+> - Activation values are output from the sensor nodes via detail attributes (`adnActivationDistance`, `adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and its name should not be altered.
 
 ### Attributes
 
@@ -211,13 +211,13 @@ Three transforms will be required to create the AdnSensorRotation. To create an 
     4. Go to the AdnSensorRotation's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
     5. The AdnSensorRotation is created and ready to be used with its corresponding AdnLocatorRotation.
 
-> [!NOTE]
-> - Activation values are output from the sensor nodes via detail attributes (`adnActivationRotation`, `adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and its name should not be altered.
-
 <figure markdown>
   ![AdnSensorRotation graph](../images/rotation_sensor_locator_graph.png)
   <figcaption><b>Figure 6</b>: AdnSensorRotation and AdnLocatorRotation in the node graph .</figcaption>
 </figure>
+
+> [!NOTE]
+> - Activation values are output from the sensor nodes via detail attributes (`adnActivationRotation`, `adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and its name should not be altered.
 
 ### Attributes
 
