@@ -38,7 +38,6 @@ The process to create the AdnSkin is:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
 | **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
-| **Current Time**       | Time | *Current frame* | ✓ | Current playback frame. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
