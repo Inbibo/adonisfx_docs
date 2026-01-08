@@ -4,7 +4,7 @@ AdonisFX Locators are visualizers that are meant for visualizing and measuring t
 
 ## AdnLocatorPosition
 
-AdnLocatorPosition is the locator for visualizing the position of a single transform node. When connected to its corresponding AdnSensorPosition, velocity or acceleration can be visualized with a coloring code blue-to-red.
+AdnLocatorPosition is the locator for visualizing the position of a single transform node. When connected to its corresponding AdnSensorPosition, velocity or acceleration can be visualized with a color code blue-to-red.
 
 ### How To Use
 
@@ -30,7 +30,7 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Position Matrix** | Matrix | Identity        | ✓ | Matrix containing the position in world space of the transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the *obj* level. |
+| **Position Matrix** | Matrix | Identity        | ✓ | Matrix containing the position in world space of the transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
@@ -46,7 +46,7 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 
 ## AdnLocatorDistance
 
-AdnLocatorDistance is the locator for visualizing the distance between two transform nodes. When connected to its corresponding AdnSensorDistance, distance, velocity or acceleration can be visualized with a coloring code blue-to-red.
+AdnLocatorDistance is the locator for visualizing the distance between two transform nodes. When connected to its corresponding AdnSensorDistance, distance, velocity or acceleration can be visualized with a color code blue-to-red.
 
 ### How To Use
 
@@ -72,8 +72,8 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the *obj* level. |
-| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the *obj* level. |
+| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
+| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
@@ -90,7 +90,7 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 
 ## AdnLocatorRotation
 
-AdnLocatorRotation is the locator for visualizing the angle between three transform nodes. When connected to its corresponding AdnSensorRotation, angle, angular velocity or angular acceleration can be visualized with a coloring code blue-to-red. 
+AdnLocatorRotation is the locator for visualizing the angle between three transform nodes. When connected to its corresponding AdnSensorRotation, angle, angular velocity or angular acceleration can be visualized with a color code blue-to-red.
 
 ### How To Use
 
@@ -116,9 +116,9 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the *obj* level. |
-| **Mid Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the *obj* level. |
-| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the third transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the *obj* level. |
+| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
+| **Mid Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
+| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the third transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
 
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
