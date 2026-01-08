@@ -122,17 +122,17 @@ The process to create an AdnFat is:
 
 ## Parameter Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![AdnFat parameter template solver tab](../images/fat_parameter_template_00.png)
   <figcaption><b>Figure 1</b>: AdnFat Parameter Template: Solver.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![AdnFat parameter template advanced tab](../images/fat_parameter_template_01.png)
   <figcaption><b>Figure 2</b>: AdnFat Parameter Template: Advanced.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![AdnFat parameter template maps tab](../images/fat_parameter_template_02.png)
   <figcaption><b>Figure 3</b>: AdnFat Parameter Template: Maps.</figcaption>
 </figure>
@@ -152,4 +152,9 @@ In order to provide more artistic control, some key parameters of the AdnFat sol
 <figure>
   <img src="../images/fat_weights.png">
   <figcaption><b>Figure 4</b>: Example of painted weights on the fat layer: on the left the map is flooded to 1.0 for global damping, mass, volume shape preservation and shape preservation; on the right the hard constraints map is painted to 1.0 on the extremities. </figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnFat example of net with attribpaint](../images/fat_net_example.png)
+  <figcaption><b>Figure 5</b>: Example of AdnFat net. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
 </figure>
