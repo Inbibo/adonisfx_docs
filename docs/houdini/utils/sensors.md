@@ -29,7 +29,7 @@ Only one transform will be required to create the AdnSensorPosition. To create a
 </figure>
 
 > [!NOTE]
-> - Activation values are output from the sensor nodes via detail attributes (`adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and its name should not be altered.
+> - Activation values are output from the sensor nodes via detail attributes (`adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and their name should not be altered.
 
 ### Attributes
 
@@ -115,7 +115,7 @@ Two transforms will be required to create the AdnSensorDistance. To create an Ad
 </figure>
 
 > [!NOTE]
-> - Activation values are output from the sensor nodes via detail attributes (`adnActivationDistance`, `adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and its name should not be altered.
+> - Activation values are output from the sensor nodes via detail attributes (`adnActivationDistance`, `adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and their name should not be altered.
 
 ### Attributes
 
@@ -128,16 +128,16 @@ Two transforms will be required to create the AdnSensorDistance. To create an Ad
 #### Output
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Out Distance**     | Float | 0.0 | ✗ | Magnitude of the distance between the transform nodes. It is the raw value calculated before the remapping. The detail attribute containing this activation information is `adnActivationDistance`. |
-| **Out Velocity**     | Float | 0.0 | ✗ | Magnitude of the velocity between the transform nodes. It is the raw value calculated before the remapping. The detail attribute containing this activation information is `adnActivationVelocity`. |
-| **Out Acceleration** | Float | 0.0 | ✗ | Magnitude of the acceleration between the transform nodes. It is the raw value calculated before the remapping. The detail attribute containing this activation information is `adnActivationAcceleration`. |
+| **Out Distance**     | Float | 0.0 | ✗ | Magnitude of the distance between the transform nodes. |
+| **Out Velocity**     | Float | 0.0 | ✗ | Magnitude of the velocity between the transform nodes. |
+| **Out Acceleration** | Float | 0.0 | ✗ | Magnitude of the acceleration between the transform nodes. |
 
 #### Remapped Output
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Out Distance Remap**     | Float | 0.0 | ✗ | Output remapped distance. It is the result of remapping the *Out Distance*. |
-| **Out Velocity Remap**     | Float | 0.0 | ✗ | Output remapped velocity. It is the result of remapping the *Out Velocity*. |
-| **Out Acceleration Remap** | Float | 0.0 | ✗ | Output remapped acceleration. It is the result of remapping the *Out Acceleration*. |
+| **Out Distance Remap**     | Float | 0.0 | ✗ | Output remapped distance. It is the result of remapping the *Out Distance*. It is the raw value calculated before the remapping. The detail attribute containing this activation information is `adnActivationDistance`. |
+| **Out Velocity Remap**     | Float | 0.0 | ✗ | Output remapped velocity. It is the result of remapping the *Out Velocity*. It is the raw value calculated before the remapping. The detail attribute containing this activation information is `adnActivationVelocity`. |
+| **Out Acceleration Remap** | Float | 0.0 | ✗ | Output remapped acceleration. It is the result of remapping the *Out Acceleration*. It is the raw value calculated before the remapping. The detail attribute containing this activation information is `adnActivationAcceleration`. |
 
 #### Distance Remap Settings
 
@@ -206,7 +206,7 @@ An AdnSensorRotation will be in charge of computing, remapping and feeding activ
 Three transforms will be required to create the AdnSensorRotation. To create an AdnSensorRotation and connect it to an existing [AdnLocatorRotation](locators#adnlocatorrotation):
 
   1. Go to the geometry context of the rig containing the rig setup to which the sensors should be applied.
-  2. Press TAB and navigate to the submenu AdonisFX > Sensors to find the ![AdnSensorRotation button](../../images/adn_rotation_sensor.png){style="width:4%"} button SOP type.
+  2. Press TAB and navigate to the submenu AdonisFX > Sensors to find the ![AdnSensorRotation button](../../images/adn_angle_sensor.png){style="width:4%"} button SOP type.
   3. Create it and connect the output of the AdnSensorRotation sensor to its corresponding AdnLocatorRotation input.
   4. Go to the AdnSensorRotation's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
   5. The AdnSensorRotation is created and ready to be used with its corresponding AdnLocatorRotation.
@@ -217,7 +217,7 @@ Three transforms will be required to create the AdnSensorRotation. To create an 
 </figure>
 
 > [!NOTE]
-> - Activation values are output from the sensor nodes via detail attributes (`adnActivationRotation`, `adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and its name should not be altered.
+> - Activation values are output from the sensor nodes via detail attributes (`adnActivationRotation`, `adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and their name should not be altered.
 
 ### Attributes
 
@@ -231,16 +231,16 @@ Three transforms will be required to create the AdnSensorRotation. To create an 
 #### Output
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Out Angle**        | Float | 0.0 | ✗ | Magnitude of the angle between the three transform nodes. It is the raw value calculated before the remapping. It is the raw value calculated before the remapping. The detail attribute containing this activation information is `adnActivationAngle`. |
-| **Out Velocity**     | Float | 0.0 | ✗ | Magnitude of the angular velocity between the three transform nodes. It is the raw value calculated before the remapping. It is the raw value calculated before the remapping. The detail attribute containing this activation information is `adnActivationVelocity`. |
-| **Out Acceleration** | Float | 0.0 | ✗ | Magnitude of the angular acceleration between the three transform nodes. It is the raw value calculated before the remapping. It is the raw value calculated before the remapping. The detail attribute containing this activation information is `adnActivationAcceleration`. |
+| **Out Angle**        | Float | 0.0 | ✗ | Magnitude of the angle between the three transform nodes. It is the raw value calculated before the remapping. It is the raw value calculated before the remapping. |
+| **Out Velocity**     | Float | 0.0 | ✗ | Magnitude of the angular velocity between the three transform nodes. It is the raw value calculated before the remapping. It is the raw value calculated before the remapping. |
+| **Out Acceleration** | Float | 0.0 | ✗ | Magnitude of the angular acceleration between the three transform nodes. It is the raw value calculated before the remapping. It is the raw value calculated before the remapping. |
 
 #### Remapped Output
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Out Angle Remap**        | Float | 0.0 | ✗ | Output remapped angle. It is the result of remapping the *Out Angle*. |
-| **Out Velocity Remap**     | Float | 0.0 | ✗ | Output remapped velocity. It is the result of remapping the *Out Velocity*. |
-| **Out Acceleration Remap** | Float | 0.0 | ✗ | Output remapped acceleration. It is the result of remapping the *Out Acceleration*. |
+| **Out Angle Remap**        | Float | 0.0 | ✗ | Output remapped angle. It is the result of remapping the *Out Angle*. The detail attribute containing this activation information is `adnActivationAngle`. |
+| **Out Velocity Remap**     | Float | 0.0 | ✗ | Output remapped velocity. It is the result of remapping the *Out Velocity*. The detail attribute containing this activation information is `adnActivationVelocity`. |
+| **Out Acceleration Remap** | Float | 0.0 | ✗ | Output remapped acceleration. It is the result of remapping the *Out Acceleration*. The detail attribute containing this activation information is `adnActivationAcceleration`. |
 
 #### Angle Remap Settings
 
