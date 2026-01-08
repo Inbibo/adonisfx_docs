@@ -17,7 +17,7 @@ The process to create an AdnSkinMerge SOP is:
 1. Go to the geometry context of the rig containing the geometry to apply the solver onto.
 2. Press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSkinMerge ![SkinMerge button](../../images/adn_skin_merge.png){style="width:4%"} SOP type.
 3. Create it and connect the geometry to the input.
-5. Add the animation and simulation meshes to the *Anim List* and *Sim List* multiparms respectively exposed in the *Targets* tab. Take into consideration the following requirements:
+4. Add the animation and simulation meshes to the *Anim List* and *Sim List* multiparms respectively exposed in the *Targets* tab. Take into consideration the following requirements:
     - Add a mesh by increasing the number of entries in the multiparm and providing the object path of the geometry to the new entry.
     - At least one mesh must be added in each field.
     - To add meshes to any list, select the meshes in the scene and click the respective *Add Selected* button.
@@ -25,10 +25,10 @@ The process to create an AdnSkinMerge SOP is:
     - Adding the same mesh as a Simulation Mesh and as an Animation Mesh is not advised.
     - To remove a single element from the list click on the **X** button of that element.
     - To clear any list fully press the respective Clear button.
-6. To modulate the influence of the simulation mesh inputs, use an `attribpaint` node to customize the blend weights map.
+5. To modulate the influence of the simulation mesh inputs, use an `attribpaint` node to customize the blend weights map.
 
 > [!NOTE]
-> On create, the *Initialization Time* parameter of AdnSkinMerge is set to the `$FSTART` frame. Make sure to adjust this value as of your needs.
+> On create, the *Initialization Time* parameter of AdnSkinMerge is set to the `$FSTART` frame. Make sure to adjust this value according to your needs.
 
 <figure style="width: 75%;" markdown>
   ![AdnSkinMerge example of net with attribpaint](../images/skin_merge_net_example.png) 
