@@ -162,6 +162,8 @@ The process to create the AdnSkin is:
 > [!NOTE]
 > - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
 > - Fixed point attribute names also ensure compatibility with the API.
+> - To copy the map names of the disabled attributes for painting (using an attribute paint node) right click on the disabled map attribute parameter, press "Copy Parameter", select the attribute paint node and on the attribute name entry right click and press "Paste Values". This allows to easily copy the attribute name for painting.
+> - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
 
 ## Parameter Template
 
@@ -211,13 +213,11 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 <figure markdown>
   ![Example of painted maps for AdnSkin](../images/skin_weights.png)
-  <figcaption><b>Figure 4</b>: Example of painted weights on the skin of a bear character. First row, from left to right: maps flooded to 1.0 (which correspond to compression, stretching, masses, global damping, self collision radius and thinkness multiplier), hard constraints, slide constraints and soft constraints. Second row, from left to right: shape preservation, self collision weights and max sliding distance multiplier.</figcaption>
+  <figcaption><b>Figure 4</b>: Example of painted weights on the skin of a bear character. First row, from left to right: maps flooded to 1.0 (which correspond to compression, stretching, masses, global damping, self collision radius and thickness multiplier), hard constraints, slide constraints and soft constraints. Second row, from left to right: shape preservation, self collision weights and max sliding distance multiplier.</figcaption>
 </figure>
 
 > [!NOTE]
 > - *Hard*, *Soft* and *Slide* values are normalized to ensure that the sum of the three values for each vertex is in the range \[0.0, 1.0\].
-> - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
-> - Fixed point attribute names also ensure compatibility with the API.
 
 <figure style="width: 75%;" markdown>
   ![AdnSkin example of net with attribpaint](../images/skin_net_example.png) 
