@@ -16,14 +16,15 @@ To create an AdnGlue node within a Houdini scene, the following inputs must be p
   - **Input Geometry** (IG): Single geometry source containing all the geometries merged together. The geometry must include a per-primitive attribute to allow the solver to extract a list of separated geometries to be glued (e.g., `path`, `muscle_id`, `name`, etc).
 
 > [!NOTE]
-> - In an AdonisFX rig, each muscle is simulated individually. Because of this, it is required to merge them together with a `merge` SOP to provide one single geometry source to the AdnGlue SOP.
+> - In the context of an AdonisFX rig, the merged geometries would generally be the output of the individually simulated muscles (via AdnMuscle or AdnRibbonMuscle SOPs). It is important to maintaining the piece attribute intact after merging them together to distinguish each separate muscle entity.
+> - The order in which the geometries are merged can affect the output of the simulation result.
 
 
 The process to create an AdnGlue node is:
 
-1. Select all the geometry nodes to glue and merge them together via `merge` SOP.
+1. Select all the geometry nodes to glue and merge them together via `merge` SOP. Alternatively nodes like an `object_merge` node or similar can be used to combine the geometries.
 2. Press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnGlue ![Glue button](../../images/adn_glue.png){style="width:4%"} SOP type.
-3. Create it and connect the geometry to the input.
+3. Create it and connect the merged geometry to the input.
 4. The solver is ready to simulate with default settings. Check the next section to customize their configuration.
 
 > [!NOTE]
@@ -42,13 +43,12 @@ The process to create an AdnGlue node is:
 | **Stiffness**             | Float      | 5000.0     | ✓ | Defines the overall stiffness of the material to be used for the simulation. This value can be later overridden for each different aspect of the solver to fit creative needs. |
 | **Volume Preservation**   | Float      | 0.0        | ✓ | The amount of volume to preserve each simulated input muscle. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
 | **Bypass**                | Boolean    | False      | ✓ | When set to True, this attribute makes the input geometry pass through the solver without any simulation being applied. The solver does only transfer the input geometries into the output combined mesh. This is very useful if you want to compare results between having and not having the glue simulation performed. |
-| **Piece Attribute**       | String     | muscle_id  | ✗ | Specifies the name of the per-primitive attribute to read the piece ID values from. It is used to identify the piece of geometry that will be operated on. |
+| **Piece Attribute**       | String     | muscle_id  | ✗ | Specifies the name of the per-primitive attribute to read the piece ID values from. It is used to identify the piece of geometry that will be operated on. Each unique entry inside of the primitive piece id should represent each muscle to be glued together inside of the solver. |
 
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the node initializes. |
-| **Current Time**       | Time | *Current frame* | ✓ | Current playback frame. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -95,8 +95,8 @@ The process to create an AdnGlue node is:
 | **Max Glue Distance**           | Float       | 0.0   | ✓ | Sets maximum distance at which a vertex has to be from neighbor surfaces to create a glue constraint. Depending on the scale of your creature, higher values might be required to guarantee dense glue connections to be created. Use the debugger to help you define the value that fits your creature the best. |
 | **Compression Multiplier**      | Float       | 1.0   | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Stretching Multiplier**       | Float       | 1.0   | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Attenuation Velocity Factor** | Float       | 1.0   | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. Only available in dynamic mode. |
 | **Attenuation Velocity Matrix** | String      |       | ✓ | Object path of the node to extract the transformation matrix from to compute the velocity attenuation. |
+| **Attenuation Velocity Factor** | Float       | 1.0   | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. Only available in dynamic mode. |
 | **Substeps Interp. Exp.**       | Float       | 1.0   | ✓ | Sets the exponential factor to weight the interpolation at each substep (only if dynamic is enabled). Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. A value of 0.0 disables the interpolation: input geometry targets and attenuation matrix are not interpolated. A value of 1.0 applies linear interpolation (input geometry targets and attenuation matrix) between previous and current frame based on a linear weight, i.e. `weight = substep / num_substeps`. A value between 0.0 and 1.0 applies exponential interpolation (input geometry targets and attenuation matrix) between previous and current frame based on an exponential weight, i.e. `weight = (substep / num_substeps) ^ exponent`. |
 
 #### Self Collisions Properties
@@ -138,10 +138,10 @@ The process to create an AdnGlue node is:
 | **Compression Resistance Attribute**                  | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the compression resistance values from. The expected attribute name is `adnCompressionResistance`. The expected range of the per-point values is \[0.0, 1.0\].  |
 | **Global Damping Attribute**                          | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the global damping from. The expected attribute name is `adnGlobalDamping`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Glue Resistance Attribute**                         | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the glue resistance weights from. The expected attribute name is `adnGlueResistance`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Mass Attribute**                                    | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the mass values from. The expected attribute name is `adnMass`. The expected range of the per-point values is \[0.001, 1.0\]. |
 | **Self Collisions Point Radius Multiplier Attribute** | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the point radius multiplier values from used by the self-collisions constraints in Point-To-Point mode to detect intersecting points. The expected attribute name is `adnScPointRadiusMultiplier`. The expected range of the per-point values is \[0.001, 1.0\]. |
 | **Self Collisions Thickness Multiplier Attribute**    | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the thickness multiplier values from used by the self-collisions constraints to detect intersections. The expected attribute name is `adnScThicknessMultiplier`. The expected range of the per-point values is \[0.001, 1.0\]. |
 | **Self Collisions Weights Attribute**                 | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the self-collisions weights from to control the points that will be involved in self-collisions solving. The expected attribute name is `adnScWeights`. The expected range of the per-point values is \[0.001, 1.0\]. |
-| **Mass Attribute**                                    | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the mass values from. The expected attribute name is `adnMass`. The expected range of the per-point values is \[0.001, 1.0\]. |
 | **Shape Preservation Attribute**                      | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the shape preservation values from. The expected attribute name is `adnShapePreservation`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Max Glue Distance Multiplier Attribute**            | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the maximum distance multiplier from to control the glue constraints initialization. The expected attribute name is `adnMaxGlueDistanceMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Soft Constraints Attribute**                        | float         | 1.0     | ✗ | Specifies the name of the per-point attribute to read the soft constraints weights. The expected attribute name is `adnSoftConstraints`. The expected range of the per-point values is \[0.0, 1.0\]. |
@@ -197,11 +197,16 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
   <figcaption><b>Figure 4</b>: Example of painted weights on the glue layer: on the left the map is flooded to 1.0 used for compression, stretching, glue resistance, global damping, mass, max glue distance multiplier, shape preservation and soft constraints; in the middle the front view of the self-collisions weights map; on the right the back view of the self-collisions weights map.</figcaption>
 </figure>
 
+<figure style="width: 75%;" markdown>
+  ![AdnGlue example of net with attribpaint](../images/glue_net_example.png) 
+  <figcaption><b>Figure 5</b>: Example of AdnGlue net. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+</figure>
+
 ## Advanced
 
 ### Inputs
 
-Once the AdnGlue SOP is created, it is possible to add new inputs and remove currently connected ones. This is handled by the solver automatically on initialization only (i.e. at preroll start time). In each initialization, the solver process the input source and the *Piece Attribute* to split the geometry into the required individual pieces.
+Once the AdnGlue SOP is created, it is possible to add new inputs and remove currently connected ones. This is handled by the solver automatically on initialization only (i.e. at preroll start time). In each initialization, the solver processed the input source and the *Piece Attribute* to split the geometry into the required individual pieces.
 
 - **Add inputs**:
     1. Find the geometry nodes to be assigned as inputs to the AdnGlue and make sure they have the primitive attribute specified by the *Piece Attribute* of the AdnGlue.
