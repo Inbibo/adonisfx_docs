@@ -11,7 +11,7 @@ The maps required to control the AdnGlue solver can be painted using the standar
 
 ### How To Use
 
-The AdnGlue node can be applied to any set of geometries. For each geometry, their mesh at each frame is gathered and simulated to ensure the original distance between the neighboring geometries. This is achieved by creating attachments between each vertex of a geometry and the closest point on the surface of one of the other geometries (i.e. the closest one). More aspects are then computed to ensure that the simulated output preserves the original shape and edge-lengths of the simulated meshes. The output of the node is a mesh that combines all the input geometries together and adds the results of the solver.
+The AdnGlue node can be applied to any set of geometries. For each geometry, their mesh at each frame is gathered and simulated to ensure the original distance between the neighboring geometries. This is achieved by creating attachments between each vertex of a geometry and the closest point on the surface of one of the other geometries (the closest one). More aspects are then computed to ensure that the simulated output preserves the original shape and edge-lengths of the simulated meshes. The output of the node is a mesh that combines all the input geometries together and adds the results of the solver.
 
 To create an AdnGlue node within a Maya scene, the following inputs must be provided:
 
@@ -184,17 +184,7 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
 
 <figure markdown>
   ![AdnGlue weights](../images/glue_weights_00.png)
-  <figcaption><b>Figure 4</b>: Example of painted weights on the glue layer: on the left the map is flooded to 1.0 (compression, stretching, glue resistance, global damping, mass, max glue distance multiplier and soft constraints); on the right the map is flooded to 0.0 (shape preservation). </figcaption>
-</figure>
-
-<figure markdown>
-  ![AdnGlue weights](../images/glue_weights_01.png)
-  <figcaption><b>Figure 5</b>: Example of painted map for self-collisions point radius multiplier (left: front view; right: back view). Flood to 0.0 to reduce computational cost. Then, paint with a value of 1.0 on the areas that intersections can appear during simulation when the arms and the legs flex.  </figcaption>
-</figure>
-
-<figure markdown>
-  ![AdnGlue weights](../images/glue_weights_02.png)
-  <figcaption><b>Figure 6</b>: Example of painted map for self-collisions weights (left: front view; right: back view). Flood to 0.0 to reduce computational cost. Then, paint with a value of 1.0 on the legs (back) and on the upper part of the arms. Finally, painted with a value of 0.5 on the forearms. This difference on the arms is an example of how to make the solver apply more correction during self-collisions solving on the upper part (higher value). </figcaption>
+  <figcaption><b>Figure 4</b>: Example of painted weights on the glue layer: on the left the map is flooded to 1.0 used for compression, stretching, glue resistance, global damping, mass, max glue distance multiplier, shape preservation and soft constraints; in the middle the front view of the self-collisions weights map; on the right the back view of the self-collisions weights map.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -216,7 +206,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![AdnGlue debug](../images/glue_debug.png)
-  <figcaption><b>Figure 7</b>: AdnGlue debug features. From left to right: Glue Constraints, Distance Constraints and Self-Collisions Volumes.</figcaption>
+  <figcaption><b>Figure 5</b>: AdnGlue debug features. From left to right: Glue Constraints, Distance Constraints and Self-Collisions Volumes.</figcaption>
 </figure>
 
 ## Advanced

@@ -41,7 +41,6 @@ To create an AdnRibbonMuscle, follow these steps:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
 | **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
-| **Current Time**       | Time | *Current frame* | ✓ | Current playback frame. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -121,8 +120,8 @@ To create an AdnRibbonMuscle, follow these steps:
 | **Stretching Multiplier**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Anisotropy**                  | Float      | 0.0      | ✓ | Sets the anisotropic behavior of the fibers: 0 fully isotropic material, 1 fully anisotropic material. Has a range of \[0.0, 1.0\]. |
 | **Anisotropy Ratio**            | Float      | 9.0      | ✓ | Sets the ratio of anisotropy of the muscle fibers to lower the stiffness on edges not aligned with the fibers flow: the higher this value is, the lower the stiffness of the orthogonal edges when the muscle is anisotropic. Has a range of \[1.0, 50.0\]. The upper limit is soft, higher values can be used. |
-| **Attenuation Velocity Factor** | Float      | 1.0      | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
 | **Attenuation Velocity Matrix** | String     |          | ✓ | Object path of the node to extract the transformation matrix from to compute the velocity attenuation. |
+| **Attenuation Velocity Factor** | Float      | 1.0      | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
 | **Substeps Interp. Exp.**       | Float      | 1.0      | ✓ | Sets the exponential factor to weight the interpolation at each substep. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. A value of 0.0 disables the interpolation: input geometry targets and attenuation matrix are not interpolated. A value of 1.0 applies linear interpolation (input geometry targets and attenuation matrix) between previous and current frame based on a linear weight, i.e. `weight = substep / num_substeps`. A value between 0.0 and 1.0 applies exponential interpolation (input geometry targets and attenuation matrix) between previous and current frame based on an exponential weight, i.e. `weight = (substep / num_substeps) ^ exponent`. |
 | **Hard Attachments**            | Boolean    | False    | ✓ | If enabled, attachment constraints will force the vertices to stick to the target transformation completely. |
 | **Sliding Constraints Mode**    | Enumerator | Quality  | ✓ | Defines the mode of execution for the slide on geometry constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
@@ -152,6 +151,8 @@ To create an AdnRibbonMuscle, follow these steps:
 > [!NOTE]
 > - All maps parameters are disabled in each entry added to these multiparams because the attribute names are fixed to drive specific functionalities of the solver.
 > - Fixed point attribute names also ensure compatibility with the API.
+> - To copy the map names of the disabled attributes for painting (using an attribute paint node) right click on the disabled map attribute parameter, press "Copy Parameter", select the attribute paint node and on the attribute name entry right click and press "Paste Values". This allows to easily copy the attribute name for painting.
+> - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
 
 ### Maps
 
@@ -171,6 +172,8 @@ To create an AdnRibbonMuscle, follow these steps:
 > [!NOTE]
 > - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
 > - Fixed point attribute names also ensure compatibility with the API.
+> - To copy the map names of the disabled attributes for painting (using an attribute paint node) right click on the disabled map attribute parameter, press "Copy Parameter", select the attribute paint node and on the attribute name entry right click and press "Paste Values". This allows to easily copy the attribute name for painting.
+> - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
 
 ## Parameter Template
 

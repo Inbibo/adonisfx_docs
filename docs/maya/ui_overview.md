@@ -172,8 +172,8 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 ### Tools section
 
-- **Utils > Upgrade Deprecated Nodes**. Refreshes the node graph and upgrades all deprecated nodes making sure that the scene still works the same.
 - **Utils > Clear**. Removes all AdonisFX nodes from the scene.
+- **Utils > Upgrade v1.x To v2.x**. Performs an upgrade to all AdonisFX solvers to make v1.x rigs compatible with v2.x. This upgrade affects the painted values in the maps that are affected by the *Maps Remap Mode* attribute added in v2.0.0 to all solvers (i.e., shape preservation, attachments and sliding in muscle solver, uber constraints in skin solver). Due to how this remapping modifies how the painted values from the plugs are transferred to the solver, this utility updates those values in order to get simulation results as consistent as possible with v1.x.
 
 - **Mirror**. Opens the Mirror Tool UI which allows to mirror the muscle setup (locators, sensors and muscles) from one side of the character to the other based on left and right naming rules.
 - **Turbo**. Opens the Turbo UI, which allows users to build an AdonisFX rig on a clean asset from scratch. The UI is divided into sections for each simulation layer that the AdnTurbo can configure. Users can toggle layers on or off to include or skip them in the execution and select the scene objects required to create and configure the solvers.
