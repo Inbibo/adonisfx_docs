@@ -11,9 +11,9 @@ The AdonisFX Export is a tool designed to facilitate the export of a complete Ad
 
 The Export Tool offers an intuitive interface (see Figure 1), allowing users to configure export settings according to their specific requirements. Below is a breakdown of the available UI elements:​
 
-- **Filepath**. Specifies the destination path of the JSON file where the exported data will be saved. Clicking the folder icon opens a file browser to select the desired directory.
+- **Filepath**: Specifies the destination path of the JSON file where the exported data will be saved. Clicking the folder icon opens a file browser to select the desired directory.
 
-- **Solvers**. Defines which solvers should be exported. Options include:
+- **Solvers**: Defines which solvers should be exported. Options include:
     - Muscles: include AdnMuscle and AdnRibbonMuscle nodes in the exported data.
     - Glue: include AdnGlue nodes in the exported data.
     - Fat: include AdnFat nodes in the exported data.
