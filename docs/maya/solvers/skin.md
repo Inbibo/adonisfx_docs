@@ -10,7 +10,7 @@ The AdnSkin deformer is of great simplicity to set up and apply to a mesh within
 
 To create an AdnSkin deformer within a Maya scene, the following inputs must be provided:
 
-  - **Targets (T)**: List of geometries to drive the simulation mesh (e.g. select the muscles to simulate the fascia, select the fascia to simulate the fat, select the fat to simulate the skin).
+  - **Targets (T)**: List of geometries to drive the simulation mesh (e.g. select the glued muscles to simulate the fascia, or select the fat to simulate the skin).
   - **Skin Mesh (S)**: Mesh to apply the deformer onto.
 
 > [!NOTE]
@@ -20,7 +20,7 @@ The process to create an AdnSkin deformer is:
 
 1. Select the **Targets** (optional, they can be added later), then the **Skin Mesh**.
 2. Press ![Skin button](../../images/adn_skin.png){style="width:4%"} in the AdonisFX shelf or *Skin* in the AdonisFX menu, under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
-3. A message box will notify you that AdnSkin has been created properly, meaning that it is ready to simulate with default settings and *Material* set to *Skin*. Check the next section to customize their configuration.
+3. A message box will notify you that AdnSkin has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
 
@@ -153,29 +153,22 @@ The process to create an AdnSkin deformer is:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Attenuation Matrix**  | Matrix | Identity | ✓ | Transformation matrix to drive the attenuation. |
-| **Reference Mesh**      | Mesh   |          | ✓ | Mesh taken as reference to evaluate external constraints. |
-| **Reference Matrix**    | Matrix | Identity | ✓ | Reference world matrix to evaluate external constraints. |
 | **Target World Mesh**   | Mesh   |          | ✓ | List of geometry meshes (from a compound attribute) used to evaluate external constraints. |
 | **Target World Matrix** | Matrix | Identity | ✓ | List of geometry matrices (from a compound attribute) used to evaluate external constraints. |
 
-> [!NOTE]
-> Multiple targets are supported thanks to the *Targets* array plug.
-> It is recommended to use *Targets* array independently of having one or more target meshes.
-> The plugs *Reference Mesh* and *Reference Matrix* can also be used, although it is not recommended.
-
 ## Attribute Editor Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![skin editor first part](../images/skin_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnSkin Attribute Editor.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![skin editor second part](../images/skin_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnSkin Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![skin editor debug menu](../images/skin_attribute_editor_02.png)
   <figcaption><b>Figure 3</b>: AdnSkin Attribute Editor (Advanced Settings (Self-Collisions), Maps, Deformer Attributes and Debug menu).</figcaption>
 </figure>
@@ -199,9 +192,9 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 | **Soft Constraints**                       | 0.0 | Weight to modulate the correction applied to the vertices to keep them at a constant distance to the closest point on the closest target mesh at initialization. Painting these constraint weights would allow the deformer to create a wrinkle effect when combined with hard and slide weights.<ul><li>*Tip*: In the example of a biped or quadruped creature, it is recommended to flood the geometry with a low value 0.2.</li></ul> |
 | **Stretching Resistance**                  | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
 
-<figure>
-  <img src="../images/skin_weights.png" caption="AdonisFX Paint Tool"> 
-  <figcaption><b>Figure 4</b>: Example of painted weights on the skin of a bear character, labeled as:<br/><b>a)</b> Compression Resistance, <b>b)</b> Global Damping, <b>c)</b> Hard Constraints, <b>d)</b> Mass,<br/><b>e)</b> Shape Preservation, <b>f)</b> Slide Constraints, <b>g)</b> Sliding Distance Multiplier, <b>h)</b> Soft Constraints, <b>i)</b> Stretching Resistance, <b>j)</b> Self Collision Point Radius Multiplier and <b>k)</b> Self Collision Weights.</figcaption>
+<figure markdown>
+  ![Example of painted maps for AdnSkin](../images/skin_weights.png)
+  <figcaption><b>Figure 4</b>: Example of painted weights on the skin of a bear character. First row, from left to right: maps flooded to 1.0 (which correspond to compression, stretching, masses, global damping, self collision radius and thickness multiplier), hard constraints, slide constraints and soft constraints. Second row, from left to right: shape preservation, self collision weights and max sliding distance multiplier.</figcaption>
 </figure>
 
 > [!NOTE]
