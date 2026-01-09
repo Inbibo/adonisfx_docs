@@ -1,6 +1,6 @@
 # Sensors
 
-AdonisFX Sensors are nodes in charge of interpreting data extracted from transform nodes and compute information that can be fed into the deformers to alter their behavior. Sensors work in combination with [Locators](locators#locators) to display the computed information in an intuitive way using coloring. The sensors produce the results in two separated outputs: the raw value result of the evaluation of the input transform nodes (e.g. *Out Angle*); and the remapped value result of the evaluation of the raw value into the existing remap ramp attributes (e.g. *Out Angle Remap*). Thanks to this, the remapped values are already adjusted within a custom range of activation that will drive the coloring of the locators and the activation of an AdnMuscle for example.
+AdonisFX Sensors are nodes in charge of interpreting data extracted from transform nodes and compute information that can be fed into the deformers to alter their behavior. Sensors work in combination with [Locators](locators) to display the computed information in an intuitive way using coloring. The sensors produce the results in two separated outputs: the raw value result of the evaluation of the input transform nodes (e.g. *Out Angle*); and the remapped value result of the evaluation of the raw value into the existing remap ramp attributes (e.g. *Out Angle Remap*). Thanks to this, the remapped values are already adjusted within a custom range of activation that will drive the coloring of the locators and the activation of an AdnMuscle for example.
 
 ## AdnSensorPosition
 
@@ -90,6 +90,23 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 | **Time Scale**  | Float | 1.0 | ✓ | Sets the scaling factor applied to the compute the velocity or acceleration. Has a range of \[0.001, 10.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale** | Float | 1.0 | ✓ | Sets the scaling factor applied to velocity or acceleration. Has a range of \[0.001, 100.0\]. The upper limit is soft, higher values can be used. |
 
+# Parameter Template
+
+<figure style="width: 75%;" markdown>
+  ![AdnSensorPosition parameter template first tab](../images/sensor_position_parameter_template_00.png) 
+  <figcaption><b>Figure 3</b>: AdnSensorPosition Parameter Template: Input, Output and Remap.</figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnSensorPosition parameter template second tab](../images/sensor_position_parameter_template_01.png) 
+  <figcaption><b>Figure 4</b>: AdnSensorPosition Parameter Template: Remap.</figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnSensorPosition parameter template third tab](../images/sensor_position_parameter_template_02.png) 
+  <figcaption><b>Figure 5</b>: AdnSensorPosition Parameter Template: Time and Scale attributes.</figcaption>
+</figure>
+
 ## AdnSensorDistance
 
 AdnSensorDistance is the sensor for computing meaningful output raw values representing the distance, velocity or acceleration between two transform nodes. Additionally, the sensor remaps the values of distance, velocity and acceleration to produce desirable activation values within a certain range to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorDistance both for setup and visualization. An example use case for this sensor would be applying it to the connection made between bones which would compute the distance between two bones moving together.
@@ -100,7 +117,7 @@ An AdnSensorDistance will be in charge of computing, remapping and feeding activ
 
 <figure markdown>
   ![AdnSensorDistance distance display on AdnLocatorDistance within a scene](../images/sensors_distance.png)
-  <figcaption><b>Figure 3</b>: AdnSensorDistance used in a human model.</figcaption>
+  <figcaption><b>Figure 6</b>: AdnSensorDistance used in a human model.</figcaption>
 </figure>
 
 There are two different methods of creating an AdnSensorDistance, depending if it is to be applied on an existing [AdnLocatorDistance](locators) or creating it alongside the sensor.
@@ -119,7 +136,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 
 <figure markdown>
   ![AdnSensorDistance graph](../images/distance_sensor_locator_graph.png)
-  <figcaption><b>Figure 4</b>: AdnSensorDistance and AdnLocatorDistance in the node graph .</figcaption>
+  <figcaption><b>Figure 7</b>: AdnSensorDistance and AdnLocatorDistance in the node graph .</figcaption>
 </figure>
 
 ### Attributes
@@ -194,6 +211,28 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | **Time Scale**  | Float | 1.0 | ✓ | Sets the scaling factor applied to the compute the velocity or acceleration. Has a range of \[0.001, 10.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale** | Float | 1.0 | ✓ | Sets the scaling factor applied to velocity or acceleration. Has a range of \[0.001, 100.0\]. The upper limit is soft, higher values can be used. |
 
+# Parameter Template
+
+<figure style="width: 75%;" markdown>
+  ![AdnSensorDistance parameter template first tab](../images/sensor_distance_parameter_template_00.png) 
+  <figcaption><b>Figure 8</b>: AdnSensorDistance Parameter Template: Input, Output and Remap.</figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnSensorDistance parameter template second tab](../images/sensor_distance_parameter_template_01.png) 
+  <figcaption><b>Figure 9</b>: AdnSensorDistance Parameter Template: Remap Pt.1.</figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnSensorDistance parameter template second tab](../images/sensor_distance_parameter_template_02.png) 
+  <figcaption><b>Figure 10</b>: AdnSensorDistance Parameter Template: Remap Pt.2.</figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnSensorDistance parameter template third tab](../images/sensor_distance_parameter_template_03.png) 
+  <figcaption><b>Figure 11</b>: AdnSensorDistance Parameter Template: Time and Scale attributes.</figcaption>
+</figure>
+
 ## AdnSensorRotation
 
 AdnSensorRotation is the sensor for computing meaningful output raw values representing the angle, angular velocity or angular acceleration between three transform nodes. Additionally, the sensor remaps the values of angle, velocity and acceleration to produce desirable activation values within a certain range to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorRotation both for setup and visualization. An example use case for this sensor would be applying it to the arc connection made between bones which would compute the angle between two bones rotating.
@@ -204,7 +243,7 @@ An AdnSensorRotation will be in charge of computing, remapping and feeding activ
 
 <figure markdown>
   ![AdnSensorRotation angle display on AdnLocatorRotation within a scene](../images/sensors_rotation.png)
-  <figcaption><b>Figure 5</b>: AdnSensorRotation used in a human model.</figcaption>
+  <figcaption><b>Figure 12</b>: AdnSensorRotation used in a human model.</figcaption>
 </figure>
 
 There are two different methods of creating an AdnSensorRotation, depending if it is to be applied on an existing [AdnLocatorRotation](locators) or creating it alongside the sensor.
@@ -223,7 +262,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 
 <figure markdown>
   ![AdnSensorRotation graph](../images/rotation_sensor_locator_graph.png)
-  <figcaption><b>Figure 6</b>: AdnSensorRotation and AdnLocatorRotation in the node graph .</figcaption>
+  <figcaption><b>Figure 13</b>: AdnSensorRotation and AdnLocatorRotation in the node graph .</figcaption>
 </figure>
 
 ### Attributes
@@ -298,3 +337,25 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale** | Float | 1.0 | ✓ | Sets the scaling factor applied to the compute the velocity or acceleration. Has a range of \[0.001, 10.0\]. The upper limit is soft, higher values can be used. |
+
+# Parameter Template
+
+<figure style="width: 75%;" markdown>
+  ![AdnSensorRotation parameter template first tab](../images/sensor_rotation_parameter_template_00.png) 
+  <figcaption><b>Figure 14</b>: AdnSensorRotation Parameter Template: Input, Output and Remap.</figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnSensorRotation parameter template second tab](../images/sensor_rotation_parameter_template_01.png) 
+  <figcaption><b>Figure 15</b>: AdnSensorRotation Parameter Template: Remap Pt.1.</figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnSensorRotation parameter template second tab](../images/sensor_rotation_parameter_template_02.png) 
+  <figcaption><b>Figure 16</b>: AdnSensorRotation Parameter Template: Remap Pt.2.</figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnSensorRotation parameter template third tab](../images/sensor_rotation_parameter_template_03.png) 
+  <figcaption><b>Figure 17</b>: AdnSensorRotation Parameter Template: Time and Scale attributes.</figcaption>
+</figure>
