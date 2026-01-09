@@ -18,12 +18,21 @@ An AdnLocatorPosition will only visualize the information of the transform node 
 Only one transform will be required to create the AdnLocatorPosition. The creation process is the following:
 
  1. Go to the geometry context of the rig containing the rig setup to which the locators should be applied.
- 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the ![AdnLocatorPosition button](../../images/adn_point_locator.png){style="width:4%"} button SOP type.
+ 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the AdnLocatorPosition ![AdnLocatorPosition button](../../images/adn_point_locator.png){style="width:4%"} SOP type.
  3. Create it and connect the AdnSensorPosition sensor to its input for visualization purposes.
  4. Go to the AdnLocatorPosition's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
  5. Adjust the Draw Output and Scale to visualize activations and scale the visualizer for the locator.
  6. The AdnLocatorPosition is created and ready to be used.
 
+<figure markdown>
+  ![AdnSensorPosition graph](../images/position_sensor_locator_graph.png)
+  <figcaption><b>Figure 2</b>: AdnSensorPosition and AdnLocatorPosition in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
+</figure>
+
+> [!NOTE]
+> - Activation values are output from the sensor nodes via detail attributes (`adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and their name should not be altered.
+> - When connecting the sensors to a muscle or an activation node for example it is advisable to first connect the sensor to its corresponding locator and use the locator node as reference for creating the detail expression connection.
+> - To create a connection to the muscle use a detail expression on the muscle's parameter (for example the activation parameter) in the form of: `detail("/obj/geo1/AdnLocatorPosition1", "adnActivationVelocity", 0)` pointing directly to the locator that is connected to the sensor. This will allow for the muscle nodes to pick up the detail activation attribute from the sensor connection.
 
 ### Attributes
 
@@ -32,17 +41,24 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Position Matrix** | Matrix | Identity        | ✓ | Matrix containing the position in world space of the transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
 
+#### Draw
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the position locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
+| **Draw Output** | Enumerator | Velocity | ✓ | Selects the property of the locator to be visualized on the locator visualizer.<ul><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
+
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Velocity**     | Float | 0.0 | ✓ | Magnitude of the velocity of the transform node. The expected detail attribute on the input of the locator node is `adnActivationVelocity` and can be visualized with the "velocity" draw output. |
 | **Acceleration** | Float | 0.0 | ✓ | Magnitude of the acceleration of the transform node. The expected detail attribute on the input of the locator node is `adnActivationAcceleration` and can be visualized with the "acceleration" draw output. |
 
-#### Draw
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the position locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
-| **Draw Output** | Enumerator | Velocity | ✓ | Selects the property of the locator to be visualized on the locator visualizer.<ul><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
+### Parameter Template
+
+<figure style="width: 75%;" markdown>
+  ![AdnLocatorPosition parameter template general tab](../images/locator_position_parameter_template_00.png) 
+  <figcaption><b>Figure 3</b>: AdnLocatorPosition Parameter Template.</figcaption>
+</figure>
 
 ## AdnLocatorDistance
 
@@ -54,18 +70,27 @@ An AdnLocatorDistance will only visualize the information of the distance betwee
 
 <figure markdown>
   ![AdnLocatorDistance within a scene](../images/locators_distance.png)
-  <figcaption><b>Figure 2</b>: AdnLocatorDistance used in a human model.</figcaption>
+  <figcaption><b>Figure 4</b>: AdnLocatorDistance used in a human model.</figcaption>
 </figure>
 
 Two transform nodes will be required to create an AdnLocatorDistance representing each extremity. The creation process is the following:
 
  1. Go to the geometry context of the rig containing the rig setup to which the locators should be applied.
- 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the ![AdnLocatorDistance button](../../images/adn_distance_locator.png){style="width:4%"} button SOP type.
+ 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the AdnLocatorDistance ![AdnLocatorDistance button](../../images/adn_distance_locator.png){style="width:4%"} SOP type.
  3. Create it and connect the AdnSensorDistance sensor to its input for visualization purposes.
  4. Go to the AdnLocatorDistance's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
  5. Adjust the Draw Output and Scale to visualize activations and scale the visualizer for the locator.
  6. The AdnLocatorDistance is created and ready to be used.
 
+<figure markdown>
+  ![AdnSensorDistance graph](../images/distance_sensor_locator_graph.png)
+  <figcaption><b>Figure 5</b>: AdnSensorDistance and AdnLocatorDistance in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
+</figure>
+
+> [!NOTE]
+> - Activation values are output from the sensor nodes via detail attributes (`adnActivationDistance`, `adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and their name should not be altered.
+> - When connecting the sensors to a muscle or an activation node for example it is advisable to first connect the sensor to its corresponding locator and use the locator node as reference for creating the detail expression connection.
+> - To create a connection to the muscle use a detail expression on the muscle's parameter (for example the activation parameter) in the form of: `detail("/obj/geo1/AdnLocatorDistance1", "adnActivationDistance", 0)` pointing directly to the locator that is connected to the sensor. This will allow for the muscle nodes to pick up the detail activation attribute from the sensor connection.
 
 ### Attributes
 
@@ -75,6 +100,12 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 | **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
 | **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
 
+#### Draw
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the distance locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
+| **Draw Output** | Enumerator | Distance | ✓ | Selects the property of the locator to be visualized on the locator visualizer. <ul><li>**Distance:** Color the visualizer of the locator according to the input distance activation.</li><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
+
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -82,11 +113,12 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 | **Velocity**     | Float | 0.0 | ✓ | Magnitude of the velocity between the transform nodes. The expected detail attribute on the input of the locator node is `adnActivationVelocity` and can be visualized with the "velocity" draw output. |
 | **Acceleration** | Float | 0.0 | ✓ | Magnitude of the acceleration between the transform nodes. The expected detail attribute on the input of the locator node is `adnActivationAcceleration` and can be visualized with the "acceleration" draw output. |
 
-#### Draw
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the distance locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
-| **Draw Output** | Enumerator | Distance | ✓ | Selects the property of the locator to be visualized on the locator visualizer. <ul><li>**Distance:** Color the visualizer of the locator according to the input distance activation.</li><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
+### Parameter Template
+
+<figure style="width: 75%;" markdown>
+  ![AdnLocatorDistance parameter template general tab](../images/locator_distance_parameter_template_00.png) 
+  <figcaption><b>Figure 6</b>: AdnLocatorDistance Parameter Template.</figcaption>
+</figure>
 
 ## AdnLocatorRotation
 
@@ -98,18 +130,27 @@ An AdnLocatorRotation will only visualize the information of the connections and
 
 <figure markdown>
   ![AdnLocatorRotation within a scene](../images/locators_rotation.png)
-  <figcaption><b>Figure 3</b>: AdnLocatorRotation locator used in a human model.</figcaption>
+  <figcaption><b>Figure 7</b>: AdnLocatorRotation locator used in a human model.</figcaption>
 </figure>
 
 Three transform nodes will be required to create the AdnLocatorRotation. The creation process is the following:
 
  1. Go to the geometry context of the rig containing the rig setup to which the locators should be applied.
- 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the ![AdnLocatorRotation button](../../images/adn_angle_locator.png){style="width:4%"} button SOP type.
+ 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the AdnLocatorRotation ![AdnLocatorRotation button](../../images/adn_angle_locator.png){style="width:4%"} SOP type.
  3. Create it and connect the AdnSensorRotation sensor to its input for visualization purposes.
  4. Go to the AdnLocatorRotation's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
  5. Adjust the Draw Output and Scale to visualize activations and scale the visualizer for the locator.
  6. The AdnLocatorRotation is created and ready to be used.
 
+<figure markdown>
+  ![AdnSensorRotation graph](../images/rotation_sensor_locator_graph.png)
+  <figcaption><b>Figure 8</b>: AdnSensorRotation and AdnLocatorRotation in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
+</figure>
+
+> [!NOTE]
+> - Activation values are output from the sensor nodes via detail attributes (`adnActivationRotation`, `adnActivationVelocity` and `adnActivationAcceleration`). It is to note that these attribute names are expected by the locator nodes and their name should not be altered.
+> - When connecting the sensors to a muscle or an activation node for example it is advisable to first connect the sensor to its corresponding locator and use the locator node as reference for creating the detail expression connection.
+> - To create a connection to the muscle use a detail expression on the muscle's parameter (for example the activation parameter) in the form of: `detail("/obj/geo1/AdnLocatorRotation1", "adnActivationRotation", 0)` pointing directly to the locator that is connected to the sensor. This will allow for the muscle nodes to pick up the detail activation attribute from the sensor connection.
 
 ### Attributes
 
@@ -120,6 +161,12 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 | **Mid Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
 | **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the third transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
 
+#### Draw
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Scale**       | Float      | 1.0   | ✓ | Sets the scaling factor applied to the rotation locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
+| **Draw Output** | Enumerator | Angle | ✓ | Selects the property of the locator to be visualized on the locator visualizer.<ul><li>**Angle:** Color the visualizer of the locator according to the input angle activation.</li><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
+
 #### Activation Values
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -127,8 +174,9 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 | **Velocity**     | Float | 0.0 | ✓ | Magnitude of the angular velocity between the three transform nodes. The expected detail attribute on the input of the locator node is `adnActivationVelocity` and can be visualized with the "velocity" draw output. |
 | **Acceleration** | Float | 0.0 | ✓ | Magnitude of the angular acceleration between the three transform nodes. The expected detail attribute on the input of the locator node is `adnActivationAcceleration` and can be visualized with the "acceleration" draw output. |
 
-#### Draw
-| Name | Type | Default | Animatable | Description |
-| :--- | :--- | :------ | :--------- | :---------- |
-| **Scale**       | Float      | 1.0   | ✓ | Sets the scaling factor applied to the rotation locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
-| **Draw Output** | Enumerator | Angle | ✓ | Selects the property of the locator to be visualized on the locator visualizer.<ul><li>**Angle:** Color the visualizer of the locator according to the input angle activation.</li><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
+### Parameter Template
+
+<figure style="width: 75%;" markdown>
+  ![AdnLocatorRotation parameter template general tab](../images/locator_rotation_parameter_template_00.png) 
+  <figcaption><b>Figure 9</b>: AdnLocatorRotation Parameter Template.</figcaption>
+</figure>

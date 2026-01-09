@@ -42,6 +42,13 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 | **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the position locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
 | **Draw Output** | Enumerator | Velocity | ✓ | Selects the property of the locator to be visualized on the locator visualizer.<ul><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
 
+### Attribute Editor Template
+
+<figure style="width: 75%;" markdown>
+  ![AdnLocatorPosition parameter template first tab](../images/locator_position_parameter_template_00.png) 
+  <figcaption><b>Figure 2</b>: AdnLocatorPosition Attribute Editor.</figcaption>
+</figure>
+
 ## AdnLocatorDistance
 
 AdnLocatorDistance is the locator for visualizing the distance between two transform nodes. When connected to its corresponding AdnSensorDistance, distance, velocity or acceleration can be visualized with a color code blue-to-red.
@@ -52,7 +59,7 @@ An AdnLocatorDistance will only visualize the information of the distance betwee
 
 <figure markdown>
   ![AdnLocatorDistance within a scene](../images/locators_distance.png)
-  <figcaption><b>Figure 2</b>: AdnLocatorDistance used in a human model.</figcaption>
+  <figcaption><b>Figure 3</b>: AdnLocatorDistance used in a human model.</figcaption>
 </figure>
 
 Two transform nodes will be required to create an AdnLocatorDistance representing each extremity. The creation process is the following:
@@ -84,6 +91,13 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 | **Scale**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the distance locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
 | **Draw Output** | Enumerator | Distance | ✓ | Selects the property of the locator to be visualized on the locator visualizer. <ul><li>**Distance:** Color the visualizer of the locator according to the input distance activation.</li><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
 
+### Attribute Editor Template
+
+<figure style="width: 75%;" markdown>
+  ![AdnLocatorDistance parameter template first tab](../images/locator_distance_parameter_template_00.png) 
+  <figcaption><b>Figure 4</b>: AdnLocatorDistance Attribute Editor.</figcaption>
+</figure>
+
 ## AdnLocatorRotation
 
 AdnLocatorRotation is the locator for visualizing the angle between three transform nodes. When connected to its corresponding AdnSensorRotation, angle, angular velocity or angular acceleration can be visualized with a color code blue-to-red.
@@ -94,7 +108,7 @@ An AdnLocatorRotation will only visualize the information of the connections and
 
 <figure markdown>
   ![AdnLocatorRotation within a scene](../images/locators_rotation.png)
-  <figcaption><b>Figure 3</b>: AdnLocatorRotation locator used in a human model.</figcaption>
+  <figcaption><b>Figure 5</b>: AdnLocatorRotation locator used in a human model.</figcaption>
 </figure>
 
 Three transform nodes will be required to create the AdnLocatorRotation. The creation process is the following:
@@ -131,6 +145,13 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 | **Scale**       | Float      | 1.0   | ✓ | Sets the scaling factor applied to the rotation locator visualizer. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
 | **Draw Output** | Enumerator | Angle | ✓ | Selects the property of the locator to be visualized on the locator visualizer.<ul><li>**Angle:** Color the visualizer of the locator according to the input angle activation.</li><li>**Velocity:** Color the visualizer of the locator according to the input velocity activation.</li><li>**Acceleration:** Color the visualizer of the locator according to the input acceleration activation.</li></ul> |
 
+### Attribute Editor Template
+
+<figure style="width: 75%;" markdown>
+  ![AdnLocatorRotation parameter template first tab](../images/locator_rotation_parameter_template_00.png) 
+  <figcaption><b>Figure 6</b>: AdnLocatorRotation Attribute Editor.</figcaption>
+</figure>
+
 ## AdnLocator
 
 The AdnLocator is an native alternative to Maya locators. This locator can be used to visualize any kind of scene element with a transform node. For example they can be used as inputs to other AdonisFX locators presented in this page.
@@ -141,5 +162,5 @@ To create an AdnLocator just click on the ![AdonisFX Logo locator button](../ima
 
 <figure markdown>
   ![AdnLocator within a scene](../images/locators_adonis.png)
-  <figcaption><b>Figure 4</b>: AdnLocator used for distance constraints.</figcaption>
+  <figcaption><b>Figure 7</b>: AdnLocator used for distance constraints.</figcaption>
 </figure>
