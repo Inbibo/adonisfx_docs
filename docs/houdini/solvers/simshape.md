@@ -12,7 +12,7 @@ To create an AdnSimshape SOP within a Houdini scene, the following inputs must b
 
   - **Rest Mesh (R)**: Mesh with no deformation or animation (optional).
   - **Deform Mesh (D)**: Mesh with deformation driven by the facial expressions (optional, only if muscle activations with AdonisFX Muscle Patches is required).
-  - **Animated Mesh (A)**: Mesh with deformation driven by the facial expressions and animation result of the binding to the animation rig.
+  - **Animated Mesh (A)**: Mesh with deformation driven by the facial expressions and animation result of the binding to the animation rig (optional).
   - **Simulation Mesh (S)**: Mesh to apply the SOP to. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
 > [!NOTE]
@@ -25,8 +25,9 @@ To create an AdnSimshape, follow these steps:
 
   1. Go to the geometry context of the rig containing the input geometries.
   2. Press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSimshape ![Simshape button](../../images/adn_simshape.png){style="width:4%"} SOP type.
-  3. Create it and connect the geometries to the corresponding inputs (**S** to the first input; **A** to the second input; **R** to the third input; **D** to the fourth input).
-  4. The AdnSimshape is now ready to simulate with default settings and *Material* set to *Skin*. Check the next section to customize their configuration.
+  3. Create it and connect **S** to the first input.
+  4. Optionally, if **A**, **R** and **D** ara available, connect them to the second, third and fourth inputs respectively.
+  5. The AdnSimshape is now ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
 
@@ -50,6 +51,9 @@ To create an AdnSimshape, follow these steps:
 | **Write Out Activation**     | Boolean    | False              | ✓ | Flag to toggle the writing of activations into an output plug. |
 | **Out Activation Attribute** | String     | `adnOutActivation` | ✗ | Name of the per-point attribute to write the output activation weights to. |
 
+> [!NOTE]
+> - Activation Attribute is disabled because the attribute name is fixed to drive specific functionalities of the solver.
+> - Fixed point attribute name also ensures compatibility with the API.
 
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
@@ -241,7 +245,7 @@ The data required to generate an AMP file is:
   - **Neutral mesh**: Rest mesh with a neutral facial expression.
   - **Target meshes**: Set of deformed meshes representing facial expressions.
     - The number of vertices in the neutral and the target meshes must match with the number of vertices of the simulated mesh that will be used for the simulation.
-    - The target meshes must be overlapping in the same position as the neutral mesh.
+    - The target meshes and the neutral mesh must be in the same space with no transformations.
 
 > [!NOTE]
 > - The AdnLearnMusclePatches SOP requires the target geometries to be combined in a single geometry.
@@ -276,10 +280,12 @@ Additional custom settings for the learning algorithm:
 | Name | Type | Default | Description |
 | :--- | :--- | :------ | :---------- |
 | **Limit Iterations**         | Boolean | False | If enabled, the *Number of Iterations* will be taken into consideration. |
-| **Number of Iterations**     | Integer | 20    | Maximum number of iterations allowed in the training process. The higher this value is, the more accurate the muscle patches estimation will be and the longer the execution will take. This parameter is ignored if *Limit Iterations* attribute is disabled. In that case, the training process will run until it achieves the most accurate solution. Has a range of \[1, 1e<sup>6</sup>\]. |
+| **Iterations**               | Integer | 20    | Maximum number of iterations allowed in the training process. The higher this value is, the more accurate the muscle patches estimation will be and the longer the execution will take. This parameter is ignored if *Limit Iterations* attribute is disabled. In that case, the training process will run until it achieves the most accurate solution. Has a range of \[1, 1e<sup>6</sup>\]. |
 | **Number of Muscle Patches** | Integer | 79    | Maximum number of muscle patches expected in the results. Has a range of \[1, 1e<sup>6</sup>\]. |
 | **Write Muscle Id**          | Boolean | False | If enabled, the SOP will generate an output point attribute with the name provided in *Muscle Id Attribute*. By visualizing this output attribute, the vertices of the neutral mesh will be colored according to the muscle patches resulting from the training. |
+| **Muscle Id Attribute**      | String  | `adnMusclePatchId` | Name of the per-point attribute to write the muscle patches ids to. |
 | **Write Muscle Fibers**      | Boolean | False | If enabled, the SOP will generate an output point attribute with the name provided in *Muscle Fibers Attribute*. By visualizing this output attribute, the fiber directions will be drawn on the vertices of the neutral mesh according to the muscle patches resulting from the training. |
+| **Muscle Fibers Attribute**  | String  | `adnMusclePatchId` | Name of the per-point attribute to write the muscle fiber directions to. |
 
 
 #### Debug Activations
@@ -299,7 +305,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 > - Avoid intersections between the collider and the rest/simulated mesh.
 > - Colliders with high Level Of Detail will affect the simulation performance.
 
-The use of rest collider is recommended when the pre-roll simulation is not computed and the initialization to the animated mesh is enabled (see attribute *Initialize to Anim Mesh*). In order to allow the solver to build consistent collision data in those cases, it is necessary to provide both the rest mesh and the rest collider in the same space. In order to provide a rest collider, connect its geometry to the sixth input of the AdnSimshapeSOP.
+The use of rest collider is recommended when the pre-roll simulation is not computed and the initialization to the animated mesh is enabled (see attribute *Initialize to Anim Mesh*). In order to allow the solver to build consistent collision data in those cases, it is necessary to provide both the rest mesh and the rest collider in the same space. In order to provide a rest collider, connect its geometry to the sixth input of the AdnSimshape SOP.
 
 > [!NOTE]
 > - Avoid intersections between the collider and the rest mesh.

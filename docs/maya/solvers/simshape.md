@@ -12,7 +12,7 @@ To create an AdnSimshape deformer within a Maya scene, the following inputs must
 
   - **Rest Mesh (R)**: Mesh with no deformation or animation (optional).
   - **Deform Mesh (D)**: Mesh with deformation driven by the facial expressions (optional, only if muscle activations with AdonisFX Muscle Patches is required).
-  - **Animated Mesh (A)**: Mesh with deformation driven by the facial expressions and animation result of the binding to the animation rig.
+  - **Animated Mesh (A)**: Mesh with deformation driven by the facial expressions and animation result of the binding to the animation rig (optional).
   - **Simulation Mesh (S)**: Mesh to apply the deformer to. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
 > [!NOTE]
