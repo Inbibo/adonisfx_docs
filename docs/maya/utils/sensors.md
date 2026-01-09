@@ -31,7 +31,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 
 <figure markdown>
   ![AdnSensorPosition graph](../images/position_sensor_locator_graph.png)
-  <figcaption><b>Figure 2</b>: AdnSensorPosition and AdnLocatorPosition in the node graph .</figcaption>
+  <figcaption><b>Figure 2</b>: AdnSensorPosition and AdnLocatorPosition in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
 </figure>
 
 ### Attributes
@@ -90,7 +90,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 | **Time Scale**  | Float | 1.0 | ✓ | Sets the scaling factor applied to the compute the velocity or acceleration. Has a range of \[0.001, 10.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale** | Float | 1.0 | ✓ | Sets the scaling factor applied to velocity or acceleration. Has a range of \[0.001, 100.0\]. The upper limit is soft, higher values can be used. |
 
-# Parameter Template
+### Attribute Editor Template
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorPosition parameter template first tab](../images/sensor_position_parameter_template_00.png) 
@@ -136,7 +136,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 
 <figure markdown>
   ![AdnSensorDistance graph](../images/distance_sensor_locator_graph.png)
-  <figcaption><b>Figure 7</b>: AdnSensorDistance and AdnLocatorDistance in the node graph .</figcaption>
+  <figcaption><b>Figure 7</b>: AdnSensorDistance and AdnLocatorDistance in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
 </figure>
 
 ### Attributes
@@ -211,7 +211,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | **Time Scale**  | Float | 1.0 | ✓ | Sets the scaling factor applied to the compute the velocity or acceleration. Has a range of \[0.001, 10.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale** | Float | 1.0 | ✓ | Sets the scaling factor applied to velocity or acceleration. Has a range of \[0.001, 100.0\]. The upper limit is soft, higher values can be used. |
 
-# Parameter Template
+### Attribute Editor Template
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorDistance parameter template first tab](../images/sensor_distance_parameter_template_00.png) 
@@ -262,7 +262,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 
 <figure markdown>
   ![AdnSensorRotation graph](../images/rotation_sensor_locator_graph.png)
-  <figcaption><b>Figure 13</b>: AdnSensorRotation and AdnLocatorRotation in the node graph .</figcaption>
+  <figcaption><b>Figure 13</b>: AdnSensorRotation and AdnLocatorRotation in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
 </figure>
 
 ### Attributes
@@ -338,7 +338,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale** | Float | 1.0 | ✓ | Sets the scaling factor applied to the compute the velocity or acceleration. Has a range of \[0.001, 10.0\]. The upper limit is soft, higher values can be used. |
 
-# Parameter Template
+### Attribute Editor Template
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorRotation parameter template first tab](../images/sensor_rotation_parameter_template_00.png) 

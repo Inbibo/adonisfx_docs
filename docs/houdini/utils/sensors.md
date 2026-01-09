@@ -25,7 +25,7 @@ Only one transform will be required to create the AdnSensorPosition. To create a
 
 <figure markdown>
   ![AdnSensorPosition graph](../images/position_sensor_locator_graph.png)
-  <figcaption><b>Figure 2</b>: AdnSensorPosition and AdnLocatorPosition in the node graph .</figcaption>
+  <figcaption><b>Figure 2</b>: AdnSensorPosition and AdnLocatorPosition in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -135,7 +135,7 @@ Two transforms will be required to create the AdnSensorDistance. To create an Ad
 
 <figure markdown>
   ![AdnSensorDistance graph](../images/distance_sensor_locator_graph.png)
-  <figcaption><b>Figure 8</b>: AdnSensorDistance and AdnLocatorDistance in the node graph .</figcaption>
+  <figcaption><b>Figure 8</b>: AdnSensorDistance and AdnLocatorDistance in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -265,7 +265,7 @@ Three transforms will be required to create the AdnSensorRotation. To create an 
 
 <figure markdown>
   ![AdnSensorRotation graph](../images/rotation_sensor_locator_graph.png)
-  <figcaption><b>Figure 15</b>: AdnSensorRotation and AdnLocatorRotation in the node graph .</figcaption>
+  <figcaption><b>Figure 15</b>: AdnSensorRotation and AdnLocatorRotation in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
 </figure>
 
 > [!NOTE]
