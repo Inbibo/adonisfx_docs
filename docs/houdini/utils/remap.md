@@ -7,7 +7,7 @@ The AdnRemap node is an AdonisFX node that aims to provide remap functionalities
 An instance of this node can be created from the TAB menu:
 
 1. Go to the geometry context of the rig containing the rig setup to which the locators should be applied.
-2. Press TAB and navigate to the submenu AdonisFX > Utils to find the ![AdnRemap button](../../images/adn_remap.png){style="width:4%"} button SOP type.
+2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnRemap ![AdnRemap button](../../images/adn_remap.png){style="width:4%"} SOP type.
 3. Use detail expressions to drive the input value and to ingest the data into the desired target node. 
 
 Typically, this node will be used to remap the raw output values of AdonisFX sensors (i.e. distance, angle, velocity and acceleration) so that they are ingested into the AdonisFX locators within the desired normalized ranges. The remapped output can also be ingested directly in an AdnMuscle deformer to modulate, for example, the activation or the volume ratio.
