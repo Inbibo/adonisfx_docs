@@ -257,17 +257,21 @@ Once the AdnMuscle SOP is created, it is possible to add and remove attachments 
 - **Add geometry targets**:
     1. Increment the number of entries in the *Targets* multiparm. This adds a new entry to the list.
     2. Enter the object path of the geometry to add. The path can be absolute or relative to the SOP.
+    3. Make sure to recook the AdnMuscle at preroll start time for this change to take effect.
 - **Remove geometry targets**:
     1. Locate the target to remove in the *Targets* multiparm.
     2. Remove it using the **X** button for that item.
     3. Alternatively, to remove all targets, click the **Clear** button of the *Targets* multiparm.
+    4. Make sure to recook the AdnMuscle at preroll start time for this change to take effect.
 - **Add attachment matrices**:
     1. Increment the number of entries in the *Attachments To Transform* multiparm. This adds a new entry to the list.
     2. Enter the object path of the node to add. The path can be absolute or relative to the SOP.
+    3. Make sure to recook the AdnMuscle at preroll start time for this change to take effect.
 - **Remove attachment matrices**:
     1. Locate the object to remove in the *Attachments To Transform* multiparm.
     2. Remove it using the **X** button for that item.
     3. Alternatively, to remove all attachments, click the **Clear** button of the *Attachments To Transform* multiparm.
+    4. Make sure to recook the AdnMuscle at preroll start time for this change to take effect.
 
 Transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. Meshes, on the other hand, are used to create attachment-to-geometry and slide-on-geometry constraints. Refer to [A Simple Setup](../simple_setup#AdnMuscle) for more information on painting influence maps for these constraints.
 
