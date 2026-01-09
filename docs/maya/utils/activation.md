@@ -15,7 +15,7 @@ The activation node can now be used to override, add, subtract, multiply or divi
 For example, multiple distance sensors of a character can be merged together to produce different kinds of activations throughout the simulation.
 
 <figure markdown>
-  ![AdnActivation example](../images/activation_create.png)
+  ![AdnActivation example](../images/activation_scene_example.png)
   <figcaption><b>Figure 1</b>: Use case in which AdnActivation is created for merging two activations to drive a muscle's activation.</figcaption>
 </figure>
 
@@ -42,25 +42,25 @@ To add new inputs to the AdnActivation node:
 ## Example
 
 <figure markdown>
-  ![AdnActivation example setup](../images/activation_example.png)
+  ![AdnActivation example setup](../images/activation_node_editor_example.png)
   <figcaption><b>Figure 2</b>: Closeup use case in which AdnActivation is created for merging two activations to drive a muscle's activation.</figcaption>
 </figure>
 
 In the above setup we have the following characteristics:
 
-1. One AdnSensorRotation.
-2. One AdnSensorPosition.
+1. One pair of AdnSensorDistance and AdnLocatorDistance.
+2. One pair of AdnSensorRotation and AdnLocatorRotation.
 3. One AdnActivation.
 4. One AdnMuscle.
 5. Two inputs added to AdnActivation.
-6. Input 1 has an Over operator and is connected to the AdnSensorRotation.
-7. Input 2 has an Add operator and is connected to the AdnSensorPosition.
-8. The bypass option is unchecked for both inputs.
-9. Out Value will be: AdnSensorRotation Activation + AdnSensorPosition Activation.
+6. Input 1 is connected to the AdnLocatorDistance (Operator Add, Bypass unchecked).
+7. Input 2 is connected to the AdnLocatorRotation (Operator Add, Bypass unchecked).
+8. Out Value will be: AdnSensorDistance's output distance remapped + AdnSensorRotation's output angle remapped.
 
 ## Attributes
 
 ### Inputs Attributes
+
 The *inputs* attribute is presented as an array of 3 attributes which can be found below.
 
 | Name | Type | Default | Animatable | Description |
@@ -77,7 +77,7 @@ The *inputs* attribute is presented as an array of 3 attributes which can be fou
 
 ## Attribute Editor Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![AdnActivation attribute editor](../images/activation_attribute_editor.png)
   <figcaption><b>Figure 3</b>: AdnActivation Attribute Editor.</figcaption>
 </figure>
