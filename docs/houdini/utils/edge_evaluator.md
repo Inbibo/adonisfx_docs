@@ -46,10 +46,10 @@ The evaluator node can be used to drive the activations of an AdnSimshape SOP. T
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Compression Remap** | Ramp Attribute |  | ✓ | Curve to remap the output compression map. |
 
-#### Output Attributes Constraint Stiffness
+#### Output Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Out Compression Attribute** | String |  adnCompressionMap | ✗ | Read only parameter that shows the point attribute name where the compression map is written into. |
+| **Out Compression Attribute** | String | adnCompression | ✗ | Read only parameter that shows the point attribute name where the compression map is written into. |
 
 ## Attribute Editor Template
 
