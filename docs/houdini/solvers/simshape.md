@@ -155,6 +155,12 @@ To create an AdnSimshape, follow these steps:
 | **Stretching Resistance Attribute**          | Float       | 1.0     | ✗ | Specifies the name of the per-point attribute to read the stretching resistance values from. The expected attribute name is `adnStretchingResistance`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Maps Remap Mode**                          | Enumerator  | Squared | ✗ | Defines the mode of remapping the painted values of shape preservation and slide collision constraints. The other paintable maps remain unmodified. Each remap mode applies a function to the input painted values (x) to get the final value used for the simulation (y).<ul><li>Linear: `y = x`</li><li>Squared: `y = x^2`</li><li>Cubic: `y = x^3`</li><li>Square Root: `y = x^(1/2)`</li><li>Cube Root: `y = x^(1/3)`</li><li>Logarithmic: `y = log((exp(1) - 1) * x + 1)`</li></ul> |
 
+> [!NOTE]
+> - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
+> - Fixed point attribute names also ensure compatibility with the API.
+> - To copy the map names of the disabled attributes for painting (using an attribute paint node) right click on the disabled map attribute parameter, press "Copy Parameter", select the attribute paint node and on the attribute name entry right click and press "Paste Values". This allows to easily copy the attribute name for painting.
+> - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
+
 ## Parameter Template
 
 <figure style="width: 75%;" markdown>
