@@ -39,7 +39,7 @@ In the above setup we have the following characteristics:
 ### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Input**        | Float | 0.0 | ✓ | Input scalar value to remap. This value should be driven via detail expression to mimic the input connection value. For example to connect the angle activation for remapping the expression `detail("/obj/sim/AdnSensorRotation", "adnActivationAngle", 0)` can be used. |
+| **Input**        | Float | 0.0 | ✓ | Input scalar value to remap. This value should be driven via detail expression to mimic the input connection value. For example to connect the angle activation for remapping the expression `detail("/obj/s/AdnSensorRotation", "adnActivationAngle", 0)` can be used. |
 
 #### Remap
 
