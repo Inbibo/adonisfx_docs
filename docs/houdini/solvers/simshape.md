@@ -164,12 +164,12 @@ To create an AdnSimshape, follow these steps:
 
 <figure style="width: 75%;" markdown>
   ![AdnSimshape parameter template advanced tab](../images/simshape_parameter_template_01.png)
-  <figcaption><b>Figure 2</b>: AdnSimshape Parameter Template: Advanced.</figcaption>
+  <figcaption><b>Figure 2</b>: AdnSimshape Parameter Template: Advanced (Part 1).</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnSimshape parameter template maps tab](../images/simshape_parameter_template_02.png)
-  <figcaption><b>Figure 3</b>: AdnSimshape Parameter Template: Maps.</figcaption>
+  <figcaption><b>Figure 3</b>: AdnSimshape Parameter Template: Advanced (Part 2).</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
@@ -235,27 +235,34 @@ The data required to generate an AMP file is:
   - **Neutral mesh**: Rest mesh with a neutral facial expression.
   - **Target meshes**: Set of deformed meshes representing facial expressions.
     - The number of vertices in the neutral and the target meshes must match with the number of vertices of the simulated mesh that will be used for the simulation.
+    - The target meshes must be overlapping in the same position as the neutral mesh.
 
+> [!NOTE]
+> - The AdnLearnMusclePatches SOP requires the target geometries to be combined in a single geometry.
+> - The target geometries must contain a primitive attribute to allow the AdnLearnMusclePatches to identify each piece of geometry.
 
 The AdnLearnMusclePatches SOP allows the user to generate the AMP file:
 
-<figure style="width: 50%; padding-left: 5px;">
-  <img src="../images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
-  <figcaption><b>Figure 8</b>: Learn Muscle Patches UI.</figcaption>
+<figure style="width: 75%; padding-left: 5px;">
+  <img src="../images/simshape_ml_window.png" caption="AdnLearnMusclePatches parameter template."> 
+  <figcaption><b>Figure 8</b>: AdnLearnMusclePatches parameter template.</figcaption>
 </figure>
 
-1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](../../images/adn_learn_muscle_patches.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
-2. Add the neutral mesh.
-3. Add the target meshes. These geometries are the set of facial expressions produced by blendshapes or a facial rig.
-4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation. If *Add Selected* is pressed with no selection, the tool will display a pop-up and inform that all vertices will be used for the learning process. This button has to necessarily be pressed to enable the execution of the learning process.
-5. Browse or specify the destination AMP file.
-6. Configure custom settings for the learning algorithm.
-7. Press **Execute**.
+
+1. Go to the geometry context of the rig containing the neutral and target meshes.
+2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnLearnMusclePatches ![Learn Muscle Patches icon](../../images/adn_learn_muscle_patches.png){style="width:4%"} SOP type.
+3. Create it and connect the neutral mesh to the first input.
+4. Connect the target meshes to the second input. These geometries are the set of facial expressions produced by blendshapes or a facial rig.
+5. Specify the *Targets Piece Attribute* to be able to split the target geometries into single pieces.
+6. Create a group node between the neutral mesh and the AdnLearnMusclePatches SOP to select the points that will be involved in the training for the muscle patches generation.
+7. Browse or specify the destination AMP file.
+8. Configure custom settings for the learning algorithm.
+9. Press **Execute**.
 
 <br>
 <figure style="width: 50%;" markdown>
   ![Simshape draw muscle patches example](../images/simshape_debug_amp.png)
-  <figcaption><b>Figure 9</b>: Example of muscle patches generated with the Learn Muscle Patches UI.</figcaption>
+  <figcaption><b>Figure 9</b>: Example of muscle patches generated with the AdnLearnMusclePatches SOP.</figcaption>
 </figure>
 
 Additional custom settings for the learning algorithm:
@@ -265,7 +272,9 @@ Additional custom settings for the learning algorithm:
 | **Limit Iterations**         | Boolean | False | If enabled, the *Number of Iterations* will be taken into consideration. |
 | **Number of Iterations**     | Integer | 20    | Maximum number of iterations allowed in the training process. The higher this value is, the more accurate the muscle patches estimation will be and the longer the execution will take. This parameter is ignored if *Limit Iterations* attribute is disabled. In that case, the training process will run until it achieves the most accurate solution. Has a range of \[1, 1e<sup>6</sup>\]. |
 | **Number of Muscle Patches** | Integer | 79    | Maximum number of muscle patches expected in the results. Has a range of \[1, 1e<sup>6</sup>\]. |
-| **Draw Muscle Patches**      | Boolean | True  | If enabled, the vertices of the neutral mesh will be colored according to the muscle patches resulting from the training. |
+| **Write Muscle Id**          | Boolean | False | If enabled, the SOP will generate an output point attribute with the name provided in *Muscle Id Attribute*. By visualizing this output attribute, the vertices of the neutral mesh will be colored according to the muscle patches resulting from the training. |
+| **Write Muscle Fibers**      | Boolean | False | If enabled, the SOP will generate an output point attribute with the name provided in *Muscle Fibers Attribute*. By visualizing this output attribute, the fiber directions will be drawn on the vertices of the neutral mesh according to the muscle patches resulting from the training. |
+
 
 #### Debug Activations
 
