@@ -18,7 +18,7 @@ An AdnLocatorPosition will only visualize the information of the transform node 
 Only one transform will be required to create the AdnLocatorPosition. The creation process is the following:
 
  1. Go to the geometry context of the rig containing the rig setup to which the locators should be applied.
- 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the ![AdnLocatorPosition button](../../images/adn_point_locator.png){style="width:4%"} button SOP type.
+ 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the AdnLocatorPosition ![AdnLocatorPosition button](../../images/adn_point_locator.png){style="width:4%"} SOP type.
  3. Create it and connect the AdnSensorPosition sensor to its input for visualization purposes.
  4. Go to the AdnLocatorPosition's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
  5. Adjust the Draw Output and Scale to visualize activations and scale the visualizer for the locator.
@@ -76,7 +76,7 @@ An AdnLocatorDistance will only visualize the information of the distance betwee
 Two transform nodes will be required to create an AdnLocatorDistance representing each extremity. The creation process is the following:
 
  1. Go to the geometry context of the rig containing the rig setup to which the locators should be applied.
- 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the ![AdnLocatorDistance button](../../images/adn_distance_locator.png){style="width:4%"} button SOP type.
+ 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the AdnLocatorDistance ![AdnLocatorDistance button](../../images/adn_distance_locator.png){style="width:4%"} SOP type.
  3. Create it and connect the AdnSensorDistance sensor to its input for visualization purposes.
  4. Go to the AdnLocatorDistance's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
  5. Adjust the Draw Output and Scale to visualize activations and scale the visualizer for the locator.
@@ -136,7 +136,7 @@ An AdnLocatorRotation will only visualize the information of the connections and
 Three transform nodes will be required to create the AdnLocatorRotation. The creation process is the following:
 
  1. Go to the geometry context of the rig containing the rig setup to which the locators should be applied.
- 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the ![AdnLocatorRotation button](../../images/adn_angle_locator.png){style="width:4%"} button SOP type.
+ 2. Press TAB and navigate to the submenu AdonisFX > Locators to find the AdnLocatorRotation ![AdnLocatorRotation button](../../images/adn_angle_locator.png){style="width:4%"} SOP type.
  3. Create it and connect the AdnSensorRotation sensor to its input for visualization purposes.
  4. Go to the AdnLocatorRotation's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
  5. Adjust the Draw Output and Scale to visualize activations and scale the visualizer for the locator.
