@@ -24,7 +24,7 @@ To create an AdnSimshape SOP within a Houdini scene, the following inputs must b
 To create an AdnSimshape, follow these steps:
 
   1. Go to the geometry context of the rig containing the input geometries.
-  2. Press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSimshape ![Simshape button](../../images/adn_simshape.png) {style="width:4%"} SOP type.
+  2. Press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSimshape ![Simshape button](../../images/adn_simshape.png){style="width:4%"} SOP type.
   3. Create it and connect the geometries to the corresponding inputs (**S** to the first input; **A** to the second input; **R** to the third input; **D** to the fourth input).
   4. The AdnSimshape is now ready to simulate with default settings and *Material* set to *Skin*. Check the next section to customize their configuration.
 
