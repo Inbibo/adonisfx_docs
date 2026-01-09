@@ -49,7 +49,7 @@ The evaluator node can be used to drive the activations of an AdnSimshape SOP. T
 #### Output Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Out Compression Attribute** | String | adnCompression | ✗ | Read only parameter that shows the point attribute name where the compression map is written into. |
+| **Out Compression Attribute** | String | `adnCompression` | ✗ | Read only parameter that shows the point attribute name where the compression map is written into. |
 
 ## Attribute Editor Template
 
