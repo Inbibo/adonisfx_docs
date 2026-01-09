@@ -157,21 +157,24 @@ To create an AdnSimshape, follow these steps:
 
 ## Parameter Template
 
-<!-- TODO Ask Carlos for 4k screenshots -->
-
-<figure markdown>
-  ![simshape editor first part](../images/simshape_attribute_editor_00.png) 
-  <figcaption><b>Figure 1</b>: AdnSimshape Attribute Editor.</figcaption>
+<figure style="width: 75%;" markdown>
+  ![AdnSimshape parameter template solver tab](../images/simshape_parameter_template_00.png)
+  <figcaption><b>Figure 1</b>: AdnSimshape Parameter Template: Solver.</figcaption>
 </figure>
 
-<figure markdown>
-  ![simshape editor second part](../images/simshape_attribute_editor_01.png)
-  <figcaption><b>Figure 2</b>: AdnSimshape Attribute Editor (Advanced Settings).</figcaption>
+<figure style="width: 75%;" markdown>
+  ![AdnSimshape parameter template advanced tab](../images/simshape_parameter_template_01.png)
+  <figcaption><b>Figure 2</b>: AdnSimshape Parameter Template: Advanced.</figcaption>
 </figure>
 
-<figure markdown>
-  ![simshape editor debug part](../images/simshape_attribute_editor_02.png)
-  <figcaption><b>Figure 3</b>: AdnSimshape Attribute Editor (Debug menu).</figcaption>
+<figure style="width: 75%;" markdown>
+  ![AdnSimshape parameter template maps tab](../images/simshape_parameter_template_02.png)
+  <figcaption><b>Figure 3</b>: AdnSimshape Parameter Template: Maps.</figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnSimshape parameter template maps tab](../images/simshape_parameter_template_03.png)
+  <figcaption><b>Figure 4</b>: AdnSimshape Parameter Template: Maps.</figcaption>
 </figure>
 
 ## Paintable Weights
@@ -191,7 +194,12 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 
 <figure markdown>
   ![simshape weights](../images/simshape_weights.png) 
-  <figcaption><b>Figure 4</b>: Example of painted weights. On the left: attract force; on the middle-left: collision threshold multiplier, global damping, mass, shape preservation and stretching resistance; on the middle-right: compression resistance; on the right: slide collision constraints. </figcaption>
+  <figcaption><b>Figure 5</b>: Example of painted weights. On the left: attract force; on the middle-left: collision threshold multiplier, global damping, mass, shape preservation and stretching resistance; on the middle-right: compression resistance; on the right: slide collision constraints. </figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnSimshape example of net](../images/simshape_net_example.png) 
+  <figcaption><b>Figure 6</b>: Example of AdnSimshape net. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
 </figure>
 
 ## Advanced
@@ -201,7 +209,7 @@ AdnSimshape can emulate the behavior of facial muscles by computing the muscle a
 
 <figure markdown>
   ![Activation modes from attribute editor](../images/simshape_activation_modes.png)
-  <figcaption><b>Figure 8</b>: Activation Modes switch exposed in the Attribute Editor.</figcaption>
+  <figcaption><b>Figure 7</b>: Activation Modes switch exposed in the Parameter Template.</figcaption>
 </figure>
 
 > [!NOTE = Activation Modes]
@@ -233,7 +241,7 @@ The AdnLearnMusclePatches SOP allows the user to generate the AMP file:
 
 <figure style="width: 50%; padding-left: 5px;">
   <img src="../images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
-  <figcaption><b>Figure 9</b>: Learn Muscle Patches UI.</figcaption>
+  <figcaption><b>Figure 8</b>: Learn Muscle Patches UI.</figcaption>
 </figure>
 
 1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](../../images/adn_learn_muscle_patches.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
@@ -247,7 +255,7 @@ The AdnLearnMusclePatches SOP allows the user to generate the AMP file:
 <br>
 <figure style="width: 50%;" markdown>
   ![Simshape draw muscle patches example](../images/simshape_debug_amp.png)
-  <figcaption><b>Figure 10</b>: Example of muscle patches generated with the Learn Muscle Patches UI.</figcaption>
+  <figcaption><b>Figure 9</b>: Example of muscle patches generated with the Learn Muscle Patches UI.</figcaption>
 </figure>
 
 Additional custom settings for the learning algorithm:
@@ -264,45 +272,22 @@ Additional custom settings for the learning algorithm:
 AdnSimshape generates an output point attribute called `adnOutputActivation` that can be used to visualize the activations during the simulation.
 
 <figure style="width: 50%" markdown>
-  ![Learn Muscle Patches UI window](../images/simshape_nassim_debug.png)
-  <figcaption><b>Figure 11</b>: Example of AdnSimshape running in Debug mode.</figcaption>
+  ![Simshape output activation attribute](../images/simshape_nassim_debug.png)
+  <figcaption><b>Figure 10</b>: Visualization of the `adnOutputActivation` computed by AdnSimshape.</figcaption>
 </figure>
 
 ### Colliders
 
-AdnSimshape supports an internal collider that has to be bound to the rig and combined into a single object in order to mimic the internal structures. Colliders can represent structures like the skull or the teeth.
-
-#### Add Collider
-
-1. Select the collider object.
-2. Select the mesh with the AdnSimshape deformer.
-3. Press the AdonisFX Shelf > *Add Collider* Shelf Button ![Add collider icon](../images/adn_add_collider.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Add Collider*.
+AdnSimshape supports an internal collider that has to be bound to the rig and combined into a single object in order to mimic the internal structures. Colliders can represent structures like the skull or the teeth. In order to provide a collider, connect its geometry to the fifth input of the AdnSimshape SOP.
 
 > [!NOTE]
 > - Avoid intersections between the collider and the rest/simulated mesh.
 > - Colliders with high Level Of Detail will affect the simulation performance.
 
-#### Remove Collider
-
-1. Select the collider object.
-2. Select the mesh with the AdnSimshape deformer.
-3. Press the AdonisFX Shelf > *Remove Collider* Shelf Button ![Remove collider icon](../images/adn_remove_collider.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Remove Collider*.
-
-#### Add Rest Collider
-
-The use of rest collider is recommended when the pre-roll simulation is not computed and the initialization to the animated mesh is enabled (see attribute *Initialize to Anim Mesh*). In order to allow the solver to build consistent collision data in those cases, it is necessary to provide both the rest mesh and the rest collider in the same space.
-
-1. Select the rest collider object.
-2. Select the mesh with the AdnSimshape deformer.
-3. Go to the Edit Simshape submenu from the AdonisFX menu and press *Add Rest Collider*.
+The use of rest collider is recommended when the pre-roll simulation is not computed and the initialization to the animated mesh is enabled (see attribute *Initialize to Anim Mesh*). In order to allow the solver to build consistent collision data in those cases, it is necessary to provide both the rest mesh and the rest collider in the same space. In order to provide a rest collider, connect its geometry to the sixth input of the AdnSimshapeSOP.
 
 > [!NOTE]
 > - Avoid intersections between the collider and the rest mesh.
 > - Colliders with high Level Of Detail will affect the simulation performance.
 > - Collider meshes must have the same number of vertices although it can be different from the number of vertices of the rest, deformed, animated and simulated meshes.
 
-#### Remove Rest Collider
-
-1. Select the rest collider object.
-2. Select the mesh with the AdnSimshape deformer.
-3. Go to the Edit Simshape submenu from the AdonisFX menu and press *Remove Rest Collider*.
