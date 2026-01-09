@@ -7,7 +7,7 @@ The AdnActivation node allows operations on a set of input values for the comput
 To create this node, follow these steps:
 
 1. Go to the geometry context of the rig containing the rig setup to which the AdnActivation should be applied.
-2. Press TAB and navigate to the submenu AdonisFX > Utils to find the ![AdnActivation button](../../images/adn_activation.png){style="width:4%"} button SOP type.
+2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnActivation ![AdnActivation button](../../images/adn_activation.png){style="width:4%"} button SOP type.
 3. Go to the AdnActivation's *Inputs* and add a new input by clicking on the **+** button. A new multiparam entry will be created three parameters: *Bypass Operator*, *Value* and *Operator*.
 4. Use a detail expression to drive the *Value*. For example, do this to use the output activation from a distance sensor: `detail("/obj/sim/my_dist_sensor", "adnActivationDistance", 0)`.
 5. The AdnActivation node is ready to compute and write the result into the `adnOutValue` output attribute.
@@ -23,7 +23,7 @@ To add new inputs to the AdnActivation node:
 
 1. Go to the AdnActivation's *Inputs* and add more inputs by clicking on the **+** button.
 2. Set the desired *Operator*.
-3. Set the detail expression to drive the *Value*.
+3. Set the detail expression to drive the *Value* or use a fixed value if desired.
 
 > [!NOTE]
 > - All operators will be evaluated from top to bottom (starting from the lowest index and ending on the last index used).
