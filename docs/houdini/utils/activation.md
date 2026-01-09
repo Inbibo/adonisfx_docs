@@ -8,7 +8,7 @@ To create this node, follow these steps:
 
 1. Go to the geometry context of the rig containing the rig setup to which the AdnActivation should be applied.
 2. Press TAB and navigate to the submenu AdonisFX > Utils to find the ![AdnActivation button](../../images/adn_activation.png){style="width:4%"} button SOP type.
-3. Go to the AdnActivation's *Input* tab and add a new inputs by clicking on the **+** button. A new multiparam entry will be created three parameters: *Bypass Operator*, *Value* and *Operator*.
+3. Go to the AdnActivation's *Inputs* and add a new input by clicking on the **+** button. A new multiparam entry will be created three parameters: *Bypass Operator*, *Value* and *Operator*.
 4. Use a detail expression to drive the *Value*. For example, do this to use the output activation from a distance sensor: `detail("/obj/sim/my_dist_sensor", "adnActivationDistance", 0)`.
 5. The AdnActivation node is ready to compute and write the result into the `adnOutValue` output attribute.
 
@@ -21,7 +21,7 @@ The activation node can now be used to override, add, subtract, multiply or divi
 
 To add new inputs to the AdnActivation node:
 
-1. Go to the AdnActivation's *Input* tab and add a new inputs by clicking on the **+** button.
+1. Go to the AdnActivation's *Inputs* and add more inputs by clicking on the **+** button.
 2. Set the desired *Operator*.
 3. Set the detail expression to drive the *Value*.
 
@@ -62,7 +62,7 @@ In the above setup we have the following characteristics:
 
 ### Inputs Attributes
 
-The *inputs* attribute is presented as an array of 3 attributes which can be found below.
+The *Inputs* attribute is presented as an array of 3 attributes which can be found below.
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -80,8 +80,8 @@ The *inputs* attribute is presented as an array of 3 attributes which can be fou
 ### Output Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Output Attribute**  | String  | adnOutValue | ✓ | Specified the name of the point attribute to write the result into. |
-| **Output**            | Float   | 1.0         | ✓ | Output activation value. |
+| **Output Attribute**  | String  | `adnOutValue` | ✓ | Specifies the name of the point attribute to write the result into. |
+| **Output**            | Float   | 1.0           | ✓ | Output activation value. |
 
 ## Parameter Template
 
