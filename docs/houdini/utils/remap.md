@@ -27,7 +27,7 @@ In the above setup we have the following characteristics:
 
 1. One AdnSensorRotation.
 2. One AdnLocatorRotation to visualize the remapped activation values in the viewport.
-3. One AdnRemap node to drive the muscle's activation (this can also be directly achieved by tweaking the remap value's in the sensor node).
+3. One AdnRemap node to drive the muscle's activation (this can also be directly achieved by tweaking the remap values in the sensor node).
 4. Another AdnRemap node to remap the output activation from the range (0 - 1) into (1 - 1.2) to modulate the muscle's volume gain.
 5. One AdnMuscle solver.
 
@@ -62,7 +62,7 @@ In the above setup we have the following characteristics:
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Output Attribute** | float | 0.0 | ✗ | Specifies the name of the detail attribute that is used for exporting the remapped  value. The expected attribute name is `adnOutput`. |
+| **Output Attribute** | float | 0.0 | ✗ | Specifies the name of the detail attribute that is used for exporting the remapped value. The expected attribute name is `adnOutput`. |
 | **Output** | Float | 0.0 | ✗ | Output remapped value. |
 
 ## Parameter Template
