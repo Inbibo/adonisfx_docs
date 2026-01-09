@@ -56,13 +56,13 @@ Only one transform will be required to create the AdnSensorPosition. To create a
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Velocity Activation Attribute**   | float     | 0.0   | ✗ | Specifies the name of the detail attribute that is used for exporting the remapped activation value. The expected attribute name is `adnActivationVelocity`. |
-| **Selected Position**   | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
-| **Selected Value**      | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**       | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are seven options: Constant, Linear, Catmull-Rom, Monotone Cubic, Bezier, B-Spline, Hermite |
 | **Input Min Velocity**  | Float      | 0.0    | ✓ | Lower limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
 | **Input Max Velocity**  | Float      | 10.0   | ✓ | Upper limit of the range used to map the *Out Velocity* value before evaluating it on the ramp attribute. |
 | **Output Min Velocity** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
 | **Output Max Velocity** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped velocity. |
+| **Selected Position**   | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
+| **Selected Value**      | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
+| **Interpolation**       | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are seven options: Constant, Linear, Catmull-Rom, Monotone Cubic, Bezier, B-Spline, Hermite |
 
 #### Acceleration Remap Settings
 
@@ -167,13 +167,13 @@ Two transforms will be required to create the AdnSensorDistance. To create an Ad
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Distance Activation Attribute**   | float     | 0.0   | ✗ | Specifies the name of the detail attribute that is used for exporting the remapped activation value. The expected attribute name is `adnActivationDistance`. |
-| **Selected Position**   | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
-| **Selected Value**      | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**       | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are seven options: Constant, Linear, Catmull-Rom, Monotone Cubic, Bezier, B-Spline, Hermite |
 | **Input Min Distance**  | Float      | 0.0    | ✓ | Lower limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
 | **Input Max Distance**  | Float      | 0.0    | ✓ | Upper limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
 | **Output Min Distance** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
 | **Output Max Distance** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
+| **Selected Position**   | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
+| **Selected Value**      | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
+| **Interpolation**       | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are seven options: Constant, Linear, Catmull-Rom, Monotone Cubic, Bezier, B-Spline, Hermite |
 
 #### Velocity Remap Settings
 
@@ -193,13 +193,13 @@ Two transforms will be required to create the AdnSensorDistance. To create an Ad
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Acceleration Activation Attribute**   | float     | 0.0   | ✗ | Specifies the name of the detail attribute that is used for exporting the remapped activation value. The expected attribute name is `adnActivationAcceleration`. |
-| **Selected Position**       | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
-| **Selected Value**          | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
-| **Interpolation**           | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are seven options: Constant, Linear, Catmull-Rom, Monotone Cubic, Bezier, B-Spline, Hermite |
 | **Input Min Acceleration**  | Float      | -10.0  | ✓ | Lower limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
 | **Input Max Acceleration**  | Float      | 10.0   | ✓ | Upper limit of the range used to map the *Out Acceleration* value before evaluating it on the ramp attribute. |
 | **Output Min Acceleration** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
 | **Output Max Acceleration** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped acceleration. |
+| **Selected Position**       | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
+| **Selected Value**          | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
+| **Interpolation**           | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are seven options: Constant, Linear, Catmull-Rom, Monotone Cubic, Bezier, B-Spline, Hermite |
 
 #### Output
 | Name | Type | Default | Animatable | Description |
