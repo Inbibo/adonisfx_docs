@@ -10,7 +10,7 @@ This node requires the following inputs to be provided:
   - **Deform Mesh (D)**: Mesh with deformation.
 
 > [!NOTE]
-> All input geometries must have the same number of vertices and edges.
+> The two input geometries must have the same number of vertices and edges.
 
 To create this node, follow these steps:
 
