@@ -4,16 +4,16 @@ The AdonisFX Export is a tool designed to facilitate the export of a complete Ad
 
 ## UI
 
-<figure style="width:60%;" markdown>
+<figure style="width:50%;" markdown>
   ![AdonisFX Export Tool](../images/exporter_ui.png)
   <figcaption><b>Figure 1</b>: AdonisFX Export UI. </figcaption>
 </figure>
 
 The Export Tool offers an intuitive interface (see Figure 1), allowing users to configure export settings according to their specific requirements. Below is a breakdown of the available UI elements:​
 
-- **Filepath**. Specifies the destination path of the JSON file where the exported data will be saved. Clicking the folder icon opens a file browser to select the desired directory.
+- **Filepath**: Specifies the destination path of the JSON file where the exported data will be saved. Clicking the folder icon opens a file browser to select the desired directory.
 
-- **Solvers**. Defines which solvers should be exported. Options include:
+- **Solvers**: Defines which solvers should be exported. Options include:
     - Muscles: include AdnMuscle and AdnRibbonMuscle nodes in the exported data.
     - Glue: include AdnGlue nodes in the exported data.
     - Fat: include AdnFat nodes in the exported data.
@@ -41,7 +41,7 @@ The Export Tool offers an intuitive interface (see Figure 1), allowing users to 
 Open the scene of a fully configured AdonisFX rig (see Figure 2) and follow these steps:
 
 <figure markdown>
-  ![AdonisFX Export Tool](../images/fully_configured_biped_rig.png)
+  ![AdonisFX Export Tool](../images/exporter_scene.png)
   <figcaption><b>Figure 2</b>: Fully configured rig of a biped character. The rig includes sensors, locators, activation nodes, muscles, glue, fascia, fat, skin, skin merge, and relax.</figcaption>
 </figure>
 
@@ -56,7 +56,7 @@ Open the scene of a fully configured AdonisFX rig (see Figure 2) and follow thes
 Depending on the complexity of the rig, the export process might take a few seconds to complete. Once finished, a JSON file containing the exported data will be created in the specified path.
 
 <figure markdown>
-  ![AdonisFX Export Tool](../images/exported_file.png)
+  ![AdonisFX Export Tool](../../images/exported_file.png)
   <figcaption><b>Figure 3</b>: Example of the generated JSON file after exporting.</figcaption>
 </figure>
 
