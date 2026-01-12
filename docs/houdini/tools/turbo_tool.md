@@ -46,6 +46,7 @@ To configure the downstream layers, the following inputs have to be provided:
 Note that if any input is wrong or missing, the corresponding input text will turn red and an error message will be shown when hovering over it. In this case, the *Apply Turbo* button will be disabled.
 
 > [!NOTE]
+> - The paths to SOP nodes must be absolute.
 > - Muscles can be provided as a combined mesh (i.e. a single geometry node containing all the muscles) or as a list of separated muscles.
 > - If muscles are provided as a combined mesh, the geostream must contain a primitive attribute called `path` to allow AdnTurbo to identify each individual muscle.
 
