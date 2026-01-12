@@ -42,7 +42,7 @@ Before importing an AdonisFX rig, the target Houdini scene must meet the followi
 
 - Matching Geometry for *Solvers* and *Deformers*: Any geometry that had solvers or deformers applied in the original scene must also exist in the target scene. The geometries must have the same name and topology (i.e. same vertex count and vertex IDs) as in the exported scene to ensure that weight maps and settings are correctly restored.
 
-- Separated Muscle Pieces: THe muscle geometries must be separated to allow the importer to create and configure the individual solvers. Also, each separated muscle geometry must preserve the piece attribute used for the splitting.
+- Separated Muscle Pieces: The muscle geometries must be separated to allow the importer to create and configure the individual solvers. Also, each separated muscle geometry must preserve the piece attribute used for the splitting.
 
 <figure markdown>
   ![Biped scene requirement](../images/importer_requirement.png)
@@ -65,7 +65,7 @@ To import an AdonisFX rig, ensure that you have a valid exported JSON file and f
 
 2. Go to *AdonisFX menu > Import (beta)* to open the *Import* window.
 
-3. Specify the file path of the JSON file that contains the exported rig data (see Figure 3).
+3. Specify the file path of the JSON file that contains the exported rig data (see Figure 4).
 
 <figure markdown>
   ![Select JSON file](../../images/importer_file.png)
@@ -88,3 +88,5 @@ The previous steps corresponds to importing a rig that was exported from the sam
 > [!NOTE]
 > - The Import Tool is labeled as *Beta* since it relies on the experimental [API](../api).
 > - Importing data is required to be executed on rest frame.
+
+-<!-- TODO: #261 Add clarification about the ability to import rigs exported from Maya/Houdini -->
