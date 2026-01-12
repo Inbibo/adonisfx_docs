@@ -50,7 +50,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 1. Open a scene containing the geometries for all the layers to be built.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Maya Scene Ready To Execute AdnTurbo](../images/turbo_script_01.png)
+  ![Houdini Scene Ready To Execute AdnTurbo](../images/turbo_script_01.png)
   <figcaption><b>Figure 4</b>: Starting point to execute AdnTurbo onto an arm asset. The scene contains the geometries for: mummy, muscles, fascia, fat and skin. The alembic nodes are merged with a merge node for visualization purposes.</figcaption>
 </figure>
 
