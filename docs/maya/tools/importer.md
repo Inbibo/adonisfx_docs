@@ -52,7 +52,7 @@ To import an AdonisFX rig, ensure that you have a valid exported JSON file and f
 
 <figure markdown>
   ![Biped scene before importing](../images/importer_scene_00.png)
-  <figcaption><b>Figure 2</b>: Scene of a biped character after executing the *Clear* and ready to import.</figcaption>
+  <figcaption><b>Figure 2</b>: Scene of a biped character after executing the Clear and ready to import.</figcaption>
 </figure>
 
 2. Go to *AdonisFX menu > I/O > Import (beta)* to open the *Import* window.
