@@ -51,7 +51,7 @@ The evaluator node can be used to drive the activations of an AdnSimshape SOP. T
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Out Compression Attribute** | String | `adnCompression` | ✗ | Read only parameter that shows the point attribute name where the compression map is written into. |
 
-## Attribute Editor Template
+## Parameter Template
 
 <figure style="width: 75%;" markdown>
   ![Edge Evaluator parameter template](../images/edge_evaluator_parameter_template_00.png)

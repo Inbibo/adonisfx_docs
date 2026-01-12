@@ -153,7 +153,8 @@ nav:
       - AdnRemap                  : houdini/utils/remap.md
       - AdnEdgeEvaluator          : houdini/utils/edge_evaluator.md
       - AdnFiberGroom             : houdini/utils/fiber_groom.md
-      - AdnLearnMusclePatches     : houdini/utils/learn_muscle_patches.md
+      - AdnFiberDiffusion         : houdini/utils/fiber_diffusion.md
+      - AdnFiberProjection        : houdini/utils/fiber_projection.md
     - Tools:
       - Turbo                     : houdini/tools/turbo_tool.md
       - Export                    : houdini/tools/exporter.md
