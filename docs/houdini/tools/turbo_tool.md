@@ -1,3 +1,99 @@
 # AdnTurbo
 
-Coming soon
+The **AdnTurbo Tool** is a feature designed to automate the creation of an AdonisFX rig from scratch on a clean asset within Houdini, from which fine-tuning and customization can proceed. It sequentially configures the following layers:
+
+- **Muscle layer**
+- **Locators and Sensors**
+- **Glue layer**
+- **Fascia layer**
+- **Fat layer**
+- **Skin layer**
+
+<figure style="width:45%;" markdown>
+  ![AdnTurbo UI Empty](../images/turbo_tool_01.png)
+  <figcaption><b>Figure 1</b>: AdnTurbo UI without providing any input. The <i>Apply Turbo</i> button is disabled because there are missing inputs. </figcaption>
+</figure>
+
+<figure style="width:45%;" markdown>
+  ![AdnTurbo UI Minimum Requirements](../images/turbo_tool_02.png)
+  <figcaption><b>Figure 2</b>: AdnTurbo UI with the minimum requirements. </figcaption>
+</figure>
+
+<figure style="width:45%;" markdown>
+  ![AdnTurbo UI All Inputs](../images/turbo_tool_03.png)
+  <figcaption><b>Figure 3</b>: AdnTurbo UI providing all the inputs. </figcaption>
+</figure>
+
+Please, check this [section](#limitations) to know more about the current limitations.
+
+## Requirements
+
+Each layer builds upon the previous one, this means that a specific layer will be disabled in the UI unless all the previous layer checkboxes have been checked. This rule applies to all the layers except for **Locators and Sensors**, which can be enabled or disabled without affecting the building of other layers.
+
+To configure at least the muscle layer, the following inputs are required:
+
+- **Mummy**: the skeletal mesh that drives the muscle simulation.
+- **Muscles**: one or more meshes representing muscles. The **Muscle Layer** checkbox must be enabled to provide this input.
+
+When these two inputs are provided and the following layers are unchecked, AdnTurbo will be ready to be executed. If the **Locators & Sensors** checkbox is checked, locators and sensors will be built for each muscle.
+
+To configure the downstream layers, the following inputs have to be provided:
+
+- **Fascia**: the fascia mesh to which AdnSkin is applied. The **Glue Layer** checkbox must be checked for the **Fascia Layer** to become enabled.
+- **Fat**: the fat mesh to which AdnFat is applied. The **Fascia Layer** checkbox must be checked for the **Fat Layer** to become enabled.
+- **Skin**: the skin mesh to which AdnSkin is applied. The **Fat Layer** checkbox must be checked for the **Skin Layer** to become enabled.
+
+Note that if any input is wrong or missing, the corresponding input text will turn red and an error message will be shown when hovering over it. In this case, the *Apply Turbo* button will be disabled.
+
+> [!NOTE]
+> - The paths to SOP nodes must be absolute.
+> - Muscles can be provided as a combined mesh (i.e. a single geometry node containing all the muscles) or as a list of separated muscles.
+> - If muscles are provided as a combined mesh, the geostream must contain a primitive attribute called `path` to allow AdnTurbo to identify each individual muscle.
+
+## How to use
+
+1. Open a scene containing the geometries for all the layers to be built.
+
+<figure style="width:90%; margin-left:5%" markdown>
+  ![Houdini Scene Ready To Execute AdnTurbo](../images/turbo_script_01.png)
+  <figcaption><b>Figure 4</b>: Starting point to execute AdnTurbo onto an arm asset. The scene contains the geometries for: mummy, muscles, fascia, fat and skin. The alembic nodes are merged with a merge node for visualization purposes.</figcaption>
+</figure>
+
+2. Provide the inputs in the Turbo UI according to the layers that have to be built. Refer to Figure 3 to build all the layers.
+
+3. If the scene contains AdonisFX nodes, a confirmation dialog will appear informing about it. Press *Yes* to automatically delete all AdonisFX nodes or *No* to cancel the execution.
+
+<figure style="width:90%; margin-left:5%" markdown>
+  ![Turbo Execution Completed](../images/turbo_tool_confirmation_dialog.png)
+  <figcaption><b>Figure 5</b>: Question dialog informing about AdonisFX nodes in the scene before executing.</figcaption>
+</figure>
+
+4. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the troubleshooting. Note that the whole AdnTurbo can be undone.
+
+<figure style="width:90%; margin-left:5%" markdown>
+  ![Turbo Execution Completed](../images/turbo_script_02.png)
+  <figcaption><b>Figure 6</b>: All simulation layers configured after the execution: muscles, glue, fascia, fat and skin (including locators and sensors).</figcaption>
+</figure>
+
+> [!NOTE]
+> - Fascia and fat meshes must have the same topology for the AdnFat deformer to be created by AdnTurbo.
+> - AdnTurbo can also be executed via Python scripting. For more details, please refer to the [Turbo Script page](../scripts/turbo).
+
+## Result
+
+As a result of executing the tool by providing the geometries for all the layers, the following nodes will be created:
+
+- An AdnMuscle for each muscle geometry with the mummy geometry as target.
+- An AdonisFX locator and sensor for each AdnMuscle to drive the muscle activation.
+- An AdnGlue node with all the muscles merged as input.
+- An AdnSkin node for the fascia geometry with the mummy and glue as targets.
+- An AdnRelax node applied on top of the fascia AdnSkin.
+- An AdnFat node for the fat geometry with the fascia geometry as base mesh.
+- An AdnRelax node applied on top of the AdnFat.
+- An AdnSkin node for the skin geometry.
+
+## Limitations
+
+- The **Glue Layer** cannot be bypassed. This means that for the **Fascia Layer** to be enabled, the **Glue Layer** checkbox must be checked.
+- The default values that AdnTurbo will use to configure each deformer cannot be customized.
+- The primitive attribute name used to separate the muscles defaults to `path` and cannot be changed when running AdnTurbo through the UI.
