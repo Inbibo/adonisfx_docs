@@ -108,11 +108,11 @@ nav:
       - AdnGlue                   : maya/solvers/glue.md
       - AdnFat                    : maya/solvers/fat.md
       - AdnSkin                   : maya/solvers/skin.md
-      - AdnSkinMerge              : maya/solvers/skin_merge.md
       - AdnSimshape               : maya/solvers/simshape.md
     - Deformers:
       - AdnRelax                  : maya/deformers/relax.md
       - AdnPush                   : maya/deformers/push.md
+      - AdnSkinMerge              : maya/deformers/skin_merge.md
     - Utils:
       - AdnLocators               : maya/utils/locators.md
       - AdnSensors                : maya/utils/sensors.md
@@ -141,11 +141,11 @@ nav:
       - AdnGlue                   : houdini/solvers/glue.md
       - AdnFat                    : houdini/solvers/fat.md
       - AdnSkin                   : houdini/solvers/skin.md
-      - AdnSkinMerge              : houdini/solvers/skin_merge.md
       - AdnSimshape               : houdini/solvers/simshape.md
     - Deformers:
       - AdnRelax                  : houdini/deformers/relax.md
       - AdnPush                   : houdini/deformers/push.md
+      - AdnSkinMerge              : houdini/deformers/skin_merge.md
     - Utils:
       - AdnLocators               : houdini/utils/locators.md
       - AdnSensors                : houdini/utils/sensors.md

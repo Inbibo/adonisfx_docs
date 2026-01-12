@@ -8,11 +8,11 @@
     - [AdnGlue](solvers/glue)
     - [AdnFat](solvers/fat)
     - [AdnSkin](solvers/skin)
-    - [AdnSkinMerge](solvers/skin_merge)
     - [AdnSimshape](solvers/simshape)
 - Deformers
     - [AdnRelax](deformers/relax)
     - [AdnPush](deformers/push)
+    - [AdnSkinMerge](deformers/skin_merge)
 - Utils
     - [AdnLocators](utils/locators)
     - [AdnSensors](utils/sensors)

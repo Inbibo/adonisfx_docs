@@ -78,7 +78,7 @@ It is typical in Maya to model creatures 10 times smaller in order to avoid prec
 In this case you can adjust the simulation for this scaling factor by applying the AdonisFX Space Scale attribute to 10. This will ensure that AdonisFX will scale everything internally so that the simulation of the 17 units creature will look like if it was actually 170 units tall.
 
  How can I transfer the results of skin simulation to the final mesh?
-Make use of the [AdnSkinMerge](maya/solvers/skin_merge) deformer to blend animated and simulated meshes into a single final mesh. Launch the Skin Merge tool, select the final mesh, add the animated and simulated target meshes and click on Create. Then you only need to paint the blend weight to define the influence of the simulated mesh targets over the animated ones. You can find more information [here](maya/simple_setup#adnskinmerge).
+Make use of the [AdnSkinMerge](maya/deformers/skin_merge) deformer to blend animated and simulated meshes into a single final mesh. Launch the Skin Merge tool, select the final mesh, add the animated and simulated target meshes and click on Create. Then you only need to paint the blend weight to define the influence of the simulated mesh targets over the animated ones. You can find more information [here](maya/simple_setup#adnskinmerge).
 
 ### How can I control the area in which my muscle should activate?
 
