@@ -1,12 +1,12 @@
 # AdnFiberDiffusion
 
-The AdnFiberDiffusion SOP is in charge of, given a defined tendon mask, generate a fiber flow across the processed geometry per point. This is useful for generating fibers for AdnMuscle or AdnRibbonMuscle nodes to drive the activation. This node is also used in the initial fiber direction estimation in the AdnFiberGroom HDA.
+The AdnFiberDiffusion SOP is in charge of, given a defined tendon mask, generate a fiber flow across the processed geometry per point. This is useful for generating fibers for AdnMuscle or AdnRibbonMuscle nodes to drive the activation. This node is also used for the initial fiber direction estimation in the AdnFiberGroom HDA.
 
 ## How To Use
 
 To create this node, follow these steps:
 
-1. Go to the geometry context containing a geometry containing the painted `adnTendons` point attribute painted generally on the tendon areas of a muscle. This can also be a combined geometry with a defined per-primitive piece attribute.
+1. Go to the geometry context that has geometry with the painted `adnTendons` point attribute, generally on the tendon areas of a muscle. This can also be a combined geometry with a defined per-primitive piece attribute.
 2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnFiberDiffusion ![AdnFiberDiffusion button](../../images/adn_fiber_diffusion.png){style="width:4%"} SOP type.
 3. Connect the geometry to the first source.
 4. Cook the node and the `adnFibers` point attribute is written into the geostream with unprojected fiber directions used to drive the activation of an AdnMuscle or AdnRibbonMuscle node.
@@ -25,7 +25,7 @@ To create this node, follow these steps:
 > [!NOTE]
 > - AdnFiberDiffusion can be used on a combined geometry containing a valid piece attribute. However, for its use in AdnMuscle or AdnRibbonMuscle, each geometry has to be split separately.
 > - The "Triangulate Mesh" option ideally should match the option exposed in the AdnMuscle and AdnRibbonMuscle UI to get the same behavior.
-> - The AdnFiberDiffusion node is not mandatory and is only and internal component to the AdnFiberGroom HDA for grooming fibers. Ingesting `adnTendons` directly into an AdnMuscle or AdnRibbonMuscle node will generate a consistent fiber from that will the used by the solver.
+> - The AdnFiberDiffusion node is not mandatory and is only an internal component to the AdnFiberGroom HDA for grooming fibers. Ingesting `adnTendons` directly into an AdnMuscle or AdnRibbonMuscle node will generate a consistent fiber form that will be used by the solver.
 
 ## Attributes
 
