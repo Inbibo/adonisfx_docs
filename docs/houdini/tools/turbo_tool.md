@@ -47,7 +47,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 
 > [!NOTE]
 > - Muscles can be provided as a combined mesh (i.e. a single geometry node containing all the muscles) or as a list of separated muscles.
-> - The primitive attribute name used to separate the muscles defaults to `path` and cannot be changed when running AdnTurbo through the UI.
+> - If muscles are provided as a combined mesh, the geostream must contain a primitive attribute called `path` to allow AdnTurbo to identify each individual muscle.
 
 ## How to use
 
@@ -95,4 +95,4 @@ As a result of executing the tool by providing the geometries for all the layers
 
 - The **Glue Layer** cannot be bypassed. This means that for the **Fascia Layer** to be enabled, the **Glue Layer** checkbox must be checked.
 - The default values that AdnTurbo will use to configure each deformer cannot be customized.
-- Currently, the primitive attribute name used to separate the muscles must be `path` and it cannot be change when running AdnTurbo through the UI.
+- The primitive attribute name used to separate the muscles defaults to `path` and cannot be changed when running AdnTurbo through the UI.
