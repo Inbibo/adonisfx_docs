@@ -57,7 +57,7 @@ To import an AdonisFX rig, ensure that you have a valid exported JSON file and f
 
 2. Go to *AdonisFX menu > I/O > Import (beta)* to open the *Import* window.
 
-3. Specify the file path of the JSON file that contains the exported rig data (see Figure 3).
+3. Specify the file path of the JSON file that contains the exported rig data.
 
 <figure markdown>
   ![Select JSON file](../../images/importer_file.png)
