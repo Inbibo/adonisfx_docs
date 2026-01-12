@@ -49,23 +49,27 @@ To configure the downstream layers, the following inputs have to be provided:
 - **fat**: the fat mesh to which AdnFat is applied. The **fascia** input must be provided for the fat layer to be built.
 - **skin**: the skin mesh to which AdnSkin is applied. The **fat** input must be provided for the skin layer to be built.
 
+> [!NOTE]
+> - Muscles can be provided as a combined mesh (i.e. a single geometry node containing all the muscles) or as a list of separated muscles.
+> - If muscles are provided as a combined mesh, the geostream must contain a primitive attribute, passed to `apply_turbo` via the `muscle_piece_attrib_name` argument, to allow AdnTurbo to identify each individual muscle.
+
 ## Arguments
 
 In this section we provide a brief overview of the arguments of the `apply_turbo` function.
 
 | Argument | Required | Type | Default | Description |
 | :------- | :------- | :--- | :------ | :---------- |
-| **mummy**                       | Yes      | string         |        | Path to the node that contains the skeletal mesh that drives the muscle simulation. |
-| **muscles**                     | Yes      | string or list |        | Geometries to apply a AdnMuscle SOP to. It can be: 1) path to the node containing the geometry of all the muscles; 2) list of paths to the nodes containing each isolated muscle geometry. |
-| **fascia**                      | Optional | string         | None   | Path to the node that contains the geometry to apply the AdnSkin SOP to. Requires `glue=True`. |
-| **fat**                         | Optional | string         | None   | Path to the node that contains the geometry to apply the AdnFat SOP to. Requires fascia to be provided first. |
-| **skin**                        | Optional | string         | None   | Path to the node that contains the geometry to apply the AdnSkin SOP to. Requires fat to be provided first. |
-| **glue**                        | Optional | bool           | True   | If True, creates an AdnGlue node using all muscles as input. |
-| **locators**                    | Optional | bool           | True   | If True, creates sticky nodes, sensors and locators for each muscle. |
-| **space_scale**                 | Optional | float          | 1.0    | Factor to scale simulation space. It will be set to the space scale attribute of all the solvers created. |
-| **force**                       | Optional | bool           | False  | If True, deletes all existing AdonisFX nodes before executing to create the new nodes from a clean scene. |
-| **muscle_piece_attribute_name** | Optional | string         | `path` | String defining the name of the primitive attribute that will be used to identify each muscle geometry. |
-| **report_data**                 | Optional | dictionary     | None   | A dictionary (`{"errors": [], "warnings": []}`) to capture any issues during execution. |
+| **mummy**                    | Yes      | string         |        | Path to the node that contains the skeletal mesh that drives the muscle simulation. |
+| **muscles**                  | Yes      | string or list |        | Geometries to apply a AdnMuscle SOP to. It can be: 1) path to the node containing the geometry of all the muscles; 2) list of paths to the nodes containing each isolated muscle geometry. |
+| **fascia**                   | Optional | string         | None   | Path to the node that contains the geometry to apply the AdnSkin SOP to. Requires `glue=True`. |
+| **fat**                      | Optional | string         | None   | Path to the node that contains the geometry to apply the AdnFat SOP to. Requires fascia to be provided first. |
+| **skin**                     | Optional | string         | None   | Path to the node that contains the geometry to apply the AdnSkin SOP to. Requires fat to be provided first. |
+| **glue**                     | Optional | bool           | True   | If True, creates an AdnGlue node using all muscles merged as input. |
+| **locators**                 | Optional | bool           | True   | If True, creates sticky nodes, sensors and locators for each muscle. |
+| **space_scale**              | Optional | float          | 1.0    | Factor to scale simulation space. It will be set to the space scale attribute of all the solvers created. |
+| **force**                    | Optional | bool           | False  | If True, deletes all existing AdonisFX nodes before executing to create the new nodes from a clean scene. |
+| **muscle_piece_attrib_name** | Optional | string         | `path` | String defining the name of the primitive attribute that will be used to identify each muscle geometry. |
+| **report_data**              | Optional | dictionary     | None   | A dictionary (`{"errors": [], "warnings": []}`) to capture any issues during execution. |
 
 ## How to use
 
@@ -130,8 +134,8 @@ As a result of executing the script by providing the geometries for all the laye
 
 - An AdnMuscle for each muscle geometry with the mummy geometry as target.
 - An AdonisFX locator and sensor for each AdnMuscle to drive the muscle activation.
-- An AdnGlue node (including its glue output geometry) with all the muscles as input.
-- An AdnSkin node for the fascia geometry with the mummy and glue geometries as targets.
+- An AdnGlue node with all the muscles merged as input.
+- An AdnSkin node for the fascia geometry with the mummy and glue as targets.
 - An AdnRelax node applied on top of the fascia AdnSkin.
 - An AdnFat node for the fat geometry with the fascia geometry as base mesh.
 - An AdnRelax node applied on top of the AdnFat.
@@ -140,6 +144,4 @@ As a result of executing the script by providing the geometries for all the laye
 ## Limitations
 
 - The glue layer cannot be bypassed. This means that if the `fascia` argument is provided, the `glue` flag must be `True` for the script to complete successfully.
-- If the `force` flag is set to `True` the script will automatically remove all the AdonisFX nodes from the scene (if any). However, other auxiliary nodes created in previous executions of the script will not be removed (i.e. glue output geometry, rivet nodes).
 - The default values that the AdnTurbo script will use to configure each deformer cannot be customized.
-- AdnTurbo does not support namespaces in object paths.
