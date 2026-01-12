@@ -45,6 +45,10 @@ To configure the downstream layers, the following inputs have to be provided:
 
 Note that if any input is wrong or missing, the corresponding input text will turn red and an error message will be shown when hovering over it. In this case, the *Apply Turbo* button will be disabled.
 
+> [!NOTE]
+> - Muscles can be provided as a combined mesh (i.e. a single alembic node containing all the muscles) or as a list of separated muscles.
+> - If muscles are provided as a combined mesh, the geostream must contain a primitive attribute called `path` to allow AdnTurbo to identify each individual muscle.
+
 ## How to use
 
 1. Open a scene containing the geometries for all the layers to be built.
@@ -91,3 +95,4 @@ As a result of executing the tool by providing the geometries for all the layers
 
 - The **Glue Layer** cannot be bypassed. This means that for the **Fascia Layer** to be enabled, the **Glue Layer** checkbox must be checked.
 - The default values that AdnTurbo will use to configure each deformer cannot be customized.
+- Currently, the primitive attribute name used to separate the muscles must be `path` and it cannot be change when running AdnTurbo through the UI.
