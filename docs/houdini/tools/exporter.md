@@ -45,7 +45,7 @@ Open the scene of a fully configured AdonisFX rig (see Figure 2) and follow thes
   <figcaption><b>Figure 2</b>: Fully configured rig of a biped character. The rig includes sensors, locators, activation nodes, muscles, glue, fascia, fat, skin, skin merge, and relax.</figcaption>
 </figure>
 
-1. Go to *AdonisFX menu > I/O > Export (beta)* to open the *Export* window.
+1. Go to *AdonisFX menu > Export (beta)* to open the *Export* window.
 
 2. Specify the file path where the exported data will be saved (e.g., `path/to/the/file.json`).
 
