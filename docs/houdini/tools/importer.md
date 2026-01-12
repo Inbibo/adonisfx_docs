@@ -89,4 +89,4 @@ The previous steps corresponds to importing a rig that was exported from the sam
 > - The Import Tool is labeled as *Beta* since it relies on the experimental [API](../api).
 > - Importing data is required to be executed on rest frame.
 
--<!-- TODO: #261 Add clarification about the ability to import rigs exported from Maya/Houdini -->
+<!-- TODO: #261 Add clarification about the ability to import rigs exported from Maya/Houdini -->
