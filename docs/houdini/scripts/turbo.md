@@ -13,20 +13,20 @@ Please, check this [section](#limitations) to know more about the current limita
 
 The main function to run AdnTurbo is `apply_turbo`, which is defined as follows:
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.turbo import apply_turbo
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.houdini.turbo import apply_turbo
 
 def apply_turbo(
-    mummy,                          # str: name or path of the skeletal mesh
-    muscles,                        # str or list: muscle geometry names
-    fascia=None,                    # str: fascia geometry name
-    fat=None,                       # str: fat geometry name
-    skin=None,                      # str: skin geometry name
-    glue=True,                      # bool: enable glue layer
-    locators=True,                  # bool: enable creation of locators and sensors
-    space_scale=1.0,                # float: simulation scale factor
-    force=False,                    # bool: remove existing AdonisFX nodes
-    muscle_piece_attrib_name="path" # str: name of the primitive attribute used to separate the muscles
-    report_data=None                # dict: collects errors and warnings
+    mummy,                           # str: name or path of the skeletal mesh
+    muscles,                         # str or list: muscle geometry names
+    fascia=None,                     # str: fascia geometry name
+    fat=None,                        # str: fat geometry name
+    skin=None,                       # str: skin geometry name
+    glue=True,                       # bool: enable glue layer
+    locators=True,                   # bool: enable creation of locators and sensors
+    space_scale=1.0,                 # float: simulation scale factor
+    force=False,                     # bool: remove existing AdonisFX nodes
+    muscle_piece_attrib_name="path", # str: name of the primitive attribute used to separate the muscles
+    report_data=None                 # dict: collects errors and warnings
 )
 </code></pre>
 
@@ -60,7 +60,7 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 | Argument | Required | Type | Default | Description |
 | :------- | :------- | :--- | :------ | :---------- |
 | **mummy**                    | Yes      | string         |        | Path to the node that contains the skeletal mesh that drives the muscle simulation. |
-| **muscles**                  | Yes      | string or list |        | Geometries to apply a AdnMuscle SOP to. It can be: 1) path to the node containing the geometry of all the muscles; 2) list of paths to the nodes containing each isolated muscle geometry. |
+| **muscles**                  | Yes      | string or list |        | Geometries to apply an AdnMuscle SOP to. It can be: 1) path to the node containing the geometry of all the muscles; 2) list of paths to the nodes containing each isolated muscle geometry. |
 | **fascia**                   | Optional | string         | None   | Path to the node that contains the geometry to apply the AdnSkin SOP to. Requires `glue=True`. |
 | **fat**                      | Optional | string         | None   | Path to the node that contains the geometry to apply the AdnFat SOP to. Requires fascia to be provided first. |
 | **skin**                     | Optional | string         | None   | Path to the node that contains the geometry to apply the AdnSkin SOP to. Requires fat to be provided first. |
