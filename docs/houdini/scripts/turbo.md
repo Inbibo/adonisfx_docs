@@ -50,6 +50,7 @@ To configure the downstream layers, the following inputs have to be provided:
 - **skin**: the skin mesh to which AdnSkin is applied. The **fat** input must be provided for the skin layer to be built.
 
 > [!NOTE]
+> - The paths to SOP nodes must be absolute.
 > - Muscles can be provided as a combined mesh (i.e. a single geometry node containing all the muscles) or as a list of separated muscles.
 > - If muscles are provided as a combined mesh, the geostream must contain a primitive attribute, passed to `apply_turbo` via the `muscle_piece_attrib_name` argument, to allow AdnTurbo to identify each individual muscle.
 
@@ -108,7 +109,7 @@ apply_turbo(
 </code></pre>
 
 > [!NOTE]
-> It is recommended to pass optional arguments using keyword syntax (e.g. `fascia=fascia`), since the `apply_turbo` function defines additional parameters that may be unused and could lead to incorrect behavior if values are passed positionally.
+> It is recommended to pass optional arguments using keyword arguments (e.g. `fascia=fascia`), since the `apply_turbo` function defines additional parameters that may be unused and could lead to incorrect behavior if values are passed positionally.
 
 
 <figure style="width:90%; margin-left:5%" markdown>
