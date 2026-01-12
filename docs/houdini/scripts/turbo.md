@@ -107,6 +107,10 @@ apply_turbo(
 )
 </code></pre>
 
+> [!NOTE]
+> It is recommended to pass optional arguments using keyword syntax (e.g. `fascia=fascia`), since the `apply_turbo` function defines additional parameters that may be unused and could lead to incorrect behavior if values are passed positionally.
+
+
 <figure style="width:90%; margin-left:5%" markdown>
   ![AdnTurbo Execution Completed](../images/turbo_script_02.png)
   <figcaption><b>Figure 2</b>: All simulation layers configured after the execution: muscles, glue, fascia, fat and skin (including locators and sensors).</figcaption>
@@ -123,7 +127,6 @@ for warn in report_data["warnings"]:
 
 > [!NOTE]
 > - Note that the whole AdnTurbo can be undone.
-> - If multiple geometries or groups share the same name in different groups (e.g. group1|geo and group2|geo, group1|group3 and group2|group3), providing the full DAG path will be required.
 > - If there are AdonisFX nodes in the scene and the `force` argument is set to `False` the AdnTurbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force=True` to automatically delete all the AdonisFX nodes.
 > - Fascia and fat meshes must have the same topology for the AdnFat deformer to be created by AdnTurbo.
 > - AdnTurbo can also be executed with the **AdnTurbo Tool**. For more details, please refer to the [AdnTurbo Tool page](../tools/turbo_tool).
