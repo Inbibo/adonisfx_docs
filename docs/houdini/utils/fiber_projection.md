@@ -1,13 +1,13 @@
 # AdnFiberProjection
 
-The AdnFiberProjection SOP is in charge of, given non-projected fiber directions to project the fibers onto the geometry surface.
-This is useful for visualizing the resulting on fiber direction on the surface of the mesh which will then inform the fiber directions to drive the activations in the AdnMuscle and AdnRibbonMuscle nodes. This node is also used for visualizing the groomed fiber directions in the AdnFiberGroom HDA.
+The AdnFiberProjection SOP is in charge of projecting non-projected fiber directions onto the geometry surface.
+This is useful for visualizing the resulting fiber direction on the surface of the mesh which will then inform the fiber directions to drive the activations in the AdnMuscle and AdnRibbonMuscle nodes. This node is also used for visualizing the groomed fiber directions in the AdnFiberGroom HDA.
 
 ## How To Use
 
 To create this node, follow these steps:
 
-1. Go to the geometry context containing a geometry containing non-projected `adnFibers` point attribute representing the fiber flow of the muscle. This can also be a combined geometry with a defined per-primitive piece attribute.
+1. Go to the geometry context with a geometry containing non-projected `adnFibers` point attribute representing the fiber flow of the muscle. This can also be a combined geometry with a defined per-primitive piece attribute.
 2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnFiberProjection ![AdnFiberProjection button](../../images/adn_fiber_projection.png){style="width:4%"} SOP type.
 3. Connect the geometry to the first source.
 4. Cook the node and the projected `adnFibers` point attribute is written into the geostream with projected fiber directions used to drive the activation of an AdnMuscle or AdnRibbonMuscle node. However, these fiber directions should only serve as visualization guides as the input of the AdnMuscle and AdnRibbonMuscle nodes are the non-projected fiber directions.
@@ -26,7 +26,7 @@ To create this node, follow these steps:
 > [!NOTE]
 > - AdnFiberProjection can be used on a combined geometry containing a valid piece attribute. However, for its use in AdnMuscle or AdnRibbonMuscle, each geometry has to be split separately.
 > - The "Triangulate Mesh" option ideally should match the option exposed in the AdnMuscle and AdnRibbonMuscle UI to get the same behavior.
-> - The AdnFiberProjection node is not mandatory and is only and internal component to the AdnFiberGroom HDA for grooming fibers. Ingesting `adnFibers` directly into an AdnMuscle or AdnRibbonMuscle will have priority over the painted `adnTendons` map and will be used for driving the activation of the muscle.
+> - The AdnFiberProjection node is not mandatory and is only an internal component to the AdnFiberGroom HDA for grooming fibers. Ingesting `adnFibers` directly into an AdnMuscle or AdnRibbonMuscle will have priority over the painted `adnTendons` map and will be used for driving the activation of the muscle.
 
 ## Attributes
 
