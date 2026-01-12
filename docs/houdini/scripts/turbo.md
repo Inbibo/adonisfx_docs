@@ -78,19 +78,19 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 
 2. Create the arguments for the `apply_turbo` function.
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">mummy       = "mummy_GEO"
-muscles     = ["L_deltoid_GEO", "L_bicepsBrachii_GEO", "L_brachialis_GEO", "L_triceps_GEO", ...]
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">mummy       = "/obj/geo1/mummy_GEOShape"
+muscles     = "/obj/geo1/muscles_GRP"
 locators    = True
 glue        = True
-fascia      = "fascia_GEO"
-fat         = "fat_GEO"
-skin        = "simSkin_GEO"
+fascia      = "/obj/geo1/fascia_GEOShape"
+fat         = "/obj/geo1/fat_GEOShape"
+skin        = "/obj/geo1/simSkin_GEOShape"
 report_data = {"errors": [], "warnings": []}
 </code></pre>
 
 3. Run the following command in a Python Script tab by providing the previous arguments.
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.turbo import apply_turbo
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.houdini.turbo import apply_turbo
 apply_turbo(
     mummy,
     muscles,
@@ -99,39 +99,6 @@ apply_turbo(
     skin=skin,
     glue=glue,
     locators=locators,
-    report_data=report_data
-)
-</code></pre>
-
-4. Additionally, to place the glue geometry in a specific group, specify its name via the `glue_group_name` argument. Likewise, to place locator and rivet nodes into their own group, use the `locators_group_name` argument. If the named group (for either glue or locators) does not exist, simply set the corresponding flag (i.e. `create_glue_group` or `create_locators_group` respectively) to `True`, and the AdnTurbo script will create it automatically.
-
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.turbo import apply_turbo
-
-mummy                 = "mummy_GEO"
-muscles               = ["L_deltoid_GEO", "L_bicepsBrachii_GEO", "L_brachialis_GEO", "L_triceps_GEO", ...]
-glue                  = True
-glue_group_name       = "glue_GRP"
-create_glue_group     = True
-locators              = True
-locators_group_name   = "locators_GRP"
-create_locators_group = True
-fascia                = "fascia_GEO"
-fat                   = "fat_GEO"
-skin                  = "simSkin_GEO"
-report_data           = {"errors": [], "warnings": []}
-
-apply_turbo(
-    mummy,
-    muscles,
-    fascia=fascia,
-    fat=fat,
-    skin=skin,
-    glue=glue,
-    glue_group_name=glue_group_name,
-    create_glue_group=create_glue_group,
-    locators=locators,
-    locators_group_name=locators_group_name,
-    create_locators_group=create_locators_group,
     report_data=report_data
 )
 </code></pre>
@@ -141,7 +108,7 @@ apply_turbo(
   <figcaption><b>Figure 2</b>: All simulation layers configured after the execution: muscles, glue, fascia, fat and skin (including locators and sensors).</figcaption>
 </figure>
 
-5. If something goes wrong during the execution, error and warning messages will be added to the `report_data` dictionary. Execute the following code to log all the information in the terminal for troubleshooting.
+4. If something goes wrong during the execution, error and warning messages will be added to the `report_data` dictionary. Execute the following code to log all the information in the terminal for troubleshooting.
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">import logging
 for err in report_data["errors"]:
@@ -163,7 +130,7 @@ As a result of executing the script by providing the geometries for all the laye
 
 - An AdnMuscle for each muscle geometry with the mummy geometry as target.
 - An AdonisFX locator and sensor for each AdnMuscle to drive the muscle activation.
-- An AdnGlue node (including its glue output geometry) with all the muscles as inputs.
+- An AdnGlue node (including its glue output geometry) with all the muscles as input.
 - An AdnSkin node for the fascia geometry with the mummy and glue geometries as targets.
 - An AdnRelax node applied on top of the fascia AdnSkin.
 - An AdnFat node for the fat geometry with the fascia geometry as base mesh.
