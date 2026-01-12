@@ -36,13 +36,33 @@ The Export Tool offers an intuitive interface (see Figure 1), allowing users to 
     - Export: executes the export process based on the selected options without closing the window.
     - Close: closes the window without exporting.
 
+## Requirements
+
+An AdonisFX rig must meet some requirements to be exportable.
+
+- All geometries deformed by an AdonisFX SOP must be encapsulated within a deformable chain limited by two null nodes prefixed with "ADN_IN_" and "ADN_OUT_".
+
+<figure markdown>
+  ![AdonisFX Export Tool requirements part 1](../images/exporter_requirements_00.png)
+  <figcaption><b>Figure 2</b>: Exportable AdonisFX chain for the L_extensorDigitorum muscle and the simulated skin of an AdonisFX rig. All AdonisFX nodes affecting a geometry must are encapsulated by an ADN_IN null node and an ADN_OUT null node.</figcaption>
+</figure>
+
+- The glue layer must receive all the input muscles merged together. The merged muscles must be the input to the ADN_IN null node of this layer.
+
+<figure markdown>
+  ![AdonisFX Export Tool requirements part 2](../images/exporter_requirements_01.png)
+  <figcaption><b>Figure 3</b>: Graph of the glue layer of an AdonisFX rig. All the input muscles are merged and connected to the ADN_IN null node.</figcaption>
+</figure>
+
+- The muscle geometry must contain the piece attribute used by the glue solver (if any) to split the input geometry into individual muscle pieces.
+
 ## How To Use
 
 Open the scene of a fully configured AdonisFX rig (see Figure 2) and follow these steps:
 
 <figure markdown>
-  ![AdonisFX Export Tool](../images/exporter_scene.png)
-  <figcaption><b>Figure 2</b>: Fully configured rig of a biped character. The rig includes sensors, locators, activation nodes, muscles, glue, fascia, fat, skin, skin merge, and relax.</figcaption>
+  ![AdonisFX Export Tool exportable scene](../images/exporter_scene.png)
+  <figcaption><b>Figure 4</b>: Fully configured rig of a biped character. The rig includes sensors, locators, activation nodes, muscles, glue, fascia, fat, skin, skin merge, and relax.</figcaption>
 </figure>
 
 1. Go to *AdonisFX menu > Export (beta)* to open the *Export* window.
@@ -56,8 +76,8 @@ Open the scene of a fully configured AdonisFX rig (see Figure 2) and follow thes
 Depending on the complexity of the rig, the export process might take a few seconds to complete. Once finished, a JSON file containing the exported data will be created in the specified path.
 
 <figure markdown>
-  ![AdonisFX Export Tool](../../images/exported_file.png)
-  <figcaption><b>Figure 3</b>: Example of the generated JSON file after exporting.</figcaption>
+  ![AdonisFX Export Tool exported file](../../images/exported_file.png)
+  <figcaption><b>Figure 5</b>: Example of the generated JSON file after exporting.</figcaption>
 </figure>
 
 > [!NOTE]
