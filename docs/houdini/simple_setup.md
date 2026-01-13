@@ -24,7 +24,7 @@ To create the AdnGlue node, press TAB and navigate to the submenu AdonisFX > Sol
 
 <figure>
   <img src="images/simple_setup_glue_00.png">
-  <figcaption><b>Figure X</b>: AdnGlue SOP creation scenario.</figcaption>
+  <figcaption><b>Figure X</b>: AdnGlue SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
 </figure>
 
 Input muscles can be added or removed from the existing AdnGlue by connecting or disconnecting them from the merge node. After that, make sure to recook the AdnGlue at preroll start time for this change to take effect.
@@ -40,21 +40,21 @@ To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To 
 
 <figure>
   <img src="images/simple_setup_glue_01.png">
-  <figcaption><b>Figure X</b>: Deformable chain after using the "Make Paintable" utility.</figcaption>
+  <figcaption><b>Figure X</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
 With the *Max Glue Distance* previously adjusted, the default values of the paintable maps already allow the node to compute the glue constraints.
 
-The most important maps are *Glue Resistance*, *Max Glue Distance Multiplier*, and *Shape Preservation*. The first two are flooded with a value of 1.0 by default, while the last one is flooded with 0.0.
+The most important maps are `adnGlueResistance`, `adnMaxGlueDistanceMultiplier`, and `adnShapePreservation`. The first two are flooded with a value of 1.0 by default, while the last one is flooded with 0.0.
 
-Since the *Max Glue Distance* is initially the same for all muscles, you may want to adjust it for specific areas. This can be done by painting the *Max Glue Distance Multiplier* map. You can paint this map with a value of 0.0 in areas where you do not want the glue constraint to apply. This prevents the creation of the constraint in those areas and can improve the simulation performance.
+Since the *Max Glue Distance* is initially the same for all muscles, you may want to adjust it for specific areas. This can be done by painting the `adnMaxGlueDistanceMultiplier` map. You can paint this map with a value of 0.0 in areas where you do not want the glue constraint to apply. This prevents the creation of the constraint in those areas and can improve the simulation performance.
 
 <figure>
   <img src="images/simple_setup_glue_02.png">
   <figcaption><b>Figure X</b>: Glue Distance Multiplier map painted in specific areas where muscles are supposed to be glued together.</figcaption>
 </figure>
 
-The *Glue Resistance* map modulates the strength of the glue constraint. To reduce the effect of the constraint in specific areas, lower the values in this map accordingly. Glue constraints won't be computed for vertices with a weight value of 0.0.
+The `adnGlueResistance` map modulates the strength of the glue constraint. To reduce the effect of the constraint in specific areas, lower the values in this map accordingly. Glue constraints won't be computed for vertices with a weight value of 0.0.
 
 <figure>
   <img src="images/simple_setup_glue_03.png">
