@@ -466,7 +466,7 @@ To create a basic scenario using the AdnSkinMerge deformer, start with a scene w
   - One or more simulation meshes, for example with an AdnSkin deformer applied and properly configured.
   - A final mesh without animation or deformation.
 
-The AdnSkinMerge deformer will be applied to the final mesh which will  be the result of blending the animation and simulation meshes.
+The AdnSkinMerge deformer will be applied to the final mesh which will be the result of blending the animation and simulation meshes.
 
 <figure>
   <img src="images/simple_setup_skin_merge_00.png"> 
