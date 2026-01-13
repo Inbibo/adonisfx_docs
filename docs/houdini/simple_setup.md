@@ -37,7 +37,7 @@ To create the AdnSkinMerge node, press TAB and navigate to the submenu AdonisFX 
 
 <figure>
   <img src="images/simple_setup_skin_merge_01.png">
-  <figcaption><b>Figure X</b>: AdnSkinMerge SOP creation scenario.</figcaption>
+  <figcaption><b>Figure X</b>: AdnSkinMerge SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -46,7 +46,7 @@ To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To 
 
 <figure style="width: 70%;" markdown>
   <img src="images/simple_setup_skin_merge_02.png">
-  <figcaption><b>Figure X</b>: Deformable chain after using the "Make Paintable" utility.</figcaption>
+  <figcaption><b>Figure X</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
 Once the `attribpaint` node is created the weights can be painted to blend the animation and simulation meshes into the final mesh.
