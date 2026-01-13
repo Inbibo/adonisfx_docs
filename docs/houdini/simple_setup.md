@@ -36,7 +36,7 @@ The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the g
 
 ### Paint Weights
 
-To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnGlue SOP, and click on AdonisFX > Utils > Make Paintable. This utility will create the node with a proper name, connect it to the AdnGlue and add the paintable point attributes to the attributes list with the default values.
+To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnGlue SOP and click on AdonisFX > Utils > Make Paintable. This utility will first create an `attribcreate` node to define the required point attributes and assign their default values. It will then create an `attribpaint` node, allowing these attributes to be interactively modified. Both nodes are automatically named and properly connected to the AdnGlue node.
 
 <figure>
   <img src="images/simple_setup_glue_01.png">
