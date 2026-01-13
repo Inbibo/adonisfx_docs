@@ -65,7 +65,7 @@ The AdnRelax SOP is easy to create and configure in Houdini. It only requires th
 
 ## Paintable Weights
 
-To provide more control, some key parameters of the AdnRelax SOP are exposed as paintable attributes.
+To provide more control, some key parameters of the AdnRelax SOP are exposed as paintable attributes that can be tweaked via an `attribpaint`. To easy the creation and initial configuration of this `attribpaint` node, select the AdnRelax SOP, and click on AdonisFX > Utils > Make Paintable. This utility will create the node with a proper name, connect it to the AdnRelax and add the paintable point attributes to the attributes list with the default values.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
