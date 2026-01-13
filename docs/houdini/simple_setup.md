@@ -51,7 +51,7 @@ To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To 
 
 Once the `attribpaint` node is created the weights can be painted to blend the animation and simulation meshes into the final mesh.
 
-The *Blend* attribute represents the level of influence of the simulated mesh: a value of 0.0 makes the vertices follow the animated inputs, while a value of 1.0 makes the vertices follow the simulated inputs.
+The `adnBlend` attribute represents the level of influence of the simulated mesh: a value of 0.0 makes the vertices follow the animated inputs, while a value of 1.0 makes the vertices follow the simulated inputs.
 
 To have a smooth transition from the simulated mesh to the animated mesh, smooth the painting in the areas near the edges between the simulation and animation meshes.
 
