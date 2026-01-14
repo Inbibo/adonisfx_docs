@@ -107,3 +107,6 @@ Once the AdnSkinMerge SOP is created, the input meshes (animation mesh list, sim
   ![AdnSkinMerge attribute editor](../images/skin_merge_weights.png)
   <figcaption><b>Figure 5</b>: Example of blend map (left) and weights map (right) in AdnSkinMerge.</figcaption>
 </figure>
+
+> [!NOTE]
+> To tweak the point attributes of an AdnSkinMerge SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSkinMerge SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkinMerge node.
