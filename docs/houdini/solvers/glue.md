@@ -204,6 +204,9 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
   <figcaption><b>Figure 5</b>: Example of AdnGlue net. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
 </figure>
 
+> [!NOTE]
+> To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnGlue SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnGlue node.
+
 ## Advanced
 
 ### Inputs

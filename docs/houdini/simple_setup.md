@@ -16,7 +16,8 @@ To make the simulated muscles behave more compact and avoid large gaps between t
 The AdnGlue node will take all the simulated muscles merged as a single input.
 
 > [!NOTE]
-> AdnGlue requires the input geometry to contain a primitive attribute to be able to identify each muscle.
+> - AdnGlue requires the input geometry to contain a primitive attribute to be able to identify each muscle.
+> - If the AdnGlue input does not contain a primitive attribute, click on AdonisFX > Utils > Create Muscle PieceID by having the AdnGlue input selected. This utility will create a `connectivity` node in charge of computing the primitive attribute that will identify each muscle piece.
 
 ### Create Node
 
@@ -36,7 +37,7 @@ The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the g
 
 ### Paint Weights
 
-To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnGlue SOP and click on AdonisFX > Utils > Make Paintable. This utility will first create an `attribcreate` node to define the required point attributes and assign their default values. It will then create an `attribpaint` node, allowing these attributes to be interactively modified. Both nodes are automatically named and properly connected to the AdnGlue node.
+To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnGlue SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnGlue node.
 
 <figure>
   <img src="images/simple_setup_glue_01.png">
@@ -45,23 +46,23 @@ To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To 
 
 With the *Max Glue Distance* previously adjusted, the default values of the paintable maps already allow the node to compute the glue constraints.
 
-The most important maps are `adnGlueResistance`, `adnMaxGlueDistanceMultiplier`, and `adnShapePreservation`. The first two are flooded with a value of 1.0 by default, while the last one is flooded with 0.0.
+The most important maps are `adnGlueResistance`, `adnMaxGlueDistanceMultiplier`, and `adnShapePreservation`, which are flooded with a value of 1.0 by default.
 
 Since the *Max Glue Distance* is initially the same for all muscles, you may want to adjust it for specific areas. This can be done by painting the `adnMaxGlueDistanceMultiplier` map. You can paint this map with a value of 0.0 in areas where you do not want the glue constraint to apply. This prevents the creation of the constraint in those areas and can improve the simulation performance.
 
 <figure>
   <img src="images/simple_setup_glue_02.png">
-  <figcaption><b>Figure X</b>: Glue Distance Multiplier map painted in specific areas where muscles are supposed to be glued together.</figcaption>
+  <figcaption><b>Figure X</b>: Example of Glue Distance Multiplier map painted only on the areas between the left and right pectoralis and abdominis muscles. In this case, the glue constraints will be created only between vertices with non-zero value.</figcaption>
 </figure>
 
 The `adnGlueResistance` map modulates the strength of the glue constraint. To reduce the effect of the constraint in specific areas, lower the values in this map accordingly. Glue constraints won't be computed for vertices with a weight value of 0.0.
 
 <figure>
   <img src="images/simple_setup_glue_03.png">
-  <figcaption><b>Figure X</b>: Glue Resistance map painted in specific areas where muscles are supposed to be glued together.</figcaption>
+  <figcaption><b>Figure X</b>: Example of Glue Resistance map painted only on the areas between the left and right pectoralis and abdominis muscles. In this case, the glue constraints will be created only between vertices with non-zero value.</figcaption>
 </figure>
 
-Finally, shape preservation constraints help to maintain the original shape of the muscles. These constraints are useful if the gluing produces undesired shape on the output mesh. If that is not the case, then this map can stay unmodified (0.0) which will make the solver run faster. If shape preservation is required, then increase the values on those areas where the shape has been altered during the simulation.
+Finally, shape preservation constraints help to maintain the original shape of the muscles and are flooded to 1.0 by default. These constraints are useful if the gluing produces undesired shape on the output mesh. If that is not the case, flood the map to 0.0, which will make the solver run faster. If shape preservation is required, then increase the values on those areas where the shape has been altered during the simulation.
 
 ## AdnFat
 
