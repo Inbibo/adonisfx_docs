@@ -233,13 +233,13 @@ The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the g
 
 Once the AdnGlue node is properly created, you can use Maya Paint Tool to paint its weights and correctly set up the node properties. With the *Max Glue Distance* previously adjusted, the default values of the paintable maps already allow the node to compute the glue constraints.
 
-The most important maps are *Glue Resistance*, *Max Glue Distance Multiplier*, and *Shape Preservation*. The first two are flooded with a value of 1.0 by default, while the last one is flooded with 0.0.
+The most important maps are *Glue Resistance*, *Max Glue Distance Multiplier*, and *Shape Preservation*, which are flooded with a value of 1.0 by default.
 
 Since the *Max Glue Distance* is initially the same for all muscles, you may want to adjust it for specific areas. This can be done by painting the *Max Glue Distance Multiplier* map. You can paint this map with a value of 0.0 in areas where you do not want the glue constraint to apply. This prevents the creation of the constraint in those areas and can improve the simulation performance.
 
 <figure>
   <img src="images/simple_setup_glue_02.png"> 
-  <figcaption><b>Figure 22</b>: Glue Distance Multiplier map painted in specific areas where muscles are supposed to be glued together.</figcaption>
+  <figcaption><b>Figure 22</b>: Example of Glue Distance Multiplier map painted only on the areas between the left and right pectoralis and abdominis muscles. In this case, the glue constraints will be created only between vertices with non-zero value.</figcaption>
 </figure>
 
 <figure>
@@ -251,10 +251,10 @@ The *Glue Resistance* map modulates the strength of the glue constraint. To redu
 
 <figure>
   <img src="images/simple_setup_glue_04.png"> 
-  <figcaption><b>Figure 24</b>: Glue Resistance map painted in specific areas where muscles are supposed to be glued together.</figcaption>
+  <figcaption><b>Figure 24</b>: Example of Glue Resistance map painted only on the areas between the left and right pectoralis and abdominis muscles. In this case, the glue constraints will be created only between vertices with non-zero value.</figcaption>
 </figure>
 
-Finally, shape preservation constraints help to maintain the original shape of the muscles. These constraints are useful if the gluing produces undesired shape on the output mesh. If that is not the case, then this map can stay unmodified (0.0) which will make the solver run faster. If shape preservation is required, then increase the values on those areas where the shape has been altered during the simulation.
+Finally, shape preservation constraints help to maintain the original shape of the muscles and are flooded to 1.0 by default. These constraints are useful if the gluing produces undesired shape on the output mesh. If that is not the case, flood the map to 0.0, which will make the solver run faster. If shape preservation is required, then increase the values on those areas where the shape has been altered during the simulation.
 
 > [!NOTE]
 > In case you are experiencing issues trying to paint weights on the AdnGlue output geometry, find in the [limitations section of AdnGlue](solvers/glue#limitations) a proposed workaround.
