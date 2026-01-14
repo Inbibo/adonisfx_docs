@@ -62,4 +62,9 @@ To have a smooth transition from the simulated mesh to the animated mesh, smooth
 
 With this basic paint setup the AdnSkinMerge SOP will now show the results of skin simulation transferred to the final mesh.
 
+<figure>
+  <img src="images/simple_setup_skin_merge_04.png">
+  <figcaption><b>Figure X</b>: Result of AdnSkinMerge in a specific frame. From left to right: Animation Mesh, Simulation Mesh and Final Mesh.</figcaption>
+</figure>
+
 ## AdnSimshape

@@ -504,6 +504,11 @@ To have a smooth transition from the simulated mesh to the animated mesh, smooth
 
 With this basic paint setup the AdnSkinMerge deformer will now show the results of skin simulation transferred to the final mesh.
 
+<figure>
+  <img src="images/simple_setup_skin_merge_03.png">
+  <figcaption><b>Figure 44</b>: Result of AdnSkinMerge in a specific frame. From left to right: Animation Mesh, Simulation Mesh and Final Mesh.</figcaption>
+</figure>
+
 ## AdnSimshape
 
 To create a basic scenario using the AdnSimshape deformer, start with a scene with the following elements:
@@ -516,7 +521,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 <figure>
   <img src="images/simple_setup_simshape_00.png"> 
-  <figcaption><b>Figure 44</b>: Basic setup for facial simulations.</figcaption>
+  <figcaption><b>Figure 45</b>: Basic setup for facial simulations.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -529,7 +534,7 @@ To create the AdnSimshape deformer with some initial specialization, double-clic
 
 <figure>
   <img src="images/simple_setup_simshape_01.png"> 
-  <figcaption><b>Figure 45</b>: AdnSimshape deformer creation scenario.</figcaption>
+  <figcaption><b>Figure 46</b>: AdnSimshape deformer creation scenario.</figcaption>
 </figure>
 
 To add the deformation mesh to the deformer first select the deformation mesh, then the simulated mesh (which is the animation mesh) and then go to AdonisFX Menu > Simshape (on the *Edit* group) > Add *Deform Mesh*. A message will notify that the addition of the rest mesh has been done correctly.
@@ -545,21 +550,21 @@ In high deformation areas, such as around the mouth or under the eyes, add mediu
 
 <figure>
   <img src="images/simple_setup_simshape_02.png"> 
-  <figcaption><b>Figure 46</b>: Attraction Force weights for medium dynamics areas.</figcaption>
+  <figcaption><b>Figure 47</b>: Attraction Force weights for medium dynamics areas.</figcaption>
 </figure>
 
 Painting lower Attraction Force weights in meatier areas of the face, such as under the neck or in the cheeks to show more dynamics in these regions. In this case a value of 0.15 will be applied.
 
 <figure>
   <img src="images/simple_setup_simshape_03.png"> 
-  <figcaption><b>Figure 47</b>: Attraction Force weights for high dynamics areas.</figcaption>
+  <figcaption><b>Figure 48</b>: Attraction Force weights for high dynamics areas.</figcaption>
 </figure>
 
 The lowest values (0.1 in this case) will be applied to the area under the jaw where dynamics will appear the most. 
 
 <figure>
   <img src="images/simple_setup_simshape_04.png"> 
-  <figcaption><b>Figure 48</b>: Attraction Force weights for highest dynamics areas.</figcaption>
+  <figcaption><b>Figure 49</b>: Attraction Force weights for highest dynamics areas.</figcaption>
 </figure>
 
 After painting similar weights to the ones displayed and pressing playback to check the animation, realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are available and fully explained in the documentation for [AdnSimshape](solvers/simshape).
