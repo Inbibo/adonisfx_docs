@@ -470,7 +470,7 @@ The AdnSkinMerge deformer will be applied to the final mesh which will be the re
 
 <figure>
   <img src="images/simple_setup_skin_merge_00.png"> 
-  <figcaption><b>Figure 41</b>: Basic setup for skin merge. Meshes isolated for better visualization. From left to right: Final Mesh, Animation Mesh, Simulation Mesh.</figcaption>
+  <figcaption><b>Figure 41</b>: Minimum required geometries to configure an AdnSkinMerge SOP. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge SOP.</figcaption>
 </figure>
 
 ### Create Deformer
