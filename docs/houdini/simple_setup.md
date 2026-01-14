@@ -42,7 +42,7 @@ To create the AdnSkinMerge node, press TAB and navigate to the submenu AdonisFX 
 
 ### Paint Weights
 
-To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnGlue SOP and click on AdonisFX > Utils > Make Paintable. This utility will first create an `attribcreate` node to define the required point attributes and assign their default values. It will then create an `attribpaint` node, allowing these attributes to be interactively modified. Both nodes are automatically named and properly connected to the AdnGlue node.
+To tweak the point attributes of an AdnSkinMerge SOP, an attribpaint is needed. To ease the creation and initial configuration of this node, select the AdnSkinMerge SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an attribcreate node to define the required point attributes and assign their default values followed by an attribpaint node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkinMerge node.
 
 <figure style="width: 70%;" markdown>
   <img src="images/simple_setup_skin_merge_02.png">
