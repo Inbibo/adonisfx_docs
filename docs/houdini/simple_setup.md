@@ -144,7 +144,7 @@ To create the AdnSimshape node, press TAB and navigate to the submenu AdonisFX >
 
 <figure>
   <img src="images/simple_setup_simshape_01.png">
-  <figcaption><b>Figure X</b>: AdnSimshape SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+  <figcaption><b>Figure X</b>: AdnSimshape SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 ### Paint Weights
