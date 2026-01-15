@@ -25,7 +25,7 @@ To create the AdnGlue node, press TAB and navigate to the submenu AdonisFX > Sol
 
 <figure>
   <img src="images/simple_setup_glue_00.png">
-  <figcaption><b>Figure X</b>: AdnGlue SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+  <figcaption><b>Figure X</b>: AdnGlue SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 Input muscles can be added or removed from the existing AdnGlue by connecting or disconnecting them from the merge node. After that, make sure to recook the AdnGlue at preroll start time for this change to take effect.
@@ -66,6 +66,55 @@ Finally, shape preservation constraints help to maintain the original shape of t
 
 ## AdnFat
 
+To create a basic scenario using the AdnFat SOP, start with a scene with the following elements:
+
+  - A fat tissue mesh without animation or deformation that will become the simulated mesh.
+  - One base mesh to which the fat layer will be attached to. This could be for example the fascia.
+
+<figure>
+  <img src="images/simple_setup_fat_00.png">
+  <figcaption><b>Figure X</b>: Basic setup for fat simulations. The mesh on the left corresponds to the fat tissue to be simulated, while the mesh on the right corresponds to the fascia obtained from the AdnSkin simulation. </figcaption>
+</figure>
+
+> [!NOTE]
+> - The base mesh and the fat mesh must have the same vertex count and triangulation.
+> - Both, the base mesh and the fat mesh must be connected to the AdnFat SOP, otherwise the Fat solver will abort the simulation and the node will display an error.
+
+### Create Node
+
+To create the AdnFat SOP, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnFat ![AdnFat](../images/adn_fat.png){style="width:4%"} SOP type. Then connect the fat mesh to the first input and the base mesh (e.g. the simulated fascia) to the second input.
+
+<figure>
+  <img src="images/simple_setup_fat_01.png">
+  <figcaption><b>Figure X</b>: AdnFat deformer creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+</figure>
+
+After basic configuration, to alter the dynamics of the fat layer (e.g. adding or reducing the jiggle) it is advisable to tweak the main attributes like: *Iterations*, *Substeps*, *Global Damping Multiplier* or the per-constraint stiffness values in the *Override Constraint Stiffness* section.
+
+### Paint Weights
+
+To tweak the point attributes of an AdnFat SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnFat SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnFat node.
+
+<figure>
+  <img src="images/simple_setup_fat_02.png">
+  <figcaption><b>Figure X</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
+</figure>
+
+With the default paint setup provided, the simulation should already create plausible results. However, below we walk you through the three main maps that can be altered to modify the behavior of the fat simulation.
+
+In the case of the AdnFat SOP, the most important paintable maps are `adnShapePreservation`, `adnVolumeShapePreservation` and `adnHardConstraints`. The first two are flooded to 1.0 by default, while the last one is flooded to 0.0.
+
+With `adnShapePreservation` being flooded to 1.0 by default, the solver will try to maintain the internal structural shape properties of the fat layer. Reducing this map's values can increase the amount of jiggling in the fat tissue in combination with different other parameters. However, reducing the `adnShapePreservation` map can decrease the fat layer's ability to maintain its shape. Finding the right balance will allow you to get the desired results. It may be advisable to keep this map flooded to 1.0 and reduce its value in areas that don't require any structural shape preservation.
+
+On the other hand, `adnVolumeShapePreservation` will also try to maintain the shape of the fat volume but with different computation mechanisms than `adnShapePreservation`. It is advisable to keep this map flooded to 1.0 for best results and only reduce its value (by flooding the mesh) whenever the shape of the fat layer can be altered during simulation.
+
+Finally, the `adnHardConstraints` map provides additional control for stronger attachments to the base mesh. In most cases, this map can be left unmodified so that the solver does not apply this constraint. However, when there is a large enough gap between the simulated mesh and the base mesh in areas close to edges (e.g. neck, wrists or ankles), it can be useful to paint them with a value of 1.0 to mitigate excessive motion.
+
+<figure>
+  <img src="images/simple_setup_fat_03.png">
+  <figcaption><b>Figure X</b>: Hard constraints weights paint.</figcaption>
+</figure>
+
 ## AdnSkin
 
 ## AdnRelax
@@ -93,7 +142,7 @@ To create the AdnSkinMerge node, press TAB and navigate to the submenu AdonisFX 
 
 <figure>
   <img src="images/simple_setup_skin_merge_01.png">
-  <figcaption><b>Figure X</b>: AdnSkinMerge SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+  <figcaption><b>Figure X</b>: AdnSkinMerge SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 ### Paint Weights
