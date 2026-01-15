@@ -77,17 +77,17 @@ Finally, shape preservation constraints help to maintain the original shape of t
 To create a basic scenario using the AdnSkinMerge SOP, start with a scene with the following elements:
 
   - One or more animation meshes with deformation.
-  - One or more simulation meshes, for example with an AdnSkin deformer applied and properly configured.
+  - One or more simulation meshes, for example with an AdnSkin SOP applied and properly configured.
   - A final mesh without animation or deformation.
 
-The AdnSkinMerge deformer will be applied to the final mesh which will be the result of blending the animation and simulation meshes.
+The AdnSkinMerge SOP will be applied to the final mesh which will be the result of blending the animation and simulation meshes.
 
 <figure>
   <img src="images/simple_setup_skin_merge_00.png">
   <figcaption><b>Figure X</b>: Minimum required geometries to configure an AdnSkinMerge SOP. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge SOP.</figcaption>
 </figure>
 
-### Create Deformer
+### Create Node
 
 To create the AdnSkinMerge node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSkinMerge ![AdnSkinMerge](../images/adn_skin_merge.png){style="width:4%"} SOP type. Then connect the final mesh to the AdnSkinMerge input and go to the *Targets* tab to provide the *anim* and *sim* meshes. Make sure the initialization time corresponds to the start time where all the geometries are in rest pose.
 
@@ -127,7 +127,7 @@ With this basic paint setup the AdnSkinMerge SOP will now show the results of sk
 
 To create a basic scenario using the AdnSimshape SOP, start with a scene with the following elements:
 
- - An animated facial mesh to which to apply the deformer.
+ - An animated facial mesh to which to apply the SOP.
  - A rest mesh.
  - Optionally, a deformation mesh with only the facial deformation (no animation) to allow muscle activations.
 
@@ -138,7 +138,7 @@ All these meshes must have the same number of vertices and correspond to the sam
   <figcaption><b>Figure X</b>: Basic setup for facial simulations. From left to right: rest mesh, deformation mesh and animation mesh.</figcaption>
 </figure>
 
-### Create Deformer
+### Create Node
 
 To create the AdnSimshape node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSimshape ![AdnSimshape](../images/adn_simshape.png){style="width:4%"} SOP type. Then connect the animated mesh to the first input, the rest mesh to the third input and the deformation mesh to the fourth input.
 
@@ -168,7 +168,7 @@ After painting similar weights to the ones displayed and pressing playback to ch
 
 ### Add muscle activations
 
-To further have a realistic depiction of facial dynamics, facial muscle activations can be simulated. The AdnSimshape deformer has two methods of handling muscle activations:
+To further have a realistic depiction of facial dynamics, facial muscle activations can be simulated. The AdnSimshape SOP has two methods of handling muscle activations:
 
  - AdonisFX Muscle Patches file.
  - Edge Evaluator Node.
