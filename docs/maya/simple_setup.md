@@ -306,7 +306,7 @@ On the other hand, *Volume Shape Preservation* will also try to maintain the sha
 Finally, the *Hard Constraints* map provides additional control for stronger attachments to the base mesh. In most cases, this map can be left unmodified so that the solver does not apply this constraint. However, when there is a large enough gap between the simulated mesh and the base mesh in areas close to edges (e.g. neck, wrists or ankles), it can be useful to paint them with a value of 1.0 to mitigate excessive motion.
 
 <figure>
-  <img src="images/simple_setup_02.png">
+  <img src="images/simple_setup_fat_02.png">
   <figcaption><b>Figure 27</b>: Hard constraints weights paint.</figcaption>
 </figure>
 
