@@ -208,8 +208,8 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnSimshape example of net](../images/simshape_net_example.png) 
-  <figcaption><b>Figure 6</b>: Example of AdnSimshape net. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+  ![AdnSimshape example of network](../images/simshape_net_example.png) 
+  <figcaption><b>Figure 6</b>: Example of AdnSimshape network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 > [!NOTE]

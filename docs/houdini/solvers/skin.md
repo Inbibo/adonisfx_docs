@@ -219,8 +219,8 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 > - *Hard*, *Soft* and *Slide* values are normalized to ensure that the sum of the three values for each vertex is in the range \[0.0, 1.0\].
 
 <figure style="width: 75%;" markdown>
-  ![AdnSkin example of net with attribpaint](../images/skin_net_example.png) 
-  <figcaption><b>Figure 6</b>: Example of AdnSkin net. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+  ![AdnSkin example of network with attribpaint](../images/skin_net_example.png) 
+  <figcaption><b>Figure 6</b>: Example of AdnSkin network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 ## Advanced

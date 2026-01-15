@@ -157,8 +157,8 @@ In order to provide more artistic control, some key parameters of the AdnFat sol
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnFat example of net with attribpaint](../images/fat_net_example.png)
-  <figcaption><b>Figure 5</b>: Example of AdnFat net. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+  ![AdnFat example of network with attribpaint](../images/fat_net_example.png)
+  <figcaption><b>Figure 5</b>: Example of AdnFat network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 > [!NOTE]

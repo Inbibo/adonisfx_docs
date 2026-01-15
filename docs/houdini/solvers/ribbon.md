@@ -242,8 +242,8 @@ In order to provide more artistic control, some key parameters of the muscle sol
 > - If *AdnFiberGroom* HDA is used to comb the Fibers, it is recommended to place it after `attribpaint` nodes in charge of painting the Tendon weights, because the tendons map is an input to estimate an initial fibers flow.
 
 <figure style="width: 75%;" markdown>
-  ![AdnRibbonMuscle example of net with attribpaint and AdnFiberGroom HDA](../images/ribbon_net_example.png) 
-  <figcaption><b>Figure 9</b>: Example of AdnRibbonMuscle net. The attribpaint node has to be placed prior to the AdnFiberGroom. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+  ![AdnRibbonMuscle example of network with attribpaint and AdnFiberGroom HDA](../images/ribbon_net_example.png) 
+  <figcaption><b>Figure 9</b>: Example of AdnRibbonMuscle network. The attribpaint node has to be placed prior to the AdnFiberGroom. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 ## Advanced

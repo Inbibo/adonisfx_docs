@@ -31,8 +31,8 @@ The process to create an AdnSkinMerge SOP is:
 > On create, the *Initialization Time* parameter of AdnSkinMerge is set to the `$FSTART` frame. Make sure to adjust this value according to your needs.
 
 <figure style="width: 75%;" markdown>
-  ![AdnSkinMerge example of net with attribpaint](../images/skin_merge_net_example.png) 
-  <figcaption><b>Figure 1</b>: Example of AdnSkinMerge net. The attribpaint node has to be placed prior to the AdnSkinMerge SOP. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+  ![AdnSkinMerge example of network with attribpaint](../images/skin_merge_net_example.png) 
+  <figcaption><b>Figure 1</b>: Example of AdnSkinMerge network. The attribpaint node has to be placed prior to the AdnSkinMerge SOP. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 Once the AdnSkinMerge SOP is created, the input meshes (animation mesh list, simulation mesh list or both) can be modified:
