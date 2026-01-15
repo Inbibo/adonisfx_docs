@@ -176,7 +176,7 @@ To further have a realistic depiction of facial dynamics, facial muscle activati
 Refer to this [section](solvers/simshape#muscle-activations) to see how to use Muscle Patches files. However, in this example, it is taken advantage of the AdnEdgeEvaluator SOP. The process is the following:
 
 - Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnEdgeEvaluator ![Edge Evaluator button](../images/adn_edge_evaluator.png){style="width:4%"} SOP type.
-- Connect the deformation mesh to the first input and the rest mesh to de second input.
+- Connect the deformation mesh to the first input and the rest mesh to the second input.
 - Cook the AdnEdgeEvaluator node and the `adnCompression` point attribute will be written into the geostream.
 - Transfer the `adnCompression` point attribute to the geostream of the first input of AdnSimshape with the name `adnActivation`.
 - Select the *Plug Values* options in the *Activation Mode* dropdown located in the *Muscles Activation Settings* section of the AdnSimshape node.
