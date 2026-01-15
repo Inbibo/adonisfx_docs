@@ -77,17 +77,17 @@ Finally, shape preservation constraints help to maintain the original shape of t
 To create a basic scenario using the AdnSkinMerge SOP, start with a scene with the following elements:
 
   - One or more animation meshes with deformation.
-  - One or more simulation meshes, for example with an AdnSkin deformer applied and properly configured.
+  - One or more simulation meshes, for example with an AdnSkin SOP applied and properly configured.
   - A final mesh without animation or deformation.
 
-The AdnSkinMerge deformer will be applied to the final mesh which will be the result of blending the animation and simulation meshes.
+The AdnSkinMerge SOP will be applied to the final mesh which will be the result of blending the animation and simulation meshes.
 
 <figure>
   <img src="images/simple_setup_skin_merge_00.png">
   <figcaption><b>Figure X</b>: Minimum required geometries to configure an AdnSkinMerge SOP. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge SOP.</figcaption>
 </figure>
 
-### Create Deformer
+### Create Node
 
 To create the AdnSkinMerge node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSkinMerge ![AdnSkinMerge](../images/adn_skin_merge.png){style="width:4%"} SOP type. Then connect the final mesh to the AdnSkinMerge input and go to the *Targets* tab to provide the *anim* and *sim* meshes. Make sure the initialization time corresponds to the start time where all the geometries are in rest pose.
 
@@ -124,3 +124,66 @@ With this basic paint setup the AdnSkinMerge SOP will now show the results of sk
 </figure>
 
 ## AdnSimshape
+
+To create a basic scenario using the AdnSimshape SOP, start with a scene with the following elements:
+
+ - An animated facial mesh to which to apply the SOP.
+ - A rest mesh.
+ - Optionally, a deformation mesh with only the facial deformation (no animation) to allow muscle activations.
+
+All these meshes must have the same number of vertices and correspond to the same facial model.
+
+<figure>
+  <img src="images/simple_setup_simshape_00.png">
+  <figcaption><b>Figure X</b>: Basic setup for facial simulations. From left to right: rest mesh, deformation mesh and animation mesh.</figcaption>
+</figure>
+
+### Create Node
+
+To create the AdnSimshape node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSimshape ![AdnSimshape](../images/adn_simshape.png){style="width:4%"} SOP type. Then connect the animated mesh to the first input, the rest mesh to the third input and the deformation mesh to the fourth input.
+
+<figure>
+  <img src="images/simple_setup_simshape_01.png">
+  <figcaption><b>Figure X</b>: AdnSimshape SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+</figure>
+
+### Paint Weights
+
+To tweak the point attributes of an AdnSimshape SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSimshape SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSimshape node.
+
+The most important paintable map is the `adnAttractForce` as this is the value that dictates how much of each simulated vertex should follow the animation. This value is flooded by default to 1.0, meaning that by default the simulated mesh will follow the animation completely, without displaying dynamics.
+
+In high deformation areas, such as around the mouth or under the eyes, add medium to low values (in this case painting with a value of 0.4).
+
+Painting lower Attraction Force weights in meatier areas of the face, such as under the neck or in the cheeks to show more dynamics in these regions. In this case a value of 0.15 will be applied.
+
+The lowest values (0.1 in this case) will be applied to the area under the jaw where dynamics will appear the most.
+
+<figure>
+  <img src="images/simple_setup_simshape_02.png">
+  <figcaption><b>Figure X</b>: Example of the attraction force map.</figcaption>
+</figure>
+
+After painting similar weights to the ones displayed and pressing playback to check the animation, realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are available and fully explained in the documentation for [AdnSimshape](solvers/simshape).
+
+### Add muscle activations
+
+To further have a realistic depiction of facial dynamics, facial muscle activations can be simulated. The AdnSimshape SOP has two methods of handling muscle activations:
+
+ - AdonisFX Muscle Patches file.
+ - Edge Evaluator Node.
+
+Refer to this [section](solvers/simshape#muscle-activations) to see how to use Muscle Patches files. However, in this example, it is taken advantage of the AdnEdgeEvaluator SOP. The process is the following:
+
+- Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnEdgeEvaluator ![Edge Evaluator button](../images/adn_edge_evaluator.png){style="width:4%"} SOP type.
+- Connect the deformation mesh to the first input and the rest mesh to the second input.
+- Cook the AdnEdgeEvaluator node and the `adnCompression` point attribute will be written into the geostream.
+- Transfer the `adnCompression` point attribute to the geostream of the first input of AdnSimshape with the name `adnActivation`.
+- Select the *Plug Values* options in the *Activation Mode* dropdown located in the *Muscles Activation Settings* section of the AdnSimshape node.
+
+<figure>
+  <img src="images/simple_setup_simshape_03.png">
+  <figcaption><b>Figure X</b>: Example of the AdnEdgeEvaluator SOP usage in conjunction with AdnSimshape SOP to drive the activations. </figcaption>
+</figure>
+
+The output activation values can be debugged by checking the option *Write Out Activation* and visualizing the `adnOutActivation` point attribute.
