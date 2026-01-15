@@ -554,7 +554,7 @@ The lowest values (0.1 in this case) will be applied to the area under the jaw w
 
 <figure>
   <img src="images/simple_setup_simshape_02.png"> 
-  <figcaption><b>Figure 47</b>: Attraction Force weights for medium dynamics areas.</figcaption>
+  <figcaption><b>Figure 47</b>: Example of the attraction force map.</figcaption>
 </figure>
 
 After painting similar weights to the ones displayed and pressing playback to check the animation, realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are available and fully explained in the documentation for [AdnSimshape](solvers/simshape).
