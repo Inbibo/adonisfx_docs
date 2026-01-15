@@ -135,7 +135,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 <figure>
   <img src="images/simple_setup_simshape_00.png">
-  <figcaption><b>Figure X</b>: Basic setup for facial simulations.</figcaption>
+  <figcaption><b>Figure X</b>: Basic setup for facial simulations. From left to right: rest mesh, deformation mesh and animation mesh.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -155,23 +155,13 @@ The most important paintable map is the `adnAttractForce` as this is the value t
 
 In high deformation areas, such as around the mouth or under the eyes, add medium to low values (in this case painting with a value of 0.4).
 
-<figure>
-  <img src="images/simple_setup_simshape_02.png">
-  <figcaption><b>Figure X</b>: Attraction Force weights for medium dynamics areas.</figcaption>
-</figure>
-
 Painting lower Attraction Force weights in meatier areas of the face, such as under the neck or in the cheeks to show more dynamics in these regions. In this case a value of 0.15 will be applied.
-
-<figure>
-  <img src="images/simple_setup_simshape_03.png">
-  <figcaption><b>Figure X</b>: Attraction Force weights for high dynamics areas.</figcaption>
-</figure>
 
 The lowest values (0.1 in this case) will be applied to the area under the jaw where dynamics will appear the most.
 
 <figure>
-  <img src="images/simple_setup_simshape_04.png">
-  <figcaption><b>Figure X</b>: Attraction Force weights for highest dynamics areas.</figcaption>
+  <img src="images/simple_setup_simshape_02.png">
+  <figcaption><b>Figure X</b>: Attraction Force weights for medium dynamics areas.</figcaption>
 </figure>
 
 After painting similar weights to the ones displayed and pressing playback to check the animation, realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are available and fully explained in the documentation for [AdnSimshape](solvers/simshape).
@@ -186,13 +176,13 @@ To further have a realistic depiction of facial dynamics, facial muscle activati
 Refer to this [section](solvers/simshape#muscle-activations) to see how to use Muscle Patches files. However, in this example, it is taken advantage of the AdnEdgeEvaluator SOP. The process is the following:
 
 - Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnEdgeEvaluator ![Edge Evaluator button](../../images/adn_edge_evaluator.png){style="width:4%"} SOP type.
-- Then connect the deformation mesh to the first input and the rest mesh to de second input.
+- Connect the deformation mesh to the first input and the rest mesh to de second input.
 - Cook the AdnEdgeEvaluator node and the `adnCompression` point attribute will be written into the geostream.
 - Transfer the `adnCompression` point attribute to the geostream of the first input of AdnSimshape with the name `adnActivation`.
-- Select the *Plug Values* options in the *Activation Mode* dropdown located in the *Muscles Activation Settings* of the AdnSimshape node.
+- Select the *Plug Values* options in the *Activation Mode* dropdown located in the *Muscles Activation Settings* section of the AdnSimshape node.
 
 <figure>
-  <img src="images/simple_setup_simshape_04.png">
+  <img src="images/simple_setup_simshape_03.png">
   <figcaption><b>Figure X</b>: Example of the AdnEdgeEvaluator SOP usage in conjunction with AdnSimshape SOP to drive the activations. </figcaption>
 </figure>
 

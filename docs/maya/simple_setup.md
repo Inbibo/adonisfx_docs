@@ -521,7 +521,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 <figure>
   <img src="images/simple_setup_simshape_00.png"> 
-  <figcaption><b>Figure 45</b>: Basic setup for facial simulations.</figcaption>
+  <figcaption><b>Figure 45</b>: Basic setup for facial simulations. From left to right: rest mesh, deformation mesh and animation mesh.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -548,23 +548,13 @@ In the case of the AdnSimshape, use the Maya Paint tool to set up and paint its 
 
 In high deformation areas, such as around the mouth or under the eyes, add medium to low values (in this case painting with a value of 0.4).
 
-<figure>
-  <img src="images/simple_setup_simshape_02.png"> 
-  <figcaption><b>Figure 47</b>: Attraction Force weights for medium dynamics areas.</figcaption>
-</figure>
-
 Painting lower Attraction Force weights in meatier areas of the face, such as under the neck or in the cheeks to show more dynamics in these regions. In this case a value of 0.15 will be applied.
-
-<figure>
-  <img src="images/simple_setup_simshape_03.png"> 
-  <figcaption><b>Figure 48</b>: Attraction Force weights for high dynamics areas.</figcaption>
-</figure>
 
 The lowest values (0.1 in this case) will be applied to the area under the jaw where dynamics will appear the most. 
 
 <figure>
-  <img src="images/simple_setup_simshape_04.png"> 
-  <figcaption><b>Figure 49</b>: Attraction Force weights for highest dynamics areas.</figcaption>
+  <img src="images/simple_setup_simshape_02.png"> 
+  <figcaption><b>Figure 47</b>: Attraction Force weights for medium dynamics areas.</figcaption>
 </figure>
 
 After painting similar weights to the ones displayed and pressing playback to check the animation, realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are available and fully explained in the documentation for [AdnSimshape](solvers/simshape).
