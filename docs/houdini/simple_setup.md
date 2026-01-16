@@ -85,8 +85,8 @@ To create a basic scenario using the AdnFat SOP, start with a scene with the fol
 To create the AdnFat SOP, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnFat ![AdnFat](../images/adn_fat.png){style="width:4%"} SOP type. Then connect the fat mesh to the first input and the base mesh (e.g. the simulated fascia) to the second input.
 
 <figure markdown>
-  ![AdnFat deformer creation scenario](images/simple_setup_fat_01.png)
-  <figcaption><b>Figure X</b>: AdnFat deformer creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  ![AdnFat SOP creation scenario](images/simple_setup_fat_01.png)
+  <figcaption><b>Figure X</b>: AdnFat SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 After basic configuration, to alter the dynamics of the fat layer (e.g. adding or reducing the jiggle) it is advisable to tweak the main attributes like: *Iterations*, *Substeps*, *Global Damping Multiplier* or the per-constraint stiffness values in the *Override Constraint Stiffness* section.
@@ -131,7 +131,7 @@ To create a basic scenario using the AdnRelax SOP, start with a scene with a mes
 To create the AdnRelax SOP:
 
 1. Go to the geometry context of the rig containing the geometry to apply the SOP to.
-2. Press TAB and navigate to the submenu AdonisFX > Deformer to find the AdnRelax ![Relax button](../images/adn_relax.png){style="width:4%"} SOP type.
+2. Press TAB and navigate to the submenu AdonisFX > Deformers to find the AdnRelax ![Relax button](../images/adn_relax.png){style="width:4%"} SOP type.
 3. Create it and connect the geometry to the input.
 4. Increase the number of iterations to see the effect of the relaxation algorithm.
 
@@ -170,10 +170,54 @@ If a specific area has lost detail, flood the `adnPushInRatioMultiplier` to 0.0 
 
 <figure markdown>
   ![relax example results](images/simple_setup_relax_03.png)
-  <figcaption><b>Figure X</b>: Example of AdnRelax results with a distribution of weights shown in Figure X. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the deformer in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
+  <figcaption><b>Figure X</b>: Example of AdnRelax results with a distribution of weights shown in Figure X. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the SOP in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
 </figure>
 
 ## AdnPush
+
+A good example of a use case for the AdnPush SOP is to generate the internal fascia of a character from the outer skin mesh. To prepare this scenario, start with the skin mesh at rest, duplicate it and rename it.
+
+<figure markdown>
+  ![push initial setup](images/simple_setup_push_00.png)
+  <figcaption><b>Figure X</b>: Fascia geometry result of duplicating and renaming the outer skin mesh at rest.</figcaption>
+</figure>
+
+### Create Node
+
+To create the AdnPush SOP, press TAB and navigate to the submenu AdonisFX > Deformers to find the AdnPush ![AdnPush](../images/adn_push.png){style="width:4%"} SOP type and connect the copy of the skin mesh at rest to the AdnPush input. Then, set a negative value to the *Push Length* parameter to apply the push effect inwards (e.g. -2.0).
+
+<figure style="width:75%;" markdown>
+  ![push SOP creation scenario](images/simple_setup_push_01.png)
+  <figcaption><b>Figure X</b>: AdnPush SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+</figure>
+
+<figure markdown>
+  ![push SOP applied](images/simple_setup_push_02.png)
+  <figcaption><b>Figure X</b>: Result of applying a uniform Push Length of -2.0 to the whole input geometry.</figcaption>
+</figure>
+
+Keeping the muscle layer visible is helpful to drive the configuration of the AdnPush settings, especially the paintable maps. It is expected and intended to get intersections with the muscle layer at this point. Those intersections will be fixed by tweaking the maps.
+
+### Paint Weights
+
+To tweak the point attributes of an AdnPush SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnPush SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnPush node.
+
+<figure style="width:75%;" markdown>
+  ![Deformable section push](images/simple_setup_push_03.png)
+  <figcaption><b>Figure X</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
+</figure>
+
+The `adnPushMultiplier` and `adnWeights` maps are flooded to 1.0 by default. The push multiplier is meant to modulate the amount of push across the entire mesh as it is the map that multiplies the global *Push Length* at each point. In the example with the muscle layer visible, this map can be tweaked to remove the intersections.
+
+<figure markdown>
+  ![push paintable maps](images/push_weights.png)
+  <figcaption><b>Figure X</b>: Example of Push Multiplier map of AdnPush SOP.</figcaption>
+</figure>
+
+<figure markdown>
+  ![push example results](images/simple_setup_push_04.png)
+  <figcaption><b>Figure X</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 39. Most of the intersections present in Figure X introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
+</figure>
 
 ## AdnSkinMerge
 
