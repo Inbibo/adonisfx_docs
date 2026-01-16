@@ -256,7 +256,7 @@ The data required to generate an AMP file is:
 
 The AdnLearnMusclePatches SOP allows the user to generate the AMP file:
 
-<figure style="width: 75%; padding-left: 5px;"markdown>
+<figure style="width: 75%; padding-left: 5px;" markdown>
   ![AdnLearnMusclePatches parameter template](../images/simshape_ml_window.png)
   <figcaption><b>Figure 8</b>: AdnLearnMusclePatches parameter template.</figcaption>
 </figure>
