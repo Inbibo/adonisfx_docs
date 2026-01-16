@@ -189,7 +189,7 @@ To create an AdnSimshape, follow these steps:
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the AdnSimshape solver are exposed as paintable maps in the SOP. The maps are point attributes that must be present in the geometry stream injected into the SOP. For that, the Houdini attribpaint node can be used.
+In order to provide more artistic control, some key parameters of the AdnSimshape solver are exposed as paintable maps in the SOP. The maps are point attributes that must be present in the geometry stream injected into the SOP. For that, the Houdini `attribpaint` node can be used.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
@@ -256,8 +256,8 @@ The data required to generate an AMP file is:
 
 The AdnLearnMusclePatches SOP allows the user to generate the AMP file:
 
-<figure style="width: 75%; padding-left: 5px;">
-  <img src="../images/simshape_ml_window.png" caption="AdnLearnMusclePatches parameter template."> 
+<figure style="width: 75%; padding-left: 5px;"markdown>
+  ![AdnLearnMusclePatches parameter template](../images/simshape_ml_window.png)
   <figcaption><b>Figure 8</b>: AdnLearnMusclePatches parameter template.</figcaption>
 </figure>
 

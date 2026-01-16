@@ -188,17 +188,17 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 
 ## Attribute Editor Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![simshape editor first part](../images/simshape_attribute_editor_00.png) 
   <figcaption><b>Figure 1</b>: AdnSimshape Attribute Editor.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![simshape editor second part](../images/simshape_attribute_editor_01.png)
   <figcaption><b>Figure 2</b>: AdnSimshape Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![simshape editor debug part](../images/simshape_attribute_editor_02.png)
   <figcaption><b>Figure 3</b>: AdnSimshape Attribute Editor (Debug menu).</figcaption>
 </figure>
@@ -289,8 +289,8 @@ The data required to generate an AMP file is:
 
 The Learn Muscle Patches tool allows the user to generate the AMP file:
 
-<figure style="width: 50%; padding-left: 5px;">
-  <img src="../images/simshape_ml_window.png" caption="Learn Muscle Patches UI"> 
+<figure style="width: 50%; padding-left: 5px;" markdown>
+  ![Learn Muscle Patches UI](../images/simshape_ml_window.png)
   <figcaption><b>Figure 9</b>: Learn Muscle Patches UI.</figcaption>
 </figure>
 
