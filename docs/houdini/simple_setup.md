@@ -24,7 +24,7 @@ The AdnGlue node will take all the simulated muscles merged as a single input.
 To create the AdnGlue node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnGlue ![AdnGlue](../images/adn_glue.png){style="width:4%"} SOP type. Then connect the merged muscles to the AdnGlue input and select the *Piece Attribute* to allow the SOP to identify each muscle piece.
 
 <figure markdown>
-  [!AdnGlue SOP creation scenario](images/simple_setup_glue_00.png)
+  ![AdnGlue SOP creation scenario](images/simple_setup_glue_00.png)
   <figcaption><b>Figure X</b>: AdnGlue SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the g
 To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnGlue SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnGlue node.
 
 <figure markdown>
-  [!Deformable section glue](images/simple_setup_glue_01.png)
+  ![Deformable section glue](images/simple_setup_glue_01.png)
   <figcaption><b>Figure X</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
@@ -51,14 +51,14 @@ The most important maps are `adnGlueResistance`, `adnMaxGlueDistanceMultiplier`,
 Since the *Max Glue Distance* is initially the same for all muscles, you may want to adjust it for specific areas. This can be done by painting the `adnMaxGlueDistanceMultiplier` map. You can paint this map with a value of 0.0 in areas where you do not want the glue constraint to apply. This prevents the creation of the constraint in those areas and can improve the simulation performance.
 
 <figure markdown>
-  [!Example of glue distance multiplier map](images/simple_setup_glue_02.png)
+  ![Example of glue distance multiplier map](images/simple_setup_glue_02.png)
   <figcaption><b>Figure X</b>: Example of Glue Distance Multiplier map painted only on the areas between the left and right pectoralis and abdominis muscles. In this case, the glue constraints will be created only between vertices with non-zero value.</figcaption>
 </figure>
 
 The `adnGlueResistance` map modulates the strength of the glue constraint. To reduce the effect of the constraint in specific areas, lower the values in this map accordingly. Glue constraints won't be computed for vertices with a weight value of 0.0.
 
 <figure markdown>
-  [!Example of glue resistance map](images/simple_setup_glue_03.png)
+  ![Example of glue resistance map](images/simple_setup_glue_03.png)
   <figcaption><b>Figure X</b>: Example of Glue Resistance map painted only on the areas between the left and right pectoralis and abdominis muscles. In this case, the glue constraints will be created only between vertices with non-zero value.</figcaption>
 </figure>
 
@@ -72,7 +72,7 @@ To create a basic scenario using the AdnFat SOP, start with a scene with the fol
   - One base mesh to which the fat layer will be attached to. This could be for example the fascia.
 
 <figure markdown>
-  [!Basic setup for fat simulations](images/simple_setup_fat_00.png)
+  ![Basic setup for fat simulations](images/simple_setup_fat_00.png)
   <figcaption><b>Figure X</b>: Basic setup for fat simulations. The mesh on the left corresponds to the fat tissue to be simulated, while the mesh on the right corresponds to the fascia obtained from the AdnSkin simulation. </figcaption>
 </figure>
 
@@ -85,7 +85,7 @@ To create a basic scenario using the AdnFat SOP, start with a scene with the fol
 To create the AdnFat SOP, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnFat ![AdnFat](../images/adn_fat.png){style="width:4%"} SOP type. Then connect the fat mesh to the first input and the base mesh (e.g. the simulated fascia) to the second input.
 
 <figure markdown>
-  [!AdnFat deformer creation scenario](images/simple_setup_fat_01.png)
+  ![AdnFat deformer creation scenario](images/simple_setup_fat_01.png)
   <figcaption><b>Figure X</b>: AdnFat deformer creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
@@ -96,7 +96,7 @@ After basic configuration, to alter the dynamics of the fat layer (e.g. adding o
 To tweak the point attributes of an AdnFat SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnFat SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnFat node.
 
 <figure markdown>
-  [!Deformable section fat](images/simple_setup_fat_02.png)
+  ![Deformable section fat](images/simple_setup_fat_02.png)
   <figcaption><b>Figure X</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
@@ -111,7 +111,7 @@ On the other hand, `adnVolumeShapePreservation` will also try to maintain the sh
 Finally, the `adnHardConstraints` map provides additional control for stronger attachments to the base mesh. In most cases, this map can be left unmodified so that the solver does not apply this constraint. However, when there is a large enough gap between the simulated mesh and the base mesh in areas close to edges (e.g. neck, wrists or ankles), it can be useful to paint them with a value of 1.0 to mitigate excessive motion.
 
 <figure markdown>
-  [!Hard constraints weights paint](images/simple_setup_fat_03.png)
+  ![Hard constraints weights paint](images/simple_setup_fat_03.png)
   <figcaption><b>Figure X</b>: Hard constraints weights paint.</figcaption>
 </figure>
 
@@ -186,7 +186,7 @@ To create a basic scenario using the AdnSkinMerge SOP, start with a scene with t
 The AdnSkinMerge SOP will be applied to the final mesh which will be the result of blending the animation and simulation meshes.
 
 <figure markdown>
-  [!Minimum required geometries AdnSkinMerge](images/simple_setup_skin_merge_00.png)
+  ![Minimum required geometries AdnSkinMerge](images/simple_setup_skin_merge_00.png)
   <figcaption><b>Figure X</b>: Minimum required geometries to configure an AdnSkinMerge SOP. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge SOP.</figcaption>
 </figure>
 
@@ -195,7 +195,7 @@ The AdnSkinMerge SOP will be applied to the final mesh which will be the result 
 To create the AdnSkinMerge node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSkinMerge ![AdnSkinMerge](../images/adn_skin_merge.png){style="width:4%"} SOP type. Then connect the final mesh to the AdnSkinMerge input and go to the *Targets* tab to provide the *anim* and *sim* meshes. Make sure the initialization time corresponds to the start time where all the geometries are in rest pose.
 
 <figure markdown>
-  [!AdnSkinMerge creation scenario](images/simple_setup_skin_merge_01.png)
+  ![AdnSkinMerge creation scenario](images/simple_setup_skin_merge_01.png)
   <figcaption><b>Figure X</b>: AdnSkinMerge SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
@@ -204,7 +204,7 @@ To create the AdnSkinMerge node, press TAB and navigate to the submenu AdonisFX 
 To tweak the point attributes of an AdnSkinMerge SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSkinMerge SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkinMerge node.
 
 <figure style="width: 70%;" markdown>
-  [!Deformable section skin merge](images/simple_setup_skin_merge_02.png)
+  ![Deformable section skin merge](images/simple_setup_skin_merge_02.png)
   <figcaption><b>Figure X</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
@@ -215,14 +215,14 @@ The `adnBlend` attribute represents the level of influence of the simulated mesh
 To have a smooth transition from the simulated mesh to the animated mesh, smooth the painting in the areas near the edges between the simulation and animation meshes.
 
 <figure markdown>
-  [!Blend weights painted map](images/simple_setup_skin_merge_03.png)
+  ![Blend weights painted map](images/simple_setup_skin_merge_03.png)
   <figcaption><b>Figure X</b>: Blend weights painted map.</figcaption>
 </figure>
 
 With this basic paint setup the AdnSkinMerge SOP will now show the results of skin simulation transferred to the final mesh.
 
 <figure markdown>
-  [!Result of skin merge](images/simple_setup_skin_merge_04.png)
+  ![Result of skin merge](images/simple_setup_skin_merge_04.png)
   <figcaption><b>Figure X</b>: Result of AdnSkinMerge in a specific frame. From left to right: Animation Mesh, Simulation Mesh and Final Mesh.</figcaption>
 </figure>
 
@@ -237,7 +237,7 @@ To create a basic scenario using the AdnSimshape SOP, start with a scene with th
 All these meshes must have the same number of vertices and correspond to the same facial model.
 
 <figure markdown>
-  [!Basic setup for facial simulations](images/simple_setup_simshape_00.png)
+  ![Basic setup for facial simulations](images/simple_setup_simshape_00.png)
   <figcaption><b>Figure X</b>: Basic setup for facial simulations. From left to right: rest mesh, deformation mesh and animation mesh.</figcaption>
 </figure>
 
@@ -246,7 +246,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 To create the AdnSimshape node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSimshape ![AdnSimshape](../images/adn_simshape.png){style="width:4%"} SOP type. Then connect the animated mesh to the first input, the rest mesh to the third input and the deformation mesh to the fourth input.
 
 <figure markdown>
-  [!AdnSimshape creation scenario](images/simple_setup_simshape_01.png)
+  ![AdnSimshape creation scenario](images/simple_setup_simshape_01.png)
   <figcaption><b>Figure X</b>: AdnSimshape SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
@@ -263,7 +263,7 @@ Painting lower Attraction Force weights in meatier areas of the face, such as un
 The lowest values (0.1 in this case) will be applied to the area under the jaw where dynamics will appear the most.
 
 <figure markdown>
-  [!Example attract force map](images/simple_setup_simshape_02.png)
+  ![Example attract force map](images/simple_setup_simshape_02.png)
   <figcaption><b>Figure X</b>: Example of the attraction force map.</figcaption>
 </figure>
 
@@ -285,7 +285,7 @@ Refer to this [section](solvers/simshape#muscle-activations) to see how to use M
 - Select the *Plug Values* options in the *Activation Mode* dropdown located in the *Muscles Activation Settings* section of the AdnSimshape node.
 
 <figure markdown>
-  [!Example of AdnEdgeEvaluator](images/simple_setup_simshape_03.png)
+  ![Example of AdnEdgeEvaluator](images/simple_setup_simshape_03.png)
   <figcaption><b>Figure X</b>: Example of the AdnEdgeEvaluator SOP usage in conjunction with AdnSimshape SOP to drive the activations. </figcaption>
 </figure>
 
