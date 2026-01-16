@@ -216,7 +216,7 @@ The `adnPushMultiplier` and `adnWeights` maps are flooded to 1.0 by default. The
 
 <figure markdown>
   ![push example results](images/simple_setup_push_04.png)
-  <figcaption><b>Figure X</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 39. Most of the intersections present in Figure X introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
+  <figcaption><b>Figure X</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure X. Most of the intersections present in Figure X introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
 </figure>
 
 ## AdnSkinMerge
