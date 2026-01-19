@@ -2,8 +2,8 @@
 
 The **AdonisFX Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalization of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
 
-<figure>
-  <img src="../images/tools_paint_tool.png" caption="AdonisFX Paint Tool"> 
+<figure markdown>
+  ![AdonisFX Paint Tool](../images/tools_paint_tool.png)
   <figcaption><b>Figure 1</b>: AdonisFX Paint Tool.</figcaption>
 </figure>
 
@@ -52,8 +52,8 @@ In the specific case of muscle deformers, the tool will display the following at
     - If more than one target was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all attachment constraint weights in a vertex will always add up to a maximum value of 1.0.
     - If any target is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
 
-    <figure>
-      <img src="../images/tools_paint_tool_attachment_attribute.png"> 
+    <figure markdown>
+      ![AdonisFX Paint Tool attachments attribute](../images/tools_paint_tool_attachment_attribute.png)
       <figcaption><b>Figure 4</b>: AdonisFX Paint Tool listing multiple transform attachments.</figcaption>
     </figure>
 
@@ -89,8 +89,8 @@ In the specific case of muscle deformers, the tool will display the following at
     - When selecting a segment in the list the two scene objects that form the root and tip of the segment will get selected as well, facilitating their identification.
     - If more than one segment was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the addition of all slide on segment constraint weights in a vertex will always add up to a maximum value of 1.0.
 
-    <figure>
-      <img src="../images/tools_paint_tool_sos_attribute.png"> 
+    <figure markdown>
+      ![AdonisFX Paint Tool slide on segment influences](../images/tools_paint_tool_sos_attribute.png)
       <figcaption><b>Figure 5</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
     </figure>
 
