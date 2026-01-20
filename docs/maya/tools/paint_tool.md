@@ -166,7 +166,7 @@ The *Greyscale* mode colors vertices from black to white based on the painted we
 In contrast, the *Heat Map* mode assigns a color ramp to vertices according to the painted weight. The following example compares the same painted weights displayed using both modes.
 
 <figure>
-  ![Paint tool visualization modes]("../images/tools_paint_tool_visualization_modes.png")
+  ![Paint Tool visualization modes](../images/tools_paint_tool_visualization_modes.png)
   <figcaption><b>Figure 6</b>: Weight map displayed in *Greyscale* mode (left) and *Heat Map* mode (right). From left to right, the painted values are: 0.0, 0.01, 0.25, 0.5, 0.75, 0.99, and 1.0.</figcaption>
 </figure>
 
