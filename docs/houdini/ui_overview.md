@@ -53,6 +53,14 @@ The AdonisFX Menu provides access to some tools and utilities that are organized
 
 - **Utils > Clear**. Removes all AdonisFX nodes from the scene.
 
+- **Utils > Separate Geometry**. Separates the geometry of the selected SOP node into individual pieces based on a primitive attribute. The primitive attribute name must be `path`, `muscle_id` or `name`.
+
+- **Utils > Make Paintable**. Creates an `attribcreate` node to define the point attributes required by an AdonisFX SOP and assigns their default values followed by an `attribpaint` node to allow these attributes to be modified. This pair of nodes are created for each selected AdonisFX SOP. If no selection is provided, the nodes are created for all AdonisFX SOPs in the scene.
+
+- **Utils > Make Groomable**. Creates an AdnFiberGroom node for each AdonisFX muscle SOP (i.e. AdnMuscle and AdnRibbonMuscle) selected.  If no selection is provided, an AdnFiberGroom node will be created for each AdonisFX muscle SOP in the scene.
+
+- **Utils > Create Muscle PieceID**. Creates a `connectivity` node for each SOP in the selection in charge of computing the primitive attribute `path` that will identify each muscle piece.
+
 - **Turbo**. Opens the Turbo UI, which allows users to build an AdonisFX rig on a clean asset from scratch. The UI is divided into sections for each simulation layer that the AdnTurbo can configure. Users can toggle layers on or off to include or skip them in the execution and select the scene objects required to create and configure the solvers.
 
 ### I/O section
