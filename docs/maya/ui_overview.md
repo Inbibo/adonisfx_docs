@@ -22,11 +22,15 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![AdnSensorDistance](../images/adn_distance_sensor.png) | Creates an AdnSensorDistance from the two transform nodes and the AdnLocatorDistance selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Sensors > *Distance* |
 | ![AdnSensorRotation](../images/adn_angle_sensor.png) | Creates an AdnSensorRotation from the three transform nodes and the AdnLocatorRotation selected. If only the transform nodes are provided, then both the locator and the sensor are created. Double click will launch a simple UI to provide a custom name for the node. | AdonisFX Menu > Create Sensors > *Rotation* |
 |||
-| ![Create AdnSimshape](../images/adn_simshape.png) | Applies an AdnSimshape deformer to the selected mesh. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Simshape* |
-| ![Add AdnSimshape Collider](images/adn_add_collider.png) | Adds a collider to AdnSimshape selecting the collider and the mesh with AdnSimshape applied. | AdonisFX Menu > Edit Simshape > *Add Collider* |
-| ![Remove AdnSimshape Collider](images/adn_remove_collider.png) | Removes a collider from AdnSimshape selecting the collider and the mesh with AdnSimshape applied. | AdonisFX Menu > Edit Simshape > *Remove Collider* |
-| ![AdnSimshape Learn Muscle Patches Tool](../images/adn_learn_muscle_patches.png) | Launches the Learn Muscle Patches UI used to generate the *AdonisFX Muscle Patches* file (.amp) file. | AdonisFX Menu > Edit Simshape > *Learn Muscle Patches UI* |
-| ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png) | Toggles the AdnSimshape activations debug mode. The current frame has to match the preroll or start frame in the AdnSimshape deformer for this toggle to work. | AdonisFX Menu > Edit Simshape > *Activations Debugger* |
+| ![Create AdnRibbonMuscle](../images/adn_ribbon_muscle.png) | Creates AdnRibbonMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as target objects. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Ribbon Muscle* |
+| ![Create AdnMuscle](../images/adn_muscle.png) | Creates AdnMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as target objects. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Muscle* |
+| ![Add Targets](images/adn_add_target.png) | Assigns target objects to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Targets* |
+| ![Remove Targets](images/adn_remove_target.png) | Removes target objects assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Targets* |
+| ![Add Slide On Segment](images/adn_add_sliding_constraint.png) | Adds slide segments based on the two (or more) transform objects and the mesh with the deformer node applied (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Slide On Segment* |
+| ![Remove Slide On Segment](images/adn_remove_sliding_constraint.png) | Removes slide segments assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Slide On Segment* |
+| ![Create AdnGlue](../images/adn_glue.png) | Creates an AdnGlue node and connects the selected geometries to the inputs array plug of the node. A new geometry will be generated as the result of gluing all the inputs together. | AdonisFX Menu > Create Solvers > *Glue* |
+|||
+| ![Create AdnFat](../images/adn_fat.png) | Applies an AdnFat deformer to the selected mesh. The deformer will be applied to the second element in the selection, while the first element will be considered as base mesh. | AdonisFX Menu > Create Solvers > *Fat* |
 |||
 | ![Create AdnSkin](../images/adn_skin.png) | Creates AdnSkin deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as target meshes. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Skin* |
 | ![Add Targets](images/adn_add_skin_targets.png) | Assigns target meshes to the selected AdnSkin deformer. The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Skin > *Add Targets* |
@@ -36,15 +40,11 @@ The AdonisFX Shelf can be found in the Maya shelf tab under the label *AdonisFX*
 | ![Create AdnPush](../images/adn_push.png) | Applies an AdnPush deformer to the selected mesh. | AdonisFX Menu > Create Deformers > *Push* |
 | ![Create AdnSkinMerge](../images/adn_skin_merge.png) | Launches the Create Skin Merge UI used to create an AdnSkinMerge deformer. | AdonisFX Menu > Create Deformers > *Skin Merge* |
 |||
-| ![Create AdnFat](../images/adn_fat.png) | Applies an AdnFat deformer to the selected mesh. The deformer will be applied to the second element in the selection, while the first element will be considered as base mesh. | AdonisFX Menu > Create Solvers > *Fat* |
-|||
-| ![Create AdnRibbonMuscle](../images/adn_ribbon_muscle.png) | Creates AdnRibbonMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as target objects. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Ribbon Muscle* |
-| ![Create AdnMuscle](../images/adn_muscle.png) | Creates AdnMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as target objects. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Muscle* |
-| ![Add Targets](images/adn_add_target.png) | Assigns target objects to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Targets* |
-| ![Remove Targets](images/adn_remove_target.png) | Removes target objects assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Targets* |
-| ![Add Slide On Segment](images/adn_add_sliding_constraint.png) | Adds slide segments based on the two (or more) transform objects and the mesh with the deformer node applied (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Add Slide On Segment* |
-| ![Remove Slide On Segment](images/adn_remove_sliding_constraint.png) | Removes slide segments assigned to the selected deformer (utility compatible with AdnRibbonMuscle and AdnMuscle deformers). The mesh with the deformer applied must be the last element in the selection. | AdonisFX Menu > Edit Muscle > *Remove Slide On Segment* |
-| ![Create AdnGlue](../images/adn_glue.png) | Creates an AdnGlue node and connects the selected geometries to the inputs array plug of the node. A new geometry will be generated as the result of gluing all the inputs together. | AdonisFX Menu > Create Solvers > *Glue* |
+| ![Create AdnSimshape](../images/adn_simshape.png) | Applies an AdnSimshape deformer to the selected mesh. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | AdonisFX Menu > Create Solvers > *Simshape* |
+| ![Add AdnSimshape Collider](images/adn_add_collider.png) | Adds a collider to AdnSimshape selecting the collider and the mesh with AdnSimshape applied. | AdonisFX Menu > Edit Simshape > *Add Collider* |
+| ![Remove AdnSimshape Collider](images/adn_remove_collider.png) | Removes a collider from AdnSimshape selecting the collider and the mesh with AdnSimshape applied. | AdonisFX Menu > Edit Simshape > *Remove Collider* |
+| ![AdnSimshape Learn Muscle Patches Tool](../images/adn_learn_muscle_patches.png) | Launches the Learn Muscle Patches UI used to generate the *AdonisFX Muscle Patches* file (.amp) file. | AdonisFX Menu > Edit Simshape > *Learn Muscle Patches UI* |
+| ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png) | Toggles the AdnSimshape activations debug mode. The current frame has to match the preroll or start frame in the AdnSimshape deformer for this toggle to work. | AdonisFX Menu > Edit Simshape > *Activations Debugger* |
 |||
 | ![Paint Tool](images/adn_paint_tool.png) | Opens the AdonisFX Paint Tool to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. | AdonisFX Menu > *Tools* Paint Tool |
 | ![Interactive Playback](images/adn_interactive_playback.png) | Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. | AdonisFX Menu > Tools *Interactive Playback* |
@@ -84,12 +84,6 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
 - **Edge Evaluator**. Creates an AdnEdgeEvaluator node from two selected meshes with the same topology. 
 - **Activation**. Creates an AdnActivation node. If meshes with a muscle deformer applied are provided in the selection, the new AdnActivation node will be connected to the activation plug of those deformers.
 
-#### Deformers
-
-- **Relax**. Applies an AdnRelax deformer to the selected mesh. This item corresponds to the shelf button ![Create AdnRelax](../images/adn_relax.png){style="width:4%"}.
-- **Push**. Applies an AdnPush deformer to the selected mesh. This item corresponds to the shelf button ![Create AdnPush](../images/adn_push.png){style="width:4%"}.
-- **Skin Merge**. Launches the Create Skin Merge UI used to create an AdnSkinMerge deformer. This item corresponds to the shelf button ![Create AdnSkinMerge](../images/adn_skin_merge.png){style="width:4%"}.
-
 #### Solvers
 
 - **Simshape**. Applies an AdnSimshape deformer to the selected mesh. This item corresponds to the shelf button ![Create AdnSimshape](../images/adn_simshape.png){style="width:4%"}.
@@ -98,6 +92,12 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
 - **Ribbon Muscle**. Creates AdnRibbonMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as attachment objects. This item corresponds to the shelf button ![Create AdnRibbonMuscle](../images/adn_ribbon_muscle.png){style="width:4%"}.
 - **Muscle**. Creates AdnMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as attachment objects. This item corresponds to the shelf button ![Create AdnMuscle](../images/adn_muscle.png){style="width:4%"}.
 - **Glue**. Creates an AdnGlue node and connects the selected geometries to the inputs array plug of the node. A new geometry will be generated as the result of gluing all the inputs together. This item corresponds to the shelf button ![Create AdnGlue](../images/adn_glue.png){style="width:4%"}.
+
+#### Deformers
+
+- **Relax**. Applies an AdnRelax deformer to the selected mesh. This item corresponds to the shelf button ![Create AdnRelax](../images/adn_relax.png){style="width:4%"}.
+- **Push**. Applies an AdnPush deformer to the selected mesh. This item corresponds to the shelf button ![Create AdnPush](../images/adn_push.png){style="width:4%"}.
+- **Skin Merge**. Launches the Create Skin Merge UI used to create an AdnSkinMerge deformer. This item corresponds to the shelf button ![Create AdnSkinMerge](../images/adn_skin_merge.png){style="width:4%"}.
 
 Option boxes can be used to launch a UI to assign the name to the deformer and configure generic solver parameters.
 
@@ -119,9 +119,31 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
     - To remove all inputs, select directly the AdnActivation node(s) and/or the mesh(es) with a muscle deformer applied.
     - To remove specific inputs, first select the locator(s) to remove and then the AdnActivation node(s) and/or the mesh(es) with a muscle deformer applied.
 
-#### Deformers
+#### Muscle
 
-- **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the editing of simulation and animation meshes lists of an AdnSkinMerge deformer. To open this UI a mesh with an AdnSkinMerge applied must be selected.
+- **Add Targets**. Adds target objects to the selected muscle. The mesh with the deformer applied must be the last element in the selection. This item corresponds to the shelf button ![Add Targets](images/adn_add_target.png){style="width:4%"}.
+- **Remove Targets**. Removes target objects from the selected muscle. The mesh with the deformer applied must be the last element in the selection. If only the muscle geometry is selected, then all targets are removed. This item corresponds to the shelf button ![Remove Targets](images/adn_remove_target.png){style="width:4%"}.
+- **Add Slide On Segment Constraint**. Adds segments based on the two (or more) transform objects and the mesh with the deformer node applied selected. This item corresponds to the shelf button ![Add Slide On Segment](images/adn_add_sliding_constraint.png){style="width:4%"}.
+- **Remove Slide On Segment Constraint**. Removes anchors from segments based on the transform objects and the mesh with the deformer node applied selected. This item corresponds to the shelf button  ![Remove Slide On Segment](images/adn_remove_sliding_constraint.png){style="width:4%"}.
+- **Add Rest Shape**. Assigns the rest shape to the selected deformer. The selection must consist of: first the Rest Mesh to assign and lastly the mesh with the deformer applied.
+- **Remove Rest Shape**. Removes the rest shape from the selected deformer. The selection must consist of: first the Rest Mesh to remove and lastly the mesh with the deformer applied.
+- **Draw Fibers**. Enables *Muscle Fibers* Debugging from all the AdnRibbonMuscle and AdnMuscle in the scene.
+- **Hide Fibers**. Disables *Muscle Fibers* Debugging from all the AdnRibbonMuscle and AdnMuscle in the scene.
+
+#### Glue
+
+- **Add Inputs**. Adds input meshes to an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected.
+- **Remove Inputs**. Removes input meshes from an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected. If only the glue output mesh is selected, then all inputs will be removed.
+
+#### Fat
+
+- **Add Base Mesh**. Assigns a base mesh to the selected fat. The selection must consist of: first the mesh to assign as Base Mesh and lastly the mesh with the deformer applied.
+- **Remove Base Mesh**. Removes the base mesh from the selected fat. The selection must consist of: the mesh with the deformer applied.
+
+#### Skin
+
+- **Add Targets**. Adds target meshes to the selected skin. The mesh with the deformer applied must be the last element in the selection. This item corresponds to the shelf button ![Add Targets](images/adn_add_skin_targets.png){style="width:4%"}.
+- **Remove Targets**. Removes target meshes from the selected skin. The mesh with the deformer applied must be the last element in the selection. If only the skin geometry is selected, then all targets are removed. This item corresponds to the shelf button ![Remove Targets](images/adn_remove_skin_targets.png){style="width:4%"}.
 
 #### Simshape
 
@@ -140,31 +162,9 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 - **Connect Activations Plug**. Connects the output compression map from an AdnEdgeEvaluator node to the activations plug of the AdnSimshape selected deformer. The selection must consist of: first the Edge Evaluator node and lastly the AdnSimshape deformer node.
 - **Disconnect Activations Plug**. Disconnects the output compression map from an AdnEdgeEvaluators node from the activations plug of the AdnSimshape selected deformer. The selection must consist of: first the Edge Evaluator node and lastly the AdmSimshape deformer node.
 
-#### Skin
+#### Deformers
 
-- **Add Targets**. Adds target meshes to the selected skin. The mesh with the deformer applied must be the last element in the selection. This item corresponds to the shelf button ![Add Targets](images/adn_add_skin_targets.png){style="width:4%"}.
-- **Remove Targets**. Removes target meshes from the selected skin. The mesh with the deformer applied must be the last element in the selection. If only the skin geometry is selected, then all targets are removed. This item corresponds to the shelf button ![Remove Targets](images/adn_remove_skin_targets.png){style="width:4%"}.
-
-#### Fat
-
-- **Add Base Mesh**. Assigns a base mesh to the selected fat. The selection must consist of: first the mesh to assign as Base Mesh and lastly the mesh with the deformer applied.
-- **Remove Base Mesh**. Removes the base mesh from the selected fat. The selection must consist of: the mesh with the deformer applied.
-
-#### Muscle
-
-- **Add Targets**. Adds target objects to the selected muscle. The mesh with the deformer applied must be the last element in the selection. This item corresponds to the shelf button ![Add Targets](images/adn_add_target.png){style="width:4%"}.
-- **Remove Targets**. Removes target objects from the selected muscle. The mesh with the deformer applied must be the last element in the selection. If only the muscle geometry is selected, then all targets are removed. This item corresponds to the shelf button ![Remove Targets](images/adn_remove_target.png){style="width:4%"}.
-- **Add Slide On Segment Constraint**. Adds segments based on the two (or more) transform objects and the mesh with the deformer node applied selected. This item corresponds to the shelf button ![Add Slide On Segment](images/adn_add_sliding_constraint.png){style="width:4%"}.
-- **Remove Slide On Segment Constraint**. Removes anchors from segments based on the transform objects and the mesh with the deformer node applied selected. This item corresponds to the shelf button  ![Remove Slide On Segment](images/adn_remove_sliding_constraint.png){style="width:4%"}.
-- **Add Rest Shape**. Assigns the rest shape to the selected deformer. The selection must consist of: first the Rest Mesh to assign and lastly the mesh with the deformer applied.
-- **Remove Rest Shape**. Removes the rest shape from the selected deformer. The selection must consist of: first the Rest Mesh to remove and lastly the mesh with the deformer applied.
-- **Draw Fibers**. Enables *Muscle Fibers* Debugging from all the AdnRibbonMuscle and AdnMuscle in the scene.
-- **Hide Fibers**. Disables *Muscle Fibers* Debugging from all the AdnRibbonMuscle and AdnMuscle in the scene.
-
-#### Glue
-
-- **Add Inputs**. Adds input meshes to an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected.
-- **Remove Inputs**. Removes input meshes from an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected. If only the glue output mesh is selected, then all inputs will be removed.
+- **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the editing of simulation and animation meshes lists of an AdnSkinMerge deformer. To open this UI a mesh with an AdnSkinMerge applied must be selected.
 
 #### Debug
 
