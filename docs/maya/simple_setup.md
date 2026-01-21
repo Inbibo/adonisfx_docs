@@ -339,14 +339,14 @@ To create the AdnSkin deformer with some initial specialization, double-click th
 
 Once the AdnSkin deformer is properly created it is possible now to paint its weights to correctly set up the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
 
-Start by painting *Soft Constraints* by selecting the option from the attribute enumerator. Flood this weight to a low value of 0.2 to have a uniform distribution of soft constraints. This will help the skin to follow the target mesh.
+Start by painting *Soft Constraints* by selecting the option from the attribute enumerator. Flood this map with a low value of 0.45 to have a uniform distribution of soft constraints. This will help the skin to follow the target mesh.
 
 <figure markdown>
   ![Soft Constraints weights paint](images/simple_setup_skin_soft.png)
   <figcaption><b>Figure 30</b>: Soft Constraints weights paint.</figcaption>
 </figure>
 
-Now paint *Hard Constraints* in two steps. First, flood this weight to a value of 0.1 to help the skin (together with the soft weights) to follow the target mesh. Then, set the edges to 1.0 to attach them strongly to the target mesh.
+Now paint *Hard Constraints* in two steps. First, flood this map with a value of 0.3 to help the skin (together with the soft weights) to follow the target mesh. Then, set the edges to 1.0 to attach them strongly to the target mesh.
 
 <figure markdown>
   ![Hard Constraints weights paint](images/simple_setup_skin_hard.png)
