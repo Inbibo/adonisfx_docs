@@ -1,20 +1,20 @@
 # Fiber Groom
 
-The AdnFiberGroom HDA is a SOP node responsible for creating and editing muscle fibers. If a tendon mask is provided in the geostream, this node can also estimate an initial fiber flow. The AdnFiberGroom HDA uses the AdnFiberDiffusion and AdnFiberProjection SOP nodes as internal components.
+The AdnFiberGroom node is a Houdini Digital Asset responsible for creating and editing muscle fibers. If a tendon mask is provided in the geostream, this node can also estimate an initial fiber flow. The AdnFiberGroom HDA uses the AdnFiberDiffusion and AdnFiberProjection SOP nodes as internal components.
 
 # How To Use
 
 To create this node, follow these steps:
 
 1. Go to the geometry context that contains the muscle geometry for which fibers will be generated.
-2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../../images/adn_fiber_groom.png){style="width:4%"} SOP type.
+2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../../images/adn_fiber_groom.png){style="width:4%"} HDA type.
 3. Connect the muscle geometry to the AdnFiberGroom input.
-4. Cook the node and select it to start combing the fibers. The fibers will be written to the geostream as a point attribute called `adnFibers`, and can be used to drive the activation of an AdnMuscle or AdnRibbonMuscle.
-5. Connect the AdnFiberGroom HDA to the input of an AdnMuscle or AdnRibbonMuscle node.
+4. Cook the node and select it. Then click the Gizmos icon (or press Enter in the viewport) to enter the view state and start grooming the fibers. The fibers will be written to the geostream as a point attribute called `adnFibers`, and can be used to drive the activation of an AdnMuscle or AdnRibbonMuscle.
+5. Connect the AdnFiberGroom HDA to the input of an AdnMuscle or AdnRibbonMuscle SOP node.
 
 <figure markdown>
-  ![AdnFiberGroom minimum required setup](../images/fiber_groom_minimum_setup.png)
-  <figcaption><b>Figure 1</b>: Minimum required setup to comb the fibers and create the adnFibers point attribute. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API. </figcaption>
+  ![Fiber groom minimum required setup](../images/fiber_groom_minimum_setup.png)
+  <figcaption><b>Figure 1</b>: Minimum required setup to groom the fibers and create the adnFibers point attribute. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API. </figcaption>
 </figure>
 
 > [!NOTE]
@@ -31,18 +31,27 @@ With the muscle geometry connected to the corresponding AdonisFX muscle SOP (i.e
 
 Both nodes are automatically named and correctly connected to the muscle SOP node.
 
-Next, paint the adnTendons map using the `attribpaint` node.
+Next, paint the `adnTendons` map using the `attribpaint` node.
 
-Then, select the muscle SOP node again and click AdonisFX > Utils > Make Groomable. This utility will create the AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further comb and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
+Then, select the muscle SOP node again and click AdonisFX > Utils > Make Groomable. This utility will create the AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
 
 <figure markdown>
-  ![AdnFiberGroom complete required setup](../images/fiber_groom_complete_setup.png)
+  ![Fiber groom complete required setup](../images/fiber_groom_complete_setup.png)
   <figcaption><b>Figure 2</b>: Complete setup after using the Make Paintable and Make Groomable utilities. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 <figure markdown>
-  ![AdnFiberGroom complete required setup](../images/fiber_groom_complete_setup.png)
+  ![Fiber groom fiber directions estimated from tendon mask](../images/fiber_groom_fibers_from_tendons.png)
   <figcaption><b>Figure 3</b>: Fiber directions estimated (right) from the provided `adnTendons` map (left).</figcaption>
+</figure>
+
+> [!NOTE]
+> - If the geostream is a combination of multiple muscles (with a piece ID primitive attribute) instead of single muscle pieces, it is also possible to use an `attribpaint` to paint the `adnTendons` followed by an AdnFiberGroom node to groom the fibers of all muscles at once (see figure 4).
+> - To be able to groom the fibers of a single muscle, press the *Group* selector on the AdnFiberGroom node, press the *9* key in the viewport and select a muscle to isolate it. This will automatically populate the *Group* entry allowing to groom the fibers of a single muscle.
+
+<figure markdown>
+  ![Fiber groom on combined muscles](../images/fiber_groom_combined_muscles.png)
+  <figcaption><b>Figure 4</b>: Using attribpaint and AdnFiberGroom to groom fibers on combined muscles.</figcaption>
 </figure>
 
 ## Attributes
@@ -59,7 +68,7 @@ Then, select the muscle SOP node again and click AdonisFX > Utils > Make Groomab
 | **Mirror Origin**         | Float3  | {0.0, 0.0, 0.0} | ✗ | Mirror origin from which to consider the mirroring process. |
 | **Mirror Direction**      | Float3  | {1.0, 0.0, 0.0} | ✗ | Direction in which to mirror. |
 | **Mirror Distance**       | Float   | 0.0             | ✗ | Distance to mirror the plane. |
-| **Clear Stokes**          | Button  |                 | ✗ | Returns the fiber directions to their initial state |
+| **Clear Strokes**         | Button  |                 | ✗ | Returns the fiber directions to their initial state |
 
 ## Parameter Template
 
