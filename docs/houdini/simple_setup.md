@@ -122,7 +122,10 @@ To create a basic scenario using the AdnSkin SOP, start with a scene with the fo
   - A skin mesh without animation or deformation.
   - One or more target meshes with deformation.
 
-<!-- figure basic setup target mesh and skin mesh -->
+<figure markdown>
+  ![Basic setup for skin simulations](images/simple_setup_skin_00.png)
+  <figcaption><b>Figure X</b>: Basic setup for skin simulation. The mesh on the left corresponds to the skin mesh to be simulated, while the mesh on the right corresponds to the animated target mesh. </figcaption>
+</figure>
 
 ### Create Deformer
 
@@ -130,25 +133,32 @@ To create the AdnSkin node, press TAB and navigate to the submenu AdonisFX > Sol
 
 To add target mesh(es), go to the *Targets* tab on the AdnSkin node, press **+** to add a new target entry and set the path to the SOP node containing the target geometry to the *Target World Mesh* parameter.
 
-<!-- figure creation scenario showing viewport parm template and network (no make paintable yet) -->
+<figure markdown>
+  ![AdnFat SOP creation scenario](images/simple_setup_skin_01.png)
+  <figcaption><b>Figure X</b>: AdnSkin SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+</figure>
 
 ### Paint Weights
 
 To tweak the point attributes of an AdnSkin SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSkin SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkin node.
 
-<!-- figure network after using make paintable -->
+<figure markdown>
+  ![Deformable section skin](images/simple_setup_skin_02.png)
+  <figcaption><b>Figure X</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
+</figure>
 
 Start by painting the `adnSoftConstraints` map. Flood this map with a low value of 0.45 to have a uniform distribution of soft constraints. This will help the skin to follow the target mesh.
 
-Now paint *Hard Constraints* in two steps. First, flood this weight to a value of 0.3 to help the skin (together with the soft weights) to follow the target mesh. Then, set the edges to 1.0 to attach them strongly to the target mesh.
+Now paint `adnHardConstraints` in two steps. First, flood this weight to a value of 0.3 to help the skin (together with the soft weights) to follow the target mesh. Then, set the edges to 1.0 to attach them strongly to the target mesh.
 
-Then select the *Slide Constraints* attribute and paint weights only in those areas where the skin is supposed to slide over the target mesh. In this case, focus these weights over the scapulas and the joints of the limbs.
+Then select the `adnSlideConstraints` attribute and paint weights only in those areas where the skin is supposed to slide over the target mesh. In this case, focus these weights over the scapulas and the joints of the limbs.
 
-Finally, select the *Sliding Distance Multiplier* attribute and paint weights to 1.0 only in the sliding areas. This will ensure that the vertices with sliding properties will get assigned with the maximum sliding distance (defined by the *Max Sliding Distance* attribute), while the non-sliding vertices will get assigned with 0.0 sliding distance, which will improve the performance of the simulation.
+Finally, select the `adnMaxSlidingDistanceMultiplier` attribute and paint weights to 1.0 only in the sliding areas. This will ensure that the vertices with sliding properties will get assigned with the maximum sliding distance (defined by the *Max Sliding Distance* attribute), while the non-sliding vertices will get assigned with 0.0 sliding distance, which will improve the performance of the simulation.
 
-<!-- figure painted maps, soft constraints, hard, slide, sliding distance multiplier -->
-
-The order of painting is important because after every stroke a normalization of weights soft, hard and slide is performed to ensure that the sum is less or equal to 1.0. In this example, after painting *Slide Constraints*, both *Hard Constraints* and *Soft Constraints* will update, reducing their respective values in the areas painted with maximum sliding.
+<figure markdown>
+  ![AdnSkin weights paint](images/simple_setup_skin_slide_multiplier.png)
+  <figcaption><b>Figure X</b>: AdnSkin weight maps. From left to right: adnSoftConstraints, adnHardConstraints, adnSlideConstraints and adnMaxSlidingDistanceMultiplier.</figcaption>
+</figure>
 
 With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the target mesh. However, the possible parameters and tweaks to display high fidelity dynamics can be seen in the documentation for [AdnSkin](solvers/skin).
 
