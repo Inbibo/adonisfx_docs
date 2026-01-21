@@ -156,7 +156,7 @@ Then select the `adnSlideConstraints` attribute and paint weights only in those 
 Finally, select the `adnMaxSlidingDistanceMultiplier` attribute and paint weights to 1.0 only in the sliding areas. This will ensure that the vertices with sliding properties will get assigned with the maximum sliding distance (defined by the *Max Sliding Distance* attribute), while the non-sliding vertices will get assigned with 0.0 sliding distance, which will improve the performance of the simulation.
 
 <figure markdown>
-  ![AdnSkin weights paint](images/simple_setup_skin_slide_multiplier.png)
+  ![AdnSkin weights paint](images/simple_setup_skin_03.png)
   <figcaption><b>Figure X</b>: AdnSkin weight maps. From left to right: adnSoftConstraints, adnHardConstraints, adnSlideConstraints and adnMaxSlidingDistanceMultiplier.</figcaption>
 </figure>
 
