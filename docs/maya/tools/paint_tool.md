@@ -156,3 +156,27 @@ In the specific case of an AdnSkin deformer, the tool will display the following
   - **Soft Constraints**
     - Soft constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the vertices keeping a constant distance to the closest point on the closest target mesh.
     - This value is normalized alongside Hard Constraints and Slide Constraints.
+
+### Paint Tool Visualization Modes
+
+The AdonisFX Paint Tool provides two visualization modes in the *Visualization* UI group. The available options are *Greyscale* and *Heat Map*.
+
+The *Greyscale* mode colors vertices from black to white based on the painted weight (black for 0.0 and white for 1.0). This is the default mode and provides a visualization similar to the Maya Paint Tool.
+
+In contrast, the *Heat Map* mode assigns a color ramp to vertices according to the painted weight. The following example compares the same painted weights displayed using both modes.
+
+<figure>
+  ![Paint Tool visualization modes](../images/tools_paint_tool_visualization_modes.png)
+  <figcaption><b>Figure 6</b>: Weight map displayed in *Heat Map* mode (left) and *Greyscale* mode (right). From left to right, the painted values are: 0.0, 0.01, 0.25, 0.5, 0.75, 0.99, and 1.0.</figcaption>
+</figure>
+
+The following table shows how the painted weight maps to the color gradient used in *Heat Map* mode:
+
+| Weight (w) | Color |
+|:-----------|:------|
+| `w = 0.0`         | Black |
+| `0.00 < w < 0.25` | Gradient from Blue to Green |
+| `0.25 ≤ w < 0.50` | Gradient from Green to Yellow |
+| `0.50 ≤ w < 0.75` | Gradient from Yellow to Orange |
+| `0.75 ≤ w < 1.00` | Gradient from Orange to Red |
+| `w = 1.0`         | White |
