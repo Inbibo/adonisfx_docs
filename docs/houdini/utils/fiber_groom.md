@@ -46,7 +46,7 @@ Then, select the muscle SOP node again and click AdonisFX > Utils > Make Groomab
 </figure>
 
 > [!NOTE]
-> - If the geostream is a combination of multiple muscles (with a piece ID primitive attribute) instead of single muscle pieces, it is also possible to use an `attribpaint` to paint the `adnTendons` followed by an AdnFiberGroom node to groom the fibers of all muscles at once (see figure 4).
+> - If the geostream is a combination of multiple muscles (with a piece ID primitive attribute) instead of single muscle pieces, it is also possible to use an `attribpaint` to paint the `adnTendons` followed by an AdnFiberGroom node to groom the fibers of all muscles at once (see Figure 4).
 > - To be able to groom the fibers of a single muscle, press the *Group* selector on the AdnFiberGroom node, press the *9* key in the viewport and select a muscle to isolate it. This will automatically populate the *Group* entry allowing to groom the fibers of a single muscle.
 
 <figure markdown>

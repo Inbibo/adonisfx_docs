@@ -399,7 +399,7 @@ If a specific area has lost detail, flood the *Push In Ratio Multiplier* to 0.0 
 
 <figure markdown>
   ![relax example results](images/simple_setup_relax_01.png)
-  <figcaption><b>Figure 33</b>: Example of AdnRelax results with a distribution of weights shown in Figure 35. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the deformer in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
+  <figcaption><b>Figure 33</b>: Example of AdnRelax results with a distribution of weights shown in Figure 32. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the deformer in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
 </figure>
 
 ## AdnPush
@@ -440,7 +440,7 @@ The *push multiplier* and *weights* maps are flooded to 1.0 by default. The push
 
 <figure markdown>
   ![push example results](images/simple_setup_push_02.png)
-  <figcaption><b>Figure 37</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 39. Most of the intersections present in Figure 38 introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
+  <figcaption><b>Figure 37</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 36. Most of the intersections present in Figure 35 introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
 </figure>
 
 ## AdnSkinMerge
