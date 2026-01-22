@@ -6,7 +6,7 @@ This page is dedicated to explain, step by step, a simple process of creating an
 
 To create a basic scenario using the AdnMuscle SOP deformer, start with a scene with the following elements:
 
- - An animation rig or an skeletal mesh (i.e. the mummy) or both.
+ - An animation rig or a skeletal mesh (i.e. the mummy) or both.
  - A geometry representing the muscle to simulate.
 
 In this case the proposed example is to simulate a biceps in an animated full body rig. The AdnMuscle SOP will be applied to the mesh of the biceps.
@@ -36,7 +36,7 @@ Optionally, add Slide On Segment Constraints. This constraint works in a similar
 
 <figure style="width:75%" markdown>
   ![AdnMuscle SOP example constraints](images/simple_setup_muscle_02.png)
-  <figcaption><b>Figure 3</b> AdnMuscle Targets tab configured with: the mummy geometry as target, the shoulder and elbow joints as attachment and as a segment.</figcaption>
+  <figcaption><b>Figure 3</b>: AdnMuscle Targets tab configured with: the mummy geometry as target, the shoulder and elbow joints as attachment and as a segment.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -55,19 +55,19 @@ Start by painting attachment weights, painting the influence for each target by 
 
 <figure markdown>
   ![Transform Attachment influences (joints and locators)](images/simple_setup_muscle_paint_transform_attach.png)
-  <figcaption><b>Figure 3</b>: Transform Attachment influences (joints and locators).</figcaption>
+  <figcaption><b>Figure 5</b>: Transform Attachment influences (joints and locators).</figcaption>
 </figure>
 
 <figure style="width:75%" markdown>
   ![Geometry Attachment influences (meshes)](images/simple_setup_muscle_paint_geometry_attach.png)
-  <figcaption><b>Figure 4</b>: Geometry Attachment influences (meshes).</figcaption>
+  <figcaption><b>Figure 6</b>: Geometry Attachment influences (meshes).</figcaption>
 </figure>
 
 Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from the *Attribute* enumerator and paint over the parts of the muscle that should have tendon tissue.
 
 <figure style="width:75%" markdown>
   ![Tendon weights for biceps](images/simple_setup_muscle_04.png)
-  <figcaption><b>Figure 5</b>: Tendon weights for biceps.</figcaption>
+  <figcaption><b>Figure 7</b>: Tendon weights for biceps.</figcaption>
 </figure>
 
 Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnMuscle after the `attribpaint` node.
@@ -76,54 +76,49 @@ To simplify the creation of the AdnFiberGroom HDA, AdonisFX provides *Make Groom
 
 <figure style="width:70%" markdown>
   ![Deformable section skin](images/simple_setup_muscle_05.png)
-  <figcaption><b>Figure 6</b>: Deformable section after using the "Make Groomable" utility.</figcaption>
+  <figcaption><b>Figure 8</b>: Deformable section after using the "Make Groomable" utility.</figcaption>
 </figure>
 
 <figure style="width:75%" markdown>
   ![Muscle fibers combing](images/simple_setup_muscle_06.png)
-  <figcaption><b>Figure 7</b>: Muscle fibers grooming.</figcaption>
+  <figcaption><b>Figure 9</b>: Muscle fibers grooming.</figcaption>
 </figure>
 
 Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It is recommended to paint only the vertices that are not attached to the rig. In this example, the tendons are painted with a value of 0.0, while the rest of the shape is painted to 1.0 or lower values.
 
 <figure style="width:75%" markdown>
   ![Slide on segment weights for biceps](images/simple_setup_muscle_07.png)
-  <figcaption><b>Figure 8</b>: Slide on segment weights for biceps.</figcaption>
+  <figcaption><b>Figure 10</b>: Slide on segment weights for biceps.</figcaption>
 </figure>
 
 <figure style="width:75%" markdown>
   ![Slide on geometry weights for biceps](images/simple_setup_muscle_08.png)
-  <figcaption><b>Figure 9</b>: Slide on geometry weights for biceps.</figcaption>
+  <figcaption><b>Figure 11</b>: Slide on geometry weights for biceps.</figcaption>
 </figure>
 
 ### Connect Sensors
 
 To have the muscle changing and responding to external inputs (i.e. the flexion of the arm), AdnSensorRotation can be added to drive the activation of the muscle. 
 
-To do this, first create a rotation locator and sensor to compute the elbow angle. 
+To do this, first create a rotation sensor to compute the elbow angle. Press TAB and navigate to the submenu AdonisFX > Sensors to find the AdnSensorRotation ![AdnSensorRotation button](../images/adn_angle_sensor.png){style="width:4%"} SOP type.
 
+Then create a rotation locator to visualize the elbow angle. Press TAB and navigate to the submenu AdonisFX > Locators to find the AdnLocatorRotation ![AdnLocatorRotation button](../images/adn_angle_locator.png){style="width:4%"} SOP type and connect the sensor to the locator.
 
-Both elements can be created by selecting the three joints from which to create the rotation locator and sensor (shoulder, elbow and wrist joints) and directly click on the ![adnRotationSensor](../images/adn_angle_sensor.png){style="width:4%"} shelf button or go to AdonisFX Menu > Sensors (on the *Create* group) > *Rotation*. With this, both a locator and its corresponding sensor will get created at the same time.
-
-To do this, first create a rotation sensor to compute the elbow angle. Press TAB and navigate to the submenu AdonisFX > Sensors to find the AdnSensorRotation button SOP type.
-
-Then create a rotation locator to visualize the elbow angle. Press TAB and navigate to the submenu AdonisFX > Locators to find the  AdnLocatorRotation button SOP type and connect the sensor to the locator.
-
-Once the sensor and locator are created, go to the *Input* tab of both nodes and provide the SOP paths to the transform nodes from which to extract the transformation form (e.g. shoulder, elbow and wrist joints). Alternatively, use the "Operator Chooser" in the locator and sensor UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
+Once the sensor and locator are created, go to the *Input* tab of both nodes and provide the SOP paths to the transform nodes from which to extract the transformation form (e.g. shoulder, elbow and wrist joints). Alternatively, use the "Operator Chooser" in the locator and sensor UI to select the correct target nodes containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
 
 <figure style="width:75%" markdown>
   ![Rotation locator and sensor setup in elbow](images/simple_setup_muscle_09.png)
-  <figcaption><b>Figure 9</b>: Rotation locator and sensor setup in elbow.</figcaption>
+  <figcaption><b>Figure 12</b>: Rotation locator and sensor setup in elbow.</figcaption>
 </figure>
 
-Now that the locator is created it has to be connected to the deformer. In order to make this connection use a detail or channel expression. This will allow for the AdnMuscle SOP to pick up the activation attribute from the locator:
+Now that the locator is created it has to be connected to the deformer. In order to make this connection, use a detail or channel expression. This will allow for the AdnMuscle SOP to pick up the activation attribute from the locator:
 
   - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)`
   - Channel expression: `ch("../L_adnLocatorRotation_armFlexionShape/adnActivationRotation")`
 
 <figure style="width:75%" markdown>
   ![Locator connected via detail expression](images/simple_setup_muscle_10.png)
-  <figcaption><b>Figure 10</b>: Locator connected via detail expression.</figcaption>
+  <figcaption><b>Figure 13</b>: Locator connected via detail expression.</figcaption>
 </figure>
 
 When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation will get higher, simulating a much more realistic scenario.

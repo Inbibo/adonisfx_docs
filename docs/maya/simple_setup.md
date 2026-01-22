@@ -6,7 +6,7 @@ This page is dedicated to explain, step by step, a simple process of creating an
 
 To create a basic scenario using the AdnMuscle deformer, start with a scene with the following elements:
 
- - An animation rig or an skeletal mesh (i.e. the mummy) or both.
+ - An animation rig or a skeletal mesh (i.e. the mummy) or both.
  - A geometry representing the muscle to simulate.
 
 In this case the proposed example is to simulate a biceps in an animated full body rig. The AdnMuscle deformer will be applied to the mesh of the biceps.
