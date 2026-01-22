@@ -4,6 +4,123 @@ This page is dedicated to explain, step by step, a simple process of creating an
 
 ## AdnMuscle
 
+To create a basic scenario using the AdnMuscle SOP deformer, start with a scene with the following elements:
+
+ - An animation rig or an skeletal mesh (i.e. the mummy) or both.
+ - A geometry representing the muscle to simulate.
+
+In this case the proposed example is to simulate a biceps in an animated full body rig. The AdnMuscle SOP will be applied to the mesh of the biceps.
+
+<figure markdown>
+  ![basic setup for biceps sim](images/simple_setup_muscle_00.png)
+  <figcaption><b>Figure X</b>: Basic setup for biceps simulations.</figcaption>
+</figure>
+
+### Create Deformer
+
+To create the AdnMuscle deformer select the mesh of the muscle, then press the ![AdnMuscle](../images/adn_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Solvers* > *Muscle*. This will assign the AdnMuscle deformer to the selected muscle.
+
+To create the AdnMuscle SOP. press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnMuscle SOP ![AdnMuscle](../images/adn_muscle.png){style="width:4%"} type. Then connect the muscle geometry to the input of the AdnMuscle node.
+
+<figure markdown>
+  ![AdnMuscle SOP creation scenario](images/simple_setup_muscle_01.png)
+  <figcaption><b>Figure X</b>: AdnMuscle SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+</figure>
+
+In order to add targets to the muscles, go to the *Targets* tab on the AdnMuscle node, press **+** under the *Targets* collapsible to add a new entry and provide the path to the SOP containing the target geometry. The geometries added as targets can be used to drive attachment to geometry and slide on geometry constraints.
+
+> - Attachments to geometry and slide on geometry constraints are meant to simulate muscle-to-bone and muscle-to-muscle interactions.
+> - For muscle-to-muscle interactions, only unidirectional relationships are supported. This means that having muscles A and B, it is possible to assign A as target of B or B as target of A, but not the two at the same time.
+
+It is also possible to define attachments to the joints of the rig by pressing **+** under the *Attachments To Transform* collapsible and providing the SOP path of the joint to which the muscle will be attached.
+
+Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry, a pair of joints of the rig will be specified representing the segment the muscle will slide on. Press **+** under the *Slide On Segment Constraints* collapsible and provide the SOP paths to a pair of joints of the rig (e.g. shoulder and elbow).
+
+<figure markdown>
+  ![AdnMuscle SOP example constraints](images/simple_setup_muscle_02.png)
+  <figcaption><b>Figure X</b> AdnMuscle Targets tab configured with: the mummy geometry as target, the shoulder and elbow joints as attachment and as a segment.</figcaption>
+</figure>
+
+### Paint Weights
+
+To tweak the point attributes of an AdnMuscle SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnMuscle SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnMuscle node.
+
+<figure markdown>
+  ![Deformable section skin](images/simple_setup_skin_03.png)
+  <figcaption><b>Figure X</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
+</figure>
+
+Start by painting attachment weights, painting the influence for each target by selecting the corresponding target from the list and painting its desired influence.
+
+> [!NOTE]
+> In this example the influence painting for both types of attachment constraint is shown. The different types of attachments can be used together or not depending on the needs of the simulation and the rig setup.
+
+<figure markdown>
+  ![Transform Attachment influences (joints and locators)](images/simple_setup_muscle_paint_transform_attach.png)
+  <figcaption><b>Figure 3</b>: Transform Attachment influences (joints and locators).</figcaption>
+</figure>
+
+<figure markdown>
+  ![Geometry Attachment influences (meshes)](images/simple_setup_muscle_paint_geometry_attach.png)
+  <figcaption><b>Figure 4</b>: Geometry Attachment influences (meshes).</figcaption>
+</figure>
+
+Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from the *Attribute* enumerator and paint over the parts of the muscle that should have tendon tissue.
+
+<figure markdown>
+  ![Tendon weights for biceps](images/simple_setup_muscle_02.png)
+  <figcaption><b>Figure 5</b>: Tendon weights for biceps.</figcaption>
+</figure>
+
+Once tendons are painted, when selecting the *Fibers* attribute from the *Attribute* enumerator, painted fibers will be displayed, with a default direction set by the painted tendons. It is now possible to freely comb these fibers if it is desired.
+
+To change the fiber size or its color, go to the Attribute Editor in the debug submenu, and customize the color, width and length of the drawn lines.
+
+Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnMuscle after the `attribpaint` node.
+
+To simplify the creation of the AdnFiberGroom HDA, AdonisFX provides *Make Groomable* utility in AdonisFX > Utils. Use this utility by providing the corresponding AdnMuscle SOP in the selection to create a AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
+
+<figure markdown>
+  ![Muscle fibers combing](images/simple_setup_muscle_03.png)
+  <figcaption><b>Figure 6</b>: Muscle fibers combing.</figcaption>
+</figure>
+
+Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It is recommended to paint only the vertices that are not attached to the rig. In this example, the tendons are painted with a value of 0.0, while the rest of the shape is painted to 1.0 or lower values.
+
+<figure markdown>
+  ![Slide on segment weights for biceps](images/simple_setup_muscle_04.png)
+  <figcaption><b>Figure 7</b>: Slide on segment weights for biceps.</figcaption>
+</figure>
+
+<figure markdown>
+  ![Slide on geometry weights for biceps](images/simple_setup_muscle_05.png)
+  <figcaption><b>Figure 8</b>: Slide on geometry weights for biceps.</figcaption>
+</figure>
+
+### Connect Sensors
+
+To have the muscle changing and responding to external inputs (i.e. the flexion of the arm), AdnSensorRotation can be added to drive the activation of the muscle. 
+
+To do this, first create a rotation locator and sensor to compute the elbow angle. Both elements can be created by selecting the three joints from which to create the rotation locator and sensor (shoulder, elbow and wrist joints) and directly click on the ![adnRotationSensor](../images/adn_angle_sensor.png){style="width:4%"} shelf button or go to AdonisFX Menu > Sensors (on the *Create* group) > *Rotation*. With this, both a locator and its corresponding sensor will get created at the same time.
+
+<figure markdown>
+  ![Rotation locator and sensor setup in elbow](images/simple_setup_muscle_06.png)
+  <figcaption><b>Figure 9</b>: Rotation locator and sensor setup in elbow.</figcaption>
+</figure>
+
+Now that the sensor is created it has to be connected to the deformer. To do so, make use of the Connection Editor, which must be opened from the AdonisFX Menu > Sensors (on the *Edit* group) > *Connection Editor*.
+
+With the Connection Editor opened, select the locator from the scene and press the *Reload Left* button, then select the simulated mesh and press the *Reload Right* button. The list widgets will refresh with the respective connectable attributes. Select the *activationAngle* attribute from the locator and the *activation* attribute from the deformer, and click *Make Connection*.
+
+<figure markdown>
+  ![Connection Editor tool](images/simple_setup_muscle_07.png)
+  <figcaption><b>Figure 10</b>: Connection Editor tool.</figcaption>
+</figure>
+
+When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation will get higher, simulating a much more realistic scenario.
+
+To tweak additional parameters of the AdnMuscle deformer, check this [page](solvers/muscle).
+
 ## AdnRibbonMuscle
 
 ## AdnGlue
