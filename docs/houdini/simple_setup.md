@@ -162,6 +162,15 @@ Finally, select the `adnMaxSlidingDistanceMultiplier` attribute and paint weight
 
 With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the target mesh. However, the possible parameters and tweaks to display high fidelity dynamics can be seen in the documentation for [AdnSkin](solvers/skin).
 
+> [!NOTE]
+> Soft, hard, and slide constraints form a compound constraint known as Uber constraint. Therefore, the sum of the weights for these three constraint types must not exceed 1.0. If the total weight is higher, the solver will still run the simulation because an internal normalization is applied. However, the AdnSkin SOP node will display a warning indicating that the weights will be normalized (see Figure X).
+
+<figure markdown>
+  ![AdnSkin uber constraints warning](images/simple_setup_skin_04.png)
+  <figcaption><b>Figure X</b>: AdnSkin warning because of non-normalized Uber constraint weights.</figcaption>
+</figure>
+
+
 ## AdnRelax
 
 To create a basic scenario using the AdnRelax SOP, start with a scene with a mesh to apply the relaxation onto. This could be for example the simulated fascia layer.
