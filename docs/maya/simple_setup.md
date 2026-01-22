@@ -11,7 +11,7 @@ To create a basic scenario using the AdnMuscle deformer, start with a scene with
 
 In this case the proposed example is to simulate a biceps in an animated full body rig. The AdnMuscle deformer will be applied to the mesh of the biceps.
 
-<figure markdown>
+<figure style="width:75%" markdown>
   ![basic setup for biceps sim](images/simple_setup_muscle_00.png)
   <figcaption><b>Figure 1</b>: Basic setup for biceps simulations.</figcaption>
 </figure>
@@ -50,7 +50,7 @@ Start by painting attachment weights, painting the influence for each target by 
   <figcaption><b>Figure 3</b>: Transform Attachment influences (joints and locators).</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width:75%" markdown>
   ![Geometry Attachment influences (meshes)](images/simple_setup_muscle_paint_geometry_attach.png)
   <figcaption><b>Figure 4</b>: Geometry Attachment influences (meshes).</figcaption>
 </figure>
