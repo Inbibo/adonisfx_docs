@@ -321,7 +321,7 @@ The AdnSkin deformer will get applied to the last mesh which will become the sim
 
 <figure markdown>
   ![Basic setup for skin simulations](images/simple_setup_skin_00.png)
-  <figcaption><b>Figure 28</b>: Basic setup for skin simulations: target mesh (grey) and skin mesh to simulate (red).</figcaption>
+  <figcaption><b>Figure 28</b>: Basic setup for skin simulations. The mesh on the left corresponds to the skin mesh to be simulated, while the mesh on the right corresponds to the animated target mesh.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -339,32 +339,17 @@ To create the AdnSkin deformer with some initial specialization, double-click th
 
 Once the AdnSkin deformer is properly created it is possible now to paint its weights to correctly set up the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
 
-Start by painting *Soft Constraints* by selecting the option from the attribute enumerator. Flood this weight to a low value of 0.2 to have a uniform distribution of soft constraints. This will help the skin to follow the target mesh.
+Start by painting *Soft Constraints* by selecting the option from the attribute enumerator. Flood this map with a low value of 0.45 to have a uniform distribution of soft constraints. This will help the skin to follow the target mesh.
 
-<figure markdown>
-  ![Soft Constraints weights paint](images/simple_setup_skin_soft.png)
-  <figcaption><b>Figure 30</b>: Soft Constraints weights paint.</figcaption>
-</figure>
-
-Now paint *Hard Constraints* in two steps. First, flood this weight to a value of 0.1 to help the skin (together with the soft weights) to follow the target mesh. Then, set the edges to 1.0 to attach them strongly to the target mesh.
-
-<figure markdown>
-  ![Hard Constraints weights paint](images/simple_setup_skin_hard.png)
-  <figcaption><b>Figure 31</b>: Hard Constraints weights paint.</figcaption>
-</figure>
+Now paint *Hard Constraints* in two steps. First, flood this map with a value of 0.3 to help the skin (together with the soft weights) to follow the target mesh. Then, set the edges to 1.0 to attach them strongly to the target mesh.
 
 Then select the *Slide Constraints* attribute and paint weights only in those areas where the skin is supposed to slide over the target mesh. In this case, focus these weights over the scapulas and the joints of the limbs.
-
-<figure markdown>
-  ![Slide Constraints weights paint](images/simple_setup_skin_slide.png)
-  <figcaption><b>Figure 32</b>: Slide Constraints weights paint.</figcaption>
-</figure>
 
 Finally, select the *Sliding Distance Multiplier* attribute and paint weights to 1.0 only in the sliding areas. This will ensure that the vertices with sliding properties will get assigned with the maximum sliding distance (defined by the *Max Sliding Distance* attribute), while the non-sliding vertices will get assigned with 0.0 sliding distance, which will improve the performance of the simulation.
 
 <figure markdown>
-  ![Sliding Distance Multiplier weights paint](images/simple_setup_skin_slide_multiplier.png)
-  <figcaption><b>Figure 33</b>: Sliding Distance Multiplier weights paint.</figcaption>
+  ![AdnSkin weights paint](images/simple_setup_skin_02.png)
+  <figcaption><b>Figure 30</b>: AdnSkin weight maps. From left to right: Soft Constraints, Hard Constraints, Slide Constraints and Sliding Distance Multiplier.</figcaption>
 </figure>
 
 The order of painting is important because after every stroke a normalization of weights soft, hard and slide is performed to ensure that the sum is less or equal to 1.0. In this example, after painting *Slide Constraints*, both *Hard Constraints* and *Soft Constraints* will update, reducing their respective values in the areas painted with maximum sliding.
@@ -377,7 +362,7 @@ To create a basic scenario using the AdnRelax deformer, start with a scene with 
 
 <figure markdown>
   ![relax simple setup](images/simple_setup_relax_00.png)
-  <figcaption><b>Figure 34</b>: Basic setup for AdnRelax. The mesh is the result of the fascia simulation to which AdnRelax is going to be applied. </figcaption>
+  <figcaption><b>Figure 31</b>: Basic setup for AdnRelax. The mesh is the result of the fascia simulation to which AdnRelax is going to be applied. </figcaption>
 </figure>
 
 ### Create Deformer
@@ -399,7 +384,7 @@ The deformed mesh can be refined in specific areas by modifying the multiplier m
 
 <figure markdown>
   ![relax paintable maps](images/relax_weights.png)
-  <figcaption><b>Figure 35</b>: Example of paintable weights of AdnRelax deformer applied to the fascia layer of a biped. From left to right: smooth multiplier, relax multiplier, push in ratio multiplier, push out ratio multiplier.</figcaption>
+  <figcaption><b>Figure 32</b>: Example of paintable weights of AdnRelax deformer applied to the fascia layer of a biped. From left to right: smooth multiplier, relax multiplier, push in ratio multiplier, push out ratio multiplier.</figcaption>
 </figure>
 
 The smoothing is modulated by the *Smooth Multiplier* map. Keep it flooded to 1.0 to smooth the surface of the entire mesh, or flood it to 0.0 and paint values of 1.0 in the areas that need smoothing.
@@ -414,7 +399,7 @@ If a specific area has lost detail, flood the *Push In Ratio Multiplier* to 0.0 
 
 <figure markdown>
   ![relax example results](images/simple_setup_relax_01.png)
-  <figcaption><b>Figure 36</b>: Example of AdnRelax results with a distribution of weights shown in Figure 35. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the deformer in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
+  <figcaption><b>Figure 33</b>: Example of AdnRelax results with a distribution of weights shown in Figure 32. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the deformer in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
 </figure>
 
 ## AdnPush
@@ -423,7 +408,7 @@ A good example of a use case for the AdnPush deformer is to generate the interna
 
 <figure markdown>
   ![push initial setup](images/simple_setup_push_00.png)
-  <figcaption><b>Figure 37</b>: Fascia geometry result of duplicating and renaming the outer skin mesh at rest.</figcaption>
+  <figcaption><b>Figure 34</b>: Fascia geometry result of duplicating and renaming the outer skin mesh at rest.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -436,7 +421,7 @@ To create the AdnPush deformer:
 
 <figure markdown>
   ![push deformer applied](images/simple_setup_push_01.png)
-  <figcaption><b>Figure 38</b>: Result of applying a uniform Push Length of -2.0 to the whole input geometry.</figcaption>
+  <figcaption><b>Figure 35</b>: Result of applying a uniform Push Length of -2.0 to the whole input geometry.</figcaption>
 </figure>
 
 Keeping the muscle layer visible is helpful to drive the configuration of the AdnPush settings, especially the paintable maps. It is expected and intended to get intersections with the muscle layer at this point. Those intersections will be fixed by tweaking the maps.
@@ -450,12 +435,12 @@ The *push multiplier* and *weights* maps are flooded to 1.0 by default. The push
 
 <figure markdown>
   ![push paintable maps](images/push_weights.png)
-  <figcaption><b>Figure 39</b>: Example of Push Multiplier map of AdnPush deformer.</figcaption>
+  <figcaption><b>Figure 36</b>: Example of Push Multiplier map of AdnPush deformer.</figcaption>
 </figure>
 
 <figure markdown>
   ![push example results](images/simple_setup_push_02.png)
-  <figcaption><b>Figure 40</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 39. Most of the intersections present in Figure 38 introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
+  <figcaption><b>Figure 37</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 36. Most of the intersections present in Figure 35 introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
 </figure>
 
 ## AdnSkinMerge
@@ -470,7 +455,7 @@ The AdnSkinMerge deformer will be applied to the final mesh which will be the re
 
 <figure markdown>
   ![Basic setup for skin merge](images/simple_setup_skin_merge_00.png)
-  <figcaption><b>Figure 41</b>: Minimum required geometries to configure an AdnSkinMerge SOP. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge SOP.</figcaption>
+  <figcaption><b>Figure 38</b>: Minimum required geometries to configure an AdnSkinMerge SOP. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge SOP.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -483,7 +468,7 @@ When everything has been properly set up, press the *Create* button to create th
 
 <figure markdown>
   ![Create Skin Merge window with corresponding meshes added](images/simple_setup_skin_merge_01.png)
-  <figcaption><b>Figure 42</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
+  <figcaption><b>Figure 39</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -499,14 +484,14 @@ To have a smooth transition from the simulated mesh to the animated mesh, smooth
 
 <figure markdown>
   ![Blend weights painted map](images/simple_setup_skin_merge_02.png)
-  <figcaption><b>Figure 43</b>: Blend weights painted map.</figcaption>
+  <figcaption><b>Figure 40</b>: Blend weights painted map.</figcaption>
 </figure>
 
 With this basic paint setup the AdnSkinMerge deformer will now show the results of skin simulation transferred to the final mesh.
 
 <figure markdown>
   ![Result of AdnSkinMerge](images/simple_setup_skin_merge_03.png)
-  <figcaption><b>Figure 44</b>: Result of AdnSkinMerge in a specific frame. From left to right: Animation Mesh, Simulation Mesh and Final Mesh.</figcaption>
+  <figcaption><b>Figure 41</b>: Result of AdnSkinMerge in a specific frame. From left to right: Animation Mesh, Simulation Mesh and Final Mesh.</figcaption>
 </figure>
 
 ## AdnSimshape
@@ -521,7 +506,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 <figure markdown>
   ![Basic setup for facial simulations](images/simple_setup_simshape_00.png)
-  <figcaption><b>Figure 45</b>: Basic setup for facial simulations. From left to right: rest mesh, deformation mesh and animation mesh.</figcaption>
+  <figcaption><b>Figure 42</b>: Basic setup for facial simulations. From left to right: rest mesh, deformation mesh and animation mesh.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -534,7 +519,7 @@ To create the AdnSimshape deformer with some initial specialization, double-clic
 
 <figure markdown>
   ![AdnSimshape deformer creation scenario](images/simple_setup_simshape_01.png)
-  <figcaption><b>Figure 46</b>: AdnSimshape deformer creation scenario.</figcaption>
+  <figcaption><b>Figure 43</b>: AdnSimshape deformer creation scenario.</figcaption>
 </figure>
 
 To add the deformation mesh to the deformer first select the deformation mesh, then the simulated mesh (which is the animation mesh) and then go to AdonisFX Menu > Simshape (on the *Edit* group) > Add *Deform Mesh*. A message will notify that the addition of the rest mesh has been done correctly.
@@ -554,7 +539,7 @@ The lowest values (0.1 in this case) will be applied to the area under the jaw w
 
 <figure markdown>
   ![Example of the attraction force map](images/simple_setup_simshape_02.png)
-  <figcaption><b>Figure 47</b>: Example of the attraction force map.</figcaption>
+  <figcaption><b>Figure 44</b>: Example of the attraction force map.</figcaption>
 </figure>
 
 After painting similar weights to the ones displayed and pressing playback to check the animation, realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are available and fully explained in the documentation for [AdnSimshape](solvers/simshape).
