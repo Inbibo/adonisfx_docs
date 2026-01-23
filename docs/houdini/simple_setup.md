@@ -238,6 +238,60 @@ Finally, the `adnHardConstraints` map provides additional control for stronger a
 
 ## AdnSkin
 
+To create a basic scenario using the AdnSkin SOP, start with a scene with the following elements:
+
+  - A skin mesh without animation or deformation.
+  - One or more target meshes with deformation.
+
+<figure markdown>
+  ![Basic setup for skin simulations](images/simple_setup_skin_00.png)
+  <figcaption><b>Figure X</b>: Basic setup for skin simulation. The mesh on the left corresponds to the skin mesh to be simulated, while the mesh on the right corresponds to the animated target mesh. </figcaption>
+</figure>
+
+### Create Deformer
+
+To create the AdnSkin node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSkin ![AdnSkin](../images/adn_skin.png){style="width:4%"} SOP type. Then connect the skin mesh to the AdnSkin input.
+
+To add target mesh(es), go to the *Targets* tab on the AdnSkin node, press **+** to add a new target entry and set the path to the SOP node containing the target geometry to the *Target World Mesh* parameter.
+
+<figure markdown>
+  ![AdnFat SOP creation scenario](images/simple_setup_skin_01.png)
+  <figcaption><b>Figure X</b>: AdnSkin SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+</figure>
+
+### Paint Weights
+
+To tweak the point attributes of an AdnSkin SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSkin SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkin node.
+
+<figure markdown>
+  ![Deformable section skin](images/simple_setup_skin_02.png)
+  <figcaption><b>Figure X</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
+</figure>
+
+Start by painting the `adnSoftConstraints` map. Flood this map with a low value of 0.45 to have a uniform distribution of soft constraints. This will help the skin to follow the target mesh.
+
+Now paint `adnHardConstraints` in two steps. First, flood this weight to a value of 0.3 to help the skin (together with the soft weights) to follow the target mesh. Then, set the edges to 1.0 to attach them strongly to the target mesh.
+
+Then select the `adnSlideConstraints` attribute and paint weights only in those areas where the skin is supposed to slide over the target mesh. In this case, focus these weights over the scapulas and the joints of the limbs.
+
+Finally, select the `adnMaxSlidingDistanceMultiplier` attribute and paint weights to 1.0 only in the sliding areas. This will ensure that the vertices with sliding properties will get assigned with the maximum sliding distance (defined by the *Max Sliding Distance* attribute), while the non-sliding vertices will get assigned with 0.0 sliding distance, which will improve the performance of the simulation.
+
+<figure markdown>
+  ![AdnSkin weights paint](images/simple_setup_skin_03.png)
+  <figcaption><b>Figure X</b>: AdnSkin weight maps. From left to right: adnSoftConstraints, adnHardConstraints, adnSlideConstraints and adnMaxSlidingDistanceMultiplier.</figcaption>
+</figure>
+
+With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the target mesh. However, the possible parameters and tweaks to display high fidelity dynamics can be seen in the documentation for [AdnSkin](solvers/skin).
+
+> [!NOTE]
+> Soft, hard, and slide constraints form a compound constraint known as Uber constraint. Therefore, the sum of the weights for these three constraint types must not exceed 1.0. If the total weight is higher, the solver will still run the simulation because an internal normalization is applied. However, the AdnSkin SOP node will display a warning indicating that the weights will be normalized (see Figure X).
+
+<figure markdown>
+  ![AdnSkin uber constraints warning](images/simple_setup_skin_04.png)
+  <figcaption><b>Figure X</b>: AdnSkin warning because of non-normalized Uber constraint weights.</figcaption>
+</figure>
+
+
 ## AdnRelax
 
 To create a basic scenario using the AdnRelax SOP, start with a scene with a mesh to apply the relaxation onto. This could be for example the simulated fascia layer.
