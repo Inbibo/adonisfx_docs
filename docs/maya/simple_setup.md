@@ -111,7 +111,7 @@ To tweak additional parameters of the AdnMuscle deformer, check this [page](solv
 
 The process to set up an AdnRibbonMuscle is very similar to the one of setting up an AdnMuscle. It essentially follows the same steps. Start with the following elements:
 
- - An animation rig.
+ - An animation rig or a skeletal mesh (i.e. the mummy) or both.
  - A geometry representing the muscle to simulate.
 
 In this case a planar muscle will be simulated corresponding to a biceps, which will yield similar results to the case of the AdnMuscle deformer previously shown.
@@ -191,7 +191,7 @@ Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It 
 
 ### Connect Sensors
 
-The process to connect and AdnSensor to an AdnRibbonMuscle is the exact same to the one followed [here](#connect-sensors).
+The process to connect an AdnSensor to an AdnRibbonMuscle is the exact same to the one followed [here](#connect-sensors).
 
 <figure markdown>
   ![Connection Editor tool with AdnRotation and AdnRibbonMuscle](images/simple_setup_ribbon_muscle_06.png)

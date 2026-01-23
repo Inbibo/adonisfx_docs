@@ -127,6 +127,109 @@ To tweak additional parameters of the AdnMuscle deformer, check this [page](solv
 
 ## AdnRibbonMuscle
 
+The process to set up an AdnRibbonMuscle SOP is very similar to the one of setting up an AdnMuscle. It essentially follows the same steps. Start with the following elements:
+
+ - An animation rig or a skeletal mesh (i.e. the mummy) or both.
+ - A geometry representing the muscle to simulate.
+
+In this case a planar muscle will be simulated corresponding to a biceps, which will yield similar results to the case of the AdnMuscle SOP previously shown.
+
+<figure style="width:75%" markdown>
+  ![basic setup for planar biceps sim](images/simple_setup_ribbon_muscle_00.png)
+  <figcaption><b>Figure 14</b>: Basic setup for planar biceps simulations.</figcaption>
+</figure>
+
+### Create Deformer
+
+Similar to AdnMuscle, to create the AdnRibbonMuscle SOP, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnRibbonMuscle ![AdnRibbonMuscle](../images/adn_ribbon_muscle.png){style="width:4%"} SOP type. Then connect the planar muscle geometry to the input of the AdnRibbonMuscle node.
+
+<figure markdown>
+  ![AdnRibbonMuscle SOP creation scenario](images/simple_setup_ribbon_muscle_01.png)
+  <figcaption><b>Figure 15</b>: AdnRibbonMuscle SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+</figure>
+
+In order to add targets to the muscles, go to the *Targets* tab on the AdnRibbonMuscle node, press **+** under the *Targets* collapsible to add a new entry and provide the path to the SOP containing the target geometry. The geometries added as targets can be used to drive attachment to geometry and slide on geometry constraints.
+
+> - Attachments to geometry and slide on geometry constraints are meant to simulate muscle-to-bone and muscle-to-muscle interactions.
+> - For muscle-to-muscle interactions, only unidirectional relationships are supported. This means that having muscles A and B, it is possible to assign A as target of B or B as target of A, but not the two at the same time.
+
+It is also possible to define attachments to the joints of the rig by pressing **+** under the *Attachments To Transform* collapsible and providing the SOP path of the joint to which the muscle will be attached.
+
+Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry, a pair of joints of the rig will be specified representing the segment the muscle will slide on. Press **+** under the *Slide On Segment Constraints* collapsible and provide the SOP paths to a pair of joints of the rig (e.g. shoulder and elbow).
+
+<figure style="width:75%" markdown>
+  ![AdnRibbonMuscle SOP example constraints](images/simple_setup_ribbon_muscle_02.png)
+  <figcaption><b>Figure 16</b>: AdnRibbonMuscle Targets tab configured with: the mummy geometry as target, the shoulder and elbow joints as attachment and as a segment.</figcaption>
+</figure>
+
+### Paint Weights
+
+To tweak the point attributes of an AdnRibbonMuscle SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnRibbonMuscle SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnRibbonMuscle node.
+
+<figure style="width:75%" markdown>
+  ![Deformable section skin](images/simple_setup_ribbon_muscle_03.png)
+  <figcaption><b>Figure 17</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
+</figure>
+
+Start by painting attachment weights, painting the influence for each target by selecting the corresponding target from the list and painting its desired influence.
+
+> [!NOTE]
+> In this example the influence painting for both types of attachment constraint is shown. The different types of attachments can be used together or not depending on the needs of the simulation and the rig setup.
+
+<figure markdown>
+  ![Transform Attachment influences (joints and locators)](images/simple_setup_ribbon_muscle_paint_transform_attach.png)
+  <figcaption><b>Figure 18</b>: Transform Attachment influences (joints and locators).</figcaption>
+</figure>
+
+<figure style="width:75%" markdown>
+  ![Geometry Attachment influences (meshes)](images/simple_setup_ribbon_muscle_paint_geometry_attach.png)
+  <figcaption><b>Figure 19</b>: Geometry Attachment influences (meshes).</figcaption>
+</figure>
+
+Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from the *Attribute* enumerator and paint over the parts of the muscle that should have tendon tissue.
+
+<figure style="width:75%" markdown>
+  ![Tendon weights for biceps](images/simple_setup_ribbon_muscle_04.png)
+  <figcaption><b>Figure 20</b>: Tendon weights for biceps.</figcaption>
+</figure>
+
+Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnRibbonMuscle after the `attribpaint` node.
+
+To simplify the creation of the AdnFiberGroom HDA, AdonisFX provides *Make Groomable* utility in AdonisFX > Utils. Use this utility by providing the corresponding AdnRibbonMuscle SOP in the selection to create a AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
+
+<figure style="width:70%" markdown>
+  ![Deformable section skin](images/simple_setup_ribbon_muscle_05.png)
+  <figcaption><b>Figure 21</b>: Deformable section after using the "Make Groomable" utility.</figcaption>
+</figure>
+
+<figure style="width:75%" markdown>
+  ![Muscle fibers combing](images/simple_setup_ribbon_muscle_06.png)
+  <figcaption><b>Figure 22</b>: Muscle fibers grooming.</figcaption>
+</figure>
+
+Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It is recommended to paint only the vertices that are not attached to the rig. In this example, the tendons are painted with a value of 0.0, while the rest of the shape is painted to 1.0 or lower values.
+
+<figure style="width:75%" markdown>
+  ![Slide on segment weights for biceps](images/simple_setup_ribbon_muscle_07.png)
+  <figcaption><b>Figure 23</b>: Slide on segment weights for biceps.</figcaption>
+</figure>
+
+<figure style="width:75%" markdown>
+  ![Slide on geometry weights for biceps](images/simple_setup_ribbon_muscle_08.png)
+  <figcaption><b>Figure 24</b>: Slide on geometry weights for biceps.</figcaption>
+</figure>
+
+### Connect Sensors
+
+The process to connect an AdnSensor to an AdnRibbonMuscle is the exact same to the one followed [here](#connect-sensors).
+
+<figure style="width:75%" markdown>
+  ![Rotation locator and sensor setup in elbow](images/simple_setup_ribbon_muscle_09.png)
+  <figcaption><b>Figure 25</b>: Rotation locator and sensor setup in elbow.</figcaption>
+</figure>
+
+To tweak additional parameters of the AdnRibbonMuscle SOP, check this [page](solvers/ribbon.md).
+
 ## AdnGlue
 
 To make the simulated muscles behave more compact and avoid large gaps between them, an AdnGlue node can be used. To create a basic scenario using the AdnGlue node, start with a scene with the following elements:
