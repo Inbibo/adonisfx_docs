@@ -12,13 +12,13 @@ To create a basic scenario using the AdnMuscle SOP deformer, start with a scene 
 In this case the proposed example is to simulate a biceps in an animated full body rig. The AdnMuscle SOP will be applied to the mesh of the biceps.
 
 <figure style="width:75%" markdown>
-  ![basic setup for biceps sim](images/simple_setup_muscle_00.png)
+  ![Basic setup for biceps sim](images/simple_setup_muscle_00.png)
   <figcaption><b>Figure 1</b>: Basic setup for biceps simulations.</figcaption>
 </figure>
 
 ### Create Deformer
 
-To create the AdnMuscle SOP. press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnMuscle SOP ![AdnMuscle](../images/adn_muscle.png){style="width:4%"} type. Then connect the muscle geometry to the input of the AdnMuscle node.
+To create the AdnMuscle SOP, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnMuscle SOP ![AdnMuscle](../images/adn_muscle.png){style="width:4%"} type. Then connect the muscle geometry to the input of the AdnMuscle node.
 
 <figure markdown>
   ![AdnMuscle SOP creation scenario](images/simple_setup_muscle_01.png)
@@ -44,7 +44,7 @@ Optionally, add Slide On Segment Constraints. This constraint works in a similar
 To tweak the point attributes of an AdnMuscle SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnMuscle SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnMuscle node.
 
 <figure style="width:75%" markdown>
-  ![Deformable section skin](images/simple_setup_muscle_03.png)
+  ![Deformable section muscle](images/simple_setup_muscle_03.png)
   <figcaption><b>Figure 4</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
@@ -70,12 +70,12 @@ Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from 
   <figcaption><b>Figure 7</b>: Tendon weights for biceps.</figcaption>
 </figure>
 
-Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnMuscle after the `attribpaint` node.
+Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnMuscle after the `attribpaint` node.
 
-To simplify the creation of the AdnFiberGroom HDA, AdonisFX provides *Make Groomable* utility in AdonisFX > Utils. Use this utility by providing the corresponding AdnMuscle SOP in the selection to create a AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
+To simplify the creation of the AdnFiberGroom HDA, AdonisFX provides *Make Groomable* utility in AdonisFX > Utils. Use this utility by providing the corresponding AdnMuscle SOP in the selection to create an AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
 
 <figure style="width:70%" markdown>
-  ![Deformable section skin](images/simple_setup_muscle_05.png)
+  ![Deformable section after using the Make Groomable utility](images/simple_setup_muscle_05.png)
   <figcaption><b>Figure 8</b>: Deformable section after using the "Make Groomable" utility.</figcaption>
 </figure>
 
@@ -104,7 +104,7 @@ To do this, first create a rotation sensor to compute the elbow angle. Press TAB
 
 Then create a rotation locator to visualize the elbow angle. Press TAB and navigate to the submenu AdonisFX > Locators to find the AdnLocatorRotation ![AdnLocatorRotation button](../images/adn_angle_locator.png){style="width:4%"} SOP type and connect the sensor to the locator.
 
-Once the sensor and locator are created, go to the *Input* tab of both nodes and provide the SOP paths to the transform nodes from which to extract the transformation form (e.g. shoulder, elbow and wrist joints). Alternatively, use the "Operator Chooser" in the locator and sensor UI to select the correct target nodes containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
+Once the sensor and locator are created, go to the *Input* tab of both nodes and provide the SOP paths to the transform nodes from which to extract the transformation information (e.g. shoulder, elbow and wrist joints). Alternatively, use the "Operator Chooser" in the locator and sensor UI to select the correct target nodes containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
 
 <figure style="width:75%" markdown>
   ![Rotation locator and sensor setup in elbow](images/simple_setup_muscle_09.png)
@@ -135,7 +135,7 @@ The process to set up an AdnRibbonMuscle SOP is very similar to the one of setti
 In this case a planar muscle will be simulated corresponding to a biceps, which will yield similar results to the case of the AdnMuscle SOP previously shown.
 
 <figure style="width:75%" markdown>
-  ![basic setup for planar biceps sim](images/simple_setup_ribbon_muscle_00.png)
+  ![Basic setup for planar biceps sim](images/simple_setup_ribbon_muscle_00.png)
   <figcaption><b>Figure 14</b>: Basic setup for planar biceps simulations.</figcaption>
 </figure>
 
@@ -167,7 +167,7 @@ Optionally, add Slide On Segment Constraints. This constraint works in a similar
 To tweak the point attributes of an AdnRibbonMuscle SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnRibbonMuscle SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnRibbonMuscle node.
 
 <figure style="width:75%" markdown>
-  ![Deformable section skin](images/simple_setup_ribbon_muscle_03.png)
+  ![Deformable section ribbon muscle](images/simple_setup_ribbon_muscle_03.png)
   <figcaption><b>Figure 17</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
@@ -193,12 +193,12 @@ Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from 
   <figcaption><b>Figure 20</b>: Tendon weights for biceps.</figcaption>
 </figure>
 
-Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnRibbonMuscle after the `attribpaint` node.
+Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnRibbonMuscle after the `attribpaint` node.
 
-To simplify the creation of the AdnFiberGroom HDA, AdonisFX provides *Make Groomable* utility in AdonisFX > Utils. Use this utility by providing the corresponding AdnRibbonMuscle SOP in the selection to create a AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
+To simplify the creation of the AdnFiberGroom HDA, AdonisFX provides *Make Groomable* utility in AdonisFX > Utils. Use this utility by providing the corresponding AdnRibbonMuscle SOP in the selection to create an AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
 
 <figure style="width:70%" markdown>
-  ![Deformable section skin](images/simple_setup_ribbon_muscle_05.png)
+  ![Deformable section ribbon muscle after using the Make Groomable util](images/simple_setup_ribbon_muscle_05.png)
   <figcaption><b>Figure 21</b>: Deformable section after using the "Make Groomable" utility.</figcaption>
 </figure>
 
@@ -221,7 +221,7 @@ Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It 
 
 ### Connect Sensors
 
-The process to connect an AdnSensor to an AdnRibbonMuscle is the exact same to the one followed [here](#connect-sensors).
+The process to connect an AdnSensor to an AdnRibbonMuscle is the exact same as the one followed [here](#connect-sensors).
 
 <figure style="width:75%" markdown>
   ![Rotation locator and sensor setup in elbow](images/simple_setup_ribbon_muscle_09.png)
