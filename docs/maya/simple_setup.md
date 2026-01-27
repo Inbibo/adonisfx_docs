@@ -191,7 +191,7 @@ Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It 
 
 ### Connect Sensors
 
-The process to connect an AdnSensor to an AdnRibbonMuscle is the exact same to the one followed [here](#connect-sensors).
+The process to connect an AdnSensor to an AdnRibbonMuscle is the exact same as the one followed [here](#connect-sensors).
 
 <figure markdown>
   ![Connection Editor tool with AdnRotation and AdnRibbonMuscle](images/simple_setup_ribbon_muscle_06.png)
@@ -455,7 +455,7 @@ The AdnSkinMerge deformer will be applied to the final mesh which will be the re
 
 <figure markdown>
   ![Basic setup for skin merge](images/simple_setup_skin_merge_00.png)
-  <figcaption><b>Figure 38</b>: Minimum required geometries to configure an AdnSkinMerge SOP. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge SOP.</figcaption>
+  <figcaption><b>Figure 38</b>: Minimum required geometries to configure an AdnSkinMerge deformer. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge deformer.</figcaption>
 </figure>
 
 ### Create Deformer

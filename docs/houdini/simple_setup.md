@@ -228,7 +228,7 @@ The process to connect an AdnSensor to an AdnRibbonMuscle is the exact same as t
   <figcaption><b>Figure 25</b>: Rotation locator and sensor setup in elbow.</figcaption>
 </figure>
 
-To tweak additional parameters of the AdnRibbonMuscle SOP, check this [page](solvers/ribbon.md).
+To tweak additional parameters of the AdnRibbonMuscle SOP, check this [page](solvers/ribbon).
 
 ## AdnGlue
 
@@ -358,7 +358,7 @@ To create the AdnSkin node, press TAB and navigate to the submenu AdonisFX > Sol
 To add target mesh(es), go to the *Targets* tab on the AdnSkin node, press **+** to add a new target entry and set the path to the SOP node containing the target geometry to the *Target World Mesh* parameter.
 
 <figure markdown>
-  ![AdnFat SOP creation scenario](images/simple_setup_skin_01.png)
+  ![AdnSkin SOP creation scenario](images/simple_setup_skin_01.png)
   <figcaption><b>Figure 35</b>: AdnSkin SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
@@ -387,7 +387,7 @@ Finally, select the `adnMaxSlidingDistanceMultiplier` attribute and paint weight
 With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the target mesh. However, the possible parameters and tweaks to display high fidelity dynamics can be seen in the documentation for [AdnSkin](solvers/skin).
 
 > [!NOTE]
-> Soft, hard, and slide constraints form a compound constraint known as Uber constraint. Therefore, the sum of the weights for these three constraint types must not exceed 1.0. If the total weight is higher, the solver will still run the simulation because an internal normalization is applied. However, the AdnSkin SOP node will display a warning indicating that the weights will be normalized (see Figure X).
+> Soft, hard, and slide constraints form a compound constraint known as Uber constraint. Therefore, the sum of the weights for these three constraint types must not exceed 1.0. If the total weight is higher, the solver will still run the simulation because an internal normalization is applied. However, the AdnSkin SOP node will display a warning indicating that the weights will be normalized (see Figure 38).
 
 <figure markdown>
   ![AdnSkin uber constraints warning](images/simple_setup_skin_04.png)
@@ -448,7 +448,7 @@ If a specific area has lost detail, flood the `adnPushInRatioMultiplier` to 0.0 
 
 <figure markdown>
   ![relax example results](images/simple_setup_relax_03.png)
-  <figcaption><b>Figure 43</b>: Example of AdnRelax results with a distribution of weights shown in Figure X. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the SOP in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
+  <figcaption><b>Figure 43</b>: Example of AdnRelax results with a distribution of weights shown in Figure 42. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the SOP in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
 </figure>
 
 ## AdnPush
@@ -494,7 +494,7 @@ The `adnPushMultiplier` and `adnWeights` maps are flooded to 1.0 by default. The
 
 <figure markdown>
   ![push example results](images/simple_setup_push_04.png)
-  <figcaption><b>Figure 49</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure X. Most of the intersections present in Figure X introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
+  <figcaption><b>Figure 49</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 48. Most of the intersections present in Figure 46 introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
 </figure>
 
 ## AdnSkinMerge
