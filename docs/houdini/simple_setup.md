@@ -27,6 +27,7 @@ To create the AdnMuscle SOP, press TAB and navigate to the submenu AdonisFX > So
 
 In order to add targets to the muscles, go to the *Targets* tab on the AdnMuscle node, press **+** under the *Targets* collapsible to add a new entry and provide the path to the SOP containing the target geometry. The geometries added as targets can be used to drive attachment to geometry and slide on geometry constraints.
 
+> [!NOTE]
 > - Attachments to geometry and slide on geometry constraints are meant to simulate muscle-to-bone and muscle-to-muscle interactions.
 > - For muscle-to-muscle interactions, only unidirectional relationships are supported. This means that having muscles A and B, it is possible to assign A as target of B or B as target of A, but not the two at the same time.
 
@@ -150,6 +151,7 @@ Similar to AdnMuscle, to create the AdnRibbonMuscle SOP, press TAB and navigate 
 
 In order to add targets to the muscles, go to the *Targets* tab on the AdnRibbonMuscle node, press **+** under the *Targets* collapsible to add a new entry and provide the path to the SOP containing the target geometry. The geometries added as targets can be used to drive attachment to geometry and slide on geometry constraints.
 
+> [!NOTE]
 > - Attachments to geometry and slide on geometry constraints are meant to simulate muscle-to-bone and muscle-to-muscle interactions.
 > - For muscle-to-muscle interactions, only unidirectional relationships are supported. This means that having muscles A and B, it is possible to assign A as target of B or B as target of A, but not the two at the same time.
 

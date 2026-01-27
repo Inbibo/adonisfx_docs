@@ -31,6 +31,7 @@ In order to add attachment constraints to the muscle select the targets (joints,
 
 Additionally, target geometries that have been added to an AdnMuscle deformer can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to better follow the animation.
 
+> [!NOTE]
 > - Attachments to geometry and slide on geometry constraints are meant to simulate muscle-to-bone and muscle-to-muscle interactions.
 > - For muscle-to-muscle interactions, only unidirectional relationships are supported. This means that having muscles A and B, it is possible to assign A as target of B or B as target of A, but not the two at the same time.
 
