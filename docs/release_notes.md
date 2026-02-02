@@ -7,7 +7,7 @@
 
 - Implemented anisotropy for muscle solvers.
 - Implemented AdnPush deformer.
-- Implemented triangle-to-triangle self collisions.
+- Implemented triangle-to-triangle self-collisions.
 - Implemented non-linear remap modes for paintable maps: *squared*, *cubic*, *square root*, *cube root* and *logarithmic*.
 - Implemented art-directable shapes for muscle deformers based on a rest muscle geometry used to refresh constraint data.
 - Implemented substepping for AdnSimshape and muscle solvers.
@@ -17,7 +17,7 @@
 
 - Implemented anisotropy for muscle deformers.
 - Implemented AdnPush deformer.
-- Integrated triangle-to-triangle self collisions in AdnGlue and AdnSkin deformers.
+- Integrated triangle-to-triangle self-collisions in AdnGlue and AdnSkin deformers.
 - Integrated non-linear weight map modes for AdnMuscle, AdnRibbonMuscle, AdnGlue, AdnFat, AdnSkin and AdnSimshape.
 - Integrated art-directable shapes for muscle deformers.
 - Implemented substepping for AdnSimshape and muscle deformers.
