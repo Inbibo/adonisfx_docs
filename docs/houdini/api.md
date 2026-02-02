@@ -15,7 +15,7 @@ This API enables users to:
 
 As this API is still under active development, please do not hesitate to send an email to **adonis.support@inbibo.co.uk** to provide feedback and/or feature requests. The support and development teams will work together to incorporate user feedback and refine the implementation.
 
-The API can be found in `AdonisFX/python/adn/api/adnx.py`
+The API can be found in `AdonisFX/python/adn/api/adnx.py`.
 The definitions can be imported with `from adn.api.adnx import *`.
 
 Since the method definitions may change before the API becomes production-ready, here are some examples showing how to use the current experimental Python API for Houdini. Similar methods can be found directly in the `adnx.py` file.
@@ -45,6 +45,7 @@ Houdini rigs require some extra nodes to be added for API support. Below is an e
 Each geometry to be deformed must be separated and encapsulated in a deformable region with two null nodes prefixed with:
 - `ADN_IN_<geo_name>`
 - `ADN_OUT_<geo_name>`
+
 The `<geo_name>` should match the expected shape name counterpart in Maya.
 
 To ease the process of separating geometries, use the utility:
