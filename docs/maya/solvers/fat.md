@@ -156,8 +156,8 @@ In order to provide more artistic control, some key parameters of the AdnFat sol
 | **Shape Preservation**          | 1.0 | Amount of correction to apply to a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
 | **Volume Shape Preservation**   | 1.0 | Amount of correction to apply to the volume structure to preserve the initial volumetric shape and prevent it from distortion. |
 
-<figure>
-  <img src="../images/fat_weights.png">
+<figure markdown>
+  ![AdnFat example weights](../images/fat_weights.png)
   <figcaption><b>Figure 4</b>: Example of painted weights on the fat layer: on the left the map is flooded to 1.0 for global damping, mass, volume shape preservation and shape preservation; on the right the hard constraints map is painted to 1.0 on the extremities.</figcaption>
 </figure>
 

@@ -79,3 +79,6 @@ To provide more control, some key parameters of the AdnRelax SOP are exposed as 
   ![relax paintable maps](../images/relax_weights.png)
   <figcaption><b>Figure 3</b>: Example of paintable weights of AdnRelax SOP applied to the fascia layer of a biped. From left to right: smooth multiplier, relax multiplier, push in ratio multiplier, push out ratio multiplier.</figcaption>
 </figure>
+
+> [!NOTE]
+> To tweak the point attributes of an AdnRelax SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnRelax SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnRelax node.
