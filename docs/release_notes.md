@@ -38,7 +38,7 @@
 - Ported the AdnLearnMusclePatches tool as a Houdini SOP node.
 - Ported tools such as AdnTurbo, Importer, and Exporter.
 
-### Houdini-specific additions
+#### Houdini-specific additions
 
 - Implemented new nodes for the muscle fiber workflow, including: AdnFiberProjection, AdnFiberDiffusion, and AdnFiberGroom.
 - Implemented an experimental API.
