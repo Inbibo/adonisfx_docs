@@ -66,6 +66,7 @@
 
 ### Deprecated
 - Removed *Concrete* material from all solvers.
+- Removed AdnWeightsDisplayNode that was deprecated in version 1.4.0.
 
 ## Version 1.7.3
 2025-10-22
