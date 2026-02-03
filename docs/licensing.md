@@ -79,7 +79,10 @@ To activate AdonisFX in Node-Locked Batch mode:
 
 AdonisFX allows the user to use the product for **30 days** in Node-Locked Interactive mode. This means that the trial can be used using the graphical interface for one single machine at a time. The trial period requires activation which can be handled in an online or offline way.
 
-Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased through Inbibo's official [website](https://inbibo.co.uk/adonisfx#prices) and activated. See the AdonisFX [End User License Agreement](https://inbibo.co.uk/adonisfx-maya-eula) for details.
+Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased through Inbibo's official [website](https://inbibo.co.uk/adonisfx#prices) and activated. See the AdonisFX [End User License Agreement (Maya)](https://inbibo.co.uk/adonisfx-maya-eula) or [End User License Agreement (Houdini)](https://inbibo.co.uk/adonisfx-houdini-eula) for details.
+
+> [!NOTE]
+> After setting the paths for the Houdini installation, the trial will automatically start when opening Houdini.
 
 **Online Trial Activation**
 
@@ -331,3 +334,6 @@ Cause:
 Fix:
 - Verify the server address and port.
 - Ensure the TurboFloat licensing runtime is properly installed and configured.
+
+[!NOTE]
+> If any issues occur while saving the license server file, please contact support (**adonis.support@inbibo.co.uk**).

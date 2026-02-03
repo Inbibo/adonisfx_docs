@@ -101,4 +101,4 @@ Skin or **AdnSkin** is an AdonisFX solver for skin and fascia simulation. It all
 
 ## Skin Merge
 
-Skin Merge or **AdnSkinMerge** is a Maya deformer to merge simulation and animation meshes into a single final mesh. It allows selecting multiple animated and simulated skin geometries and dynamically blending their results.
+Skin Merge or **AdnSkinMerge** is a deformer to merge simulation and animation meshes into a single final mesh. It allows selecting multiple animated and simulated skin geometries and dynamically blending their results.
