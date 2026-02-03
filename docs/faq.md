@@ -117,6 +117,29 @@ The second approach is to use nCloth to apply a pressured simulation. This solut
 
 As a final step for both approaches, you may want to smooth the resulting fascia geometry with sculpting tools to polish the final result.
 
+## Cross-DCC Support
+
+### In which scale do I have to work when transferring a rig from Maya to Houdini?
+Internally, our solvers always operate in centimeters (cm) across all supported DCCs. Since Maya uses centimeters by default, while Houdini typically uses meters (1 unit = 1 meter), rigs imported into Houdini usually need to be scaled up by a factor of 100 to match Maya's simulation scale.
+In some cases (for example, Houdini's Alembic SOP), this conversion may be applied automatically.
+A good way to verify the correct scale in Houdini is to check the point coordinates in the *Geometry Spreadsheet*. The values should be consistent with centimeter units.
+
+### Are there guidelines for building rigs in Houdini?
+Yes. Each deformer chain affecting a single geometry must be enclosed in a deformable region.
+A deformable region is defined using two SOP Null nodes with a specific naming convention:
+- Start node: `ADN_IN_<geo_name>`.
+- End node: `ADN_OUT_<geo_name>`.
+All AdonisFX deformers affecting `geo_name` should be placed between these nodes.
+This structure allows components such as the API to correctly identify which SOP nodes affect which geometries, ensuring smooth transfer to other DCCs.
+
+### Do geometries need preprocessing in Houdini?
+Yes. Before using AdonisFX:
+- Geometry must be unpacked.
+- PolySoup primitives are not supported and should be avoided.
+
+### Does AdonisFX in Houdini support transforms?
+No. AdonisFX operates purely in geometry (SOP) space. Any transforms applied at the object level (world transform matrices) are not supported. Make sure to apply transforms directly to point positions before processing geometry with AdonisFX.
+
 ## Debugging
 
 ### How can I change the logger level?

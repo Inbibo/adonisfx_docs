@@ -151,12 +151,15 @@ In order to provide more artistic control, some key parameters of the AdnFat sol
 | **Shape Preservation**          | 1.0 | Amount of correction to apply to a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
 | **Volume Shape Preservation**   | 1.0 | Amount of correction to apply to the volume structure to preserve the initial volumetric shape and prevent it from distortion. |
 
-<figure>
-  <img src="../images/fat_weights.png">
+<figure markdown>
+  ![AdnFat example weights](../images/fat_weights.png)
   <figcaption><b>Figure 4</b>: Example of painted weights on the fat layer: on the left the map is flooded to 1.0 for global damping, mass, volume shape preservation and shape preservation; on the right the hard constraints map is painted to 1.0 on the extremities. </figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnFat example of net with attribpaint](../images/fat_net_example.png)
-  <figcaption><b>Figure 5</b>: Example of AdnFat net. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+  ![AdnFat example of network with attribpaint](../images/fat_net_example.png)
+  <figcaption><b>Figure 5</b>: Example of AdnFat network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
+
+> [!NOTE]
+> To tweak the point attributes of an AdnFat SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnFat SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnFat node.

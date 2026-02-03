@@ -31,8 +31,8 @@ The process to create an AdnSkinMerge SOP is:
 > On create, the *Initialization Time* parameter of AdnSkinMerge is set to the `$FSTART` frame. Make sure to adjust this value according to your needs.
 
 <figure style="width: 75%;" markdown>
-  ![AdnSkinMerge example of net with attribpaint](../images/skin_merge_net_example.png) 
-  <figcaption><b>Figure 1</b>: Example of AdnSkinMerge net. The attribpaint node has to be placed prior to the AdnSkinMerge SOP. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the net compatible with the API.</figcaption>
+  ![AdnSkinMerge example of network with attribpaint](../images/skin_merge_net_example.png) 
+  <figcaption><b>Figure 1</b>: Example of AdnSkinMerge network. The attribpaint node has to be placed prior to the AdnSkinMerge SOP. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 Once the AdnSkinMerge SOP is created, the input meshes (animation mesh list, simulation mesh list or both) can be modified:
@@ -107,3 +107,6 @@ Once the AdnSkinMerge SOP is created, the input meshes (animation mesh list, sim
   ![AdnSkinMerge attribute editor](../images/skin_merge_weights.png)
   <figcaption><b>Figure 5</b>: Example of blend map (left) and weights map (right) in AdnSkinMerge.</figcaption>
 </figure>
+
+> [!NOTE]
+> To tweak the point attributes of an AdnSkinMerge SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSkinMerge SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkinMerge node.
