@@ -59,7 +59,7 @@
 - Optimized initialization of slide on geometry constraints in AdnMuscle and AdnRibbonMuscle solvers.
 - Improved experimental API in Maya.
 - Added support for the new features in the *Importer* and *Exporter* tools.
-- Improved the Mirror Tool in Maya to support left and right tokens in the middle of names (e.g. _L_ and _R_).
+- Improved the Mirror Tool in Maya to support left and right tokens in the middle of names (e.g. \_L\_ and \_R\_).
 - Improved the Connection Editor in Maya to restrict connections to AdonisFX locators (source) and AdonisFX muscles (destination).
 
 ### Deprecated
