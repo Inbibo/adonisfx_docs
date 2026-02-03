@@ -2,7 +2,7 @@
 
 ## Activation Node
 
-Activation Node or **AdnActivation** is an AdonisFX node that allows to perform operations on input activation values to produce a final activation value that can be used to drive the activation of a muscle. This node allows to override, add, subtract, multiply, divide, etc. multiple input activations to produce one single output. The input activations can be used by ingesting AdonisFX sensor data (AdnSensorPosition, AdnSensorDistance, AdnSensorRotation). This node is recommended to be used when on-demand activations are required or when multiple activations from several sensors have to be merged into one value.
+Activation Node or **AdnActivation** is an AdonisFX node that allows you to perform operations on input activation values to produce a final activation value that can be used to drive the activation of a muscle. This node allows you to override, add, subtract, multiply, divide, etc. multiple input activations to produce one single output. The input activations can be used by ingesting AdonisFX sensor data (AdnSensorPosition, AdnSensorDistance, AdnSensorRotation). This node is recommended to be used when on-demand activations are required or when multiple activations from several sensors have to be merged into one value.
 
 ## Constraints
 
@@ -46,7 +46,7 @@ Fat or **AdnFat** is an AdonisFX solver for fat simulation. This solver allows s
 
 ## Glue
 
-Glue or **AdnGlue** is an AdonisFX solver for gluing muscles together after simulation. This solver allows to glue muscles together giving the simulation of the muscles layer a more compact look. The gluing is achieved by ingesting the muscles into the solver and generating one combined output mesh with Glue Constraints applied. Given a maximum glue distance the gluing can be modulated and controlled to reduce the gluing effect against unwanted muscles. Glue can be useful for improving the simulation of the fascia layer by creating a more compact version of the muscles layer avoiding big gaps.
+Glue or **AdnGlue** is an AdonisFX solver for gluing muscles together after simulation. This solver allows you to glue muscles together giving the simulation of the muscles layer a more compact look. The gluing is achieved by ingesting the muscles into the solver and generating one combined output mesh with Glue Constraints applied. Given a maximum glue distance the gluing can be modulated and controlled to reduce the gluing effect against unwanted muscles. Glue can be useful for improving the simulation of the fascia layer by creating a more compact version of the muscles layer avoiding big gaps.
 
 ## Locator
 
@@ -101,4 +101,4 @@ Skin or **AdnSkin** is an AdonisFX solver for skin and fascia simulation. It all
 
 ## Skin Merge
 
-Skin Merge or **AdnSkinMerge** is a Maya deformer to merge simulation and animation meshes into a single final mesh. It allows selecting multiple animated and simulated skin geometries and dynamically blending their results.
+Skin Merge or **AdnSkinMerge** is a deformer to merge simulation and animation meshes into a single final mesh. It allows selecting multiple animated and simulated skin geometries and dynamically blending their results.

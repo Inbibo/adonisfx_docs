@@ -105,7 +105,7 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Rest Shape Weight** | Float | 0.0 | ✓ | Defines the influence of the given rest shape to the final shape of the muscle. Has a range of \[0.0, 1.0\]. A value of 0.0 makes the solver ignore the rest shape. A value of 1.0 makes the solver refresh the data of fibers, shape preservation and volume constraints at each frame to align with the rest shape. A value between 0.0 and 1.0 applies an interpolation between the original constraints data (0.0) and the rest shape constraints data (1.0). Note that this parameter is ignored if there is no rest shape connected to the solver. |
+| **Rest Shape Weight** | Float | 0.0 | ✓ | Defines the influence of the given rest shape to the final shape of the muscle. Has a range of \[0.0, 1.0\]. A value of 0.0 makes the solver ignore the rest shape. A value of 1.0 makes the solver refresh the data of fibers, shape preservation at each frame to align with the rest shape. A value between 0.0 and 1.0 applies an interpolation between the original constraints data (0.0) and the rest shape constraints data (1.0). Note that this parameter is ignored if there is no rest shape connected to the solver. |
 
 #### Dynamic Properties
 | Name | Type | Default | Animatable | Description |

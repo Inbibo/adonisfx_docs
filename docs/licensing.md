@@ -30,7 +30,7 @@ Node-Locked Licensing in AdonisFX requires the activation of a `PRODUCT KEY` on 
 Whenever activating AdonisFX for the first time for a specific DCC in interactive mode, a series of dialogs requesting information are prompted. These dialogs allow users to enter a valid `PRODUCT KEY` or to launch AdonisFX in trial mode for non-commercial purposes.
 
 To activate AdonisFX in Node-Locked Interactive mode:
-  1. Launch Maya.
+  1. Launch your DCC.
   2. Load the plug-in.
   3. Go to AdonisFX Menu > *Activate License*. A dialog will show up with two options: *Activate* to enter a valid `PRODUCT KEY` in order to enable the full license; *Continue With Trial* to continue with the 30 day trial period.
 
@@ -58,7 +58,7 @@ To activate AdonisFX in Node-Locked Interactive mode:
       <figcaption><b>Figure 4</b>: Activation Retry Adding Product Key.</figcaption>
 </figure>
 
-  6. AdonisFX is activated. Restart Maya or reload the plugin to start using all features from AdonisFX.
+  6. AdonisFX is activated. Restart your DCC or reload the plugin to start using all features from AdonisFX.
 
 > [!NOTE]
 > - This activation mode requires access to the internet for activating licenses.
@@ -79,11 +79,11 @@ To activate AdonisFX in Node-Locked Batch mode:
 
 AdonisFX allows the user to use the product for **30 days** in Node-Locked Interactive mode. This means that the trial can be used using the graphical interface for one single machine at a time. The trial period requires activation which can be handled in an online or offline way.
 
-Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased through Inbibo's official [website](https://inbibo.co.uk/adonisfx#prices) and activated. See the AdonisFX [End User License Agreement](https://inbibo.co.uk/adonisfx-maya-eula) for details.
+Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased through Inbibo's official [website](https://inbibo.co.uk/adonisfx#prices) and activated. See the AdonisFX [End User License Agreement for Maya](https://inbibo.co.uk/adonisfx-maya-eula) or [End User License Agreement for Houdini](https://inbibo.co.uk/adonisfx-houdini-eula)  for details.
 
 **Online Trial Activation**
 
-It will allow the user to use AdonisFX for 30 days without providing a `PRODUCT KEY`. Once that trial period is over, the user will be asked to introduce a valid product key. If not provided, then AdonisFX will not load and could not be used.
+It will allow the user to use AdonisFX for 30 days without providing a `PRODUCT KEY`. Once that trial period is over, the user will be asked to introduce a valid product key. If not provided, then AdonisFX will not load and cannot be used.
 
 In this case, the activation does not require any input from the user. The trial period is registered automatically the first time that AdonisFX is loaded from a workstation with internet access.
 
@@ -92,7 +92,7 @@ In this case, the activation does not require any input from the user. The trial
 
 **Offline Trial Activation**
 
-It will allow the user to use AdonisFX for 30 days without providing a `PRODUCT KEY`. Once that trial period is over, the user will be asked to introduce a valid product key. If not provided, then AdonisFX will not load and could not be used.
+It will allow the user to use AdonisFX for 30 days without providing a `PRODUCT KEY`. Once that trial period is over, the user will be asked to introduce a valid product key. If not provided, then AdonisFX will not load and cannot be used.
 
 To activate AdonisFX in Offline Node-Locked Interactive Trial mode:
 
