@@ -8,22 +8,28 @@
 - Implemented anisotropy for muscle solvers.
 - Implemented AdnPush deformer.
 - Implemented triangle-to-triangle self-collisions.
+- Added relaxation to point-to-point self-collisions.
 - Implemented non-linear remap modes for paintable maps: *squared*, *cubic*, *square root*, *cube root* and *logarithmic*.
 - Implemented art-directable shapes for muscle deformers based on a rest muscle geometry used to refresh constraint data.
 - Implemented substepping for AdnSimshape and muscle solvers.
 - Reimplemented core functions to support DCC agnosticity.
+- Added `SaveServer.exe` (Windows) and `SaveServer` (Linux) executables to allow manually saving the server file without elevated privileges.
 
 ### Maya
 
 - Implemented anisotropy for muscle deformers.
 - Implemented AdnPush deformer.
 - Integrated triangle-to-triangle self-collisions in AdnGlue and AdnSkin deformers.
+- Added relaxation to point-to-point self-collisions in AdnGlue and AdnSkin deformers.
 - Integrated non-linear weight map modes for AdnMuscle, AdnRibbonMuscle, AdnGlue, AdnFat, AdnSkin and AdnSimshape.
 - Integrated art-directable shapes for muscle deformers.
 - Implemented substepping for AdnSimshape and muscle deformers.
 - Implemented *Update v1.x to v2.x* menu utility.
 - Added *Visualization Modes* to the AdonisFX Paint Tool, allowing *Greyscale* and *Heat Map* modes.
 - Added *Update on Topology Change* attribute for AdnPush and AdnRelax.
+- Modified default attribute values in most of the nodes.
+- Reordered shelf and menu items.
+- Added the name of the geometry to the custom deformer name in the creation UI.
 
 ### Houdini
 
@@ -53,6 +59,8 @@
 - Optimized initialization of slide on geometry constraints in AdnMuscle and AdnRibbonMuscle solvers.
 - Improved experimental API in Maya.
 - Added support for the new features in the *Importer* and *Exporter* tools.
+- Improved the Mirror Tool in Maya to support left and right tokens in the middle of names (e.g. _L_ and _R_).
+- Improved the Connection Editor in Maya to restrict connections to AdonisFX locators (source) and AdonisFX muscles (destination).
 
 ### Deprecated
 - Removed *Concrete* material from all solvers.
