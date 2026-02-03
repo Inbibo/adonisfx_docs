@@ -81,6 +81,9 @@ AdonisFX allows the user to use the product for **30 days** in Node-Locked Inter
 
 Trial licenses are intended for testing and non-commercial purposes. To use AdonisFX for commercial purposes a `PRODUCT KEY` must be purchased through Inbibo's official [website](https://inbibo.co.uk/adonisfx#prices) and activated. See the AdonisFX [End User License Agreement for Maya](https://inbibo.co.uk/adonisfx-maya-eula) or [End User License Agreement for Houdini](https://inbibo.co.uk/adonisfx-houdini-eula)  for details.
 
+> [!NOTE]
+> After setting the paths for the Houdini installation, the trial will automatically start when opening Houdini.
+
 **Online Trial Activation**
 
 It will allow the user to use AdonisFX for 30 days without providing a `PRODUCT KEY`. Once that trial period is over, the user will be asked to introduce a valid product key. If not provided, then AdonisFX will not load and cannot be used.
@@ -331,3 +334,6 @@ Cause:
 Fix:
 - Verify the server address and port.
 - Ensure the TurboFloat licensing runtime is properly installed and configured.
+
+[!NOTE]
+> If any issues occur while saving the license server file, please contact support (**adonis.support@inbibo.co.uk**).
