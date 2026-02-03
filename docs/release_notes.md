@@ -62,7 +62,7 @@
 - Improved the Mirror Tool in Maya to support left and right tokens in the middle of names (e.g. \_L\_ and \_R\_).
 - Improved the Connection Editor in Maya to restrict connections to AdonisFX locators (source) and AdonisFX muscles (destination).
 - Added support for multiple AdnRelax and AdnPush nodes on the same geometry in Maya.
-- Added support in the experimental API for rebuilding the rig using the correct execution order in Maya.
+- Added support in the experimental API for rebuilding the rig using the correct execution order in Maya and Houdini.
 
 ### Deprecated
 - Removed *Concrete* material from all solvers.
