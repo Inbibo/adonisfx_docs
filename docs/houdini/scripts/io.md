@@ -92,4 +92,7 @@ The first argument `file_path` is required and it is the full path to the JSON f
 
 Find more information about the use of the export feature in the [Export](tools/exporter) page.
 
-<!-- TODO #261: Reminder to take into account the limitations for this page when completing API work. -->
+## Limitations
+
+- The `adnio` scripts do not support subnetworks. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
+- Only one active Geometry subnet is allowed for the `adnio` scripts to work.

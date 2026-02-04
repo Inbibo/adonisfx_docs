@@ -83,3 +83,8 @@ Depending on the complexity of the rig, the export process might take a few seco
 > [!NOTE]
 > - The Export Tool is labeled as *Beta* since it relies on the experimental [API](../api).
 > - Exporting data is required to be executed on rest frame.
+
+## Limitations
+
+- The export tool does not support subnetworks. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
+- Only one active Geometry subnet is allowed for the export tool to work.
