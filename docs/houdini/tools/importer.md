@@ -91,5 +91,7 @@ The previous steps corresponds to importing a rig that was exported from the sam
 
 ## Limitations
 
-- The import tool does not support subnetworks. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
+- The import tool does not support subnetworks inside of the Geometry context. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
 - Only one active geometry node (with the visibility/display flag enabled) in the */obj* context is allowed for the import tool to work.
+- Nodes use to drive attachment to transform or slide on segment constraints (e.g. null, joint or rivet nodes) must live in the */obj* context.
+- KineFX joint transforms are not supported.
