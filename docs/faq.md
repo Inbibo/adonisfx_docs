@@ -117,6 +117,12 @@ The second approach is to use nCloth to apply a pressured simulation. This solut
 
 As a final step for both approaches, you may want to smooth the resulting fascia geometry with sculpting tools to polish the final result.
 
+### How can I upgrade a Maya scene from AdonisFX v1 to v2?
+
+Go to AdonisFX menu > Utils and press *Upgrade v1.x To v2.x*. This option performs an upgrade to all AdonisFX solvers to make v1.x rigs compatible with v2.x. This upgrade affects the painted values in the maps that are affected by the *Maps Remap Mode* attribute added in v2.0.0 to all solvers (i.e., shape preservation, attachments and sliding in muscle solver, uber constraints in skin solver). Due to how this remapping modifies how the painted values from the plugs are transferred to the solver, this utility updates those values in order to get simulation results as consistent as possible with v1.x.
+
+Additionally, since the *Concrete* material has been deprecated, this upgrade script also checks whether any nodes in the scene are using an invalid material. If an invalid material is found, it will be automatically replaced with the default material.
+
 ## Cross-DCC Support
 
 ### In which scale do I have to work when transferring a rig from Maya to Houdini?
@@ -184,7 +190,3 @@ For more information visit the [licensing](licensing#install-server) page or vis
 
 ### I can't connect to my licensing server for floating licensing. What should I do?
 Make sure that your firewall configuration allows the connection and try using the `ping` command to check the connectivity. If the connection is valid but AdonisFX can't load, please contact support.
-
-### How can I upgrade a Maya scene from AdonisFX v1 to v2?
-
-Go to AdonisFX menu > Utils and press *Upgrade v1.x To v2.x*. This option performs an upgrade to all AdonisFX solvers to make v1.x rigs compatible with v2.x. This upgrade affects the painted values in the maps that are affected by the *Maps Remap Mode* attribute added in v2.0.0 to all solvers (i.e., shape preservation, attachments and sliding in muscle solver, uber constraints in skin solver). Due to how this remapping modifies how the painted values from the plugs are transferred to the solver, this utility updates those values in order to get simulation results as consistent as possible with v1.x.

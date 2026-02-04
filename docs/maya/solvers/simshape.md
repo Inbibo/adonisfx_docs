@@ -25,7 +25,7 @@ When initially creating an AdnSimshape deformer, it is possible to add both a **
 
   1. Select the **Rest Mesh** (optional), then the **Simulated Mesh**.
   2. Press the ![Simshape button](../../images/adn_simshape.png){style="width:4%"} in the AdonisFX shelf or press *Simshape* in AdonisFX menu under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
-  3. A message box will notify that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings and *Material* set to *Skin*. Check the next section to customize their configuration.
+  3. A message in the terminal will notify that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings and *Material* set to *Skin*. Check the next section to customize their configuration.
 
 In order to add or remove any of the optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape:
 
@@ -40,13 +40,13 @@ To add any of these meshes to AdnSimshape, follow a similar procedure to when fi
 
   1. First, select the **Additional Mesh**. then the **Simulated Mesh**.
   2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
-  3. A message box will notify that the action has been successful.
+  3. A message in the terminal will notify that the action has been successful.
 
 To remove any of these meshes from AdnSimshape follow this procedure:
 
   1. Select only the mesh with AdnSimshape applied.
   2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
-  3. A message box will notify that the action has been successful.
+  3. A message in the terminal will notify that the action has been successful.
 
 ## Attributes
 

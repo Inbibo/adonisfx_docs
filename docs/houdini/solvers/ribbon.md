@@ -173,6 +173,7 @@ To create an AdnRibbonMuscle, follow these steps:
 > - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
 > - Fixed point attribute names also ensure compatibility with the API.
 > - To copy the map names of the disabled attributes for painting (using an attribute paint node) right click on the disabled map attribute parameter, press "Copy Parameter", select the attribute paint node and on the attribute name entry right click and press "Paste Values". This allows to easily copy the attribute name for painting.
+> - The *Make Paintable* utility provided in the AdonisFX menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnRibbonMuscle SOP.
 > - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
 
 ## Parameter Template
@@ -245,6 +246,9 @@ In order to provide more artistic control, some key parameters of the muscle sol
   ![AdnRibbonMuscle example of network with attribpaint and AdnFiberGroom HDA](../images/ribbon_net_example.png) 
   <figcaption><b>Figure 9</b>: Example of AdnRibbonMuscle network. The attribpaint node has to be placed prior to the AdnFiberGroom. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
+
+> [!NOTE]
+> To tweak the point attributes of an AdnRibbonMuscle SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnRibbonMuscle SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnRibbonMuscle node.
 
 ## Advanced
 

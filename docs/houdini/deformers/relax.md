@@ -46,9 +46,10 @@ The AdnRelax SOP is easy to create and configure in Houdini. It only requires th
 | **Weights Attribute**                   | float | 1.0 | ✗  | Specifies the name of the per-point attribute to read the weight of the deformation. The expected attribute name is `adnWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\]. |
 
 > [!NOTE]
-> - All maps parameters are disabled in each entry added to these multiparams because the attribute names are fixed to drive specific functionalities of the deformer.
+> - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
 > - Fixed point attribute names also ensure compatibility with the API.
 > - To copy the map names of the disabled attributes for painting (using an attribute paint node) right click on the disabled map attribute parameter, press "Copy Parameter", select the attribute paint node and on the attribute name entry right click and press "Paste Values". This allows to easily copy the attribute name for painting.
+> - The *Make Paintable* utility provided in the AdonisFX menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnRelax SOP.
 > - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
 
 ## Parameter Template

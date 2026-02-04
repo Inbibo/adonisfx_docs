@@ -80,8 +80,8 @@ The *Inputs* attribute is presented as an array of 3 attributes which can be fou
 ### Output Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Output Attribute**  | String  | `adnOutValue` | ✓ | Specifies the name of the point attribute to write the result into. |
-| **Output**            | Float   | 1.0           | ✓ | Output activation value. |
+| **Output Attribute**  | String  | `adnOutValue` | ✗ | Specifies the name of the point attribute to write the result into. |
+| **Output**            | Float   | 1.0           | ✗ | Output activation value. |
 
 ## Parameter Template
 

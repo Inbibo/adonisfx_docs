@@ -31,7 +31,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 
 <figure markdown>
   ![AdnSensorPosition graph](../images/position_sensor_locator_graph.png)
-  <figcaption><b>Figure 2</b>: AdnSensorPosition and AdnLocatorPosition in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
+  <figcaption><b>Figure 2</b>: AdnSensorPosition and AdnLocatorPosition in the node graph.</figcaption>
 </figure>
 
 ### Attributes
@@ -136,7 +136,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 
 <figure markdown>
   ![AdnSensorDistance graph](../images/distance_sensor_locator_graph.png)
-  <figcaption><b>Figure 7</b>: AdnSensorDistance and AdnLocatorDistance in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
+  <figcaption><b>Figure 7</b>: AdnSensorDistance and AdnLocatorDistance in the node graph.</figcaption>
 </figure>
 
 ### Attributes
@@ -262,7 +262,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 
 <figure markdown>
   ![AdnSensorRotation graph](../images/rotation_sensor_locator_graph.png)
-  <figcaption><b>Figure 13</b>: AdnSensorRotation and AdnLocatorRotation in the node graph. The connection is created via detail expression to the AdnMuscle node.</figcaption>
+  <figcaption><b>Figure 13</b>: AdnSensorRotation and AdnLocatorRotation in the node graph.</figcaption>
 </figure>
 
 ### Attributes
