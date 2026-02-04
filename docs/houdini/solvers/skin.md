@@ -212,7 +212,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 | **Stretching Resistance**                  | 1.0 | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction.<ul><li>*Tip*: To optimize the painting of the weight, flood it to 1.0 as a starting point and tweak some areas later on.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
 
 > [!NOTE]
-> To tweak the point attributes of an AdnSKin SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSkin SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkin node.
+> To tweak the point attributes of an AdnSkin SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSkin SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkin node.
 
 <figure markdown>
   ![Example of painted maps for AdnSkin](../images/skin_weights.png)

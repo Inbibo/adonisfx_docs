@@ -68,7 +68,7 @@ To add muscle activation via Machine Learning, the Learn Muscle Patches tool has
 
 ### Can I add muscle activations to AdnSimshape without an AdonisFX Muscle Patches file?
 
-AdnSimshape allows to add muscle activation alternatively without the need for the AdonisFX Muscle Patches file. To do this, the activation values ingested directly into the AdnSimshape node. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator tool. Read how to drive the activations of AdnSimshape using AdnEdgeEvaluator in the dedicated **AdnEdgeEvaluator** page.
+AdnSimshape allows to add muscle activation alternatively without the need for the AdonisFX Muscle Patches file. To do this, the activation values must be ingested directly into the AdnSimshape node. These activation values can be computed from the rest mesh and the deform mesh using the AdnEdgeEvaluator tool. Read how to drive the activations of AdnSimshape using AdnEdgeEvaluator in the dedicated **AdnEdgeEvaluator** page.
 
 ### For what units is AdonisFX designed?
 

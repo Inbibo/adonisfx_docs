@@ -335,5 +335,5 @@ Fix:
 - Verify the server address and port.
 - Ensure the TurboFloat licensing runtime is properly installed and configured.
 
-[!NOTE]
+> [!NOTE]
 > If any issues occur while saving the license server file, please contact support (**adonis.support@inbibo.co.uk**).

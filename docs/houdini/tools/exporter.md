@@ -87,4 +87,4 @@ Depending on the complexity of the rig, the export process might take a few seco
 ## Limitations
 
 - The export tool does not support subnetworks. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
-- Only one active Geometry subnet is allowed for the export tool to work.
+- Only one active geometry node (with the visibility/display flag enabled) in the */obj* context is allowed for the export tool to work.
