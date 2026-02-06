@@ -52,6 +52,10 @@ Once the AdnSkinMerge deformer is created, to modify its input meshes (animation
 
 3. Once everything has been set up, press the *Apply changes* button. A message in the terminal will notify you that AdnSkinMerge has been edited properly.
 
+> [!NOTE]
+> - In v2.0 of AdonisFX a new *currentTime* plug has been added to the node which will be automatically connected to the *time1.outTime* plug in Maya.
+> - The *Upgrade v1.x To v2.x* or the *Reconnect Current Time* utils in the AdonisFX menu can be used to reconnect the time plug in case it is missing in the setup.
+
 ## Attributes
 
 ### Time Attributes
