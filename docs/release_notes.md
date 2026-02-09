@@ -30,6 +30,7 @@
 - Modified default attribute values in most of the nodes.
 - Reordered shelf and menu items.
 - Added the name of the geometry to the custom deformer name in the creation UI.
+- Added a utility to reconnect the currentTime attribute to Maya's time node.
 
 ### Houdini
 
@@ -63,6 +64,7 @@
 - Improved the Connection Editor in Maya to restrict connections to AdonisFX locators (source) and AdonisFX muscles (destination).
 - Added support for multiple AdnRelax and AdnPush nodes on the same geometry in Maya.
 - Added support in the experimental API for rebuilding the rig using the correct execution order in Maya and Houdini.
+- Added currentTime attribute to AdnSkinMerge in Maya for correct dependency graph evaluation.
 
 ### Deprecated
 - Removed *Concrete* material from all solvers.
