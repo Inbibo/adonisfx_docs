@@ -123,9 +123,9 @@ Go to AdonisFX menu > Utils and press *Upgrade v1.x To v2.x*. This option perfor
 
 Additionally, since the *Concrete* material has been deprecated, this upgrade script also checks whether any nodes in the scene are using an invalid material. If an invalid material is found, it will be automatically replaced with the default material.
 
-As a final step to support the addition of the currentTime plug in AdnSkinMerge we provide inside of the upgrade process a way to connect the *time1.outTime* to every node that has a *currentTime* plug.
+As a final step to support the addition of the *currentTime* plug in AdnSkinMerge we provide inside of the upgrade process a way to connect the *time1.outTime* to every node that has a *currentTime* plug.
 
-### How can I reconnect the time to the currentTime plug in Maya if I had accidentally broken the connection?
+### How can I reconnect the time to the *currentTime* plug in Maya if I had accidentally broken the connection?
 
 Got to AdonisFX menu > Utils and press *Reconnect Current Time*. This option will search for all AdonisFX nodes in the scene with a *currentTime* plug and connect the *time1.outTime* plug to it.
 This is necessary to ensure a correct cooking of the nodes.

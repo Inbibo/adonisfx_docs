@@ -174,7 +174,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 - **Utils > Clear**. Removes all AdonisFX nodes from the scene.
 - **Utils > Upgrade v1.x To v2.x**. Performs an upgrade to all AdonisFX solvers to make v1.x rigs compatible with v2.x. This upgrade affects the painted values in the maps that are affected by the *Maps Remap Mode* attribute added in v2.0.0 to all solvers (i.e., shape preservation, attachments and sliding in muscle solver, uber constraints in skin solver). Due to how this remapping modifies how the painted values from the plugs are transferred to the solver, this utility updates those values in order to get simulation results as consistent as possible with v1.x. Additionally, since the *Concrete* material has been deprecated, this upgrade script also checks whether any nodes in the scene are using an invalid material. If an invalid material is found, it will be automatically replaced with the default material.
-As a final step to support the addition of the currentTime plug in AdnSkinMerge we provide inside of the upgrade process a way to connect the *time1.outTime* to every node that has a *currentTime* plug.
+As a final step to support the addition of the *currentTime* plug in AdnSkinMerge we provide inside of the upgrade process a way to connect the *time1.outTime* to every node that has a *currentTime* plug.
 - **Utils > Reconnect Current Time**. Connected the *time1.outTime* plug to all the AdonisFX nodes that have a *currentTime* plug for correct time dependency for its evaluation. 
 
 - **Mirror**. Opens the Mirror Tool UI which allows to mirror the muscle setup (locators, sensors and muscles) from one side of the character to the other based on left and right naming rules.
