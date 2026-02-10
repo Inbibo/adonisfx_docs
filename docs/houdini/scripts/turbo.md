@@ -16,7 +16,7 @@ The main function to run AdnTurbo is `apply_turbo`, which is defined as follows:
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.houdini.turbo import apply_turbo
 
 def apply_turbo(
-    mummy,                           # str: name or path of the skeletal mesh
+    mummies,                         # str or list: mummy geometry names
     muscles,                         # str or list: muscle geometry names
     fascia=None,                     # str: fascia geometry name
     fat=None,                        # str: fat geometry name
@@ -36,7 +36,7 @@ Each layer builds upon the previous one, this means that a specific layer cannot
 
 To configure at least the muscle layer, the following inputs are required:
 
-- **mummy**: the skeletal mesh that drives the muscle simulation.
+- **mummies**: one or more skeletal mesh to drive the muscle simulation.
 - **muscles**: one or more meshes representing muscles.
 
 When these two inputs are provided, the muscle layer will be completely configured including AdonisFX locators and sensors.
@@ -51,8 +51,8 @@ To configure the downstream layers, the following inputs have to be provided:
 
 > [!NOTE]
 > - The paths to SOP nodes must be absolute.
-> - Muscles can be provided as a combined mesh (i.e. a single geometry node containing all the muscles) or as a list of separated muscles.
-> - If muscles are provided as a combined mesh, the geostream must contain a primitive attribute, passed to `apply_turbo` via the `muscle_piece_attrib_name` argument, to allow AdnTurbo to identify each individual muscle.
+> - Muscles and mummies can be provided as a combined mesh (i.e. a single geometry node containing all the geometries) or as a list of separated geometries.
+> - If muscles or mummies are provided as a combined mesh, the geostream must contain a primitive attribute, passed to `apply_turbo` via the `muscle_piece_attrib_name` argument, to allow AdnTurbo to identify each individual geometry piece.
 
 ## Arguments
 
@@ -60,7 +60,7 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 
 | Argument | Required | Type | Default | Description |
 | :------- | :------- | :--- | :------ | :---------- |
-| **mummy**                    | Yes      | string         |        | Path to the node that contains the skeletal mesh that drives the muscle simulation. |
+| **mummies**                  | Yes      | string         |        | Skeletal mesh(es) to drive the muscle simulation. It can be: 1) path to the node containing the geometry of all the mummies; 2) list of paths to the nodes containing each isolated mummy geometry. |
 | **muscles**                  | Yes      | string or list |        | Geometries to apply an AdnMuscle SOP to. It can be: 1) path to the node containing the geometry of all the muscles; 2) list of paths to the nodes containing each isolated muscle geometry. |
 | **fascia**                   | Optional | string         | None   | Path to the node that contains the geometry to apply the AdnSkin SOP to. Requires `glue=True`. |
 | **fat**                      | Optional | string         | None   | Path to the node that contains the geometry to apply the AdnFat SOP to. Requires fascia to be provided first. |
@@ -83,7 +83,7 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 
 2. Create the arguments for the `apply_turbo` function.
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">mummy       = "/obj/geo1/mummy_GEOShape"
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">mummies     = "/obj/geo1/mummy_GEOShape"
 muscles     = "/obj/geo1/muscles_GRP"
 locators    = True
 glue        = True
@@ -93,11 +93,14 @@ skin        = "/obj/geo1/simSkin_GEOShape"
 report_data = {"errors": [], "warnings": []}
 </code></pre>
 
+> [!NOTE]
+> In this example only one mummy geometry is provided, however the `mummies` argument can also be a list (e.g. `mummies = ["/obj/geo1/L_mummy_shoulder_GEO", "/obj/geo1/L_mummy_forearmGEO", ...]`).
+
 3. Run the following command in a Python Script tab by providing the previous arguments.
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.houdini.turbo import apply_turbo
 apply_turbo(
-    mummy,
+    mummies,
     muscles,
     fascia=fascia,
     fat=fat,
@@ -136,7 +139,7 @@ for warn in report_data["warnings"]:
 
 As a result of executing the script by providing the geometries for all the layers, the following nodes will be created:
 
-- An AdnMuscle for each muscle geometry with the mummy geometry as target.
+- An AdnMuscle for each muscle geometry with the mummy geometries as targets.
 - An AdonisFX locator and sensor for each AdnMuscle to drive the muscle activation.
 - An AdnGlue node with all the muscles merged as input.
 - An AdnSkin node for the fascia geometry with the mummy and glue as targets.

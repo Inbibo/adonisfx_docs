@@ -16,7 +16,7 @@ The main function to run AdnTurbo is `apply_turbo`, which is defined as follows:
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.turbo import apply_turbo
 
 def apply_turbo(
-    mummy,                          # str: name or path of the skeletal mesh
+    mummies,                        # str or list: mummy geometry names
     muscles,                        # str or list: muscle geometry names
     fascia=None,                    # str: fascia geometry name
     fat=None,                       # str: fat geometry name
@@ -39,7 +39,7 @@ Each layer builds upon the previous one, this means that a specific layer cannot
 
 To configure at least the muscle layer, the following inputs are required:
 
-- **mummy**: the skeletal mesh that drives the muscle simulation.
+- **mummies**: one or more skeletal mesh to drive the muscle simulation.
 - **muscles**: one or more meshes representing muscles.
 
 When these two inputs are provided, the muscle layer will be completely configured including AdonisFX locators and sensors.
@@ -58,7 +58,7 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 
 | Argument | Required | Type | Default | Description |
 | :------- | :------- | :--- | :------ | :---------- |
-| **mummy**                 | Yes      | string         |       | Skeletal mesh that drives the muscle simulation. It can be: 1) the name of the geometry (short name or full path); 2) a group containing the geometry. |
+| **mummies**               | Yes      | string         |       | Skeletal mesh(es) to drive the muscle simulation. It can be: 1) name of one single geometry; 2) a transform group containing multiple geometries; 3) a list of geometry names; 4) a list of groups containing multiple geometries. |
 | **muscles**               | Yes      | string or list |       | Geometries to apply a muscle deformer to. It can be: 1) name of one single geometry; 2) a transform group containing multiple geometries; 3) a list of geometry names; 4) a list of groups containing multiple geometries. |
 | **fascia**                | Optional | string         | None  | Geometry to apply the skin deformer to. It can be: 1) name of the fascia geometry; 2) group containing the fascia geometry. Requires `glue=True`. |
 | **fat**                   | Optional | string         | None  | Geometry to apply the fat deformer to. It can be: 1) name of the fat geometry; 2) group containing the fat geometry. Requires fascia to be provided first. |
@@ -84,7 +84,7 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 
 2. Create the arguments for the `apply_turbo` function.
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">mummy       = "mummy_GEO"
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">mummies     = "mummy_GEO"
 muscles     = ["L_deltoid_GEO", "L_bicepsBrachii_GEO", "L_brachialis_GEO", "L_triceps_GEO", ...]
 locators    = True
 glue        = True
@@ -94,11 +94,14 @@ skin        = "simSkin_GEO"
 report_data = {"errors": [], "warnings": []}
 </code></pre>
 
+> [!NOTE]
+> In this example only one mummy geometry is provided, however the `mummies` argument can also be a list (e.g. `mummies = ["L_mummy_shoulder_GEO", "L_mummy_forearmGEO", ...]`).
+
 3. Run the following command in a Python Script tab by providing the previous arguments.
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.turbo import apply_turbo
 apply_turbo(
-    mummy,
+    mummies,
     muscles,
     fascia=fascia,
     fat=fat,
@@ -113,7 +116,7 @@ apply_turbo(
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.turbo import apply_turbo
 
-mummy                 = "mummy_GEO"
+mummies               = "mummy_GEO"
 muscles               = ["L_deltoid_GEO", "L_bicepsBrachii_GEO", "L_brachialis_GEO", "L_triceps_GEO", ...]
 glue                  = True
 glue_group_name       = "glue_GRP"
@@ -127,7 +130,7 @@ skin                  = "simSkin_GEO"
 report_data           = {"errors": [], "warnings": []}
 
 apply_turbo(
-    mummy,
+    mummies,
     muscles,
     fascia=fascia,
     fat=fat,
@@ -167,7 +170,7 @@ for warn in report_data["warnings"]:
 
 As a result of executing the script by providing the geometries for all the layers, the following nodes will be created:
 
-- An AdnMuscle for each muscle geometry with the mummy geometry as target.
+- An AdnMuscle for each muscle geometry with the mummy geometries as targets.
 - An AdonisFX locator and sensor for each AdnMuscle to drive the muscle activation.
 - An AdnGlue node (including its glue output geometry) with all the muscles as inputs.
 - An AdnSkin node for the fascia geometry with the mummy and glue geometries as targets.
