@@ -44,6 +44,7 @@
     - **Utilities:** AdnRemap, AdnActivation, AdnEdgeEvaluator.
 - Ported the AdnLearnMusclePatches tool as a Houdini SOP node.
 - Ported tools such as AdnTurbo, Importer, and Exporter.
+- Ported the visual debugger system on a per-SOP level to debug constraints, geometry information and other relevant information for simulation setup purposes.
 
 #### Houdini-specific additions
 
