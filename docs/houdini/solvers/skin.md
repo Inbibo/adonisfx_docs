@@ -165,7 +165,16 @@ The process to create the AdnSkin is:
 > - The *Make Paintable* utility provided in the AdonisFX menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnSkin SOP.
 > - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
 
+### Debug Attributes
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Debug**       | Boolean      | False            | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer. |
+| **Feature**     | Enumerator   | Hard Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Distance Constraints: Draw *Distance Constraint* connections representing the constrained pair of vertices in the simulated mesh.</li><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh to the target mesh.</li><li>Self Collisions Volume: For each vertex draw a sphere whose volume depends on the point radius that the vertex has.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide Constraints: Draw *Slide Constraints* connections from the simulated mesh to the target mesh.</li><li>Sliding Surface On Target: Draw outline of triangles covered by the *Max Sliding Distance* of each vertex.</li><li>Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the target mesh.</li><li>Acceleration Structure: Draw a bounding box encapsulating all the collision primitives present in the internal acceleration structure used to solve self-collisions at the level specified in the attribute *Debug Level Acceleration Structure*. If the level set is -1, then all levels are displayed. If the value is greater than the number of levels, then no levels are displayed. Otherwise, only the specified level is displayed.</li><li>Rest Self Collisions: Draw the edges of the triangles that are intersecting with the mesh at rest.</li></ul> |
+| **Color**       | Color Picker | Red              | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
+
 ## Parameter Template
+
+<!-- TODO #365: Update screenshots -->
 
 <figure style="width: 75%;" markdown>
   ![skin parameter template solver](../images/skin_parameter_template_00.png) 
@@ -191,6 +200,8 @@ The process to create the AdnSkin is:
   ![skin parameter template maps](../images/skin_parameter_template_04.png)
   <figcaption><b>Figure 5</b>: AdnSkin Parameter Template: Maps.</figcaption>
 </figure>
+
+<!-- TODO #365: Update screenshots -->
 
 ## Paintable Weights
 
@@ -226,6 +237,29 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
   ![AdnSkin example of network with attribpaint](../images/skin_net_example.png) 
   <figcaption><b>Figure 6</b>: Example of AdnSkin network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
+
+## Debugger
+
+In order to better visualize deformer constraints and attributes in the Houdini viewport there is the option to enable the debugger, found in the switcher menu labeled *Debug* in the parameter interface. The visualization of the guide geometry is only activated when selecting the node to debug and cannot be enabled globally.
+
+
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnSkin deformer are:
+
+ - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the *Triangulate Mesh* option is disabled the debugged lines will align with the edges of the mesh polygons. If the *Triangulate Mesh* option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
+ - **Hard Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Hard Constraints* weight is greater than 0.0.
+ - **Self Collisions Volume**: For each vertex, a sphere will be drawn representing the volume that will collide if its *Self Collision Point Radius Multiplier* weight and the *Point Radius Scale* are greater than 0.0.
+ - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
+ - **Slide Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Slide Constraints* weight is greater than 0.0.
+ - **Sliding Surface On Target**: For each vertex, lines will outline the target triangles within the reach of its *Max Sliding Distance*.
+ - **Soft Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Soft Constraints* weight is greater than 0.0.
+ - **Acceleration Structure**: For each level in the acceleration structure used to solve self-collisions, display a box representing the bounding box encapsulating all the collision primitives in that level. If the value of *Debug Level Acceleration Structure* is -1, then all levels are displayed. Otherwise, only the specified level is displayed. If the value is greater than the number of levels, then no levels are displayed.
+ - **Rest Self Collisions**: For each triangle intersecting with the mesh at rest, the 3 edges of the triangle are displayed.
+
+<!-- TODO: #365 Update all missing screenshots -->
+
+> [!NOTE]
+> - The width of the debug lines can be modified from the global viewport settings in Houdini.
+> - For better contrast while debugging, enable the *Dark* background option in the viewport settings.
 
 ## Advanced
 

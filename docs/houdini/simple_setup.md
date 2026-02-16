@@ -73,6 +73,8 @@ Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from 
 
 Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnMuscle after the `attribpaint` node.
 
+To visualize, change the fiber size or its color, go to the debug submenu in the SOP node, and customize the color and length of the drawn lines.
+
 To simplify the creation of the AdnFiberGroom HDA, AdonisFX provides *Make Groomable* utility in AdonisFX > Utils. Use this utility by providing the corresponding AdnMuscle SOP in the selection to create an AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
 
 <figure style="width:70%" markdown>
@@ -190,6 +192,8 @@ Start by painting attachment weights, painting the influence for each target by 
 
 Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from the *Attribute* enumerator and paint over the parts of the muscle that should have tendon tissue.
 
+In case the fiber or its color has to be manipulated, go to the debug submenu in the SOP node, and customize the color and length of the drawn lines.
+
 <figure style="width:75%" markdown>
   ![Tendon weights for biceps](images/simple_setup_ribbon_muscle_04.png)
   <figcaption><b>Figure 20</b>: Tendon weights for biceps.</figcaption>
@@ -259,7 +263,9 @@ Input muscles can be added or removed from the existing AdnGlue by connecting or
 > [!NOTE]
 > Adding and removing inputs requires to revisit and update the paintable maps to ensure that the painted values are correct for the new list of geometries.
 
-The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the glue constraints to take effect, this value must be adjusted.
+The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the glue constraints to take effect, this value must be adjusted. We recommend enabling the debugger and selecting the *Glue Constraints* option to inspect the connections created based on the specified *Max Glue Distance*.
+
+<!--TODO #365: Add debugger image for Glue Constraints -->
 
 ### Paint Weights
 
@@ -280,6 +286,8 @@ Since the *Max Glue Distance* is initially the same for all muscles, you may wan
   ![Example of glue distance multiplier map](images/simple_setup_glue_02.png)
   <figcaption><b>Figure 28</b>: Example of Glue Distance Multiplier map painted only on the areas between the left and right pectoralis and abdominis muscles. In this case, the glue constraints will be created only between vertices with non-zero value.</figcaption>
 </figure>
+
+<!--TODO #365: Add debugger image for Glue Constraints -->
 
 The `adnGlueResistance` map modulates the strength of the glue constraint. To reduce the effect of the constraint in specific areas, lower the values in this map accordingly. Glue constraints won't be computed for vertices with a weight value of 0.0.
 
