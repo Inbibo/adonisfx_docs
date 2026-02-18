@@ -431,12 +431,12 @@ The *push multiplier* and *weights* maps are flooded to 1.0 by default. The push
 
 <figure markdown>
   ![push paintable maps](images/push_weights.png)
-  <figcaption><b>Figure 38</b>: Example of Push Multiplier map of AdnPush deformer.</figcaption>
+  <figcaption><b>Figure 37</b>: Example of Push Multiplier map of AdnPush deformer.</figcaption>
 </figure>
 
 <figure markdown>
   ![push example results](images/simple_setup_push_02.png)
-  <figcaption><b>Figure 39</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 36. Most of the intersections present in Figure 35 introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
+  <figcaption><b>Figure 38</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 37. Most of the intersections introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
 </figure>
 
 ## AdnSkinMerge
@@ -451,7 +451,7 @@ The AdnSkinMerge deformer will be applied to the final mesh which will be the re
 
 <figure markdown>
   ![Basic setup for skin merge](images/simple_setup_skin_merge_00.png)
-  <figcaption><b>Figure 40</b>: Minimum required geometries to configure an AdnSkinMerge deformer. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge deformer.</figcaption>
+  <figcaption><b>Figure 39</b>: Minimum required geometries to configure an AdnSkinMerge deformer. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge deformer.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -464,7 +464,7 @@ When everything has been properly set up, press the *Create* button to create th
 
 <figure markdown>
   ![Create Skin Merge window with corresponding meshes added](images/simple_setup_skin_merge_01.png)
-  <figcaption><b>Figure 41</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
+  <figcaption><b>Figure 40</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -480,14 +480,14 @@ To have a smooth transition from the simulated mesh to the animated mesh, smooth
 
 <figure markdown>
   ![Blend weights painted map](images/simple_setup_skin_merge_02.png)
-  <figcaption><b>Figure 42</b>: Blend weights painted map.</figcaption>
+  <figcaption><b>Figure 41</b>: Blend weights painted map.</figcaption>
 </figure>
 
 With this basic paint setup the AdnSkinMerge deformer will now show the results of skin simulation transferred to the final mesh.
 
 <figure markdown>
   ![Result of AdnSkinMerge](images/simple_setup_skin_merge_03.png)
-  <figcaption><b>Figure 43</b>: Result of AdnSkinMerge in a specific frame. From left to right: Animation Mesh, Simulation Mesh and Final Mesh.</figcaption>
+  <figcaption><b>Figure 42</b>: Result of AdnSkinMerge in a specific frame. From left to right: Animation Mesh, Simulation Mesh and Final Mesh.</figcaption>
 </figure>
 
 ## AdnSimshape
@@ -502,7 +502,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 <figure markdown>
   ![Basic setup for facial simulations](images/simple_setup_simshape_00.png)
-  <figcaption><b>Figure 44</b>: Basic setup for facial simulations. From left to right: rest mesh, deformation mesh and animation mesh.</figcaption>
+  <figcaption><b>Figure 43</b>: Basic setup for facial simulations. From left to right: rest mesh, deformation mesh and animation mesh.</figcaption>
 </figure>
 
 ### Create Deformer
@@ -515,7 +515,7 @@ To create the AdnSimshape deformer with some initial specialization, double-clic
 
 <figure markdown>
   ![AdnSimshape deformer creation scenario](images/simple_setup_simshape_01.png)
-  <figcaption><b>Figure 45</b>: AdnSimshape deformer creation scenario.</figcaption>
+  <figcaption><b>Figure 44</b>: AdnSimshape deformer creation scenario.</figcaption>
 </figure>
 
 To add the deformation mesh to the deformer first select the deformation mesh, then the simulated mesh (which is the animation mesh) and then go to AdonisFX Menu > Simshape (on the *Edit* group) > Add *Deform Mesh*. A message will notify that the addition of the rest mesh has been done correctly.
@@ -535,7 +535,7 @@ The lowest values (0.1 in this case) will be applied to the area under the jaw w
 
 <figure markdown>
   ![Example of the attraction force map](images/simple_setup_simshape_02.png)
-  <figcaption><b>Figure 46</b>: Example of the attraction force map.</figcaption>
+  <figcaption><b>Figure 45</b>: Example of the attraction force map.</figcaption>
 </figure>
 
 After painting similar weights to the ones displayed and pressing playback to check the animation, realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are available and fully explained in the documentation for [AdnSimshape](solvers/simshape).
