@@ -140,9 +140,9 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**            | Boolean      | False         | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnRibbonMuscle deformer. |
 | **Feature**          | Enumerator   | Muscle Fibers | ✓ | A list of debuggable features for this deformer. <ul><li>Attachments To Geometry: Draw *Attachment To Geometry Constraints* connections from the simulated mesh to the geometry targets.</li><li>Attachments To Transform: Draw *Attachment To Transform Constraints* connections from the simulated mesh to the transform targets.</li><li>Fiber Constraints: Draw *Fiber Constraint* connections representing the constrained pair of vertices in the simulated mesh.</li><li>Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface. When the muscle is activated the color of the fibers will change according to the *Activation Color*.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide On Geometry: Draw *Slide On Geometry Constraints* connections from the simulated mesh to the geometry targets the simulated mesh is sliding on.</li><li>Slide On Segment: Draw *Slide On Segment Constraints* connections from the simulated mesh to the segment the simulated mesh is sliding on.</li></ul> |
-| **Width Scale**      | Float        | 1.0           | ✓ | Modifies the width of all lines. |
+| **Width Scale**      | Float        | 3.0           | ✓ | Modifies the width of all lines. |
 | **Color**            | Color Picker | Red           | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
-| **Fibers Scale**     | Float        | 3.0           | ✓ | The scale can be modified to set a custom fiber length. |
+| **Fibers Scale**     | Float        | 1.0           | ✓ | The scale can be modified to set a custom fiber length. |
 | **Fibers Color**     | Color Picker | Blue          | ✓ | The fibers color when Muscle Fibers debug mode is selected and the muscle is not activated (*Activation* Attribute). |
 | **Activation Color** | Color Picker | Red           | ✓ | The fibers color when Muscle Fibers debug mode is selected and the muscle is activated (*Activation* Attribute). |
 
