@@ -321,7 +321,7 @@ To create the AdnFat SOP, press TAB and navigate to the submenu AdonisFX > Solve
 
 <figure markdown>
   ![AdnFat SOP creation scenario](images/simple_setup_fat_01.png)
-  <figcaption><b>Figure 32/b>: AdnFat SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 32</b>: AdnFat SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 After basic configuration, to alter the dynamics of the fat layer (e.g. adding or reducing the jiggle) it is advisable to tweak the main attributes like: *Iterations*, *Substeps*, *Global Damping Multiplier* or the per-constraint stiffness values in the *Override Constraint Stiffness* section.
@@ -520,7 +520,7 @@ The AdnSkinMerge SOP will be applied to the final mesh which will be the result 
 
 <figure markdown>
   ![Minimum required geometries AdnSkinMerge](images/simple_setup_skin_merge_00.png)
-  <figcaption><b>Figure 50</b>: Minimum required geometries to configure an AdnSkinMerge SOP. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge SOP.</figcaption>
+  <figcaption><b>Figure 51</b>: Minimum required geometries to configure an AdnSkinMerge SOP. From left to right: Animation Mesh, Simulation Mesh and Final Mesh to apply the AdnSkinMerge SOP.</figcaption>
 </figure>
 
 ### Create Node
@@ -529,7 +529,7 @@ To create the AdnSkinMerge node, press TAB and navigate to the submenu AdonisFX 
 
 <figure markdown>
   ![AdnSkinMerge creation scenario](images/simple_setup_skin_merge_01.png)
-  <figcaption><b>Figure 51</b>: AdnSkinMerge SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 52</b>: AdnSkinMerge SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -538,7 +538,7 @@ To tweak the point attributes of an AdnSkinMerge SOP, an `attribpaint` is needed
 
 <figure style="width: 70%;" markdown>
   ![Deformable section skin merge](images/simple_setup_skin_merge_02.png)
-  <figcaption><b>Figure 52</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
+  <figcaption><b>Figure 53</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
 Once the `attribpaint` node is created the weights can be painted to blend the animation and simulation meshes into the final mesh.
@@ -549,14 +549,14 @@ To have a smooth transition from the simulated mesh to the animated mesh, smooth
 
 <figure markdown>
   ![Blend weights painted map](images/simple_setup_skin_merge_03.png)
-  <figcaption><b>Figure 53</b>: Blend weights painted map.</figcaption>
+  <figcaption><b>Figure 54</b>: Blend weights painted map.</figcaption>
 </figure>
 
 With this basic paint setup the AdnSkinMerge SOP will now show the results of skin simulation transferred to the final mesh.
 
 <figure markdown>
   ![Result of skin merge](images/simple_setup_skin_merge_04.png)
-  <figcaption><b>Figure 54</b>: Result of AdnSkinMerge in a specific frame. From left to right: Animation Mesh, Simulation Mesh and Final Mesh.</figcaption>
+  <figcaption><b>Figure 55</b>: Result of AdnSkinMerge in a specific frame. From left to right: Animation Mesh, Simulation Mesh and Final Mesh.</figcaption>
 </figure>
 
 ## AdnSimshape
@@ -571,7 +571,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 <figure markdown>
   ![Basic setup for facial simulations](images/simple_setup_simshape_00.png)
-  <figcaption><b>Figure 55</b>: Basic setup for facial simulations. From left to right: rest mesh, deformation mesh and animation mesh.</figcaption>
+  <figcaption><b>Figure 56</b>: Basic setup for facial simulations. From left to right: rest mesh, deformation mesh and animation mesh.</figcaption>
 </figure>
 
 ### Create Node
@@ -580,7 +580,7 @@ To create the AdnSimshape node, press TAB and navigate to the submenu AdonisFX >
 
 <figure markdown>
   ![AdnSimshape creation scenario](images/simple_setup_simshape_01.png)
-  <figcaption><b>Figure 56</b>: AdnSimshape SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 57</b>: AdnSimshape SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -597,7 +597,7 @@ The lowest values (0.1 in this case) will be applied to the area under the jaw w
 
 <figure markdown>
   ![Example attract force map](images/simple_setup_simshape_02.png)
-  <figcaption><b>Figure 57</b>: Example of the attraction force map.</figcaption>
+  <figcaption><b>Figure 58</b>: Example of the attraction force map.</figcaption>
 </figure>
 
 After painting similar weights to the ones displayed and pressing playback to check the animation, realistic dynamics should be simulated in the face. Many more paintable weights to better customize and tweak face dynamics are available and fully explained in the documentation for [AdnSimshape](solvers/simshape).
@@ -619,7 +619,7 @@ Refer to this [section](solvers/simshape#muscle-activations) to see how to use M
 
 <figure markdown>
   ![Example of AdnEdgeEvaluator](images/simple_setup_simshape_03.png)
-  <figcaption><b>Figure 58</b>: Example of the AdnEdgeEvaluator SOP usage in conjunction with AdnSimshape SOP to drive the activations. </figcaption>
+  <figcaption><b>Figure 59</b>: Example of the AdnEdgeEvaluator SOP usage in conjunction with AdnSimshape SOP to drive the activations. </figcaption>
 </figure>
 
 The output activation values can be debugged by checking the option *Write Out Activation* and visualizing the `adnOutActivation` point attribute.
