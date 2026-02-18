@@ -253,11 +253,6 @@ The AdnGlue node will take all the simulated muscles merged as a single input.
 
 To create the AdnGlue node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnGlue ![AdnGlue](../images/adn_glue.png){style="width:4%"} SOP type. Then connect the merged muscles to the AdnGlue input and select the *Piece Attribute* to allow the SOP to identify each muscle piece.
 
-<figure markdown>
-  ![AdnGlue SOP creation scenario](images/simple_setup_glue_00.png)
-  <figcaption><b>Figure 26</b>: AdnGlue SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
-</figure>
-
 Input muscles can be added or removed from the existing AdnGlue by connecting or disconnecting them from the merge node. After that, make sure to recook the AdnGlue at preroll start time for this change to take effect.
 
 > [!NOTE]
@@ -265,14 +260,17 @@ Input muscles can be added or removed from the existing AdnGlue by connecting or
 
 The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the glue constraints to take effect, this value must be adjusted. We recommend enabling the debugger and selecting the *Glue Constraints* option to inspect the connections created based on the specified *Max Glue Distance*.
 
-<!--TODO #365: Add debugger image for Glue Constraints -->
+<figure markdown>
+  ![Debugging the Glue Constraints](images/simple_setup_glue_01.png)
+  <figcaption><b>Figure 26</b>: Debugging the Glue Constraints connections with a Max Glue Distance of 0.1.</figcaption>
+</figure>
 
 ### Paint Weights
 
 To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnGlue SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnGlue node.
 
 <figure markdown>
-  ![Deformable section glue](images/simple_setup_glue_01.png)
+  ![Deformable section glue](images/simple_setup_glue_00.png)
   <figcaption><b>Figure 27</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
@@ -287,13 +285,16 @@ Since the *Max Glue Distance* is initially the same for all muscles, you may wan
   <figcaption><b>Figure 28</b>: Example of Glue Distance Multiplier map painted only on the areas between the left and right pectoralis and abdominis muscles. In this case, the glue constraints will be created only between vertices with non-zero value.</figcaption>
 </figure>
 
-<!--TODO #365: Add debugger image for Glue Constraints -->
+<figure markdown>
+  ![Displaying the Glue Constraints debugger](images/simple_setup_glue_03.png)
+  <figcaption><b>Figure 29</b>: Displaying the Glue Constraints debugger after painting the Glue Distance Multiplier in the target area.</figcaption>
+</figure>
 
 The `adnGlueResistance` map modulates the strength of the glue constraint. To reduce the effect of the constraint in specific areas, lower the values in this map accordingly. Glue constraints won't be computed for vertices with a weight value of 0.0.
 
 <figure markdown>
   ![Example of glue resistance map](images/simple_setup_glue_03.png)
-  <figcaption><b>Figure 29</b>: Example of Glue Resistance map painted only on the areas between the left and right pectoralis and abdominis muscles. In this case, the glue constraints will be created only between vertices with non-zero value.</figcaption>
+  <figcaption><b>Figure 30</b>: Example of Glue Resistance map painted only on the areas between the left and right pectoralis and abdominis muscles. In this case, the glue constraints will be created only between vertices with non-zero value.</figcaption>
 </figure>
 
 Finally, shape preservation constraints help to maintain the original shape of the muscles and are flooded to 1.0 by default. These constraints are useful if the gluing produces undesired shape on the output mesh. If that is not the case, flood the map to 0.0, which will make the solver run faster. If shape preservation is required, then increase the values on those areas where the shape has been altered during the simulation.
@@ -307,7 +308,7 @@ To create a basic scenario using the AdnFat SOP, start with a scene with the fol
 
 <figure markdown>
   ![Basic setup for fat simulations](images/simple_setup_fat_00.png)
-  <figcaption><b>Figure 30</b>: Basic setup for fat simulations. The mesh on the left corresponds to the fat tissue to be simulated, while the mesh on the right corresponds to the fascia obtained from the AdnSkin simulation. </figcaption>
+  <figcaption><b>Figure 31</b>: Basic setup for fat simulations. The mesh on the left corresponds to the fat tissue to be simulated, while the mesh on the right corresponds to the fascia obtained from the AdnSkin simulation. </figcaption>
 </figure>
 
 > [!NOTE]
@@ -320,7 +321,7 @@ To create the AdnFat SOP, press TAB and navigate to the submenu AdonisFX > Solve
 
 <figure markdown>
   ![AdnFat SOP creation scenario](images/simple_setup_fat_01.png)
-  <figcaption><b>Figure 31</b>: AdnFat SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 32/b>: AdnFat SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 After basic configuration, to alter the dynamics of the fat layer (e.g. adding or reducing the jiggle) it is advisable to tweak the main attributes like: *Iterations*, *Substeps*, *Global Damping Multiplier* or the per-constraint stiffness values in the *Override Constraint Stiffness* section.
@@ -331,7 +332,7 @@ To tweak the point attributes of an AdnFat SOP, an `attribpaint` is needed. To e
 
 <figure markdown>
   ![Deformable section fat](images/simple_setup_fat_02.png)
-  <figcaption><b>Figure 32</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
+  <figcaption><b>Figure 33</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
 With the default paint setup provided, the simulation should already create plausible results. However, below we walk you through the three main maps that can be altered to modify the behavior of the fat simulation.
@@ -346,7 +347,7 @@ Finally, the `adnHardConstraints` map provides additional control for stronger a
 
 <figure markdown>
   ![Hard constraints weights paint](images/simple_setup_fat_03.png)
-  <figcaption><b>Figure 33</b>: Hard constraints weights paint.</figcaption>
+  <figcaption><b>Figure 34</b>: Hard constraints weights paint.</figcaption>
 </figure>
 
 ## AdnSkin
@@ -358,7 +359,7 @@ To create a basic scenario using the AdnSkin SOP, start with a scene with the fo
 
 <figure markdown>
   ![Basic setup for skin simulations](images/simple_setup_skin_00.png)
-  <figcaption><b>Figure 34</b>: Basic setup for skin simulation. The mesh on the left corresponds to the skin mesh to be simulated, while the mesh on the right corresponds to the animated target mesh. </figcaption>
+  <figcaption><b>Figure 35</b>: Basic setup for skin simulation. The mesh on the left corresponds to the skin mesh to be simulated, while the mesh on the right corresponds to the animated target mesh. </figcaption>
 </figure>
 
 ### Create Deformer
@@ -369,7 +370,7 @@ To add target mesh(es), go to the *Targets* tab on the AdnSkin node, press **+**
 
 <figure markdown>
   ![AdnSkin SOP creation scenario](images/simple_setup_skin_01.png)
-  <figcaption><b>Figure 35</b>: AdnSkin SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 36</b>: AdnSkin SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -378,7 +379,7 @@ To tweak the point attributes of an AdnSkin SOP, an `attribpaint` is needed. To 
 
 <figure markdown>
   ![Deformable section skin](images/simple_setup_skin_02.png)
-  <figcaption><b>Figure 36</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
+  <figcaption><b>Figure 37</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
 Start by painting the `adnSoftConstraints` map. Flood this map with a low value of 0.45 to have a uniform distribution of soft constraints. This will help the skin to follow the target mesh.
@@ -391,7 +392,7 @@ Finally, select the `adnMaxSlidingDistanceMultiplier` attribute and paint weight
 
 <figure markdown>
   ![AdnSkin weights paint](images/simple_setup_skin_03.png)
-  <figcaption><b>Figure 37</b>: AdnSkin weight maps. From left to right: adnSoftConstraints, adnHardConstraints, adnSlideConstraints and adnMaxSlidingDistanceMultiplier.</figcaption>
+  <figcaption><b>Figure 38</b>: AdnSkin weight maps. From left to right: adnSoftConstraints, adnHardConstraints, adnSlideConstraints and adnMaxSlidingDistanceMultiplier.</figcaption>
 </figure>
 
 With this basic paint setup the AdnSkin deformer will already show plausible results, expected of the skin to the target mesh. However, the possible parameters and tweaks to display high fidelity dynamics can be seen in the documentation for [AdnSkin](solvers/skin).
@@ -401,7 +402,7 @@ With this basic paint setup the AdnSkin deformer will already show plausible res
 
 <figure markdown>
   ![AdnSkin uber constraints warning](images/simple_setup_skin_04.png)
-  <figcaption><b>Figure 38</b>: AdnSkin warning because of non-normalized Uber constraint weights.</figcaption>
+  <figcaption><b>Figure 39</b>: AdnSkin warning because of non-normalized Uber constraint weights.</figcaption>
 </figure>
 
 
@@ -411,7 +412,7 @@ To create a basic scenario using the AdnRelax SOP, start with a scene with a mes
 
 <figure markdown>
   ![relax simple setup](images/simple_setup_relax_00.png)
-  <figcaption><b>Figure 39</b>: Basic setup for AdnRelax. The mesh is the result of the fascia simulation to which AdnRelax is going to be applied. </figcaption>
+  <figcaption><b>Figure 40</b>: Basic setup for AdnRelax. The mesh is the result of the fascia simulation to which AdnRelax is going to be applied. </figcaption>
 </figure>
 
 ### Create Node
@@ -425,7 +426,7 @@ To create the AdnRelax SOP:
 
 <figure markdown>
   ![relax network 1](images/simple_setup_relax_01.png)
-  <figcaption><b>Figure 40</b>: AdnRelax SOP creation scenario. The AdnRelax node is applied to the fascia obtained from the AdnSkin simulation. </figcaption>
+  <figcaption><b>Figure 41</b>: AdnRelax SOP creation scenario. The AdnRelax node is applied to the fascia obtained from the AdnSkin simulation. </figcaption>
 </figure>
 
 ### Paint Weights
@@ -436,14 +437,14 @@ To tweak the point attributes of an AdnRelax SOP, an `attribpaint` is needed. To
 
 <figure markdown>
   ![relax network 2](images/simple_setup_relax_02.png)
-  <figcaption><b>Figure 41</b>: Network after using the "Make Paintable" utility. </figcaption>
+  <figcaption><b>Figure 42</b>: Network after using the "Make Paintable" utility. </figcaption>
 </figure>
 
 Now the deformed mesh can be refined in specific areas by modifying the paintable attributes. Flood a specific map to 0.0 and paint higher values in the areas where the relaxation algorithm should take effect.
 
 <figure markdown>
   ![relax paintable maps](images/relax_weights.png)
-  <figcaption><b>Figure 42</b>: Example of paintable weights of AdnRelax SOP applied to the fascia layer of a biped. From left to right: smooth multiplier, relax multiplier, push in ratio multiplier, push out ratio multiplier.</figcaption>
+  <figcaption><b>Figure 43</b>: Example of paintable weights of AdnRelax SOP applied to the fascia layer of a biped. From left to right: smooth multiplier, relax multiplier, push in ratio multiplier, push out ratio multiplier.</figcaption>
 </figure>
 
 The smoothing is modulated by the `adnSmoothMultiplier` map. Keep it flooded to 1.0 to smooth the surface of the entire mesh, or flood it to 0.0 and paint values of 1.0 in the areas that need smoothing.
@@ -458,7 +459,7 @@ If a specific area has lost detail, flood the `adnPushInRatioMultiplier` to 0.0 
 
 <figure markdown>
   ![relax example results](images/simple_setup_relax_03.png)
-  <figcaption><b>Figure 43</b>: Example of AdnRelax results with a distribution of weights shown in Figure 42. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the SOP in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
+  <figcaption><b>Figure 44</b>: Example of AdnRelax results with a distribution of weights shown in Figure 42. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the SOP in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
 </figure>
 
 ## AdnPush
@@ -467,7 +468,7 @@ A good example of a use case for the AdnPush SOP is to generate the internal fas
 
 <figure markdown>
   ![push initial setup](images/simple_setup_push_00.png)
-  <figcaption><b>Figure 44</b>: Fascia geometry result of duplicating and renaming the outer skin mesh at rest.</figcaption>
+  <figcaption><b>Figure 45</b>: Fascia geometry result of duplicating and renaming the outer skin mesh at rest.</figcaption>
 </figure>
 
 ### Create Node
@@ -476,12 +477,12 @@ To create the AdnPush SOP, press TAB and navigate to the submenu AdonisFX > Defo
 
 <figure style="width:75%;" markdown>
   ![push SOP creation scenario](images/simple_setup_push_01.png)
-  <figcaption><b>Figure 45</b>: AdnPush SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 46</b>: AdnPush SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 <figure markdown>
   ![push SOP applied](images/simple_setup_push_02.png)
-  <figcaption><b>Figure 46</b>: Result of applying a uniform Push Length of -2.0 to the whole input geometry.</figcaption>
+  <figcaption><b>Figure 47</b>: Result of applying a uniform Push Length of -2.0 to the whole input geometry.</figcaption>
 </figure>
 
 Keeping the muscle layer visible is helpful to drive the configuration of the AdnPush settings, especially the paintable maps. It is expected and intended to get intersections with the muscle layer at this point. Those intersections will be fixed by tweaking the maps.
@@ -492,19 +493,19 @@ To tweak the point attributes of an AdnPush SOP, an `attribpaint` is needed. To 
 
 <figure style="width:75%;" markdown>
   ![Deformable section push](images/simple_setup_push_03.png)
-  <figcaption><b>Figure 47</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
+  <figcaption><b>Figure 48</b>: Deformable section after using the "Make Paintable" utility.</figcaption>
 </figure>
 
 The `adnPushMultiplier` and `adnWeights` maps are flooded to 1.0 by default. The push multiplier is meant to modulate the amount of push across the entire mesh as it is the map that multiplies the global *Push Length* at each point. In the example with the muscle layer visible, this map can be tweaked to remove the intersections.
 
 <figure markdown>
   ![push paintable maps](images/push_weights.png)
-  <figcaption><b>Figure 48</b>: Example of Push Multiplier map of AdnPush SOP.</figcaption>
+  <figcaption><b>Figure 49</b>: Example of Push Multiplier map of AdnPush SOP.</figcaption>
 </figure>
 
 <figure markdown>
   ![push example results](images/simple_setup_push_04.png)
-  <figcaption><b>Figure 49</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 48. Most of the intersections present in Figure 46 introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
+  <figcaption><b>Figure 50</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 49. Most of the intersections present are introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
 </figure>
 
 ## AdnSkinMerge
