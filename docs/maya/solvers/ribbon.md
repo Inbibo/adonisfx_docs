@@ -232,7 +232,7 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![AdnRibbonMuscle debug](../images/ribbon_debug.png)
-  <figcaption><b>Figure 7</b>: AdnRibbonMuscle debug features. From left to right: Muscle Fibers, Attachment To Transform Constraints, Slide On Segment Constraints, Attachment To Geometry Constraints, Slide On Geometry Constraints and Shape Preservation.</figcaption>
+  <figcaption><b>Figure 7</b>: AdnRibbonMuscle debug features. From left to right: Muscle Fibers, Attachment To Geometry Constraints, Slide On Geometry Constraints, Fiber Constraints and Shape Preservation.</figcaption>
 </figure>
 
 <figure markdown>
@@ -242,12 +242,12 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![ribbon muscle editor fiber constraint debug](../images/ribbon_muscle_dist_constr_debug.png)
-  <figcaption><b>Figure 9</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 9</b>: Displaying the target and simulated meshes. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![ribbon muscle editor shape preservation constraint debug](../images/ribbon_muscle_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 10</b>: In gray the target mesh, in red the simulated ribbon muscle. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 10</b>: Displaying the target and simulated meshes. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced

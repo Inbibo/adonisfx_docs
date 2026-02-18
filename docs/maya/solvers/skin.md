@@ -218,27 +218,27 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![skin editor debug example](../images/skin_debug.png)
-  <figcaption><b>Figure 5</b>: In gray the target mesh, in orange the simulated skin. Debugger enabled displaying a test example with <i>Soft Constraints</i> colored in green.</figcaption>
+  <figcaption><b>Figure 5</b>: Displaying the target and simulated mesh. Debugger enabled displaying a test example with <i>Soft Constraints</i> colored in green.</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor sliding surface debug](../images/skin_debug_slide_surface.png)
-  <figcaption><b>Figure 6</b>: In gray the target mesh, in red the simulated skin. Debugger enabled displaying the <i>Sliding Surface</i> colored in green.</figcaption>
+  <figcaption><b>Figure 6</b>: Displaying the target and simulated mesh. Debugger enabled displaying the <i>Sliding Surface</i> colored in green.</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor distance constraint debug](../images/skin_dist_constr_debug.png)
-  <figcaption><b>Figure 7</b>: In red the simulated skin. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 7</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor shape preservation constraint debug](../images/skin_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 8</b>: In red the simulated skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 8</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![skin self collision volume debug](../images/skin_self_collisions_volume_debug.png)
-  <figcaption><b>Figure 9</b>: In red the simulated skin. Debugger enabled displaying the <i>Self Collisions Volume</i> colored in blue.</figcaption>
+  <figcaption><b>Figure 9</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Self Collisions Volume</i> colored in blue.</figcaption>
 </figure>
 
 

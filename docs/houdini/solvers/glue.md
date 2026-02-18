@@ -165,8 +165,6 @@ The process to create an AdnGlue node is:
 
 ## Parameter Template
 
-<!-- TODO #365: Update screenshots -->
-
 <figure style="width: 75%;" markdown>
   ![glue parameter template solver](../images/glue_parameter_template_00.png) 
   <figcaption><b>Figure 1</b>: AdnGlue Parameter Template: Solver.</figcaption>
@@ -187,7 +185,10 @@ The process to create an AdnGlue node is:
   <figcaption><b>Figure 4</b>: AdnGlue Parameter Template: Maps.</figcaption>
 </figure>
 
-<!-- TODO #365: Add debug menu screenshot -->
+<figure style="width: 75%;" markdown>
+  ![glue parameter template debug](../images/glue_parameter_template_04.png) 
+  <figcaption><b>Figure 5</b>: AdnGlue Parameter Template: Debug.</figcaption>
+</figure>
 
 ## Paintable Weights
 
@@ -209,12 +210,12 @@ In order to provide more artistic control, some key parameters of the AdnGlue so
 
 <figure markdown>
   ![AdnGlue weights](../images/glue_weights_00.png)
-  <figcaption><b>Figure 4</b>: Example of painted weights on the glue layer: on the left the map is flooded to 1.0 used for compression, stretching, glue resistance, global damping, mass, max glue distance multiplier, shape preservation and soft constraints; in the middle the front view of the self-collisions weights map; on the right the back view of the self-collisions weights map.</figcaption>
+  <figcaption><b>Figure 6</b>: Example of painted weights on the glue layer: on the left the map is flooded to 1.0 used for compression, stretching, glue resistance, global damping, mass, max glue distance multiplier, shape preservation and soft constraints; in the middle the front view of the self-collisions weights map; on the right the back view of the self-collisions weights map.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnGlue example of network with attribpaint](../images/glue_net_example.png) 
-  <figcaption><b>Figure 5</b>: Example of AdnGlue network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 7</b>: Example of AdnGlue network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -235,7 +236,10 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
  - **Acceleration Structure**: For each level in the acceleration structure used to solve self-collisions, display a box representing the bounding box encapsulating all the collision primitives in that level. If the value of *Debug Level Acceleration Structure* is -1, then all levels are displayed. Otherwise, only the specified level is displayed. If the value is greater than the number of levels, then no levels are displayed.
  - **Rest Self Collisions**: For each triangle intersecting with the mesh at rest, the 3 edges of the triangle are displayed.
 
-<!-- TODO: #365 Update all missing screenshots -->
+<figure markdown>
+  ![AdnGlue debug](../images/glue_debug.png)
+  <figcaption><b>Figure 8</b>: AdnGlue debug features. From left to right: Glue Constraints, Distance Constraints and Self-Collisions Volumes.</figcaption>
+</figure>
 
 > [!NOTE]
 > - The width of the debug lines can be modified from the global viewport settings in Houdini.

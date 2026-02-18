@@ -244,12 +244,12 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
   ![simshape editor distance constraint debug](../images/simshape_dist_constr_debug.png)
-  <figcaption><b>Figure 6</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 6</b>: Displaying the target and simulated mesh. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![simshape editor shape preservation constraint debug](../images/simshape_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 7</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 7</b>: Displaying the target and simulated mesh. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 ## Advanced

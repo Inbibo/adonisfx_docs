@@ -174,8 +174,6 @@ The process to create the AdnSkin is:
 
 ## Parameter Template
 
-<!-- TODO #365: Update screenshots -->
-
 <figure style="width: 75%;" markdown>
   ![skin parameter template solver](../images/skin_parameter_template_00.png) 
   <figcaption><b>Figure 1</b>: AdnSkin Parameter Template: Solver.</figcaption>
@@ -201,7 +199,10 @@ The process to create the AdnSkin is:
   <figcaption><b>Figure 5</b>: AdnSkin Parameter Template: Maps.</figcaption>
 </figure>
 
-<!-- TODO #365: Update screenshots -->
+<figure style="width: 75%;" markdown>
+  ![skin parameter template debug](../images/skin_parameter_template_05.png)
+  <figcaption><b>Figure 6</b>: AdnSkin Parameter Template: Debug.</figcaption>
+</figure>
 
 ## Paintable Weights
 
@@ -227,7 +228,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 <figure markdown>
   ![Example of painted maps for AdnSkin](../images/skin_weights.png)
-  <figcaption><b>Figure 4</b>: Example of painted weights on the skin of a bear character. First row, from left to right: maps flooded to 1.0 (which correspond to compression, stretching, masses, global damping, self collision radius and thickness multiplier), hard constraints, slide constraints and soft constraints. Second row, from left to right: shape preservation, self collision weights and max sliding distance multiplier.</figcaption>
+  <figcaption><b>Figure 7</b>: Example of painted weights on the skin of a bear character. First row, from left to right: maps flooded to 1.0 (which correspond to compression, stretching, masses, global damping, self collision radius and thickness multiplier), hard constraints, slide constraints and soft constraints. Second row, from left to right: shape preservation, self collision weights and max sliding distance multiplier.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -235,7 +236,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 <figure style="width: 75%;" markdown>
   ![AdnSkin example of network with attribpaint](../images/skin_net_example.png) 
-  <figcaption><b>Figure 6</b>: Example of AdnSkin network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 8</b>: Example of AdnSkin network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 ## Debugger
@@ -255,7 +256,30 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
  - **Acceleration Structure**: For each level in the acceleration structure used to solve self-collisions, display a box representing the bounding box encapsulating all the collision primitives in that level. If the value of *Debug Level Acceleration Structure* is -1, then all levels are displayed. Otherwise, only the specified level is displayed. If the value is greater than the number of levels, then no levels are displayed.
  - **Rest Self Collisions**: For each triangle intersecting with the mesh at rest, the 3 edges of the triangle are displayed.
 
-<!-- TODO: #365 Update all missing screenshots -->
+<figure markdown>
+  ![skin editor debug example](../images/skin_debug.png)
+  <figcaption><b>Figure 9</b>: Displaying the target and simulated mesh. Debugger enabled displaying a test example with <i>Soft Constraints</i> colored in green.</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor sliding surface debug](../images/skin_debug_slide_surface.png)
+  <figcaption><b>Figure 10</b>: Displaying the target and simulated mesh. Debugger enabled displaying the <i>Sliding Surface</i> colored in green.</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor distance constraint debug](../images/skin_dist_constr_debug.png)
+  <figcaption><b>Figure 11</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor shape preservation constraint debug](../images/skin_shape_preserve_constr_debug.png)
+  <figcaption><b>Figure 12</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin self collision volume debug](../images/skin_self_collisions_volume_debug.png)
+  <figcaption><b>Figure 13</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Self Collisions Volume</i> colored in blue.</figcaption>
+</figure>
 
 > [!NOTE]
 > - The width of the debug lines can be modified from the global viewport settings in Houdini.

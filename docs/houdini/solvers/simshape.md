@@ -176,8 +176,6 @@ To create an AdnSimshape, follow these steps:
 
 ## Parameter Template
 
-<!-- TODO #365: Update screenshots -->
-
 <figure style="width: 75%;" markdown>
   ![AdnSimshape parameter template solver tab](../images/simshape_parameter_template_00.png)
   <figcaption><b>Figure 1</b>: AdnSimshape Parameter Template: Solver.</figcaption>
@@ -189,7 +187,7 @@ To create an AdnSimshape, follow these steps:
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnSimshape parameter template maps tab](../images/simshape_parameter_template_02.png)
+  ![AdnSimshape parameter template advanced tab](../images/simshape_parameter_template_02.png)
   <figcaption><b>Figure 3</b>: AdnSimshape Parameter Template: Advanced (Part 2).</figcaption>
 </figure>
 
@@ -198,7 +196,10 @@ To create an AdnSimshape, follow these steps:
   <figcaption><b>Figure 4</b>: AdnSimshape Parameter Template: Maps.</figcaption>
 </figure>
 
-<!-- TODO #365: Add debug menu screenshot -->
+<figure style="width: 75%;" markdown>
+  ![AdnSimshape parameter template debug tab](../images/simshape_parameter_template_04.png)
+  <figcaption><b>Figure 5</b>: AdnSimshape Parameter Template: Debug.</figcaption>
+</figure>
 
 ## Paintable Weights
 
@@ -217,12 +218,12 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 
 <figure markdown>
   ![simshape weights](../images/simshape_weights.png) 
-  <figcaption><b>Figure 5</b>: Example of painted weights. On the left: attract force; on the middle-left: collision threshold multiplier, global damping, mass, shape preservation and stretching resistance; on the middle-right: compression resistance; on the right: slide collision constraints. </figcaption>
+  <figcaption><b>Figure 6</b>: Example of painted weights. On the left: attract force; on the middle-left: collision threshold multiplier, global damping, mass, shape preservation and stretching resistance; on the middle-right: compression resistance; on the right: slide collision constraints. </figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnSimshape example of network](../images/simshape_net_example.png) 
-  <figcaption><b>Figure 6</b>: Example of AdnSimshape network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 7</b>: Example of AdnSimshape network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -245,17 +246,17 @@ Enabling the debugger and selecting one of these constraints will draw lines fro
 
 <figure markdown>
 ![simshape editor debug menu](../images/simshape_debug.png)
-<figcaption><b>Figure 5</b>: AdnSimshape Slide Collision Constraints, Muscle Fibers, Sliding Surface On Collider and Shape Preservation debugging.</figcaption>
+<figcaption><b>Figure 8</b>: AdnSimshape Slide Collision Constraints, Muscle Fibers, Sliding Surface On Collider and Shape Preservation debugging.</figcaption>
 </figure>
 
 <figure markdown>
   ![simshape editor distance constraint debug](../images/simshape_dist_constr_debug.png)
-  <figcaption><b>Figure 6</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 9</b>: Displaying the target and simulated mesh. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![simshape editor shape preservation constraint debug](../images/simshape_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 7</b>: In gray the target mesh, in red the simulated simshape skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 10</b>: Displaying the target and simulated mesh. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 > [!NOTE]
@@ -269,7 +270,7 @@ AdnSimshape can emulate the behavior of facial muscles by computing the muscle a
 
 <figure markdown>
   ![Activation modes from attribute editor](../images/simshape_activation_modes.png)
-  <figcaption><b>Figure 7</b>: Activation Modes switch exposed in the Parameter Template.</figcaption>
+  <figcaption><b>Figure 11</b>: Activation Modes switch exposed in the Parameter Template.</figcaption>
 </figure>
 
 > [!NOTE = Activation Modes]
@@ -305,7 +306,7 @@ The AdnLearnMusclePatches SOP allows the user to generate the AMP file:
 
 <figure style="width: 75%; padding-left: 5px;" markdown>
   ![AdnLearnMusclePatches parameter template](../images/simshape_ml_window.png)
-  <figcaption><b>Figure 8</b>: AdnLearnMusclePatches parameter template.</figcaption>
+  <figcaption><b>Figure 12</b>: AdnLearnMusclePatches parameter template.</figcaption>
 </figure>
 
 
@@ -322,7 +323,7 @@ The AdnLearnMusclePatches SOP allows the user to generate the AMP file:
 <br>
 <figure style="width: 50%;" markdown>
   ![Simshape draw muscle patches example](../images/simshape_debug_amp.png)
-  <figcaption><b>Figure 9</b>: Example of muscle patches generated with the AdnLearnMusclePatches SOP.</figcaption>
+  <figcaption><b>Figure 13</b>: Example of muscle patches generated with the AdnLearnMusclePatches SOP.</figcaption>
 </figure>
 
 Additional custom settings for the learning algorithm:
@@ -344,7 +345,7 @@ AdnSimshape generates an output point attribute called `adnOutputActivation` tha
 
 <figure style="width: 50%" markdown>
   ![Simshape output activation attribute](../images/simshape_nassim_debug.png)
-  <figcaption><b>Figure 10</b>: Visualization of the `adnOutputActivation` computed by AdnSimshape.</figcaption>
+  <figcaption><b>Figure 14</b>: Visualization of the `adnOutputActivation` computed by AdnSimshape.</figcaption>
 </figure>
 
 ### Colliders

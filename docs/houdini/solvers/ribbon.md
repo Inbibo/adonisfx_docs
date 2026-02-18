@@ -188,8 +188,6 @@ To create an AdnRibbonMuscle, follow these steps:
 
 ## Parameter Template
 
-<!-- TODO #365: Update screenshots -->
-
 <figure style="width: 75%;" markdown>
   ![AdnRibbonMuscle parameter template solver tab](../images/ribbon_parameter_template_00.png) 
   <figcaption><b>Figure 1</b>: AdnRibbonMuscle Parameter Template: Solver.</figcaption>
@@ -215,7 +213,10 @@ To create an AdnRibbonMuscle, follow these steps:
   <figcaption><b>Figure 5</b>: AdnRibbonMuscle Parameter Template: Maps.</figcaption>
 </figure>
 
-<!-- TODO #365: Add debug menu screenshot -->
+<figure style="width: 75%;" markdown>
+  ![AdnRibbonMuscle parameter template debug tab](../images/ribbon_parameter_template_05.png) 
+  <figcaption><b>Figure 6</b>: AdnRibbonMuscle Parameter Template: Debug.</figcaption>
+</figure>
 
 ## Paintable Weights
 
@@ -239,17 +240,17 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 <figure markdown>
   ![AdnRibbonMuscle example of attachment to geometry with 3 targets](../images/ribbon_w_att_geo.png) 
-  <figcaption><b>Figure 6</b>: Example of AdnRibbonMuscle attachment to geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
+  <figcaption><b>Figure 7</b>: Example of AdnRibbonMuscle attachment to geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnRibbonMuscle example of slide on geometry with 3 targets](../images/ribbon_w_slide_geo.png) 
-  <figcaption><b>Figure 7</b>: Example of AdnRibbonMuscle slide on geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
+  <figcaption><b>Figure 8</b>: Example of AdnRibbonMuscle slide on geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnRibbonMuscle example of other paintable maps](../images/ribbon_weights.png) 
-  <figcaption><b>Figure 8</b>: Example of other paintable maps on a planar biceps. On the left, the fibers multiplier map. In the middle, the tendons map. On the right, a map flooded with a value of 1.0 corresponding to all other remaining maps (compression, stretching, masses, global damping, shape preservation and sliding distance multiplier).</figcaption>
+  <figcaption><b>Figure 9/b>: Example of other paintable maps on a planar biceps. On the left, the fibers multiplier map. In the middle, the tendons map. On the right, a map flooded with a value of 1.0 corresponding to all other remaining maps (compression, stretching, masses, global damping, shape preservation and sliding distance multiplier).</figcaption>
 </figure>
 
 > [!NOTE]
@@ -259,7 +260,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 <figure style="width: 75%;" markdown>
   ![AdnRibbonMuscle example of network with attribpaint and AdnFiberGroom HDA](../images/ribbon_net_example.png) 
-  <figcaption><b>Figure 9</b>: Example of AdnRibbonMuscle network. The attribpaint node has to be placed prior to the AdnFiberGroom. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 10</b>: Example of AdnRibbonMuscle network. The attribpaint node has to be placed prior to the AdnFiberGroom. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -280,7 +281,25 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
  - **Slide On Geometry**: If the *Max Sliding Distance* value is greater than 0.0, for each vertex with a slide on geometry weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective geometry target.
  - **Slide On Segment**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective segment.
 
-<!-- TODO: #365 Update all missing screenshots -->
+<figure markdown>
+  ![AdnRibbonMuscle debug](../images/ribbon_debug.png)
+  <figcaption><b>Figure 11</b>: AdnRibbonMuscle debug features. From left to right: Muscle Fibers, Attachment To Geometry Constraints, Slide On Geometry Constraints, Fiber Constraints and Shape Preservation.</figcaption>
+</figure>
+
+<figure markdown>
+  ![ribbon muscle fibers activation debug](../images/ribbon_muscle_fibers_activation_debug.png)
+  <figcaption><b>Figure 12</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
+</figure>
+
+<figure markdown>
+  ![ribbon muscle editor fiber constraint debug](../images/ribbon_muscle_dist_constr_debug.png)
+  <figcaption><b>Figure 13</b>: Displaying the target and simulated meshes. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+<figure markdown>
+  ![ribbon muscle editor shape preservation constraint debug](../images/ribbon_muscle_shape_preserve_constr_debug.png)
+  <figcaption><b>Figure 14</b>: Displaying the target and simulated meshes. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+</figure>
 
 > [!NOTE]
 > - The width of the debug lines can be modified from the global viewport settings in Houdini.
