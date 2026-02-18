@@ -459,7 +459,7 @@ If a specific area has lost detail, flood the `adnPushInRatioMultiplier` to 0.0 
 
 <figure markdown>
   ![relax example results](images/simple_setup_relax_03.png)
-  <figcaption><b>Figure 44</b>: Example of AdnRelax results with a distribution of weights shown in Figure 42. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the SOP in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
+  <figcaption><b>Figure 44</b>: Example of AdnRelax results with a distribution of weights shown in Figure 43. On the left, the input geometry before applying the relaxation; on the right the output geometry resulting from the relaxation. The parameters of the SOP in this example are: iterations set to 25, pin enabled, smooth and relax set to 0.5, push-in and push-out set to 1.0, and thresholds set to -1.0.</figcaption>
 </figure>
 
 ## AdnPush
