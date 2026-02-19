@@ -45,7 +45,7 @@ The process to create an AdnSkin deformer is:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li><ul> |
+| **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
 | Name | Type | Default | Animatable | Description |
@@ -218,27 +218,27 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![skin editor debug example](../images/skin_debug.png)
-  <figcaption><b>Figure 5</b>: In gray the target mesh, in orange the simulated skin. Debugger enabled displaying a test example with <i>Soft Constraints</i> colored in green.</figcaption>
+  <figcaption><b>Figure 5</b>: Displaying the target and simulated mesh. Debugger enabled displaying a test example with <i>Soft Constraints</i> colored in green.</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor sliding surface debug](../images/skin_debug_slide_surface.png)
-  <figcaption><b>Figure 6</b>: In gray the target mesh, in red the simulated skin. Debugger enabled displaying the <i>Sliding Surface</i> colored in green.</figcaption>
+  <figcaption><b>Figure 6</b>: Displaying the target and simulated mesh. Debugger enabled displaying the <i>Sliding Surface</i> colored in green.</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor distance constraint debug](../images/skin_dist_constr_debug.png)
-  <figcaption><b>Figure 7</b>: In red the simulated skin. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 7</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor shape preservation constraint debug](../images/skin_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 8</b>: In red the simulated skin. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 8</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![skin self collision volume debug](../images/skin_self_collisions_volume_debug.png)
-  <figcaption><b>Figure 9</b>: In red the simulated skin. Debugger enabled displaying the <i>Self Collisions Volume</i> colored in blue.</figcaption>
+  <figcaption><b>Figure 9</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Self Collisions Volume</i> colored in blue.</figcaption>
 </figure>
 
 

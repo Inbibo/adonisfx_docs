@@ -46,7 +46,7 @@ The process to create an AdnFat is:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Houdini), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li><ul> |
+| **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
 | Name | Type | Default | Animatable | Description |
@@ -123,6 +123,13 @@ The process to create an AdnFat is:
 > - The *Make Paintable* utility provided in the AdonisFX menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnFat SOP.
 > - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
 
+### Debug Attributes
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Debug**       | Boolean      | False            | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnFat deformer. |
+| **Feature**     | Enumerator   | Volume Structure | ✓ | A list of debuggable features for this deformer.<ul><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh points and the internal virtual points to the base mesh.</li><li>Volume Structure: Draw all the connections in the *Volume Structure* generated procedurally.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li></ul> |
+| **Color**       | Color Picker | Red              | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
+
 ## Parameter Template
 
 <figure style="width: 75%;" markdown>
@@ -140,6 +147,11 @@ The process to create an AdnFat is:
   <figcaption><b>Figure 3</b>: AdnFat Parameter Template: Maps.</figcaption>
 </figure>
 
+<figure style="width: 75%;" markdown>
+  ![AdnFat parameter template debug tab](../images/fat_parameter_template_03.png)
+  <figcaption><b>Figure 4</b>: AdnFat Parameter Template: Debug.</figcaption>
+</figure>
+
 ## Paintable Weights
 
 In order to provide more artistic control, some key parameters of the AdnFat solver are exposed as paintable attributes in the SOP. The maps are point attributes that must be present in the geometry stream injected into the SOP. For that, the Houdini attribpaint node can be used.
@@ -154,13 +166,43 @@ In order to provide more artistic control, some key parameters of the AdnFat sol
 
 <figure markdown>
   ![AdnFat example weights](../images/fat_weights.png)
-  <figcaption><b>Figure 4</b>: Example of painted weights on the fat layer: on the left the map is flooded to 1.0 for global damping, mass, volume shape preservation and shape preservation; on the right the hard constraints map is painted to 1.0 on the extremities. </figcaption>
+  <figcaption><b>Figure 5</b>: Example of painted weights on the fat layer: on the left the map is flooded to 1.0 for global damping, mass, volume shape preservation and shape preservation; on the right the hard constraints map is painted to 1.0 on the extremities. </figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnFat example of network with attribpaint](../images/fat_net_example.png)
-  <figcaption><b>Figure 5</b>: Example of AdnFat network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 6</b>: Example of AdnFat network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 > [!NOTE]
 > To tweak the point attributes of an AdnFat SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnFat SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnFat node.
+
+
+## Debugger
+
+In order to better visualize deformer constraints and attributes in the Houdini viewport there is the option to enable the debugger, found in the switcher menu labeled *Debug* in the parameter interface. The visualization of the guide geometry is only activated when selecting the node to debug and cannot be enabled globally.
+
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnFat deformer are:
+
+ - **Hard Constraints**: For each vertex on the simulated mesh and each virtual point that belongs to an internal layer, a line will be drawn from the point to the corresponding closest point on the base mesh if its *Hard Constraints* weight is greater than 0.0.
+ - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
+ - **Volume Structure**: A line will be drawn for every connection between two points in the volume. A point can be either a vertex on the base mesh, a vertex on the simulated fat mesh or a virtual point that belongs to an internal layer generated by the procedural construction based on the *Divisions* attribute.
+
+<figure markdown>
+  ![fat editor volume structure debug example](../images/fat_volume_structure_debug.png)
+  <figcaption><b>Figure 7</b>: Volume Structure debugging.</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor shape preservation sliding surface debug](../images/fat_shape_preservation_debug.png)
+  <figcaption><b>Figure 8</b>: Shape Preservation debugging.</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor hard constraints debug](../images/fat_hard_constraints_debug.png)
+  <figcaption><b>Figure 9</b>: Hard Constraints debugging.</figcaption>
+</figure>
+
+> [!NOTE]
+> - The width of the debug lines can be modified from the global viewport settings in Houdini.
+> - For better contrast while debugging, enable the *Dark* background option in the viewport settings.

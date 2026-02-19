@@ -44,7 +44,7 @@ The process to create the AdnSkin is:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Houdini), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li><ul> |
+| **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
 | Name | Type | Default | Animatable | Description |
@@ -165,6 +165,13 @@ The process to create the AdnSkin is:
 > - The *Make Paintable* utility provided in the AdonisFX menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnSkin SOP.
 > - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
 
+### Debug Attributes
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Debug**       | Boolean      | False            | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSkin deformer. |
+| **Feature**     | Enumerator   | Hard Constraints | ✓ | A list of debuggable features for this deformer.<ul><li>Distance Constraints: Draw *Distance Constraint* connections representing the constrained pair of vertices in the simulated mesh.</li><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh to the target mesh.</li><li>Self Collisions Volume: For each vertex draw a sphere whose volume depends on the point radius that the vertex has.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide Constraints: Draw *Slide Constraints* connections from the simulated mesh to the target mesh.</li><li>Sliding Surface On Target: Draw outline of triangles covered by the *Max Sliding Distance* of each vertex.</li><li>Soft Constraints: Draw *Soft Constraints* connections from the simulated mesh to the target mesh.</li><li>Acceleration Structure: Draw a bounding box encapsulating all the collision primitives present in the internal acceleration structure used to solve self-collisions at the level specified in the attribute *Debug Level Acceleration Structure*. If the level set is -1, then all levels are displayed. If the value is greater than the number of levels, then no levels are displayed. Otherwise, only the specified level is displayed.</li><li>Rest Self Collisions: Draw the edges of the triangles that are intersecting with the mesh at rest.</li></ul> |
+| **Color**       | Color Picker | Red              | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
+
 ## Parameter Template
 
 <figure style="width: 75%;" markdown>
@@ -192,6 +199,11 @@ The process to create the AdnSkin is:
   <figcaption><b>Figure 5</b>: AdnSkin Parameter Template: Maps.</figcaption>
 </figure>
 
+<figure style="width: 75%;" markdown>
+  ![skin parameter template debug](../images/skin_parameter_template_05.png)
+  <figcaption><b>Figure 6</b>: AdnSkin Parameter Template: Debug.</figcaption>
+</figure>
+
 ## Paintable Weights
 
 In order to provide more artistic control, some key parameters of the AdnSkin solver can be controlled via paintable point attributes. The maps are point attributes that must be present in the geometry stream injected into the SOP. For that, the Houdini attribpaint node can be used.
@@ -216,7 +228,7 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 <figure markdown>
   ![Example of painted maps for AdnSkin](../images/skin_weights.png)
-  <figcaption><b>Figure 4</b>: Example of painted weights on the skin of a bear character. First row, from left to right: maps flooded to 1.0 (which correspond to compression, stretching, masses, global damping, self collision radius and thickness multiplier), hard constraints, slide constraints and soft constraints. Second row, from left to right: shape preservation, self collision weights and max sliding distance multiplier.</figcaption>
+  <figcaption><b>Figure 7</b>: Example of painted weights on the skin of a bear character. First row, from left to right: maps flooded to 1.0 (which correspond to compression, stretching, masses, global damping, self collision radius and thickness multiplier), hard constraints, slide constraints and soft constraints. Second row, from left to right: shape preservation, self collision weights and max sliding distance multiplier.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -224,8 +236,54 @@ In order to provide more artistic control, some key parameters of the AdnSkin so
 
 <figure style="width: 75%;" markdown>
   ![AdnSkin example of network with attribpaint](../images/skin_net_example.png) 
-  <figcaption><b>Figure 6</b>: Example of AdnSkin network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 8</b>: Example of AdnSkin network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
+
+## Debugger
+
+In order to better visualize deformer constraints and attributes in the Houdini viewport there is the option to enable the debugger, found in the switcher menu labeled *Debug* in the parameter interface. The visualization of the guide geometry is only activated when selecting the node to debug and cannot be enabled globally.
+
+
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnSkin deformer are:
+
+ - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the *Triangulate Mesh* option is disabled the debugged lines will align with the edges of the mesh polygons. If the *Triangulate Mesh* option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
+ - **Hard Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Hard Constraints* weight is greater than 0.0.
+ - **Self Collisions Volume**: For each vertex, a sphere will be drawn representing the volume that will collide if its *Self Collision Point Radius Multiplier* weight and the *Point Radius Scale* are greater than 0.0.
+ - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
+ - **Slide Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Slide Constraints* weight is greater than 0.0.
+ - **Sliding Surface On Target**: For each vertex, lines will outline the target triangles within the reach of its *Max Sliding Distance*.
+ - **Soft Constraints**: For each vertex, a line will be drawn from the simulated mesh vertex to the corresponding point on the target mesh if its *Soft Constraints* weight is greater than 0.0.
+ - **Acceleration Structure**: For each level in the acceleration structure used to solve self-collisions, display a box representing the bounding box encapsulating all the collision primitives in that level. If the value of *Debug Level Acceleration Structure* is -1, then all levels are displayed. Otherwise, only the specified level is displayed. If the value is greater than the number of levels, then no levels are displayed.
+ - **Rest Self Collisions**: For each triangle intersecting with the mesh at rest, the 3 edges of the triangle are displayed.
+
+<figure markdown>
+  ![skin editor debug example](../images/skin_debug.png)
+  <figcaption><b>Figure 9</b>: Displaying the target and simulated mesh. Debugger enabled displaying a test example with <i>Soft Constraints</i> colored in green.</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor sliding surface debug](../images/skin_debug_slide_surface.png)
+  <figcaption><b>Figure 10</b>: Displaying the target and simulated mesh. Debugger enabled displaying the <i>Sliding Surface</i> colored in green.</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor distance constraint debug](../images/skin_dist_constr_debug.png)
+  <figcaption><b>Figure 11</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Distance Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin editor shape preservation constraint debug](../images/skin_shape_preserve_constr_debug.png)
+  <figcaption><b>Figure 12</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+<figure markdown>
+  ![skin self collision volume debug](../images/skin_self_collisions_volume_debug.png)
+  <figcaption><b>Figure 13</b>: Displaying the simulated mesh. Debugger enabled displaying the <i>Self Collisions Volume</i> colored in blue.</figcaption>
+</figure>
+
+> [!NOTE]
+> - The width of the debug lines can be modified from the global viewport settings in Houdini.
+> - For better contrast while debugging, enable the *Dark* background option in the viewport settings.
 
 ## Advanced
 

@@ -61,7 +61,7 @@ Then, select the muscle SOP node again and click AdonisFX > Utils > Make Groomab
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Group**                 | String  |                 | ✗ | Isolate a specific group for the fiber grooming process. |
 | **Piece Attribute**       | String  | `muscle_id`     | ✗ | Piece attribute from which isolated muscles will be deduced. If not present, the pieces will be isolated from the connectivity information. |
-| **Fibers Scale**          | Integer | 10              | ✗ | Visualization scale of the projected fibers. |
+| **Fibers Scale**          | Float   | 10.0            | ✗ | Visualization scale of the projected fibers. |
 | **Strokes Ignore Pieces** | Boolean | False           | ✗ | Ignore the pieceid for the stroke data processing. This allows for a stroke to affect multiple pieces at once. |
 | **Triangulate Mesh**      | Boolean | True            | ✗ | Triangulate the mesh internally for the AdnFiberDiffusion and AdnFiberProjection. For the diffusion step it alters the output fiber layout. This parameter should match the triangulate option of your AdnMuscle or AdnRibbonMuscle nodes connected downstream for consistent results. |
 | **Enable Mirror**         | Boolean | False           | ✗ | Enable mirroring the strokes for grooming. |
