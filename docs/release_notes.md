@@ -71,6 +71,10 @@
 - Removed *Concrete* material from all solvers.
 - Removed AdnWeightsDisplayNode that was deprecated in version 1.4.0.
 
+### Known Limitations
+- AdnGlue SOP node's debugger in Houdini does not display lines correctly after scene reopen. *AdonisFX-2870*
+- Maya 2026 producing undesired behaviors on scene open on a fully configured AdonisFX scene with hidden geometries and GPU Override enabled. *AdonisFX-2760*
+
 ## Version 1.7.3
 2025-10-22
 
