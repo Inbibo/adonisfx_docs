@@ -4,7 +4,7 @@
 
 AdonisFX is distributed for Maya as a **standard module** (.mod). To install the module, follow these steps:
 
-1. Download the AdonisFX package from [Inbibo’s website](https://inbibo.co.uk/adonisfx/downloads).
+1. Download the AdonisFX package from [Inbibo’s website](https://inbibo.co.uk/downloads?tab=adonisfx).
 2. Extract the contents into any folder of your choice.
 3. Add the path to that extracted folder to the `MAYA_MODULE_PATH` environment variable (details below).
 4. Launch Maya and load AdonisFX from **Windows > Settings/Preferences > Plug-in Manager**.
@@ -17,7 +17,7 @@ There are two ways to configure `MAYA_MODULE_PATH`:
 - **Method 2:** Set the value as a system-wide or user-wide environment variable
 
 > [!NOTE]
-> - AdonisFX is distributed for multiple Maya versions. If you have multiple Maya versions installed, make sure to [download](https://inbibo.co.uk/adonisfx/downloads) the right AdonisFX build and configure the environment to point to the right AdonisFX version.
+> - AdonisFX is distributed for multiple Maya versions. If you have multiple Maya versions installed, make sure to [download](https://inbibo.co.uk/downloads?tab=adonisfx) the right AdonisFX build and configure the environment to point to the right AdonisFX version.
 > - Remember that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
 
 ### Windows
@@ -70,7 +70,7 @@ There are two ways to configure `MAYA_MODULE_PATH`:
 
 AdonisFX is distributed for Houdini as a **standard package** (.json). To install the package, please do the following:
 
-1. Download the AdonisFX package from [Inbibo’s website](https://inbibo.co.uk/adonisfx/downloads).
+1. Download the AdonisFX package from [Inbibo’s website](https://inbibo.co.uk/downloads?tab=adonisfx).
 2. Extract the contents into any folder of your choice.
 3. Add the path to that extracted folder to the `HOUDINI_PACKAGE_DIR` and `ADONISFX_INSTALL_PATH` environment variables.
 4. Launch Houdini and the AdonisFX package will be automatically loaded.
@@ -82,7 +82,7 @@ The need to set `ADONISFX_INSTALL_PATH` as well is to allow Houdini to complete 
 In the following sections we explain how to do this for Windows and Linux.
 
 > [!NOTE]
-> - AdonisFX is distributed for multiple Houdini versions. If you have multiple Houdini versions installed, make sure to [download](https://inbibo.co.uk/adonisfx/downloads) the right AdonisFX build and configure the environment to point to the right AdonisFX version.
+> - AdonisFX is distributed for multiple Houdini versions. If you have multiple Houdini versions installed, make sure to [download](https://inbibo.co.uk/downloads?tab=adonisfx) the right AdonisFX build and configure the environment to point to the right AdonisFX version.
 > - Remember that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
 
 ### Windows
