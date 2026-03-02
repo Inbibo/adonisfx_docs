@@ -30,13 +30,13 @@ The AdonisFX nodes catalog can be inspected in the TAB Menu inside any geometry 
 | ![AdnSkin](../images/adn_skin.png) | Creates an AdnSkin SOP. Solver for fascia and skin simulation. | AdonisFX > Solvers > *AdnSkin* |
 | ![AdnSkinMerge](../images/adn_skin_merge.png) | Creates an AdnSkinMerge SOP. Node used to blend animation and simulation skin layers. | AdonisFX > Solvers > *AdnSkinMerge* |
 |||
-| ![AdnActivation](../images/adn_activation.png) | Creates an AdnActivation SOP. Allows operations on a set of input values to compute a final value, which can be used, for example, to drive muscle activations. | AdonisFX > Solvers > *AdnActivation* |
-| ![AdnEdgeEvaluator](../images/adn_edge_evaluator.png) | Creates an AdnEdgeEvaluator SOP. Used to compute a compression map on geometry based on edge deformation. | AdonisFX > Solvers > *AdnEdgeEvaluator* |
-| ![AdnFiberDiffusion](../images/adn_fiber_diffusion.png) | Creates an AdnFiberDiffusion SOP. Utility SOP used by the *AdnFiberGroom* HDA to compute fiber vectors of a muscle driven by a tendons map. | AdonisFX > Solvers > *AdnFiberDiffusion* |
-| ![AdnFiberGroom](../images/adn_fiber_groom.png) | Creates an AdnFiberGroom HDA. Allows combing of muscle fibers. | AdonisFX > Solvers > *AdnFiberGroom* |
-| ![AdnFiberProjection](../images/adn_fiber_projection.png) | Creates an AdnFiberProjection SOP. Utility SOP used by the *AdnFiberGroom* HDA to process vectors resulting from fiber diffusion or combing and fully project them onto the muscle surface. | AdonisFX > Solvers > *AdnFiberProjection* |
-| ![AdnLearnMusclePatches](../images/adn_learn_muscle_patches.png) | Creates an AdnLearnMusclePatches SOP. A machine learning–powered SOP used to generate an *AdonisFX Muscle Patches* file, which stores per-vertex fiber information that is required by *AdnSimshape* solver to compute muscle activations. | AdonisFX > Solvers > *AdnLearnMusclePatches* |
-| ![AdnRemap](../images/adn_remap.png) | Creates an AdnRemap SOP. Utility SOP used to remap scalar values, typically to process sensor outputs for driving muscle activation or volume gain. | AdonisFX > Solvers > *AdnRemap* |
+| ![AdnActivation](../images/adn_activation.png) | Creates an AdnActivation SOP. Allows operations on a set of input values to compute a final value, which can be used, for example, to drive muscle activations. | AdonisFX > Utils > *AdnActivation* |
+| ![AdnEdgeEvaluator](../images/adn_edge_evaluator.png) | Creates an AdnEdgeEvaluator SOP. Used to compute a compression map on geometry based on edge deformation. | AdonisFX > Utils > *AdnEdgeEvaluator* |
+| ![AdnFiberDiffusion](../images/adn_fiber_diffusion.png) | Creates an AdnFiberDiffusion SOP. Utility SOP used by the *AdnFiberGroom* HDA to compute fiber vectors of a muscle driven by a tendons map. | AdonisFX > Utils > *AdnFiberDiffusion* |
+| ![AdnFiberGroom](../images/adn_fiber_groom.png) | Creates an AdnFiberGroom HDA. Allows combing of muscle fibers. | AdonisFX > Utils > *AdnFiberGroom* |
+| ![AdnFiberProjection](../images/adn_fiber_projection.png) | Creates an AdnFiberProjection SOP. Utility SOP used by the *AdnFiberGroom* HDA to process vectors resulting from fiber diffusion or combing and fully project them onto the muscle surface. | AdonisFX > Utils > *AdnFiberProjection* |
+| ![AdnLearnMusclePatches](../images/adn_learn_muscle_patches.png) | Creates an AdnLearnMusclePatches SOP. A machine learning–powered SOP used to generate an *AdonisFX Muscle Patches* file, which stores per-vertex fiber information that is required by *AdnSimshape* solver to compute muscle activations. | AdonisFX > Utils > *AdnLearnMusclePatches* |
+| ![AdnRemap](../images/adn_remap.png) | Creates an AdnRemap SOP. Utility SOP used to remap scalar values, typically to process sensor outputs for driving muscle activation or volume gain. | AdonisFX > Utils > *AdnRemap* |
 |||
 
 

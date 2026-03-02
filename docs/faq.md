@@ -127,7 +127,7 @@ As a final step to support the addition of the *currentTime* plug in AdnSkinMerg
 
 ### How can I reconnect the time to the *currentTime* plug in Maya if I had accidentally broken the connection?
 
-Got to AdonisFX menu > Utils and press *Reconnect Current Time*. This option will search for all AdonisFX nodes in the scene with a *currentTime* plug and connect the *time1.outTime* plug to it.
+Go to AdonisFX menu > Utils and press *Reconnect Current Time*. This option will search for all AdonisFX nodes in the scene with a *currentTime* plug and connect the *time1.outTime* plug to it.
 This is necessary to ensure a correct cooking of the nodes.
 
 ## Cross-DCC Support

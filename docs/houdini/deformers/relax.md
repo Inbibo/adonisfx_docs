@@ -7,7 +7,7 @@ AdnRelax is a Houdini SOP designed to smooth creases and correct over-compressio
 The AdnRelax SOP is easy to create and configure in Houdini. It only requires the mesh to apply the relaxation onto. Typically, this mesh would be the simulated fascia or skin.
 
 1. Go to the geometry context of the rig containing the geometry to apply the deformer to.
-2. Press TAB and navigate to the submenu AdonisFX > Deformer to find the AdnRelax ![Relax button](../../images/adn_relax.png){style="width:4%"} SOP type.
+2. Press TAB and navigate to the submenu AdonisFX > Deformers to find the AdnRelax ![Relax button](../../images/adn_relax.png){style="width:4%"} SOP type.
 3. Create it and connect the geometry to the input.
 4. Increase the number of iterations to see the effect of the deformation. Check the [Attributes](relax#attributes) section to customize their configuration.
 

@@ -26,7 +26,7 @@ To create an AdnSimshape, follow these steps:
   1. Go to the geometry context of the rig containing the input geometries.
   2. Press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSimshape ![Simshape button](../../images/adn_simshape.png){style="width:4%"} SOP type.
   3. Create it and connect **S** to the first input.
-  4. Optionally, if **A**, **R** and **D** ara available, connect them to the second, third and fourth inputs respectively.
+  4. Optionally, if **A**, **R** and **D** are available, connect them to the second, third and fourth inputs respectively.
   5. The AdnSimshape is now ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
@@ -341,11 +341,11 @@ Additional custom settings for the learning algorithm:
 
 #### Debug Activations
 
-AdnSimshape generates an output point attribute called `adnOutputActivation` that can be used to visualize the activations during the simulation.
+AdnSimshape generates an output point attribute called `adnOutActivation` that can be used to visualize the activations during the simulation.
 
 <figure style="width: 50%" markdown>
   ![Simshape output activation attribute](../images/simshape_nassim_debug.png)
-  <figcaption><b>Figure 14</b>: Visualization of the `adnOutputActivation` computed by AdnSimshape.</figcaption>
+  <figcaption><b>Figure 14</b>: Visualization of the `adnOutActivation` computed by AdnSimshape.</figcaption>
 </figure>
 
 ### Colliders

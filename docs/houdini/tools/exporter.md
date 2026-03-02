@@ -44,7 +44,7 @@ An AdonisFX rig must meet some requirements to be exportable.
 
 <figure markdown>
   ![AdonisFX Export Tool requirements part 1](../images/exporter_requirements_00.png)
-  <figcaption><b>Figure 2</b>: Exportable AdonisFX chain for the L_extensorDigitorum muscle and the simulated skin of an AdonisFX rig. All AdonisFX nodes affecting a geometry must are encapsulated by an ADN_IN null node and an ADN_OUT null node.</figcaption>
+  <figcaption><b>Figure 2</b>: Exportable AdonisFX chain for the L_extensorDigitorum muscle and the simulated skin of an AdonisFX rig. All AdonisFX nodes affecting a geometry must be encapsulated by an ADN_IN null node and an ADN_OUT null node.</figcaption>
 </figure>
 
 - The glue layer must receive all the input muscles merged together. The merged muscles must be the input to the ADN_IN null node of this layer.
