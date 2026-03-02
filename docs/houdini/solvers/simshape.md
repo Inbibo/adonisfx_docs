@@ -336,7 +336,7 @@ Additional custom settings for the learning algorithm:
 | **Write Muscle Id**          | Boolean | False | If enabled, the SOP will generate an output point attribute with the name provided in *Muscle Id Attribute*. By visualizing this output attribute, the vertices of the neutral mesh will be colored according to the muscle patches resulting from the training. |
 | **Muscle Id Attribute**      | String  | `adnMusclePatchId` | Name of the per-point attribute to write the muscle patches ids to. |
 | **Write Muscle Fibers**      | Boolean | False | If enabled, the SOP will generate an output point attribute with the name provided in *Muscle Fibers Attribute*. By visualizing this output attribute, the fiber directions will be drawn on the vertices of the neutral mesh according to the muscle patches resulting from the training. |
-| **Muscle Fibers Attribute**  | String  | `adnMusclePatchId` | Name of the per-point attribute to write the muscle fiber directions to. |
+| **Muscle Fibers Attribute**  | String  | `adnMusclePatchFibers` | Name of the per-point attribute to write the muscle fiber directions to. |
 
 
 #### Debug Activations

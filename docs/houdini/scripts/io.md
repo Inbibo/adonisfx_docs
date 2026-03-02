@@ -72,7 +72,7 @@ adnio.import_data(file_path, enabled_features)
 The first argument `file_path` is required and it is the full path to the JSON file containing a valid AdonisFX setup definition. The second argument `enabled_features` is optional and corresponds to a dictionary where keys are feature names and values are flags to determine if a feature has to be imported or bypassed (same format used for gathering data).
 
 > [!NOTE]
-> The rig will be imported into the first found geometry node with the visibility flag on. For that reason it is advisable to have on single geometry node in the */obj* context or at least only one active.
+> The rig will be imported into the first found geometry node with the visibility flag on. For that reason it is advisable to have one single geometry node in the */obj* context or at least only one active.
 
 Find more information about the use of the import feature in the [Import](tools/importer) page.
 
@@ -88,7 +88,7 @@ adnio.export_data(file_path, enabled_features)
 The first argument `file_path` is required and it is the full path to the JSON file to export the data into. The second argument `enabled_features` is optional and corresponds to a dictionary where keys are feature names and values are flags to determine if a feature has to be exported or bypassed (same format used for gathering data).
 
 > [!NOTE]
-> The rig will be exported from the first found geometry node with the visibility flag on. For that reason it is advisable to have on single geometry node in the */obj* context or at least only one active.
+> The rig will be exported from the first found geometry node with the visibility flag on. For that reason it is advisable to have one single geometry node in the */obj* context or at least only one active.
 
 Find more information about the use of the export feature in the [Export](tools/exporter) page.
 
@@ -96,5 +96,5 @@ Find more information about the use of the export feature in the [Export](tools/
 
 - The `adnio` scripts do not support subnetworks inside of the Geometry context. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
 - Only one active geometry node (with the visibility/display flag enabled) in the */obj* context is allowed for the `adnio` scripts to work.
-- Nodes use to drive attachment to transform or slide on segment constraints (e.g. null, joint or rivet nodes) must live in the */obj* context.
+- Nodes used to drive attachment to transform or slide on segment constraints (e.g. null, joint or rivet nodes) must live in the */obj* context.
 - KineFX joint transforms are not supported.

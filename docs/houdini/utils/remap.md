@@ -13,7 +13,7 @@ An instance of this node can be created from the TAB menu:
 Typically, this node will be used to remap the raw output values of AdonisFX sensors (i.e. distance, angle, velocity and acceleration) so that they are ingested into the AdonisFX locators within the desired normalized ranges. The remapped output can also be ingested directly in an AdnMuscle deformer to modulate, for example, the activation or the volume ratio.
 
 > [!NOTE]
-> - When remapping values from an AdonisFX sensor it is advisable to remap the value output from the locator rather than the sensor to preserve consistent connection information with other DCC's.
+> - When remapping values from an AdonisFX sensor it is advisable to remap the value output from the locator rather than the sensor to preserve consistent connection information with other DCCs.
 
 
 ## Example

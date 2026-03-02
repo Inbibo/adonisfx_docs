@@ -2,7 +2,7 @@
 
 The AdnFiberGroom node is a Houdini Digital Asset responsible for creating and editing muscle fibers. If a tendon mask is provided in the geostream, this node can also estimate an initial fiber flow. The AdnFiberGroom HDA uses the AdnFiberDiffusion and AdnFiberProjection SOP nodes as internal components.
 
-# How To Use
+## How To Use
 
 To create this node, follow these steps:
 

@@ -39,7 +39,7 @@ Only one transform will be required to create the AdnLocatorPosition. The creati
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Position Matrix** | Matrix | Identity        | ✓ | Matrix containing the position in world space of the transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
+| **Position Matrix** | Matrix | Identity        | ✓ | Matrix containing the position in world space of the transform node. This entry is an operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
 
 #### Draw
 | Name | Type | Default | Animatable | Description |
@@ -97,8 +97,8 @@ Two transform nodes will be required to create an AdnLocatorDistance representin
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
-| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
+| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This entry is an operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
+| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This entry is an operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
 
 #### Draw
 | Name | Type | Default | Animatable | Description |
@@ -157,9 +157,9 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
 #### Input
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
-| **Mid Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
-| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the third transform node. This entry is a operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
+| **Start Matrix**   | Matrix | Identity        | ✓ | Matrix containing the position in world space of the first transform node. This entry is an operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
+| **Mid Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the second transform node. This entry is an operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
+| **End Matrix**     | Matrix | Identity        | ✓ | Matrix containing the position in world space of the third transform node. This entry is an operator path pointing to nodes that contain transform information to drive the locator. These nodes are generally exposed on the */obj* level. |
 
 #### Draw
 | Name | Type | Default | Animatable | Description |
