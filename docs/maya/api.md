@@ -43,3 +43,8 @@ The API is the base foundation for the Import/Export tools of AdonisFX. Below is
 > - Deformed geometry uses the `Shape` suffix to describe the "geometry" entry. This is important when moving data between DCCs, as it must adhere to the naming convention.
 > - Data such as "geometryAttachments" are represented using the name without the `Shape` suffix. This is also important for interoperability between DCCs.
 > - No context needs to be defined in the current version of the Maya API.
+> - Exported connections between AdonisFX nodes may differ depending on the DCC. This is expected due to differences between DCC applications. However, the rig will be correctly reconstructed when imported into any supported target DCC.
+
+### Limitations
+
+- The use of Maya namespaces is not supported by the API.

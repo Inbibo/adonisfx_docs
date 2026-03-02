@@ -63,3 +63,10 @@ This tool works when there is a valid piece attribute (path, name, or muscle_id)
 > - Data such as "geometryAttachments" are represented using the name without the `Shape` suffix. This is also important for interoperability between DCCs.
 > - A context must be defined in Houdini using the `rig.setContext("/obj/geo1")` method. This allows the API to know from which geometry context to extract data and where to reconstruct the rig.
 > - Rig components in Houdini must live directly inside the geometry node. Encapsulating components inside subnetworks (for example placing AdnMuscle nodes in a subnetwork) is not supported.
+> - Exported connections between AdonisFX nodes may differ depending on the DCC. This is expected due to differences between DCC applications. However, the rig will be correctly reconstructed when imported into any supported target DCC.
+
+### Limitations
+
+- The API does not support subnetworks inside of the Geometry context. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
+- Nodes use to drive attachment to transform or slide on segment constraints (e.g. null, joint or rivet nodes) must live in the */obj* context.
+- KineFX joint transforms are not supported.

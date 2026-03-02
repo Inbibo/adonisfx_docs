@@ -32,7 +32,7 @@ Each layer builds upon the previous one, this means that a specific layer will b
 
 To configure at least the muscle layer, the following inputs are required:
 
-- **Mummy**: the skeletal mesh that drives the muscle simulation.
+- **Mummies**: one or more skeletal meshes to drive the muscle simulation.
 - **Muscles**: one or more meshes representing muscles. The **Muscle Layer** checkbox must be enabled to provide this input.
 
 When these two inputs are provided and the following layers are unchecked, AdnTurbo will be ready to be executed. If the **Locators & Sensors** checkbox is checked, locators and sensors will be built for each muscle.
@@ -61,6 +61,9 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 
 2. Provide the inputs in the Turbo UI according to the layers that have to be built. Refer to Figure 3 to build all the layers.
 
+> [!NOTE]
+> In this example only one mummy geometry is provided, however the *Mummies* entry also allows a list of mummy geometries (e.g. "/obj/geo1/L_mummy_shoulder_GEO", "/obj/geo1/L_mummy_forearmGEO", ...).
+
 3. If the scene contains AdonisFX nodes, a confirmation dialog will appear informing about it. Press *Yes* to automatically delete all AdonisFX nodes or *No* to cancel the execution.
 
 <figure style="width:90%; margin-left:5%" markdown>
@@ -83,7 +86,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 
 As a result of executing the tool by providing the geometries for all the layers, the following nodes will be created:
 
-- An AdnMuscle for each muscle geometry with the mummy geometry as target.
+- An AdnMuscle for each muscle geometry with the mummy geometries as targets.
 - An AdonisFX locator and sensor for each AdnMuscle to drive the muscle activation.
 - An AdnGlue node with all the muscles merged as input.
 - An AdnSkin node for the fascia geometry with the mummy and glue as targets.

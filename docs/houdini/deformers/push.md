@@ -36,9 +36,10 @@ The AdnPush SOP is easy to create and configure in Houdini. It only requires a m
 | **Weights Attribute**         | float | 1.0 | ✗  | Specifies the name of the per-point attribute to read the weight of the deformation. The expected attribute name is `adnWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\]. |
 
 > [!NOTE]
-> - All maps parameters are disabled in each entry added to these multiparams because the attribute names are fixed to drive specific functionalities of the deformer.
+> - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
 > - Fixed point attribute names also ensure compatibility with the API.
 > - To copy the map names of the disabled attributes for painting (using an attribute paint node) right click on the disabled map attribute parameter, press "Copy Parameter", select the attribute paint node and on the attribute name entry right click and press "Paste Values". This allows to easily copy the attribute name for painting.
+> - The *Make Paintable* utility provided in the AdonisFX menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnPush SOP.
 > - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
 
 ## Parameter Template
@@ -66,3 +67,6 @@ To provide more control, the AdnPush SOP includes two paintable attributes.
   ![push paintable maps](../images/push_weights.png)
   <figcaption><b>Figure 3</b>: Example of Push Multiplier map of AdnPush SOP applied to the skin layer of a biped to obtain the fascia geometry. Left: front view. Right: back view.</figcaption>
 </figure>
+
+> [!NOTE]
+> To tweak the point attributes of an AdnPush SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnPush SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnPush node.

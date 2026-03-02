@@ -35,7 +35,7 @@ The process to create an AdnSkinMerge deformer is:
 
 4. Set a custom name to the deformer and specify the initialization time.
 
-5. Press the *Create* button and a message box will notify you that AdnSkinMerge has been created properly. The final mesh will follow the animation mesh inputs by default.
+5. Press the *Create* button and a message in the terminal will notify you that AdnSkinMerge has been created properly. The final mesh will follow the animation mesh inputs by default.
 
 6. To modulate the influence of the simulation mesh inputs, use the maya paintable context and customize the blend weights map.
 
@@ -50,7 +50,11 @@ Once the AdnSkinMerge deformer is created, to modify its input meshes (animation
   <figcaption><b>Figure 2</b>: Edit Skin Merge UI.</figcaption>
 </figure>
 
-3. Once everything has been set up, press the *Apply changes* button. A message box will notify you that AdnSkinMerge has been edited properly.
+3. Once everything has been set up, press the *Apply changes* button. A message in the terminal will notify you that AdnSkinMerge has been edited properly.
+
+> [!NOTE]
+> - In v2.0 of AdonisFX a new *currentTime* plug has been added to the node which will be automatically connected to the *time1.outTime* plug in Maya.
+> - The *Upgrade v1.x To v2.x* or the *Reconnect Current Time* utils in the AdonisFX menu can be used to reconnect the time plug in case it is missing in the setup.
 
 ## Attributes
 

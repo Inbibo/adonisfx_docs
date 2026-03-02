@@ -63,3 +63,7 @@ Depending on the complexity of the rig, the export process might take a few seco
 > [!NOTE]
 > - The Export Tool is labeled as *Beta* since it relies on the experimental [API](../api).
 > - Exporting data is required to be executed on rest frame.
+
+## Limitations
+
+- The use of Maya namespaces is not supported by the export tool.

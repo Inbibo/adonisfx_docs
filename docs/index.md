@@ -4,9 +4,9 @@ Welcome to the technical documentation of AdonisFX where we provide you with all
 
 ## Key Values
 
-AdonisFX is a fast and intuitive solution for creature effects simulation with muscle, fat, skin and face solvers. Currently, it is implemented as a plug-in for Maya (and Houdini coming soon). The key values of AdonisFX are:
+AdonisFX is a fast and intuitive solution for creature simulation with muscle, fat, skin and face solvers. Currently, it is implemented as a plug-in for Maya and Houdini. The key values of AdonisFX are:
 
-- **Fast Computation**. Typically, high quality creatures simulation requires hours to compute even if running on modern hardware components. The objective of AdonisFX is to break the current limits in terms of execution times in order to deliver high quality results in seconds which is possible thanks to the latest research in the simulation field for VFX and with Inbibo's proprietary technology. 
+- **Fast Computation**. Typically, high quality creature simulation requires hours to compute even if running on modern hardware components. The objective of AdonisFX is to break the current limits in terms of execution times in order to deliver high quality results in seconds which is possible thanks to the latest research in the simulation field for VFX and with Inbibo's proprietary technology. 
 
 - **Quick Setup**. Preparing a creature to be simulated with realistic behavior and dynamics can be tedious and require a significant amount of time for modelers, riggers and CFX artists. Also, this process often demands a certain knowledge of physically based parameters. However, AdonisFX enables artists to set up complex creatures simulation in a short time thanks to solvers with intuitive parametrization, easy-to-use tools and AI solutions to accelerate the configuration process.
 
@@ -15,6 +15,7 @@ AdonisFX is a fast and intuitive solution for creature effects simulation with m
 With AdonisFX you can:
 
 - integrate simulation in animation rigs,
+- integrate simulation into rigging and procedural pipelines,
 - get results very rapidly after feedback is received,
 - accelerate shots feedback iteration,
 - deliver finalized work sooner, and

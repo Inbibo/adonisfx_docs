@@ -92,4 +92,9 @@ The first argument `file_path` is required and it is the full path to the JSON f
 
 Find more information about the use of the export feature in the [Export](tools/exporter) page.
 
-<!-- TODO #261: Reminder to take into account the limitations for this page when completing API work. -->
+## Limitations
+
+- The `adnio` scripts do not support subnetworks inside of the Geometry context. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
+- Only one active geometry node (with the visibility/display flag enabled) in the */obj* context is allowed for the `adnio` scripts to work.
+- Nodes use to drive attachment to transform or slide on segment constraints (e.g. null, joint or rivet nodes) must live in the */obj* context.
+- KineFX joint transforms are not supported.

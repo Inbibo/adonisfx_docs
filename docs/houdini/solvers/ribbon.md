@@ -47,7 +47,7 @@ To create an AdnRibbonMuscle, follow these steps:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Houdini), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li><ul> |
+| **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
 | Name | Type | Default | Animatable | Description |
@@ -173,7 +173,18 @@ To create an AdnRibbonMuscle, follow these steps:
 > - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
 > - Fixed point attribute names also ensure compatibility with the API.
 > - To copy the map names of the disabled attributes for painting (using an attribute paint node) right click on the disabled map attribute parameter, press "Copy Parameter", select the attribute paint node and on the attribute name entry right click and press "Paste Values". This allows to easily copy the attribute name for painting.
+> - The *Make Paintable* utility provided in the AdonisFX menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnRibbonMuscle SOP.
 > - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
+
+## Debug Attributes
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Debug**            | Boolean      | False         | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnRibbonMuscle deformer. |
+| **Feature**          | Enumerator   | Muscle Fibers | ✓ | A list of debuggable features for this deformer. <ul><li>Attachments To Geometry: Draw *Attachment To Geometry Constraints* connections from the simulated mesh to the geometry targets.</li><li>Attachments To Transform: Draw *Attachment To Transform Constraints* connections from the simulated mesh to the transform targets.</li><li>Fiber Constraints: Draw *Fiber Constraint* connections representing the constrained pair of vertices in the simulated mesh.</li><li>Muscle Fibers: Draw *Muscle Fibers* fiber directions on the simulated mesh's surface. When the muscle is activated the color of the fibers will change according to the *Activation Color*.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Slide On Geometry: Draw *Slide On Geometry Constraints* connections from the simulated mesh to the geometry targets the simulated mesh is sliding on.</li><li>Slide On Segment: Draw *Slide On Segment Constraints* connections from the simulated mesh to the segment the simulated mesh is sliding on.</li></ul> |
+| **Color**            | Color Picker | Red           | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider.      |
+| **Fibers Scale**     | Float        | 1.0           | ✓ | The scale can be modified to set a custom fiber length. |
+| **Fibers Color**     | Color Picker | Blue          | ✓ | The fibers color when Muscle Fibers debug mode is selected and the muscle is not activated (*Activation* Attribute). |
+| **Activation Color** | Color Picker | Red           | ✓ | The fibers color when Muscle Fibers debug mode is selected and the muscle is activated (*Activation* Attribute). |
 
 ## Parameter Template
 
@@ -202,6 +213,11 @@ To create an AdnRibbonMuscle, follow these steps:
   <figcaption><b>Figure 5</b>: AdnRibbonMuscle Parameter Template: Maps.</figcaption>
 </figure>
 
+<figure style="width: 75%;" markdown>
+  ![AdnRibbonMuscle parameter template debug tab](../images/ribbon_parameter_template_05.png) 
+  <figcaption><b>Figure 6</b>: AdnRibbonMuscle Parameter Template: Debug.</figcaption>
+</figure>
+
 ## Paintable Weights
 
 In order to provide more artistic control, some key parameters of the muscle solver are exposed as paintable maps in the SOP. The maps are point attributes that must be present in the geometry stream injected into the SOP. For that, the Houdini attribpaint node can be used.
@@ -211,7 +227,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
 | **Attachments To Geometry**     | 0.0             | Multi-influence weight to indicate the influence of each geometry attachment at each vertex of the muscle. |
 | **Attachments To Transform**    | 0.0             | Multi-influence weight to indicate the influence of each transform attachment at each vertex of the muscle. |
 | **Compression Resistance**      | 1.0             | Force to correct the edge lengths if the current length is smaller than the rest length. A higher value represents higher correction. |
-| **Fibers**                      | {0.0, 0.0, 0.0} | The SOP estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the *AdnFiberGroom* HDA can be used to comb the fibers manually. The fibers can be displayed from that HDA. Check [this page](../utils/fiber_groom) to know more about this HDA.  |
+| **Fibers**                      | {0.0, 0.0, 0.0} | The SOP estimates the fiber directions at each vertex based on the tendon weights. In case that the estimated fibers do not fit well to the desired directions, the *AdnFiberGroom* HDA can be used to comb the fibers manually. The fibers can be displayed from that HDA. Check [this page](../utils/fiber_groom) to know more about this HDA. Additionally the fibers can be displayed using the *Muscle Fibers* option in the [debugger](#debugger). |
 | **Fibers Multiplier**           | 1.0             | Controls the area in which to concentrate the activation of the muscle. A higher value means more concentrated activation. |
 | **Global Damping**              | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
 | **Masses**                      | 1.0             | Set individual mass values per vertex in the simulated mesh. |
@@ -224,27 +240,70 @@ In order to provide more artistic control, some key parameters of the muscle sol
 
 <figure markdown>
   ![AdnRibbonMuscle example of attachment to geometry with 3 targets](../images/ribbon_w_att_geo.png) 
-  <figcaption><b>Figure 6</b>: Example of AdnRibbonMuscle attachment to geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
+  <figcaption><b>Figure 7</b>: Example of AdnRibbonMuscle attachment to geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnRibbonMuscle example of slide on geometry with 3 targets](../images/ribbon_w_slide_geo.png) 
-  <figcaption><b>Figure 7</b>: Example of AdnRibbonMuscle slide on geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
+  <figcaption><b>Figure 8</b>: Example of AdnRibbonMuscle slide on geometry maps painted on a planar biceps with 3 targets. From left to right, the targets are the mummy, the brachialis muscle, and the pronator teres muscle.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnRibbonMuscle example of other paintable maps](../images/ribbon_weights.png) 
-  <figcaption><b>Figure 8</b>: Example of other paintable maps on a planar biceps. On the left, the fibers multiplier map. In the middle, the tendons map. On the right, a map flooded with a value of 1.0 corresponding to all other remaining maps (compression, stretching, masses, global damping, shape preservation and sliding distance multiplier).</figcaption>
+  <figcaption><b>Figure 9</b>: Example of other paintable maps on a planar biceps. On the left, the fibers multiplier map. In the middle, the tendons map. On the right, a map flooded with a value of 1.0 corresponding to all other remaining maps (compression, stretching, masses, global damping, shape preservation and sliding distance multiplier).</figcaption>
 </figure>
 
 > [!NOTE]
 > - The attachment and sliding weights are normalized on initialization if the sum of the values for the multiple influences exceed the upper limit of 1.0.
 > - If *AdnFiberGroom* HDA is used to comb the Fibers, it is recommended to place it after `attribpaint` nodes in charge of painting the Tendon weights, because the tendons map is an input to estimate an initial fibers flow.
+> - Fibers and Tendon weights should only be painted on the initialization frame, being the initialization frame the lowest value between Preroll Start Time and Start Time.
 
 <figure style="width: 75%;" markdown>
   ![AdnRibbonMuscle example of network with attribpaint and AdnFiberGroom HDA](../images/ribbon_net_example.png) 
-  <figcaption><b>Figure 9</b>: Example of AdnRibbonMuscle network. The attribpaint node has to be placed prior to the AdnFiberGroom. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 10</b>: Example of AdnRibbonMuscle network. The attribpaint node has to be placed prior to the AdnFiberGroom. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
+
+> [!NOTE]
+> To tweak the point attributes of an AdnRibbonMuscle SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnRibbonMuscle SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnRibbonMuscle node.
+
+## Debugger
+
+In order to better visualize deformer constraints and attributes in the Houdini viewport there is the option to enable the debugger, found in the switcher menu labeled *Debug* in the parameter interface. The visualization of the guide geometry is only activated when selecting the node to debug and cannot be enabled globally.
+
+
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to be visualized, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnRibbonMuscle deformer are:
+
+ - **Attachments To Geometry**: For each vertex with a geometry attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective geometry target closest point at rest.
+ - **Attachments To Transform**: For each vertex with a transform attachment constraint weight greater than 0.0, a line will be drawn from the mesh vertex to its respective transform target.
+  - **Fiber Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the *Triangulate Mesh* option is disabled the debugged lines will align with the edges of the mesh polygons. If the *Triangulate Mesh* option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
+ - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. In addition, the colors of the fibers will be modulated given the *Activation* value by interpolating the *Fibers Color* and the *Activation Color*. This will allow debugging the activation of the muscle more precisely.
+ - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
+ - **Slide On Geometry**: If the *Max Sliding Distance* value is greater than 0.0, for each vertex with a slide on geometry weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective geometry target.
+ - **Slide On Segment**: For each vertex with a slide on segment weight greater than 0.0, a line will be drawn from the mesh vertex to the closest point on its respective segment.
+
+<figure markdown>
+  ![AdnRibbonMuscle debug](../images/ribbon_debug.png)
+  <figcaption><b>Figure 11</b>: AdnRibbonMuscle debug features. From left to right: Muscle Fibers, Attachment To Geometry Constraints, Slide On Geometry Constraints, Fiber Constraints and Shape Preservation.</figcaption>
+</figure>
+
+<figure markdown>
+  ![ribbon muscle fibers activation debug](../images/ribbon_muscle_fibers_activation_debug.png)
+  <figcaption><b>Figure 12</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
+</figure>
+
+<figure markdown>
+  ![ribbon muscle editor fiber constraint debug](../images/ribbon_muscle_dist_constr_debug.png)
+  <figcaption><b>Figure 13</b>: Displaying the target and simulated meshes. Debugger enabled displaying the <i>Fiber Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+<figure markdown>
+  ![ribbon muscle editor shape preservation constraint debug](../images/ribbon_muscle_shape_preserve_constr_debug.png)
+  <figcaption><b>Figure 14</b>: Displaying the target and simulated meshes. Debugger enabled displaying the <i>Shape Preservation Constraints</i> colored in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+</figure>
+
+> [!NOTE]
+> - The width of the debug lines can be modified from the global viewport settings in Houdini.
+> - For better contrast while debugging, enable the *Dark* background option in the viewport settings.
 
 ## Advanced
 

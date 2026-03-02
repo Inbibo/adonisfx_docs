@@ -167,7 +167,7 @@ In contrast, the *Heat Map* mode assigns a color ramp to vertices according to t
 
 <figure>
   ![Paint Tool visualization modes](../images/tools_paint_tool_visualization_modes.png)
-  <figcaption><b>Figure 6</b>: Weight map displayed in *Heat Map* mode (left) and *Greyscale* mode (right). From left to right, the painted values are: 0.0, 0.01, 0.25, 0.5, 0.75, 0.99, and 1.0.</figcaption>
+  <figcaption><b>Figure 8</b>: Weight map displayed in "Heat Map" mode (left) and "Greyscale" mode (right). From left to right, the painted values are: 0.0, 0.01, 0.25, 0.5, 0.75, 0.99, and 1.0.</figcaption>
 </figure>
 
 The following table shows how the painted weight maps to the color gradient used in *Heat Map* mode:

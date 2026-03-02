@@ -49,7 +49,7 @@ Before importing an AdonisFX rig, the target Houdini scene must meet the followi
   <figcaption><b>Figure 2</b>: Muscle pieces separated and renamed to match the muscle geometry names used in the original scene.</figcaption>
 </figure>
 
-- Matching Dependency Nodes for *Locators* and *Sensors*: Since AdonisFX locators and sensors rely on transform inputs, the target scene must contain nodes (i.e., rig joints) with the same names as those used in the exported rig. This ensures that dependencies between nodes are restored properly.
+- Matching Dependency Nodes for *Locators* and *Sensors*: Since AdonisFX locators and sensors rely on transform inputs, the target scene must contain nodes (i.e., rig joints) in the */obj* context with the same names as those used in the exported rig. This ensures that dependencies between nodes are restored properly.
 
 
 ## How To Use
@@ -89,4 +89,9 @@ The previous steps corresponds to importing a rig that was exported from the sam
 > - The Import Tool is labeled as *Beta* since it relies on the experimental [API](../api).
 > - Importing data is required to be executed on rest frame.
 
-<!-- TODO: #261 Add clarification about the ability to import rigs exported from Maya/Houdini -->
+## Limitations
+
+- The import tool does not support subnetworks inside of the Geometry context. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
+- Only one active geometry node (with the visibility/display flag enabled) in the */obj* context is allowed for the import tool to work.
+- Nodes use to drive attachment to transform or slide on segment constraints (e.g. null, joint or rivet nodes) must live in the */obj* context.
+- KineFX joint transforms are not supported.

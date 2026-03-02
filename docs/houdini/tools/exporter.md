@@ -83,3 +83,10 @@ Depending on the complexity of the rig, the export process might take a few seco
 > [!NOTE]
 > - The Export Tool is labeled as *Beta* since it relies on the experimental [API](../api).
 > - Exporting data is required to be executed on rest frame.
+
+## Limitations
+
+- The export tool does not support subnetworks inside of the Geometry context. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
+- Only one active geometry node (with the visibility/display flag enabled) in the */obj* context is allowed for the export tool to work.
+- Nodes use to drive attachment to transform or slide on segment constraints (e.g. null, joint or rivet nodes) must live in the */obj* context.
+- KineFX joint transforms are not supported.
