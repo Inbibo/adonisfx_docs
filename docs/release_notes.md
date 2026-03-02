@@ -1,7 +1,7 @@
 # Release Notes
 
 ## Version 2.0.0
-2026-XX-XX
+2026-03-04
 
 ### Core
 
