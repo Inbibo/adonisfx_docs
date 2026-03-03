@@ -58,7 +58,7 @@ To activate AdonisFX in Node-Locked Interactive mode:
       <figcaption><b>Figure 4</b>: Activation Retry Adding Product Key.</figcaption>
 </figure>
 
-  6. AdonisFX is activated. Restart your DCC or reload the plugin to start using all features from AdonisFX.
+  6. AdonisFX is activated. Restart your DCC to start using all features from AdonisFX.
 
 > [!NOTE]
 > - This activation mode requires access to the internet for activating licenses.
