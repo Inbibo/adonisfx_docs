@@ -180,3 +180,10 @@ Three transform nodes will be required to create the AdnLocatorRotation. The cre
   ![AdnLocatorRotation parameter template general tab](../images/locator_rotation_parameter_template_00.png) 
   <figcaption><b>Figure 9</b>: AdnLocatorRotation Parameter Template.</figcaption>
 </figure>
+
+## Connections
+
+Connections in AdonisFX for Houdini should be handled in two ways:
+  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the AdonisFX SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
+  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used to for example connect a float attribute to drive a parameter on the node.
+

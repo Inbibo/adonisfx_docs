@@ -104,7 +104,7 @@ With the Connection Editor opened, select the locator from the scene and press t
   <figcaption><b>Figure 10</b>: Connection Editor tool.</figcaption>
 </figure>
 
-When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation will get higher, simulating a much more realistic scenario.
+When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation increases, simulating a much more realistic scenario.
 
 To tweak additional parameters of the AdnMuscle deformer, check this [page](solvers/muscle).
 
