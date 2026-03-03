@@ -133,7 +133,7 @@ To create the AdnRibbonMuscle deformer with some initial specialization, double-
   <figcaption><b>Figure 12</b>: AdnRibbonMuscle custom creation UI.</figcaption>
 </figure>
 
-In order to add attachment constraints to the ribbon muscle select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+In order to add attachment constraints to the ribbon muscle select the targets (joints, geometries or both), then the muscle with the AdnRibbonMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
 
 Additionally, target geometries that have been added to an AdnRibbonMuscle deformer can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to better follow the animation.
 
