@@ -20,7 +20,6 @@
     - [AdnRemap](utils/remap)
     - [AdnEdgeEvaluator](utils/edge_evaluator)
     - [AdnFiberGroom](utils/fiber_groom)
-    - [AdnLearnMusclePatches](utils/learn_muscle_patches)
 - Tools
     - [Turbo](tools/turbo_tool)
     - [Export](tools/exporter)

@@ -337,7 +337,7 @@ Once the AdnMuscle SOP is created, it is possible to add and remove attachments 
     3. Alternatively, to remove all attachments, click the **Clear** button of the *Attachments To Transform* multiparm.
     4. Make sure to recook the AdnMuscle at preroll start time for this change to take effect.
 
-Transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. Meshes, on the other hand, are used to create attachment-to-geometry and slide-on-geometry constraints. Refer to [A Simple Setup](../simple_setup#AdnMuscle) for more information on painting influence maps for these constraints.
+Transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. Meshes, on the other hand, are used to create attachment-to-geometry and slide-on-geometry constraints. Refer to [A Simple Setup](../simple_setup#adnmuscle) for more information on painting influence maps for these constraints.
 
 > [!NOTE]
 > - Attachment-to-geometry and slide-on-geometry constraints are intended to simulate muscle-to-bone and muscle-to-muscle interactions.
@@ -391,7 +391,7 @@ Not painting the fibers multiplier map will cause the muscle to contract uniform
 
 ### Activation Layers
 
-The activation layers allow to drive the muscle activation by multiple sensors combined together without the need of using an [AdnActivation](../utils#activation) node. In practice, having an AdnActivation node with multiple input sensors connected to the **activation** attribute of an AdnMuscle is equivalent to connecting those sensors directly to the activation list of that muscle.
+The activation layers allow to drive the muscle activation by multiple sensors combined together without the need of using an [AdnActivation](../utils/activation#adnactivation) node. In practice, having an AdnActivation node with multiple input sensors connected to the **activation** attribute of an AdnMuscle is equivalent to connecting those sensors directly to the activation list of that muscle.
 
 The activation layers contribute to the final activation of the muscle solver, where the first layer will always be the **activation** scalar attribute. Then, every value in the **activation list** array plug is applied on top taking into consideration the operator and the bypass flag. The resulting value is the global activation that the solver will use for the simulation, and it is written onto the read-only **output solver activation** attribute.
 
@@ -406,3 +406,10 @@ The operators available are:
 > [!NOTE]
 > - All operators will be evaluated from top to bottom (starting from the lowest index and ending on the last index used).
 > - The final value will be clamped in the range 0 to 1 to ensure that the solver activation is always normalized.
+
+## Connections
+
+Connections in AdonisFX for Houdini should be handled in two ways:
+  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the AdonisFX SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
+  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used to for example connect a float attribute to drive a parameter on the node.
+

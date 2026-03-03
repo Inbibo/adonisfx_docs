@@ -79,6 +79,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 > - If multiple geometries or groups share the same name in different groups (e.g. group1|geo and group2|geo, group1|group3 and group2|group3), providing the full DAG path will be required.
 > - Fascia and fat meshes must have the same topology for the AdnFat deformer to be created by AdnTurbo.
 > - AdnTurbo can also be executed via Python scripting. For more details, please refer to the [Turbo Script page](../scripts/turbo).
+> - For turbo to work correctly, the mummies have to have correct UV's.
 
 ## Result
 

@@ -104,7 +104,7 @@ With the Connection Editor opened, select the locator from the scene and press t
   <figcaption><b>Figure 10</b>: Connection Editor tool.</figcaption>
 </figure>
 
-When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation will get higher, simulating a much more realistic scenario.
+When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation increases, simulating a much more realistic scenario.
 
 To tweak additional parameters of the AdnMuscle deformer, check this [page](solvers/muscle).
 
@@ -133,7 +133,7 @@ To create the AdnRibbonMuscle deformer with some initial specialization, double-
   <figcaption><b>Figure 12</b>: AdnRibbonMuscle custom creation UI.</figcaption>
 </figure>
 
-In order to add attachment constraints to the ribbon muscle select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+In order to add attachment constraints to the ribbon muscle select the targets (joints, geometries or both), then the muscle with the AdnRibbonMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
 
 Additionally, target geometries that have been added to an AdnRibbonMuscle deformer can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to better follow the animation.
 
@@ -303,7 +303,7 @@ Finally, the *Hard Constraints* map provides additional control for stronger att
 
 <figure markdown>
   ![Hard constraints weights paint](images/simple_setup_fat_02.png)
-  <figcaption><b>Figure 26</b>: Hard constraints weights paint.</figcaption>
+  <figcaption><b>Figure 26</b>: AdnFat weights painted for hard constraints.</figcaption>
 </figure>
 
 ## AdnSkin

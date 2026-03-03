@@ -18,6 +18,7 @@ To create an AdnGlue node within a Houdini scene, the following inputs must be p
 > [!NOTE]
 > - In the context of an AdonisFX rig, the merged geometries would generally be the output of the individually simulated muscles (via AdnMuscle or AdnRibbonMuscle SOPs). It is important to maintaining the piece attribute intact after merging them together to distinguish each separate muscle entity.
 > - The order in which the geometries are merged can affect the output of the simulation result.
+> - Depending on the ordering of the point id's in the input (non-consecutive) the point id ordering on the output may not match.
 
 
 The process to create an AdnGlue node is:
@@ -262,3 +263,9 @@ Once the AdnGlue SOP is created, it is possible to add new inputs and remove cur
 
 > [!NOTE]
 > Adding and removing inputs requires to revisit and update the paintable maps to ensure that the painted values are correct for the new list of geometries.
+
+## Connections
+
+Connections in AdonisFX for Houdini should be handled in two ways:
+  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the AdonisFX SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
+  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used to for example connect a float attribute to drive a parameter on the node.

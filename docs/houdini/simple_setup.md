@@ -117,14 +117,13 @@ Once the sensor and locator are created, go to the *Input* tab of both nodes and
 Now that the locator is created it has to be connected to the deformer. In order to make this connection, use a detail or channel expression. This will allow for the AdnMuscle SOP to pick up the activation attribute from the locator:
 
   - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)`
-  - Channel expression: `ch("../L_adnLocatorRotation_armFlexionShape/adnActivationRotation")`
 
 <figure style="width:75%" markdown>
   ![Locator connected via detail expression](images/simple_setup_muscle_10.png)
   <figcaption><b>Figure 13</b>: Locator connected via detail expression.</figcaption>
 </figure>
 
-When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation will get higher, simulating a much more realistic scenario.
+When the elbow is flexed (and therefore the angle from the locator gets smaller) the muscle activation increases, simulating a much more realistic scenario.
 
 To tweak additional parameters of the AdnMuscle deformer, check this [page](solvers/muscle).
 

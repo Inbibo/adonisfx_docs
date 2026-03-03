@@ -74,7 +74,7 @@ The first argument `file_path` is required and it is the full path to the JSON f
 > [!NOTE]
 > The rig will be imported into the first found geometry node with the visibility flag on. For that reason it is advisable to have one single geometry node in the */obj* context or at least only one active.
 
-Find more information about the use of the import feature in the [Import](tools/importer) page.
+Find more information about the use of the import feature in the [Import](../tools/importer) page.
 
 ## Export
 
@@ -90,7 +90,7 @@ The first argument `file_path` is required and it is the full path to the JSON f
 > [!NOTE]
 > The rig will be exported from the first found geometry node with the visibility flag on. For that reason it is advisable to have one single geometry node in the */obj* context or at least only one active.
 
-Find more information about the use of the export feature in the [Export](tools/exporter) page.
+Find more information about the use of the export feature in the [Export](../tools/exporter) page.
 
 ## Limitations
 
