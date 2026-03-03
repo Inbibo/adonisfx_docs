@@ -2,21 +2,23 @@
 
 - [UI Overview](ui_overview)
 - [A Simple Setup](simple_setup)
+- Solvers
+    - [AdnMuscle](solvers/muscle)
+    - [AdnRibbonMuscle](solvers/ribbon)
+    - [AdnGlue](solvers/glue)
+    - [AdnFat](solvers/fat)
+    - [AdnSkin](solvers/skin)
+    - [AdnSimshape](solvers/simshape)
 - Deformers
-    - [AdnMuscle](deformers/muscle)
-    - [AdnRibbonMuscle](deformers/ribbon)
-    - [AdnFat](deformers/fat)
-    - [AdnSkin](deformers/skin)
     - [AdnRelax](deformers/relax)
+    - [AdnPush](deformers/push)
     - [AdnSkinMerge](deformers/skin_merge)
-    - [AdnSimshape](deformers/simshape)
-- Nodes
-    - [Locators](nodes/locators)
-    - [Sensors](nodes/sensors)
-    - [AdnActivation](nodes/activation)
-    - [AdnEdgeEvaluator](nodes/edge_evaluator)
-    - [AdnGlue](nodes/glue)
-    - [AdnRemap](nodes/remap)
+- Utils
+    - [AdnLocators](utils/locators)
+    - [AdnSensors](utils/sensors)
+    - [AdnActivation](utils/activation)
+    - [AdnRemap](utils/remap)
+    - [AdnEdgeEvaluator](utils/edge_evaluator)
 - Tools
     - [Paint Tool](tools/paint_tool)
     - [Sensor Connection Editor](tools/sensors_connection_editor)

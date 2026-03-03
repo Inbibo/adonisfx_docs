@@ -2,68 +2,44 @@
 
 ## Maya
 
-AdonisFX is distributed for Maya as a standard module. To install the module, please do the following:
+AdonisFX is distributed for Maya as a **standard module** (.mod). To install the module, follow these steps:
 
-1. Download the AdonisFX zipped package from Inbibo's website.
-2. Extract the contents into the destination folder that you prefer.
-3. Append the path to the destination folder to the `MAYA_MODULE_PATH` environment variable. Check the next sections for more information.
-4. Launch Maya and load AdonisFX from Windows > Settings/Preferences > Plug-in Manager.
+1. Download the AdonisFX package from [Inbibo’s website](https://inbibo.co.uk/downloads?tab=adonisfx).
+2. Extract the contents into any folder of your choice.
+3. Add the path to that extracted folder to the `MAYA_MODULE_PATH` environment variable (details below).
+4. Launch Maya and load AdonisFX from **Windows > Settings/Preferences > Plug-in Manager**.
 
-When Maya starts up, it evaluates all paths pointed by the `MAYA_MODULE_PATH` environment variable to search and load modules like AdonisFX. In order to allow Maya to find AdonisFX, that environment variable has to include the path where the `AdonisFX.mod` file is located. There are two different methods of configuring this variable:
+When Maya starts, it evaluates all directories listed in `MAYA_MODULE_PATH` to locate module files such as `AdonisFX.mod`. Therefore, the environment variable must include the folder containing that file.
 
-- **Method 1**: setting the value in the `Maya.env` config file.
-- **Method 2**: setting the value in the system to be permanent.
+There are two ways to configure `MAYA_MODULE_PATH`:
 
-In the following sections these two methods for Windows and Linux are explained.
+- **Method 1:** Set the value inside the `Maya.env` configuration file
+- **Method 2:** Set the value as a system-wide or user-wide environment variable
 
 > [!NOTE]
-> AdonisFX is distributed for Maya 2022, 2023, 2024 and 2025. If you have multiple Maya versions installed, make sure to [download](https://inbibo.co.uk/adonisfx/downloads) the right AdonisFX build and configure the environment to point to the right AdonisFX version. Remember that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
+> - AdonisFX is distributed for multiple Maya versions. If you have multiple Maya versions installed, make sure to [download](https://inbibo.co.uk/downloads?tab=adonisfx) the right AdonisFX build and configure the environment to point to the right AdonisFX version.
+> - Remember that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
 
 ### Windows
 
 #### Method 1: Configure Maya.env
 
 1. The default location of the `Maya.env` file is `drive:/Users/username/Documents/maya/%MAYA_VERSION%`.
-
-<figure style="width:60%; margin-left:10%" markdown>
-  ![Windows Maya.env file location.](images/installation_windows_maya_env_file_location.png)
-  <figcaption><b>Figure 1</b>: Location of Maya.env file in Windows. Example for Maya 2024.</figcaption>
-</figure>
-
 2. Add `MAYA_MODULE_PATH = drive:/path/to/AdonisFX/folder` to the file.
-
 3. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple paths, concatenate them separated by ";" characters.
+> If you need to configure other modules, concatenate them separated by ";" characters.
 
 #### Method 2: Configure System Environment
 
 1. Open the System Properties window which can be found by searching for *environment variables* in the Windows search bar.
-
-<figure style="width:60%; margin-left:10%" markdown>
-  ![Windows system properties.](images/installation_windows_system_properties.png)
-  <figcaption><b>Figure 2</b>: System Properties window.</figcaption>
-</figure>
-
 2. Click on *Environment Variables* and a new window will be displayed showing all the environment variables configured at the system level and for the current user.
-
-<figure style="width:40%; margin-left:10%" markdown>
-  ![Windows environment variables.](images/installation_windows_environment_variables.png)
-  <figcaption><b>Figure 3</b>: Environment variables of the system.</figcaption>
-</figure>
-
 3. Click on *New...* button for the level that you prefer (system or user) and configure `MAYA_MODULE_PATH` with the path containing the `AdonisFX.mod` file.
-
-<figure style="width:60%; margin-left:10%" markdown>
-  ![Windows add new environment variable.](images/installation_windows_add_new_env.png)
-  <figcaption><b>Figure 4</b>: Configure MAYA_MODULE_PATH as new environment variable.</figcaption>
-</figure>
-
 4. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple paths, concatenate them separated by ";" characters.
+> If you need to configure other modules, concatenate them separated by ";" characters.
 
 
 ### Linux
@@ -71,46 +47,70 @@ In the following sections these two methods for Windows and Linux are explained.
 #### Method 1: Configure Maya.env
 
 1. The default location of the `Maya.env` file is `~/maya/$MAYA_VERSION`.
-
-<figure style="width:60%; margin-left:10%" markdown>
-  ![Linux Maya.env file location.](images/installation_linux_maya_env_file_location.png)
-  <figcaption><b>Figure 5</b>: Location of Maya.env in Linux. Example for Maya 2022.</figcaption>
-</figure>
-
 2. Add `MAYA_MODULE_PATH = /path/to/AdonisFX/folder` to the file.
-
 3. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple paths, concatenate them separated by ":" characters.
+> If you need to configure other modules, concatenate them separated by ":" characters.
 
 #### Method 2: Configure System Environment
 
 1. From the terminal, open your preferred text editor to modify the file `~/.bashrc`.
+2. Add this command to export the environment variable:
 
-2. Add the command to export the environment variable as shown in the image below.
-
-<figure style="width:60%; margin-left:10%" markdown>
-  ![Linux configure environment variable.](images/installation_linux_add_new_env.png)
-  <figcaption><b>Figure 6</b>: Configure MAYA_MODULE_PATH as new environment variable.</figcaption>
-</figure>
+   `export MAYA_MODULE_PATH="/path/to/AdonisFX/folder:${MAYA_MODULE_PATH}"`
 
 3. AdonisFX will be loaded the next time you launch Maya.
 
 > [!NOTE]
-> If you need to configure multiple paths, concatenate them separated by ":" characters.
+> If you need to configure other modules, concatenate them separated by ":" characters.
 
-<!--
+
 ## Houdini
 
-AdonisFX is distributed for Houdini as a standard package. To install the package, please do the following:
+AdonisFX is distributed for Houdini as a **standard package** (.json). To install the package, please do the following:
 
-1. Download the AdonisFX zipped package from the Inbibo's website [TODO: #2 add link].
-2. Unzip the contents into the destination folder that you prefer.
-3. Add a folder containing the AdonisFX.json file to the `HOUDINI_PACKAGE_DIR` environment variable.
+1. Download the AdonisFX package from [Inbibo’s website](https://inbibo.co.uk/downloads?tab=adonisfx).
+2. Extract the contents into any folder of your choice.
+3. Add the path to that extracted folder to the `HOUDINI_PACKAGE_DIR` and `ADONISFX_INSTALL_PATH` environment variables.
+4. Launch Houdini and the AdonisFX package will be automatically loaded.
 
-The `HOUDINI_PACKAGE_DIR` must be set in your environment. For example:
+When Houdini starts up, it evaluates all paths pointed by the `HOUDINI_PACKAGE_DIR` environment variable to search for packages that are typically defined as JSON files. In order to allow Houdini to find AdonisFX, that environment variable has to include the path where the `AdonisFX.json` file is located.
 
-- Windows: `set HOUDINI_PACKAGE_DIR=%HOUDINI_PACKAGE_DIR%;/path/to/AdonisFX/folder`
-- Linux: `export HOUDINI_PACKAGE_DIR=$HOUDINI_PACKAGE_DIR:/path/to/AdonisFX/folder`
--->
+The need to set `ADONISFX_INSTALL_PATH` as well is to allow Houdini to complete the environment configuration using paths relative to the AdonisFX installation folder.
+
+In the following sections we explain how to do this for Windows and Linux.
+
+> [!NOTE]
+> - AdonisFX is distributed for multiple Houdini versions. If you have multiple Houdini versions installed, make sure to [download](https://inbibo.co.uk/downloads?tab=adonisfx) the right AdonisFX build and configure the environment to point to the right AdonisFX version.
+> - Remember that multiple versions of AdonisFX can be installed, but only one can be loaded at a time.
+
+### Windows
+
+1. Open the System Properties window which can be found by searching for *environment variables* in the Windows search bar.
+2. Click on *Environment Variables* and a new window will be displayed showing all the environment variables configured at the system level and for the current user.
+3. Click on *New...* button for the level that you prefer (system or user) and configure `HOUDINI_PACKAGE_DIR` with the path containing the `AdonisFX.json` file.
+4. Do the same for `ADONISFX_INSTALL_PATH`.
+5. AdonisFX will be loaded the next time you launch Houdini.
+
+> [!NOTE]
+> - If you need to configure other packages for `HOUDINI_PACKAGE_DIR`, concatenate them separated by ";" characters.
+> - For `ADONISFX_INSTALL_PATH`, only a single installation path should be provided.
+
+
+### Linux
+
+1. From the terminal, open your preferred text editor to modify the file `~/.bashrc`.
+2. Add the command to export `HOUDINI_PACKAGE_DIR` as follows:
+
+    `export HOUDINI_PACKAGE_DIR="/path/to/AdonisFX/folder:${HOUDINI_PACKAGE_DIR}"`
+
+3. Add also the command to export `ADONISFX_INSTALL_PATH`:
+
+    `export ADONISFX_INSTALL_PATH="/path/to/AdonisFX/folder"`
+
+4. AdonisFX will be loaded the next time you launch Houdini.
+
+> [!NOTE]
+> - If you need to configure other packages for `HOUDINI_PACKAGE_DIR`, concatenate them separated by ":" characters.
+> - For `ADONISFX_INSTALL_PATH`, only a single installation path should be provided.

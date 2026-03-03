@@ -2,8 +2,8 @@
 
 The **AdonisFX Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalization of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
 
-<figure>
-  <img src="../images/tools_paint_tool.png" caption="AdonisFX Paint Tool"> 
+<figure markdown>
+  ![AdonisFX Paint Tool](../images/tools_paint_tool.png)
   <figcaption><b>Figure 1</b>: AdonisFX Paint Tool.</figcaption>
 </figure>
 
@@ -36,12 +36,12 @@ Depending on the deformer and the attribute selected the UI can adjust to suppor
 In the specific case of muscle deformers, the tool will display the following attributes:
 
 <figure markdown>
-  ![Paint Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_00.png) 
+  ![Paint Tool Muscle Attributes example (Part 1)](../images/tools_paint_tool_muscle_attributes_00.png) 
   <figcaption><b>Figure 2</b>: Paintable attributes in AdonisFX muscle deformer (Part 1). </figcaption>
 </figure>
 
 <figure markdown>
-  ![Paint Tool Muscle Attributes example](../images/tools_paint_tool_muscle_attributes_01.png) 
+  ![Paint Tool Muscle Attributes example (Part 2)](../images/tools_paint_tool_muscle_attributes_01.png) 
   <figcaption><b>Figure 3</b>: Paintable attributes in AdonisFX muscle deformer (Part 2). </figcaption>
 </figure>
 
@@ -52,8 +52,8 @@ In the specific case of muscle deformers, the tool will display the following at
     - If more than one target was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the sum of all attachment constraint weights in a vertex will always add up to a maximum value of 1.0.
     - If any target is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
 
-    <figure>
-      <img src="../images/tools_paint_tool_attachment_attribute.png"> 
+    <figure markdown>
+      ![AdonisFX Paint Tool attachments attribute](../images/tools_paint_tool_attachment_attribute.png)
       <figcaption><b>Figure 4</b>: AdonisFX Paint Tool listing multiple transform attachments.</figcaption>
     </figure>
 
@@ -89,8 +89,8 @@ In the specific case of muscle deformers, the tool will display the following at
     - When selecting a segment in the list the two scene objects that form the root and tip of the segment will get selected as well, facilitating their identification.
     - If more than one segment was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the addition of all slide on segment constraint weights in a vertex will always add up to a maximum value of 1.0.
 
-    <figure>
-      <img src="../images/tools_paint_tool_sos_attribute.png"> 
+    <figure markdown>
+      ![AdonisFX Paint Tool slide on segment influences](../images/tools_paint_tool_sos_attribute.png)
       <figcaption><b>Figure 5</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
     </figure>
 
@@ -110,8 +110,13 @@ In the specific case of muscle deformers, the tool will display the following at
 In the specific case of an AdnSkin deformer, the tool will display the following attributes:
 
 <figure markdown> 
-  ![Paint Tool Skin Attributes example](../images/tools_paint_tool_skin_attributes.png) 
-  <figcaption><b>Figure 6</b>: Paintable attributes listed in the UI for an AdnSkin deformer. </figcaption>
+  ![Paint Tool Skin Attributes example (Part 1)](../images/tools_paint_tool_skin_attributes_00.png) 
+  <figcaption><b>Figure 6</b>: Paintable attributes listed in the UI for an AdnSkin deformer (Part 1). </figcaption>
+</figure>
+
+<figure markdown> 
+  ![Paint Tool Skin Attributes example (Part 2)](../images/tools_paint_tool_skin_attributes_01.png) 
+  <figcaption><b>Figure 7</b>: Paintable attributes listed in the UI for an AdnSkin deformer (Part 2). </figcaption>
 </figure>
 
   - **Compression Resistance** and **Stretching Resistance**
@@ -125,6 +130,21 @@ In the specific case of an AdnSkin deformer, the tool will display the following
     - This value is normalized alongside Soft Constraints and Slide Constraints.
   - **Masses**
     - Masses are set to 1.0 by default. This will mean that by default the solver will consider that the skin has a uniform mass.
+  - **Self Collisions Radius Multiplier**
+    - By default, this map is set to 1.0.
+    - This value is scaled for each point by the *Point Radius Scale* attribute when the Self-Collisions are in *Point to Point* mode.
+    - The greater this value is for a given point, the larger the radius of the spherical volume used for collision detection is.
+    - Paint with a value of 0.0 the areas that should not compute self collisions to reduce the computational impact.
+  - **Self Collisions Thickness Multiplier**
+    - By default, this map is set to 1.0.
+    - This value is scaled for each point by the *Thickness* attribute in both *Point to Point* and *Triangle to Triangle* modes.
+    - In *Point to Point* mode, this value modulates the size of the spherical volume used for collision detection in the direction of the normal.
+    - In *Triangle to Triangle* mode, this value modulates the push-out applied to the surface used for collision detection in the direction of the normal.
+    - Paint with a value of 0.0 the areas to ignore the thickness; and with a value greater than 0.0 the areas to push along the direction of the normals.
+  - **Self Collisions Weights**
+    - By default, this map is set to 1.0.
+    - Paint with a value of 0.0 the areas that should not compute self collisions to reduce the computational impact.
+    - Paint with a higher value the areas that should receive more correction due to self-intersections, and with a lower value the areas that should receive less correction.
   - **Shape Preservation**
     - Shape preservation weights are set to 0.0 by default in AdnSkin. Modify this value to allow the solver to apply corrections to the current vertex to maintain the initial state of the shape formed with the surrounding vertices.
   - **Slide Constraints**
@@ -136,3 +156,27 @@ In the specific case of an AdnSkin deformer, the tool will display the following
   - **Soft Constraints**
     - Soft constraints are set to 0.0 by default. Modify this value to allow the solver to apply corrections to the vertices regarding the vertices keeping a constant distance to the closest point on the closest target mesh.
     - This value is normalized alongside Hard Constraints and Slide Constraints.
+
+### Paint Tool Visualization Modes
+
+The AdonisFX Paint Tool provides two visualization modes in the *Visualization* UI group. The available options are *Greyscale* and *Heat Map*.
+
+The *Greyscale* mode colors vertices from black to white based on the painted weight (black for 0.0 and white for 1.0). This is the default mode and provides a visualization similar to the Maya Paint Tool.
+
+In contrast, the *Heat Map* mode assigns a color ramp to vertices according to the painted weight. The following example compares the same painted weights displayed using both modes.
+
+<figure>
+  ![Paint Tool visualization modes](../images/tools_paint_tool_visualization_modes.png)
+  <figcaption><b>Figure 8</b>: Weight map displayed in "Heat Map" mode (left) and "Greyscale" mode (right). From left to right, the painted values are: 0.0, 0.01, 0.25, 0.5, 0.75, 0.99, and 1.0.</figcaption>
+</figure>
+
+The following table shows how the painted weight maps to the color gradient used in *Heat Map* mode:
+
+| Weight (w) | Color |
+|:-----------|:------|
+| `w = 0.0`         | Black |
+| `0.00 < w < 0.25` | Gradient from Blue to Green |
+| `0.25 ≤ w < 0.50` | Gradient from Green to Yellow |
+| `0.50 ≤ w < 0.75` | Gradient from Yellow to Orange |
+| `0.75 ≤ w < 1.00` | Gradient from Orange to Red |
+| `w = 1.0`         | White |

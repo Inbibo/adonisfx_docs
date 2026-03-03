@@ -1,5 +1,80 @@
 # Release Notes
 
+## Version 2.0.0
+2026-03-04
+
+### Core
+
+- Implemented anisotropy for muscle solvers.
+- Implemented AdnPush deformer.
+- Implemented triangle-to-triangle self-collisions.
+- Added relaxation to points affected by self-collisions.
+- Implemented non-linear remap modes for paintable maps: *squared*, *cubic*, *square root*, *cube root* and *logarithmic*.
+- Implemented art-directable shapes for muscle deformers based on a rest muscle geometry used to refresh constraint data.
+- Implemented substepping for AdnSimshape and muscle solvers.
+- Reimplemented core functions to support DCC agnosticity.
+- Added `SaveServer.exe` (Windows) and `SaveServer` (Linux) executables to allow manually saving the server file without elevated privileges.
+
+### Maya
+
+- Implemented anisotropy for muscle deformers.
+- Implemented AdnPush deformer.
+- Integrated triangle-to-triangle self-collisions in AdnGlue and AdnSkin deformers.
+- Added relaxation to points affected by self-collisions in AdnGlue and AdnSkin deformers.
+- Integrated non-linear weight map modes for AdnMuscle, AdnRibbonMuscle, AdnGlue, AdnFat, AdnSkin and AdnSimshape.
+- Integrated art-directable shapes for muscle deformers.
+- Implemented substepping for AdnSimshape and muscle deformers.
+- Implemented *Update v1.x to v2.x* menu utility.
+- Added *Visualization Modes* to the AdonisFX Paint Tool, allowing *Greyscale* and *Heat Map* modes.
+- Added *Update on Topology Change* attribute for AdnPush and AdnRelax.
+- Modified default attribute values in most of the nodes.
+- Reordered shelf and menu items.
+- Added the name of the geometry to the custom deformer name in the creation UI.
+- Added a utility to reconnect the currentTime attribute to Maya's time node.
+
+### Houdini
+
+#### Ported from Maya
+
+- Solvers, deformers, locators, sensors, and utility nodes have been ported to Houdini as SOP nodes, providing the same feature set available in Maya:
+    - **Deformers:** AdnRelax, AdnPush.
+    - **Solvers:** AdnMuscle, AdnRibbonMuscle, AdnSkin, AdnFat, AdnGlue, AdnSkinMerge, AdnSimshape.
+    - **Locators:** AdnLocatorPosition, AdnLocatorDistance, AdnLocatorRotation.
+    - **Sensors:** AdnSensorPosition, AdnSensorDistance, AdnSensorRotation.
+    - **Utilities:** AdnRemap, AdnActivation, AdnEdgeEvaluator.
+- Ported the AdnLearnMusclePatches tool as a Houdini SOP node.
+- Ported tools such as AdnTurbo, Importer, and Exporter.
+- Ported the visual debugger system on a per-SOP level to debug constraints, geometry information and other relevant information for simulation setup purposes.
+
+#### Houdini-specific additions
+
+- Implemented new nodes for the muscle fiber workflow, including: AdnFiberProjection, AdnFiberDiffusion, and AdnFiberGroom.
+- Implemented an experimental API.
+- Implemented the *Make Paintable* menu utility to simplify the process of painting maps for an AdonisFX solver.
+- Implemented the *Make Groomable* menu utility to simplify the setup of fiber directions for an AdonisFX muscle solver.
+- Implemented the *Separate Geometries* menu utility to split geometry pieces based on a primitive attribute using blast nodes.
+- Implemented the *Create Muscle PieceID* menu utility to create a primitive attribute that identifies each geometry piece using a connectivity node.
+
+### Improvements
+
+- Optimized initialization of slide constraints in AdnSkin solver.
+- Optimized initialization of slide on geometry constraints in AdnMuscle and AdnRibbonMuscle solvers.
+- Improved experimental API in Maya.
+- Added support for the new features in the *Importer* and *Exporter* tools.
+- Improved the Mirror Tool in Maya to support left and right tokens in the middle of names (e.g. \_L\_ and \_R\_).
+- Improved the Connection Editor in Maya to restrict connections to AdonisFX locators (source) and AdonisFX muscles (destination).
+- Added support for multiple AdnRelax and AdnPush nodes on the same geometry in Maya.
+- Added support in the experimental API for rebuilding the rig using the correct execution order in Maya and Houdini.
+- Added currentTime attribute to AdnSkinMerge in Maya for correct dependency graph evaluation.
+
+### Deprecated
+- Removed *Concrete* material from all solvers.
+- Removed AdnWeightsDisplayNode that was deprecated in version 1.4.0.
+
+### Known Limitations
+- AdnGlue SOP node's debugger in Houdini does not display lines correctly after scene reopen. *AdonisFX-2870*
+- Maya 2026 producing undesired behaviors on scene open on a fully configured AdonisFX scene with hidden geometries and GPU Override enabled. *AdonisFX-2760*
+
 ## Version 1.7.3
 2025-10-22
 
