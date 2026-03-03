@@ -275,7 +275,7 @@ AdnSimshape can emulate the behavior of facial muscles by computing the muscle a
 
 > [!NOTE = Activation Modes]
 > === Muscle Patches
-> The data in the AdonisFX Muscle Patches file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following the steps presented [here](#generate-muscle-patches). The requirements for this mode to work are:
+> The data in the AdonisFX Muscle Patches file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following the steps presented in the next section. The requirements for this mode to work are:
 >  - AdonisFX Muscle Patches file
 >  - Deform mesh
 >
@@ -363,3 +363,8 @@ The use of rest collider is recommended when the pre-roll simulation is not comp
 > - Colliders with high Level Of Detail will affect the simulation performance.
 > - Collider meshes must have the same number of vertices although it can be different from the number of vertices of the rest, deformed, animated and simulated meshes.
 
+## Connections
+
+Connections in AdonisFX for Houdini should be handled in two ways:
+  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the AdonisFX SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
+  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used to for example connect a float attribute to drive a parameter on the node.

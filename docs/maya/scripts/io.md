@@ -66,7 +66,7 @@ adnio.import_data(file_path, enabled_features)
 
 The first argument `file_path` is required and it is the full path to the JSON file containing a valid AdonisFX setup definition. The second argument `enabled_features` is optional and corresponds to a dictionary where keys are feature names and values are flags to determine if a feature has to be imported or bypassed (same format used for gathering data).
 
-Find more information about the use of the import feature in the [Import](tools/importer) page.
+Find more information about the use of the import feature in the [Import](../tools/importer) page.
 
 ## Export
 
@@ -79,7 +79,7 @@ adnio.export_data(file_path, enabled_features)
 
 The first argument `file_path` is required and it is the full path to the JSON file to export the data into. The second argument `enabled_features` is optional and corresponds to a dictionary where keys are feature names and values are flags to determine if a feature has to be exported or bypassed (same format used for gathering data).
 
-Find more information about the use of the export feature in the [Export](tools/exporter) page.
+Find more information about the use of the export feature in the [Export](../tools/exporter) page.
 
 ## Limitations
 
