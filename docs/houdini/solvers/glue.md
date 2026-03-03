@@ -18,6 +18,7 @@ To create an AdnGlue node within a Houdini scene, the following inputs must be p
 > [!NOTE]
 > - In the context of an AdonisFX rig, the merged geometries would generally be the output of the individually simulated muscles (via AdnMuscle or AdnRibbonMuscle SOPs). It is important to maintaining the piece attribute intact after merging them together to distinguish each separate muscle entity.
 > - The order in which the geometries are merged can affect the output of the simulation result.
+> - Depending on the ordering of the point id's in the input (non-consecutive) the point id ordering on the output may not match.
 
 
 The process to create an AdnGlue node is:
