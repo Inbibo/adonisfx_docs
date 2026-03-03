@@ -330,7 +330,7 @@ Once the AdnRibbonMuscle SOP is created, it is possible to add and remove attach
     3. Alternatively, to remove all attachments, click the **Clear** button of the *Attachments To Transform* multiparm.
     4. Make sure to recook the AdnRibbonMuscle at preroll start time for this change to take effect.
 
-Transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. Meshes, on the other hand, are used to create attachment-to-geometry and slide-on-geometry constraints. Refer to [A Simple Setup](../simple_setup#adn_ribbon_muscle) for more information on painting influence maps for these constraints.
+Transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. Meshes, on the other hand, are used to create attachment-to-geometry and slide-on-geometry constraints. Refer to [A Simple Setup](../simple_setup#adnribbonmuscle) for more information on painting influence maps for these constraints.
 
 > [!NOTE]
 > - Attachment-to-geometry and slide-on-geometry constraints are intended to simulate muscle-to-bone and muscle-to-muscle interactions.
