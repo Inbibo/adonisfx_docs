@@ -303,7 +303,7 @@ Finally, the *Hard Constraints* map provides additional control for stronger att
 
 <figure markdown>
   ![Hard constraints weights paint](images/simple_setup_fat_02.png)
-  <figcaption><b>Figure 26</b>: Hard constraints weights paint.</figcaption>
+  <figcaption><b>Figure 26</b>: AdnFat weights painted for hard constraints.</figcaption>
 </figure>
 
 ## AdnSkin

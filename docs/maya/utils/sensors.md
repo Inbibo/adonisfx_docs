@@ -120,7 +120,7 @@ An AdnSensorDistance will be in charge of computing, remapping and feeding activ
   <figcaption><b>Figure 6</b>: AdnSensorDistance used in a human model.</figcaption>
 </figure>
 
-There are two different methods of creating an AdnSensorDistance, depending if it is to be applied on an existing [AdnLocatorDistance](locators) or creating it alongside the sensor.
+There are two different methods of creating an AdnSensorDistance, depending if it is to be applied on an existing [AdnLocatorDistance](locators#adnlocatordistance) or creating it alongside the sensor.
 
  - If applying to an already existing AdnLocatorDistance:
 
@@ -246,7 +246,7 @@ An AdnSensorRotation will be in charge of computing, remapping and feeding activ
   <figcaption><b>Figure 12</b>: AdnSensorRotation used in a human model.</figcaption>
 </figure>
 
-There are two different methods of creating an AdnSensorRotation, depending if it is to be applied on an existing [AdnLocatorRotation](locators) or creating it alongside the sensor.
+There are two different methods of creating an AdnSensorRotation, depending if it is to be applied on an existing [AdnLocatorRotation](locators#adnlocatorrotation) or creating it alongside the sensor.
 
  - If applying to an already existing AdnLocatorRotation:
 
