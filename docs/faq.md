@@ -74,9 +74,7 @@ AdnSimshape allows to add muscle activation alternatively without the need for t
 
 The AdonisFX simulation engine works in centimeters. 
 
-For example for Maya, the unit system also works internally in centimeters, disregarding any preferences set for the viewport. AdonisFX then works in centimeters in conjunction with Maya, disregarding any working units set in the Maya preferences.
-
-For Houdini, the scene units are generally presented in meters. Given that AdonisFX works in centimeters internally, in some cases, the mesh has to be scaled accordingly to represent the right scaling. This may be one of the contributing factors to incorrect looking simulations when comparing to Maya.
+In Maya, the unit system also works internally in centimeters, disregarding any preferences set for the viewport. AdonisFX then works in centimeters in conjunction with Maya, disregarding any working units set in the Maya preferences. In Houdini, the scene units are generally presented in meters. Given that AdonisFX works in centimeters internally, in some cases, the mesh has to be scaled accordingly to represent the right scaling. This may be one of the contributing factors to incorrect looking simulations when comparing to Maya.
 
 For example in Maya, is typical to model creatures 10 times smaller in order to avoid precision issues. Imagine the example of a creature that is supposed to be 1.7 meters tall (170 Maya units). Then in Maya to avoid precision issues, this creature may be modeled to be 17 centimeters tall (17 Maya units).
 In this case you can adjust the simulation for this scaling factor by applying the AdonisFX Space Scale attribute to 10. This will ensure that AdonisFX will scale everything internally so that the simulation of the 17 units creature will look like if it was actually 170 units tall. Similar criteria can be applied to Houdini, however, it is still advisable to check the scaling of the characters when transferring between DCCs.
