@@ -74,7 +74,7 @@ AdnSimshape allows to add muscle activation alternatively without the need for t
 
 The AdonisFX simulation engine works in centimeters. 
 
-For example for Maya, the unit system also work internally in centimeters, disregarding any preferences set for the viewport. AdonisFX then works in centimeters in conjunction with Maya, disregarding any working units set in the Maya preferences.
+For example for Maya, the unit system also works internally in centimeters, disregarding any preferences set for the viewport. AdonisFX then works in centimeters in conjunction with Maya, disregarding any working units set in the Maya preferences.
 
 For Houdini, the scene units are generally presented in meters. Given that AdonisFX works in centimeters internally, in some cases, the mesh has to be scaled accordingly to represent the right scaling. This may be one of the contributing factors to incorrect looking simulations when comparing to Maya.
 

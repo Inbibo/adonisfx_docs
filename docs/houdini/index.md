@@ -20,6 +20,8 @@
     - [AdnRemap](utils/remap)
     - [AdnEdgeEvaluator](utils/edge_evaluator)
     - [AdnFiberGroom](utils/fiber_groom)
+    - [AdnFiberDiffusion](utils/fiber_diffusion)
+    - [AdnFiberProjection](utils/fiber_projection)
 - Tools
     - [Turbo](tools/turbo_tool)
     - [Export](tools/exporter)
