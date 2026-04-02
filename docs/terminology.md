@@ -4,6 +4,10 @@
 
 Activation Node or **AdnActivation** is an AdonisFX node that allows you to perform operations on input activation values to produce a final activation value that can be used to drive the activation of a muscle. This node allows you to override, add, subtract, multiply, divide, etc. multiple input activations to produce one single output. The input activations can be used by ingesting AdonisFX sensor data (AdnSensorPosition, AdnSensorDistance, AdnSensorRotation). This node is recommended to be used when on-demand activations are required or when multiple activations from several sensors have to be merged into one value.
 
+## Mummy
+
+The Mummy is a simplified, unified proxy that represents the overall body volume and serves as the foundation for deformation and simulation across the entire AdonisFX stack. It is typically built as a wrapped mesh around the individual bone geometries, which improves reliability when computing attachments and allows for stable sliding against target geometry, helping to avoid artifacts such as popping, creasing, and stretching. The mummy must generally be a single, continuous mesh with no separated or floating pieces, although it can optionally be split into multiple pieces when more control over attachment regions is required. Its vertex count should adapt to the proportions and complexity of the creature without introducing unnecessary density. The geometry must also be fully sealed and watertight, especially around critical areas like the rig cage and torso, while maintaining clean, optimized topology with minimal unnecessary subdivisions. For best results, it should be modeled at real-world scale to ensure consistent and reliable simulation behavior.
+
 ## Constraints
 
 Constraints are rules that an AdonisFX solver applies during simulation to ensure that the relationship between elements involved in the simulation is maintained, such as distance between geometry points, distance between geometry points and external attachments, rig joints or external meshes, etc. The catalog of constraints is presented below.
