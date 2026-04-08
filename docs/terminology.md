@@ -52,6 +52,10 @@ Glue or **AdnGlue** is an AdonisFX solver for gluing muscles together after simu
 
 Locators are intended to visualize the output of an AdonisFX sensor. There are three types of locators that require a specific number of inputs and adopt custom shapes in the viewport: AdnLocatorPosition (a squared box at the location of a node), AdnLocatorDistance (a parallelepiped with a line connecting two nodes) and AdnLocatorRotation (an angle with two segments connecting three nodes). Each type is associated with its homologous sensor.
 
+## Mummy
+
+The Mummy is a simplified, unified proxy that represents the overall body volume and serves as the foundation for deformation and simulation across the entire AdonisFX stack. It is typically built as a wrapped mesh around the individual bone geometries, which improves reliability when computing attachments and allows for stable sliding against target geometry, helping to avoid artifacts such as popping, creasing, and stretching. The mummy must generally be a single, continuous mesh with no separated or floating pieces, although it can optionally be split into multiple pieces when more control over attachment regions is required. Its vertex count should adapt to the proportions and complexity of the creature without introducing unnecessary density. The geometry must also be fully sealed and watertight, especially around critical areas like the rib cage and torso, while maintaining clean, optimized topology with minimal unnecessary subdivisions. For best results, it should be modeled at real-world scale to ensure consistent and reliable simulation behavior.
+
 ## Muscle
 
 **AdnMuscle** is an AdonisFX solver for muscle simulation including volume preservation. It allows applying dynamics such as fibers contraction and volume gain to a geometry.
