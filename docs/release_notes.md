@@ -1,5 +1,11 @@
 # Release Notes
 
+## Version 2.0.1
+2026-06-02
+
+### Bug Fixes
+- Fixed a bug that was causing subframe evaluations to default to one frame timestep instead of the evaluated subframe timestep. *AdonisFX-3193*.
+
 ## Version 2.0.0
 2026-03-04
 
