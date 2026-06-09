@@ -146,7 +146,6 @@ nav:
       - Input & Output            : maya/scripts/io.md
       - Data Extraction           : maya/scripts/data_extraction.md
       - Neural Training           : maya/scripts/neural_training.md
-      - Neural Clustering         : maya/scripts/neural_clustering.md
     - API                         : maya/api.md
   - Houdini:
     - Index                       : houdini/index.md
@@ -195,5 +194,4 @@ nav:
       - Input & Output            : houdini/scripts/io.md
       - Data Extraction           : houdini/scripts/data_extraction.md
       - Neural Training           : houdini/scripts/neural_training.md
-      - Neural Clustering         : houdini/scripts/neural_clustering.md
     - API                         : houdini/api.md

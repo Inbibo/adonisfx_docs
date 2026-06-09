@@ -38,12 +38,11 @@
     - [Data Processing](tools/ml_data_processing)
     - [Data Extraction](tools/data_extraction_tool)
     - [Neural Training](tools/neural_training_tool)
-    - [Neural Clustering Tool](tools/neural_clustering_paint_tool)
+    - [Neural Clustering](tools/neural_clustering_paint_tool)
 - Scripts
     - [Turbo](scripts/turbo)
     - [Transfer](scripts/transfer)
     - [Input & Output](scripts/io)
     - [Data Extraction](scripts/data_extraction)
-    - [Neural Clustering](scripts/neural_clustering)
     - [Neural Training](scripts/neural_training)
 - [API](api)
