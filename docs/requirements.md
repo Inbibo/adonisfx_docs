@@ -13,6 +13,6 @@
 - **Storage**: 16MB of free disk space to install.
 
 > [!NOTE]
-> - AdonisFX may work with other CPU and RAM specifications.
+> - Adonis may work with other CPU and RAM specifications.
 > - The list above represents the specifications that have been tested successfully.
 > - Internet connection is required for licensing only.

@@ -1,6 +1,6 @@
 # AdnTurbo
 
-The **AdnTurbo Tool** is a feature designed to automate the creation of an AdonisFX rig from scratch on a clean asset within Houdini, from which fine-tuning and customization can proceed. It sequentially configures the following layers:
+The **AdnTurbo Tool** is a feature designed to automate the creation of an Adonis rig from scratch on a clean asset within Houdini, from which fine-tuning and customization can proceed. It sequentially configures the following layers:
 
 - **Muscle layer**
 - **Locators and Sensors**
@@ -64,11 +64,11 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 > [!NOTE]
 > In this example only one mummy geometry is provided, however the *Mummies* entry also allows a list of mummy geometries (e.g. "/obj/geo1/L_mummy_shoulder_GEO", "/obj/geo1/L_mummy_forearmGEO", ...).
 
-3. If the scene contains AdonisFX nodes, a confirmation dialog will appear informing about it. Press *Yes* to automatically delete all AdonisFX nodes or *No* to cancel the execution.
+3. If the scene contains Adonis nodes, a confirmation dialog will appear informing about it. Press *Yes* to automatically delete all Adonis nodes or *No* to cancel the execution.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Turbo Execution Completed](../images/turbo_tool_confirmation_dialog.png)
-  <figcaption><b>Figure 5</b>: Question dialog informing about AdonisFX nodes in the scene before executing.</figcaption>
+  <figcaption><b>Figure 5</b>: Question dialog informing about Adonis nodes in the scene before executing.</figcaption>
 </figure>
 
 4. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the troubleshooting. Note that the whole AdnTurbo can be undone.
@@ -88,7 +88,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 As a result of executing the tool by providing the geometries for all the layers, the following nodes will be created:
 
 - An AdnMuscle for each muscle geometry with the mummy geometries as targets.
-- An AdonisFX locator and sensor for each AdnMuscle to drive the muscle activation.
+- An Adonis locator and sensor for each AdnMuscle to drive the muscle activation.
 - An AdnGlue node with all the muscles merged as input.
 - An AdnSkin node for the fascia geometry with the mummy and glue as targets.
 - An AdnRelax node applied on top of the fascia AdnSkin.

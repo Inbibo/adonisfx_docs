@@ -3,10 +3,10 @@
 ### Experimental Python API
 
 > [!NOTE]
-> - This API is experimental, and will be subject to changes in following versions of AdonisFX.
+> - This API is experimental, and will be subject to changes in following versions of Adonis.
 > - The use of this API in production applications is not supported.
 
-An experimental Python API has been developed to allow Technical Directors to implement custom Python scripts for exporting and rebuilding AdonisFX rigs programmatically.
+An experimental Python API has been developed to allow Technical Directors to implement custom Python scripts for exporting and rebuilding Adonis rigs programmatically.
 
 This API enables users to:
 - Extract the setup from an existing rig in Houdini.
@@ -15,15 +15,15 @@ This API enables users to:
 
 As this API is still under active development, please do not hesitate to send an email to **adonis.support@inbibo.co.uk** to provide feedback and/or feature requests. The support and development teams will work together to incorporate user feedback and refine the implementation.
 
-The API can be found in `AdonisFX/python/adn/api/adnx.py`.
+The API can be found in `Adonis/python/adn/api/adnx.py`.
 The definitions can be imported with `from adn.api.adnx import *`.
 
 Since the method definitions may change before the API becomes production-ready, here are some examples showing how to use the current experimental Python API for Houdini. Similar methods can be found directly in the `adnx.py` file.
 
 1. How to create a rig instance with Houdini as the host: `rig = AdnRig(AdnHost.kHoudini)`.
 2. How to set the context in which the rig information will be gathered or created: `rig.setContext("/obj/geo1")`.
-3. How to create an AdonisFX rig component and add it to the rig (e.g. an AdnMuscle inside the rig): `muscle = AdnMuscle(rig)` and `rig.addSolver(muscle)`.
-4. How to gather data from an existing AdonisFX scene to populate the rig component entry (assuming AdnMuscle1 exists in the Houdini scene): `muscle.fromNode("AdnMuscle1")`.
+3. How to create an Adonis rig component and add it to the rig (e.g. an AdnMuscle inside the rig): `muscle = AdnMuscle(rig)` and `rig.addSolver(muscle)`.
+4. How to gather data from an existing Adonis scene to populate the rig component entry (assuming AdnMuscle1 exists in the Houdini scene): `muscle.fromNode("AdnMuscle1")`.
 5. How to get the dictionary containing the extracted data: `data = muscle.getData()`.
 6. How to populate the rig component from a dictionary that contains all required entries: `muscle.fromDict(data)`. The required dictionary formatting can be found in the `__init__` methods of the `AdnMuscleBase` and `AdnMuscle` classes. Modifying dictionary entries allows users to update or rebuild rigs with custom values.
 7. How to update an existing rig component in the scene after modifying its values: `muscle.update()`. This method assumes that the target AdnMuscle already exists in the scene.
@@ -31,9 +31,9 @@ Since the method definitions may change before the API becomes production-ready,
 9. How to define the execution order when extracting data from an existing scene: `rig.buildExecutionOrder()`. With an already configured scene, this deduces the correct reconstruction order required to preserve deformation and node dependency chain.
 10. How to clear a specific rig component from the scene: `muscle.clear()`.
 
-All other methods can be found in the `AdonisFX/python/adn/api/adnx.py` file.
+All other methods can be found in the `Adonis/python/adn/api/adnx.py` file.
 
-The API is the base foundation for the Import/Export tools of AdonisFX. Below is an example of exported rig data in a .json file:
+The API is the base foundation for the Import/Export tools of Adonis. Below is an example of exported rig data in a .json file:
 
 <figure markdown>
   ![Houdini API Json example](images/houdini_api_json_example.png)
@@ -49,7 +49,7 @@ Each geometry to be deformed must be separated and encapsulated in a deformable 
 The `<geo_name>` should match the expected shape name counterpart in Maya.
 
 To ease the process of separating geometries, use the utility:
-- *AdonisFX* > *Utils* > *Separate Geometries*
+- *Adonis* > *Utils* > *Separate Geometries*
 
 This tool works when there is a valid piece attribute (path, name, or muscle_id) on the geometry stream.
 
@@ -63,10 +63,10 @@ This tool works when there is a valid piece attribute (path, name, or muscle_id)
 > - Data such as "geometryAttachments" are represented using the name without the `Shape` suffix. This is also important for interoperability between DCCs.
 > - A context must be defined in Houdini using the `rig.setContext("/obj/geo1")` method. This allows the API to know from which geometry context to extract data and where to reconstruct the rig.
 > - Rig components in Houdini must live directly inside the geometry node. Encapsulating components inside subnetworks (for example placing AdnMuscle nodes in a subnetwork) is not supported.
-> - Exported connections between AdonisFX nodes may differ depending on the DCC. This is expected due to differences between DCC applications. However, the rig will be correctly reconstructed when imported into any supported target DCC.
+> - Exported connections between Adonis nodes may differ depending on the DCC. This is expected due to differences between DCC applications. However, the rig will be correctly reconstructed when imported into any supported target DCC.
 
 ### Limitations
 
-- The API does not support subnetworks inside of the Geometry context. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
+- The API does not support subnetworks inside of the Geometry context. This means that all Adonis SOP nodes (and any other SOP nodes containing geometry required by the Adonis rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
 - Nodes used to drive attachment to transform or slide on segment constraints (e.g. null, joint or rivet nodes) must live in the */obj* context.
 - KineFX joint transforms are not supported.

@@ -20,7 +20,7 @@ To create an AdnFat deformer within a Maya scene, the following inputs must be p
 The process to create an AdnFat deformer is:
 
 1. Select the **Base Mesh**, then the **Fat Mesh**.
-2. Press ![Fat button](../../images/adn_fat.png){style="width:4%"} in the AdonisFX shelf or *Fat* in the AdonisFX menu, under the Create Solvers section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press ![Fat button](../../images/adn_fat.png){style="width:4%"} in the Adonis shelf or *Fat* in the Adonis menu, under the Create Solvers section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. A message in the console will notify you that AdnFat has been created properly, meaning that it is ready to simulate. If an error occurs, a dialog will be prompted. Check the next section to customize their configuration.
 
 ## Attributes
@@ -45,7 +45,7 @@ The process to create an AdnFat deformer is:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). Adonis interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
@@ -190,13 +190,13 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 ### Base Mesh
 
-Once the AdnFat deformer is created, it is possible to add and remove the base mesh thanks to some utilities available in the AdonisFX menu.
+Once the AdnFat deformer is created, it is possible to add and remove the base mesh thanks to some utilities available in the Adonis menu.
 
 - **Add Base Mesh**:
     1. Select the geometry to be assigned as base mesh to the AdnFat.
     2. Select the geometry that has the AdnFat deformer applied.
-    3. Press the *Add Base Mesh* item in the AdonisFX menu from the Edit Fat submenu.
+    3. Press the *Add Base Mesh* item in the Adonis menu from the Edit Fat submenu.
 - **Remove Base Mesh**:
     1. Select the geometry currently assigned as base mesh to the AdnFat. This step is optional.
     2. Select the geometry that has the AdnFat deformer applied.
-    3. Press the *Remove Base Mesh* item in the AdonisFX menu from the Edit Fat submenu.
+    3. Press the *Remove Base Mesh* item in the Adonis menu from the Edit Fat submenu.

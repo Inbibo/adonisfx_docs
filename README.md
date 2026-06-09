@@ -1,5 +1,5 @@
 # adonisfx_docs
-AdonisFX Documentation
+Adonis Documentation
 
 ## How To Compile
 

@@ -1,12 +1,12 @@
 # Export
 
-The AdonisFX Export is a tool designed to facilitate the export of a complete AdonisFX rig from a Maya scene. This tool enables users to selectively export various components of an AdonisFX rig, ensuring a structured and efficient workflow for data transfer, backup, or reuse across different projects.
+The Adonis Export is a tool designed to facilitate the export of a complete Adonis rig from a Maya scene. This tool enables users to selectively export various components of an Adonis rig, ensuring a structured and efficient workflow for data transfer, backup, or reuse across different projects.
 
 ## UI
 
 <figure style="width:50%;" markdown>
-  ![AdonisFX Export Tool](../images/exporter_ui.png)
-  <figcaption><b>Figure 1</b>: AdonisFX Export UI. </figcaption>
+  ![Adonis Export Tool](../images/exporter_ui.png)
+  <figcaption><b>Figure 1</b>: Adonis Export UI. </figcaption>
 </figure>
 
 The Export Tool offers an intuitive interface (see Figure 1), allowing users to configure export settings according to their specific requirements. Below is a breakdown of the available UI elements:​
@@ -26,7 +26,7 @@ The Export Tool offers an intuitive interface (see Figure 1), allowing users to 
     - Push: include AdnPush nodes in the exported data.
 
 - **Utils**: Allows exporting additional utility components from the setup. Options include:
-    - Sensors & Locators: include AdonisFX sensors and locators in the exported data, ensuring proper connections between components.
+    - Sensors & Locators: include Adonis sensors and locators in the exported data, ensuring proper connections between components.
     - Activation: include activation nodes and their existing connections to AdnMuscle nodes in the exported data.
     - Remap: include AdnRemap nodes in the exported data.
     - Edge Evaluator: include AdnEdgeEvaluator nodes in the exported data.
@@ -38,14 +38,14 @@ The Export Tool offers an intuitive interface (see Figure 1), allowing users to 
 
 ## How To Use
 
-Open the scene of a fully configured AdonisFX rig (see Figure 2) and follow these steps:
+Open the scene of a fully configured Adonis rig (see Figure 2) and follow these steps:
 
 <figure markdown>
-  ![AdonisFX Export Tool](../images/exporter_scene.png)
+  ![Adonis Export Tool](../images/exporter_scene.png)
   <figcaption><b>Figure 2</b>: Fully configured rig of a biped character. The rig includes sensors, locators, activation nodes, muscles, glue, fascia, fat, skin, skin merge, and relax.</figcaption>
 </figure>
 
-1. Go to *AdonisFX menu > I/O > Export (beta)* to open the *Export* window.
+1. Go to *Adonis menu > I/O > Export (beta)* to open the *Export* window.
 
 2. Specify the file path where the exported data will be saved (e.g., `path/to/the/file.json`).
 
@@ -56,7 +56,7 @@ Open the scene of a fully configured AdonisFX rig (see Figure 2) and follow thes
 Depending on the complexity of the rig, the export process might take a few seconds to complete. Once finished, a JSON file containing the exported data will be created in the specified path.
 
 <figure markdown>
-  ![AdonisFX Export Tool](../../images/exported_file.png)
+  ![Adonis Export Tool](../../images/exported_file.png)
   <figcaption><b>Figure 3</b>: Example of the generated JSON file after exporting.</figcaption>
 </figure>
 

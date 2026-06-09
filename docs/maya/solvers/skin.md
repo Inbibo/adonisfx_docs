@@ -2,7 +2,7 @@
 
 AdnSkin is a Maya deformer for fast, robust and easy-to-configure skin simulation for digital assets. Thanks to the combination of internal and external constraints, the deformer can produce dynamics that allow the skin mesh to realistically react to the deformations of internal tissues (e.g. muscles, fascia) over time.
 
-The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](../tools/paint_tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the skin's dynamics and behavior to a wide array of options.
+The influence these constraints have on the simulated mesh can be freely modified by painting them via the [Adonis Paint Tool](../tools/paint_tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the skin's dynamics and behavior to a wide array of options.
 
 ### How To Use
 
@@ -19,7 +19,7 @@ To create an AdnSkin deformer within a Maya scene, the following inputs must be 
 The process to create an AdnSkin deformer is:
 
 1. Select the **Targets** (optional, they can be added later), then the **Skin Mesh**.
-2. Press ![Skin button](../../images/adn_skin.png){style="width:4%"} in the AdonisFX shelf or *Skin* in the AdonisFX menu, under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press ![Skin button](../../images/adn_skin.png){style="width:4%"} in the Adonis shelf or *Skin* in the Adonis menu, under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. A message in the terminal will notify you that AdnSkin has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
@@ -44,7 +44,7 @@ The process to create an AdnSkin deformer is:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). Adonis interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
@@ -175,7 +175,7 @@ The process to create an AdnSkin deformer is:
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the AdnSkin solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](../tools/paint_tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the AdnSkin solver are exposed as paintable attributes in the deformer. The [Adonis Paint Tool](../tools/paint_tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
@@ -251,9 +251,9 @@ Once the AdnSkin deformer is created, it is possible to add and remove new targe
 - **Add targets**:
     1. Select one or more mesh nodes to be assigned as targets to the AdnSkin.
     2. Select the mesh that has the AdnSkin deformer applied.
-    3. Press the ![Add Targets](../images/adn_add_skin_targets.png){style="width:4%"} button in the AdonisFX shelf or press *Add Targets* in the AdonisFX menu from the Edit Skin submenu.
+    3. Press the ![Add Targets](../images/adn_add_skin_targets.png){style="width:4%"} button in the Adonis shelf or press *Add Targets* in the Adonis menu from the Edit Skin submenu.
 - **Remove targets**:
     1. Select one or more mesh nodes that are assigned as targets to the AdnSkin.
     2. Select the mesh that has the AdnSkin deformer applied.
-    3. Press the ![Remove Targets](../images/adn_remove_skin_targets.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Skin submenu.
+    3. Press the ![Remove Targets](../images/adn_remove_skin_targets.png){style="width:4%"} button in the Adonis shelf or press *Remove Targets* in the Adonis menu from the Edit Skin submenu.
     4. Alternatively, if only the mesh with the AdnSkin deformer is selected, when pressing the ![Remove Targets](../images/adn_remove_skin_targets.png){style="width:4%"} button, all targets will be removed.

@@ -1,14 +1,14 @@
 # Sensors
 
-AdonisFX Sensors are nodes in charge of interpreting data extracted from transform nodes and compute information that can be fed into the deformers to alter their behavior. Sensors work in combination with [Locators](locators) to display the computed information in an intuitive way using coloring. The sensors produce the results in two separated outputs: the raw value result of the evaluation of the input transform nodes (e.g. *Out Angle*); and the remapped value result of the evaluation of the raw value into the existing remap ramp attributes (e.g. *Out Angle Remap*). Thanks to this, the remapped values are already adjusted within a custom range of activation that will drive the coloring of the locators and the activation of an AdnMuscle for example.
+Adonis Sensors are nodes in charge of interpreting data extracted from transform nodes and compute information that can be fed into the deformers to alter their behavior. Sensors work in combination with [Locators](locators) to display the computed information in an intuitive way using coloring. The sensors produce the results in two separated outputs: the raw value result of the evaluation of the input transform nodes (e.g. *Out Angle*); and the remapped value result of the evaluation of the raw value into the existing remap ramp attributes (e.g. *Out Angle Remap*). Thanks to this, the remapped values are already adjusted within a custom range of activation that will drive the coloring of the locators and the activation of an AdnMuscle for example.
 
 ## AdnSensorPosition
 
-AdnSensorPosition is the sensor for computing meaningful output raw values representing the velocity or acceleration of a transform node. Additionally, the sensor remaps the values of velocity and acceleration to produce desirable activation values within a certain range to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorPosition both for setup and visualization. An example use case for this sensor would be applying it to the wrist connection of an arm outputting velocities while swinging.
+AdnSensorPosition is the sensor for computing meaningful output raw values representing the velocity or acceleration of a transform node. Additionally, the sensor remaps the values of velocity and acceleration to produce desirable activation values within a certain range to drive the simulation of an Adonis deformer. This sensor has to work in combination with an AdnLocatorPosition both for setup and visualization. An example use case for this sensor would be applying it to the wrist connection of an arm outputting velocities while swinging.
 
 ### How To Use
 
-An AdnSensorPosition will be in charge of computing, remapping and feeding activation (or other) values into the AdnLocatorPosition for visualization purposes, which in turn feeds the AdonisFX deformers to drive the simulation. The value of the sensor can be used, for example, to drive the activation of a muscle simulating contraction to increase its stiffness.
+An AdnSensorPosition will be in charge of computing, remapping and feeding activation (or other) values into the AdnLocatorPosition for visualization purposes, which in turn feeds the Adonis deformers to drive the simulation. The value of the sensor can be used, for example, to drive the activation of a muscle simulating contraction to increase its stiffness.
 
 <figure markdown>
   ![AdnSensorPosition velocity display on AdnLocatorPosition within a scene](../images/sensors_position.png)
@@ -18,7 +18,7 @@ An AdnSensorPosition will be in charge of computing, remapping and feeding activ
 Only one transform will be required to create the AdnSensorPosition. To create an AdnSensorPosition and connect it to an existing [AdnLocatorPosition](locators#adnlocatorposition):
 
   1. Go to the geometry context of the rig containing the rig setup to which the sensors should be applied.
-  2. Press TAB and navigate to the submenu AdonisFX > Sensors to find the AdnSensorPosition ![AdnSensorPosition button](../../images/adn_point_sensor.png){style="width:4%"} SOP type.
+  2. Press TAB and navigate to the submenu Adonis > Sensors to find the AdnSensorPosition ![AdnSensorPosition button](../../images/adn_point_sensor.png){style="width:4%"} SOP type.
   3. Create it and connect the output of the AdnSensorPosition sensor to its corresponding AdnLocatorPosition input.
   4. Go to the AdnSensorPosition's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
   5. The AdnSensorPosition is created and ready to be used with its corresponding AdnLocatorPosition.
@@ -114,11 +114,11 @@ Only one transform will be required to create the AdnSensorPosition. To create a
 
 ## AdnSensorDistance
 
-AdnSensorDistance is the sensor for computing meaningful output raw values representing the distance, velocity or acceleration between two transform nodes. Additionally, the sensor remaps the values of distance, velocity and acceleration to produce desirable activation values within a certain range to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorDistance both for setup and visualization. An example use case for this sensor would be applying it to the connection made between bones which would compute the distance between two bones moving together.
+AdnSensorDistance is the sensor for computing meaningful output raw values representing the distance, velocity or acceleration between two transform nodes. Additionally, the sensor remaps the values of distance, velocity and acceleration to produce desirable activation values within a certain range to drive the simulation of an Adonis deformer. This sensor has to work in combination with an AdnLocatorDistance both for setup and visualization. An example use case for this sensor would be applying it to the connection made between bones which would compute the distance between two bones moving together.
 
 ### How To Use
 
-An AdnSensorDistance will be in charge of computing, remapping and feeding activation (or other) values into the AdnLocatorDistance for visualization purposes, which in turn feeds the AdonisFX deformers to drive the simulation. The value of the sensor can be used, for example, to drive the activation of a muscle simulating contraction to increase its stiffness.
+An AdnSensorDistance will be in charge of computing, remapping and feeding activation (or other) values into the AdnLocatorDistance for visualization purposes, which in turn feeds the Adonis deformers to drive the simulation. The value of the sensor can be used, for example, to drive the activation of a muscle simulating contraction to increase its stiffness.
 
 <figure markdown>
   ![AdnSensorDistance distance display on AdnLocatorDistance within a scene](../images/sensors_distance.png)
@@ -128,7 +128,7 @@ An AdnSensorDistance will be in charge of computing, remapping and feeding activ
 Two transforms will be required to create the AdnSensorDistance. To create an AdnSensorDistance and connect it to an existing [AdnLocatorDistance](locators#adnlocatordistance):
 
   1. Go to the geometry context of the rig containing the rig setup to which the sensors should be applied.
-  2. Press TAB and navigate to the submenu AdonisFX > Sensors to find the AdnSensorDistance ![AdnSensorDistance button](../../images/adn_distance_sensor.png){style="width:4%"} SOP type.
+  2. Press TAB and navigate to the submenu Adonis > Sensors to find the AdnSensorDistance ![AdnSensorDistance button](../../images/adn_distance_sensor.png){style="width:4%"} SOP type.
   3. Create it and connect the output of the AdnSensorDistance sensor to its corresponding AdnLocatorDistance input.
   4. Go to the AdnSensorDistance's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
   5. The AdnSensorDistance is created and ready to be used with its corresponding AdnLocatorDistance.
@@ -244,11 +244,11 @@ Two transforms will be required to create the AdnSensorDistance. To create an Ad
 
 ## AdnSensorRotation
 
-AdnSensorRotation is the sensor for computing meaningful output raw values representing the angle, angular velocity or angular acceleration between three transform nodes. Additionally, the sensor remaps the values of angle, velocity and acceleration to produce desirable activation values within a certain range to drive the simulation of an AdonisFX deformer. This sensor has to work in combination with an AdnLocatorRotation both for setup and visualization. An example use case for this sensor would be applying it to the arc connection made between bones which would compute the angle between two bones rotating.
+AdnSensorRotation is the sensor for computing meaningful output raw values representing the angle, angular velocity or angular acceleration between three transform nodes. Additionally, the sensor remaps the values of angle, velocity and acceleration to produce desirable activation values within a certain range to drive the simulation of an Adonis deformer. This sensor has to work in combination with an AdnLocatorRotation both for setup and visualization. An example use case for this sensor would be applying it to the arc connection made between bones which would compute the angle between two bones rotating.
 
 ### How To Use
 
-An AdnSensorRotation will be in charge of computing, remapping and feeding activation (or other) values into the AdnLocatorRotation for visualization purposes, which in turn feeds the AdonisFX deformers to drive the simulation. The value of the sensor can be used, for example, to drive the activation of a muscle simulating contraction to increase its stiffness.
+An AdnSensorRotation will be in charge of computing, remapping and feeding activation (or other) values into the AdnLocatorRotation for visualization purposes, which in turn feeds the Adonis deformers to drive the simulation. The value of the sensor can be used, for example, to drive the activation of a muscle simulating contraction to increase its stiffness.
 
 <figure markdown>
   ![AdnSensorRotation angle display on AdnLocatorRotation within a scene](../images/sensors_rotation.png)
@@ -258,7 +258,7 @@ An AdnSensorRotation will be in charge of computing, remapping and feeding activ
 Three transforms will be required to create the AdnSensorRotation. To create an AdnSensorRotation and connect it to an existing [AdnLocatorRotation](locators#adnlocatorrotation):
 
   1. Go to the geometry context of the rig containing the rig setup to which the sensors should be applied.
-  2. Press TAB and navigate to the submenu AdonisFX > Sensors to find the AdnSensorRotation ![AdnSensorRotation button](../../images/adn_angle_sensor.png){style="width:4%"} SOP type.
+  2. Press TAB and navigate to the submenu Adonis > Sensors to find the AdnSensorRotation ![AdnSensorRotation button](../../images/adn_angle_sensor.png){style="width:4%"} SOP type.
   3. Create it and connect the output of the AdnSensorRotation sensor to its corresponding AdnLocatorRotation input.
   4. Go to the AdnSensorRotation's *Input* tab and select the transform nodes from which to extract the transformation from (e.g. joints, null nodes, rivets, etc). Use the "Operator Chooser" in the locator's UI to select the correct target node containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
   5. The AdnSensorRotation is created and ready to be used with its corresponding AdnLocatorRotation.
@@ -375,7 +375,7 @@ Three transforms will be required to create the AdnSensorRotation. To create an 
 
 ## Connections
 
-Connections in AdonisFX for Houdini should be handled in two ways:
-  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the AdonisFX SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
+Connections in Adonis for Houdini should be handled in two ways:
+  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the Adonis SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
   - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used to for example connect a float attribute to drive a parameter on the node.
 
