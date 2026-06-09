@@ -2,7 +2,7 @@
 
 AdnSoftWrap is a Maya deformer that transfers deformations from one or more target geometries to an input geometry using a proximity-based influence model.
 
-For every point of the deformed geometry, the deformer searches for nearby points belonging to the connected target geometries. All target points found within a user-defined radius are considered as potential influences, up to a maximum number of neighboring points. The resulting deformation is then computed from the contribution of those neighboring targets points and applied to the affected point.
+For every point of the deformed geometry, the deformer searches for nearby points belonging to the connected target geometries. All target points found within a user-defined radius are considered as potential influences, up to a maximum number of neighboring points. The resulting deformation is then computed from the contribution of those neighboring target points and applied to the affected point.
 
 This deformer is particularly useful for transferring complex deformations between unrelated meshes, driving secondary geometry, or creating flexible deformation setups without requiring topological correspondence.
 
@@ -12,15 +12,15 @@ The AdnSoftWrap is easy to create and configure in Maya. It requires the mesh to
 
 1. Select targets and then the mesh on which to apply the deformer.
 2. Press ![Soft Wrap button](../../images/adn_soft_wrap.png){style="width:4%"} in the Adonis shelf or *Soft Wrap* in the Adonis menu, under the Create Deformers section.
-3. A message in the terminal will notify that AdnSoftWrap has been created properly. Increase the number of iterations to see the effect of the deformation. Check the [Attributes](soft_wrap#attributes) section to customize their configuration.
+3. A message in the terminal will notify that AdnSoftWrap has been created properly. Check the [Attributes](soft_wrap#attributes) section to customize their configuration.
 
 ## Attributes
 
 ### Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Radius**         | Time | 1.0 | ✗ | Defines the maximum distance used to search for influencing target points. Only target points located within this radius can contribute to the deformation of a given point. Larger values increase the area of influence and produce smoother results at the cost of performance.|
-| **Maximum Points** | Time | 100 | ✗ | Defines the maximum number of neighboring target points that can influence a point of the deformed geometry. Larger values will produce smoother results at the cost of performance.|
+| **Radius**         | Float   | 1.0 | ✗ | Defines the maximum distance used to search for influencing target points. Only target points located within this radius can contribute to the deformation of a given point. Larger values increase the area of influence and produce smoother results at the cost of performance.|
+| **Maximum Points** | Integer | 100 | ✗ | Defines the maximum number of neighboring target points that can influence a point of the deformed geometry. Larger values will produce smoother results at the cost of performance.|
 
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
