@@ -138,7 +138,7 @@ nav:
       - Import                     : maya/tools/importer.md
       - Data Extraction            : maya/tools/data_extraction_tool.md
       - Neural Training            : maya/tools/neural_training_tool.md
-      - Neural Clustering          : maya/tools/neural_clustering_tool.md
+      - Neural Clustering          : maya/tools/neural_clustering_paint_tool.md
     - Scripts:
       - Mirror                    : maya/scripts/mirror.md
       - Turbo                     : maya/scripts/turbo.md
@@ -188,7 +188,7 @@ nav:
       - Data Processing            : houdini/tools/ml_data_processing.md
       - Data Extraction            : houdini/tools/data_extraction_tool.md
       - Neural Training            : houdini/tools/neural_training_tool.md
-      - Neural Clustering          : houdini/tools/neural_clustering_tool.md
+      - Neural Clustering          : houdini/tools/neural_clustering_paint_tool.md
     - Scripts:
       - Turbo                     : houdini/scripts/turbo.md
       - Transfer                  : houdini/scripts/transfer.md
