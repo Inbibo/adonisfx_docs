@@ -11,7 +11,7 @@ AdnRigidWrap is particularly useful for attaching secondary geometry to deformin
 The AdnRigidWrap is easy to create and configure in Maya. It requires the mesh to apply the deformation onto and the target(s) that will drive the deformation.
 
 1. Select targets and then the mesh on which to apply the deformer.
-2. Press *Rigid Wrap* in the Adonis menu, under the Create Deformers section.
+2. Press *Rigid Wrap* ![Rigid wrap button](../../images/adn_rigid_wrap.png){style="width:4%"} in the Adonis menu, under the Create Deformers section.
 3. A message in the terminal will notify that AdnRigidWrap has been created properly. Check the [Attributes](rigid_wrap#attributes) section to customize their configuration.
 
 ## Attributes

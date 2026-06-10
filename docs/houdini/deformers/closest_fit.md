@@ -2,7 +2,7 @@
 
 AdnClosestFit is a Houdini SOP that projects an input geometry onto one or more target geometries using a closest-surface projection model.
 
-For every point of the deformed geometry, the deformer searches for the closest point on the surface of the connected target geometries. Each input point is then moved directly to its corresponding target surface point, causing the input geometry to conform to the shape of the target geometry.
+For every point of the deformed geometry, the deformer searches for the closest point on the closest surface of the connected target geometries. Each input point is then moved directly to its corresponding target surface point, causing the input geometry to conform to the shape of the target geometry.
 
 AdnClosestFit is particularly useful for conforming meshes to anatomical models, fitting accessories onto character surfaces or creating surface-matching workflows between unrelated geometries.
 
@@ -11,7 +11,7 @@ AdnClosestFit is particularly useful for conforming meshes to anatomical models,
 The AdnClosestFit is easy to create and configure in Houdini. It requires the mesh to apply the deformation onto and the target(s) that will drive the deformation.
 
 1. Go to the geometry context of the rig containing the geometry to apply the deformer to.
-2. Press TAB and navigate to the submenu Adonis > Deformers to find the AdnClosestFit ![CLosest fit button](../../images/adn_closest_fit.png){style="width:4%"} SOP type.
+2. Press TAB and navigate to the submenu Adonis > Deformers to find the AdnClosestFit ![Closest fit button](../../images/adn_closest_fit.png){style="width:4%"} SOP type.
 3. Create it and connect the geometry to the input.
 4. Go to the **Targets** tab in the AdnClosestFit parameters, add a new entry to *Targets* to add a geometry target.
 5. Provide the object path of the target geometry in *Target World Mesh*.
