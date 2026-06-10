@@ -1,0 +1,74 @@
+# AdnClosestFit
+
+AdnClosestFit is a Houdini SOP that projects an input geometry onto one or more target geometries using a closest-surface projection model.
+
+For every point of the deformed geometry, the deformer searches for the closest point on the surface of the connected target geometries. Each input point is then moved directly to its corresponding target surface point, causing the input geometry to conform to the shape of the target geometry.
+
+AdnClosestFit is particularly useful for conforming meshes to anatomical models, fitting accessories onto character surfaces or creating surface-matching workflows between unrelated geometries.
+
+## How To Use
+
+The AdnClosestFit is easy to create and configure in Houdini. It requires the mesh to apply the deformation onto and the target(s) that will drive the deformation.
+
+1. Go to the geometry context of the rig containing the geometry to apply the deformer to.
+2. Press TAB and navigate to the submenu Adonis > Deformers to find the AdnClosestFit ![CLosest fit button](../../images/adn_closest_fit.png){style="width:4%"} SOP type.
+3. Create it and connect the geometry to the input.
+4. Go to the **Targets** tab in the AdnClosestFit parameters, add a new entry to *Targets* to add a geometry target.
+5. Provide the object path of the target geometry in *Target World Mesh*.
+
+## Attributes
+
+### Time Attributes
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Initialization Time** | Time | *Current frame* | ✗ | Sets the frame at which the deformer will be initialized. |
+
+### Deformer Attributes
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. The upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
+
+### Maps
+
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Weights Attribute** | float | 1.0 | ✗  | Specifies the name of the per-point attribute to read the weight of the deformation. The expected attribute name is `adnWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\]. |
+
+> [!NOTE]
+> - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
+> - Fixed point attribute names also ensure compatibility with the API.
+> - To copy the map names of the disabled attributes for painting (using an attribute paint node) right click on the disabled map attribute parameter, press "Copy Parameter", select the attribute paint node and on the attribute name entry right click and press "Paste Values". This allows to easily copy the attribute name for painting.
+> - The *Make Paintable* utility provided in the Adonis menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnClosestFit SOP.
+> - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
+
+## Parameter Template
+
+<figure markdown>
+  ![closest fit parameter template solver tab](../images/closest_fit_parameter_template_00.png)
+  <figcaption><b>Figure 1</b>: AdnClosestFit Parameter Template (Part 1): Solver.</figcaption>
+</figure>
+
+<figure markdown>
+  ![closest fit parameter template targets tab](../images/closest_fit_parameter_template_01.png)
+  <figcaption><b>Figure 2</b>: AdnClosestFit Parameter Template (Part 2): Targets.</figcaption>
+</figure>
+
+<figure markdown>
+  ![closest fit parameter template maps tab](../images/closest_fit_parameter_template_02.png)
+  <figcaption><b>Figure 3</b>: AdnClosestFit Parameter Template (Part 3): Maps.</figcaption>
+</figure>
+
+## Paintable Weights
+
+| Name | Default | Description |
+| :--- | :------ | :---------- |
+| **Weights** | 1.0 | Global weights map used to control the influence of the deformer at each vertex. |
+
+> [!NOTE]
+> To tweak the point attributes of an AdnClosestFit SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnClosestFit SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnClosestFit node.
+
+## Connections
+
+Connections in Adonis for Houdini should be handled in two ways:
+  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the Adonis SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
+  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used for example to connect a float attribute to drive a parameter on the node.
