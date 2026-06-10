@@ -50,7 +50,7 @@ The AdnRigidWrap is easy to create and configure in Houdini. It requires the mes
 
 <figure markdown>
   ![rigid wrap parameter template targets tab](../images/rigid_wrap_parameter_template_01.png)
-  <figcaption><b>Figure 3</b>: AdnRigidWrap Parameter Template (Part 2): Targets.</figcaption>
+  <figcaption><b>Figure 2</b>: AdnRigidWrap Parameter Template (Part 2): Targets.</figcaption>
 </figure>
 
 <figure markdown>
