@@ -7,7 +7,7 @@ The AdnActivation node allows operations on a set of input values for the comput
 To create this node, follow these steps:
 
 1. Go to the geometry context of the rig containing the rig setup to which the AdnActivation should be applied.
-2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnActivation ![AdnActivation button](../../images/adn_activation.png){style="width:4%"} SOP type.
+2. Press TAB and navigate to the submenu Adonis > Utils to find the AdnActivation ![AdnActivation button](../../images/adn_activation.png){style="width:4%"} SOP type.
 3. Go to the AdnActivation's *Inputs* and add a new input by clicking on the **+** button. A new multiparam entry will be created with three parameters: *Bypass Operator*, *Value* and *Operator*.
 4. Use a detail expression to drive the *Value*. For example, do this to use the output activation from a distance sensor: `detail("/obj/sim/my_dist_sensor", "adnActivationDistance", 0)`.
 5. The AdnActivation node is ready to compute and write the result into the `adnOutValue` output attribute.
@@ -92,7 +92,7 @@ The *Inputs* attribute is presented as an array of 3 attributes which can be fou
 
 ## Connections
 
-Connections in AdonisFX for Houdini should be handled in two ways:
-  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the AdonisFX SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
+Connections in Adonis for Houdini should be handled in two ways:
+  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the Adonis SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
   - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used to for example connect a float attribute to drive a parameter on the node.
 

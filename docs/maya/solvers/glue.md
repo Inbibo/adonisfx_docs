@@ -26,7 +26,7 @@ To create an AdnGlue node within a Maya scene, the following inputs must be prov
 The process to create an AdnGlue node is:
 
 1. Select the Input Geometries.
-2. Press ![Glue button](../../images/adn_glue.png){style="width:4%"} in the AdonisFX shelf or the Glue action in the AdonisFX’s Solvers menu, under the Create section. 
+2. Press ![Glue button](../../images/adn_glue.png){style="width:4%"} in the Adonis shelf or the Glue action in the Adonis’ Solvers menu, under the Create section. 
 3. A message in the terminal will notify you that AdnGlue has been created properly, meaning that it is ready to simulate with default settings. Check the next section to customize their configuration.
 
 > [!NOTE]
@@ -56,7 +56,7 @@ The process to create an AdnGlue node is:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). Adonis interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
@@ -218,11 +218,11 @@ Once the AdnGlue node is created, it is possible to add new inputs and remove cu
 - **Add inputs**:
     1. Select one or more mesh nodes to be assigned as inputs to the AdnGlue.
     2. Select the AdnGlue output mesh.
-    3. Press *Add Inputs* in the AdonisFX menu from the Edit Glue submenu.
+    3. Press *Add Inputs* in the Adonis menu from the Edit Glue submenu.
 - **Remove inputs**:
     1. Select one or more mesh nodes that are assigned as inputs to the AdnGlue.
     2. Select the AdnGlue output mesh.
-    3. Press *Remove Inputs* in the AdonisFX menu from the Edit Glue submenu.
+    3. Press *Remove Inputs* in the Adonis menu from the Edit Glue submenu.
     4. Alternatively, if only the AdnGlue output mesh is selected, when pressing the *Remove Inputs* button, all inputs will be removed.
 
 > [!NOTE]

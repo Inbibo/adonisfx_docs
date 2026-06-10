@@ -7,7 +7,7 @@ The AdnFiberDiffusion SOP is in charge of, given a defined tendon mask, generate
 To create this node, follow these steps:
 
 1. Go to the geometry context that has geometry with the painted `adnTendons` point attribute, generally on the tendon areas of a muscle. This can also be a combined geometry with a defined per-primitive piece attribute.
-2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnFiberDiffusion ![AdnFiberDiffusion button](../../images/adn_fiber_diffusion.png){style="width:4%"} SOP type.
+2. Press TAB and navigate to the submenu Adonis > Utils to find the AdnFiberDiffusion ![AdnFiberDiffusion button](../../images/adn_fiber_diffusion.png){style="width:4%"} SOP type.
 3. Connect the geometry to the first source.
 4. Cook the node and the `adnFibers` point attribute is written into the geostream with unprojected fiber directions used to drive the activation of an AdnMuscle or AdnRibbonMuscle node.
 

@@ -1,6 +1,6 @@
 # AdnTurbo
 
-The **AdnTurbo Tool** is a feature designed to automate the creation of an AdonisFX rig from scratch on a clean asset within Maya, from which fine-tuning and customization can proceed. It sequentially configures the following layers:
+The **AdnTurbo Tool** is a feature designed to automate the creation of an Adonis rig from scratch on a clean asset within Maya, from which fine-tuning and customization can proceed. It sequentially configures the following layers:
 
 - **Muscle layer**
 - **Locators and Sensors**
@@ -61,11 +61,11 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 
 3. Additionally, to place the output glue geometry in a specific group, check the *Group* option and provide a *Group name* in the *Glue Layer* UI group. Likewise, to place locator and rivet nodes into their own group, use the same options in the counterpart group *Locators & Sensors*. If the specified group does not exist, checking the *Create if not exist* option will make AdnTurbo to create it automatically.
 
-4. If the scene contains AdonisFX nodes, a confirmation dialog will appear informing about it. Press *Yes* to automatically delete all AdonisFX nodes or *No* to cancel the execution.
+4. If the scene contains Adonis nodes, a confirmation dialog will appear informing about it. Press *Yes* to automatically delete all Adonis nodes or *No* to cancel the execution.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Turbo Execution Completed](../images/turbo_tool_confirmation_dialog.png)
-  <figcaption><b>Figure 5</b>: Question dialog informing about AdonisFX nodes in the scene before executing.</figcaption>
+  <figcaption><b>Figure 5</b>: Question dialog informing about Adonis nodes in the scene before executing.</figcaption>
 </figure>
 
 5. If something goes wrong during the execution, an error dialog will be displayed informing about the problem to help with the troubleshooting. Note that the whole AdnTurbo can be undone.
@@ -86,7 +86,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 As a result of executing the tool by providing the geometries for all the layers, the following nodes will be created:
 
 - An AdnMuscle for each muscle geometry with the mummy geometries as targets.
-- An AdonisFX locator and sensor for each AdnMuscle to drive the muscle activation.
+- An Adonis locator and sensor for each AdnMuscle to drive the muscle activation.
 - An AdnGlue node (including its glue output geometry) with all the muscles as inputs.
 - An AdnSkin node for the fascia geometry with the mummy and glue geometries as targets.
 - An AdnRelax node applied on top of the fascia AdnSkin.
@@ -97,6 +97,6 @@ As a result of executing the tool by providing the geometries for all the layers
 ## Limitations
 
 - The **Glue Layer** cannot be bypassed. This means that for the **Fascia Layer** to be enabled, the **Glue Layer** checkbox must be checked.
-- If the *Yes* button is pressed in the question dialog (see Figure 5) the tool will automatically remove all the AdonisFX nodes from the scene. However, other auxiliary nodes created in previous executions of the script will not be removed (i.e. glue output geometry, rivet nodes).
+- If the *Yes* button is pressed in the question dialog (see Figure 5) the tool will automatically remove all the Adonis nodes from the scene. However, other auxiliary nodes created in previous executions of the script will not be removed (i.e. glue output geometry, rivet nodes).
 - The default values that AdnTurbo will use to configure each deformer cannot be customized.
 - AdnTurbo does not support namespaces in object paths.

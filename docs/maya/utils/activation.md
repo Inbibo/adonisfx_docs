@@ -9,7 +9,7 @@ To create this node, follow these steps:
 1. Open the Node Editor from Windows > Node Editor.
 2. Press the Tab key, type *AdnActivation* and press Enter to create a new instance of this node.
 
-Alternatively, press the option located in AdonisFX > Nodes > *Activation* to create a new AdnActivation node. Additional information about this option can be found in the [Advanced](activation#advanced) section.
+Alternatively, press the option located in Adonis > Nodes > *Activation* to create a new AdnActivation node. Additional information about this option can be found in the [Advanced](activation#advanced) section.
 
 The activation node can now be used to override, add, subtract, multiply or divide the activations from different sources (sensors) into one final activation value.
 For example, multiple distance sensors of a character can be merged together to produce different kinds of activations throughout the simulation.
@@ -23,7 +23,7 @@ To add new inputs to the AdnActivation node:
 
 1. Go to the Attribute Editor and press *Add New Item*.
 2. Set the desired *Operator*.
-3. Type in a fixed value in *Value*, animate it or connect the plug with an AdonisFX sensor's output.
+3. Type in a fixed value in *Value*, animate it or connect the plug with an Adonis sensor's output.
 
 > [!NOTE]
 > All operators will be evaluated from top to bottom (starting from the lowest index and ending on the last index used).
@@ -86,22 +86,22 @@ The *inputs* attribute is presented as an array of 3 attributes which can be fou
 
 ### Create AdnActivation
 
-It is possible to create an AdnActivation node by using the utility provided in AdonisFX > Nodes > *Activation*. This utility will create a new AdnActivation node. If muscle deformers are provided in the selection, the new AdnActivation node will be connected to the activation plug of those deformers.
+It is possible to create an AdnActivation node by using the utility provided in Adonis > Nodes > *Activation*. This utility will create a new AdnActivation node. If muscle deformers are provided in the selection, the new AdnActivation node will be connected to the activation plug of those deformers.
 
 ### Remove Inputs
 
-Once an AdnActivation node is created, connected inputs can be removed by using the utility provided in AdonisFX > Activation > *Remove Inputs*.
+Once an AdnActivation node is created, connected inputs can be removed by using the utility provided in Adonis > Activation > *Remove Inputs*.
 
 - **Remove Inputs** by providing an AdnActivation node:
     1. Select the locators to remove from the AdnActivation node.
     2. Select the AdnActivation node.
-    3. Press *Remove Inputs* in the AdonisFX menu from the Edit Activation submenu.
+    3. Press *Remove Inputs* in the Adonis menu from the Edit Activation submenu.
     4. Alternatively, if only the AdnActivation node is selected, when pressing *Remove Inputs*, all inputs will be removed.
 
 - **Remove Inputs** by providing a muscle deformer:
     1. Select the locators to remove from the AdnActivation node.
     2. Select the mesh with a muscle deformer applied that is connected to an AdnActivation node.
-    3. Press *Remove Inputs* in the AdonisFX menu from the Edit Activation submenu to remove the inputs from the AdnActivation node.
+    3. Press *Remove Inputs* in the Adonis menu from the Edit Activation submenu to remove the inputs from the AdnActivation node.
     4. Alternatively, if only the mesh with a muscle deformer applied is selected, when pressing *Remove Inputs*, all inputs will be removed from the AdnActivation node.
 
 > [!NOTE]

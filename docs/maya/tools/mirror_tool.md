@@ -1,19 +1,19 @@
 # Mirror Tool
 
-The **AdonisFX Mirror Tool** is a feature designed to simplify and speed up the muscle setup process for digital characters within Maya. This tool efficiently transfers muscle configurations from one side of a character to the other, based on consistent naming conventions to distinguish between left and right sides. By automating this process, it significantly reduces the time and effort required to replicate complex muscle setups, enhancing efficiency and consistency.​
+The **Adonis Mirror Tool** is a feature designed to simplify and speed up the muscle setup process for digital characters within Maya. This tool efficiently transfers muscle configurations from one side of a character to the other, based on consistent naming conventions to distinguish between left and right sides. By automating this process, it significantly reduces the time and effort required to replicate complex muscle setups, enhancing efficiency and consistency.​
 
 The tool replicates the following components:​
 
 - **AdnMuscle deformers**, including their configurations, paintable maps, geometry targets, and connections to locators.​
-- The three types of **AdonisFX locators** (i.e. AdnLocatorPosition, AdnLocatorDistance, and AdnLocatorRotation).
-- The three types of **AdonisFX sensors** (i.e. AdnSensorPosition, AdnSensorDistance, and AdnSensorRotation).
+- The three types of **Adonis locators** (i.e. AdnLocatorPosition, AdnLocatorDistance, and AdnLocatorRotation).
+- The three types of **Adonis sensors** (i.e. AdnSensorPosition, AdnSensorDistance, and AdnSensorRotation).
 - **AdnActivation nodes**, including their input and output connections.
 
 ## UI
 
 <figure markdown>
-  ![AdonisFX Mirror Tool](../images/mirror_tool.png) 
-  <figcaption><b>Figure 1</b>: AdonisFX Mirror Tool UI. </figcaption>
+  ![Adonis Mirror Tool](../images/mirror_tool.png) 
+  <figcaption><b>Figure 1</b>: Adonis Mirror Tool UI. </figcaption>
 </figure>
 
 The Mirror Tool window is designed to be simple and intuitive, it contains the following elements:
@@ -63,14 +63,14 @@ In order to use the **Mirror Tool**, the rig must meet the following requirement
 
 2. Select all geometries from the source side that have an AdnMuscle deformer applied and need to be mirrored.
 
-3. Add to the selection all the AdonisFX locators from the same source side that need to be mirrored. Note that sensors and activation nodes (as not being DAG objects) do not need to be added to the selection. The Mirror Tool will automatically handle their mirroring.
+3. Add to the selection all the Adonis locators from the same source side that need to be mirrored. Note that sensors and activation nodes (as not being DAG objects) do not need to be added to the selection. The Mirror Tool will automatically handle their mirroring.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Mirror Script Selection](../images/mirror_tool_02.png)
   <figcaption><b>Figure 4</b>: All geometry muscles and locators on the left side selected.</figcaption>
 </figure>
 
-4. Go to *AdonisFX Menu > Tools > Mirror* to open the Mirror Tool window (see Figure 1). Provide the naming-related settings (*Mirror by*, *Left* and *Right*) that the rig follows and click *Accept* or *Apply* to start the mirroring process.
+4. Go to *Adonis Menu > Tools > Mirror* to open the Mirror Tool window (see Figure 1). Provide the naming-related settings (*Mirror by*, *Left* and *Right*) that the rig follows and click *Accept* or *Apply* to start the mirroring process.
 
 5. If the selection does not contain muscle geometries or locators, dedicated dialogs (Figure 5 and 6 respectively) will be displayed informing about what is missing in the selection and asking for confirmation to continue. Also, if there are no muscle geometries nor locators found in the selection, then another dialog is displayed informing that the tool can't proceed with the mirroring (Figure 7).
 

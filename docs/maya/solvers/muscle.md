@@ -2,7 +2,7 @@
 
 AdnMuscle is a Maya deformer for fast, robust and easy-to-configure volumetric muscle simulation for digital assets. Thanks to the combination of internal (structural) and external (attachment and slide) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a muscle with realistic volume preservation, fibers activations to modulate the rigidity, and attachments properties to external objects to follow the global kinematics of the character.
 
-The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](../tools/paint_tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behavior to a wide array of options.
+The influence these constraints have on the simulated mesh can be freely modified by painting them via the [Adonis Paint Tool](../tools/paint_tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behavior to a wide array of options.
 
 ### How To Use
 
@@ -19,7 +19,7 @@ An AdnMuscle requires the following inputs to be provided:
 To create an AdnMuscle, follow these steps:
 
 1. Select the **Targets** (if any), then the **Muscle Geometry**.
-2. Press the ![Muscle button](../../images/adn_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Muscle* in the *Solvers* submenu from the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press the ![Muscle button](../../images/adn_muscle.png){style="width:4%"} button in the Adonis shelf or press *Muscle* in the *Solvers* submenu from the Adonis menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnMuscle is ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
@@ -49,7 +49,7 @@ To create an AdnMuscle, follow these steps:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). Adonis interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
@@ -180,7 +180,7 @@ To create an AdnMuscle, follow these steps:
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the muscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](../tools/paint_tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the muscle solver are exposed as paintable attributes in the deformer. The [Adonis Paint Tool](../tools/paint_tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
@@ -214,7 +214,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
 </figure>
 
 > [!NOTE]
-> - The attachment weights are normalized at each vertex. This normalization is applied when a stroke is finished. The use of the AdonisFX Paint Tool is mandatory for that.
+> - The attachment weights are normalized at each vertex. This normalization is applied when a stroke is finished. The use of the Adonis Paint Tool is mandatory for that.
 > - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalization overriding them in further strokes.
 > - Fibers and Tendon weights should only be painted on the initialization frame, being the initialization frame the lowest value between Preroll Start Time and Start Time.
 
@@ -267,11 +267,11 @@ Once the AdnMuscle deformer is created, it is possible to add and remove new tar
 - **Add targets**:
     1. Select the transform or mesh nodes (one or more) to be assigned as targets to the AdnMuscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press the ![Add Targets button](../images/adn_add_target.png){style="width:4%"} button in the AdonisFX shelf or press *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Add Targets button](../images/adn_add_target.png){style="width:4%"} button in the Adonis shelf or press *Add Targets* in the Adonis menu from the Edit Muscle submenu.
 - **Remove targets**:
     1. Select one or more transform or mesh nodes that are assigned as targets to the AdnMuscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu. 
+    3. Press the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button in the Adonis shelf or press *Remove Targets* in the Adonis menu from the Edit Muscle submenu. 
     4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button, all targets will be removed (transform and mesh targets).
 
 Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](../simple_setup#adnmuscle) for more information on how to paint the influence maps for the mentioned constraints.
@@ -287,7 +287,7 @@ Additionally to all previously mentioned constraints, muscles can have an additi
 - **Add Segment**:
     1. Select the transform nodes from which a segment would be created for the muscle to slide on.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press *Add Slide On Segment Constraint* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press *Add Slide On Segment Constraint* in the Adonis menu from the Edit Muscle submenu.
 
 > [!NOTE]
 > - The transform node selection must follow a parent to child relationship in the hierarchy (like rig joints do).
@@ -297,17 +297,17 @@ Additionally to all previously mentioned constraints, muscles can have an additi
 - **Remove Segment**: 
     1. Select one or more transform nodes that are assigned as segment anchors to the AdnMuscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press *Remove Slide On Segment Constraint* in the AdonisFX menu from the Edit Muscle submenu. 
-    4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing *Remove Slide On Segment Constraint* in the AdonisFX menu, all segments will be removed.
+    3. Press *Remove Slide On Segment Constraint* in the Adonis menu from the Edit Muscle submenu. 
+    4. Alternatively, if only the mesh with the AdnMuscle deformer is selected, when pressing *Remove Slide On Segment Constraint* in the Adonis menu, all segments will be removed.
 
 ### Rest Shape
 
-The muscle solver supports an art-directed shape to drive the fibers, shape and volume constraints. This shape is typically a sculpted version of the muscle (it must be topologically identical) that represents the muscle when it is fully activated. The artist can add and remove the custom shape from dedicated entries in the AdonisFX muscle submenu.
+The muscle solver supports an art-directed shape to drive the fibers, shape and volume constraints. This shape is typically a sculpted version of the muscle (it must be topologically identical) that represents the muscle when it is fully activated. The artist can add and remove the custom shape from dedicated entries in the Adonis muscle submenu.
 
 - **Add Rest Shape**:
     1. Select the transform or mesh node to be assigned as rest shape to the AdnMuscle.
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press *Add Rest Shape* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press *Add Rest Shape* in the Adonis menu from the Edit Muscle submenu.
     4. Make sure to use a *Rest Shape Weight* greater than 0.0 for this feature to take effect.
 
 > [!NOTE]
@@ -316,7 +316,7 @@ The muscle solver supports an art-directed shape to drive the fibers, shape and 
 - **Remove Rest Shape**: 
     1. Select the transform node of the rest mesh assigned to the AdnMuscle (optional).
     2. Select the mesh that has the AdnMuscle deformer applied.
-    3. Press *Remove Rest Shape* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press *Remove Rest Shape* in the Adonis menu from the Edit Muscle submenu.
     4. Alternatively, set the *Rest Shape Weight* to 0.0. The rest mesh will be ignored.
 
 On top of this, if the input activation of the muscle is also connected to the *Rest Shape Weight*, then the influence of the rest shape over the final result will be coherent with the variation of the level of activation during the simulation.
@@ -356,4 +356,4 @@ The sensors can be connected to the activation list using the [Sensors Connectio
   <figcaption><b>Figure 13</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
 </figure>
 
-The removal of input sensors connected to the activation list can be done from the AdonisFX menu in Activation > Remove Inputs option.
+The removal of input sensors connected to the activation list can be done from the Adonis menu in Activation > Remove Inputs option.

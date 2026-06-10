@@ -2,11 +2,11 @@
 
 ## Activation Node
 
-Activation Node or **AdnActivation** is an AdonisFX node that allows you to perform operations on input activation values to produce a final activation value that can be used to drive the activation of a muscle. This node allows you to override, add, subtract, multiply, divide, etc. multiple input activations to produce one single output. The input activations can be used by ingesting AdonisFX sensor data (AdnSensorPosition, AdnSensorDistance, AdnSensorRotation). This node is recommended to be used when on-demand activations are required or when multiple activations from several sensors have to be merged into one value.
+Activation Node or **AdnActivation** is an Adonis node that allows you to perform operations on input activation values to produce a final activation value that can be used to drive the activation of a muscle. This node allows you to override, add, subtract, multiply, divide, etc. multiple input activations to produce one single output. The input activations can be used by ingesting Adonis sensor data (AdnSensorPosition, AdnSensorDistance, AdnSensorRotation). This node is recommended to be used when on-demand activations are required or when multiple activations from several sensors have to be merged into one value.
 
 ## Constraints
 
-Constraints are rules that an AdonisFX solver applies during simulation to ensure that the relationship between elements involved in the simulation is maintained, such as distance between geometry points, distance between geometry points and external attachments, rig joints or external meshes, etc. The catalog of constraints is presented below.
+Constraints are rules that an Adonis solver applies during simulation to ensure that the relationship between elements involved in the simulation is maintained, such as distance between geometry points, distance between geometry points and external attachments, rig joints or external meshes, etc. The catalog of constraints is presented below.
 
 **Attachment To Transform**. An attachment to transform constraint defines the relationship between a geometry point and an external transform object. During simulation, an attachment constraint will try to keep the geometry point at a constant location relative to the transform.
 
@@ -20,7 +20,7 @@ Constraints are rules that an AdonisFX solver applies during simulation to ensur
 
 **Hard**. A hard constraint defines the location of a geometry point in the tangent space of a polygon. This constraint type is similar to the attachment constraint but in this case the transformation used is the one given by the tangent space at the closest point on an external geometry.
 
-**Self-Collision**. Applies corrections to the points that are intersecting with the geometry itself. There are two modes of self-collisions correction in AdonisFX: point-to-point and triangle-to-triangle. In point-to-point mode, an intersection occurs if the volume around a point intersects with the volume of another point. This volume can be a perfect sphere (uniform, defined by a radius) or a spheroid (when there is thickness and differs with the radius). In triangle-to-triangle mode, an intersection occurs if two triangles are intersecting each other, which can happen if one or two edges of one triangle cross the area of the other triangle.
+**Self-Collision**. Applies corrections to the points that are intersecting with the geometry itself. There are two modes of self-collisions correction in Adonis: point-to-point and triangle-to-triangle. In point-to-point mode, an intersection occurs if the volume around a point intersects with the volume of another point. This volume can be a perfect sphere (uniform, defined by a radius) or a spheroid (when there is thickness and differs with the radius). In triangle-to-triangle mode, an intersection occurs if two triangles are intersecting each other, which can happen if one or two edges of one triangle cross the area of the other triangle.
 
 **Shape Preservation**. A shape preservation constraint defines the state of the shape formed by a vertex with its adjacents on initialization. During simulation, a shape preservation constraint will try to maintain the rest shape of the geometry with its neighboring vertices.
 
@@ -42,27 +42,27 @@ Constraints are rules that an AdonisFX solver applies during simulation to ensur
 
 ## Fat
 
-Fat or **AdnFat** is an AdonisFX solver for fat simulation. This solver allows simulating a mesh surface as if it were a closed volume of fat tissue. The volume is constructed procedurally using two compatible geometries: a base mesh to drive the simulation (i.e. the fascia) and a destination mesh (i.e. the fat) on which to apply the simulation. Thanks to that internal volume structure, the solver is able to produce realistic dynamics typical of fat tissues.
+Fat or **AdnFat** is an Adonis solver for fat simulation. This solver allows simulating a mesh surface as if it were a closed volume of fat tissue. The volume is constructed procedurally using two compatible geometries: a base mesh to drive the simulation (i.e. the fascia) and a destination mesh (i.e. the fat) on which to apply the simulation. Thanks to that internal volume structure, the solver is able to produce realistic dynamics typical of fat tissues.
 
 ## Glue
 
-Glue or **AdnGlue** is an AdonisFX solver for gluing muscles together after simulation. This solver allows you to glue muscles together giving the simulation of the muscles layer a more compact look. The gluing is achieved by ingesting the muscles into the solver and generating one combined output mesh with Glue Constraints applied. Given a maximum glue distance the gluing can be modulated and controlled to reduce the gluing effect against unwanted muscles. Glue can be useful for improving the simulation of the fascia layer by creating a more compact version of the muscles layer avoiding big gaps.
+Glue or **AdnGlue** is an Adonis solver for gluing muscles together after simulation. This solver allows you to glue muscles together giving the simulation of the muscles layer a more compact look. The gluing is achieved by ingesting the muscles into the solver and generating one combined output mesh with Glue Constraints applied. Given a maximum glue distance the gluing can be modulated and controlled to reduce the gluing effect against unwanted muscles. Glue can be useful for improving the simulation of the fascia layer by creating a more compact version of the muscles layer avoiding big gaps.
 
 ## Locator
 
-Locators are intended to visualize the output of an AdonisFX sensor. There are three types of locators that require a specific number of inputs and adopt custom shapes in the viewport: AdnLocatorPosition (a squared box at the location of a node), AdnLocatorDistance (a parallelepiped with a line connecting two nodes) and AdnLocatorRotation (an angle with two segments connecting three nodes). Each type is associated with its homologous sensor.
+Locators are intended to visualize the output of an Adonis sensor. There are three types of locators that require a specific number of inputs and adopt custom shapes in the viewport: AdnLocatorPosition (a squared box at the location of a node), AdnLocatorDistance (a parallelepiped with a line connecting two nodes) and AdnLocatorRotation (an angle with two segments connecting three nodes). Each type is associated with its homologous sensor.
 
 ## Mummy
 
-The Mummy is a simplified, unified proxy that represents the overall body volume and serves as the foundation for deformation and simulation across the entire AdonisFX stack. It is typically built as a wrapped mesh around the individual bone geometries, which improves reliability when computing attachments and allows for stable sliding against target geometry, helping to avoid artifacts such as popping, creasing, and stretching. The mummy must generally be a single, continuous mesh with no separated or floating pieces, although it can optionally be split into multiple pieces when more control over attachment regions is required. Its vertex count should adapt to the proportions and complexity of the creature without introducing unnecessary density. The geometry must also be fully sealed and watertight, especially around critical areas like the rib cage and torso, while maintaining clean, optimized topology with minimal unnecessary subdivisions. For best results, it should be modeled at real-world scale to ensure consistent and reliable simulation behavior.
+The Mummy is a simplified, unified proxy that represents the overall body volume and serves as the foundation for deformation and simulation across the entire Adonis stack. It is typically built as a wrapped mesh around the individual bone geometries, which improves reliability when computing attachments and allows for stable sliding against target geometry, helping to avoid artifacts such as popping, creasing, and stretching. The mummy must generally be a single, continuous mesh with no separated or floating pieces, although it can optionally be split into multiple pieces when more control over attachment regions is required. Its vertex count should adapt to the proportions and complexity of the creature without introducing unnecessary density. The geometry must also be fully sealed and watertight, especially around critical areas like the rib cage and torso, while maintaining clean, optimized topology with minimal unnecessary subdivisions. For best results, it should be modeled at real-world scale to ensure consistent and reliable simulation behavior.
 
 ## Muscle
 
-**AdnMuscle** is an AdonisFX solver for muscle simulation including volume preservation. It allows applying dynamics such as fibers contraction and volume gain to a geometry.
+**AdnMuscle** is an Adonis solver for muscle simulation including volume preservation. It allows applying dynamics such as fibers contraction and volume gain to a geometry.
 
 ## Muscle anisotropy
 
-Muscle anisotropy refers to the property of muscle tissue that causes it to behave differently depending on the direction of the applied forces. In AdonisFX, this property affects the edge stiffness based on the alignment with the fiber flow:
+Muscle anisotropy refers to the property of muscle tissue that causes it to behave differently depending on the direction of the applied forces. In Adonis, this property affects the edge stiffness based on the alignment with the fiber flow:
 
 - Edges aligned with the fiber direction have stiffness equal to the object's overall stiffness.
 - Edges orthogonal to the fiber direction have reduced stiffness.
@@ -73,7 +73,7 @@ This behavior is modulated with the anisotropy parameter where a value of 0.0 (d
 
 A muscle patch is a group of connected geometry vertices that represent an internal muscle projected onto the skin. A muscle patch is not an actual modelled geometry. Muscle patches are used by AdnSimshape solver for facial simulation. The muscle patches of a facial geometry can be generated with the Learn Muscle Patches Tool which applies Machine Learning techniques to estimate the distribution of muscles based on the set of facial expressions that a facial rig can reproduce.
 
-**AdonisFX Muscle Patches File**. The AdonisFX Muscle Patches File is a proprietary file format that stores the distribution of muscle patches generated by the Learn Muscle Patches tool. The file extension is `amp`.
+**Adonis Muscle Patches File**. The Adonis Muscle Patches File is a proprietary file format that stores the distribution of muscle patches generated by the Learn Muscle Patches tool. The file extension is `amp`.
 
 ## Push
 
@@ -85,11 +85,11 @@ Relax or **AdnRelax** is a deformer designed to smooth creases and correct over-
 
 ## Remap
 
-In terms of functionality, **AdnRemap** nodes are typically used in AdonisFX rigs to remap the output of a sensor into a value that adjusts better to the range expected at the destination attribute of a solver, like the activation or the volume ratio gain of a muscle. In terms of workflow, these nodes aim to enhance the portability of the whole AdonisFX rig, including not only the input and output connections but also the configuration of the remap ramp attribute.
+In terms of functionality, **AdnRemap** nodes are typically used in Adonis rigs to remap the output of a sensor into a value that adjusts better to the range expected at the destination attribute of a solver, like the activation or the volume ratio gain of a muscle. In terms of workflow, these nodes aim to enhance the portability of the whole Adonis rig, including not only the input and output connections but also the configuration of the remap ramp attribute.
 
 ## Ribbon Muscle
 
-The ribbon muscle or **AdnRibbonMuscle** is an AdonisFX solver for muscle simulation. It allows applying dynamics such as fibers contraction to a planar geometry.
+The ribbon muscle or **AdnRibbonMuscle** is an Adonis solver for muscle simulation. It allows applying dynamics such as fibers contraction to a planar geometry.
 
 ## Sensor
 
@@ -97,11 +97,11 @@ Sensors are nodes to measure positions, distances, angles, velocities and accele
 
 ## Simshape
 
-Simshape or **AdnSimshape** is an AdonisFX solver for facial simulation. It allows applying dynamics on top of the deformation driven by a facial rig. Also, it has the ability to mimic the change in rigidity of the skin due to the activation of the internal facial muscle patches.
+Simshape or **AdnSimshape** is an Adonis solver for facial simulation. It allows applying dynamics on top of the deformation driven by a facial rig. Also, it has the ability to mimic the change in rigidity of the skin due to the activation of the internal facial muscle patches.
 
 ## Skin
 
-Skin or **AdnSkin** is an AdonisFX solver for skin and fascia simulation. It allows applying dynamics to the skin of a character to produce realistic effects like wrinkles.
+Skin or **AdnSkin** is an Adonis solver for skin and fascia simulation. It allows applying dynamics to the skin of a character to produce realistic effects like wrinkles.
 
 ## Skin Merge
 
