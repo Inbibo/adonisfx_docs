@@ -2,7 +2,7 @@
 
 AdnRelax is a Houdini SOP designed to smooth creases and correct over-compression or over-stretching on geometry surfaces. This deformer can help refining different types of meshes, like the fascia and skin resulting from the simulation by computing an iterative algorithm that combines smoothing, relaxation, and volume corrections. The AdnRelax SOP applies smoothing and relaxation in each iteration, while the volume correction (i.e. a push in and push out adjustment in the direction of the point normals) is applied during the final iteration.
 
-## How to use
+## How To Use
 
 The AdnRelax SOP is easy to create and configure in Houdini. It only requires the mesh to apply the relaxation onto. Typically, this mesh would be the simulated fascia or skin.
 
@@ -88,4 +88,4 @@ To provide more control, some key parameters of the AdnRelax SOP are exposed as 
 
 Connections in Adonis for Houdini should be handled in two ways:
   - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the Adonis SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
-  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used to for example connect a float attribute to drive a parameter on the node.
+  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used for example to connect a float attribute to drive a parameter on the node.

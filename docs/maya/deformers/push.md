@@ -2,7 +2,7 @@
 
 AdnPush is a Maya deformer designed to push a surface along the direction of its normals. This deformation can be applied outwards (i.e., the surface bulges and gains volume) or inwards (i.e., the surface shrinks and loses volume). This deformer is useful for refining meshes by increasing or decreasing their volume, as well as for modeling purposes. For example, a common use case is generating internal fascia geometry from skin geometry. Check [this section](../simple_setup#adnpush) to see a simple setup of this.
 
-## How to use
+## How To Use
 
 The AdnPush deformer is easy to create and configure in Maya. It only requires a mesh to apply the node to. Following the example mentioned above, this mesh would be the skin geometry at rest.
 

@@ -50,7 +50,7 @@ Note that if any input is wrong or missing, the corresponding input text will tu
 > - Muscles can be provided as a combined mesh (i.e. a single geometry node containing all the muscles) or as a list of separated muscles.
 > - If muscles are provided as a combined mesh, the geostream must contain a primitive attribute called `path` to allow AdnTurbo to identify each individual muscle.
 
-## How to use
+## How To Use
 
 1. Open a scene containing the geometries for all the layers to be built.
 
