@@ -6,12 +6,12 @@ For every point of the deformed geometry, the deformer searches for nearby point
 
 This deformer is particularly useful for transferring complex deformations between unrelated meshes, driving secondary geometry, or creating flexible deformation setups without requiring topological correspondence.
 
-## How to use
+## How To Use
 
 The AdnSoftWrap is easy to create and configure in Maya. It requires the mesh to apply the deformation onto and the target(s) that will drive the deformation.
 
 1. Select targets and then the mesh on which to apply the deformer.
-2. Press ![Soft Wrap button](../../images/adn_soft_wrap.png){style="width:4%"} in the Adonis shelf or *Soft Wrap* in the Adonis menu, under the Create Deformers section.
+2. Press *Soft Wrap* in the Adonis menu, under the Create Deformers section.
 3. A message in the terminal will notify that AdnSoftWrap has been created properly. Check the [Attributes](soft_wrap#attributes) section to customize their configuration.
 
 ## Attributes
@@ -19,8 +19,8 @@ The AdnSoftWrap is easy to create and configure in Maya. It requires the mesh to
 ### Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Radius**         | Float   | 1.0 | ✗ | Defines the maximum distance used to search for influencing target points. Only target points located within this radius can contribute to the deformation of a given point. Larger values increase the area of influence and produce smoother results at the cost of performance.|
-| **Maximum Points** | Integer | 100 | ✗ | Defines the maximum number of neighboring target points that can influence a point of the deformed geometry. Larger values will produce smoother results at the cost of performance.|
+| **Radius**         | Float   | 1.0 | ✗ | Defines the maximum distance used to search for influencing target points. Only target points located within this radius can contribute to the deformation of a given point. Larger values increase the area of influence and produce smoother results at the cost of performance. The minimum value allowed is 0.0. |
+| **Maximum Points** | Integer | 100 | ✗ | Defines the maximum number of neighboring target points that can influence a point of the deformed geometry. Larger values will produce smoother results at the cost of performance. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. The minimum value allowed is 0.|
 
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |

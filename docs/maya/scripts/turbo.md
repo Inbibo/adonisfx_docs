@@ -73,7 +73,7 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 | **force**                 | Optional | bool           | False | If True, deletes all existing Adonis nodes before executing to create the new nodes from a clean scene. Note that auxiliary nodes (e.g. rivets) or meshes created by an existing AdnGlue node will not be deleted. |
 | **report_data**           | Optional | dictionary     | None  | A dictionary (`{"errors": [], "warnings": []}`) to capture any issues during execution. |
 
-## How to use
+## How To Use
 
 1. Open a scene containing the geometries for all the layers to be built.
 

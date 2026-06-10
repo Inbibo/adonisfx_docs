@@ -72,7 +72,7 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 | **muscle_piece_attrib_name** | Optional | string         | `path` | String defining the name of the primitive attribute that will be used to identify each muscle geometry. |
 | **report_data**              | Optional | dictionary     | None   | A dictionary (`{"errors": [], "warnings": []}`) to capture any issues during execution. |
 
-## How to use
+## How To Use
 
 1. Open a scene containing the geometries for all the layers to be built.
 

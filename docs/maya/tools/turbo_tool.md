@@ -45,7 +45,7 @@ To configure the downstream layers, the following inputs have to be provided:
 
 Note that if any input is wrong or missing, the corresponding input text will turn red and an error message will be shown when hovering over it. In this case, the *Apply Turbo* button will be disabled.
 
-## How to use
+## How To Use
 
 1. Open a scene containing the geometries for all the layers to be built.
 

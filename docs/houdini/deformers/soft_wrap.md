@@ -6,7 +6,7 @@ For every point of the deformed geometry, the deformer searches for nearby point
 
 This deformer is particularly useful for transferring complex deformations between unrelated meshes, driving secondary geometry, or creating flexible deformation setups without requiring topological correspondence.
 
-## How to use
+## How To Use
 
 The AdnSoftWrap is easy to create and configure in Houdini. It requires the mesh to apply the deformation onto and the target(s) that will drive the deformation.
 
@@ -21,8 +21,8 @@ The AdnSoftWrap is easy to create and configure in Houdini. It requires the mesh
 ### Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Radius**         | Float   | 1.0 | ✗ | Defines the maximum distance used to search for influencing target points. Only target points located within this radius can contribute to the deformation of a given point. Larger values increase the area of influence and produce smoother results at the cost of performance.|
-| **Maximum Points** | Integer | 100 | ✗ | Defines the maximum number of neighboring target points that can influence a point of the deformed geometry. Larger values will produce smoother results at the cost of performance.|
+| **Radius**         | Float   | 1.0 | ✗ | Defines the maximum distance used to search for influencing target points. Only target points located within this radius can contribute to the deformation of a given point. Larger values increase the area of influence and produce smoother results at the cost of performance. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used.|
+| **Maximum Points** | Integer | 100 | ✗ | Defines the maximum number of neighboring target points that can influence a point of the deformed geometry. Larger values will produce smoother results at the cost of performance. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
 
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
@@ -73,4 +73,4 @@ The AdnSoftWrap is easy to create and configure in Houdini. It requires the mesh
 
 Connections in Adonis for Houdini should be handled in two ways:
   - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the Adonis SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
-  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used to for example connect a float attribute to drive a parameter on the node.
+  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used for example to connect a float attribute to drive a parameter on the node.
