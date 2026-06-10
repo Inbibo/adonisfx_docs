@@ -1,6 +1,6 @@
 # AdnTurbo
 
-The AdnTurbo script is a Python script that automates the setup of an AdonisFX rig on a clean asset. It configures the following layers in sequence:
+The AdnTurbo script is a Python script that automates the setup of an Adonis rig on a clean asset. It configures the following layers in sequence:
 
 - **Muscle layer**  
 - **Locators and Sensors**
@@ -28,7 +28,7 @@ def apply_turbo(
     locators_group_name=None,       # str: group name for locators and rivet nodes
     create_locators_group=False,    # bool: auto-create locators_group_name if it does not exist
     space_scale=1.0,                # float: simulation scale factor
-    force=False,                    # bool: remove existing AdonisFX nodes
+    force=False,                    # bool: remove existing Adonis nodes
     report_data=None                # dict: collects errors and warnings
 )
 </code></pre>
@@ -42,7 +42,7 @@ To configure at least the muscle layer, the following inputs are required:
 - **mummies**: one or more skeletal mesh to drive the muscle simulation.
 - **muscles**: one or more meshes representing muscles.
 
-When these two inputs are provided, the muscle layer will be completely configured including AdonisFX locators and sensors.
+When these two inputs are provided, the muscle layer will be completely configured including Adonis locators and sensors.
 
 To configure the downstream layers, the following inputs have to be provided:
 
@@ -70,7 +70,7 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 | **locators_group_name**   | Optional | string         | None  | Name of the group where the locators and rivets will be placed. |
 | **create_locators_group** | Optional | bool           | False | If True and `locators_group_name` is provided, the group is created if it does not exist. |
 | **space_scale**           | Optional | float          | 1.0   | Factor to scale simulation space. It will be set to the space scale attribute of all the solvers created. |
-| **force**                 | Optional | bool           | False | If True, deletes all existing AdonisFX nodes before executing to create the new nodes from a clean scene. Note that auxiliary nodes (e.g. rivets) or meshes created by an existing AdnGlue node will not be deleted. |
+| **force**                 | Optional | bool           | False | If True, deletes all existing Adonis nodes before executing to create the new nodes from a clean scene. Note that auxiliary nodes (e.g. rivets) or meshes created by an existing AdnGlue node will not be deleted. |
 | **report_data**           | Optional | dictionary     | None  | A dictionary (`{"errors": [], "warnings": []}`) to capture any issues during execution. |
 
 ## How to use
@@ -162,7 +162,7 @@ for warn in report_data["warnings"]:
 > [!NOTE]
 > - Note that the whole AdnTurbo can be undone.
 > - If multiple geometries or groups share the same name in different groups (e.g. group1|geo and group2|geo, group1|group3 and group2|group3), providing the full DAG path will be required.
-> - If there are AdonisFX nodes in the scene and the `force` argument is set to `False` the AdnTurbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force=True` to automatically delete all the AdonisFX nodes.
+> - If there are Adonis nodes in the scene and the `force` argument is set to `False` the AdnTurbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force=True` to automatically delete all the Adonis nodes.
 > - Fascia and fat meshes must have the same topology for the AdnFat deformer to be created by AdnTurbo.
 > - AdnTurbo can also be executed with the **AdnTurbo Tool**. For more details, please refer to the [AdnTurbo Tool page](../tools/turbo_tool).
 
@@ -171,7 +171,7 @@ for warn in report_data["warnings"]:
 As a result of executing the script by providing the geometries for all the layers, the following nodes will be created:
 
 - An AdnMuscle for each muscle geometry with the mummy geometries as targets.
-- An AdonisFX locator and sensor for each AdnMuscle to drive the muscle activation.
+- An Adonis locator and sensor for each AdnMuscle to drive the muscle activation.
 - An AdnGlue node (including its glue output geometry) with all the muscles as inputs.
 - An AdnSkin node for the fascia geometry with the mummy and glue geometries as targets.
 - An AdnRelax node applied on top of the fascia AdnSkin.
@@ -182,6 +182,6 @@ As a result of executing the script by providing the geometries for all the laye
 ## Limitations
 
 - The glue layer cannot be bypassed. This means that if the `fascia` argument is provided, the `glue` flag must be `True` for the script to complete successfully.
-- If the `force` flag is set to `True` the script will automatically remove all the AdonisFX nodes from the scene (if any). However, other auxiliary nodes created in previous executions of the script will not be removed (i.e. glue output geometry, rivet nodes).
+- If the `force` flag is set to `True` the script will automatically remove all the Adonis nodes from the scene (if any). However, other auxiliary nodes created in previous executions of the script will not be removed (i.e. glue output geometry, rivet nodes).
 - The default values that the AdnTurbo script will use to configure each deformer cannot be customized.
 - AdnTurbo does not support namespaces in object paths.

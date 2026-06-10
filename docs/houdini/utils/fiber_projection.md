@@ -8,7 +8,7 @@ This is useful for visualizing the resulting fiber direction on the surface of t
 To create this node, follow these steps:
 
 1. Go to the geometry context with a geometry containing non-projected `adnFibers` point attribute representing the fiber flow of the muscle. This can also be a combined geometry with a defined per-primitive piece attribute.
-2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnFiberProjection ![AdnFiberProjection button](../../images/adn_fiber_projection.png){style="width:4%"} SOP type.
+2. Press TAB and navigate to the submenu Adonis > Utils to find the AdnFiberProjection ![AdnFiberProjection button](../../images/adn_fiber_projection.png){style="width:4%"} SOP type.
 3. Connect the geometry to the first source.
 4. Cook the node and the projected `adnFibers` point attribute is written into the geostream with projected fiber directions used to drive the activation of an AdnMuscle or AdnRibbonMuscle node. However, these fiber directions should only serve as visualization guides as the input of the AdnMuscle and AdnRibbonMuscle nodes are the non-projected fiber directions.
 

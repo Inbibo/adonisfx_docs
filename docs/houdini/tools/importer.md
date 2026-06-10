@@ -1,12 +1,12 @@
 # Import
 
-The AdonisFX Import is a tool designed to facilitate the import of a complete AdonisFX rig into a Houdini scene. This tool enables users to restore previously exported rigs by reading the data from a JSON file and rebuilding all selected components in the scene. The tool ensures a structured and efficient workflow for transferring, reusing, or backing up AdonisFX rigs.
+The Adonis Import is a tool designed to facilitate the import of a complete Adonis rig into a Houdini scene. This tool enables users to restore previously exported rigs by reading the data from a JSON file and rebuilding all selected components in the scene. The tool ensures a structured and efficient workflow for transferring, reusing, or backing up Adonis rigs.
 
 ## UI
 
 <figure style="width:50%;" markdown>
-  ![AdonisFX Import Tool](../images/importer_ui.png)
-  <figcaption><b>Figure 1</b>: AdonisFX Import UI.</figcaption>
+  ![Adonis Import Tool](../images/importer_ui.png)
+  <figcaption><b>Figure 1</b>: Adonis Import UI.</figcaption>
 </figure>
 
 The Import Tool offers an intuitive interface (see Figure 1), allowing users to configure import settings according to their specific requirements. Below is a breakdown of the available UI elements:
@@ -26,7 +26,7 @@ The Import Tool offers an intuitive interface (see Figure 1), allowing users to 
     - Push: imports AdnPush nodes and their settings.
 
 - **Utils**: Allows importing utility components from the JSON file. Options include:
-    - Sensors & Locators: imports AdonisFX sensors and locators, ensuring proper connections between components.
+    - Sensors & Locators: imports Adonis sensors and locators, ensuring proper connections between components.
     - Activation: imports activation nodes and their connections to AdnMuscle nodes.
     - Remap: imports AdnRemap nodes, including their settings and connections to other nodes.
     - Edge Evaluator: imports EdgeEvaluator nodes, including their settings and connections to other nodes.
@@ -38,38 +38,38 @@ The Import Tool offers an intuitive interface (see Figure 1), allowing users to 
 
 ## Requirements
 
-Before importing an AdonisFX rig, the target Houdini scene must meet the following requirements to ensure a successful reconstruction:
+Before importing an Adonis rig, the target Houdini scene must meet the following requirements to ensure a successful reconstruction:
 
 - Matching Geometry for *Solvers* and *Deformers*: Any geometry that had solvers or deformers applied in the original scene must also exist in the target scene. The geometries must have the same name and topology (i.e. same vertex count and vertex IDs) as in the exported scene to ensure that weight maps and settings are correctly restored.
 
-- Separated Muscle Pieces: The muscle geometries must be separated to allow the importer to create and configure the individual solvers. Also, each separated muscle geometry must preserve the piece attribute used for the splitting. The AdonisFX menu provides with a shortcut to extract and separate all the geometries from the selected node by piece attribute (i.e. by "path", "muscle_id" or "name", in this order) in *AdonisFX* > *Utils* > *Separate Geometries*.
+- Separated Muscle Pieces: The muscle geometries must be separated to allow the importer to create and configure the individual solvers. Also, each separated muscle geometry must preserve the piece attribute used for the splitting. The Adonis menu provides with a shortcut to extract and separate all the geometries from the selected node by piece attribute (i.e. by "path", "muscle_id" or "name", in this order) in *Adonis* > *Utils* > *Separate Geometries*.
 
 <figure markdown>
   ![Biped scene requirement](../images/importer_requirement.png)
   <figcaption><b>Figure 2</b>: Muscle pieces separated and renamed to match the muscle geometry names used in the original scene.</figcaption>
 </figure>
 
-- Matching Dependency Nodes for *Locators* and *Sensors*: Since AdonisFX locators and sensors rely on transform inputs, the target scene must contain nodes (i.e., rig joints) in the */obj* context with the same names as those used in the exported rig. This ensures that dependencies between nodes are restored properly.
+- Matching Dependency Nodes for *Locators* and *Sensors*: Since Adonis locators and sensors rely on transform inputs, the target scene must contain nodes (i.e., rig joints) in the */obj* context with the same names as those used in the exported rig. This ensures that dependencies between nodes are restored properly.
 
 
 ## How To Use
 
-To import an AdonisFX rig, ensure that you have a valid exported JSON file and follow these steps:
+To import an Adonis rig, ensure that you have a valid exported JSON file and follow these steps:
 
-1. Optionally, if the target scene contains any dirty or unwanted AdonisFX nodes, it may be advisable to remove all of them by using the *Clear* option provided in *AdonisFX menu > Utils > Clear*.
+1. Optionally, if the target scene contains any dirty or unwanted Adonis nodes, it may be advisable to remove all of them by using the *Clear* option provided in *Adonis menu > Utils > Clear*.
 
 <figure markdown>
   ![Biped scene before importing](../images/importer_scene_00.png)
   <figcaption><b>Figure 3</b>: Scene of a biped character after executing the Clear and ready to import.</figcaption>
 </figure>
 
-2. Go to *AdonisFX menu > Import (beta)* to open the *Import* window.
+2. Go to *Adonis menu > Import (beta)* to open the *Import* window.
 
 3. Specify the file path of the JSON file that contains the exported rig data.
 
 <figure markdown>
   ![Select JSON file](../../images/importer_file.png)
-  <figcaption><b>Figure 4</b>: File exported from an AdonisFX rig.</figcaption>
+  <figcaption><b>Figure 4</b>: File exported from an Adonis rig.</figcaption>
 </figure>
 
 4. Select the features to import from the *Solvers*, *Deformers* and *Utils* sections. To import the entire rig, enable all options.
@@ -80,7 +80,7 @@ Depending on the complexity of the rig, the import process might take a few seco
 
 <figure markdown>
   ![Select JSON file](../images/importer_scene_01.png)
-  <figcaption><b>Figure 5</b>: Scene after importing the rig from a JSON file. All AdonisFX nodes are created and configured. Some of them are visible in the node network: AdnMuscle for L_teresMinor_GEO, AdnSkin and AdnRelax for fascia_GEO and simSkin_GEO, AdnFat for fat_GEOShape and AdnSkinMerge for renderSkin_GEO.</figcaption>
+  <figcaption><b>Figure 5</b>: Scene after importing the rig from a JSON file. All Adonis nodes are created and configured. Some of them are visible in the node network: AdnMuscle for L_teresMinor_GEO, AdnSkin and AdnRelax for fascia_GEO and simSkin_GEO, AdnFat for fat_GEOShape and AdnSkinMerge for renderSkin_GEO.</figcaption>
 </figure>
 
 The previous steps corresponds to importing a rig that was exported from the same scene. However the same steps can be followed to transfer the exported rig to a different asset as long as the target scene fulfills the requirements listed in this [section](#requirements).
@@ -91,7 +91,7 @@ The previous steps corresponds to importing a rig that was exported from the sam
 
 ## Limitations
 
-- The import tool does not support subnetworks inside of the Geometry context. This means that all AdonisFX SOP nodes (and any other SOP nodes containing geometry required by the AdonisFX rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
+- The import tool does not support subnetworks inside of the Geometry context. This means that all Adonis SOP nodes (and any other SOP nodes containing geometry required by the Adonis rig) must exist at the same level within the Geometry context (e.g., */obj/geo1*).
 - Only one active geometry node (with the visibility/display flag enabled) in the */obj* context is allowed for the import tool to work.
 - Nodes used to drive attachment to transform or slide on segment constraints (e.g. null, joint or rivet nodes) must live in the */obj* context.
 - KineFX joint transforms are not supported.

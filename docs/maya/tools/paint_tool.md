@@ -1,33 +1,33 @@
 # Paint Tool
 
-The **AdonisFX Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalization of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
+The **Adonis Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. Also, it ensures the normalization of dependent attributes like hard, soft and slide constraints in AdnSkin deformer.
 
 <figure markdown>
-  ![AdonisFX Paint Tool](../images/tools_paint_tool.png)
-  <figcaption><b>Figure 1</b>: AdonisFX Paint Tool.</figcaption>
+  ![Adonis Paint Tool](../images/tools_paint_tool.png)
+  <figcaption><b>Figure 1</b>: Adonis Paint Tool.</figcaption>
 </figure>
 
-The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. After every stroke, the internal logic processes the painted map and updates all dependent maps to keep the configuration of the solver safe. For example, if the influence of one target of an AdnMuscle which has two targets assigned is painted, then the tool will update the weights of the other target to ensure that the addition of both is normalized at each vertex (the normalization process is independent for transform and geometry targets). The same applies if hard constraints of an AdnSkin deformer are painted: the soft and slide constraints maps will be updated internally to keep the addition of the three maps normalized. Thanks to this logic, switching attributes (see Figure 2 and Figure 3) or selecting influences (see Figure 4) from the AdonisFX Paint Tool provides automatic feedback to the user of the current status of all the maps.
+The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. After every stroke, the internal logic processes the painted map and updates all dependent maps to keep the configuration of the solver safe. For example, if the influence of one target of an AdnMuscle which has two targets assigned is painted, then the tool will update the weights of the other target to ensure that the addition of both is normalized at each vertex (the normalization process is independent for transform and geometry targets). The same applies if hard constraints of an AdnSkin deformer are painted: the soft and slide constraints maps will be updated internally to keep the addition of the three maps normalized. Thanks to this logic, switching attributes (see Figure 2 and Figure 3) or selecting influences (see Figure 4) from the Adonis Paint Tool provides automatic feedback to the user of the current status of all the maps.
 
 > [!NOTE]
 > AdnSimshape and AdnSkinMerge do not require this tool. Their paintable maps can be manipulated through the standard Maya paint context.
 
 To open the tool:
 
-  1. Select the mesh with the AdonisFX deformer applied to.
-  2. Press the paint tool ![paint tool](../images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
+  1. Select the mesh with the Adonis deformer applied to.
+  2. Press the paint tool ![paint tool](../images/adn_paint_tool.png){style="width:4%"} shelf button or go to Adonis Menu > *Paint Tool*.
 
 > [!NOTE]
 > - The paint context is configured from the given selection to allow painting.
 > - Make sure to select the transform node of the mesh.
-> - If the context does not allow painting, it is probably because the selected node is not a transform mesh node with an AdonisFx paintable deformer. Please, select the transform mesh node and click *Refresh From Selection* or restart the AdonisFX Paint Tool.
+> - If the context does not allow painting, it is probably because the selected node is not a transform mesh node with an Adonis paintable deformer. Please, select the transform mesh node and click *Refresh From Selection* or restart the Adonis Paint Tool.
 
-If the selection provided is valid, meaning the selected mesh has one of the AdonisFX deformers listed before, then the paint context will get configured and the user can paint. The map to be painted is the one associated with the selected attribute in the enumerator exposed at the top of the UI.
+If the selection provided is valid, meaning the selected mesh has one of the Adonis deformers listed before, then the paint context will get configured and the user can paint. The map to be painted is the one associated with the selected attribute in the enumerator exposed at the top of the UI.
 
 > [!NOTE]
-> - With the optimizations introduced to the AdonisFX Paint Tool in version 1.4.0, the AdnWeightsDisplayNode is deprecated and no longer needed.
+> - With the optimizations introduced to the Adonis Paint Tool in version 1.4.0, the AdnWeightsDisplayNode is deprecated and no longer needed.
 > - This deprecation is fully backward-compatible, meaning that scenes created in earlier versions will continue to work seamlessly in version 1.4.0.
-> - In addition, we recommend using the utility available under AdonisFX Menu > Utils > *Upgrade Deprecated Nodes*, which safely removes any instances of the AdnWeightsDisplayNode from your scenes.
+> - In addition, we recommend using the utility available under Adonis Menu > Utils > *Upgrade Deprecated Nodes*, which safely removes any instances of the AdnWeightsDisplayNode from your scenes.
 
 Depending on the deformer and the attribute selected the UI can adjust to support multi-influence attributes by exposing the influences or restricting certain functionalities of the tool. In the following sections, the specific behavior of the tool for each deformer is presented.
 
@@ -37,12 +37,12 @@ In the specific case of muscle deformers, the tool will display the following at
 
 <figure markdown>
   ![Paint Tool Muscle Attributes example (Part 1)](../images/tools_paint_tool_muscle_attributes_00.png) 
-  <figcaption><b>Figure 2</b>: Paintable attributes in AdonisFX muscle deformer (Part 1). </figcaption>
+  <figcaption><b>Figure 2</b>: Paintable attributes in Adonis muscle deformer (Part 1). </figcaption>
 </figure>
 
 <figure markdown>
   ![Paint Tool Muscle Attributes example (Part 2)](../images/tools_paint_tool_muscle_attributes_01.png) 
-  <figcaption><b>Figure 3</b>: Paintable attributes in AdonisFX muscle deformer (Part 2). </figcaption>
+  <figcaption><b>Figure 3</b>: Paintable attributes in Adonis muscle deformer (Part 2). </figcaption>
 </figure>
 
   - **Attachments To Geometry** and **Attachments To Transform**
@@ -53,8 +53,8 @@ In the specific case of muscle deformers, the tool will display the following at
     - If any target is removed or added to the system, then the paint tool will refresh the list on mouse hover over the UI.
 
     <figure markdown>
-      ![AdonisFX Paint Tool attachments attribute](../images/tools_paint_tool_attachment_attribute.png)
-      <figcaption><b>Figure 4</b>: AdonisFX Paint Tool listing multiple transform attachments.</figcaption>
+      ![Adonis Paint Tool attachments attribute](../images/tools_paint_tool_attachment_attribute.png)
+      <figcaption><b>Figure 4</b>: Adonis Paint Tool listing multiple transform attachments.</figcaption>
     </figure>
 
   - **Compression Resistance** and **Stretching Resistance**
@@ -90,8 +90,8 @@ In the specific case of muscle deformers, the tool will display the following at
     - If more than one segment was added to the system, then the paint tool will normalize the weights automatically after a stroke has been completed, meaning that the addition of all slide on segment constraint weights in a vertex will always add up to a maximum value of 1.0.
 
     <figure markdown>
-      ![AdonisFX Paint Tool slide on segment influences](../images/tools_paint_tool_sos_attribute.png)
-      <figcaption><b>Figure 5</b>: AdonisFX Paint Tool listing multiple segments.</figcaption>
+      ![Adonis Paint Tool slide on segment influences](../images/tools_paint_tool_sos_attribute.png)
+      <figcaption><b>Figure 5</b>: Adonis Paint Tool listing multiple segments.</figcaption>
     </figure>
 
   - **Sliding Distance Multiplier**
@@ -159,7 +159,7 @@ In the specific case of an AdnSkin deformer, the tool will display the following
 
 ### Paint Tool Visualization Modes
 
-The AdonisFX Paint Tool provides two visualization modes in the *Visualization* UI group. The available options are *Greyscale* and *Heat Map*.
+The Adonis Paint Tool provides two visualization modes in the *Visualization* UI group. The available options are *Greyscale* and *Heat Map*.
 
 The *Greyscale* mode colors vertices from black to white based on the painted weight (black for 0.0 and white for 1.0). This is the default mode and provides a visualization similar to the Maya Paint Tool.
 

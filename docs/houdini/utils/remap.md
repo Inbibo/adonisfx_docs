@@ -1,25 +1,25 @@
 # AdnRemap
 
-The AdnRemap node is an AdonisFX node that aims to provide remap functionalities similarly to the remap values exposed in our sensors. This node type is typically used in an AdonisFX rig, for example, to remap the output of a sensor into a value to drive muscle activation or volume ratio gain. The objective of using AdnRemap nodes is to enhance the portability of the whole AdonisFX rig without relying on DCC specific nodes, including not only the input and output connections but also the configuration of the remap ramp attribute.
+The AdnRemap node is an Adonis node that aims to provide remap functionalities similarly to the remap values exposed in our sensors. This node type is typically used in an Adonis rig, for example, to remap the output of a sensor into a value to drive muscle activation or volume ratio gain. The objective of using AdnRemap nodes is to enhance the portability of the whole Adonis rig without relying on DCC specific nodes, including not only the input and output connections but also the configuration of the remap ramp attribute.
 
 ## How To Use
 
 An instance of this node can be created from the TAB menu:
 
 1. Go to the geometry context of the rig containing the rig setup to which the locators should be applied.
-2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnRemap ![AdnRemap button](../../images/adn_remap.png){style="width:4%"} SOP type.
+2. Press TAB and navigate to the submenu Adonis > Utils to find the AdnRemap ![AdnRemap button](../../images/adn_remap.png){style="width:4%"} SOP type.
 3. Use detail expressions to drive the input value and to ingest the data into the desired target node. 
 
-Typically, this node will be used to remap the raw output values of AdonisFX sensors (i.e. distance, angle, velocity and acceleration) so that they are ingested into the AdonisFX locators within the desired normalized ranges. The remapped output can also be ingested directly in an AdnMuscle deformer to modulate, for example, the activation or the volume ratio.
+Typically, this node will be used to remap the raw output values of Adonis sensors (i.e. distance, angle, velocity and acceleration) so that they are ingested into the Adonis locators within the desired normalized ranges. The remapped output can also be ingested directly in an AdnMuscle deformer to modulate, for example, the activation or the volume ratio.
 
 > [!NOTE]
-> - When remapping values from an AdonisFX sensor it is advisable to remap the value output from the locator rather than the sensor to preserve consistent connection information with other DCCs.
+> - When remapping values from an Adonis sensor it is advisable to remap the value output from the locator rather than the sensor to preserve consistent connection information with other DCCs.
 
 
 ## Example
 
 <figure markdown>
-  ![AdnRemap nodes used to remap AdonisFX sensors outputs](../images/remap_example.png)
+  ![AdnRemap nodes used to remap Adonis sensors outputs](../images/remap_example.png)
   <figcaption><b>Figure 1</b>: Use case in which different AdnRemap nodes are used to configure an AdnMuscle to drive the muscle's activation and volume gain.</figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ In the above setup we have the following characteristics:
 
 ## Connections
 
-Connections in AdonisFX for Houdini should be handled in two ways:
-  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the AdonisFX SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
+Connections in Adonis for Houdini should be handled in two ways:
+  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the Adonis SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
   - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used to for example connect a float attribute to drive a parameter on the node.
 

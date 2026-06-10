@@ -1,6 +1,6 @@
 # AdnTurbo
 
-The AdnTurbo script is a Python script that automates the setup of an AdonisFX rig on a clean asset. It configures the following layers in sequence:
+The AdnTurbo script is a Python script that automates the setup of an Adonis rig on a clean asset. It configures the following layers in sequence:
 
 - **Muscle layer**
 - **Locators and Sensors**
@@ -24,7 +24,7 @@ def apply_turbo(
     glue=True,                       # bool: enable glue layer
     locators=True,                   # bool: enable creation of locators and sensors
     space_scale=1.0,                 # float: simulation scale factor
-    force=False,                     # bool: remove existing AdonisFX nodes
+    force=False,                     # bool: remove existing Adonis nodes
     muscle_piece_attrib_name="path", # str: name of the primitive attribute used to separate the muscles
     report_data=None                 # dict: collects errors and warnings
 )
@@ -39,7 +39,7 @@ To configure at least the muscle layer, the following inputs are required:
 - **mummies**: one or more skeletal mesh to drive the muscle simulation.
 - **muscles**: one or more meshes representing muscles.
 
-When these two inputs are provided, the muscle layer will be completely configured including AdonisFX locators and sensors.
+When these two inputs are provided, the muscle layer will be completely configured including Adonis locators and sensors.
 
 To configure the downstream layers, the following inputs have to be provided:
 
@@ -68,7 +68,7 @@ In this section we provide a brief overview of the arguments of the `apply_turbo
 | **glue**                     | Optional | bool           | True   | If True, creates an AdnGlue node using all muscles merged as input. |
 | **locators**                 | Optional | bool           | True   | If True, creates sticky nodes, sensors and locators for each muscle. |
 | **space_scale**              | Optional | float          | 1.0    | Factor to scale simulation space. It will be set to the space scale attribute of all the solvers created. |
-| **force**                    | Optional | bool           | False  | If True, deletes all existing AdonisFX nodes before executing to create the new nodes from a clean scene. |
+| **force**                    | Optional | bool           | False  | If True, deletes all existing Adonis nodes before executing to create the new nodes from a clean scene. |
 | **muscle_piece_attrib_name** | Optional | string         | `path` | String defining the name of the primitive attribute that will be used to identify each muscle geometry. |
 | **report_data**              | Optional | dictionary     | None   | A dictionary (`{"errors": [], "warnings": []}`) to capture any issues during execution. |
 
@@ -131,7 +131,7 @@ for warn in report_data["warnings"]:
 
 > [!NOTE]
 > - Note that the whole AdnTurbo can be undone.
-> - If there are AdonisFX nodes in the scene and the `force` argument is set to `False` the AdnTurbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force=True` to automatically delete all the AdonisFX nodes.
+> - If there are Adonis nodes in the scene and the `force` argument is set to `False` the AdnTurbo script will generate an error in `report_data` indicating to clear the scene or to run the script again with `force=True` to automatically delete all the Adonis nodes.
 > - Fascia and fat meshes must have the same topology for the AdnFat deformer to be created by AdnTurbo.
 > - AdnTurbo can also be executed with the **AdnTurbo Tool**. For more details, please refer to the [AdnTurbo Tool page](../tools/turbo_tool).
 
@@ -140,7 +140,7 @@ for warn in report_data["warnings"]:
 As a result of executing the script by providing the geometries for all the layers, the following nodes will be created:
 
 - An AdnMuscle for each muscle geometry with the mummy geometries as targets.
-- An AdonisFX locator and sensor for each AdnMuscle to drive the muscle activation.
+- An Adonis locator and sensor for each AdnMuscle to drive the muscle activation.
 - An AdnGlue node with all the muscles merged as input.
 - An AdnSkin node for the fascia geometry with the mummy and glue as targets.
 - An AdnRelax node applied on top of the fascia AdnSkin.
