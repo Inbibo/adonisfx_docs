@@ -4,7 +4,7 @@ AdnSoftWrap is a Houdini SOP that transfers deformations from one or more target
 
 For every point of the deformed geometry, the deformer searches for nearby points belonging to the connected target geometries. All target points found within a user-defined radius are considered as potential influences, up to a maximum number of neighboring points. The resulting deformation is then computed from the contribution of those neighboring target points and applied to the affected point.
 
-This deformer is particularly useful for transferring complex deformations between unrelated meshes, driving secondary geometry, or creating flexible deformation setups without requiring topological correspondence.
+This deformer is particularly useful for transferring complex deformations between unrelated meshes, driving secondary geometry, or creating flexible deformation setups without requiring topological correspondence. It is also a core component of the [AdnTransfer Tool](../tools/transfer_tool), enabling the transfer of muscle and fat anatomy between character models.
 
 ## How To Use
 
