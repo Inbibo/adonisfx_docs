@@ -2,7 +2,7 @@
 
 AdnRigidWrap is a Maya deformer that transfers deformations from one or more target geometries to an input geometry using a closest-surface attachment model.
 
-For every point of the deformed geometry, the deformer searches for the closest point on the surface of the connected target geometries. Each input point is attached to its corresponding target surface point, preserving its relative position as the target geometry deforms.
+For every point of the deformed geometry, the deformer searches for the closest point on the closest surface of the connected target geometries. Each input point is attached to its corresponding target surface point, preserving its relative position as the target geometry deforms.
 
 AdnRigidWrap is particularly useful for attaching secondary geometry to deforming surfaces, transferring deformations between unrelated meshes, and creating rigid surface-following deformation setups. It is also a core component of the [AdnTransfer Tool](../tools/transfer_tool), enabling the transfer of fascia and skin anatomy between character models.
 
