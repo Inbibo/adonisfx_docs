@@ -2,11 +2,15 @@
 
 AdnRadialWrap is a Houdini SOP that reshapes and reposes an input geometry using pairs of corresponding landmarks.
 
-The deformation is driven by two sets of landmarks: one describing locations on the input geometry and another describing the desired locations on the goal geometries. By establishing these correspondences, AdnRadialWrap computes a smooth deformation that transforms the input geometry toward the shape defined by the corresponding goal landmarks.
+The deformation is driven by two sets of landmarks: input landmarks, positioned on the input geometry, and goal landmarks, positioned on one or more goal geometries. Each input landmark must relate to a goal landmark describing its desired location on the goal geometry. By establishing these correspondences, AdnRadialWrap computes a smooth deformation that transforms the input geometry toward the shape defined by the goal landmarks.
 
-To further improve the result, the deformation can be refined using one or more goal geometries. During this process, the geometry is progressively adjusted and fitted to the goal surfaces, helping produce smoother and more accurate results while preserving the overall shape defined by the landmark correspondences.
+Both input and goal landmarks must be defined as geometry points in two separate SOP nodes, such as Houdini's Add node, which will be connected as inputs to the AdnRadialWrap node.
 
-AdnRadialWrap does not require topological correspondence between the input and goal geometries. This makes it particularly useful for character reshaping, anatomy transfer, pose transfer, and fitting operations between related but structurally different meshes.
+The goal geometries themselves are primarily used as references for landmark placement in the Landmark Tool and for the refinement process in the AdnRadialWrap deformer.
+
+Once the landmark pairs have been defined, the deformer can compute the main reshaping and repose deformation without requiring the goal geometries themselves. Optionally, one or more goal geometries can be used to further refine the result by progressively adjusting and fitting the geometry to the goal surfaces, helping produce smoother and more accurate results while preserving the overall shape defined by the landmarks.
+
+AdnRadialWrap does not require topological match between the input and goal geometries because the correspondence is actually described by the pairs of landmarks. This makes it particularly useful for character reshaping, anatomy transfer, pose transfer, and fitting operations between related but structurally different meshes.
 
 ## How To Use
 
@@ -22,6 +26,7 @@ The AdnRadialWrap is easy to create and configure in Houdini:
 
 > [!NOTE]
 > - AdnRadialWrap requires at least four pairs of corresponding landmarks to produce a deformation.
+> - The number of input and goal landmarks must be the same.
 
 ## Attributes
 
