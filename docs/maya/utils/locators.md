@@ -195,9 +195,9 @@ The Landmark Tool also handles the naming of AdnPointLocator nodes and automatic
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Label**      | String  |            | X | Label to identify the locator in the viewport. |
+| **Label**      | String  |            | ✗ | Label to identify the locator in the viewport. |
 | **Point Size** | Float   | 15.0       | ✓ | Size of the drawn shape in pixels. The minimum value allowed is 1.0. |
-| **Font Size**  | Integer | 12         | ✓ | Size of the drawn label in pixels. The minimum value allowed is 1.|
+| **Font Size**  | Integer | 12         | ✓ | Size of the drawn label in pixels. The minimum value allowed is 1. |
 | **Color**      | Color   | Light Blue | ✓ | Color of the drawn shape. |
 
 ### Attribute Editor Template
