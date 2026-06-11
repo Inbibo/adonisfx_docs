@@ -2,26 +2,47 @@
 
 AdnRadialWrap is a Maya deformer that reshapes and reposes an input geometry using pairs of corresponding landmarks.
 
-The deformation is driven by two sets of landmarks: one describing locations on the input geometry and another describing the desired locations on the goal geometries. By establishing these correspondences, AdnRadialWrap computes a smooth deformation that transforms the input geometry toward the shape defined by the corresponding goal landmarks.
+The deformation is driven by two sets of landmarks: input landmarks, positioned on the input geometry, and goal landmarks, positioned on one or more goal geometries. Each input landmark must correspond to a goal landmark describing its desired location on the goal geometry. By establishing these correspondences, AdnRadialWrap computes a smooth deformation that transforms the input geometry toward the shape defined by the goal landmarks.
 
-To further improve the result, the deformation can be refined using one or more goal geometries. During this process, the geometry is progressively adjusted and fitted to the goal surfaces, helping produce smoother and more accurate results while preserving the overall shape defined by the landmark correspondences.
+The goal geometries themselves are primarily used as references for landmark placement in the Landmark Tool and for the refinement process in the AdnRadialWrap deformer.
 
-AdnRadialWrap does not require topological correspondence between the input and goal geometries. This makes it particularly useful for character reshaping, anatomy transfer, pose transfer, and fitting operations between related but structurally different meshes.
+Once the landmark pairs have been defined, the deformer can compute the main reshaping and repose deformation without requiring the goal geometries themselves. Optionally, one or more goal geometries can be used to further refine the result by progressively adjusting and fitting the geometry to the goal surfaces, helping produce smoother and more accurate results while preserving the overall shape defined by the landmarks.
 
-Landmarks are represented using [AdnPointLocator](../utils/locators#adnpointlocator) nodes. These are specialized Adonis nodes designed specifically to define landmark positions and should be used instead of regular Maya transforms or locators. The recommended workflow for creating landmarks, establishing correspondences, and creating the deformer is through the [Landmark Tool](../tools/landmark_tool.md), which automates and simplifies the setup process.
+AdnRadialWrap does not require topological correspondence between the input and goal geometries because the correspondence is actually described by the pairs of landmarks. This makes it particularly useful for character reshaping, anatomy transfer, pose transfer, and fitting operations between related but structurally different meshes.
+
+Landmarks are represented using [AdnPointLocator](../utils/locators#adnpointlocator). These are specialized Adonis nodes designed specifically to define landmark positions and should be used instead of regular Maya transforms or locators. The recommended workflow for creating landmarks, establishing correspondences, and creating the deformer is through the [Landmark Tool](../tools/landmark_tool.md), which automates and simplifies the setup process.
 
 ## How To Use
 
-The AdnRadialWrap is easy to create and configure in Maya. It requires the mesh to apply the deformation onto and the goal meshes.
+There are two ways to create and configure an AdnRadialWrap deformer.
+
+### Using the Landmark Tool
+
+The recommended workflow is to use the Landmark Tool, which simplifies the creation and management of landmark pairs as well as the setup of the AdnRadialWrap deformer.
+
+1. Open the Landmark Tool.
+2. Provide the input and goal geometries.
+3. Provide the input and goal wildcard patterns.
+4. Press *Add Landmark Pair* to add a new empty pair of landmarks.
+5. Press the button corresponding to each landmark to create an AdnPointLocator, then position it as desired.
+6. Press *Apply* to create a new AdnRadialWrap and automatically connect the defined landmarks.
+
+The Landmark Tool currently supports a single goal geometry, which simplifies landmark placement and correspondence management.
+
+### Using the Adonis Menu
+
+AdnRadialWrap can also be created directly from the Adonis menu.
 
 1. Select the goal meshes and then the mesh on which to apply the deformer.
 2. Press *Radial Wrap* ![Radial wrap button](../../images/adn_radial_wrap.png){style="width:4%"} in the Adonis menu, under the Create Deformers section.
 3. A message in the terminal will notify that AdnRadialWrap has been created properly. Check the [Attributes](radial_wrap#attributes) section to customize its configuration.
 
+When created from the menu, the deformer is initialized without any landmark pairs. The Landmark Tool must then be used to create and connect the required landmark pairs.
+
+This workflow is recommended when working with multiple goal geometries, as AdnRadialWrap supports multiple goals while the Landmark Tool is designed around a single goal geometry workflow. When defining landmarks in this setup, the Landmark Tool allows one of the connected goal geometries to be provided as a reference surface for goal landmark placement.
+
 > [!NOTE]
 > - AdnRadialWrap requires at least four pairs of corresponding landmarks to produce a deformation.
-> - Once the deformer has been created by following the previous steps, landmarks can be created and automatically connected to the AdnRadialWrap by using the Landmark Tool.
-> - Alternatively, the Landmark Tool may also be used to create the AdnRadialWrap deformer directly, allowing the entire setup to be performed from a single workflow.
 > - For more information about the Landmark Tool, refer to this [page](../tools/landmark_tool.md).
 
 ## Attributes
