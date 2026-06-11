@@ -20,12 +20,14 @@ There are two ways to create and configure an AdnRadialWrap deformer.
 
 The recommended workflow is to use the Landmark Tool, which simplifies the creation and management of landmark pairs as well as the setup of the AdnRadialWrap deformer.
 
-1. Open the Landmark Tool.
+1. Press *Landmark Tool* in the Adonis menu, under the Tools section.
 2. Provide the input and goal geometries.
 3. Provide the input and goal wildcard patterns.
 4. Press *Add Landmark Pair* to add a new empty pair of landmarks.
-5. Press the button corresponding to each landmark to create an AdnPointLocator, then position it as desired.
-6. Press *Apply* to create a new AdnRadialWrap and automatically connect the defined landmarks.
+5. Press the button corresponding to the input landmark to create an AdnPointLocator, then position it as desired.
+6. Press the button corresponding to the goal landmark to create an AdnPointLocator, then position it as desired.
+7. Repeat steps 4 to 6 for as many landmarks as needed.
+8. Press *Apply* to create a new AdnRadialWrap and automatically connect the defined landmarks.
 
 The Landmark Tool currently supports a single goal geometry, which simplifies landmark placement and correspondence management.
 
@@ -43,6 +45,7 @@ This workflow is recommended when working with multiple goal geometries, as AdnR
 
 > [!NOTE]
 > - AdnRadialWrap requires at least four pairs of corresponding landmarks to produce a deformation.
+> - The number of input and goal landmarks must be the same.
 > - For more information about the Landmark Tool, refer to this [page](../tools/landmark_tool.md).
 
 ## Attributes
