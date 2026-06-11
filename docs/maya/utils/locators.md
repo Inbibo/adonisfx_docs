@@ -169,9 +169,26 @@ To create an AdnLocator just click on the ![Adonis Logo locator button](../image
 
 AdnPointLocator is an Adonis locator specifically designed to represent a landmark in the anatomy transfer workflow and work together with the AdnRadialWrap deformer. It allows to visualize the position of the landmark and a label to identify it.
 
-## How To Use
+### How To Use
 
 <figure markdown>
-  ![AdnPointLocator within a scene](../images/point_locator.png)
-  <figcaption><b>Figure 1</b>: AdnPointLocator nodes placed on a human body.</figcaption>
+  ![AdnPointLocator within a scene](../images/point_locator_example.png)
+  <figcaption><b>Figure 8</b>: AdnPointLocator nodes placed in two human bodies to define the anatomy correspondence.</figcaption>
 </figure>
+
+### Attributes
+
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Label**      | String  |            | X | Label to identify the locator in the viewport. |
+| **Point Size** | Float   | 15.0       | ✓ | Size of the drawn shape in pixels. The minimum value allowed is 1.0. |
+| **Font Size**  | Integer | 12         | ✓ | Size of the drawn label in pixels. The minimum value allowed is 1.|
+| **Color**      | Color   | Light Blue | ✓ | Color of the drawn shape. |
+
+### Attribute Editor Template
+
+<figure style="width: 75%;" markdown>
+  ![AdnPointLocator attribute template](../images/point_locator_attribute_template.png) 
+  <figcaption><b>Figure 9</b>: AdnPointLocator Attribute Editor.</figcaption>
+</figure>
+
