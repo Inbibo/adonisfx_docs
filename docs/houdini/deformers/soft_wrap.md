@@ -28,7 +28,6 @@ The AdnSoftWrap is easy to create and configure in Houdini. It requires the mesh
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Initialization Time** | Time | *Current frame* | ✗ | Sets the frame at which the deformer will be initialized. |
-| **Current Time**        | Time | *Current frame* | ✓ | Current playback frame. |
 
 ### Deformer Attributes
 | Name | Type | Default | Animatable | Description |
@@ -56,8 +55,13 @@ The AdnSoftWrap is easy to create and configure in Houdini. It requires the mesh
 </figure>
 
 <figure markdown>
-  ![soft wrap parameter template maps tab](../images/soft_wrap_parameter_template_01.png)
-  <figcaption><b>Figure 2</b>: AdnSoftWrap Parameter Template (Part 2): Maps.</figcaption>
+  ![soft wrap parameter template targets tab](../images/soft_wrap_parameter_template_01.png)
+  <figcaption><b>Figure 2</b>: AdnSoftWrap Parameter Template (Part 2): Targets.</figcaption>
+</figure>
+
+<figure markdown>
+  ![soft wrap parameter template maps tab](../images/soft_wrap_parameter_template_02.png)
+  <figcaption><b>Figure 3</b>: AdnSoftWrap Parameter Template (Part 3): Maps.</figcaption>
 </figure>
 
 ## Paintable Weights
