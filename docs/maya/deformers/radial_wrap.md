@@ -2,15 +2,15 @@
 
 AdnRadialWrap is a Maya deformer that reshapes and reposes an input geometry using pairs of corresponding landmarks.
 
-The deformation is driven by two sets of landmarks: input landmarks, positioned on the input geometry, and goal landmarks, positioned on one or more goal geometries. Each input landmark must correspond to a goal landmark describing its desired location on the goal geometry. By establishing these correspondences, AdnRadialWrap computes a smooth deformation that transforms the input geometry toward the shape defined by the goal landmarks.
+The deformation is driven by two sets of landmarks: input landmarks, positioned on the input geometry, and goal landmarks, positioned on one or more goal geometries. Each input landmark must relate to a goal landmark describing its desired location on the goal geometry. By establishing these correspondences, AdnRadialWrap computes a smooth deformation that transforms the input geometry toward the shape defined by the goal landmarks.
 
 The goal geometries themselves are primarily used as references for landmark placement in the Landmark Tool and for the refinement process in the AdnRadialWrap deformer.
 
 Once the landmark pairs have been defined, the deformer can compute the main reshaping and repose deformation without requiring the goal geometries themselves. Optionally, one or more goal geometries can be used to further refine the result by progressively adjusting and fitting the geometry to the goal surfaces, helping produce smoother and more accurate results while preserving the overall shape defined by the landmarks.
 
-AdnRadialWrap does not require topological correspondence between the input and goal geometries because the correspondence is actually described by the pairs of landmarks. This makes it particularly useful for character reshaping, anatomy transfer, pose transfer, and fitting operations between related but structurally different meshes.
+AdnRadialWrap does not require topological match between the input and goal geometries because the correspondence is actually described by the pairs of landmarks. This makes it particularly useful for character reshaping, anatomy transfer, pose transfer, and fitting operations between related but structurally different meshes.
 
-Landmarks are represented using [AdnPointLocator](../utils/locators#adnpointlocator). These are specialized Adonis nodes designed specifically to define landmark positions and should be used instead of regular Maya transforms or locators. The recommended workflow for creating landmarks, establishing correspondences, and creating the deformer is through the [Landmark Tool](../tools/landmark_tool.md), which automates and simplifies the setup process.
+Landmarks are represented using [AdnPointLocator](../utils/locators#adnpointlocator). These are specialized Adonis nodes designed specifically to define landmark positions and should be used instead of regular Maya transforms or locators. The recommended workflow for creating landmarks, placing them, and creating the deformer is through the [Landmark Tool](../tools/landmark_tool.md), which automates and simplifies the setup process.
 
 ## How To Use
 
