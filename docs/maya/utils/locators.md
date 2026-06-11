@@ -203,7 +203,7 @@ The Landmark Tool also handles the naming of AdnPointLocator nodes and automatic
 ### Attribute Editor Template
 
 <figure style="width: 75%;" markdown>
-  ![AdnPointLocator attribute template](../images/point_locator_attribute_template.png) 
+  ![AdnPointLocator attribute template](../images/point_locator_attribute_editor.png) 
   <figcaption><b>Figure 9</b>: AdnPointLocator Attribute Editor.</figcaption>
 </figure>
 
