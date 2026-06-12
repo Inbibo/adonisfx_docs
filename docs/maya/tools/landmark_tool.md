@@ -56,7 +56,7 @@ To create or update an AdnRadialWrap, at least four pairs of corresponding landm
 11. Repeat steps 6–10 until all desired landmark pairs have been defined.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Landmark Tool landmarks](../images/landmark_tool_01.png)
+  ![Landmark Tool landmarks](../images/landmark_tool_02.png)
   <figcaption><b>Figure 3</b>: Landmark Tool UI after defining the landmarks. </figcaption>
 </figure>
 
