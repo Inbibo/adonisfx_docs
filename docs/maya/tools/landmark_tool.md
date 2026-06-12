@@ -55,7 +55,7 @@ To create or update an AdnRadialWrap, at least four pairs of corresponding landm
 
 Aside from handling landmarks, the Landmark Tool can be used to create a new AdnRadialWrap or to update an existing one.
 
-### Creating a New AdnRadialWrap
+### Create new AdnRadialWrap
 
 1. Open the Landmark Tool from the Adonis menu under the Tools section.
 2. Provide the geometry to deform and assign it to *Input Geometry*.
@@ -92,7 +92,7 @@ Aside from handling landmarks, the Landmark Tool can be used to create a new Adn
   <figcaption><b>Figure 5</b>: Result of the AdnRadialWrap deformation. On the left, the geometry without deformation; on the right, the resulting deformation. </figcaption>
 </figure>
 
-### Updating an existing AdnRadialWrap
+### Update existing AdnRadialWrap
 
 The tool can also be used to edit an existing AdnRadialWrap deformer to adjust landmark positions, add new landmark pairs, or remove existing ones.
 
