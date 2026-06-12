@@ -71,7 +71,7 @@ To create or update an AdnRadialWrap, at least four pairs of corresponding landm
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Landmark Tool result](../images/radial_wrap_result.png)
-  <figcaption><b>Figure 4</b>: Result of the AdnRadialWrap deformation. On the left, the geometry without deformation; on the right, the resulting deformation. </figcaption>
+  <figcaption><b>Figure 5</b>: Result of the AdnRadialWrap deformation. On the left, the geometry without deformation; on the right, the resulting deformation. </figcaption>
 </figure>
 
 ## Landmarks
