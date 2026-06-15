@@ -6,7 +6,7 @@ The deformation is driven by two sets of landmarks: input landmarks, positioned 
 
 Both input and goal landmarks must be defined as geometry points in two separate SOP nodes, such as Houdini's Add node, which will be connected as inputs to the AdnRadialWrap node.
 
-The goal geometries themselves are primarily used as references for landmark placement in the Landmark Tool and for the refinement process in the AdnRadialWrap deformer.
+The goal geometries themselves are primarily used as references for landmark placement and for the refinement process in the AdnRadialWrap deformer.
 
 Once the landmark pairs have been defined, the deformer can compute the main reshaping and repose deformation without requiring the goal geometries themselves. Optionally, one or more goal geometries can be used to further refine the result by progressively adjusting and fitting the geometry to the goal surfaces, helping produce smoother and more accurate results while preserving the overall shape defined by the landmarks.
 
