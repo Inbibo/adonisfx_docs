@@ -6,6 +6,8 @@ In the anatomy transfer workflow, AdnRadialWrap is first used to reshape and rep
 
 This allows the complete anatomy hierarchy to be transferred from one character to another while preserving the spatial relationships between the different anatomical layers.
 
+The anatomy transfer workflow is not limited to reshaping and reposing the anatomical geometries. Once the transfer process is complete, an existing Adonis simulation rig created for the source character can also be reused on the transferred anatomy. This allows simulation setups authored for a template character to be adapted to new characters after the anatomy transfer process.
+
 ## Requirements
 
 To use the AdnTransfer Tool, the following inputs must be provided:
@@ -23,7 +25,7 @@ The following parameters are also available:
 - **Maximum Points**: Maximum number of neighboring points considered by the generated AdnSoftWrap deformers.
 
 > [!NOTE]
-> - The *Morphed Skin* and *Morphed Mummy* geometries are expected to already contain the desired anatomy transfer deformation, typically generated using AdnRadialWrap.
+> - The *Morphed Skin* and *Morphed Mummy* geometries are expected to already contain the desired anatomy transfer deformation, typically generated using AdnRadialWrap. Refer to the [AdnRadialWrap](../deformers/radial_wrap) page for more information.
 > - Additionally, the AdnRigidWrap and AdnSoftWrap deformers created by AdnTransfer require their target geometries to be in their rest pose during initialization. To achieve this, we recommend setting two keyframes on the *envelope* attribute of both AdnRadialWrap deformers: a value of `0` on the initialization frame and a value of `1` on the following frame. This allows the generated AdnRigidWrap and AdnSoftWrap deformers to initialize using the non-deformed target geometries and subsequently transfer the deformation once the AdnRadialWrap deformers become active.
 
 ## How To Use
@@ -57,7 +59,7 @@ The following parameters are also available:
 6. If the scene contains AdnRigidWrap and/or AdnSoftWrap nodes, a confirmation dialog will appear informing about it. Press *Yes* to continue with the AdnTransfer process or *No* to cancel it. Note that the AdnTransfer process can be undone.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![Landmark Tool result](../images/transfer_result.png)
+  ![transfer result](../images/transfer_result.png)
   <figcaption><b>Figure 3</b>: Result of the AdnTransfer process. From left to right: muscles, fascia, fat, and skin. Original geometries are shown on top and transferred geometries on the bottom. </figcaption>
 </figure>
 
