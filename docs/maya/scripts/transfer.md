@@ -6,6 +6,8 @@ In the anatomy transfer workflow, AdnRadialWrap is first used to reshape and rep
 
 This allows the complete anatomy hierarchy to be transferred from one character to another while preserving the spatial relationships between the different anatomical layers.
 
+The anatomy transfer workflow is not limited to reshaping and reposing the anatomical geometries. Once the transfer process is complete, an existing Adonis simulation rig created for the source character can also be reused on the transferred anatomy. This allows simulation setups authored for a template character to be adapted to new characters after the anatomy transfer process.
+
 The main function to run AdnTransfer is `apply_transfer`, which is defined as follows:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.turbo import apply_turbo
@@ -41,7 +43,7 @@ The following parameters are also available:
 - **max_points**: Maximum number of neighboring points considered by the generated AdnSoftWrap deformers.
 
 > [!NOTE]
-> - The *morphed_skin* and *morphed_mummy* geometries are expected to already contain the desired anatomy transfer deformation, typically generated using AdnRadialWrap.
+> - The *morphed_skin* and *morphed_mummy* geometries are expected to already contain the desired anatomy transfer deformation, typically generated using AdnRadialWrap. Refer to the [AdnRadialWrap](../deformers/radial_wrap) page for more information.
 > - Additionally, the AdnRigidWrap and AdnSoftWrap deformers created by AdnTransfer require their target geometries to be in their rest pose during initialization. To achieve this, we recommend setting two keyframes on the *envelope* attribute of both AdnRadialWrap deformers: a value of `0` on the initialization frame and a value of `1` on the following frame. This allows the generated AdnRigidWrap and AdnSoftWrap deformers to initialize using the non-deformed target geometries and subsequently transfer the deformation once the AdnRadialWrap deformers become active.
 
 ## Arguments
