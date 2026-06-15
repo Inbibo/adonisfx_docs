@@ -8,8 +8,10 @@ The tool can either create a new AdnRadialWrap deformer automatically or update 
 
 The Landmark Tool works together with the following components:
 
-- [AdnPointLocator](../utils/locators#adnpointlocator): Represents individual landmarks on the input and goal geometries.
+- [AdnPointLocator](../utils/locators#adnpointlocator): In Maya, it represents individual landmarks on the input and goal geometries.
 - [AdnRadialWrap](../deformers/radial_wrap): Computes the deformation based on the landmark correspondences.
+
+AdnRadialWrap does not require topological match between the input and goal geometries because the correspondence is actually described by the pairs of landmarks.
 
 The workflow consists of defining corresponding anatomical points between an input geometry and a goal geometry. These correspondences are then used by AdnRadialWrap to reshape and repose the input mesh.
 
@@ -22,12 +24,12 @@ The workflow consists of defining corresponding anatomical points between an inp
 
 ### Input
 - **Geometry**: Name of the input geometry.
-- **Wildcard**: Pattern of the input landmarks.
+- **Wildcard**: Pattern of the input landmarks (e.g. "input_landmark").
 - **Color**: Color of the input landmark shapes.
 
 ### Goal
 - **Geometry**: Name of the goal geometry.
-- **Wildcard**: Pattern of the goal landmarks.
+- **Wildcard**: Pattern of the goal landmarks (e.g. "goal_landmark").
 - **Color**: Color of the goal landmark shapes.
 
 ### Landmark Pairs
@@ -46,10 +48,9 @@ To load existing landmarks or create new ones, the following inputs are required
 - Input wildcard pattern (e.g. "input_landmark")
 - Goal wildcard pattern (e.g. "goal_landmark")
 
-To create or update an AdnRadialWrap, at least four pairs of corresponding landmarks must be defined, as this is the minimum requirement for AdnRadialWrap to compute a deformation.
-
 > [!NOTE]
-> The Landmark Tool only allows a single goal geometry to be provided for landmark placement. However, multiple goal geometries can still be used by creating the AdnRadialWrap deformer directly from the Adonis menu. Go to this [section](../deformers/radial_wrap#using-the-adonis-menu) in the AdnRadialWrap page for more information.
+> - To create or update an AdnRadialWrap, at least four pairs of corresponding landmarks must be defined, as this is the minimum requirement for AdnRadialWrap to compute a deformation.
+> - The Landmark Tool only allows a single goal geometry to be provided for landmark placement. However, multiple goal geometries can still be used by creating the AdnRadialWrap deformer directly from the Adonis menu. Go to this [section](../deformers/radial_wrap#using-the-adonis-menu) in the AdnRadialWrap page for more information.
 
 ## How To Use
 
