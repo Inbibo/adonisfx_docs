@@ -166,3 +166,44 @@ To create an AdnLocator just click on the ![Adonis Logo locator button](../image
 </figure>
 
 ## AdnPointLocator
+
+AdnPointLocator is an Adonis locator specifically designed to represent landmarks in the anatomy transfer workflow and to work together with the [AdnRadialWrap](../deformers/radial_wrap) deformer. These landmarks are used to establish anatomical correspondences between an input geometry and one or more goal geometries, defining how regions of one model relate to regions of another. AdnPointLocator nodes provide a convenient way to visualize landmark positions and identify them in the viewport through labels.
+
+### How To Use
+
+The recommended workflow is to use the [Landmark Tool](../tools/landmark_tool), which simplifies the creation and management of landmark pairs.
+
+1. Press *Landmark Tool* in the Adonis menu, under the Tools section.
+2. Provide the input and goal geometries.
+3. Provide the input and goal wildcard patterns.
+4. Press *Add Landmark Pair* to add a new empty pair of landmarks.
+5. Press the button corresponding to the input landmark to create an AdnPointLocator, then position it as desired.
+6. Press the button corresponding to the goal landmark to create an AdnPointLocator, then position it as desired.
+7. Repeat steps 4 to 6 for as many landmarks as needed.
+8. Press *Apply* to create a new AdnRadialWrap and automatically connect the defined landmarks.
+
+Landmarks must be precisely placed on the surface of their respective geometry. To facilitate this process, the Landmark Tool temporarily sets the corresponding geometry *live* while performing steps 5 and 6.
+
+The Landmark Tool also handles the naming of AdnPointLocator nodes and automatically assigns the right landmark identifier as a label.
+
+<figure markdown>
+  ![AdnPointLocator within a scene](../images/point_locator_example.png)
+  <figcaption><b>Figure 8</b>: AdnPointLocator nodes placed on two human bodies to define the anatomy correspondence.</figcaption>
+</figure>
+
+### Attributes
+
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Label**      | String  |            | ✗ | Label to identify the locator in the viewport. |
+| **Point Size** | Float   | 15.0       | ✓ | Size of the drawn shape in pixels. The minimum value allowed is 1.0. |
+| **Font Size**  | Integer | 12         | ✓ | Size of the drawn label in pixels. The minimum value allowed is 1. |
+| **Color**      | Color   | Light Blue | ✓ | Color of the drawn shape. |
+
+### Attribute Editor Template
+
+<figure style="width: 75%;" markdown>
+  ![AdnPointLocator attribute template](../images/point_locator_attribute_editor.png) 
+  <figcaption><b>Figure 9</b>: AdnPointLocator Attribute Editor.</figcaption>
+</figure>
+
