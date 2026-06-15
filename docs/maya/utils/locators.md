@@ -164,3 +164,5 @@ To create an AdnLocator just click on the ![Adonis Logo locator button](../image
   ![AdnLocator within a scene](../images/locators_adonis.png)
   <figcaption><b>Figure 7</b>: AdnLocator used for distance constraints.</figcaption>
 </figure>
+
+## AdnPointLocator
