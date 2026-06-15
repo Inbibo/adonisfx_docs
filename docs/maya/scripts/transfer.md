@@ -10,9 +10,9 @@ The anatomy transfer workflow is not limited to reshaping and reposing the anato
 
 The main function to run AdnTransfer is `apply_transfer`, which is defined as follows:
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.turbo import apply_turbo
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.transfer import apply_transfer
 
-def apply_turbo(
+def apply_transfer(
     morphed_skin,       # str: morphed skin geometry (e.g. the result of AdnRadialWrap)
     morphed_mummy,      # str: morphed mummy geometry (e.g. the result of AdnRadialWrap)
     sim_skin,           # str: name of the skin cut to be transferred.
@@ -48,7 +48,7 @@ The following parameters are also available:
 
 ## Arguments
 
-In this section we provide a brief overview of the arguments of the `apply_turbo` function.
+In this section we provide a brief overview of the arguments of the `apply_transfer` function.
 
 | Argument | Required | Type | Default | Description |
 | :------- | :------- | :--- | :------ | :---------- |
@@ -119,7 +119,7 @@ If the *Radius* value used by the generated AdnSoftWrap deformers is too small, 
 
 ## Result
 
-After pressing *Apply Transfer*, the following deformers are created automatically:
+As a result of executing the script, the following nodes will be created:
 
 - An AdnRigidWrap applied to the *Skin Cut* geometry using the *Morphed Skin* as target.
 - An AdnSoftWrap applied to the *Fat* geometry using the transferred *Skin Cut* as target.
@@ -129,4 +129,4 @@ After pressing *Apply Transfer*, the following deformers are created automatical
 Once all deformers have been created, the deformation is propagated from the *Morphed Skin* and *Morphed Mummy* through all anatomy layers, completing the anatomy transfer workflow.
 
 ## Limitations
-- All anatomy layers must be provided. The tool does not support transferring only a subset of the required geometries.
+- All anatomy layers must be provided. The script does not support transferring only a subset of the required geometries.
