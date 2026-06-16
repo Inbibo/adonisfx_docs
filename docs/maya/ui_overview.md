@@ -38,6 +38,7 @@ The Adonis Shelf can be found in the Maya shelf tab under the label *Adonis*. It
 |||
 | ![Create AdnRelax](../images/adn_relax.png) | Applies an AdnRelax deformer to the selected mesh. | Adonis Menu > Create Deformers > *Relax* |
 | ![Create AdnPush](../images/adn_push.png) | Applies an AdnPush deformer to the selected mesh. | Adonis Menu > Create Deformers > *Push* |
+| ![Create AdnMush](../images/adn_mush.png) | Applies an AdnMush deformer to the selected mesh. | Adonis Menu > Create Deformers > *Mush* |
 | ![Create AdnSkinMerge](../images/adn_skin_merge.png) | Launches the Create Skin Merge UI used to create an AdnSkinMerge deformer. | Adonis Menu > Create Deformers > *Skin Merge* |
 |||
 | ![Create AdnSimshape](../images/adn_simshape.png) | Applies an AdnSimshape deformer to the selected mesh. Double click will launch a simple UI to assign a custom name and configure generic solver parameters. | Adonis Menu > Create Solvers > *Simshape* |
@@ -46,8 +47,20 @@ The Adonis Shelf can be found in the Maya shelf tab under the label *Adonis*. It
 | ![AdnSimshape Learn Muscle Patches Tool](../images/adn_learn_muscle_patches.png) | Launches the Learn Muscle Patches UI used to generate the *Adonis Muscle Patches* file (.amp) file. | Adonis Menu > Edit Simshape > *Learn Muscle Patches UI* |
 | ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png) | Toggles the AdnSimshape activations debug mode. The current frame has to match the preroll or start frame in the AdnSimshape deformer for this toggle to work. | Adonis Menu > Edit Simshape > *Activations Debugger* |
 |||
-| ![Paint Tool](images/adn_paint_tool.png) | Opens the Adonis Paint Tool to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. | Adonis Menu > *Tools* Paint Tool |
-| ![Interactive Playback](images/adn_interactive_playback.png) | Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. | Adonis Menu > Tools *Interactive Playback* |
+| ![Paint Tool](images/adn_paint_tool.png) | Opens the Adonis Paint Tool to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. | Adonis Menu > Tools > *Paint Tool* |
+| ![Interactive Playback](images/adn_interactive_playback.png) | Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. | Adonis Menu > Tools > *Interactive Playback* |
+|||
+| ![Create AdnMLDeformer](images/adn_ml_deformer.png) | Launches the Create ML Deformer UI used to create an AdnMLDeformer. | Adonis Menu > Create Deformers > *ML Deformer* |
+| ![Create AdnSmartTissue](images/adn_smart_tissue.png) | Launches the Create Smart Tissue UI used to create an AdnSmartTissue. | Adonis Menu > Create Solvers > *Smart Tissue* |
+| ![AdnSmartTissue Activations Debugger](images/adn_smart_tissue_activation_debugger.png) | Toggles the AdnSmartTissue activations debug mode. The current frame has to match the preroll or start frame in the AdnSimartTissue solver for this toggle to work. | Adonis Menu > Edit Smart Tissue > *Activations Debugger* |
+|||
+| ![Data Extraction Tool](images/adn_data_extraction_tool.png) | Opens the Data Extraction Tool UI to extract the data needed for the training. | Adonis Menu > ML Tools > *Data Extraction* |
+| ![Neural Training Tool](images/adn_neural_training_tool.png) | Opens the Neural Clustering Tool UI to train a model using the data extracted with the Data Extraction Tool. | Adonis Menu > ML Tools > *Neural Training* |
+| ![Neural Clustering Paint Tool](images/adn_neural_clustering_paint_tool.png) | Opens the Neural Clustering Paint Tool UI to define the clusters needed for the training. | Adonis Menu > ML Tools > *Neural Clustering Paint Tool* |
+
+
+> [!NOTE]
+> The following tools are available only in the ML bundle and are not included in the FX bundle: *Data Extraction Tool*, *Neural Training Tool* and *Neural Clustering Paint Tool*.
 
 ## Adonis Menu
 
@@ -92,12 +105,19 @@ Both in Locators and Sensors there are option boxes to launch a simple UI to pro
 - **Ribbon Muscle**. Creates AdnRibbonMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as attachment objects. This item corresponds to the shelf button ![Create AdnRibbonMuscle](../images/adn_ribbon_muscle.png){style="width:4%"}.
 - **Muscle**. Creates AdnMuscle deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as attachment objects. This item corresponds to the shelf button ![Create AdnMuscle](../images/adn_muscle.png){style="width:4%"}.
 - **Glue**. Creates an AdnGlue node and connects the selected geometries to the inputs array plug of the node. A new geometry will be generated as the result of gluing all the inputs together. This item corresponds to the shelf button ![Create AdnGlue](../images/adn_glue.png){style="width:4%"}.
+- **Smart Tissue**. Launches the Create Smart Tissue UI used to create an AdnSmartTissue deformer. This item corresponds to the shelf button ![Create AdnSmartTissue](../images/adn_smart_tissue.png){style="width:4%"}.
 
 #### Deformers
 
 - **Relax**. Applies an AdnRelax deformer to the selected mesh. This item corresponds to the shelf button ![Create AdnRelax](../images/adn_relax.png){style="width:4%"}.
 - **Push**. Applies an AdnPush deformer to the selected mesh. This item corresponds to the shelf button ![Create AdnPush](../images/adn_push.png){style="width:4%"}.
+- **Mush**. Applies an AdnMush deformer to the selected mesh. This item corresponds to the shelf button ![Create AdnMush](../images/adn_mush.png){style="width:4%"}.
+- **Closest Fit**. Applies an AdnClosestFit deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as targets. This item corresponds to the shelf button ![Create AdnClosestFit](../images/adn_closest_fit.png){style="width:4%"}.
+- **Radial Wrap**. Applies an AdnRadialWrap deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as targets. This item corresponds to the shelf button ![Create AdnRadialWrap](../images/adn_radial_wrap.png){style="width:4%"}.
+- **Rigid Wrap**. Applies an AdnRigidWrap deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as targets. This item corresponds to the shelf button ![Create AdnRigidWrap](../images/adn_rigid_wrap.png){style="width:4%"}.
+- **Soft Wrap**. Applies an AdnSoftWrap deformer to the selected mesh. The deformer will be applied to the last element in the selection. Other elements in the list (optional) will be considered as targets. This item corresponds to the shelf button ![Create AdnSoftWrap](../images/adn_soft_wrap.png){style="width:4%"}.
 - **Skin Merge**. Launches the Create Skin Merge UI used to create an AdnSkinMerge deformer. This item corresponds to the shelf button ![Create AdnSkinMerge](../images/adn_skin_merge.png){style="width:4%"}.
+- **ML Deformer**. Launches the Create ML Deformer UI used to create the AdnMLDeformer. This item corresponds to the shelf button ![Create AdnMLDeformer](../images/adn_ml_deformer.png){style="width:4%"}.
 
 Option boxes can be used to launch a UI to assign the name to the deformer and configure generic solver parameters.
 
@@ -162,6 +182,10 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 - **Connect Activations Plug**. Connects the output compression map from an AdnEdgeEvaluator node to the activations plug of the AdnSimshape selected deformer. The selection must consist of: first the Edge Evaluator node and lastly the AdnSimshape deformer node.
 - **Disconnect Activations Plug**. Disconnects the output compression map from an AdnEdgeEvaluators node from the activations plug of the AdnSimshape selected deformer. The selection must consist of: first the Edge Evaluator node and lastly the AdmSimshape deformer node.
 
+#### Smart Tissue
+
+- **Activations Debugger**. Toggles the AdnSmartTissue activations debug mode. The current frame must match the specified initialization frame at the AdnSmartTissue deformer to toggle. This item corresponds to the shelf button ![AdnSmartTissue Activations Debugger](images/adn_smart_tissue_activation_debugger.png){style="width:4%"}. 
+
 #### Deformers
 
 - **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the editing of simulation and animation meshes lists of an AdnSkinMerge deformer. To open this UI a mesh with an AdnSkinMerge applied must be selected.
@@ -175,12 +199,26 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 - **Utils > Clear**. Removes all Adonis nodes from the scene.
 - **Utils > Upgrade v1.x To v2.x**. Performs an upgrade to all Adonis solvers to make v1.x rigs compatible with v2.x. This upgrade affects the painted values in the maps that are affected by the *Maps Remap Mode* attribute added in v2.0.0 to all solvers (i.e., shape preservation, attachments and sliding in muscle solver, uber constraints in skin solver). Due to how this remapping modifies how the painted values from the plugs are transferred to the solver, this utility updates those values in order to get simulation results as consistent as possible with v1.x. Additionally, since the *Concrete* material has been deprecated, this upgrade script also checks whether any nodes in the scene are using an invalid material. If an invalid material is found, it will be automatically replaced with the default material.
 As a final step to support the addition of the *currentTime* plug in AdnSkinMerge we provide inside of the upgrade process a way to connect the *time1.outTime* to every node that has a *currentTime* plug.
-- **Utils > Reconnect Current Time**. Connected the *time1.outTime* plug to all the Adonis nodes that have a *currentTime* plug for correct time dependency for its evaluation. 
+- **Utils > Reconnect Current Time**. Connects the *time1.outTime* plug to all the Adonis nodes that have a *currentTime* plug for correct time dependency for its evaluation. 
+- **Utils > Reconnect Original Geometry**. Connects the original shape to the *originalGeometry* plug of all the Adonis deformers.
+- **Utils > Install ML Dependencies**. Installs the Python dependencies required for inference with *AdnMLDeformer* and *AdnSmartTissue*, as well as for training with the *Neural Training Tool*.
 
+- **Target Faces Editor**. Opens the Target Faces Editor UI, which allows to include or exclude specific target faces from the constraint creation. This tool is only available for AdnMuscle, AdnRibbonMuscle and AdnSkin solvers.
 - **Mirror**. Opens the Mirror Tool UI which allows to mirror the muscle setup (locators, sensors and muscles) from one side of the character to the other based on left and right naming rules.
 - **Turbo**. Opens the Turbo UI, which allows users to build an Adonis rig on a clean asset from scratch. The UI is divided into sections for each simulation layer that the AdnTurbo can configure. Users can toggle layers on or off to include or skip them in the execution and select the scene objects required to create and configure the solvers.
+- **Landmark Tool**. Opens the Landmark Tool UI which allows to create, edit, manage, and connect landmarks to an AdnRadialWrap deformer.
+- **Transfer**. Opens the AdnTransfer UI, which allows users to transfer the anatomy of muscles, fascia, fat, and skin cut geometries after morphing the mummy and skin geometries using AdnRadialWrap.
 - **Paint Tool**. Opens the Paint Tool UI to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. This item corresponds to the shelf button ![Paint Tool](images/adn_paint_tool.png){style="width:4%"}.
 - **Interactive Playback**. Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. This item corresponds to the shelf button ![Interactive Playback](images/adn_interactive_playback.png){style="width:4%"}.
+
+### ML Tools
+
+- **Data Extraction**. Opens the Data Extraction Tool UI, which allows to generate the data needed for the training. This items corresponds to the shelf button ![Data Extraction Tool](images/adn_data_extraction_tool.png){style="width:4%"}.
+- **Neural Training**. Opens the Neural Training Tool UI, which allows to train a model using the data extracted with the Data Extraction Tool. The resulting model can later be used by AdnMLDeformer and AdnSmartTissue. This items corresponds to the shelf button ![Neural Training Tool](images/adn_neural_training_tool.png){style="width:4%"}.
+- **Neural Clustering Paint Tool**. Opens the Neural Clustering Paint Tool UI, which allows to paint the clusters needed for the training. This items corresponds to the shelf button ![Neural Clustering Paint Tool](images/adn_neural_clustering_paint_tool.png){style="width:4%"}.
+
+> [!NOTE]
+> These three ML Tools are available only in the ML bundle and are not included in the FX bundle.
 
 ### I/O section
 
@@ -190,6 +228,7 @@ As a final step to support the addition of the *currentTime* plug in AdnSkinMerg
 ### License section
 
 - **Activate License**. Checks the license status and if it is not activated yet, then a dialog will be prompted to guide on the product key registration. This functionality is only available in the Interactive Node-Locked license.
+- **Deactivate License**. Check the license status and if it is activated, a dialog will be prompted asking confirmation before closing Maya. This functionality is only available in the Interactive Node-Locked license.
 
 ### Help section
 
