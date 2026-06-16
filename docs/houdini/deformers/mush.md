@@ -16,11 +16,11 @@ The AdnMush deformer is easy to create and configure in Houdini. It only require
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Iterations**          | Integer | 10                  | ✓ | Number of smoothing iterations applied by the algorithm. Greater values produce smoother results at the expense of additional computational cost. Has a range of \[0, 20\]. The upper limit is soft, higher values can be used. |
-| **Pin**                 | Boolean | True                | ✓ | Flag to pin the vertices on the boundaries. |
-| **Smoothing Step**      | Float   | 0.5                 | ✓ | Amount of smoothing applied at each iteration. Has a range of \[0.0, 1.0\]. |
-| **Displacement**        | Float   | 1.0                 | ✓ | Controls how much of the computed displacement is applied to the geometry. Has a range of \[0.0, 1.0\]. |
-| **Initialization Mode** | Enum    | Initialization Time | ✗ | Defines how the reference state of the deformer is initialized. See the [Initialization Modes](mush#initialization-modes) section for details. |
+| **Iterations**          | Integer    | 10                  | ✓ | Number of smoothing iterations applied by the algorithm. Greater values produce smoother results at the expense of additional computational cost. Has a range of \[0, 20\]. The upper limit is soft, higher values can be used. |
+| **Pin**                 | Boolean    | True                | ✓ | Flag to pin the vertices on the boundaries. |
+| **Smoothing Step**      | Float      | 0.5                 | ✓ | Amount of smoothing applied at each iteration. Has a range of \[0.0, 1.0\]. |
+| **Displacement**        | Float      | 1.0                 | ✓ | Controls how much of the computed displacement is applied to the geometry. Has a range of \[0.0, 1.0\]. |
+| **Initialization Mode** | Enumerator | Initialization Time | ✗ | Defines how the reference state of the deformer is initialized. See the [Initialization Modes](mush#initialization-modes) section for details. |
 
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
