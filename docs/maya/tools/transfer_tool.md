@@ -6,7 +6,7 @@ In the anatomy transfer workflow, AdnRadialWrap is first used to reshape and rep
 
 This allows the complete anatomy hierarchy to be transferred from one character to another while preserving the spatial relationships between the different anatomical layers.
 
-The anatomy transfer workflow is not limited to reshaping and reposing the anatomical geometries. Once the transfer process is complete, an existing Adonis simulation rig created for the source character can also be reused on the transferred anatomy. This allows simulation setups authored for a template character to be adapted to new characters after the anatomy transfer process.
+After completing the anatomy transfer workflow, an existing Adonis simulation rig created for the source character can also be reused and imported on the transferred anatomy. This allows simulation setups authored for a template character to be adapted to new characters after the anatomy transfer process.
 
 ## Requirements
 
@@ -56,7 +56,7 @@ The following parameters are also available:
 
 5. Press **Apply Transfer**.
 
-6. If the scene contains AdnRigidWrap and/or AdnSoftWrap nodes, a confirmation dialog will appear informing about it. Press *Yes* to continue with the AdnTransfer process or *No* to cancel it. Note that the AdnTransfer process can be undone.
+6. If the scene contains AdnRigidWrap and/or AdnSoftWrap nodes, a confirmation dialog will appear informing about it. Press *Yes* to continue with the AdnTransfer process or *No* to cancel it.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![transfer result](../images/transfer_result.png)
@@ -66,6 +66,10 @@ The following parameters are also available:
 The tool automatically creates and configures the required AdnSoftWrap and AdnRigidWrap deformers to propagate the deformation through the anatomy hierarchy.
 
 If the *Radius* value used by the generated AdnSoftWrap deformers is too small, some points may fail to find any valid neighbor points within the search area. In such cases, no deformation will be transferred to those points. Make sure the radius is large enough relative to the character dimensions to guarantee that all points can find suitable neighbors.
+
+> [!NOTE]
+> - Note that the whole AdnTransfer can be undone.
+> - AdnTransfer can also be executed with the **AdnTransfer Script**. For more details, please refer to the [AdnTransfer Script page](../scripts/transfer.md).
 
 ## Result
 
