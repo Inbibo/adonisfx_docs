@@ -4,7 +4,7 @@ The Target Faces Filter Editor is a tool designed to manage the face filtering s
 
 ## UI
 
-<figure style="width:50%;" markdown>
+<figure markdown>
   ![Adonis Target Faces Filter Editor Tool](../images/target_faces_editor_ui_00.png)
   <figcaption><b>Figure 1</b>: Adonis Target Faces Editor UI. </figcaption>
 </figure>
@@ -60,7 +60,7 @@ The tool requires the following conditions to properly gather the data needed to
 
 2. The tool will populate the UI by adding the valid solvers to the combo box and listing the targets in the table view, together with the current value of each target's *Target Faces* parameter. If no faces are set, the second column of the table will be empty like in Figure 2. The selected mode in *Target Faces Filter* corresponds to the current mode of the selected solver. 
 
-<figure style="width:50%;" markdown>
+<figure markdown>
   ![Adonis Target Faces Filter Editor Tool Ready To Start](../images/target_faces_editor_ui_01.png)
   <figcaption><b>Figure 2</b>: Adonis Target Faces Editor ready to edit the faces list of the three targets added to the solver "R_superficialPectoral_GEO_AdnMuscle" of geometry "R_superficialPectoral_GEO" and no faces configured yet. </figcaption>
 </figure>
@@ -77,7 +77,7 @@ The tool requires the following conditions to properly gather the data needed to
 
 8. Repeat the process for all targets and use the buttons to set, add, remove, or clear faces as needed.
 
-<figure style="width:50%;" markdown>
+<figure markdown>
   ![Adonis Target Faces Filter Editor Tool With Values](../images/target_faces_editor_ui_02.png)
   <figcaption><b>Figure 3</b>: Adonis Target Faces Editor with some faces added to two of the three targets. With the Target Faces Filter set to Exclude, those faces will be discarded when creating attachments to geometry and slide on geometry constraints. For the second target in the table with an empty list of faces, all the faces will be used for constraints creation.</figcaption>
 </figure>
