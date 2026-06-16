@@ -2,7 +2,7 @@
 
 ## Adonis TAB Menu
 
-The Adonis nodes catalog can be inspected in the TAB Menu inside any geometry context under the submenu *Adonis*. It allows for quick access and creation of Adonis SOPs and HDAs. All of them are distributed in 5 submenus by type: Deformers, Locators, Sensors, Solvers, Tools and Utils.
+The Adonis nodes catalog can be inspected in the TAB Menu inside any geometry context under the submenu *Adonis*. It allows for quick access and creation of Adonis SOPs and HDAs. All of them are distributed in 6 submenus by type: Deformers, Locators, Sensors, Solvers, Tools and Utils.
 
 <figure style="width: 50%;" markdown>
   ![Adonis TAB menu](images/ui_overview_tab_menu.png)
@@ -18,7 +18,7 @@ The Adonis nodes catalog can be inspected in the TAB Menu inside any geometry co
 | ![AdnRadialWrap](../images/adn_radial_wrap.png) | Creates an AdnRadialWrap SOP. A deformer used to transfer the topological details from a goal mesh to an input mesh based on landmark pairs. | Adonis > Deformers > *AdnRadialWrap* |
 | ![AdnRelax](../images/adn_relax.png) | Creates an AdnRelax SOP. A deformer used to smooth creases and correct over-compression or over-stretching on geometry. | Adonis > Deformers > *AdnRelax* |
 | ![AdnRigidWrap](../images/adn_rigid_wrap.png) | Creates an AdnRigidWrap SOP. A deformer used to attach each point of the input mesh to its closest target point using rigid transformations. | Adonis > Deformers > *AdnRigidWrap* |
-| ![AdnSoftWrap](../images/adn_soft_wrap.png) | Creates an AdnSoftWrap SOP. A deformer used to deform the input mesh using weighted influences from nearby target points within a defined radius | Adonis > Deformers > *AdnSoftWrap* |
+| ![AdnSoftWrap](../images/adn_soft_wrap.png) | Creates an AdnSoftWrap SOP. A deformer used to deform the input mesh using weighted influences from nearby target points within a defined radius. | Adonis > Deformers > *AdnSoftWrap* |
 |||
 | ![AdnLocatorPosition](../images/adn_point_locator.png) | Creates an AdnLocatorPosition SOP. Used to visualize the output values of an AdnSensorPosition SOP. | Adonis > Locators > *AdnLocatorPosition* |
 | ![AdnLocatorDistance](../images/adn_distance_locator.png) | Creates an AdnLocatorDistance SOP. Used to visualize the output values of an AdnSensorDistance SOP. | Adonis > Locators > *AdnLocatorDistance* |
@@ -35,10 +35,10 @@ The Adonis nodes catalog can be inspected in the TAB Menu inside any geometry co
 | ![AdnSimshape](../images/adn_simshape.png) | Creates an AdnSimshape SOP. Solver for facial simulation. | Adonis > Solvers > *AdnSimshape* |
 | ![AdnSkin](../images/adn_skin.png) | Creates an AdnSkin SOP. Solver for fascia and skin simulation. | Adonis > Solvers > *AdnSkin* |
 | ![AdnSkinMerge](../images/adn_skin_merge.png) | Creates an AdnSkinMerge SOP. Node used to blend animation and simulation skin layers. | Adonis > Solvers > *AdnSkinMerge* |
-| ![AdnSmartTissue](../images/adn_smart_tissue.png) | Creates an AdnSkinMerge SOP. | Adonis > Solvers > *AdnSmartTissue* |
+| ![AdnSmartTissue](../images/adn_smart_tissue.png) | Creates an AdnSmartTissue SOP. | Adonis > Solvers > *AdnSmartTissue* |
 |||
 | ![AdnMLDataProcessing](../images/adn_data_extraction_tool.png) | Creates an AdnMLDataProcessing HDA. Node used to extract the deformation from the render skin and define the joints to be used in the data extraction process. | Adonis > Tools > *AdnMLDataProcessing* |
-| ![AdnNeuralClusteringPaintTool](../images/adn_neural_clustering_paint_tool.png) | Creates an AdnSkinMerge HDA. Node used to paint the neural clusters needed for the training. An Adonis ML license is required to use this HDA. | Adonis > Tools > *AdnNeuralClusteringPaintTool* |
+| ![AdnNeuralClusteringPaintTool](../images/adn_neural_clustering_paint_tool.png) | Creates an AdnNeuralClusteringPaintTool HDA. Node used to paint the neural clusters needed for the training. An Adonis ML license is required to use this HDA. | Adonis > Tools > *AdnNeuralClusteringPaintTool* |
 |||
 | ![AdnActivation](../images/adn_activation.png) | Creates an AdnActivation SOP. Allows operations on a set of input values to compute a final value, which can be used, for example, to drive muscle activations. | Adonis > Utils > *AdnActivation* |
 | ![AdnEdgeEvaluator](../images/adn_edge_evaluator.png) | Creates an AdnEdgeEvaluator SOP. Used to compute a compression map on geometry based on edge deformation. | Adonis > Utils > *AdnEdgeEvaluator* |
@@ -101,7 +101,7 @@ The Adonis Menu provides access to some tools and utilities that are organized i
 ### License section
 
 - **Activate License**. Checks the license status and if it is not activated yet, then a dialog will be prompted to guide on the product key registration. This functionality is only available in the Interactive Node-Locked license.
-- **Deactivate License**. Check the license status and if it is activated, a dialog will be prompted asking confirmation before closing Maya. This functionality is only available in the Interactive Node-Locked license.
+- **Deactivate License**. Checks the license status and if it is activated, a dialog will be prompted asking confirmation before closing Maya. This functionality is only available in the Interactive Node-Locked license.
 
 ### Help section
 

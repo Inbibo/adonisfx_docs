@@ -221,7 +221,7 @@ As a final step to support the addition of the *currentTime* plug in AdnSkinMerg
 ### License section
 
 - **Activate License**. Checks the license status and if it is not activated yet, then a dialog will be prompted to guide on the product key registration. This functionality is only available in the Interactive Node-Locked license.
-- **Deactivate License**. Check the license status and if it is activated, a dialog will be prompted asking confirmation before closing Maya. This functionality is only available in the Interactive Node-Locked license.
+- **Deactivate License**. Checks the license status and if it is activated, a dialog will be prompted asking confirmation before closing Maya. This functionality is only available in the Interactive Node-Locked license.
 
 ### Help section
 
