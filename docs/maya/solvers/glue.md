@@ -127,8 +127,15 @@ The process to create an AdnGlue node is:
 | **Quality Mode**                | Enumerator | Quality                | ✓ | Sets the quality mode for self-collision detection. <ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
 | **Ignore Rest Intersections**   | Boolean    | True                   | ✗ | Ignore self-collision detection and correction for primitives that are intersecting in the rest pose. |
 
-### Maps
+### Mush Properties
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Iterations**     | Integer | 0    | ✓ | Number of smoothing iterations applied by the algorithm. Greater values produce smoother results at the expense of additional computational cost. Has a range of \[0, 20\]. The upper limit is soft, higher values can be used. |
+| **Pin**            | Boolean | True | ✓ | Flag to pin the vertices on the boundaries. |
+| **Smoothing Step** | Float   | 0.5  | ✓ | Amount of smoothing applied at each iteration. Has a range of \[0.0, 1.0\]. |
+| **Displacement**   | Float   | 1.0  | ✓ | Controls how much of the computed displacement is applied to the geometry. Has a range of \[0.0, 1.0\]. |
 
+### Maps
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Maps Remap Mode** | Enumerator   | Squared | ✗ | Defines the mode of remapping the painted values of soft and shape preservation constraints. The other paintable maps remain unmodified. Each remap mode applies a function to the input painted values (x) to get the final value used for the simulation (y).<ul><li>Linear: `y = x`</li><li>Squared: `y = x^2`</li><li>Cubic: `y = x^3`</li><li>Square Root: `y = x^(1/2)`</li><li>Cube Root: `y = x^(1/3)`</li><li>Logarithmic: `y = log((exp(1) - 1) * x + 1)`</li></ul> |
