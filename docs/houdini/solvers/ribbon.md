@@ -127,7 +127,7 @@ To create an AdnRibbonMuscle, follow these steps:
 | **Sliding Constraints Mode**    | Enumerator | Quality  | ✓ | Defines the mode of execution for the slide on geometry constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
 | **Target Faces Filter**         | Enumerator | None     | ✗ | Defines how the target faces list has to be processed for the geometry attachments and slide on geo constraints.<ul><li>*None* uses all the faces in the target mesh for closest point queries.</li><li>*Exclude* excludes the faces listed in the target faces attribute for closest point queries.</li><li>*Include* includes the faces listed in the target faces attribute for closest point queries.</li></ul> |
 
-### Mush Properties
+#### Mush Properties
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Iterations**     | Integer | 0    | ✓ | Number of smoothing iterations applied by the algorithm. Greater values produce smoother results at the expense of additional computational cost. Has a range of \[0, 20\]. The upper limit is soft, higher values can be used. |
