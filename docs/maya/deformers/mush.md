@@ -52,7 +52,7 @@ The initialization is automatically recomputed whenever topology changes are det
 This mode is useful when the reference state should always be derived from the original geometry stored in the construction history.
 
 > [!NOTE]
-> The connection of the original shape to the *originalGeometry* plug is automatically handled by the utils provided to create the deformer.
+> The connection of the original shape to the *originalGeometry* plug is automatically handled by the utilities provided to create the deformer (e.g. Adonis menu and shelf).
 
 ## Attribute Editor Template
 
