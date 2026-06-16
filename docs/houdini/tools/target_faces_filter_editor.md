@@ -1,12 +1,12 @@
 # Target Faces Filter Editor
 
-The Target Faces Filter Editor is a tool designed to manage the face filtering settings used by Adonis solvers. It allows users to define which target mesh faces should be included or excluded during closest point queries for geometry attachments and slide-on-geometry constraints in muscles solvers as well as hard, soft and slide constraints in skin solver. This makes it easier to control target behavior, refine solver results, and debug face-based filtering directly from the UI.
+The Target Faces Filter Editor is a tool designed to manage the face-filtering settings used by Adonis solvers. It allows users to define which faces of a target mesh should be included or excluded during closest point queries for geometry attachments and slide-on-geometry constraints in muscle solvers, as well as hard, soft, and sliding constraints in the skin solver. This makes it easier to control target behavior, refine solver results, and debug face-based filtering directly from the UI.
 
 ## UI
 
 <figure markdown>
   ![Adonis Target Faces Filter Editor Tool](../images/target_faces_editor_ui_00.png)
-  <figcaption><b>Figure 1</b>: Adonis Target Faces Editor UI. </figcaption>
+  <figcaption><b>Figure 1</b>: Adonis Target Faces Filter Editor UI.</figcaption>
 </figure>
 
 The Target Faces Filter Editor Tool offers an intuitive interface (see Figure 1), allowing users to select a given Adonis solver (muscle, ribbon muscle, or skin) and:
@@ -23,16 +23,17 @@ The UI widgets are:
 
 * **Solver**: A drop-down list of the valid solvers applied to the selected geometry. Valid solvers are muscle, ribbon muscle, and skin.
 
-* **Target Faces Filter**: Defines how the target faces list is processed for geometry attachments and slide-on-geometry constraints.
+* **Target Faces Filter**: Defines how the *Target Faces* list is processed for geometry attachments and slide-on-geometry constraints.
 
   - None: uses all the faces in the target mesh for closest point queries.
-  - Exclude: excludes the faces listed in the target faces attribute from closest point queries.
-  - Include: includes only the faces listed in the target faces attribute for closest point queries.
+  - Exclude: excludes the faces listed in the *Target Faces* attribute from closest point queries.
+  - Include: includes only the faces listed in the *Target Faces* attribute for closest point queries.
 
 * **Target Faces**: A table widget that displays the list of targets assigned to the selected solver and their corresponding face lists.
 
 * **Buttons**:
 
+  - Select: populates the UI using the current selection.
   - Set: overwrites the face list of the selected target in the table with the current selection.
   - Add: adds the selected faces to the face list of the selected target in the table.
   - Remove: removes the selected faces from the face list of the selected target in the table.

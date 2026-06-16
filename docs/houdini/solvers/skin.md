@@ -101,7 +101,7 @@ The process to create the AdnSkin is:
 | **Attenuation Velocity Factor** | Float      | 1.0      | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
 | **Substeps Interp. Exp.**       | Float      | 1.0      | ✓ | Sets the exponential factor to weight the interpolation at each substep. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. A value of 0.0 disables the interpolation: input geometry targets and attenuation matrix are not interpolated. A value of 1.0 applies linear interpolation (input geometry targets and attenuation matrix) between previous and current frame based on a linear weight, i.e. `weight = substep / num_substeps`. A value between 0.0 and 1.0 applies exponential interpolation (input geometry targets and attenuation matrix) between previous and current frame based on an exponential weight, i.e. `weight = (substep / num_substeps) ^ exponent`. |
 | **Sliding Constraints Mode**    | Enumerator | Quality  | ✓ | Defines the mode of execution for the sliding constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
-| **Target Faces Filter**         | Enumerator | None     | ✗ | Defines how the target faces list has to be processed for the hard, soft and slide constraints.<ul><li>*None* uses all the faces in the target mesh for closest point queries.</li><li>*Exclude* excludes the faces listed in the target faces attribute for closest point queries.</li><li>*Include* includes the faces listed in the target faces attribute for closest point queries.</li></ul> |
+| **Target Faces Filter**         | Enumerator | None     | ✗ | Defines how the target faces list is processed for hard, soft and sliding constraints.<ul><li>*None* uses all the faces in the target mesh for closest point queries.</li><li>*Exclude* excludes the faces listed in the *Target Faces* parameter for closest point queries.</li><li>*Include* includes only the faces listed in the *Target Faces* parameter for closest point queries.</li></ul> |
 
 #### Self Collisions Properties
 | Name | Type | Default | Animatable | Description |
@@ -148,7 +148,7 @@ The process to create the AdnSkin is:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Targets**           | List      | 0     | ✗ | List of geometry targets used for setting up the external constraints (i.e., hard, soft and sliding constraints). |
 | **Target World Mesh** | String    |       | ✓ | Object path of the mesh used as geometry target. |
-| **Target Faces**      | String    |       | ✗ | Defines the list of faces of this mesh to include or exclude for setting up hard, soft and sliding constraints. The expected string must contain unsigned face indices separated by commas or whitespace; ranges like 3-7 are also supported. The inclusion or exclusion is driven by the *Target Faces Filter*  |
+| **Target Faces**      | String    |       | ✗ | Defines the list of faces of this mesh to include or exclude for setting up hard, soft and sliding constraints. The expected string must contain unsigned face indices separated by commas or whitespace; ranges like 3-7 are also supported. The inclusion or exclusion is driven by the *Target Faces Filter*. |
 
 
 ### Maps
