@@ -6,7 +6,7 @@ In the anatomy transfer workflow, AdnRadialWrap is first used to reshape and rep
 
 This allows the complete anatomy hierarchy to be transferred from one character to another while preserving the spatial relationships between the different anatomical layers.
 
-The anatomy transfer workflow is not limited to reshaping and reposing the anatomical geometries. Once the transfer process is complete, an existing Adonis simulation rig created for the source character can also be reused on the transferred anatomy. This allows simulation setups authored for a template character to be adapted to new characters after the anatomy transfer process.
+After completing the anatomy transfer workflow, an existing Adonis simulation rig created for the source character can also be reused and imported on the transferred anatomy. This allows simulation setups authored for a template character to be adapted to new characters after the anatomy transfer process.
 
 The main function to run AdnTransfer is `apply_transfer`, which is defined as follows:
 
@@ -83,7 +83,7 @@ max_points = 20
 report_data = {"errors": [], "warnings": []}
 </code></pre>
 
-3. Run the following command in a Python Script tab by providing the previous arguments.
+3. Run the following command in a Python Source Editor or Python Shell window by providing the previous arguments.
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya.transfer import apply_transfer
 apply_transfer(
