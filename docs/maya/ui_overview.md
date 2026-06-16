@@ -54,13 +54,9 @@ The Adonis Shelf can be found in the Maya shelf tab under the label *Adonis*. It
 | ![Create AdnSmartTissue](images/adn_smart_tissue.png) | Launches the Create Smart Tissue UI used to create an AdnSmartTissue. | Adonis Menu > Create Solvers > *Smart Tissue* |
 | ![AdnSmartTissue Activations Debugger](images/adn_smart_tissue_activation_debugger.png) | Toggles the AdnSmartTissue activations debug mode. The current frame has to match the preroll or start frame in the AdnSimartTissue solver for this toggle to work. | Adonis Menu > Edit Smart Tissue > *Activations Debugger* |
 |||
-| ![Data Extraction Tool](images/adn_data_extraction_tool.png) | Opens the Data Extraction Tool UI to extract the data needed for the training. | Adonis Menu > ML Tools > *Data Extraction* |
-| ![Neural Training Tool](images/adn_neural_training_tool.png) | Opens the Neural Clustering Tool UI to train a model using the data extracted with the Data Extraction Tool. | Adonis Menu > ML Tools > *Neural Training* |
-| ![Neural Clustering Paint Tool](images/adn_neural_clustering_paint_tool.png) | Opens the Neural Clustering Paint Tool UI to define the clusters needed for the training. | Adonis Menu > ML Tools > *Neural Clustering Paint Tool* |
-
-
-> [!NOTE]
-> The following tools are available only in the ML bundle and are not included in the FX bundle: *Data Extraction Tool*, *Neural Training Tool* and *Neural Clustering Paint Tool*.
+| ![Data Extraction Tool](images/adn_data_extraction_tool.png) | Opens the Data Extraction Tool UI to extract the data needed for the training. An Adonis ML license is required to use this tool. | Adonis Menu > ML Tools > *Data Extraction* |
+| ![Neural Training Tool](images/adn_neural_training_tool.png) | Opens the Neural Clustering Tool UI to train a model using the data extracted with the Data Extraction Tool. An Adonis ML license is required to use this tool. | Adonis Menu > ML Tools > *Neural Training* |
+| ![Neural Clustering Paint Tool](images/adn_neural_clustering_paint_tool.png) | Opens the Neural Clustering Paint Tool UI to define the clusters needed for the training. An Adonis ML license is required to use this tool. | Adonis Menu > ML Tools > *Neural Clustering Paint Tool* |
 
 ## Adonis Menu
 
@@ -213,12 +209,9 @@ As a final step to support the addition of the *currentTime* plug in AdnSkinMerg
 
 ### ML Tools
 
-- **Data Extraction**. Opens the Data Extraction Tool UI, which allows to generate the data needed for the training. This items corresponds to the shelf button ![Data Extraction Tool](images/adn_data_extraction_tool.png){style="width:4%"}.
+- **Data Extraction**. Opens the Data Extraction Tool UI, which allows to extract the simulation data needed for the training.  This items corresponds to the shelf button ![Data Extraction Tool](images/adn_data_extraction_tool.png){style="width:4%"}.
 - **Neural Training**. Opens the Neural Training Tool UI, which allows to train a model using the data extracted with the Data Extraction Tool. The resulting model can later be used by AdnMLDeformer and AdnSmartTissue. This items corresponds to the shelf button ![Neural Training Tool](images/adn_neural_training_tool.png){style="width:4%"}.
 - **Neural Clustering Paint Tool**. Opens the Neural Clustering Paint Tool UI, which allows to paint the clusters needed for the training. This items corresponds to the shelf button ![Neural Clustering Paint Tool](images/adn_neural_clustering_paint_tool.png){style="width:4%"}.
-
-> [!NOTE]
-> These three ML Tools are available only in the ML bundle and are not included in the FX bundle.
 
 ### I/O section
 
@@ -235,3 +228,6 @@ As a final step to support the addition of the *currentTime* plug in AdnSkinMerg
 - **Documentation**. Opens the Adonis technical documentation on a web browser.
 - **Tutorials**. Opens the Adonis tutorials on YouTube on a web browser.
 - **About**. Launches the Adonis About dialog with version information and credits.
+
+> [!NOTE]
+> An Adonis ML license is required to use the following tools: *Data Extraction Tool*, *Neural Training Tool* and *Neural Clustering Paint Tool*.
