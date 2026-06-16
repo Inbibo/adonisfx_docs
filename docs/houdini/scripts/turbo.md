@@ -96,7 +96,7 @@ report_data = {"errors": [], "warnings": []}
 > [!NOTE]
 > In this example only one mummy geometry is provided, however the `mummies` argument can also be a list (e.g. `mummies = ["/obj/geo1/L_mummy_shoulder_GEO", "/obj/geo1/L_mummy_forearmGEO", ...]`).
 
-3. Run the following command in a Python Script tab by providing the previous arguments.
+3. Run the following command in a Python Source Editor or Python Shell window by providing the previous arguments.
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.houdini.turbo import apply_turbo
 apply_turbo(
