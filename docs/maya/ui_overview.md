@@ -50,13 +50,13 @@ The Adonis Shelf can be found in the Maya shelf tab under the label *Adonis*. It
 | ![Paint Tool](images/adn_paint_tool.png) | Opens the Adonis Paint Tool to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. | Adonis Menu > Tools > *Paint Tool* |
 | ![Interactive Playback](images/adn_interactive_playback.png) | Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. | Adonis Menu > Tools > *Interactive Playback* |
 |||
-| ![Create AdnMLDeformer](images/adn_ml_deformer.png) | Launches the Create ML Deformer UI used to create an AdnMLDeformer. | Adonis Menu > Create Deformers > *ML Deformer* |
-| ![Create AdnSmartTissue](images/adn_smart_tissue.png) | Launches the Create Smart Tissue UI used to create an AdnSmartTissue. | Adonis Menu > Create Solvers > *Smart Tissue* |
+| ![Create AdnMLDeformer](../images/adn_ml_deformer.png) | Launches the Create ML Deformer UI used to create an AdnMLDeformer. | Adonis Menu > Create Deformers > *ML Deformer* |
+| ![Create AdnSmartTissue](../images/adn_smart_tissue.png) | Launches the Create Smart Tissue UI used to create an AdnSmartTissue. | Adonis Menu > Create Solvers > *Smart Tissue* |
 | ![AdnSmartTissue Activations Debugger](images/adn_smart_tissue_activation_debugger.png) | Toggles the AdnSmartTissue activations debug mode. The current frame has to match the preroll or start frame in the AdnSimartTissue solver for this toggle to work. | Adonis Menu > Edit Smart Tissue > *Activations Debugger* |
 |||
-| ![Data Extraction Tool](images/adn_data_extraction_tool.png) | Opens the Data Extraction Tool UI to extract the data needed for the training. An Adonis ML license is required to use this tool. | Adonis Menu > ML Tools > *Data Extraction* |
-| ![Neural Training Tool](images/adn_neural_training_tool.png) | Opens the Neural Clustering Tool UI to train a model using the data extracted with the Data Extraction Tool. An Adonis ML license is required to use this tool. | Adonis Menu > ML Tools > *Neural Training* |
-| ![Neural Clustering Paint Tool](images/adn_neural_clustering_paint_tool.png) | Opens the Neural Clustering Paint Tool UI to define the clusters needed for the training. An Adonis ML license is required to use this tool. | Adonis Menu > ML Tools > *Neural Clustering Paint Tool* |
+| ![Data Extraction Tool](../images/adn_data_extraction_tool.png) | Opens the Data Extraction Tool UI to extract the data needed for the training. An Adonis ML license is required to use this tool. | Adonis Menu > ML Tools > *Data Extraction* |
+| ![Neural Training Tool](../images/adn_neural_training_tool.png) | Opens the Neural Clustering Tool UI to train a model using the data extracted with the Data Extraction Tool. An Adonis ML license is required to use this tool. | Adonis Menu > ML Tools > *Neural Training* |
+| ![Neural Clustering Paint Tool](../images/adn_neural_clustering_paint_tool.png) | Opens the Neural Clustering Paint Tool UI to define the clusters needed for the training. An Adonis ML license is required to use this tool. | Adonis Menu > ML Tools > *Neural Clustering Paint Tool* |
 
 ## Adonis Menu
 

@@ -11,14 +11,14 @@ The Adonis nodes catalog can be inspected in the TAB Menu inside any geometry co
 
 | Icon | Description | TAB Submenu |
 | :--- | :---------- | :---------- |
-| ![AdnClosestFit](../images/adn_relax.png) | Creates an AdnClosestFit SOP. A deformer used to snap each point of the input mesh to the closest point on the target surface. | Adonis > Deformers > *AdnClosestFit* |
-| ![AdnMLDeformer](../images/adn_relax.png) | Creates an AdnMLDeformer SOP. A deformer used to infer mesh deformations from joint animations based on a trained machine learning model. | Adonis > Deformers > *AdnMLDeformer* |
-| ![AdnMush](../images/adn_relax.png) | Creates an AdnMush SOP. A deformer used to smooth out the surface while preserving the details. | Adonis > Deformers > *AdnMush* |
+| ![AdnClosestFit](../images/adn_closest_fit.png) | Creates an AdnClosestFit SOP. A deformer used to snap each point of the input mesh to the closest point on the target surface. | Adonis > Deformers > *AdnClosestFit* |
+| ![AdnMLDeformer](../images/adn_ml_deformer.png) | Creates an AdnMLDeformer SOP. A deformer used to infer mesh deformations from joint animations based on a trained machine learning model. | Adonis > Deformers > *AdnMLDeformer* |
+| ![AdnMush](../images/adn_mush.png) | Creates an AdnMush SOP. A deformer used to smooth out the surface while preserving the details. | Adonis > Deformers > *AdnMush* |
 | ![AdnPush](../images/adn_push.png) | Creates an AdnPush SOP. A deformer that pushes the geometry surface along the normal direction. | Adonis > Deformers > *AdnPush* |
-| ![AdnRadialWrap](../images/adn_relax.png) | Creates an AdnRadialWrap SOP. A deformer used to transfer the topological details from a goal mesh to an input mesh based on landmark pairs. | Adonis > Deformers > *AdnRadialWrap* |
+| ![AdnRadialWrap](../images/adn_radial_wrap.png) | Creates an AdnRadialWrap SOP. A deformer used to transfer the topological details from a goal mesh to an input mesh based on landmark pairs. | Adonis > Deformers > *AdnRadialWrap* |
 | ![AdnRelax](../images/adn_relax.png) | Creates an AdnRelax SOP. A deformer used to smooth creases and correct over-compression or over-stretching on geometry. | Adonis > Deformers > *AdnRelax* |
-| ![AdnRigidWrap](../images/adn_relax.png) | Creates an AdnRigidWrap SOP. A deformer used to attach each point of the input mesh to its closest target point using rigid transformations. | Adonis > Deformers > *AdnRigidWrap* |
-| ![AdnSoftWrap](../images/adn_relax.png) | Creates an AdnSoftWrap SOP. A deformer used to deform the input mesh using weighted influences from nearby target points within a defined radius | Adonis > Deformers > *AdnSoftWrap* |
+| ![AdnRigidWrap](../images/adn_rigid_wrap.png) | Creates an AdnRigidWrap SOP. A deformer used to attach each point of the input mesh to its closest target point using rigid transformations. | Adonis > Deformers > *AdnRigidWrap* |
+| ![AdnSoftWrap](../images/adn_soft_wrap.png) | Creates an AdnSoftWrap SOP. A deformer used to deform the input mesh using weighted influences from nearby target points within a defined radius | Adonis > Deformers > *AdnSoftWrap* |
 |||
 | ![AdnLocatorPosition](../images/adn_point_locator.png) | Creates an AdnLocatorPosition SOP. Used to visualize the output values of an AdnSensorPosition SOP. | Adonis > Locators > *AdnLocatorPosition* |
 | ![AdnLocatorDistance](../images/adn_distance_locator.png) | Creates an AdnLocatorDistance SOP. Used to visualize the output values of an AdnSensorDistance SOP. | Adonis > Locators > *AdnLocatorDistance* |
