@@ -209,9 +209,9 @@ As a final step to support the addition of the *currentTime* plug in AdnSkinMerg
 
 ### ML Tools
 
-- **Data Extraction**. Opens the Data Extraction Tool UI, which allows to extract the simulation data needed for the training.  This items corresponds to the shelf button ![Data Extraction Tool](images/adn_data_extraction_tool.png){style="width:4%"}.
-- **Neural Training**. Opens the Neural Training Tool UI, which allows to train a model using the data extracted with the Data Extraction Tool. The resulting model can later be used by AdnMLDeformer and AdnSmartTissue. This items corresponds to the shelf button ![Neural Training Tool](images/adn_neural_training_tool.png){style="width:4%"}.
-- **Neural Clustering Paint Tool**. Opens the Neural Clustering Paint Tool UI, which allows to paint the clusters needed for the training. This items corresponds to the shelf button ![Neural Clustering Paint Tool](images/adn_neural_clustering_paint_tool.png){style="width:4%"}.
+- **Data Extraction**. Opens the Data Extraction Tool UI, which allows to extract the simulation data needed for the training.  This items corresponds to the shelf button ![Data Extraction Tool](../images/adn_data_extraction_tool.png){style="width:4%"}.
+- **Neural Training**. Opens the Neural Training Tool UI, which allows to train a model using the data extracted with the Data Extraction Tool. The resulting model can later be used by AdnMLDeformer and AdnSmartTissue. This items corresponds to the shelf button ![Neural Training Tool](../images/adn_neural_training_tool.png){style="width:4%"}.
+- **Neural Clustering Paint Tool**. Opens the Neural Clustering Paint Tool UI, which allows to paint the clusters needed for the training. This items corresponds to the shelf button ![Neural Clustering Paint Tool](../images/adn_neural_clustering_paint_tool.png){style="width:4%"}.
 
 ### I/O section
 
