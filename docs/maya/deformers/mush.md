@@ -1,6 +1,6 @@
 # AdnMush
 
-AdnMush is a Maya deformer designed to smooth deformations while preserving the overall shape and details of the geometry. It works by computing a smoothed representation of the mesh and applying the deformation as an offset from that smoothed surface, helping to reduce undesirable artifacts such as collapsing joints, volume loss, and skinning irregularities.
+AdnMush is a Maya deformer designed to smooth deformations while preserving the overall shape and details of the geometry. It works by computing a smoothed representation of the mesh and applying the deformation as an offset from that smoothed surface, helping to reduce undesirable artifacts such as volume loss and skinning irregularities.
 
 ## How To Use
 
@@ -52,7 +52,8 @@ The initialization is automatically recomputed whenever topology changes are det
 This mode is useful when the reference state should always be derived from the original geometry stored in the construction history.
 
 > [!NOTE]
-> The connection of the original shape to the *originalGeometry* plug is automatically handled by the utilities provided to create the deformer (e.g. Adonis menu and shelf).
+> The connection of the original shape to the *originalGeometry* plug is automatically handled by the utilities provided to create the deformer.
+> If the connection is broken for any reason, it can be restored by pressing Adonis > Utils > *Reconnect Original Geometry*.
 
 ## Attribute Editor Template
 

@@ -1,6 +1,6 @@
 # AdnMush
 
-AdnMush is a Houdini SOP designed to smooth deformations while preserving the overall shape and details of the geometry. It works by computing a smoothed representation of the mesh and applying the deformation as an offset from that smoothed surface, helping to reduce undesirable artifacts such as collapsing joints, volume loss, and skinning irregularities.
+AdnMush is a Houdini SOP designed to smooth deformations while preserving the overall shape and details of the geometry. It works by computing a smoothed representation of the mesh and applying the deformation as an offset from that smoothed surface, helping to reduce undesirable artifacts such as volume loss and skinning irregularities.
 
 ## How To Use
 
@@ -9,7 +9,6 @@ The AdnMush deformer is easy to create and configure in Houdini. It only require
 1. Go to the geometry context of the rig containing the geometry to apply the deformer to.
 2. Press TAB and navigate to the submenu Adonis > Deformers to find the AdnMush ![Mush button](../../images/adn_mush.png){style="width:4%"} SOP type.
 3. Create it and connect the geometry to the first input.
-4. Optionally, if the *Initialization Mode* is set to *Original Geometry*, connect the SOP containing the original shape of the geometry to the second input.
 
 ## Attributes
 
@@ -51,6 +50,9 @@ In this mode, the deformer initializes its internal reference state using the ge
 The initialization is automatically recomputed whenever topology changes are detected on the geometry.
 
 This mode is useful when the reference state should always be derived from the original geometry stored in the construction history.
+
+> [!NOTE]
+> If the *Initialization Mode* is set to *Original Geometry*, the SOP containing the original shape of the geometry must be connected to the second input.
 
 ## Parameter Template
 
