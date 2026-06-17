@@ -19,11 +19,18 @@ The Import Tool offers an intuitive interface (see Figure 1), allowing users to 
     - Fat: imports AdnFat nodes and their settings.
     - Skin: imports AdnSkin nodes and their settings.
     - Simshape: imports AdnSimshape nodes and their settings.
+    - Smart Tissue: imports AdnSmartTissue nodes and their settings.
 
 - **Deformers**: Specifies which deformers should be imported. Options include:
     - Skin Merge: imports AdnSkinMerge nodes and their settings.
     - Relax: imports AdnRelax nodes and their settings.
     - Push: imports AdnPush nodes and their settings.
+    - Mush: imports AdnMush nodes and their settings.
+    - Closest Fit: imports AdnClosestFit nodes and their settings.
+    - Rigid Wrap: imports AdnRigidWrap nodes and their settings.
+    - Soft Wrap: imports AdnSoftWrap nodes and their settings.
+    - Radial Wrap: imports AdnRadialWrap nodes and their settings.
+    - ML Deformer: imports AdnMLDeformer nodes and their settings.
 
 - **Utils**: Allows importing utility components from the JSON file. Options include:
     - Sensors & Locators: imports Adonis sensors and locators, ensuring proper connections between components.

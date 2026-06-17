@@ -19,11 +19,18 @@ The Export Tool offers an intuitive interface (see Figure 1), allowing users to 
     - Fat: include AdnFat nodes in the exported data.
     - Skin: include AdnSkin nodes in the exported data.
     - Simshape: include AdnSimshape nodes in the exported data.
+    - Smart Tissue: include AdnSmartTissue nodes in the exported data.
 
 - **Deformers**: Specifies which deformers should be included in the export. Options include:
     - Skin Merge: include AdnSkinMerge nodes in the exported data.
     - Relax: include AdnRelax nodes in the exported data.
     - Push: include AdnPush nodes in the exported data.
+    - Mush: include AdnMush nodes in the exported data.
+    - Closest Fit: include AdnClosestFit nodes in the exported data.
+    - Rigid Wrap: include AdnRigidWrap nodes in the exported data.
+    - Soft Wrap: include AdnSoftWrap nodes in the exported data.
+    - Radial Wrap: include AdnRadialWrap nodes in the exported data.
+    - ML Deformer: include AdnMLDeformer nodes in the exported data.
 
 - **Utils**: Allows exporting additional utility components from the setup. Options include:
     - Sensors & Locators: include Adonis sensors and locators in the exported data, ensuring proper connections between components.
