@@ -35,9 +35,9 @@ The Adonis nodes catalog can be inspected in the TAB Menu inside any geometry co
 | ![AdnSimshape](../images/adn_simshape.png) | Creates an AdnSimshape SOP. Solver for facial simulation. | Adonis > Solvers > *AdnSimshape* |
 | ![AdnSkin](../images/adn_skin.png) | Creates an AdnSkin SOP. Solver for fascia and skin simulation. | Adonis > Solvers > *AdnSkin* |
 | ![AdnSkinMerge](../images/adn_skin_merge.png) | Creates an AdnSkinMerge SOP. Node used to blend animation and simulation skin layers. | Adonis > Solvers > *AdnSkinMerge* |
-| ![AdnSmartTissue](../images/adn_smart_tissue.png) | Creates an AdnSmartTissue SOP. | Adonis > Solvers > *AdnSmartTissue* |
+| ![AdnSmartTissue](../images/adn_smart_tissue.png) | Creates an AdnSmartTissue SOP. Solver that applies skin dynamics without requiring the simulation of internal anatomy layers. It also enables stiffness to be modulated across the surface using an Adonis ML-trained model that emulates the activation of underlying muscles. | Adonis > Solvers > *AdnSmartTissue* |
 |||
-| ![AdnMLDataProcessing](../images/adn_data_extraction_tool.png) | Creates an AdnMLDataProcessing HDA. Node used to extract the deformation from the render skin and define the joints to be used in the data extraction process. | Adonis > Tools > *AdnMLDataProcessing* |
+| ![AdnMLDataProcessing](../images/adn_data_extraction_tool.png) | Creates an AdnMLDataProcessing HDA. Node used to extract the deformation from the render skin and define the joints to be used in the data extraction process. An Adonis ML license is needed to use this HDA. | Adonis > Tools > *AdnMLDataProcessing* |
 | ![AdnNeuralClusteringPaintTool](../images/adn_neural_clustering_paint_tool.png) | Creates an AdnNeuralClusteringPaintTool HDA. Node used to paint the neural clusters needed for the training. An Adonis ML license is required to use this HDA. | Adonis > Tools > *AdnNeuralClusteringPaintTool* |
 |||
 | ![AdnActivation](../images/adn_activation.png) | Creates an AdnActivation SOP. Allows operations on a set of input values to compute a final value, which can be used, for example, to drive muscle activations. | Adonis > Utils > *AdnActivation* |
@@ -68,7 +68,7 @@ The Adonis Menu provides access to some tools and utilities that are organized i
 
 <figure style="width: 30%;" markdown>
   ![AdnLocatorPosition within a scene](images/ui_overview_menu.png)
-  <figcaption><b>Figure 2</b>: Adonis Menu.</figcaption>
+  <figcaption><b>Figure 3</b>: Adonis Menu.</figcaption>
 </figure>
 
 ### Tools section
@@ -79,19 +79,19 @@ The Adonis Menu provides access to some tools and utilities that are organized i
 
 - **Utils > Make Paintable**. Creates an `attribcreate` node to define the point attributes required by an Adonis SOP and assigns their default values followed by an `attribpaint` node to allow these attributes to be modified. This pair of nodes are created for each selected Adonis SOP. If no selection is provided, the nodes are created for all Adonis SOPs in the scene.
 
-- **Utils > Make Groomable**. Creates an AdnFiberGroom node for each Adonis muscle SOP (i.e. AdnMuscle and AdnRibbonMuscle) selected.  If no selection is provided, an AdnFiberGroom node will be created for each Adonis muscle SOP in the scene.
+- **Utils > Make Groomable**. Creates an *AdnFiberGroom* node for each Adonis muscle SOP (i.e. *AdnMuscle* and *AdnRibbonMuscle*) selected.  If no selection is provided, an *AdnFiberGroom* node will be created for each Adonis muscle SOP in the scene.
 
 - **Utils > Create Muscle PieceID**. Creates a `connectivity` node for each SOP in the selection in charge of computing the primitive attribute `path` that will identify each muscle piece.
 
-- **Utils > Install ML Dependencies**. Installs the Python dependencies required for inference with *AdnMLDeformer* and *AdnSmartTissue*, as well as for training with *AdnMLTraining*.
+- **Utils > Install ML Dependencies**. Installs the Python dependencies required to run Adonis ML training, and also to run the ML inference in *AdnMLDeformer* and *AdnSmartTissue* on the GPU.
 
-- **Turbo**. Opens the Turbo UI, which allows users to build an Adonis rig on a clean asset from scratch. The UI is divided into sections for each simulation layer that the AdnTurbo can configure. Users can toggle layers on or off to include or skip them in the execution and select the scene objects required to create and configure the solvers.
+- **Turbo**. Opens the Turbo UI, which allows users to build an Adonis rig on a clean asset from scratch. The UI is divided into sections for each simulation layer that the *AdnTurbo* can configure. Users can toggle layers on or off to include or skip them in the execution and select the scene objects required to create and configure the solvers.
 
-- **Transfer**. Opens the AdnTransfer UI, which allows users to transfer the anatomy of muscles, fascia, fat, and skin cut geometries after morphing the mummy and skin geometries using AdnRadialWrap.
+- **Transfer**. Opens the *AdnTransfer* UI, which allows users to transfer the anatomy of muscles, fascia, fat, and skin cut geometries after morphing the mummy and skin geometries using *AdnRadialWrap*.
 
-- **ML Deformer**. Launches the Create ML Deformer UI used to create the AdnMLDeformer.
+- **ML Deformer**. Launches the Create ML Deformer UI used to create the *AdnMLDeformer*.
 
-- **Smart Tissue**. Launches the Create Smart Tissue UI used to create an AdnSmartTissue deformer.
+- **Smart Tissue**. Launches the Create Smart Tissue UI used to create an *AdnSmartTissue* deformer.
 
 ### I/O section
 
@@ -101,7 +101,7 @@ The Adonis Menu provides access to some tools and utilities that are organized i
 ### License section
 
 - **Activate License**. Checks the license status and if it is not activated yet, then a dialog will be prompted to guide on the product key registration. This functionality is only available in the Interactive Node-Locked license.
-- **Deactivate License**. Checks the license status and if it is activated, a dialog will be prompted asking confirmation before closing Maya. This functionality is only available in the Interactive Node-Locked license.
+- **Deactivate License**. Checks the license status and if it is activated, a dialog will be prompted asking confirmation before closing Maya. This functionality is only available if the license is Node-Locked.
 
 ### Help section
 
@@ -110,4 +110,4 @@ The Adonis Menu provides access to some tools and utilities that are organized i
 - **About**. Launches the Adonis About dialog with version information and credits.
 
 > [!NOTE]
-> An Adonis ML license is required to use the following nodes: *AdnNeuralClusteringPaintTool*, *AdnMLDataExtraction* and *AdnMLTraining*.
+> An Adonis ML license is required to use: *AdnNeuralClusteringPaintTool*, *AdnMLDataProcessing*, *AdnMLDataExtraction* and *AdnMLTraining*.

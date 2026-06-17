@@ -119,7 +119,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 <figure style="width: 50%;" markdown>
   ![Adonis AdnSkin Deformer Creator](images/ui_overview_skin_deformer_creator.png)
-  <figcaption><b>Figure 4</b>: Deformer Creator UI creating for an AdnSkin deformer.</figcaption>
+  <figcaption><b>Figure 4</b>: Deformer Creator UI creating for an *AdnSkin* deformer.</figcaption>
 </figure>
 
 ### Edit Section
@@ -130,10 +130,10 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 
 #### Activation
 
-- **Remove Inputs**: Removes activation inputs from AdnActivation node(s) and from the activation list attribute of muscle deformers (AdnMuscle and AdnRibbonMuscle). On execute, this option reads the current selection and extracts all AdnActivation nodes and muscle deformers to remove inputs from. It is possible to remove all the inputs or only some of them.
+- **Remove Inputs**: Removes activation inputs from *AdnActivation* node(s) and from the activation list attribute of muscle deformers (*AdnMuscle* and *AdnRibbonMuscle*). On execute, this option reads the current selection and extracts all *AdnActivation* nodes and muscle deformers to remove inputs from. It is possible to remove all the inputs or only some of them.
 
-    - To remove all inputs, select directly the AdnActivation node(s) and/or the mesh(es) with a muscle deformer applied.
-    - To remove specific inputs, first select the locator(s) to remove and then the AdnActivation node(s) and/or the mesh(es) with a muscle deformer applied.
+    - To remove all inputs, select directly the *AdnActivation* node(s) and/or the mesh(es) with a muscle deformer applied.
+    - To remove specific inputs, first select the locator(s) to remove and then the *AdnActivation* node(s) and/or the mesh(es) with a muscle deformer applied.
 
 #### Muscle
 
@@ -143,13 +143,13 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 - **Remove Slide On Segment Constraint**. Removes anchors from segments based on the transform objects and the mesh with the deformer node applied selected. This item corresponds to the shelf button  ![Remove Slide On Segment](images/adn_remove_sliding_constraint.png){style="width:4%"}.
 - **Add Rest Shape**. Assigns the rest shape to the selected deformer. The selection must consist of: first the Rest Mesh to assign and lastly the mesh with the deformer applied.
 - **Remove Rest Shape**. Removes the rest shape from the selected deformer. The selection must consist of: first the Rest Mesh to remove and lastly the mesh with the deformer applied.
-- **Draw Fibers**. Enables *Muscle Fibers* Debugging from all the AdnRibbonMuscle and AdnMuscle in the scene.
-- **Hide Fibers**. Disables *Muscle Fibers* Debugging from all the AdnRibbonMuscle and AdnMuscle in the scene.
+- **Draw Fibers**. Enables *Muscle Fibers* Debugging from all the *AdnRibbonMuscle* and *AdnMuscle* in the scene.
+- **Hide Fibers**. Disables *Muscle Fibers* Debugging from all the *AdnRibbonMuscle* and *AdnMuscle* in the scene.
 
 #### Glue
 
-- **Add Inputs**. Adds input meshes to an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected.
-- **Remove Inputs**. Removes input meshes from an existing AdnGlue node. The output mesh of the destination AdnGlue has to be the last object selected. If only the glue output mesh is selected, then all inputs will be removed.
+- **Add Inputs**. Adds input meshes to an existing *AdnGlue* node. The output mesh of the destination *AdnGlue* has to be the last object selected.
+- **Remove Inputs**. Removes input meshes from an existing *AdnGlue* node. The output mesh of the destination *AdnGlue* has to be the last object selected. If only the glue output mesh is selected, then all inputs will be removed.
 
 #### Fat
 
@@ -164,7 +164,7 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Simshape
 
 - **Learn Muscle Patches UI**. Launches the Learn Muscle Patches UI required to generate the *Adonis Muscle Patches* (.amp) file. This item corresponds to the shelf button ![AdnSimshape Learn Muscle Patches Tool](../images/adn_learn_muscle_patches.png){style="width:4%"}.
-- **Activations Debugger**. Toggles the AdnSimshape activations debug mode. The current frame must match the specified initialization frame at the AdnSimshape deformer to toggle. This item corresponds to the shelf button ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png){style="width:4%"}. 
+- **Activations Debugger**. Toggles the *AdnSimshape* activations debug mode. The current frame must match the specified initialization frame at the *AdnSimshape* deformer to toggle. This item corresponds to the shelf button ![AdnSimshape Activations Debugger](images/adn_simshape_debugger.png){style="width:4%"}. 
 - **Add Collider**. Assigns the collider to the selected deformer. The selection must consist of: first the mesh to assign as a Collider and lastly the mesh with the deformer applied. This item corresponds to the shelf button ![Add AdnSimshape Collider](images/adn_add_collider.png){style="width:4%"}. 
 - **Remove Collider**. Removes the collider from the selected deformer. The selection must consist of: first the Collider mesh to remove and lastly the mesh with the deformer applied. This item corresponds to the shelf button ![Remove AdnSimshape Collider](images/adn_remove_collider.png){style="width:4%"}. 
 - **Add Rest Collider**. Assigns the collider at rest to the selected deformer. The selection must consist of: first the mesh to assign as a Rest Collider and lastly the mesh with the deformer applied.
@@ -175,42 +175,42 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 - **Remove Deform Mesh**. Removes the deform mesh from the selected deformer. The selection must consist of: first the Deform Mesh to remove and lastly the mesh with the deformer applied.
 - **Add Anim Mesh**. Assigns the animated mesh to the selected deformer. The selection must consist of: first the Anim Mesh to assign and lastly the mesh with the deformer applied.
 - **Remove Anim Mesh**. Removes the animated mesh from the selected deformer. The selection must consist of: first the Anim Mesh to remove and lastly the mesh with the deformer applied.
-- **Connect Activations Plug**. Connects the output compression map from an AdnEdgeEvaluator node to the activations plug of the AdnSimshape selected deformer. The selection must consist of: first the Edge Evaluator node and lastly the AdnSimshape deformer node.
-- **Disconnect Activations Plug**. Disconnects the output compression map from an AdnEdgeEvaluators node from the activations plug of the AdnSimshape selected deformer. The selection must consist of: first the Edge Evaluator node and lastly the AdmSimshape deformer node.
+- **Connect Activations Plug**. Connects the output compression map from an *AdnEdgeEvaluator* node to the activations plug of the *AdnSimshape* selected deformer. The selection must consist of: first the Edge Evaluator node and lastly the *AdnSimshape* deformer node.
+- **Disconnect Activations Plug**. Disconnects the output compression map from an *AdnEdgeEvaluator* node from the activations plug of the *AdnSimshape* selected deformer. The selection must consist of: first the Edge Evaluator node and lastly the AdmSimshape deformer node.
 
 #### Smart Tissue
 
-- **Activations Debugger**. Toggles the AdnSmartTissue activations debug mode. The current frame must match the specified initialization frame at the AdnSmartTissue deformer to toggle. This item corresponds to the shelf button ![AdnSmartTissue Activations Debugger](images/adn_smart_tissue_activation_debugger.png){style="width:4%"}. 
+- **Activations Debugger**. Toggles the *AdnSmartTissue* activations debug mode. The current frame must match the specified initialization frame at the *AdnSmartTissue* deformer to toggle. This item corresponds to the shelf button ![AdnSmartTissue Activations Debugger](images/adn_smart_tissue_activation_debugger.png){style="width:4%"}. 
 
 #### Deformers
 
-- **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the editing of simulation and animation meshes lists of an AdnSkinMerge deformer. To open this UI a mesh with an AdnSkinMerge applied must be selected.
+- **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the editing of simulation and animation meshes lists of an *AdnSkinMerge* deformer. To open this UI a mesh with an *AdnSkinMerge* applied must be selected.
 
 #### Debug
 
-- **Refresh Debugger**. Refreshes the scene graph for debugging purposes by making sure the AdnDataNode and the AdnDebugLocator exist in the scene and are properly connected.
+- **Refresh Debugger**. Refreshes the scene graph for debugging purposes by making sure the *AdnDataNode* and the *AdnDebugLocator* exist in the scene and are properly connected.
 
 ### Tools section
 
 - **Utils > Clear**. Removes all Adonis nodes from the scene.
 - **Utils > Upgrade v1.x To v2.x**. Performs an upgrade to all Adonis solvers to make v1.x rigs compatible with v2.x. This upgrade affects the painted values in the maps that are affected by the *Maps Remap Mode* attribute added in v2.0.0 to all solvers (i.e., shape preservation, attachments and sliding in muscle solver, uber constraints in skin solver). Due to how this remapping modifies how the painted values from the plugs are transferred to the solver, this utility updates those values in order to get simulation results as consistent as possible with v1.x. Additionally, since the *Concrete* material has been deprecated, this upgrade script also checks whether any nodes in the scene are using an invalid material. If an invalid material is found, it will be automatically replaced with the default material.
-As a final step to support the addition of the *currentTime* plug in AdnSkinMerge we provide inside of the upgrade process a way to connect the *time1.outTime* to every node that has a *currentTime* plug.
+As a final step to support the addition of the *currentTime* plug in *AdnSkinMerge* we provide inside of the upgrade process a way to connect the *time1.outTime* to every node that has a *currentTime* plug.
 - **Utils > Reconnect Current Time**. Connects the *time1.outTime* plug to all the Adonis nodes that have a *currentTime* plug for correct time dependency for its evaluation. 
 - **Utils > Reconnect Original Geometry**. Connects the original shape to the *originalGeometry* plug of all the Adonis deformers.
-- **Utils > Install ML Dependencies**. Installs the Python dependencies required for inference with *AdnMLDeformer* and *AdnSmartTissue*, as well as for training with the *Neural Training Tool*.
+- **Utils > Install ML Dependencies**. Installs the Python dependencies required to run Adonis ML training, and also to run the ML inference in *AdnMLDeformer* and *AdnSmartTissue* on the GPU.
 
-- **Target Faces Editor**. Opens the Target Faces Editor UI, which allows to include or exclude specific target faces from the constraint creation. This tool is only available for AdnMuscle, AdnRibbonMuscle and AdnSkin solvers.
+- **Target Faces Editor**. Opens the Target Faces Editor UI, which allows to include or exclude specific target faces from the constraint creation. This tool is only available for *AdnMuscle*, *AdnRibbonMuscle* and *AdnSkin* solvers.
 - **Mirror**. Opens the Mirror Tool UI which allows to mirror the muscle setup (locators, sensors and muscles) from one side of the character to the other based on left and right naming rules.
-- **Turbo**. Opens the Turbo UI, which allows users to build an Adonis rig on a clean asset from scratch. The UI is divided into sections for each simulation layer that the AdnTurbo can configure. Users can toggle layers on or off to include or skip them in the execution and select the scene objects required to create and configure the solvers.
-- **Landmark Tool**. Opens the Landmark Tool UI which allows to create, edit, manage, and connect landmarks to an AdnRadialWrap deformer.
-- **Transfer**. Opens the AdnTransfer UI, which allows users to transfer the anatomy of muscles, fascia, fat, and skin cut geometries after morphing the mummy and skin geometries using AdnRadialWrap.
-- **Paint Tool**. Opens the Paint Tool UI to modify the paintable maps in AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. This item corresponds to the shelf button ![Paint Tool](images/adn_paint_tool.png){style="width:4%"}.
+- **Turbo**. Opens the Turbo UI, which allows users to build an Adonis rig on a clean asset from scratch. The UI is divided into sections for each simulation layer that the *AdnTurbo* can configure. Users can toggle layers on or off to include or skip them in the execution and select the scene objects required to create and configure the solvers.
+- **Landmark Tool**. Opens the Landmark Tool UI which allows to create, edit, manage, and connect landmarks to an *AdnRadialWrap* deformer.
+- **Transfer**. Opens the *AdnTransfer* UI, which allows users to transfer the anatomy of muscles, fascia, fat, and skin cut geometries after morphing the mummy and skin geometries using *AdnRadialWrap*.
+- **Paint Tool**. Opens the Paint Tool UI to modify the paintable maps in *AdnSkin*, *AdnMuscle* and *AdnRibbonMuscle* deformers. This item corresponds to the shelf button ![Paint Tool](images/adn_paint_tool.png){style="width:4%"}.
 - **Interactive Playback**. Enables Maya Interactive Playback. In this playback mode, dynamic interaction with objects and parameters while simulating is allowed. This item corresponds to the shelf button ![Interactive Playback](images/adn_interactive_playback.png){style="width:4%"}.
 
 ### ML Tools
 
 - **Data Extraction**. Opens the Data Extraction Tool UI, which allows to extract the simulation data needed for the training.  This items corresponds to the shelf button ![Data Extraction Tool](../images/adn_data_extraction_tool.png){style="width:4%"}.
-- **Neural Training**. Opens the Neural Training Tool UI, which allows to train a model using the data extracted with the Data Extraction Tool. The resulting model can later be used by AdnMLDeformer and AdnSmartTissue. This items corresponds to the shelf button ![Neural Training Tool](../images/adn_neural_training_tool.png){style="width:4%"}.
+- **Neural Training**. Opens the Neural Training Tool UI, which allows to train a model using the data extracted with the Data Extraction Tool. The resulting model can later be used by *AdnMLDeformer* and *AdnSmartTissue*. This items corresponds to the shelf button ![Neural Training Tool](../images/adn_neural_training_tool.png){style="width:4%"}.
 - **Neural Clustering Paint Tool**. Opens the Neural Clustering Paint Tool UI, which allows to paint the clusters needed for the training. This items corresponds to the shelf button ![Neural Clustering Paint Tool](../images/adn_neural_clustering_paint_tool.png){style="width:4%"}.
 
 ### I/O section
@@ -221,7 +221,7 @@ As a final step to support the addition of the *currentTime* plug in AdnSkinMerg
 ### License section
 
 - **Activate License**. Checks the license status and if it is not activated yet, then a dialog will be prompted to guide on the product key registration. This functionality is only available in the Interactive Node-Locked license.
-- **Deactivate License**. Checks the license status and if it is activated, a dialog will be prompted asking confirmation before closing Maya. This functionality is only available in the Interactive Node-Locked license.
+- **Deactivate License**. Checks the license status and if it is activated, a dialog will be prompted asking confirmation before closing Houdini. This functionality is only available if the license is Node-Locked.
 
 ### Help section
 
