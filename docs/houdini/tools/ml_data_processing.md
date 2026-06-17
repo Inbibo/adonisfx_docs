@@ -14,21 +14,21 @@ The AdnMLDataProcessing HDA outputs the processed skin data to be extracted from
 
 To use the AdnMLDataProcessing HDA, the following inputs must be provided:
 
-- **Input Skin**: Simulated skin geometry to process. This is usually the output of an AdnSkinMerge node containing the simulation data.
-- **Rest Joints**: KineFX joints in rest pose used by the skinning setup.
-- **Anim Joints**: Animated KineFX joints used to drive the animated skin.
-- **Capture Weights**: Geometry containing the bone capture attributes required to describe the skinning weights.
-- **ML Joints**: KineFX joints used as input joints for the machine learning data extraction process.
+- *Input Skin*: Simulated skin geometry to process. This is usually the output of an **AdnSkinMerge** node containing the simulation data.
+- *Rest Joints*: KineFX joints in rest pose used by the skinning setup.
+- *Anim Joints*: Animated KineFX joints used to drive the animated skin.
+- *Capture Weights*: Geometry containing the bone capture attributes required to describe the skinning weights.
+- *ML Joints*: KineFX joints used as input joints for the machine learning data extraction process.
 
-The **Anim Joints** and **ML Joints** inputs must contain the following point attributes:
+The *Anim Joints* and *ML Joints* inputs must contain the following point attributes:
 
-- **name**: Name of each joint.
-- **transform**: Transform point attribute of each joint.
+- *name*: Name of each joint.
+- *transform*: Transform point attribute of each joint.
 
-The **Anim Joints** and **ML Joints** inputs are provided separately because the joints used as machine learning inputs do not necessarily need to be the same joints used to deform the geometry. In most cases, the ML joints will be the same as the animated joints, but a dedicated input is available to support workflows where a different joint set is required for data extraction.
+The *Anim Joints* and *ML Joints* inputs are provided separately because the joints used as machine learning inputs do not necessarily need to be the same joints used to deform the geometry. In most cases, the ML joints will be the same as the animated joints, but a dedicated input is available to support workflows where a different joint set is required for data extraction.
 
 > [!NOTE]
-> The AdnMLDataProcessing pipeline is currently only supported when using the **Linear** skinning method in the Bone Deform node.
+> The AdnMLDataProcessing pipeline is currently only supported when using the **Linear** skinning method in the **Bone Deform** node.
 
 ## How To Use
 
@@ -62,27 +62,32 @@ The **Anim Joints** and **ML Joints** inputs are provided separately because the
 
 6. Select the joints to use for data extraction.
 
-    Use the **Joints Group** parameter to select the joints that should be used as ML inputs.
+    Use the *Joints Group* parameter to select the joints that should be used as ML inputs.
 
-    To select joints interactively, click the picker icon next to the **Joints Group** parameter. Then select the joints either from the **Rig Tree** or directly in the viewport. To exit the viewer state, press **Esc** while the cursor is over the viewport.
+    To select joints interactively, click the picker icon next to the *Joints Group* parameter. Then select the joints either from the **Rig Tree** or directly in the viewport. To exit the viewer state, press **Esc** while the cursor is over the viewport.
 
-    Alternatively, use **Load Joint List From File** to load the joint list from the configuration file of a previous data extraction.
+    Alternatively, use *Load Joint List From File* to load the joint list from the configuration file of a previous data extraction.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![AdnMLDataProcessing joint selector viewer state](../images/data_processing_joint_selector.png)
-  <figcaption><b>Figure 3</b>: Viewer state used to select ML joints with the Joints Group picker.</figcaption>
+  <figcaption><b>Figure 3</b>: Viewer state used to select ML joints with the <i>Joints Group</i> picker.</figcaption>
 </figure>
 
 7. Cook the node.
 
-    Once the node is cooked, the processed data will be available through its outputs:
+    Once the node is cooked, the processed data will be available through its output plugs, as shown in Figure 4:
 
     - **ADN_OUT_SKIN**: Output 0. Contains the processed skin data to be extracted from the simulation.
     - **ADN_OUT_ML_JOINTS**: Output 1. Contains the selected ML joints.
 
-    The second output, **ADN_OUT_ML_JOINTS**, contains a point group named **adnMLJoints**. This group identifies the selected joints and is used by the **AdnMLDataExtraction TOP HDA** to determine which joints should be included in the machine learning input data.
+<figure style="width:90%; margin-left:5%" markdown>
+  ![AdnMLDataProcessing outputs](../images/data_processing_outputs.png)
+  <figcaption><b>Figure 4</b>: Processed outputs generated by the AdnMLDataProcessing HDA.</figcaption>
+</figure>
 
-    We recommend appending **Null** nodes to both outputs and giving them meaningful names, such as **ADN_OUT_SKIN** and **ADN_OUT_ML_JOINTS**. This makes it easier to identify and reference the processed skin and selected ML joints later when configuring the [AdnMLDataExtraction TOP HDA](../tools/data_extraction_tool).
+    The second output, **ADN_OUT_ML_JOINTS**, contains a point group named *adnMLJoints*. This group identifies the selected joints and is used by the **AdnMLDataExtraction TOP HDA** to determine which joints should be included in the machine learning input data.
+
+    We recommend appending **Null** nodes to both outputs and naming them **OUT_SKIN** and **OUT_JOINTS**. This makes it easier to identify and reference the processed skin and selected ML joints later when configuring the [AdnMLDataExtraction TOP HDA](../tools/data_extraction_tool).
 
 8. Use the outputs in the AdnMLDataExtraction TOP HDA.
 
@@ -94,8 +99,8 @@ The **Anim Joints** and **ML Joints** inputs are provided separately because the
 
 | Name | Type | Default | Description |
 | :--- | :--- | :------ | :---------- |
-| **Load Joint List From File** | Button |  | Loads the joint list from the configuration file of a previous data extraction. This can be used to reuse the same ML joint selection from an existing extracted dataset. |
-| **Joints Group** | Group |  | Group selector used to select the joints that will be used as ML input data during extraction. The selected joints are stored in the **adnMLJoints** point group on the **ADN_OUT_ML_JOINTS** output. |
+| *Load Joint List From File* | Button |  | Loads the joint list from the configuration file of a previous data extraction. This can be used to reuse the same ML joint selection from an existing extracted dataset. |
+| *Joints Group* | Group |  | Group selector used to select the joints that will be used as ML input data during extraction. The selected joints are stored in the *adnMLJoints* point group on the **ADN_OUT_ML_JOINTS** output. |
 
 ## Result
 
@@ -104,13 +109,15 @@ After cooking the AdnMLDataProcessing HDA, the following outputs are generated:
 - **ADN_OUT_SKIN**: The processed skin geometry containing the simulation data to be extracted.
 - **ADN_OUT_ML_JOINTS**: The ML joint geometry containing the selected joints for data extraction.
 
-The **ADN_OUT_ML_JOINTS** output includes a point group named **adnMLJoints**. This point group is used by the AdnMLDataExtraction TOP HDA to identify the joints that should be extracted as input data for machine learning.
+The **ADN_OUT_ML_JOINTS** output includes a point group named *adnMLJoints*. This point group is used by the AdnMLDataExtraction TOP HDA to identify the joints that should be extracted as input data for machine learning.
+
+For clarity, we recommend appending **Null** nodes to these outputs and naming them **OUT_SKIN** and **OUT_JOINTS**. These Null nodes can then be referenced when configuring the data extraction workflow.
 
 The resulting data can then be passed to the [AdnMLDataExtraction TOP HDA](../tools/data_extraction_tool) to continue the ML data extraction workflow.
 
 ## Limitations
 
-- The pipeline is currently only supported when using the **Linear** skinning method in the Bone Deform node.
-- The animated joints and ML joints must contain both the **name** and **transform** point attributes.
+- The pipeline is currently only supported when using the **Linear** skinning method in the **Bone Deform** node.
+- The animated joints and ML joints must contain both the *name* and *transform* point attributes.
 - The ML joints can be different from the animated joints, but they must represent the joint set intended to be used as machine learning input data.
 - The capture weights input must contain valid bone capture attributes.
