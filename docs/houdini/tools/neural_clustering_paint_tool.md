@@ -2,6 +2,8 @@
 
 The **AdnNeuralClusteringPaintTool** is used to paint neural clusters on a static mesh. These clusters provide additional locality information for the machine learning training process, helping the model better isolate local deformations and activations.
 
+The tool exports the painted cluster data to a `.json` file. This file is later used during neural training and can be provided when launching the training process with the [AdnNeuralTrainingTool](../tools/neural_training_tool).
+
 Neural clusters define local regions on the training mesh. These regions help the training process understand which parts of the mesh should be treated as related deformation areas, which can improve the poseability of the trained rig.
 
 The number and size of the clusters should be adjusted depending on the amount of extracted training data available. Larger datasets can support more granular clusters, while smaller datasets should usually use broader cluster regions.
@@ -15,12 +17,12 @@ If multiple clusters overlap, the cluster values can be normalized. Normalizing 
 
 To use the AdnNeuralClusteringPaintTool, the following inputs must be provided:
 
-- *Input 1*: Static mesh where neural clusters will be painted.
-- *Input 2*: ML joints used to associate each cluster with the relevant joint data.
+- *Geometry*: Static mesh where neural clusters will be painted.
+- *Joints*: ML joints used to associate each cluster with the relevant joint data.
 
-The static mesh connected to the first input must match the topology of the mesh that will be used for training. This means the painted cluster weights must correspond to the same point order and topology expected by the training data.
+The static mesh connected to *Geometry* must match the topology of the mesh that will be used for training. This means both meshes must have matching point counts and matching point order so the exported cluster weights correspond to the expected training mesh data.
 
-The ML joints connected to the second input should represent the joint set used as machine learning input data. In many cases, this can be the animated joints. The joint geometry must contain a valid *name* point attribute, because joint selections are resolved using the joint names.
+The ML joints connected to *Joints* should represent the joint set used as machine learning input data. In many cases, this can be the animated joints. The joint geometry must contain a valid *name* point attribute, because joint selections are resolved using the joint names.
 
 The joint entries assigned to each cluster must use explicit `@name=...` selections, for example `@name=R_Scapula`. Do not use wildcards or broad patterns.
 
@@ -36,34 +38,36 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
   <figcaption><b>Figure 1</b>: AdnNeuralClusteringPaintTool parameter template.</figcaption>
 </figure>
 
-2. Connect the mesh and ML joints.
+2. Connect the geometry and joints.
 
-    Connect the static mesh to paint into the first input.
+    Connect the static mesh to paint into the *Geometry* input.
 
-    Connect the ML joints into the second input. These can be the animated joints, as long as they represent the joint set that will be used for the machine learning input data.
+    Connect the ML joints into the *Joints* input. These can be the animated joints, as long as they represent the joint set that will be used for the machine learning input data.
 
     The ML joint geometry must contain a valid *name* point attribute.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![AdnNeuralClusteringPaintTool node setup](../images/neural_clustering_paint_tool_node.png)
-  <figcaption><b>Figure 2</b>: Example node setup for the AdnNeuralClusteringPaintTool, with the static mesh connected to the first input and the ML joints connected to the second input.</figcaption>
+  <figcaption><b>Figure 2</b>: Example node setup for the AdnNeuralClusteringPaintTool, with the static mesh connected to the <i>Geometry</i> input and the ML joints connected to the <i>Joints</i> input.</figcaption>
 </figure>
 
 3. Set the *Mesh* parameter.
 
-    Use *Mesh* to define the source mesh name used for painting, export, and import.
+    Use *Mesh* to define the source mesh name stored in the exported `.json` file.
 
-    For cross-DCC compatibility, this name should be aligned with the equivalent mesh name used in other DCCs. Avoid relying on full Houdini paths when possible.
+    The *Mesh* parameter is only used as a naming field for export, import, and cross-DCC compatibility. It does not define the actual geometry being painted. The geometry being painted comes from the *Geometry* input.
 
-    The mesh can be assigned manually by typing the name, or by using *Pick Mesh From Selection* to fill the *Mesh* parameter from the currently selected Houdini node name. This only updates the *Mesh* text field and does not change node connections or geometry.
+    For cross-DCC compatibility, the *Mesh* value should match the equivalent mesh name used in other DCCs. Avoid relying on full Houdini paths when possible.
+
+    The mesh name can be assigned manually by typing it, or by using *Pick Mesh From Selection* to fill the *Mesh* parameter from the currently selected Houdini node name. This only updates the *Mesh* text field and does not change node connections or geometry.
 
     Use *Clear Mesh* to clear the *Mesh* parameter. This does not remove clusters, weights, imported data, or painted attributes.
 
 4. Import an existing cluster map if needed.
 
-    Use *Import JSON* to import neural cluster entry data from a JSON file. This replaces the current entries in the tool with the entries from the file.
+    Use *Import JSON* to import neural cluster entry data from a `.json` file. This replaces the current entries in the tool with the entries from the file.
 
-    Imported data is stored in an internal stash on the node. This allows the tool to restore cluster entries and weights from a previously exported cluster map.
+    Importing restores the cluster entries, the cluster names, the joint associations, and the painted weights stored for each cluster. The imported weights are stored per cluster and the corresponding attributes are stashed internally on the node.
 
     Use *Clear Imported Data* to clear imported and mirrored weight values from the internal stash. Cluster entries and painted weights remain unchanged.
 
@@ -126,14 +130,18 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![AdnNeuralClusteringPaintTool painted cluster](../images/neural_clustering_paint_tool_cluster.png)
-  <figcaption><b>Figure 4</b>: Example of a painted neural cluster on a training mesh. The active cluster is shown with a high-influence region and a smooth falloff into surrounding areas, helping define local deformation areas for the training process.</figcaption>
+  <figcaption><b>Figure 4</b>: Example of a painted neural cluster on a training mesh. Painted values closer to <code>1</code> are displayed toward red and represent higher influence, while values closer to <code>0</code> are displayed toward blue and represent lower influence. Smooth transitions between these values define the cluster falloff.</figcaption>
 </figure>
 
 10. Mirror the cluster if needed.
 
     Press *Mirror* to create or update a mirrored neural cluster entry by copying joints and weights across the X axis.
 
-    The entry name and joints are mirrored using the selected *Mirror by* mode and the *Left* and *Right* naming tokens.
+    Mirroring is useful when one side of the character has already been configured and the opposite side should use corresponding joints and mirrored weight values.
+
+    The entry name and joints are mirrored using the selected *Mirror by* mode and the *Left* and *Right* naming tokens. The same naming convention is used for both the cluster entry name and the joint names.
+
+    The painted weights are mirrored across the X axis of the geometry. This means the tool transfers the painted region from one side of the mesh to the corresponding opposite-side region.
 
     If the selected convention does not match, the tool may fall back to a simple `L`/`R` token swap.
 
@@ -143,13 +151,15 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
     Enable *Normalize Clusters* when cluster regions overlap and the painted values should be normalized.
 
-    Normalizing overlapping clusters helps keep the cluster data consistent and can improve the quality of the resulting training data.
+    Normalizing clusters adjusts the weights between `0` and `1` across all clusters. This helps keep overlapping cluster data consistent and can improve the quality of the resulting training data.
 
 12. Export the cluster map.
 
-    Use *Export JSON* to export the current neural cluster entry data to a JSON file.
+    Use *Export JSON* to export the current neural cluster entry data to a `.json` file.
 
     Export requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields.
+
+    The exported `.json` file can then be used during neural training with the [AdnNeuralTrainingTool](../tools/neural_training_tool).
 
 ## Parameters
 
@@ -157,7 +167,7 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
 | Name | Type | Default | Description |
 | :--- | :--- | :------ | :---------- |
-| *Mesh* | String |  | Source mesh name used for painting, export, and import. For cross-DCC compatibility, this should be aligned with the equivalent mesh name used in other DCCs and should avoid relying on full Houdini paths where possible. |
+| *Mesh* | String |  | Source mesh name stored in the exported `.json` file. This is only used as a naming field for export, import, and cross-DCC compatibility. It does not define the actual geometry being painted. |
 | *Pick Mesh From Selection* | Button |  | Fills the *Mesh* parameter from the currently selected Houdini node name. This only updates the *Mesh* text field and does not change node connections or geometry. |
 | *Clear Mesh* | Button |  | Clears the *Mesh* parameter. This does not remove clusters, weights, imported data, or painted attributes. |
 
@@ -165,8 +175,8 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
 | Name | Type | Default | Description |
 | :--- | :--- | :------ | :---------- |
-| *Export JSON* | Button |  | Exports the current neural cluster entry data to a JSON file. Requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields. |
-| *Import JSON* | Button |  | Imports neural cluster entry data from a JSON file. This replaces the current entries in the tool with the entries from the file. |
+| *Export JSON* | Button |  | Exports the current neural cluster entry data to a `.json` file. Requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields. |
+| *Import JSON* | Button |  | Imports neural cluster entry data from a `.json` file. This replaces the current entries in the tool with the entries from the file and stashes the imported cluster attributes internally on the node. |
 | *Clear Imported Data* | Button |  | Clears imported and mirrored weight values from the internal stash. Cluster entries and painted weights remain unchanged. |
 
 ### Mirror
@@ -186,13 +196,13 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 | *Joints* | String |  | Explicit joint selection for the current cluster entry, stored as Houdini group patterns using the `@name=...` convention. The joint geometry must contain a valid *name* point attribute. Do not use wildcards or broad patterns. On export, these selections are resolved to full joint paths using separators. |
 | *Paint Cluster* | Button |  | Makes this cluster the active paint target and enters the paint workflow for its mask attribute. |
 | *Mirror* | Button |  | Creates or updates a mirrored neural cluster entry by copying joints and weights across the X axis. The entry name and joints are mirrored using the selected *Mirror by* mode and the *Left* and *Right* naming tokens. If the selected convention does not match, the tool may fall back to a simple `L`/`R` token swap. |
-| *Normalize Clusters* | Boolean | False | Normalizes overlapping cluster values to keep cluster weights consistent. |
+| *Normalize Clusters* | Boolean | False | Normalizes the weights between `0` and `1` across all clusters. This helps keep overlapping cluster weights consistent. |
 
 ### Paint Settings
 
 The *Paint Settings* section exposes the same painting parameters available in Houdini's Attribute Paint node. These parameters control the brush behavior, stroke behavior, symmetry, and paint values used while painting cluster regions.
 
-For more information about these parameters, refer to the Houdini Attribute Paint node documentation.
+For more information about these parameters, refer to the [Houdini Attribute Paint documentation](https://www.sidefx.com/docs/houdini/nodes/sop/attribpaint.html).
 
 ## Cluster JSON Overview
 
@@ -200,7 +210,7 @@ The exported JSON file stores the mesh name and the list of neural cluster entri
 
 At the top level, the file contains:
 
-- `mesh`: Source mesh name used for painting, export, and import.
+- `mesh`: Source mesh name used for painting, export, import, and cross-DCC compatibility.
 - `entries`: List of neural cluster entries.
 
 Each entry contains:
@@ -218,11 +228,11 @@ For example, a cluster file may contain entries such as `R_frontLeg`, `L_frontLe
 
 ## Result
 
-After configuring and painting clusters with the AdnNeuralClusteringPaintTool, the mesh contains neural clustering information that can be used as additional data during the machine learning training process.
+After configuring and painting clusters with the AdnNeuralClusteringPaintTool, the painted neural clustering data can be exported to a `.json` file.
+
+This `.json` file is used during neural training and can be provided when launching the training process with the [AdnNeuralTrainingTool](../tools/neural_training_tool).
 
 The generated clusters describe regions of locality on the mesh. These regions help the training process isolate local deformation and activation behavior, which can improve the poseability of the trained rig.
-
-The resulting clustering data can be exported to JSON and reused in later training setups.
 
 ## Recommendations
 
@@ -234,6 +244,7 @@ The resulting clustering data can be exported to JSON and reused in later traini
 - Associate each cluster with the joints that most directly affect the painted region.
 - Keep mesh and cluster names aligned with other DCCs when the cluster data needs to be reused across applications.
 - Use explicit `@name=...` joint selections and avoid wildcards.
+- Remember that painted values closer to `1` represent higher influence and are displayed toward red, while values closer to `0` represent lower influence and are displayed toward blue.
 
 ## Limitations
 
@@ -241,6 +252,6 @@ The resulting clustering data can be exported to JSON and reused in later traini
 - Very granular clusters may require a larger dataset to train reliably.
 - Broad clusters may be more suitable for smaller datasets, but they provide less localized deformation separation.
 - Overlapping clusters should usually be normalized to avoid inconsistent cluster values.
-- The painted mesh must match the topology of the mesh used for training.
-- The ML joint geometry must contain a valid *name* point attribute.
+- The painted mesh connected to *Geometry* must match the topology of the mesh used for training.
+- The ML joint geometry connected to *Joints* must contain a valid *name* point attribute.
 - The *Joints* entries must use explicit `@name=...` selections and should not use wildcards.
