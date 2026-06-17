@@ -127,18 +127,18 @@ nav:
       - AdnRemap                  : maya/utils/remap.md
       - AdnEdgeEvaluator          : maya/utils/edge_evaluator.md
     - Tools:
-      - Paint Tool                 : maya/tools/paint_tool.md
-      - Sensors Connection Editor  : maya/tools/sensors_connection_editor.md
-      - Target Faces Filter Editor : maya/tools/target_faces_editor.md
-      - Mirror                     : maya/tools/mirror_tool.md
-      - Turbo                      : maya/tools/turbo_tool.md
-      - Landmark Tool              : maya/tools/landmark_tool.md
-      - Transfer                   : maya/tools/transfer_tool.md
-      - Export                     : maya/tools/exporter.md
-      - Import                     : maya/tools/importer.md
-      - Data Extraction            : maya/tools/data_extraction_tool.md
-      - Neural Training            : maya/tools/neural_training_tool.md
-      - Neural Clustering          : maya/tools/neural_clustering_paint_tool.md
+      - Paint Tool                : maya/tools/paint_tool.md
+      - Sensors Connection Editor : maya/tools/sensors_connection_editor.md
+      - Target Faces Editor       : maya/tools/target_faces_editor.md
+      - Mirror                    : maya/tools/mirror_tool.md
+      - Turbo                     : maya/tools/turbo_tool.md
+      - Landmark Tool             : maya/tools/landmark_tool.md
+      - Transfer                  : maya/tools/transfer_tool.md
+      - Export                    : maya/tools/exporter.md
+      - Import                    : maya/tools/importer.md
+      - Data Extraction           : maya/tools/data_extraction_tool.md
+      - Neural Training           : maya/tools/neural_training_tool.md
+      - Neural Clustering         : maya/tools/neural_clustering_paint_tool.md
     - Scripts:
       - Mirror                    : maya/scripts/mirror.md
       - Turbo                     : maya/scripts/turbo.md
@@ -179,15 +179,15 @@ nav:
       - AdnFiberDiffusion         : houdini/utils/fiber_diffusion.md
       - AdnFiberProjection        : houdini/utils/fiber_projection.md
     - Tools:
-      - Target Faces Filter Editor : houdini/tools/target_faces_editor.md
-      - Turbo                      : houdini/tools/turbo_tool.md
-      - Transfer                   : houdini/tools/transfer_tool.md
-      - Export                     : houdini/tools/exporter.md
-      - Import                     : houdini/tools/importer.md
-      - Data Processing            : houdini/tools/ml_data_processing.md
-      - Data Extraction            : houdini/tools/data_extraction_tool.md
-      - Neural Training            : houdini/tools/neural_training_tool.md
-      - Neural Clustering          : houdini/tools/neural_clustering_paint_tool.md
+      - Target Faces Editor       : houdini/tools/target_faces_editor.md
+      - Turbo                     : houdini/tools/turbo_tool.md
+      - Transfer                  : houdini/tools/transfer_tool.md
+      - Export                    : houdini/tools/exporter.md
+      - Import                    : houdini/tools/importer.md
+      - Data Processing           : houdini/tools/ml_data_processing.md
+      - Data Extraction           : houdini/tools/data_extraction_tool.md
+      - Neural Training           : houdini/tools/neural_training_tool.md
+      - Neural Clustering         : houdini/tools/neural_clustering_paint_tool.md
     - Scripts:
       - Turbo                     : houdini/scripts/turbo.md
       - Transfer                  : houdini/scripts/transfer.md
