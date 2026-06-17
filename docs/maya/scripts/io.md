@@ -29,11 +29,18 @@ enabled_features = {
     IOFeaturesData.SKIN: True,
     IOFeaturesData.FAT: True,
     IOFeaturesData.RELAX: True,
-    IOFeaturesData.PUSH: True,
     IOFeaturesData.SKIN_MERGE: True,
     IOFeaturesData.SIMSHAPE: True,
     IOFeaturesData.EDGE_EVALUATOR: True,
-    IOFeaturesData.REMAP: True
+    IOFeaturesData.REMAP: True,
+    IOFeaturesData.PUSH: True,
+    IOFeaturesData.MUSH: True,
+    IOFeaturesData.ML_DEFORMER: True,
+    IOFeaturesData.SMART_TISSUE: True,
+    IOFeaturesData.CLOSEST_FIT: True,
+    IOFeaturesData.RIGID_WRAP: True,
+    IOFeaturesData.SOFT_WRAP: True,
+    IOFeaturesData.RADIAL_WRAP: True,
 }</code></pre>
 
 
