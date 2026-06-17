@@ -100,26 +100,26 @@ When training with neural clusters, the following additional files are required:
 
     Cook the TOP graph to launch the training work item.
 
-    The training process runs through TOPs, so progress and errors can be monitored from the task graph and work item information.
+    Use the TOP execution buttons to generate static work items and cook the graph, similarly to the data extraction workflow.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![AdnMLTraining task graph execution](../images/training_install_task_graph.png)
-  <figcaption><b>Figure 3</b>: TOP task graph status while launching or monitoring the AdnMLTraining work item.</figcaption>
+  ![AdnMLTraining TOP execution controls](../images/training_install_task_graph.png)
+  <figcaption><b>Figure 3</b>: TOP execution controls used to generate work items and cook the AdnMLTraining TOP graph.</figcaption>
 </figure>
 
 8. Install missing dependencies if prompted.
 
-    If the required machine learning dependencies are missing, the tool displays a prompt before running training.
+    If the required machine learning dependencies are missing, the tool displays a prompt when the TOP graph is executed.
 
     Press **OK** to install the dependencies from the prompt. This may take a few minutes.
 
-    Alternatively, install the dependencies manually from **Adonis > Utils > Install ML Dependencies**.
+    Alternatively, install the dependencies manually from **Adonis > Utils > Install ML Dependencies**. This manual installation option opens a separate console window.
 
     For standalone dependency installation using a `.bat` file, refer to the [Neural Training script documentation](../scripts/neural_training).
 
 <figure style="width:60%; margin-left:20%" markdown>
-  ![AdnMLTraining missing dependencies dialog](../images/training_install_ml_dependencies.png)
-  <figcaption><b>Figure 4</b>: Missing dependencies dialog shown when the training dependencies are not installed. The dependencies can be installed from this prompt or manually from <b>Adonis &gt; Utils &gt; Install ML Dependencies</b>.</figcaption>
+  ![AdnMLTraining missing dependencies prompt](../images/training_install_ml_dependencies.png)
+  <figcaption><b>Figure 4</b>: Missing dependencies prompt shown when the TOP graph is executed and the required machine learning dependencies are not installed.</figcaption>
 </figure>
 
 9. Review the training output.
@@ -130,9 +130,11 @@ When training with neural clusters, the following additional files are required:
 
     A `<model_name>_config.json` file is also generated with the training parameters used for the run. This can be used to review how the model was trained.
 
+    During or after execution, the work item output can also show epoch and average loss information. This is useful for debugging training behavior directly from TOPs.
+
 <figure style="width:90%; margin-left:5%" markdown>
-  ![AdnMLTraining execution log](../images/training_execution.png)
-  <figcaption><b>Figure 5</b>: Training execution log showing epoch progress, average loss, and best loss information. This information is also written to the generated log file next to the output model.</figcaption>
+  ![AdnMLTraining epoch and loss output](../images/training_execution.png)
+  <figcaption><b>Figure 5</b>: Training output showing epoch progress, average loss, and best loss information. This information is useful for debugging and is also written to the generated log file next to the output model.</figcaption>
 </figure>
 
 ## Parameters
@@ -168,6 +170,8 @@ The AdnMLTraining TOP HDA requires the machine learning dependencies to be insta
 
 If the dependencies are missing when the TOP graph is cooked, the tool displays a prompt asking whether to install them.
 
+This prompt appears as part of the TOP graph execution. The manual **Adonis > Utils > Install ML Dependencies** option is a separate installation workflow and opens a console window.
+
 The dependencies can be installed in one of the following ways:
 
 - From the missing dependencies prompt shown when launching training.
@@ -196,9 +200,9 @@ The `<model_name>_config.json` file can be used to review the training configura
 
 If the training process fails or does not produce the expected result, check the following:
 
-1. Check the TOP work item task graph.
+1. Check the TOP work item task graph and output.
 
-    The TOP task graph can show whether the work item failed and may provide error information for the failed task.
+    The TOP task graph can show whether the work item failed and may provide error information for the failed task. The work item output can also show epoch progress, average loss, and best loss information, which is useful for debugging training behavior.
 
 2. Check the generated `<model_name>_log.txt` file.
 
