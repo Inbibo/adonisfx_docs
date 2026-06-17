@@ -103,7 +103,7 @@ When training with neural clusters, the following additional files are required:
     Use the TOP execution buttons to generate static work items and cook the graph, similarly to the data extraction workflow.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![AdnMLTraining TOP execution controls](../images/training_install_task_graph.png)
+  ![AdnMLTraining TOP execution controls](../images/training_execution.png)
   <figcaption><b>Figure 3</b>: TOP execution controls used to generate work items and cook the AdnMLTraining TOP graph.</figcaption>
 </figure>
 
@@ -133,7 +133,7 @@ When training with neural clusters, the following additional files are required:
     During or after execution, the work item output can also show epoch and average loss information. This is useful for debugging training behavior directly from TOPs.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![AdnMLTraining epoch and loss output](../images/training_execution.png)
+  ![AdnMLTraining epoch and loss output](../images/training_task_graph.png)
   <figcaption><b>Figure 5</b>: Training output showing epoch progress, average loss, and best loss information. This information is useful for debugging and is also written to the generated log file next to the output model.</figcaption>
 </figure>
 
