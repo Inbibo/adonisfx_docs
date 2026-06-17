@@ -4,14 +4,14 @@ The **AdnNeuralClusteringPaintTool** is used to paint neural clusters on a stati
 
 The tool exports the painted cluster data to a `.json` file. This file is later used during neural training and can be provided when launching the training process with the [AdnNeuralTrainingTool](../tools/neural_training_tool).
 
-Neural clusters define local regions on the training mesh. These regions help the training process understand which parts of the mesh should be treated as related deformation areas, which can improve the poseability of the trained rig.
+Neural clusters define local regions on the training mesh. These regions help the training process understand which parts of the mesh should be treated as related deformation areas, which can improve the posability of the trained rig.
 
 The number and size of the clusters should be adjusted depending on the amount of extracted training data available. Larger datasets can support more granular clusters, while smaller datasets should usually use broader cluster regions.
 
 If multiple clusters overlap, the cluster values can be normalized. Normalizing overlapping clusters helps keep the cluster data consistent and can improve the resulting training quality.
 
 > [!NOTE]
-> The **AdnNeuralClusteringPaintTool** is intended to be used as an optional data preparation step for machine learning workflows. It provides neural clustering information that can complement the data extracted through the [AdnMLDataExtraction TOP HDA](../tools/data_extraction_tool).
+> The **AdnNeuralClusteringPaintTool** is intended to be used as an optional data preparation step for machine learning workflows. It provides neural clustering information that can complement the data extracted through the **AdnMLDataExtraction TOP HDA**.
 
 ## Requirements
 
@@ -232,7 +232,7 @@ After configuring and painting clusters with the AdnNeuralClusteringPaintTool, t
 
 This `.json` file is used during neural training and can be provided when launching the training process with the [AdnNeuralTrainingTool](../tools/neural_training_tool).
 
-The generated clusters describe regions of locality on the mesh. These regions help the training process isolate local deformation and activation behavior, which can improve the poseability of the trained rig.
+The generated clusters describe regions of locality on the mesh. These regions help the training process isolate local deformation and activation behavior, which can improve the posability of the trained rig.
 
 ## Recommendations
 
