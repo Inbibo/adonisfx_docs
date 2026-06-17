@@ -1,5 +1,73 @@
 # Release Notes
 
+## Version 2.1.0
+
+### Core
+- Implemented logic to exclude or include specific target faces from the computation of external constraints in AdnMuscle, AdnRibbonMuscle and AdnSkin solvers.
+- Implemented AdnMush deformer.
+- Implemented AdnRadialWrap deformer.
+- Implemented AdnSoftWrap deformer.
+- Implemented AdnRigidWrap deformer.
+
+- Integrated AdnMush algorithm in all Adonis solvers.
+
+- Implemented AdnMLDeformer.
+- Implemented AdnSmartTissue solver.
+- Implemented Neural Training API script.
+
+### Maya
+- Implemented Target Faces Editor Tool to exclude or include specific target faces from external constraints in AdnMuscle, AdnRibbonMuscle and AdnSkin solvers.
+- Implemented AdnMush deformer.
+- Implemented AdnPointLocator node.
+- Implemented AdnClosestFit deformer.
+- Implemented AdnRadialWrap deformer as part of the Anatomy Transfer Workflow.
+- Implemented AdnSoftWrap deformer as part of the Anatomy Transfer Workflow.
+- Implemented AdnRigidWrap deformer as part of the Anatomy Transfer Workflow.
+- Implemented Landmark Tool.
+- Implemented AdnTransfer Tool and script.
+
+- Integrated AdnMush algorithm in all Adonis solvers.
+
+- Implemented AdnMLDeformer.
+- Implemented AdnSmartTissue solver.
+- Added creation utils for AdnMLDeformer and AdnSmartTissue.
+- Implemented Data Extraction Tool and Data Extraction API script.
+- Implemented Neural Clustering Paint Tool.
+- Implemented Neural Training Tool.
+- Added util in the Adonis menu to install the ML dependencies needed for training and inference.
+
+- Added util in the Adonis menu to reconnect the original shape to the *originalGeometry* of all Adonis deformers.
+
+### Houdini
+- Implemented Target Faces Editor Tool to exclude or include specific target faces from external constraints in AdnMuscle, AdnRibbonMuscle and AdnSkin solvers.
+- Implemented AdnMush deformer.
+- Implemented AdnClosestFit deformer.
+- Implemented AdnRadialWrap deformer as part of the Anatomy Transfer Workflow.
+- Implemented AdnSoftWrap deformer as part of the Anatomy Transfer Workflow.
+- Implemented AdnRigidWrap deformer as part of the Anatomy Transfer Workflow.
+- Implemented AdnTransfer Tool and script.
+
+- Integrated AdnMush algorithm in all Adonis solvers.
+
+- Implemented AdnMLDeformer.
+- Implemented AdnSmartTissue solver.
+- Added creation utils for AdnMLDeformer and AdnSmartTissue.
+- Implemented AdnMLDataProcessing SOP HDA.
+- Implemented AdnMLDataExtraction TOP HDA and Data Extraction API script.
+- Implemented AdnNeuralClusteringPaintTool SOP HDA.
+- Implemented AdnMLNeuralTraining TOP HDA.
+- Added util in the Adonis menu to install the ML dependencies needed for training and inference.
+
+### Improvements
+- self collisions at rest optimization [TODO]
+- Replaced AdnRelax by AdnMush in AdnTurbo.
+
+### Deprecated
+
+### Known Limitations
+
+### Bug Fixes
+
 ## Version 2.0.1
 2026-06-02
 
