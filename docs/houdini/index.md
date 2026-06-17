@@ -30,7 +30,7 @@
     - [AdnFiberDiffusion](utils/fiber_diffusion)
     - [AdnFiberProjection](utils/fiber_projection)
 - Tools
-    - [Target Faces Filter Editor](tools/target_faces_filter_editor)
+    - [Target Faces Filter Editor](tools/target_faces_editor)
     - [Turbo](tools/turbo_tool)
     - [Transfer](tools/transfer_tool)
     - [Export](tools/exporter)

@@ -129,7 +129,7 @@ nav:
     - Tools:
       - Paint Tool                 : maya/tools/paint_tool.md
       - Sensors Connection Editor  : maya/tools/sensors_connection_editor.md
-      - Target Faces Filter Editor : maya/tools/target_faces_filter_editor.md
+      - Target Faces Filter Editor : maya/tools/target_faces_editor.md
       - Mirror                     : maya/tools/mirror_tool.md
       - Turbo                      : maya/tools/turbo_tool.md
       - Landmark Tool              : maya/tools/landmark_tool.md
@@ -179,7 +179,7 @@ nav:
       - AdnFiberDiffusion         : houdini/utils/fiber_diffusion.md
       - AdnFiberProjection        : houdini/utils/fiber_projection.md
     - Tools:
-      - Target Faces Filter Editor : houdini/tools/target_faces_filter_editor.md
+      - Target Faces Filter Editor : houdini/tools/target_faces_editor.md
       - Turbo                      : houdini/tools/turbo_tool.md
       - Transfer                   : houdini/tools/transfer_tool.md
       - Export                     : houdini/tools/exporter.md

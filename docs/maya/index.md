@@ -29,7 +29,7 @@
 - Tools
     - [Paint Tool](tools/paint_tool)
     - [Sensor Connection Editor](tools/sensors_connection_editor)
-    - [Target Faces Filter Editor](tools/target_faces_filter_editor)
+    - [Target Faces Filter Editor](tools/target_faces_editor)
     - [Mirror](tools/mirror_tool)
     - [Turbo](tools/turbo_tool)
     - [Landmark Tool](tools/landmark_tool.md)

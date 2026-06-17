@@ -72,7 +72,7 @@ The tool requires the following conditions to properly gather the data needed to
 
 5. In the viewport, select the faces of that target to modify.
 
-6. Click "Set" to write the selected faces to the Target Faces column in the table.
+6. Click *Set* to write the selected faces to the Target Faces column in the table.
 
 7. Switch the Target Faces Filter mode to Exclude, Include, or None depending on the desired result.
 
@@ -83,7 +83,7 @@ The tool requires the following conditions to properly gather the data needed to
   <figcaption><b>Figure 3</b>: Adonis Target Faces Editor with some faces added to two of the three targets. With the Target Faces Filter set to Exclude, those faces will be discarded when creating attachments to geometry and slide on geometry constraints. For the second target in the table with an empty list of faces, all the faces will be used for constraints creation.</figcaption>
 </figure>
 
-9. To visualize the current face list, select the target in the table and click "Visualize".
+9. To visualize the current face list, select the target in the table and click *Visualize*.
 
 > [!NOTE]
 >
