@@ -93,7 +93,7 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
     Use the plus and minus icons next to *Entry* to add or remove cluster entries.
 
-    Use *Clear* to clear the current multiparameter entry.
+    Use *Clear* to clear all of the current multiparameter entries.
 
 7. Name the cluster entry.
 
@@ -145,15 +145,15 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
     The painted weights are mirrored across the X axis of the geometry. This means the tool transfers the painted region from one side of the mesh to the corresponding opposite-side region.
 
-    If the selected convention does not match, the tool may fall back to a simple `L`/`R` token swap.
+    If the selected convention does not match, the tool will try to fall back to a simple `L`/`R` token swap. A warning will be logged in case of failure.
 
-    If the mirrored entry already exists, the tool asks for confirmation. Depending on which data is already present, it may mirror only the joints, only the weights, or both.
+    If the mirrored entry already exists, the tool asks for confirmation. Depending on which data is already present, it may update only the mirrored joints, the weights, or both.
 
 11. Normalize overlapping clusters if needed.
 
     Enable *Normalize Clusters* when cluster regions overlap and the painted values should be normalized.
 
-    Normalizing clusters adjusts the weights between `0` and `1` across all clusters. This helps keep overlapping cluster data consistent and can improve the quality of the resulting training data.
+    Normalizing clusters adjusts the weights between `0` and `1` across all clusters. This helps keep overlapping cluster data consistent and can improve the quality of the model predictions at the interface between clusters.
 
 12. Export the cluster map.
 
@@ -193,11 +193,11 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
 | Name | Type | Default | Description |
 | :--- | :--- | :------ | :---------- |
-| *Entry* | Integer | 1 | Current cluster entry being edited. Use the plus and minus icons to add or remove entries, and use *Clear* to clear the current multiparameter entry. |
+| *Entry* | Integer | 1 | Current cluster entry being edited. Use the plus and minus icons to add or remove entries, and use *Clear* to clear all of the current multiparameter entries. |
 | *Name* | String | Entry1 | Neural cluster name. This becomes the Houdini point attribute used for painting, import, export, mirroring, and normalization. Use a valid attribute name with no spaces or special characters. |
 | *Joints* | String |  | Explicit joint selection for the current cluster entry, stored as Houdini group patterns using the `@name=...` convention. The joint geometry must contain a valid *name* point attribute. Do not use wildcards or broad patterns. On export, these selections are resolved to full joint paths using separators. |
 | *Paint Cluster* | Button |  | Makes this cluster the active paint target and enters the paint workflow for its mask attribute. |
-| *Mirror* | Button |  | Creates or updates a mirrored neural cluster entry by copying joints and weights across the X axis. The entry name and joints are mirrored using the selected *Mirror by* mode and the *Left* and *Right* naming tokens. If the selected convention does not match, the tool may fall back to a simple `L`/`R` token swap. |
+| *Mirror* | Button |  | Creates or updates a mirrored neural cluster entry by copying joints and weights across the X axis. The entry name and joints are mirrored using the selected *Mirror by* mode and the *Left* and *Right* naming tokens. If the selected convention does not match, the tool will try to fall back to a simple `L`/`R` token swap. A warning will be logged in case of failure. |
 | *Normalize Clusters* | Boolean | False | Normalizes the weights between `0` and `1` across all clusters. This helps keep overlapping cluster weights consistent. |
 
 ### Paint Settings
@@ -218,9 +218,9 @@ At the top level, the file contains:
 Each entry contains:
 
 - `name`: Cluster entry name. This corresponds to the neural cluster attribute used by the tool.
-- `joints`: Full joint paths associated with the cluster.
+- `joints`: List of full joint paths associated with the cluster.
 - `vertex_indices`: Stored vertex index data for the entry.
-- `color_set`: Name of the color set used to store the painted values.
+- `color_set`: Name of the color set used to store the painted values. This is a Maya-specific parameter and will be auto-generated for cross-DCC compatibility.
 - `weights`: Painted cluster weight values, stored by mesh component index.
 
 For example, a cluster file may contain entries such as `R_frontLeg`, `L_frontLeg`, `R_rearLeg`, `L_rearLeg`, and `C_tailSpineNeck`. Each entry stores the joints associated with that region and the painted weight values for the mesh.
@@ -243,7 +243,7 @@ The generated clusters describe regions of locality on the mesh. These regions h
 - Paint clusters around regions where local deformation behavior should be isolated.
 - Normalize clusters when painted regions overlap.
 - Use clear cluster names that describe the body region or deformation area they represent.
-- Associate each cluster with the joints that most directly affect the painted region.
+- Associate each cluster with the joints that are expected to cause deformations in that region. For example, for a humanoid character, movements of the elbow, or forearm, joint are expected to cause bulging of the bicep and tricep muscles, therefore the cluster should cover that skin region.
 - Keep mesh and cluster names aligned with other DCCs when the cluster data needs to be reused across applications.
 - Use explicit `@name=...` joint selections and avoid wildcards.
 - Remember that painted values closer to `1` represent higher influence and are displayed toward red, while values closer to `0` represent lower influence and are displayed toward blue.
