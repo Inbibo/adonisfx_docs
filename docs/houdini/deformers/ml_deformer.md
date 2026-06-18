@@ -44,7 +44,7 @@ To create and configure the deformer easily, there is a shortcut in the Adonis m
 
 <figure markdown>
   ![Creator tool for AdnMLDeformer with values](../images/ml_deformer_creator_01.png)
-  <figcaption><b>Figure 3</b>: UI to create AdnMLDeformr with the model and joints files provided.</figcaption>
+  <figcaption><b>Figure 3</b>: UI to create AdnMLDeformer with the model and joints files provided.</figcaption>
 </figure>
 
 6. Click on the Create button.
@@ -52,7 +52,7 @@ To create and configure the deformer easily, there is a shortcut in the Adonis m
 
 <figure markdown>
   ![Network view after creating AdnMLDeformer](../images/ml_deformer_created.png)
-  <figcaption><b>Figure 4</b>: UI to create AdnMLDeformr with the model and joints files provided.</figcaption>
+  <figcaption><b>Figure 4</b>: Network view after creating AdnMLDeformer.</figcaption>
 </figure>
 
 8. The deformer is ready. Tweak the envelope and/or enable or disable the inference to see the effect of the Adonis ML model.
