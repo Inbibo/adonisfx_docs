@@ -1,5 +1,3 @@
-Here is the full updated terminology page with the new entries added alphabetically and the Smart Tissue / ML Deformer wording aligned with your corrections. 
-
 # Terminology
 
 ## Activation Node
@@ -16,7 +14,7 @@ Anatomy Transfer is the workflow used to transfer anatomical layers from one cha
 
 ## Closest Fit
 
-Closest Fit or **AdnClosestFit** is an Adonis deformer that projects an input geometry onto one or more target geometries using a closest-surface projection model. For each point of the deformed geometry, it searches for the closest point on the closest target surface and moves the point to that position, making the input geometry conform to the target shape.
+Closest Fit or **AdnClosestFit** is an Adonis deformer that projects an input geometry onto one or more target geometries using a closest-surface projection model. For each point of the deformed geometry, it finds the nearest target surface and moves the point to that position, making the input geometry conform to the target shape.
 
 Closest Fit is useful for fitting meshes onto anatomical models, conforming accessories to character surfaces, and creating surface-matching workflows between unrelated geometries. Its influence can be controlled globally with the deformer envelope and locally with paintable weights.
 
@@ -155,7 +153,7 @@ The ribbon muscle or **AdnRibbonMuscle** is an Adonis solver for muscle simulati
 
 ## Rigid Wrap
 
-Rigid Wrap or **AdnRigidWrap** is an Adonis deformer that transfers deformation from one or more target geometries to an input geometry using a closest-surface attachment model. For each point of the deformed geometry, it finds the closest point on the closest target surface and stores a relative attachment to that surface. As the target geometry deforms, the input geometry follows while preserving its relative position to the target.
+Rigid Wrap or **AdnRigidWrap** is an Adonis deformer that transfers deformation from one or more target geometries to an input geometry using a closest-surface attachment model. For each point of the deformed geometry, it finds the nearest target surface and stores a relative attachment to that surface. As the target geometry deforms, the input geometry follows while preserving its relative position to the target.
 
 Rigid Wrap is useful for attaching secondary geometry to deforming surfaces, transferring deformation between unrelated meshes, and creating rigid surface-following setups. In anatomy transfer workflows, it is commonly used to transfer the skin cut using the morphed skin as target, and to transfer the fascia using the transferred muscles as targets.
 
