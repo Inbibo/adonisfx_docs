@@ -212,9 +212,59 @@ train(
 )
 </code></pre>
 
+## Standalone Launcher Example
+
+The training script can also be launched without manually creating a Python environment by using the AdonisML runner script.
+
+The AdonisML package provides a platform-specific runner:
+
+- `run.bat` on Windows.
+- `run.sh` on Linux.
+
+The runner script is located in the AdonisML package directory. The training script is located in the `scripts` folder next to the runner.
+
+On Windows, use `run.bat` followed by the path to `scripts\train.py` and the training arguments:
+
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">"&lt;adnml_package_path&gt;\run.bat" "&lt;adnml_package_path&gt;\scripts\train.py" ^
+  --input-data "C:\path\to\dataset\inputs.csv" ^
+  --output-data "C:\path\to\dataset\outputs.csv" ^
+  --modelpath "C:\path\to\output\model.adnm" ^
+  --standardize-out ^
+  --license-product batch ^
+  --force-wait
+</code></pre>
+
+On Linux, use `run.sh` followed by the path to `scripts/train.py` and the training arguments:
+
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">"&lt;adnml_package_path&gt;/run.sh" "&lt;adnml_package_path&gt;/scripts/train.py" \
+  --input-data "/path/to/dataset/inputs.csv" \
+  --output-data "/path/to/dataset/outputs.csv" \
+  --modelpath "/path/to/output/model.adnm" \
+  --standardize-out \
+  --license-product batch \
+  --force-wait
+</code></pre>
+
+To train with neural clusters from the standalone launcher, provide the neural cluster `.json` file and the joint information `.json` file:
+
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">"&lt;adnml_package_path&gt;\run.bat" "&lt;adnml_package_path&gt;\scripts\train.py" ^
+  --input-data "C:\path\to\dataset\inputs.csv" ^
+  --output-data "C:\path\to\dataset\outputs.csv" ^
+  --modelpath "C:\path\to\output\model.adnm" ^
+  --clustersfilepath "C:\path\to\clusters\neural_clusters.json" ^
+  --joint-info-filepath "C:\path\to\dataset\joints.json" ^
+  --aug-protocol none ^
+  --standardize-out ^
+  --license-product batch ^
+  --force-wait
+</code></pre>
+
+> [!NOTE]
+> Replace `<adnml_package_path>` with the folder that contains `run.bat` or `run.sh`. This is the same folder that contains the `scripts` directory.
+
 ## Command-Line Example
 
-The script can also be run through its command-line arguments.
+The script accepts the following training arguments after the runner and `scripts/train.py` path:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">--input-data path/to/dataset/inputs.csv \
 --output-data path/to/dataset/outputs.csv \
@@ -348,6 +398,10 @@ If the training process fails or does not produce the expected result, check the
 
     Use `"batch"` for standalone or automated training workflows. Use `"interactive"` when the training process is launched from an interactive DCC workflow.
 
+8. Confirm that the standalone runner path is valid.
+
+    When launching training outside a Python environment, make sure the command points to the correct `run.bat` or `run.sh` file and to the `scripts/train.py` file in the same AdonisML package directory.
+
 ## Result
 
 As a result of executing the script, the output folder will contain the trained model and the training support files:
@@ -369,6 +423,7 @@ The resulting `.adnm` file can then be used as part of the Adonis neural workflo
 - Use augmentation only when the dataset is small and training without augmentation is not producing good results.
 - Use a compatible GPU when available, because GPU training is usually much faster than CPU training.
 - Use `"batch"` licensing for standalone or automated training workflows, and `"interactive"` licensing for DCC-driven interactive workflows.
+- Use the standalone `run.bat` or `run.sh` launcher when training needs to be started outside a Python environment.
 - Review the generated `<model_name>_log.txt` file after training to inspect epoch progress and loss values.
 - Review the generated `<model_name>_config.json` file to confirm the training configuration used for the model.
 - Use `force_overwrite` or `--force-overwrite` carefully, because it deletes any existing model file at the target path.
