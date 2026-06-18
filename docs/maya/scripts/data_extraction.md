@@ -55,7 +55,7 @@ The required arguments are:
 >
 > The rest skin and simulated skin must have the same topology. They must have matching point counts and matching point order so the extraction process can compute displacement data correctly.
 >
-> The `joints_path` should point to the Maya joints that will drive the ml predictions. These joints must exist and be valid before calling `data_extraction.extract()`.
+> The `joint_names_list` should contain the Maya joint paths that will drive the ML predictions. These joints must exist and be valid before calling `data_extraction.extract()`.
 
 ## Extract Data With Optional Settings
 
