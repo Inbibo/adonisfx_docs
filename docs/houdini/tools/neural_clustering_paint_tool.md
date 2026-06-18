@@ -1,5 +1,8 @@
 # AdnNeuralClusteringPaintTool
 
+> [!IMPORTANT]
+> An Adonis ML license is required to use this feature.
+
 The **AdnNeuralClusteringPaintTool** is used to paint neural clusters on a static mesh. These clusters provide additional locality information for the machine learning training process, helping the model better isolate local deformations and activations.
 
 The tool exports the painted cluster data to a `.json` file. This file is later used during neural training and can be provided when launching the training process with the [AdnNeuralTrainingTool](../tools/neural_training_tool).
@@ -10,10 +13,7 @@ The number and size of the clusters should be adjusted depending on the amount o
 
 If multiple clusters overlap, the cluster values can be normalized. Normalizing overlapping clusters helps keep the cluster data consistent and can improve the resulting training quality.
 
-> [!NOTE]
-> Neural clustering is only supported with the **AdonisML** bundle. Make sure the Adonis plugin is installed and licensed to support ML before using this workflow.
-
-> [!NOTE]
+> [!TIP]
 > The **AdnNeuralClusteringPaintTool** is intended to be used as an optional data preparation step for machine learning workflows. It provides neural clustering information that can complement the data extracted through the **AdnMLDataExtraction TOP HDA**.
 
 ## Requirements
@@ -29,17 +29,14 @@ The ML joints connected to *Joints* should represent the joint set used as machi
 
 The joint entries assigned to each cluster must use explicit `@name=...` selections, for example `@name=R_Scapula`. Do not use wildcards or broad patterns.
 
-> [!NOTE]
-> The painted mesh must match the topology of the mesh that will be trained. If the topology does not match, the exported cluster weights may not correspond to the expected training mesh data.
-
 ## How To Use
 
 1. Create an **AdnNeuralClusteringPaintTool** node.
 
-    <figure style="width:90%; margin-left:5%" markdown>
-      ![AdnNeuralClusteringPaintTool parameter template](../images/neural_clustering_paint_tool_parameter_template.png)
-      <figcaption><b>Figure 1</b>: AdnNeuralClusteringPaintTool parameter template.</figcaption>
-    </figure>
+<figure style="width:90%; margin-left:5%" markdown>
+  ![AdnNeuralClusteringPaintTool parameter template](../images/neural_clustering_paint_tool_parameter_template.png)
+  <figcaption><b>Figure 1</b>: AdnNeuralClusteringPaintTool parameter template.</figcaption>
+</figure>
 
 2. Connect the geometry and joints.
 
@@ -49,10 +46,10 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
     The ML joint geometry must contain a valid *name* point attribute.
 
-    <figure style="width:90%; margin-left:5%" markdown>
-      ![AdnNeuralClusteringPaintTool node setup](../images/neural_clustering_paint_tool_node.png)
-      <figcaption><b>Figure 2</b>: Example node setup for the AdnNeuralClusteringPaintTool, with the static mesh connected to the <i>Geometry</i> input and the ML joints connected to the <i>Joints</i> input.</figcaption>
-    </figure>
+<figure style="width:90%; margin-left:5%" markdown>
+  ![AdnNeuralClusteringPaintTool node setup](../images/neural_clustering_paint_tool_node.png)
+  <figcaption><b>Figure 2</b>: Example node setup for the AdnNeuralClusteringPaintTool, with the static mesh connected to the <i>Geometry</i> input and the ML joints connected to the <i>Joints</i> input.</figcaption>
+</figure>
 
 3. Set the *Mesh* parameter.
 
@@ -116,10 +113,10 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
     The selected joints help describe which rig controls are related to the painted cluster region.
 
-    <figure style="width:90%; margin-left:5%" markdown>
-      ![AdnNeuralClusteringPaintTool joint selection](../images/neural_clustering_paint_tool_joint_selection.png)
-      <figcaption><b>Figure 3</b>: Joint picker used to populate the <i>Joints</i> parameter for a cluster entry. The selected joints are written as explicit <code>@name=...</code> entries.</figcaption>
-    </figure>
+<figure style="width:90%; margin-left:5%" markdown>
+  ![AdnNeuralClusteringPaintTool joint selection](../images/neural_clustering_paint_tool_joint_selection.png)
+  <figcaption><b>Figure 3</b>: Joint picker used to populate the <i>Joints</i> parameter for a cluster entry. The selected joints are written as explicit <code>@name=...</code> entries.</figcaption>
+</figure>
 
 9. Paint the cluster.
 
@@ -133,10 +130,10 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
     For more information about Houdini's Attribute Paint node, refer to the [Houdini Attribute Paint documentation](https://www.sidefx.com/docs/houdini/nodes/sop/attribpaint).
 
-    <figure style="width:90%; margin-left:5%" markdown>
-      ![AdnNeuralClusteringPaintTool painted cluster](../images/neural_clustering_paint_tool_cluster.png)
-      <figcaption><b>Figure 4</b>: Example of a painted neural cluster on a training mesh. Painted values closer to <code>1</code> are displayed toward red and represent higher influence, while values closer to <code>0</code> are displayed toward blue and represent lower influence. Smooth transitions between these values define the cluster falloff.</figcaption>
-    </figure>
+<figure style="width:90%; margin-left:5%" markdown>
+  ![AdnNeuralClusteringPaintTool painted cluster](../images/neural_clustering_paint_tool_cluster.png)
+  <figcaption><b>Figure 4</b>: Example of a painted neural cluster on a training mesh. Painted values closer to <code>1</code> are displayed toward red and represent higher influence, while values closer to <code>0</code> are displayed toward blue and represent lower influence. Smooth transitions between these values define the cluster falloff.</figcaption>
+</figure>
 
 10. Mirror the cluster if needed.
 
@@ -250,13 +247,3 @@ The generated clusters describe regions of locality on the mesh. These regions h
 - Keep mesh and cluster names aligned with other DCCs when the cluster data needs to be reused across applications.
 - Use explicit `@name=...` joint selections and avoid wildcards.
 - Remember that painted values closer to `1` represent higher influence and are displayed toward red, while values closer to `0` represent lower influence and are displayed toward blue.
-
-## Limitations
-
-- Neural clustering quality depends on the quality and amount of extracted training data.
-- Very granular clusters may require a larger dataset to train reliably.
-- Broad clusters may be more suitable for smaller datasets, but they provide less localized deformation separation.
-- Overlapping clusters should usually be normalized to avoid inconsistent cluster values.
-- The painted mesh connected to *Geometry* must match the topology of the mesh used for training.
-- The ML joint geometry connected to *Joints* must contain a valid *name* point attribute.
-- The *Joints* entries must use explicit `@name=...` selections and should not use wildcards.
