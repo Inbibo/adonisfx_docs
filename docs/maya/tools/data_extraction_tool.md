@@ -70,7 +70,7 @@ To prepare the Maya scene for data extraction you can follow these steps:
 
 1. Duplicate the animated skin geometry at rest pose. If you already have a rest skin geometry in the scene, you can skip this step.
 
-2. Set the *Rest Skin Geometry* and *Simulated Skin Geometry* fields.
+2. Set the *Rest skin scene path* and *Sim skin scene path* fields.
 
     Add the scene paths for the rest skin and simulated skin geometries in the corresponding fields of the UI. You can use the *Get From Selection* buttons to select the geometries in the scene and automatically populate the fields.
 
