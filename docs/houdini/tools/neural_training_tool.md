@@ -12,7 +12,7 @@ The AdnMLTraining TOP HDA can also help manage the training dependencies. If the
 > Neural training is only supported with the **AdonisML** bundle. Make sure the Adonis plugin is installed and licensed to support ML before running the training workflow.
 
 > [!NOTE]
-> The training process checks automatically for an available Nvidia GPU and uses it to drastically accelerate training. If a supported GPU device is not available, training falls back to CPU execution, which will be significantly slower. Multi-GPU setups are currently not supported, and training uses the first available device.
+> When compatible GPU execution is available, training can use the GPU and is usually faster than CPU training. If GPU execution is not available, training falls back to CPU execution, which can be slower.
 
 > [!NOTE]
 > This page describes how to run training from Houdini using the AdnMLTraining TOP HDA. For dependency installation options, refer to the [Training Dependencies](#training-dependencies) section.
@@ -190,7 +190,7 @@ The dependencies can be installed in one of the following ways:
 Installing the dependencies may take a few minutes.
 
 > [!NOTE]
-> The training process checks automatically for an available Nvidia GPU and uses it to drastically accelerate training. If a supported GPU device is not available, training falls back to CPU execution, which will be significantly slower. Multi-GPU setups are currently not supported, and training uses the first available device.
+> When compatible GPU execution is available, training can use the GPU and is usually faster than CPU training. If GPU execution is not available, training falls back to CPU execution, which can be slower.
 
 ## Output Files
 
@@ -246,7 +246,7 @@ The training run also generates a `<model_name>_log.txt` file and a `<model_name
 - Consider disabling *Standardize Outputs* only when the number of training poses is low and preserving the original output distribution gives better results.
 - Use neural clusters when local deformation regions should be isolated during training.
 - Use augmentation only when the dataset is small and training without augmentation is not producing good results. However, if possible, recording new data should always be considered first.
-- Prefer running the training on a machine with an Nvidia GPU, as it will drastically reduce the training time and allow faster iterations.
+- Prefer GPU training when compatible hardware and dependencies are available, because it is usually faster than CPU training.
 - Review the generated `<model_name>_log.txt` file after training to inspect epoch progress and loss values.
 - Review the generated `<model_name>_config.json` file to confirm the training configuration used for the model.
 - Use *Force Overwrite* carefully, because it deletes any existing model file at the target path.
@@ -257,4 +257,3 @@ The training run also generates a `<model_name>_log.txt` file and a `<model_name
 - Augmented poses may contain artifacts and may be less aligned to the original simulated silhouette.
 - Neural clusters with large and redundant overlapping regions can be detrimental for learning and lead to bad results.
 - Very small datasets may produce lower-quality models, especially when training complex deformations.
-- Multi-GPU setups are currently not supported. Training uses the first available supported GPU device.
