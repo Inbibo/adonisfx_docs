@@ -72,7 +72,7 @@ data_extraction.extract(
     joints_path="/obj/geo1/OUT_JOINTS",
     joint_names_list=["root", "spine", "neck", "head"],
     save_directory_path="path/to/export/folder",
-    muscles_paths="/obj/geo1/ADN_OUT_MUSCLES",
+    muscles_paths="/obj/geo1/OUT_MUSCLES",
     skip_frames=2,
     stabilization_frames=5,
     frame_windows=[[1, 120], [220, 360]],
@@ -82,7 +82,7 @@ data_extraction.extract(
 
 The optional arguments are:
 
-- `muscles_paths`: Muscle SOP paths used to extract muscle activation data. This can be a single string, a list of strings, or a UI-style string separated by spaces, commas, tabs, or newlines. The paths can point to AdnMuscle SOPs, muscle geometry SOPs, or **ADN_OUT_** nodes.
+- `muscles_paths`: Muscle SOP paths used to extract muscle activation data. This can be a single string, a list of strings, or a UI-style string separated by spaces, commas, tabs, or newlines. The recommended setup is to point to a merge node that combines all **ADN_OUT_** Null nodes coming from the muscle nodes. This is supported and keeps the extraction input centralized. The paths can also point to individual **AdnMuscle** SOPs, muscle geometry SOPs, or **ADN_OUT_** nodes.
 - `skip_frames`: Number of frames to skip between recorded poses. This helps reduce redundant pose data and extract more diverse samples.
 - `stabilization_frames`: Number of times to recook a frame before recording displacement data. This parameter damps the motion inertia in the recorded poses.
 - `frame_windows`: List of frame windows to record. If empty, the entire playback range is recorded.
@@ -152,17 +152,20 @@ data_extraction.extract(
     joints_path="/obj/geo1/OUT_JOINTS",
     joint_names_list=["root", "spine", "neck", "head"],
     save_directory_path="path/to/export/folder",
-    muscles_paths="/obj/geo1/ADN_OUT_MUSCLES"
+    muscles_paths="/obj/geo1/OUT_MUSCLES"
 )
 </code></pre>
 
+The recommended setup is to connect all **ADN_OUT_** Null nodes coming from the muscle nodes into a merge node, then use that merge node as the `muscles_paths` input. This keeps the extraction setup centralized and makes it easier to provide all muscle outputs consistently.
+
 The `muscles_paths` argument can be:
 
-- A single SOP path.
+- A single SOP path pointing to a merge node containing all muscle **ADN_OUT_** Null nodes.
+- A single SOP path pointing to one muscle output.
 - A list of SOP paths.
 - A string containing multiple paths separated by spaces, commas, tabs, or newlines.
 
-The paths can point to AdnMuscle SOPs, muscle geometry SOPs, or **ADN_OUT_** nodes.
+The paths can point to **AdnMuscle** SOPs, muscle geometry SOPs, or **ADN_OUT_** nodes.
 
 When muscle paths are provided, the extracted data will support training the ML model on material properties prediction for AdnSmartTissue. If this input is not provided, the extracted data will support training models for AdnMLDeformer only.
 
@@ -186,33 +189,6 @@ data_extraction.extract(
 
 > [!WARNING]
 > Enabling `force_overwrite` will replace any existing extraction data in the target folder, use it with caution.
-
-## Interruption Callback
-
-The `interruption_callback` argument can be used to control how interruptions are handled when the extraction process is running.
-
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">def confirm_interruption():
-    return True
-
-data_extraction.extract(
-    rest_skin_path="/obj/geo1/REST_SKIN",
-    sim_skin_path="/obj/geo1/OUT_SKIN",
-    joints_path="/obj/geo1/OUT_JOINTS",
-    joint_names_list=["root", "spine", "neck", "head"],
-    save_directory_path="path/to/export/folder",
-    interruption_callback=confirm_interruption
-)
-</code></pre>
-
-The callback must return:
-
-- `True` to confirm cancellation.
-- `False` to continue extracting.
-
-If the extraction is interrupted, partial data may have already been written to the export folder.
-
-> [!NOTE]
-> UI progress and interruption dialogs are only used when Houdini UI is available. In batch or headless execution, UI progress and interruption dialogs are suppressed.
 
 ## Exported Files
 
@@ -254,7 +230,6 @@ The `extract` function may raise the following errors:
 
 - `ValueError`: Raised when an input path, frame setting, geometry, or joint list is invalid.
 - `FileExistsError`: Raised when dataset files already exist and `force_overwrite` is disabled.
-- `InterruptedError`: Raised when the extraction is interrupted and the interruption is confirmed.
 
 ## Limitations
 
@@ -262,4 +237,3 @@ The `extract` function may raise the following errors:
 - The joint source geometry must contain the requested KineFX joint names.
 - The joint source geometry must contain valid KineFX joint transform data.
 - Existing `inputs.csv` or `outputs.csv` files will prevent extraction unless `force_overwrite` is enabled.
-- Interrupting the extraction may leave partial data in the export folder.
