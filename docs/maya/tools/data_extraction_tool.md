@@ -48,7 +48,7 @@ The Data Extraction Tool (see Figure 1) provides an intuitive interface to confi
 
 - **Skip frames**: This field specifies the number of frames to skip between each recorded frame. For example, if set to `2`, the data extraction will record every third frame. This can be useful for reducing the redundancy of poses in the data recorded, especially for slow animations.
 
-- **Stabilization frames**: This field specifies the number of times a frame should stabilized before being recorded. This parameter damps the motion inertia in the recorded poses. Higher values make each of the recorded poses lose more dynamics and converge toward a static silhouette. Well stabilized data is required for good ML deformation training. Faster animations usually require more stabilization frames. Typical suggested values for normal animation speeds are between `5` and `10`. Increasing this value will increase the export time.
+- **Stabilization frames**: This field specifies the number of times a frame should be stabilized before being recorded. This parameter damps the motion inertia in the recorded poses. Higher values make each of the recorded poses lose more dynamics and converge toward a static silhouette. Well stabilized data is required for good ML deformation training. Faster animations usually require more stabilization frames. Typical suggested values for normal animation speeds are between `5` and `10`. Increasing this value will increase the export time.
 
 ### Output
 
