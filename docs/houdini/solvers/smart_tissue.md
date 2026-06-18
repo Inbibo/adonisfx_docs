@@ -1,27 +1,67 @@
 # AdnSmartTissue
 
-AdnSmartTissue is a Houdini SOP designed to generate smart tissue dynamics soft tissue effects without requiring the creation and simulation of complex anatomical structures such as muscles, fascia, or fat layers.
+AdnSmartTissue is a Houdini SOP designed to generate skin dynamics and soft tissue effects without requiring the creation and simulation of complex anatomical structures such as muscles, fascia, or fat layers.
 
 Instead of relying on pre-built internal anatomy, AdnSmartTissue automatically generates a procedural volumetric structure beneath the input surface. This structure is created from an inner mesh, whose shape and depth can be controlled through the push attributes and further refined by applying relaxation. The resulting volume is then simulated by computing: 1) volume constraints to make it resistant to compression and expansion; 2) volume shape preservation constraints to make the internal volume resistant to deformation; 3) hard constraints to attach the borders of the mesh to the base mesh; and 4) shape preservation constraints to preserve the original shape between connected vertices.
 
-AdnSmartTissue can also leverage an Adonis ML model trained with muscle activation data to dynamically modulate tissue stiffness across the surface. During evaluation, the solver infers an activation value for each smart tissue vertex that is then remapped between the user-defined *Min Stiffness* and *Max Stiffness* limits and applied to the solver constraints. This allows the simulated tissue to locally vary its resistance to deformation, emulating the effect of underlying muscles beneath the smart tissue.
+AdnSmartTissue can also leverage an Adonis ML model trained with muscle activation data to dynamically modulate tissue stiffness across the surface. During evaluation, the solver infers an activation value for each skin vertex that is then remapped between the user-defined *Min Stiffness* and *Max Stiffness* limits and applied to the solver constraints. This allows the simulated tissue to locally vary its resistance to deformation, emulating the effect of underlying muscles beneath the skin.
 
-AdnSmartTissue can be used as a standalone smart tissue dynamics solution on top of any animated mesh, or as a complementary simulation layer on top of an AdnMLDeformer setup to enhance the visual richness and realism of the final deformation.
+AdnSmartTissue can be used as a standalone skin dynamics solution on top of any animated mesh, or as a complementary simulation layer on top of an AdnMLDeformer setup to enhance the visual richness and realism of the final deformation.
+
+To learn more about how to train an Adonis ML model, please check the [Adonis ML Neural Training Tool](../tools/neural_training_tool) page.
+
+> [!IMPORTANT]
+> - The AdnSmartTissue can be used with an FX license. However, an Adonis ML license is required to generate the Adonis ML model required by this deformer.
 
 ## How To Use
 
-The AdnSmartTissue SOP is easy to create and configure in Houdini. The deformer requires an input mesh, typically the animated smart tissue, output of a bone deform. This mesh may already have an AdnMLDeformer applied, although this is not required.
+The AdnSmartTissue SOP is easy to create and configure in Houdini. The deformer requires an input mesh, typically the animated skin, output of a Bone Deform. This mesh may already have an AdnMLDeformer applied, although this is not required.
 
-1. Select Null node (typically named as `ADN_OUT_<geometry_name>`) that is the output of the bone deform node which is deforming the smart tissue mesh, and the node with the animated joints.
+Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
+
+- The Bone Deform node must exist in the deformable chain of the geometry to apply the AdnSmartTissue to.
+- The name of the Bone Deform node must follow a fixed naming convention: "<GEO_NAME>_bonedeform"
+- The input geometry and the Bone Deform node must be the same used in the data extraction process when a ML Model and Joints file are provided to AdnSmartTissue.
+- The deformation mode of the Bone Deform must be Linear.
+- The *ADN_IN_* and *ADN_OUT_* null nodes must be present and encapsulate the Bone Deform node for the creator and editor utils to work properly.
+
+<figure markdown>
+  ![Initial state of the network to create AdnSmartTissue](../images/smart_tissue_requirements.png)
+  <figcaption><b>Figure 1</b>: Example setup of the network to create an AdnSmartTissue in Houdini with ML features.</figcaption>
+</figure>
+
+To create and configure the deformer:
+
+1. Select Null node (typically named as `ADN_OUT_<geometry_name>`) that is the output of the bone deform node which is deforming the skin mesh, and the node with the animated joints.
 2. Press *Smart Tissue* in the Adonis menu.
+
+<figure markdown>
+  ![Creator tool for AdnSmartTissue](../images/smart_tissue_creator_00.png)
+  <figcaption><b>Figure 2</b>: Simple UI to ease the creation and configuration of AdnSmartTissue.</figcaption>
+</figure>
+
 3. Optionally, provide the following inputs in the UI to enable the ML features:
     - The path to an ML Model file (`.adnm`) trained with muscle activation generated by the AdnNeuralTraining TOP.
     - The path to a Joints Info file (`.json`) generated by the AdnMLDataExtraction TOP.
+
+<figure markdown>
+  ![Creator tool for AdnSmartTissue with values](../images/smart_tissue_creator_01.png)
+  <figcaption><b>Figure 3</b>: UI to create AdnSmartTissue with the model and joints files provided.</figcaption>
+</figure>
+
 4. Press *Create* to apply AdnSmartTissue to the mesh selected.
+
+<figure markdown>
+  ![Network view after creating AdnSmartTissue](../images/smart_tissue_created.png)
+  <figcaption><b>Figure 4</b>: Resulting network after creating the AdnSmartTissue SOP.</figcaption>
+</figure>
 
 > [!NOTE]
 > - If the ML Model provided was not trained with muscle activation data, the inferred activation for all vertices will be 0 and the effective stiffness applied to the constraints will be the value specified in *Min Stiffness*.
-> - For the Create Smart Tissue UI to work correctly, the nodes deforming the smart tissue geometry (e.g. AdnMLDeformer and bone deform) must be encapsulated into two null nodes named: `ADN_IN_<geometry_name>` and `ADN_OUT_<geometry_name>`.
+> - Creating the node manually is also possible in the Network View through Adonis > Deformer > AdnSmartTissue.
+> - In that case, the ML Model path and the list of ML Inputs (KineFX joints) can also be populated afterwards from the same UI by selecting the AdnSmartTissue plus the geometry with the KineFX joints and launching Adonis > ML Deformer.
+> - The use of this UI is recommended to ensure that the list of ML Inputs is consistent with the Adonis ML Model.
+> - ML inference will run on the GPU if the ML Dependencies have been previously installed. If not, the ML inference is performed on the CPU. Please, learn how to install the dependencies in the [Installation](../../installation) page.
 
 ## Attributes
 
@@ -202,32 +242,32 @@ The AdnSmartTissue SOP is easy to create and configure in Houdini. The deformer 
 
 <figure style="width: 75%;" markdown>
   ![smart tissue parameter template solver](../images/smart_tissue_parameter_template_00.png) 
-  <figcaption><b>Figure 1</b>: AdnSmartTissue Parameter Template: Solver.</figcaption>
+  <figcaption><b>Figure 5</b>: AdnSmartTissue Parameter Template: Solver.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![smart tissue parameter template advanced part 1](../images/smart_tissue_parameter_template_01.png)
-  <figcaption><b>Figure 2</b>: AdnSmartTissue Parameter Template: Advanced (Part 1).</figcaption>
+  <figcaption><b>Figure 6</b>: AdnSmartTissue Parameter Template: Advanced (Part 1).</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![smart tissue parameter template advanced part 2](../images/smart_tissue_parameter_template_02.png)
-  <figcaption><b>Figure 3</b>: AdnSmartTissue Parameter Template: Advanced (Part 2).</figcaption>
+  <figcaption><b>Figure 7</b>: AdnSmartTissue Parameter Template: Advanced (Part 2).</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![smart tissue parameter template targets](../images/smart_tissue_parameter_template_03.png)
-  <figcaption><b>Figure 4</b>: AdnSmartTissue Parameter Template: ML Inputs.</figcaption>
+  <figcaption><b>Figure 8</b>: AdnSmartTissue Parameter Template: ML Inputs.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![smart tissue parameter template maps](../images/smart_tissue_parameter_template_04.png)
-  <figcaption><b>Figure 5</b>: AdnSmartTissue Parameter Template: Maps.</figcaption>
+  <figcaption><b>Figure 9</b>: AdnSmartTissue Parameter Template: Maps.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![smart tissue parameter template debug](../images/smart_tissue_parameter_template_05.png)
-  <figcaption><b>Figure 6</b>: AdnSmartTissue Parameter Template: Debug.</figcaption>
+  <figcaption><b>Figure 10</b>: AdnSmartTissue Parameter Template: Debug.</figcaption>
 </figure>
 
 ## Paintable Weights
@@ -258,7 +298,7 @@ In order to provide more artistic control, some key parameters of the AdnSmartTi
 
 <figure markdown>
   ![Example of painted maps for AdnSmartTissue](../images/smart_tissue_weights.png)
-  <figcaption><b>Figure 7</b>: Example of painted weights on the smart tissue of the Hyena. First row, from left to right: deformer weights and hard constraint weights. Second row, from left to right: push multiplier weights and weights flooded to 1.0 for the rest of the maps.</figcaption>
+  <figcaption><b>Figure 11</b>: Example of painted weights on the skin of the Hyena. First row, from left to right: deformer weights and hard constraint weights. Second row, from left to right: push multiplier weights and weights flooded to 1.0 for the rest of the maps.</figcaption>
 </figure>
 
 ## Debugger
@@ -274,22 +314,22 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![smart tissue editor hard constraints debug](../images/smart_tissue_debug_inner_mesh.png)
-  <figcaption><b>Figure 8</b>: Inner Mesh debugging.</figcaption>
+  <figcaption><b>Figure 12</b>: Inner Mesh debugging.</figcaption>
 </figure>
 
 <figure markdown>
   ![smart tissue editor hard constraints debug](../images/smart_tissue_debug_hard_constraints.png)
-  <figcaption><b>Figure 9</b>: Hard Constraints debugging.</figcaption>
+  <figcaption><b>Figure 13</b>: Hard Constraints debugging.</figcaption>
 </figure>
 
 <figure markdown>
   ![smart tissue editor shape preservation sliding surface debug](../images/smart_tissue_debug_shape_preservation.png)
-  <figcaption><b>Figure 10</b>: Shape Preservation debugging.</figcaption>
+  <figcaption><b>Figure 14</b>: Shape Preservation debugging.</figcaption>
 </figure>
 
 <figure markdown>
   ![smart tissue editor volume structure debug example](../images/smart_tissue_debug_volume_structure.png)
-  <figcaption><b>Figure 11</b>: Volume Structure debugging.</figcaption>
+  <figcaption><b>Figure 15</b>: Volume Structure debugging.</figcaption>
 </figure>
 
 > [!NOTE]
