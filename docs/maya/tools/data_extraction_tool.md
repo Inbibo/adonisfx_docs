@@ -101,7 +101,7 @@ To prepare the Maya scene for data extraction you can follow these steps:
 
     Enable *Record Frame Windows* to specify separate frame ranges for the extraction process. Frame windows must be defined as a list of frame ranges, for example: `[[1, 5], [220, 600], [1023, 1500]]`.
 
-    Use *Skip Frame* to skip frames during recording. This helps reduce redundant pose data and extract more diverse samples. Lower values are recommended for fast animations, while higher values can be used for slower animations. Typical suggested values for normal animation speeds are between `2` and `5`. The skip frames will be computed from the start of each frame window, this ensures that the starting frame of each window is always recorded in the dataset.
+Use *Skip frames* to skip frames during recording. This helps reduce redundant pose data and extract more diverse samples. Lower values are recommended for fast animations, while higher values can be used for slower animations. Typical suggested values for normal animation speeds are between `2` and `5`. Skip frames are computed from the start of each frame window, ensuring that the starting frame of each window is always recorded in the dataset.
 
     Use *Stabilization Frames* to define how many times each frame should be recooked before displacement data is computed and written. This helps stabilize the simulation dynamics before extraction. Typical suggested values for normal animation speeds are between `5` and `10`, but faster animations may require higher values.
 
