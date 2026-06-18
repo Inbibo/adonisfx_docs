@@ -20,8 +20,8 @@ The AdnSmartTissue SOP is easy to create and configure in Houdini. The deformer 
 4. Press *Create* to apply AdnSmartTissue to the mesh selected.
 
 > [!NOTE]
-> If the ML Model provided was not trained with muscle activation data, the inferred activation for all vertices will be 0 and the effective stiffness applied to the constraints will be the value specified in *Min Stiffness*.
-> For the Create Smart Tissue UI to work correctly, the nodes deforming the smart tissue geometry (e.g. AdnMLDeformer and bone deform) must be encapsulated into two null nodes named: ADN_IN_<geometry_name> and ADN_OUT_<geometry_name>
+> - If the ML Model provided was not trained with muscle activation data, the inferred activation for all vertices will be 0 and the effective stiffness applied to the constraints will be the value specified in *Min Stiffness*.
+> - For the Create Smart Tissue UI to work correctly, the nodes deforming the smart tissue geometry (e.g. AdnMLDeformer and bone deform) must be encapsulated into two null nodes named: ADN_IN_<geometry_name> and ADN_OUT_<geometry_name>
 
 ## Attributes
 
