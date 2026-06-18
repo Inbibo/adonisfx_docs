@@ -9,7 +9,7 @@
 
 - **OS**: Microsoft Windows 10+, Linux CentOS 7+, Linux Rocky 8+, Linux RHEL 8+ (64-bit).
 - **CPU**: 64-bit Intel or AMD multi-core processor.
-- **GPU**: NVIDIA GPU required for GPU-accelerated ML workflows, with 12GB of VRAM or more recommended. CPU fallback is supported when GPU execution is not available, but it can be slower.
+- **GPU**: NVIDIA GPU suggested for accelerated ML workflows, with 6GB of VRAM or more recommended. CPU fallback is supported when GPU execution is not available, but it can be slower.
 - **RAM**: 8GB required (16GB or more recommended).
 - **Storage**: At least 700MB of free disk space for the standard install. If ML dependencies are required, then at least 7GB of free disk space.
 
@@ -17,19 +17,19 @@
 > Adonis may work with other CPU, GPU, RAM, and VRAM specifications. The list above represents the specifications that have been tested successfully.
 
 > [!NOTE]
-> Internet connection is required for licensing only.
+> Internet connection is required for licensing and ML dependencies download only.
 
 ## AdonisFX
 
 Some AdonisFX features require an AdonisFX license bundle. See [Licensing](licensing.md) for details.
 
-FX users can install the ML dependencies to use GPU inference, but this is optional.
+FX Windows users can install the ML dependencies to use GPU inference, but this is optional.
 
 ## AdonisML
 
 AdonisML features require an AdonisML license bundle. See [Licensing](licensing.md) for details.
 
-ML features run locally and by default do not require cloud services. Training data remains on the local machine by default.
+ML features run locally and do not require cloud services. Training data remains on the local machine.
 
 Generating ML training data and training models may require additional disk space and memory depending on the dataset and model size.
 
