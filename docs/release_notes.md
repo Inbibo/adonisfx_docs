@@ -15,6 +15,8 @@
 - Implemented Neural Training API Script.
 
 ### Maya
+- Plugin renamed to Adonis.
+- Menu and shelf renamed to Adonis.
 - Implemented the Target Faces Editor Tool to exclude or include specific target faces in external constraints for AdnMuscle, AdnRibbonMuscle and AdnSkin solvers.
 - Implemented AdnMush deformer.
 - Implemented AdnPointLocator node.
@@ -26,7 +28,7 @@
 - Implemented AdnTransfer Tool and script.
 - Integrated the AdnMush algorithm into all Adonis solvers.
 - Implemented AdnMLDeformer.
-- Implemented AdnSmartTissue solver.
+- Implemented AdnSmartTissue deformer.
 - Added creation utilities for AdnMLDeformer and AdnSmartTissue.
 - Implemented Data Extraction Tool and Data Extraction API Script.
 - Implemented Neural Clustering Paint Tool.
@@ -38,6 +40,8 @@
 - Added support for Maya 2027.
 
 ### Houdini
+- Plugin renamed to Adonis.
+- Menu renamed to Adonis.
 - Implemented the Target Faces Editor Tool to exclude or include specific target faces in external constraints for AdnMuscle, AdnRibbonMuscle and AdnSkin solvers.
 - Implemented AdnMush deformer.
 - Implemented AdnClosestFit deformer.
@@ -47,7 +51,7 @@
 - Implemented AdnTransfer Tool and script.
 - Integrated the AdnMush algorithm into all Adonis solvers.
 - Implemented AdnMLDeformer.
-- Implemented AdnSmartTissue solver.
+- Implemented AdnSmartTissue deformer.
 - Added creation utilities for AdnMLDeformer and AdnSmartTissue.
 - Implemented AdnMLDataProcessing SOP HDA.
 - Implemented AdnMLDataExtraction TOP HDA and Data Extraction API Script.
@@ -60,8 +64,6 @@
 ### Improvements
 - Reduced memory usage during the detection of self-colliding triangles at rest.
 - Made the Adonis Paint Tool visualization mode global instead of per node.
-
-### Known Limitations
 
 ### Bug Fixes
 - Fixed the behavior of the *Refresh Debugger* utility when working with Maya namespaces. *Adonis-3061*
