@@ -64,6 +64,8 @@ Before running the data extraction process, ensure that the Maya scene meets the
 
 - The skinCluster node specified in the *SkinCluster name* field must be associated with the animated skin geometry that matches the rest skin and simulated skin topology. This is crucial for accurately extracting the joint animation data required for training AdonisML models.
 
+- Muscle activation data extraction requires all muscles to be provided through *Muscle Group Scene Path* and does not support partial muscle setups.
+
 ## How To Use
 
 To prepare the Maya scene for data extraction you can follow these steps:
@@ -101,7 +103,7 @@ To prepare the Maya scene for data extraction you can follow these steps:
 
     Enable *Record Frame Windows* to specify separate frame ranges for the extraction process. Frame windows must be defined as a list of frame ranges, for example: `[[1, 5], [220, 600], [1023, 1500]]`.
 
-Use *Skip frames* to skip frames during recording. This helps reduce redundant pose data and extract more diverse samples. Lower values are recommended for fast animations, while higher values can be used for slower animations. Typical suggested values for normal animation speeds are between `2` and `5`. Skip frames are computed from the start of each frame window, ensuring that the starting frame of each window is always recorded in the dataset.
+    Use *Skip frames* to skip frames during recording. This helps reduce redundant pose data and extract more diverse samples. Lower values are recommended for fast animations, while higher values can be used for slower animations. Typical suggested values for normal animation speeds are between `2` and `5`. Skip frames are computed from the start of each frame window, ensuring that the starting frame of each window is always recorded in the dataset.
 
     Use *Stabilization Frames* to define how many times each frame should be recooked before displacement data is computed and written. This helps stabilize the simulation dynamics before extraction. Typical suggested values for normal animation speeds are between `5` and `10`, but faster animations may require higher values.
 
@@ -121,10 +123,3 @@ Once the data extraction process is launched, a progress bar will be displayed i
     ![Data Extraction Tool progress](../images/data_extraction_progress.png)
     <figcaption><b>Figure 3</b>: Data Extraction Tool progress.</figcaption>
 </figure>
-
-## Limitations
-
-- The rest skin and simulated skin must have the same topology.
-- The skinCluster node must be associated with the animated skin geometry that matches the rest skin and simulated skin topology.
-- Muscle activation data extraction requires all muscles to be provided through *Muscle Group Scene Path* and does not support partial muscle setups.
-- Frame window behavior depends on the configured frame settings.
