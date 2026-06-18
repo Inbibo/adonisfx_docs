@@ -1,13 +1,13 @@
 # AdnMLDataProcessing HDA
 
+> [!IMPORTANT]
+> An Adonis ML license is required to use this feature.
+
 The **AdnMLDataProcessing HDA** is a utility designed to be used in a SOP context to prepare simulated skin data before running machine learning data extraction with the [AdnMLDataExtraction TOP HDA](../tools/data_extraction_tool).
 
 This HDA is used as a preprocessing step in the ML data extraction workflow. It prepares the simulated skin geometry and the joint data required by the extraction process, and allows the user to select which joints from a KineFX rig should be used as driving input joints for machine learning deformation.
 
 The AdnMLDataProcessing HDA outputs the processed skin data to be extracted from the simulation, together with the selected ML joints. These outputs are then used by the AdnMLDataExtraction TOP HDA, which gathers the input and output data used for training AdonisML models.
-
-> [!NOTE]
-> ML data processing is only supported with the **AdonisML** bundle. Make sure the Adonis plugin is installed and licensed to support ML before running this workflow.
 
 > [!NOTE]
 > The AdnMLDataProcessing HDA is intended to be used before running the [AdnMLDataExtraction TOP HDA](../tools/data_extraction_tool).
@@ -28,10 +28,13 @@ The *Anim Joints* and *ML Joints* inputs must contain the following point attrib
 - *name*: Name of each joint.
 - *transform*: Transform point attribute of each joint.
 
+The *Capture Weights* input must contain valid bone capture attributes.
+
+The pipeline is currently only supported when using the **Linear** skinning method in the **Bone Deform** node.
+
 The *Anim Joints* and *ML Joints* inputs are provided separately because the joints used as machine learning inputs do not necessarily need to be the same joints used to deform the geometry. In most cases, the ML joints will be the same as the animated joints, but a dedicated input is available to support workflows where a different joint set should be used to drive the ML deformation.
 
-> [!NOTE]
-> The AdnMLDataProcessing pipeline is currently only supported when using the **Linear** skinning method in the **Bone Deform** node.
+The *ML Joints* input must represent the joint set intended to be used as machine learning input data.
 
 ## How To Use
 
@@ -117,10 +120,3 @@ The **ADN_OUT_ML_JOINTS** output includes a point group named *adnMLJoints*. Thi
 For clarity, we recommend appending **Null** nodes to these outputs and naming them **OUT_SKIN** and **OUT_JOINTS**. These Null nodes can then be referenced when configuring the data extraction workflow.
 
 The resulting data can then be passed to the [AdnMLDataExtraction TOP HDA](../tools/data_extraction_tool), which gathers the data used for training AdonisML models.
-
-## Limitations
-
-- The pipeline is currently only supported when using the **Linear** skinning method in the **Bone Deform** node.
-- The animated joints and ML joints must contain both the *name* and *transform* point attributes.
-- The ML joints can be different from the animated joints, but they must represent the joint set intended to be used as machine learning input data.
-- The capture weights input must contain valid bone capture attributes.
