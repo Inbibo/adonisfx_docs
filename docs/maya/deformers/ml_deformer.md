@@ -8,17 +8,34 @@ To learn more about how to train an Adonis ML model, please check the [Adonis ML
 
 The AdnMLDeformer requires three main inputs:
 
-- The geometry to apply the deformer to. This geometry can be deformed by a skinCluster node.
+- The geometry to apply the deformer to. This is the geometry deformed by a skinCluster node.
 - The Adonis ML model file (.adnm).
 - The Maya rig joints used as inputs for the Adonis ML model.
+
+Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
+
+- The skinCluster node must exist in the deformable chain of the geometry to apply the AdnMLDeformer to.
+- The input geometry and the skinCluster node must be the same used in the data extraction process.
 
 To create and configure the deformer easily, there is a shortcut in the Adonis menu.
 
 1. Select the geometry to apply the deformer to.
-2. Go to the Adonis > Deformers > ML Deformer.
+2. Click on ![AdnMLDeformer button](../../images/adn_ml_deformer.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Deformers > ML Deformer.
 3. A simple UI will pop up to provide two inputs: ML Model File and Joints Info File.
+
+<figure markdown>
+  ![Creator tool for AdnMLDeformer](../images/ml_deformer_creator_00.png)
+  <figcaption><b>Figure 1</b>: Simple UI to easy the creation and configuration of AdnMLDeformer.</figcaption>
+</figure>
+
 4. Click on the Browse button of the ML Model File to provide the .adnm file.
 5. Click on the Browse button of the Joints Info File to provide the joints.json file. Make sure that both files are compatible with each other; that is, the joints.json file must be the one generated during the training process when the Adonis ML model was trained. If the joints are assigned to a namespace, make sure to enable *Use Namespace* and select the correct namespace from the combo box.
+
+<figure markdown>
+  ![Creator tool for AdnMLDeformer with values](../images/ml_deformer_creator_01.png)
+  <figcaption><b>Figure 2</b>: UI to create AdnMLDeformr with the model and joints files provided.</figcaption>
+</figure>
+
 6. Click on the Create button.
 7. The AdnMLDeformer will be created before the skinCluster node, if present, of the given geometry, and the joints found in the Maya scene and present in the joints.json file will be populated as input connections to the deformer.
 8. The deformer is ready. Tweak the envelope and/or enable or disable the inference to see the effect of the Adonis ML model.

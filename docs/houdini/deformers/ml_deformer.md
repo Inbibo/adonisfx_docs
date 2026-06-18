@@ -4,23 +4,57 @@ The AdnMLDeformer is a SOP deformer for Houdini that applies deformation driven 
 
 To learn more about how to train an Adonis ML model, please check the [Adonis ML Neural Training Tool](../tools/neural_training_tool) page.
 
+> [!IMPORTANT]
+> - The AdnMLDeformer can be used with an FX license. However, an Adonis ML license is required to generate the Adonis ML model required by this deformer.
+
 ## How To Use
 
 The AdnMLDeformer requires three main inputs:
 
-- The geometry to apply the deformer to. This geometry can be deformed by a bonedeform node.
+- The geometry to apply the deformer to. This is the geometry deformed by a Bone Deform node.
 - The Adonis ML model file (.adnm).
 - The geostream containing the KineFX joints. This stream must include the `name` and `localtransform` per-point attributes.
+
+Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
+
+- The Bone Deform node must exist in the deformable chain of the geometry to apply the AdnMLDeformer to.
+- The name of the Bone Deform node must follow a fixed naming convention: "<GEO_NAME>_bonedeform"
+- The input geometry and the Bone Deform node must be the same used in the data extraction process.
+- The deformation mode of the Bone Deform must be Linear.
+- The *ADN_IN_* and *ADN_OUT_* null nodes must be present and encapsulate the Bone Deform node for the creator and editor utils to work properly.
+
+<figure markdown>
+  ![Initial state of the network to create AdnMLDeformer](../images/ml_deformer_requirements.png)
+  <figcaption><b>Figure 1</b>: Required setup of the network to create an AdnMLDeformer in Houdini.</figcaption>
+</figure>
 
 To create and configure the deformer easily, there is a shortcut in the Adonis menu.
 
 1. Select the geometry to apply the deformer to, and then the node containing the KineFX joints.
-2. Go to the Adonis menu and click on ML Deformer.
+2. Go to the Adonis menu and click on ML Deformer. 
 3. A simple UI will pop up to provide two inputs: ML Model File and Joints Info File.
+
+<figure markdown>
+  ![Creator tool for AdnMLDeformer](../images/ml_deformer_creator_00.png)
+  <figcaption><b>Figure 2</b>: Simple UI to easy the creation and configuration of AdnMLDeformer.</figcaption>
+</figure>
+
 4. Click on the Browse button of the ML Model File to provide the .adnm file.
 5. Click on the Browse button of the Joints Info File to provide the joints.json file. Make sure that both files are compatible with each other; that is, the joints.json file must be the one generated during the training process when the Adonis ML model was trained.
+
+<figure markdown>
+  ![Creator tool for AdnMLDeformer with values](../images/ml_deformer_creator_01.png)
+  <figcaption><b>Figure 3</b>: UI to create AdnMLDeformr with the model and joints files provided.</figcaption>
+</figure>
+
 6. Click on the Create button.
 7. The AdnMLDeformer will be created before the bonedeform node, if present, of the given geometry, and the joints found in the KineFX rig and present in the joints.json file will be populated in the "ML Inputs" tab of the node.
+
+<figure markdown>
+  ![Network view after creating AdnMLDeformer](../images/ml_deformer_created.png)
+  <figcaption><b>Figure 4</b>: UI to create AdnMLDeformr with the model and joints files provided.</figcaption>
+</figure>
+
 8. The deformer is ready. Tweak the envelope and/or enable or disable the inference to see the effect of the Adonis ML model.
 
 > [!NOTE]
@@ -73,17 +107,17 @@ The AdnMLDeformer integrates the mush algorithm to apply smoothing to the shape 
 
 <figure markdown>
   ![ML deformer parameter template (settings tab)](../images/ml_deformer_parameter_template_00.png)
-  <figcaption><b>Figure 1</b>: AdnMLDeformer Parameter Template (Part 1): Settings.</figcaption>
+  <figcaption><b>Figure 5</b>: AdnMLDeformer Parameter Template (Part 1): Settings.</figcaption>
 </figure>
 
 <figure markdown>
   ![ML deformer parameter template (ML inputs tab)](../images/ml_deformer_parameter_template_01.png)
-  <figcaption><b>Figure 2</b>: AdnMLDeformer Parameter Template (Part 2): ML Inputs.</figcaption>
+  <figcaption><b>Figure 6</b>: AdnMLDeformer Parameter Template (Part 2): ML Inputs.</figcaption>
 </figure>
 
 <figure markdown>
   ![ML deformer parameter template (maps tab)](../images/ml_deformer_parameter_template_02.png)
-  <figcaption><b>Figure 3</b>: AdnMLDeformer Parameter Template (Part 3): Maps.</figcaption>
+  <figcaption><b>Figure 7</b>: AdnMLDeformer Parameter Template (Part 3): Maps.</figcaption>
 </figure>
 
 ## Paintable Weights
