@@ -164,7 +164,7 @@ The AdnSmartTissue deformer is easy to create and configure in Maya. The deforme
 ### Debug Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Debug**       | Boolean      | False            | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnFat deformer. |
+| **Debug**       | Boolean      | False            | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSmartTissue deformer. |
 | **Feature**     | Enumerator   | Inner Mesh       | ✓ | A list of debuggable features for this deformer.<ul><li>Inner Mesh: Draw the inner mesh built by the solver.</li><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh points and the internal virtual points to the base mesh.</li><li>Volume Structure: Draw all the connections in the *Volume Structure* generated procedurally.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li></ul> |
 | **Width Scale** | Float        | 3.0              | ✓ | Modifies the width of all lines. |
 | **Color**       | Color Picker | Red              | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
@@ -199,7 +199,7 @@ In order to provide more artistic control, some key parameters of the AdnSmartTi
 | :--- | :------ | :---------- |
 | **Activations**                     | 1.0 | Weight to modulate the effect of dynamic material properties predicted by the Adonis ML model. For example to remove their effect in regions like the face or feet of the character. |
 | **Global Damping**                  | 1.0 | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more damping of velocities. |
-| **Hard Constraints**                | 0.0 | Weight to modulate the correction applied to the vertices and the internal virtual points to keep them at a constant transformation, local to the closest point on the base mesh at initialization. Hard Constraint maps will force the points to keep the original position.<ul><li>*Tip*: In most of the cases this map is flooded to 0.0.</li><li>*Tip*: Only if the volume between the fat mesh and the base mesh on the edges is big (e.g. wrists, ankle, neck) then it might be useful to paint a value of 1.0 in those areas.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
+| **Hard Constraints**                | 0.0 | Weight to modulate the correction applied to the vertices and the internal virtual points to keep them at a constant transformation, local to the closest point on the base mesh at initialization. Hard Constraint maps will force the points to keep the original position. |
 | **Masses**                          | 1.0 | Multiplier to the individual mass values per vertex in the simulated volume. |
 | **Mush Weights**                    | 1.0 | Weight to modulate the mush deformation applied to the vertices. |
 | **Push Multiplier**                 | 1.0 | Weight used to multiply the global Push Length to determine the amount of adjustment applied at each vertex of the inner mesh. |
@@ -223,30 +223,30 @@ In order to provide more artistic control, some key parameters of the AdnSmartTi
 
 In order to better visualize deformer constraints and attributes in the Maya viewport there is the option to enable the debugger, found in the dropdown menu labeled *Debug* in the Attribute Editor.
 
-To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnFat deformer are:
+To enable the debugger the *Debug* checkbox must be marked. To select the specific feature you would like to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnSmartTissue deformer are:
 
  - **Inner Mesh**: A wireframe representation of the inner mesh will be drawn.
  - **Hard Constraints**: For each vertex on the simulated mesh and each virtual point that belongs to an internal layer, a line will be drawn from the point to the corresponding closest point on the base mesh if its *Hard Constraints* weight is greater than 0.0.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
- - **Volume Structure**: A line will be drawn for every connection between two points in the volume. A point can be either a vertex on the base mesh, a vertex on the simulated fat mesh or a virtual point that belongs to an internal layer generated by the procedural construction based on the *Divisions* attribute.
+ - **Volume Structure**: A line will be drawn for every connection between two points in the volume. A point can be either a vertex on the inner mesh, a vertex on the simulated mesh or a virtual point that belongs to an internal layer generated by the procedural construction based on the *Divisions* attribute.
 
 <figure markdown>
-  ![skin editor hard constraints debug](../images/smart_tissue_debug_inner_mesh.png)
+  ![smart tissue editor hard constraints debug](../images/smart_tissue_debug_inner_mesh.png)
   <figcaption><b>Figure 5</b>: Inner Mesh debugging.</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor hard constraints debug](../images/smart_tissue_debug_hard_constraints.png)
+  ![smart tissue editor hard constraints debug](../images/smart_tissue_debug_hard_constraints.png)
   <figcaption><b>Figure 6</b>: Hard Constraints debugging.</figcaption>
 </figure>
 
 <figure markdown>
-  ![skin editor shape preservation sliding surface debug](../images/smart_tissue_debug_shape_preservation.png)
+  ![smart tissue editor shape preservation sliding surface debug](../images/smart_tissue_debug_shape_preservation.png)
   <figcaption><b>Figure 7</b>: Shape Preservation debugging.</figcaption>
 </figure>
 
 <figure markdown>
-  ![fat editor volume structure debug example](../images/smart_tissue_debug_volume_structure.png)
+  ![smart tissue editor volume structure debug example](../images/smart_tissue_debug_volume_structure.png)
   <figcaption><b>Figure 8</b>: Volume Structure debugging.</figcaption>
 </figure>
 
@@ -254,7 +254,7 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 ### Edit Smart Tissue
 
-Once the AdnSmartTissue deformer is created, it is possible modify the ML Model and the Joints connected to the deformer:
+Once the AdnSmartTissue deformer is created, it is possible to modify the ML Model and the Joints connected to the deformer:
 
 1. Select the mesh with the AdnSmartTissue deformer applied.
 2. Press ![Smart Tissue button](../../images/adn_smart_tissue.png){style="width:4%"} in the Adonis shelf or *Smart Tissue* in the Adonis menu, under the Create Solvers section to open the Edit Smart Tissue UI.
