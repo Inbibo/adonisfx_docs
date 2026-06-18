@@ -1,6 +1,8 @@
 # Data Extraction
 
-In the `adnml.scripts.houdini.data_extraction` module, a Python function is provided to extract machine learning training data from a processed Adonis simulation setup.
+In the `adnml.scripts.houdini.data_extraction` module, a Python function is provided to extract data for training AdonisML models from a processed Adonis simulation setup.
+
+Data extraction gathers the input and output data used by the AdonisML training workflow. The extracted data is used to train ML models that can support AdnMLDeformer workflows and, when muscle paths are provided, AdnSmartTissue workflows.
 
 The data extraction script allows users to:
 
@@ -15,6 +17,9 @@ The data extraction script allows users to:
 The extraction script is the Python API equivalent of the workflow exposed through the [AdnMLDataExtraction TOP HDA](../tools/data_extraction_tool). In most production workflows, the data should first be prepared with the [AdnMLDataProcessing HDA](../tools/ml_data_processing), and then extracted either through the TOP HDA or by calling this script directly.
 
 The extraction process writes the generated dataset into the target folder specified by `save_directory_path`. The main exported files are `inputs.csv`, `outputs.csv`, `joints.json`, and `extraction_config.json`.
+
+> [!NOTE]
+> Data extraction for ML training is only supported with the **AdonisML** bundle. Make sure the Adonis plugin is installed and licensed to support ML before running this workflow.
 
 > [!WARNING]
 > Before running data extraction, an AdnMLDataProcessing HDA must be configured in the Houdini scene. We recommend appending Null nodes to the processing outputs and naming them **OUT_SKIN** and **OUT_JOINTS**. The `sim_skin_path` argument should point to **OUT_SKIN**, and the `joints_path` argument should point to **OUT_JOINTS**.
@@ -79,8 +84,8 @@ The optional arguments are:
 
 - `muscles_paths`: Muscle SOP paths used to extract muscle activation data. This can be a single string, a list of strings, or a UI-style string separated by spaces, commas, tabs, or newlines. The paths can point to AdnMuscle SOPs, muscle geometry SOPs, or **ADN_OUT_** nodes.
 - `skip_frames`: Number of frames to skip between recorded poses. This helps reduce redundant pose data and extract more diverse samples.
-- `stabilization_frames`: Number of endpoint stabilization cooks to run before recording data.
-- `frame_windows`: List of frame windows to record. If empty, the playback range is used.
+- `stabilization_frames`: Number of times to recook a frame before recording displacement data. This parameter damps the motion inertia in the recorded poses.
+- `frame_windows`: List of frame windows to record. If empty, the entire playback range is recorded.
 - `force_overwrite`: If enabled, existing dataset files in the target folder can be overwritten.
 
 ## Frame Windows
@@ -119,14 +124,16 @@ This can be used to reduce redundant pose data and extract more diverse samples.
 
 Lower values are recommended for fast animations, while higher values can be used for slower animations. Typical suggested values for normal animation speeds are between `2` and `5`.
 
+The skip frames will be computed from the start of each frame window, this ensures that the starting frame of each window is always recorded in the dataset.
+
 ## Stabilization Frames
 
-The `stabilization_frames` argument controls how many times each recorded frame should be recooked before data is written.
+The `stabilization_frames` argument controls how many times each recorded frame should be recooked before displacement data is computed and written.
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">stabilization_frames = 5
 </code></pre>
 
-This is used to stabilize the simulation dynamics before recording data. Higher values make the recorded poses lose more dynamics and converge toward a static silhouette. Well stabilized data is required for good ML deformation training.
+This is used to stabilize the simulation dynamics before recording data. Higher values make each of the recorded poses lose more dynamics and converge toward a static silhouette. Well stabilized data is required for good ML deformation training.
 
 Typical suggested values for normal animation speeds are between `5` and `10`. Faster animations may require more stabilization frames.
 
@@ -157,7 +164,7 @@ The `muscles_paths` argument can be:
 
 The paths can point to AdnMuscle SOPs, muscle geometry SOPs, or **ADN_OUT_** nodes.
 
-When muscle paths are provided, the extraction process gathers the closest muscle activation data and includes it in the exported dataset.
+When muscle paths are provided, the extracted data will support training the ML model on material properties prediction for AdnSmartTissue. If this input is not provided, the extracted data will support training models for AdnMLDeformer only.
 
 ## Force Overwrite
 
@@ -178,7 +185,7 @@ data_extraction.extract(
 </code></pre>
 
 > [!WARNING]
-> Enabling `force_overwrite` can replace existing extraction data in the target folder.
+> Enabling `force_overwrite` will replace any existing extraction data in the target folder, use it with caution.
 
 ## Interruption Callback
 
@@ -207,30 +214,12 @@ If the extraction is interrupted, partial data may have already been written to 
 > [!NOTE]
 > UI progress and interruption dialogs are only used when Houdini UI is available. In batch or headless execution, UI progress and interruption dialogs are suppressed.
 
-## TOP Work Item
-
-The `work_item` argument is an advanced optional argument intended for TOP execution.
-
-When provided, the extraction process can report cook percentage, custom state, and log messages to the TOP work item.
-
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">data_extraction.extract(
-    rest_skin_path="/obj/geo1/REST_SKIN",
-    sim_skin_path="/obj/geo1/OUT_SKIN",
-    joints_path="/obj/geo1/OUT_JOINTS",
-    joint_names_list=["root", "spine", "neck", "head"],
-    save_directory_path="path/to/export/folder",
-    work_item=work_item
-)
-</code></pre>
-
-This argument is normally managed internally by the [AdnMLDataExtraction TOP HDA](../tools/data_extraction_tool) and does not need to be provided when running extraction manually from a regular Houdini Python context.
-
 ## Exported Files
 
 After a successful extraction, the following files are written to the target export folder:
 
 - `inputs.csv`: Input data containing the selected joint transforms.
-- `outputs.csv`: Output data containing the extracted mesh displacement data and optional muscle activation data.
+- `outputs.csv`: Output data containing the extracted mesh displacement data and optional data required for AdnSmartTissue material properties prediction.
 - `joints.json`: Joint hierarchy data exported in the same order used by `inputs.csv`.
 - `extraction_config.json`: Configuration data describing the extraction settings used for the exported dataset.
 
