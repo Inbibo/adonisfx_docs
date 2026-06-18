@@ -1,5 +1,3 @@
-Use this version. I split the last note into two quoted lines so it stays inside the note box in Markdown.
-
 # Requirements
 
 ## Software
@@ -24,4 +22,4 @@ Use this version. I split the last note into two quoted lines so it stays inside
 > - FX users can install the ML dependencies to use GPU inference, but this is optional.
 > - Some features require a specific Adonis license bundle. For example, FX features require an AdonisFX bundle, and ML features require an AdonisML bundle.
 > - Generating ML training data and training models may require additional disk space and memory depending on the dataset and model size.
->   Trained models are generally expected to be under 2GB, but extracted training data may exceed 10GB depending on the scenario.
+> - Trained models are generally expected to be under 2GB, but extracted training data may exceed 10GB depending on the scenario.
