@@ -14,7 +14,7 @@ Data extraction gathers the input and output data used by the AdonisML training 
   <figcaption><b>Figure 1</b>: Adonis Data Extraction UI.</figcaption>
 </figure>
 
-The Data Extraction Tool (see Figure 1), provides an intuitive interface to configure the data extraction process according to specific requirements. Below is a breakdown of the available UI elements:
+The Data Extraction Tool (see Figure 1) provides an intuitive interface to configure the data extraction process according to specific requirements. Below is a breakdown of the available UI elements:
 
 ### Skin information
 
