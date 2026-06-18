@@ -49,15 +49,15 @@ When training with neural clusters, the following additional files are required:
 
     Connecting inputs is optional. Inputs can be used to define graph dependencies and data flow, but the files used for training are selected with the path parameters on the node.
 
-    <figure style="width:90%; margin-left:5%" markdown>
-      ![AdnMLTraining parameter template](../images/training_tool_houdini_parameter_template.png)
-      <figcaption><b>Figure 1</b>: AdnMLTraining parameter template. The tool exposes the data paths, neural cluster options, augmentation settings, and output model path used to launch training from TOPs.</figcaption>
-    </figure>
+<figure style="width:90%; margin-left:5%" markdown>
+  ![AdnMLTraining parameter template](../images/training_tool_houdini_parameter_template.png)
+  <figcaption><b>Figure 1</b>: AdnMLTraining parameter template. The tool exposes the data paths, neural cluster options, augmentation settings, and output model path used to launch training from TOPs.</figcaption>
+</figure>
 
-    <figure style="width:70%; margin-left:15%" markdown>
-      ![AdnMLTraining TOP node](../images/training_tool_houdini_node.png)
-      <figcaption><b>Figure 2</b>: AdnMLTraining TOP node in the network view. The node can be used as part of a TOP graph to orchestrate the training process and define data flow.</figcaption>
-    </figure>
+<figure style="width:70%; margin-left:15%" markdown>
+  ![AdnMLTraining TOP node](../images/training_tool_houdini_node.png)
+  <figcaption><b>Figure 2</b>: AdnMLTraining TOP node in the network view. The node can be used as part of a TOP graph to orchestrate the training process and define data flow.</figcaption>
+</figure>
 
 3. Set the input and output data paths.
 
@@ -110,10 +110,10 @@ When training with neural clusters, the following additional files are required:
 
     Use the TOP execution buttons to generate static work items and cook the graph, similarly to the data extraction workflow.
 
-    <figure style="width:90%; margin-left:5%" markdown>
-      ![AdnMLTraining TOP execution controls](../images/training_execution.png)
-      <figcaption><b>Figure 3</b>: TOP execution controls used to generate work items and cook the AdnMLTraining TOP graph.</figcaption>
-    </figure>
+<figure style="width:90%; margin-left:5%" markdown>
+  ![AdnMLTraining TOP execution controls](../images/training_execution.png)
+  <figcaption><b>Figure 3</b>: TOP execution controls used to generate work items and cook the AdnMLTraining TOP graph.</figcaption>
+</figure>
 
 8. Install missing dependencies if prompted.
 
@@ -125,10 +125,10 @@ When training with neural clusters, the following additional files are required:
 
     For standalone dependency installation outside the DCC, use `install_dependencies.bat` on Windows or `install_dependencies.sh` on Linux.
 
-    <figure style="width:60%; margin-left:20%" markdown>
-      ![AdnMLTraining missing dependencies prompt](../images/training_install_ml_dependencies.png)
-      <figcaption><b>Figure 4</b>: Missing dependencies prompt shown when the TOP graph is executed and the required machine learning dependencies are not installed.</figcaption>
-    </figure>
+<figure style="width:60%; margin-left:20%" markdown>
+  ![AdnMLTraining missing dependencies prompt](../images/training_install_ml_dependencies.png)
+  <figcaption><b>Figure 4</b>: Missing dependencies prompt shown when the TOP graph is executed and the required machine learning dependencies are not installed.</figcaption>
+</figure>
 
 9. Review the training output.
 
@@ -140,10 +140,10 @@ When training with neural clusters, the following additional files are required:
 
     During or after execution, the work item output can also show epoch and average loss information. This is useful for debugging training behavior directly from TOPs.
 
-    <figure style="width:90%; margin-left:5%" markdown>
-      ![AdnMLTraining epoch and loss output](../images/training_task_graph.png)
-      <figcaption><b>Figure 5</b>: Training output showing epoch progress, average loss, and best loss information. This information is useful for debugging and is also written to the generated log file next to the output model.</figcaption>
-    </figure>
+<figure style="width:90%; margin-left:5%" markdown>
+  ![AdnMLTraining epoch and loss output](../images/training_task_graph.png)
+  <figcaption><b>Figure 5</b>: Training output showing epoch progress, average loss, and best loss information. This information is useful for debugging and is also written to the generated log file next to the output model.</figcaption>
+</figure>
 
 ## Parameters
 
