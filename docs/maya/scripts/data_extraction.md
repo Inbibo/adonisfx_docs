@@ -21,6 +21,18 @@ The extraction script is the Python API equivalent of the workflow exposed throu
 
 The extraction process writes the generated dataset into the target folder specified by `save_directory_path`. The main exported files are `inputs.csv`, `outputs.csv`, `joints.json`, and `extraction_config.json`.
 
+## Requirements
+
+To run data extraction, the following arguments must be provided:
+
+- `rest_skin_path`: Path to the rest skin SOP node.
+- `sim_skin_path`: Path to the processed simulated skin SOP node.
+- `joint_names_list`: List of Houdini/KineFX joint names to extract.
+- `skincluster_name`: Name of the skin cluster node connected to the animated skin.
+- `save_directory_path`: Target folder where the extracted dataset will be saved.
+
+The rest skin and simulated skin must have the same topology. They must have matching point counts and matching point order so the extraction process can compute displacement data correctly.
+
 ## Extract Data
 
 To extract ML training data from Python, run this command in Maya Script Editor or from your batch script:
@@ -41,21 +53,6 @@ data_extraction.extract(
 </code></pre>
 
 The extraction process writes the dataset files to the folder specified by `save_directory_path`.
-
-The required arguments are:
-
-- `rest_skin_path`: Path to the rest skin Maya object.
-- `sim_skin_path`: Path to the simulated skin Maya object.
-- `joint_names_list`: List of Maya joints to extract.
-- `skincluster_name`: Name of the skin cluster node.
-- `save_directory_path`: Target folder where the extracted dataset will be saved.
-
-> [!NOTE]
-> The `rest_skin_path` should point to the rest skin Maya object used as the reference shape for displacement extraction. The `sim_skin_path` should point to the processed simulated skin usually the result of the *AdnSkinMerge*.
->
-> The rest skin and simulated skin must have the same topology. They must have matching point counts and matching point order so the extraction process can compute displacement data correctly.
->
-> The `joint_names_list` should contain the Maya joint paths that will drive the ML predictions. These joints must exist and be valid before calling `data_extraction.extract()`.
 
 ## Extract Data With Optional Settings
 
@@ -217,9 +214,3 @@ The `extract` function may raise the following errors:
 - `ValueError`: Raised when an input path, frame setting, geometry, or joint list is invalid.
 - `FileExistsError`: Raised when dataset files already exist and `force_overwrite` is disabled.
 - `InterruptedError`: Raised when the extraction process is interrupted by the user.
-
-## Limitations
-
-- The rest skin and simulation skin must have the same topology.
-- The selected joints must be of type `joint` or inherit from type `joint`.
-- Existing `inputs.csv` or `outputs.csv` files will prevent extraction unless `force_overwrite` is enabled.
