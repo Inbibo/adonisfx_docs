@@ -226,7 +226,7 @@ The `extract` function may raise the following errors:
 
 - `ValueError`: Raised when an input path, frame setting, geometry, or joint list is invalid.
 - `FileExistsError`: Raised when dataset files already exist and `force_overwrite` is disabled.
-- `InteruptedError`: Raised when the extraction process is interrupted by the user.
+- `InterruptedError`: Raised when the extraction process is interrupted by the user.
 
 ## Limitations
 
