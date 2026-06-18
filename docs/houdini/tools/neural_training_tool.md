@@ -54,7 +54,7 @@ When training with neural clusters, the following additional files are required:
   <figcaption><b>Figure 1</b>: AdnMLTraining parameter template. The tool exposes the data paths, neural cluster options, augmentation settings, and output model path used to launch training from TOPs.</figcaption>
 </figure>
 
-<figure style="width:70%; margin-left:15%" markdown>
+<figure style="width:90%; margin-left:5%" markdown>
   ![AdnMLTraining TOP node](../images/training_tool_houdini_node.png)
   <figcaption><b>Figure 2</b>: AdnMLTraining TOP node in the network view. The node can be used as part of a TOP graph to orchestrate the training process and define data flow.</figcaption>
 </figure>
@@ -125,7 +125,7 @@ When training with neural clusters, the following additional files are required:
 
     For standalone dependency installation outside the DCC, use `install_dependencies.bat` on Windows or `install_dependencies.sh` on Linux.
 
-<figure style="width:60%; margin-left:20%" markdown>
+<figure style="width:90%; margin-left:5%" markdown>
   ![AdnMLTraining missing dependencies prompt](../images/training_install_ml_dependencies.png)
   <figcaption><b>Figure 4</b>: Missing dependencies prompt shown when the TOP graph is executed and the required machine learning dependencies are not installed.</figcaption>
 </figure>
