@@ -23,10 +23,10 @@ To create and configure the deformer easily, there is a shortcut in the Adonis m
 7. The AdnMLDeformer will be created before the bonedeform node, if present, of the given geometry, and the joints found in the KineFX rig and present in the joints.json file will be populated in the "ML Inputs" tab of the node.
 8. The deformer is ready. Tweak the envelope and/or enable or disable the inference to see the effect of the Adonis ML model.
 
-> [NOTE]
+> [!NOTE]
 > - Creating the node manually is also possible in the Network View through Adonis > Deformer > AdnMLDeformer.
-> - In this case, the ML Model path and the list of ML Inputs (KineFX joints) can be populated afterwards by selecting the AdnMLDeformer plus the geometry with the KineFX joints and launching Adonis > ML Deformer.
-> - The use of the simple UI is required to ensure that the list of ML Inputs is consistent with the Adonis ML Model.
+> - In that case, the ML Model path and the list of ML Inputs (KineFX joints) can also be populated afterwards from the same UI by selecting the AdnMLDeformer plus the geometry with the KineFX joints and launching Adonis > ML Deformer.
+> - The use of this UI is recommended to ensure that the list of ML Inputs is consistent with the Adonis ML Model.
 
 The AdnMLDeformer integrates the mush algorithm to apply smoothing to the shape resulting from the inferred deformation. This algorithm requires a reference geometry to cache the displacements. Typically, the AdnMLDeformer is applied before the deformation chain; that is, the input source geometry is at rest, meaning that the input source is valid for mush data initialization. However, the AdnMLDeformer supports a second source to optionally ingest a custom rest shape for mush data initialization.
 
@@ -43,15 +43,15 @@ The AdnMLDeformer integrates the mush algorithm to apply smoothing to the shape 
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Iterations**     | Integer | 10      | ✓ | Number of smoothing iterations applied by the mush algorithm. Greater values produce smoother results at the expense of additional computational cost. Has a range of [0, 20]. The upper limit is soft; higher values can be used. |
+| **Iterations**     | Integer | 10      | ✓ | Number of smoothing iterations applied by the mush algorithm. Greater values produce smoother results at the expense of additional computational cost. Has a range of \[0, 20\]. The upper limit is soft; higher values can be used. |
 | **Pin**            | Boolean | True    | ✓ | Flag to pin the vertices on the boundaries.                                                                                                                                                                                        |
-| **Smoothing Step** | Float   | 0.5     | ✓ | Amount of smoothing applied at each iteration. Has a range of [0.0, 1.0].                                                                                                                                                          |
-| **Displacement**   | Float   | 1.0     | ✓ | Controls how much of the computed displacement is applied to the geometry. Has a range of [0.0, 1.0].                                                                                                                              |
+| **Smoothing Step** | Float   | 0.5     | ✓ | Amount of smoothing applied at each iteration. Has a range of \[0.0, 1.0\].                                                                                                                                                          |
+| **Displacement**   | Float   | 1.0     | ✓ | Controls how much of the computed displacement is applied to the geometry. Has a range of \[0.0, 1.0\].                                                                                                                              |
 
 ### Deformer Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of [0.0, 1.0]. The upper and lower limits are soft, and values can be set in a range of [-2.0, 2.0]. |
+| **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. The upper and lower limits are soft, and values can be set in a range of \[-2.0, 2.0\]. |
 
 ### ML Inputs
 
@@ -78,7 +78,7 @@ The AdnMLDeformer integrates the mush algorithm to apply smoothing to the shape 
 
 <figure markdown>
   ![ML deformer parameter template (ML inputs tab)](../images/ml_deformer_parameter_template_01.png)
-  <figcaption><b>Figure 2</b>: AdnMLDeformer Parameter Template (Part 2): Settings.</figcaption>
+  <figcaption><b>Figure 2</b>: AdnMLDeformer Parameter Template (Part 2): ML Inputs.</figcaption>
 </figure>
 
 <figure markdown>
