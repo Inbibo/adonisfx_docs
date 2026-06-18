@@ -54,7 +54,7 @@ The Data Extraction Tool (see Figure 1) provides an intuitive interface to confi
 
 - **Export folder path**: Specifies the folder path where the extracted data will be saved. Use the **Browse** button to select the desired export folder.
 
-- **Force overwrite**: When enabled, the data extraction process will allow overwrites any existing files in the export folder with the same names as the new extracted data. Use this option with caution to avoid unintentional loss of previous data.
+- **Force overwrite**: When enabled, the data extraction process will overwrite any existing files in the export folder with the same names as the newly extracted data. Use this option with caution to avoid unintentional loss of previous data.
 
 ## Requirements
 
