@@ -61,7 +61,7 @@ To create and configure the deformer easily, there is a shortcut in the Adonis m
 > - Creating the node manually is also possible in the Network View through Adonis > Deformer > AdnMLDeformer.
 > - In that case, the ML Model path and the list of ML Inputs (KineFX joints) can also be populated afterwards from the same UI by selecting the AdnMLDeformer plus the geometry with the KineFX joints and launching Adonis > ML Deformer.
 > - The use of this UI is recommended to ensure that the list of ML Inputs is consistent with the Adonis ML Model.
-> - ML inference would run on the GPU if the ML Dependencies have been previously installed. If not, the ML inference is performed on the CPU. Please, learn how to install the dependencies in the [Installation](../../installation.md) page.
+> - ML inference would run on the GPU if the ML Dependencies have been previously installed. If not, the ML inference is performed on the CPU. Please, learn how to install the dependencies in the [Installation](../../installation) page.
 
 The AdnMLDeformer integrates the mush algorithm to apply smoothing to the shape resulting from the inferred deformation. This algorithm requires a reference geometry to cache the displacements. Typically, the AdnMLDeformer is applied before the deformation chain; that is, the input source geometry is at rest, meaning that the input source is valid for mush data initialization. However, the AdnMLDeformer supports a second source to optionally ingest a custom rest shape for mush data initialization.
 
