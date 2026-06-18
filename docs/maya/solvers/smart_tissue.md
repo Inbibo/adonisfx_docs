@@ -1,6 +1,6 @@
 # AdnSmartTissue
 
-AdnSmartTissue is a Maya solver designed to generate skin dynamics soft tissue effects without requiring the creation and simulation of complex anatomical structures such as muscles, fascia, or fat layers.
+AdnSmartTissue is a Maya solver designed to generate skin dynamics and soft tissue effects without requiring the creation and simulation of complex anatomical structures such as muscles, fascia, or fat layers.
 
 Instead of relying on pre-built internal anatomy, AdnSmartTissue automatically generates a procedural volumetric structure beneath the input surface. This structure is created from an inner mesh, whose shape and depth can be controlled through the push attributes and further refined by applying relaxation. The resulting volume is then simulated by computing: 1) volume constraints to make it resistant to compression and expansion; 2) volume shape preservation constraints to make the internal volume resistant to deformation; 3) hard constraints to attach the borders of the mesh to the base mesh; and 4) shape preservation constraints to preserve the original shape between connected vertices.
 

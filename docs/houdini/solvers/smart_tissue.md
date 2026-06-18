@@ -20,10 +20,11 @@ The AdnSmartTissue SOP is easy to create and configure in Houdini. The deformer 
 Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
 
 - The Bone Deform node must exist in the deformable chain of the geometry to apply the AdnSmartTissue to.
-- The name of the Bone Deform node must follow a fixed naming convention: "<GEO_NAME>_bonedeform"
+- The name of the Bone Deform node must follow a fixed naming convention: "<GEO_NAME>_bonedeform".
 - The input geometry and the Bone Deform node must be the same used in the data extraction process when a ML Model and Joints file are provided to AdnSmartTissue.
+- The geostream containing the KineFX joints. This stream must include the `name` and `localtransform` per-point attributes to enable the ML features.
 - The deformation mode of the Bone Deform must be Linear.
-- The *ADN_IN_* and *ADN_OUT_* null nodes must be present and encapsulate the Bone Deform node for the creator and editor utils to work properly.
+- The "ADN_IN_<GEO_NAME>" and "ADN_OUT_<GEO_NAME>" null nodes must be present and encapsulate the Bone Deform node for the creator and editor utils to work properly.
 
 <figure markdown>
   ![Initial state of the network to create AdnSmartTissue](../images/smart_tissue_requirements.png)
@@ -32,7 +33,7 @@ Apart from the inputs required, there are also other aspects to be satisfied for
 
 To create and configure the deformer:
 
-1. Select Null node (typically named as `ADN_OUT_<geometry_name>`) that is the output of the bone deform node which is deforming the skin mesh, and the node with the animated joints.
+1. Select Null node (typically named as "ADN_OUT_<GEO_NAME>") that is the output of the Bone Deform node which is deforming the skin mesh, and the node with the animated joints.
 2. Press *Smart Tissue* in the Adonis menu.
 
 <figure markdown>
