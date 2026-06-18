@@ -93,10 +93,7 @@ The optional arguments are:
 
 By default, the extraction process uses the current Maya playback range.
 
-To extract only specific parts of the animation, provide the `frame_windows` argument:
-
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">frame_windows = [[1, 120], [220, 360], [500, 720]]
-</code></pre>
+To extract only specific parts of the animation, provide the `frame_windows` argument in the extraction call.
 
 Each entry defines a frame range using the format `[start_frame, end_frame]`.
 
@@ -122,9 +119,6 @@ Frame windows are useful when only specific animation ranges should contribute t
 
 The `skip_frames` argument controls how many frames are skipped between recorded poses.
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">skip_frames = 2
-</code></pre>
-
 This can be used to reduce redundant pose data and extract more diverse samples.
 
 Lower values are recommended for fast animations, while higher values can be used for slower animations. Typical suggested values for normal animation speeds are between `2` and `5`.
@@ -135,15 +129,11 @@ The skip frames will be computed from the start of each frame window, this ensur
 
 The `stabilization_frames` argument controls how many times each recorded frame should be recooked before displacement data is computed and written.
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">stabilization_frames = 5
-</code></pre>
-
 This is used to stabilize the simulation dynamics before recording data. Higher values make each of the recorded poses lose more dynamics and converge toward a static silhouette. Well stabilized data is required for good ML deformation training.
 
 Typical suggested values for normal animation speeds are between `5` and `10`. Faster animations may require more stabilization frames.
 
-> [!NOTE]
-> Increasing `stabilization_frames` will increase the total extraction time.
+Increasing `stabilization_frames` will increase the total extraction time.
 
 ## Muscle Activation Data
 
