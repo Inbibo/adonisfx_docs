@@ -197,6 +197,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 | **Fibers Multiplier**           | 1.0             | Controls the area in which to concentrate the activation of the muscle. A higher value means more concentrated activation. |
 | **Global Damping**              | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
 | **Masses**                      | 1.0             | Set individual mass values per vertex in the simulated mesh. |
+| **Mush Weights**                | 1.0             | Weights map used to control the influence of the mush deformation at each vertex.     |
 | **Shape Preservation**          | 1.0             | Amount of correction to apply to the current vertex to maintain the initial state of the shape formed with the surrounding vertices. |
 | **Slide On Geometry**           | 0.0             | Multi-influence weight to force vertices to displace only on the target geometry area defined by the *Max Sliding Distance* value. |
 | **Slide On Segment**            | 0.0             | Multi-influence weight to force vertices to displace only in the direction of a user-specified group of segments. |

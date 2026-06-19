@@ -58,7 +58,7 @@ The AdnMLDeformer integrates the mush algorithm to apply smoothing to the shape 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Enable Inference** | Boolean | True | ✓ | Flag to enable or disable the inferred deformation. |
-| **ML Model Path**    | String  |      | ✓ | File path to the trained Adonis ML model.           |
+| **ML Model Path**    | String  |      | ✗ | File path to the trained Adonis ML model.           |
 
 ### Mush Properties
 
