@@ -125,10 +125,6 @@ When training with neural clusters, the following additional files are required:
 
     Press **OK** to install the dependencies from the prompt. This may take a few minutes.
 
-    Alternatively, install the dependencies manually from **Adonis > Utils > *Install ML Dependencies***. On Linux, the dependency installation will run in the DCC terminal window, while on Windows it will pop up a separate one.
-
-    For standalone dependency installation outside the DCC, use `install_dependencies.bat` on Windows or `install_dependencies.sh` on Linux.
-
 <figure style="width:90%; margin-left:5%" markdown>
   ![Training tool missing dependencies prompt](../images/training_install_ml_dependencies.png)
   <figcaption><b>Figure 3</b>: Missing dependencies prompt shown when *Start training* is pressed.</figcaption>
@@ -161,8 +157,8 @@ The dependencies can be installed in one of the following ways:
 
 - From the missing dependencies prompt shown when launching training.
 - From **Adonis > Utils > *Install ML Dependencies***.
-- By running `install_dependencies.bat` on Windows outside the DCC.
-- By running `install_dependencies.sh` on Linux outside the DCC.
+- By running `Adonis/python/adnml/install_dependencies.bat` on Windows outside the DCC.
+- By running `Adonis/python/adnml/install_dependencies.sh` on Linux outside the DCC.
 
 Installing the dependencies may take a few minutes.
 
