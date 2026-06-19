@@ -36,8 +36,9 @@ The process to create the AdnSkin is:
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
-| **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Preroll Start Time** | Time    | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
+| **Start Time**         | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |

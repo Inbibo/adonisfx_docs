@@ -49,7 +49,8 @@ The process to create an AdnGlue node is:
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the node initializes. |
+| **Preroll Start Time** | Time    | *Current frame* | ✗ | Sets the frame at which the node initializes. |
+| **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |

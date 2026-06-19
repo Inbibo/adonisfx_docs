@@ -43,7 +43,8 @@ Only one transform will be required to create the AdnSensorPosition. To create a
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Time**   | Time | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
+| **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
+| **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. | 
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -154,7 +155,8 @@ Two transforms will be required to create the AdnSensorDistance. To create an Ad
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Time**   | Time | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
+| **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
+| **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. | 
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -285,7 +287,8 @@ Three transforms will be required to create the AdnSensorRotation. To create an 
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Time**   | Time | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
+| **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
+| **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. | 
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
