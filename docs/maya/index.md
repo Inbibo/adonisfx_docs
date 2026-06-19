@@ -32,7 +32,7 @@
     - [Target Faces Editor](tools/target_faces_editor)
     - [Mirror](tools/mirror_tool)
     - [Turbo](tools/turbo_tool)
-    - [Landmark Tool](tools/landmark_tool.md)
+    - [Landmark Tool](tools/landmark_tool)
     - [Transfer](tools/transfer_tool)
     - [Export](tools/exporter)
     - [Import](tools/importer)
