@@ -162,11 +162,11 @@ train(
 
 The training script can also be launched directly from the standalone runner by passing the training script path and command-line arguments.
 
-The training script is located in the `scripts/neural_training` folder next to the runner.
+The training script is located in the `scripts` folder next to the runner.
 
-On Windows, use `run.bat` followed by the path to `scripts/neural_training/train.py` and the training arguments:
+On Windows, use `run.bat` followed by the path to `scripts/train.py` and the training arguments:
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">"&lt;adnml_package_path&gt;/run.bat" "&lt;adnml_package_path&gt;/scripts/neural_training/train.py" ^
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">"&lt;adnml_package_path&gt;/run.bat" "&lt;adnml_package_path&gt;/scripts/train.py" ^
   --input-data "C:/path/to/dataset/inputs.csv" ^
   --output-data "C:/path/to/dataset/outputs.csv" ^
   --modelpath "C:/path/to/output/model.adnm" ^
@@ -175,9 +175,9 @@ On Windows, use `run.bat` followed by the path to `scripts/neural_training/train
   --force-wait
 </code></pre>
 
-On Linux, use `run.sh` followed by the path to `scripts/neural_training/train.py` and the training arguments:
+On Linux, use `run.sh` followed by the path to `scripts/train.py` and the training arguments:
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">"&lt;adnml_package_path&gt;/run.sh" "&lt;adnml_package_path&gt;/scripts/neural_training/train.py" \
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">"&lt;adnml_package_path&gt;/run.sh" "&lt;adnml_package_path&gt;/scripts/train.py" \
   --input-data "/path/to/dataset/inputs.csv" \
   --output-data "/path/to/dataset/outputs.csv" \
   --modelpath "/path/to/output/model.adnm" \
@@ -188,7 +188,7 @@ On Linux, use `run.sh` followed by the path to `scripts/neural_training/train.py
 
 To train with neural clusters from the standalone launcher, provide the neural cluster `.json` file and the joint information `.json` file:
 
-<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">"&lt;adnml_package_path&gt;/run.bat" "&lt;adnml_package_path&gt;/scripts/neural_training/train.py" ^
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">"&lt;adnml_package_path&gt;/run.bat" "&lt;adnml_package_path&gt;/scripts/train.py" ^
   --input-data "C:/path/to/dataset/inputs.csv" ^
   --output-data "C:/path/to/dataset/outputs.csv" ^
   --modelpath "C:/path/to/output/model.adnm" ^
@@ -286,4 +286,4 @@ If the training process fails or does not produce the expected result, check the
 
 8. Confirm that the standalone runner path is valid.
 
-    When launching training outside a Python environment, make sure the command points to the correct `run.bat` or `run.sh` file and to the `scripts/neural_training/train.py` file in the same AdonisML package directory.
+    When launching training outside a Python environment, make sure the command points to the correct `run.bat` or `run.sh` file and to the `scripts/train.py` file in the same AdonisML package directory.
