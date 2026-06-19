@@ -280,7 +280,7 @@ AdnSimshape can emulate the behavior of facial muscles by computing the muscle a
 >  - Deform mesh
 >
 >  === Plug Values (Point Attribute)
-> The values used to drive the level of activation at each vertex will be read from the `adnActivation` point attribute in the geostream. The [AdnEdgeEvaluator](../utils/edge_evaluator.md#adnedgeevaluator) node can be used to compute the activation values from the rest and deformation meshes.
+> The values used to drive the level of activation at each vertex will be read from the `adnActivation` point attribute in the geostream. The [AdnEdgeEvaluator](../utils/edge_evaluator#adnedgeevaluator) node can be used to compute the activation values from the rest and deformation meshes.
 >
 > **Note**
 > - The values must be provided in the range 0 to 1, where 0.0 is no activation and 1.0 is maximum activation.

@@ -1,6 +1,6 @@
 # AdnTransfer
 
-The AdnTransfer script is a Python Script designed to automate the transfer of anatomy layers after the primary anatomy transfer has been completed using [AdnRadialWrap](../deformers/radial_wrap) and the [Landmark Tool](../tools/landmark_tool.md).
+The AdnTransfer script is a Python Script designed to automate the transfer of anatomy layers after the primary anatomy transfer has been completed using [AdnRadialWrap](../deformers/radial_wrap) and the [Landmark Tool](../tools/landmark_tool).
 
 In the anatomy transfer workflow, AdnRadialWrap is first used to reshape and repose the **skin** and **mummy** geometries. Once these geometries have been transferred, the AdnTransfer propagates the resulting deformation to the remaining anatomy layers by automatically creating and configuring the required [AdnSoftWrap](../deformers/soft_wrap) and [AdnRigidWrap](../deformers/rigid_wrap) deformers.
 

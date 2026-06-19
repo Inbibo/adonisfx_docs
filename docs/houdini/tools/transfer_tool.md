@@ -69,7 +69,7 @@ If the *Radius* value used by the generated AdnSoftWrap deformers is too small, 
 
 > [!NOTE]
 > - Note that the whole AdnTransfer can be undone.
-> - AdnTransfer can also be executed with the **AdnTransfer Script**. For more details, please refer to the [AdnTransfer Script page](../scripts/transfer.md).
+> - AdnTransfer can also be executed with the **AdnTransfer Script**. For more details, please refer to the [AdnTransfer Script page](../scripts/transfer).
 
 ## Result
 

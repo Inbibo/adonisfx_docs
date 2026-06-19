@@ -10,7 +10,7 @@ Once the landmark pairs have been defined, the deformer can compute the main res
 
 AdnRadialWrap does not require topological match between the input and goal geometries because the correspondence is actually described by the pairs of landmarks. This makes it particularly useful for character reshaping, anatomy transfer, pose transfer, and fitting operations between related but structurally different meshes.
 
-Landmarks are represented using [AdnPointLocator](../utils/locators#adnpointlocator). These are specialized Adonis nodes designed specifically to define landmark positions and should be used instead of regular Maya transforms or locators. The recommended workflow for creating landmarks, placing them, and creating the deformer is through the [Landmark Tool](../tools/landmark_tool.md), which automates and simplifies the setup process.
+Landmarks are represented using [AdnPointLocator](../utils/locators#adnpointlocator). These are specialized Adonis nodes designed specifically to define landmark positions and should be used instead of regular Maya transforms or locators. The recommended workflow for creating landmarks, placing them, and creating the deformer is through the [Landmark Tool](../tools/landmark_tool), which automates and simplifies the setup process.
 
 ## How To Use
 
@@ -46,7 +46,7 @@ This workflow is recommended when working with multiple goal geometries, as AdnR
 > [!NOTE]
 > - AdnRadialWrap requires at least four pairs of corresponding landmarks to produce a deformation.
 > - The number of input and goal landmarks must be the same.
-> - For more information about the Landmark Tool, refer to this [page](../tools/landmark_tool.md).
+> - For more information about the Landmark Tool, refer to this [page](../tools/landmark_tool).
 
 ## Attributes
 
