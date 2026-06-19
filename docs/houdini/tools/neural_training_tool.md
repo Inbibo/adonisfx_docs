@@ -12,7 +12,7 @@ The AdnMLTraining TOP HDA can help orchestrate the training process together wit
 The AdnMLTraining TOP HDA can also help manage the training dependencies. If the required machine learning dependencies are missing when the TOP graph is launched, the tool prompts the user to install them. The dependencies can also be installed manually from **Adonis > Utils > *Install ML Dependencies***.
 
 > [!NOTE]
-> When compatible GPU execution is available, training can use the GPU and is usually faster than CPU training. If GPU execution is not available, training falls back to CPU execution, which can be slower.
+> The training process checks automatically for an available Nvidia GPU and uses that to drastically accelerate training. If a supported GPU device is not available, training falls back to CPU execution, and will be significantly slower. Multi-GPU setups are currently not supported and the training will use the first available device.
 
 > [!NOTE]
 > This page describes how to run training from Houdini using the AdnMLTraining TOP HDA. For dependency installation options, refer to the [Training Dependencies](#training-dependencies) section.
@@ -190,7 +190,7 @@ The dependencies can be installed in one of the following ways:
 Installing the dependencies may take a few minutes.
 
 > [!NOTE]
-> When compatible GPU execution is available, training can use the GPU and is usually faster than CPU training. If GPU execution is not available, training falls back to CPU execution, which can be slower.
+> The training process checks automatically for an available Nvidia GPU and uses that to drastically accelerate training. If a supported GPU device is not available, training falls back to CPU execution, and will be significantly slower. Multi-GPU setups are currently not supported and the training will use the first available device.
 
 ## Output Files
 
