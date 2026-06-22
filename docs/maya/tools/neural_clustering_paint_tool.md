@@ -157,7 +157,7 @@ The ML joints captured from each entry should represent the joint set used as ma
 
     Use *Import JSON* or *Load from Scene* to import neural cluster entry data from a `.json` file or a scene storage node. This clears the tool entries and maps and replaces them with the entries from the file.
 
-    Importing restores the cluster entries, the cluster names, the joint associations, and the painted weights stored for each cluster. All of the associated Maya ColorSets are also restored to the corresponing painted values.
+    Importing restores the cluster entries, the cluster names, the joint associations, and the painted weights stored for each cluster. All of the associated Maya ColorSets are also restored to the corresponding painted values.
 
     To edit the imported cluster data, select the desired entry and use *Paint Cluster* to enter the paint workflow for that cluster. Then mirror the entry to reflect the changes on the opposite side of the mesh if needed.
 
