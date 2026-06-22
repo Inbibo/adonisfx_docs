@@ -131,19 +131,19 @@ The ML joints captured from each entry should represent the joint set used as ma
 
     If the selected convention does not match, the tool will try to fall back to a simple `L`/`R` token swap. A warning will be logged in case of failure.
 
-10. Repeat the process for each cluster entry.
+9. Repeat the process for each cluster entry.
 
     Use the *Add Entry* button to create more cluster entries.
 
     For each cluster entry you can repeat the process of naming the entry, assigning joints, painting the cluster, capturing the weights, and mirroring if needed.
 
-11. Normalize overlapping clusters if needed.
+10. Normalize overlapping clusters if needed.
 
     Click *Normalize Clusters* when cluster regions overlap and the painted values should be normalized.
 
     Normalizing clusters adjusts the painted maps and weights between `0` and `1` across all clusters. This helps keep overlapping cluster data consistent and can improve the quality of the model predictions at the interface between clusters. This action will change the maps values painted in the Maya ColorSets and the weights stored in the tool entries (this action is undoable).
 
-12. Export the cluster map.
+11. Export the cluster map.
 
     Use *Export JSON* to export the current neural cluster entry data to a `.json` file.
 
