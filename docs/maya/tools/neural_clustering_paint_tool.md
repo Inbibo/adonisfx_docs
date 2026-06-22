@@ -25,16 +25,16 @@ If multiple clusters overlap, the cluster values can be normalized. Normalizing 
 
 The Neural Clustering Paint Tool (see Figure 1) provides an interface to create, paint, mirror, save and load neural clusters. Following there is a breakdown of the available UI elements:
 
-### Global Inputs & Buttons
+### Global Settings
 
 - **Mesh**: Name of the mesh to paint. The mesh name will be stored in the exported `.json` file.
-- **Pick Mesh from Selection**: Fills the *Mesh* parameter from the currently selected Houdini node name. This only updates the *Mesh* text field and does not change node connections or geometry.
-- **Clear Mesh**: Clears the *Mesh* parameter. This does not remove clusters, weights, imported data, or painted attributes.
+- **Pick Mesh from Selection**: Fills the *Mesh* parameter from the currently selected Maya object. The selected mesh will be the one used for painting, export, import, and cross-DCC compatibility. Use *Clear Mesh* to clear the *Mesh* from the UI. The selection of a mesh will automatically switch the associated material to a Maya Standard Surface shader with a neutral gray color to allow correct visualization of the painted clusters. The material is automatically created and assigned to the mesh if it does not exist.
+- **Clear Mesh**: Clears the *Mesh* parameter. Clearing the mesh will ask for clearing of the tool data as well. If confirmed, this will clear the whole UI and remove the painted clusters, weights and imported data. When the mesh is cleared, the original material assigned to the mesh is restored.
 - **Add Entry**: Adds a new empty entry to the UI. It represents a new cluster to paint and capture weights from.
 - **Export JSON**: Exports the current neural cluster entry data to a `.json` file. Requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields.
-- **Import JSON**: Imports neural cluster entry data from a `.json` file. This replaces the current entries in the tool with the entries from the file and stashes the imported cluster attributes internally on the node.
+- **Import JSON**: Imports neural cluster entry data from a `.json` file. This replaces the current entries in the tool with the entries from the file.
 - **Save to Scene**: Saves the current Neural Cluster entries data to the scene in a hidden node. This allows to keep the data with the Maya file and work with it across different sessions without needing to export or import JSON files.
-- **Load from Scene**: Load Neural Cluster entries data from the scene. This will replace the current entries in the tool with the ones stored in the scene hidden storage node.
+- **Load from Scene**: Load Neural Cluster entries data from the scene. This will replace the current entries in the tool with the ones stored in the scene hidden storage node. This replaces the current entries in the tool with the entries from the scene storage node.
 - **Mirror by**: Defines how the left and right text is matched in cluster names and joint names. Use *Prefix* when the text is at the start, *Suffix* when it is at the end, or *Token* when it can appear anywhere in the name.
 - **Left**: Left-side naming convention used for mirrored cluster names and joints. For example, use `L_` for prefix, `_L` for suffix, or `_L_` for token.
 - **Right**: Right-side naming convention used for mirrored cluster names and joints. For example, use `R_` for prefix, `_R` for suffix, or `_R_` for token.
@@ -42,26 +42,21 @@ The Neural Clustering Paint Tool (see Figure 1) provides an interface to create,
 - **Clear Entries**: Clear all Neural Cluster entries from the tool. This will also remove the associated Maya ColorSets.
 - **Normalize Clusters**: Normalizes the weights between `0` and `1` across all clusters. This helps keep overlapping cluster weights consistent.
 
-### Entry Inputs & Buttons
+### Entry Settings
 
-- **Name**: Neural cluster name. This becomes the Houdini point attribute used for painting, import, export, mirroring, and normalization. Use a valid attribute name with no spaces or special characters.
+- **Name**: Neural cluster name. This will be the reference name of the cluster. The cluster name should avoid using spaces or special characters for cross-DCC compatibility.
 - **Joints**: Number of joints captured for this cluster.
-- **Weighted**: Number of vertices weighted (i.e. painted with a value greater than 0.0) by this cluster.
-- **Set**: Name of the ColorSet used by Maya to display the vertices affected of this cluster.
-- **Capture Joints from Selection**: Capture the currently selected joints and associate them to this Neural Cluster entry.
-- **Select Stored Joints**: Select the joints currently associated to this Neural Cluster entry.
+- **Weighted**: Number of vertices for which cluster weights are stored.
+- **Set**: Name of the associated ColorSet used by Maya to paint vertices affected of this cluster.
+- **Capture Joints from Selection**: Capture the currently selected joints and associate them to this Neural Cluster entry. Only objects of type *joint* or inheriting from type *joint* will be considered valid and captured.
+- **Select Stored Joints**: Select the joints currently associated to this Neural Cluster entry. This button should be used to verify the correct selection of joints for the cluster. If the selection is not correct, use *Capture Joints from Selection* to update the joint association.
 - **Paint Cluster**: Create or make active the Maya ColorSet for this Neural Cluster entry and switch to the Paint Vertex Color Tool. This will allow to paint vertex weights for this cluster directly on the mesh in the viewport.
 - **Capture Weights from Set**: Read the vertex weights from the associated Maya ColorSet and store them in this Neural Cluster entry.
 - **Mirror**: Creates or updates a mirrored neural cluster entry by copying joints and weights across the X axis. The entry name and joints are mirrored using the selected *Mirror by* mode and the *Left* and *Right* naming tokens. If the selected convention does not match, the tool will try to fall back to a simple `L`/`R` token swap. A warning will be logged in case of failure.
 - **Select Weighted Vertices**: Select the vertices that have a weight value at or above 0.0 in the associated Maya ColorSet.
-- **Remove Entry**: Remove this Neural Cluster entry and all its data. This action cannot be undone.
+- **Remove Entry**: Remove this Neural Cluster entry and all its data.
 
 ## Requirements
-
-To use the Neural Clustering Paint Tool, the following inputs must be provided:
-
-- *Mesh*: Static mesh where neural clusters will be painted.
-- *Joints*: ML joints used to associate each cluster with the relevant joint data.
 
 The static mesh selected must match the topology of the mesh that will be used for training. This means both meshes must have matching point counts and matching point order so the exported cluster weights correspond to the expected training mesh data.
 
@@ -69,7 +64,7 @@ The ML joints captured from each entry should represent the joint set used as ma
 
 ## How To Use
 
-1. Launch the **nNeural Clustering Paint Tool**.
+1. Press ![Neural Clustering Paint Tool](../../images/adn_neural_clustering_paint_tool.png){style="width:4%"} in the Adonis shelf or *Neural Clustering Paint Tool* in the Adonis menu, under the ML Tools section to open the tool UI to launch the **Neural Clustering Paint Tool**.
 
 2. Select the geometry to paint and click on *Pick Mesh from Selection*.
 
@@ -77,15 +72,9 @@ The ML joints captured from each entry should represent the joint set used as ma
 
     For cross-DCC compatibility, the *Mesh* value should match the equivalent mesh name used in other DCCs.
 
-    Use *Clear Mesh* to clear the *Mesh* from the UI. Use this button with caution because it will clear the whole UI and remove the painted clusters, weights and imported data.
+    Use *Clear Mesh* to clear the *Mesh* from the UI. Clearing the mesh will ask for clearing of the tool data as well. If confirmed, this will clear the whole UI and remove the painted clusters, weights and imported data. When the mesh is cleared, the original material assigned to the mesh is restored (this action is undoable).
 
-3. Import an existing cluster map if needed.
-
-    Use *Import JSON* to import neural cluster entry data from a `.json` file. This replaces the current entries in the tool with the entries from the file.
-
-    Importing restores the cluster entries, the cluster names, the joint associations, and the painted weights stored for each cluster.
-
-4. Configure the mirror naming convention.
+3. Configure the mirror naming convention.
 
     Use *Mirror by* to define how the left and right text is matched in cluster names and joint names.
 
@@ -99,56 +88,38 @@ The ML joints captured from each entry should represent the joint set used as ma
 
     The mirror naming convention is used for both the cluster entry name and the joint names.
 
-6. Create or select a cluster entry.
+4. Create a cluster entry.
 
-    Use *Entry* to select the cluster entry to edit. Each entry represents a neural cluster definition.
+    Use the **Add Entry** button to create a new cluster entry.
 
-    Use the plus and minus icons next to *Entry* to add or remove cluster entries.
+5. Name the cluster entry.
 
-    Use *Clear* to clear all of the current multiparameter entries.
+    Use *Name* to assign a valid neural cluster name to the selected cluster entry. The cluster name should avoid using spaces or special characters for cross-DCC compatibility.
 
+6. Assign joints to the cluster entry.
 
-<figure markdown>
-  ![Adonis Data Extraction Tool](../images/neural_clustering_paint_tool_01.png)
-  <figcaption><b>Figure 2</b>: Adonis Data Extraction UI.</figcaption>
-</figure>
+    Use *Capture Joints from Selection* to store the selected joints for the cluster entry. Only objects of type *joint* or inheriting from type *joint* will be considered valid and captured.
 
-7. Name the cluster entry.
+    The selected joints describe which rig controls are related to the painted cluster region.
 
-    Use *Name* to assign a valid neural cluster name to the selected cluster entry.
+7. Paint the cluster.
 
-    The cluster name becomes the Houdini point attribute used for painting, import, export, mirroring, and normalization. Use a valid attribute name with no spaces or special characters.
+    Press *Paint Cluster* to create or make active the Maya ColorSet for the selected cluster entry. The button will automatically switch to the Paint Vertex Color Tool, allowing you to paint vertex weights for this cluster directly on the mesh in the viewport. The ColorSet map will be initialized as `0` (black color) for all vertices.
 
-8. Assign joints to the cluster entry.
+    The painted values represent the influence of the current neural cluster over the mesh. High values define the main area of influence for the cluster, while lower values can be used to create a smooth falloff into nearby regions, as shown in Figure 2.
 
-    Use *Joints* to define the joint selection for the selected cluster entry.
+    Make sure to paint the cluster region with smooth transitions between high and low values to avoid sharp edges in the cluster falloff.
 
-    The joint selection should be created using the cogwheel picker next to the *Joints* parameter, as shown in Figure 3.
-
-    The joint geometry must contain a valid *name* point attribute. The entries in *Joints* must follow the `@name=...` convention, for example `@name=R_Scapula`. Do not use wildcards or broad patterns, because the export process expects explicit joint name selections.
-
-    When the clustering data is exported, these selections are resolved to full joint paths using separators.
-
-    The selected joints help describe which rig controls are related to the painted cluster region.
-
-9. Paint the cluster.
-
-    Press *Paint Cluster* to make the selected cluster the active paint target and enter the paint workflow for its mask attribute.
-
-    The paint workflow exposes the same painting parameters as Houdini's Attribute Paint node. These parameters control the brush behavior, stroke behavior, symmetry, and painted values.
-
-    The painted values represent the influence of the current neural cluster over the mesh. High values define the main area of influence for the cluster, while lower values can be used to create a smooth falloff into nearby regions, as shown in Figure 4.
-
-    To exit the paint viewer state, press **Esc** while the cursor is over the viewport.
-
-    For more information about Houdini's Attribute Paint node, refer to the [Houdini Attribute Paint documentation](https://www.sidefx.com/docs/houdini/nodes/sop/attribpaint).
+    Once the cluster is painted, press *Capture Weights from Set* to read the vertex weights from the associated Maya ColorSet and store them in this Neural Cluster entry. The captured weights are stored per cluster and the corresponding attributes are stashed internally on the node.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![AdnNeuralClusteringPaintTool painted cluster](../images/neural_clustering_paint_tool_02.png)
-  <figcaption><b>Figure 3</b>: Example of a painted neural cluster on a training mesh. Painted values closer to <code>1</code> are displayed toward white and represent higher influence, while values closer to <code>0</code> are displayed toward black and represent lower influence. Smooth transitions between these values define the cluster falloff.</figcaption>
+  <figcaption><b>Figure 2</b>: Example of a painted neural cluster on a training mesh. Painted values closer to <code>1</code> are displayed toward white and represent higher influence, while values closer to <code>0</code> are displayed toward black and represent lower influence. Smooth transitions between these values define the cluster falloff.</figcaption>
 </figure>
 
-10. Mirror the cluster if needed.
+    Use the *Select Weighted Vertices* button to select and visualize the stored vertices that have a weight value at or above `0.0` in the associated Maya ColorSet. This can be used to verify the painted region and ensure that the correct vertices are being affected by the cluster.
+
+8. Mirror the cluster if needed.
 
     Press *Mirror* to create or update a mirrored neural cluster entry by copying joints and weights across the X axis.
 
@@ -160,13 +131,17 @@ The ML joints captured from each entry should represent the joint set used as ma
 
     If the selected convention does not match, the tool will try to fall back to a simple `L`/`R` token swap. A warning will be logged in case of failure.
 
-    If the mirrored entry already exists, the tool asks for confirmation. Depending on which data is already present, it may update only the mirrored joints, the weights, or both.
+10. Repeat the process for each cluster entry.
+
+    Use the *Add Entry* button to create more cluster entries.
+
+    For each cluster entry you can repeat the process of naming the entry, assigning joints, painting the cluster, capturing the weights, and mirroring if needed.
 
 11. Normalize overlapping clusters if needed.
 
-    Enable *Normalize Clusters* when cluster regions overlap and the painted values should be normalized.
+    Click *Normalize Clusters* when cluster regions overlap and the painted values should be normalized.
 
-    Normalizing clusters adjusts the weights between `0` and `1` across all clusters. This helps keep overlapping cluster data consistent and can improve the quality of the model predictions at the interface between clusters.
+    Normalizing clusters adjusts the painted maps and weights between `0` and `1` across all clusters. This helps keep overlapping cluster data consistent and can improve the quality of the model predictions at the interface between clusters. This action will change the maps values painted in the Maya ColorSets and the weights stored in the tool entries (this action is undoable).
 
 12. Export the cluster map.
 
@@ -175,6 +150,18 @@ The ML joints captured from each entry should represent the joint set used as ma
     Export requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields.
 
     The exported `.json` file can then be used during neural training with the [AdnNeuralTrainingTool](../tools/neural_training_tool).
+
+    You can also use *Save to Scene* to save the current Neural Cluster entries data to the scene in a hidden node. This allows to keep the data with the Maya file and work with it across different sessions without needing to export or import JSON files.
+
+13. Import and edit existing cluster map if needed.
+
+    Use *Import JSON* or *Load from Scene* to import neural cluster entry data from a `.json` file or a scene storage node. This clears the tool entries and maps and replaces them with the entries from the file.
+
+    Importing restores the cluster entries, the cluster names, the joint associations, and the painted weights stored for each cluster. All of the associated Maya ColorSets are also restored to the corresponing painted values.
+
+    To edit the imported cluster data, select the desired entry and use *Paint Cluster* to enter the paint workflow for that cluster. Then mirror the entry to reflect the changes on the opposite side of the mesh if needed.
+
+    You can follow this workflow as many times as needed to edit the cluster data and update the weights. After editing, use *Export JSON* to save the updated cluster data to a `.json` file.
 
 ## Cluster JSON Overview
 
@@ -215,5 +202,4 @@ The generated clusters describe regions of locality on the mesh. These regions h
 - Use clear cluster names that describe the body region or deformation area they represent.
 - Associate each cluster with the joints that are expected to cause deformations in that region. For example, for a humanoid character, movements of the elbow, or forearm, joint are expected to cause bulging of the bicep and tricep muscles, therefore the cluster should cover that skin region.
 - Keep mesh and cluster names aligned with other DCCs when the cluster data needs to be reused across applications.
-- Use explicit `@name=...` joint selections and avoid wildcards.
 - Remember that painted values closer to `1` represent higher influence and are displayed toward white, while values closer to `0` represent lower influence and are displayed toward black.
