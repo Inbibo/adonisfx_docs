@@ -7,7 +7,7 @@ Adonis provides tools for building, simulating, and accelerating high-quality de
 The documentation is organized around two main areas:
 
 - **AdonisFX**: Tools for creature and character simulation, including muscle, fat, skin, face, and related deformation workflows.
-- **AdonisML**: Machine learning tools for digital anatomy workflows, including data extraction, neural clustering, model training, pose-based neural deformation, and smart tissue simulation.
+- **AdonisML**: Machine learning tools for digital anatomy workflows, including data extraction, neural clustering and model training tools to drive pose-based neural deformation and Smart Tissue ML driven simulation.
 
 If you need more information or help, please send an email to **adonis.support@inbibo.co.uk**.
 
@@ -23,18 +23,21 @@ AdonisFX is designed to help teams build high-quality digital anatomy setups dir
 
 **AdonisML** brings machine learning into the Adonis digital anatomy framework.
 
-AdonisML works in two main layers:
+AdonisML can be used to further optimize the efficiency and complexity of an Adonis setup. AdonisML features mainly apply two layers:
 
-- **AdonisML Deformer**: A pose-based neural deformer that provides interactive-speed feedback for high-quality skin deformation.
-- **Smart tissue**: A dynamics layer that adds inertial detail such as jiggle, settle, and overshoot, which pose-based ML deformation does not usually capture on its own.
+- **ML Deformer**: A pose-based neural deformer that provides interactive-speed feedback for high-quality skin deformation.
+- **Smart tissue**: A fast and procedural simulation layer that adds inertial detail such as jiggle, settle, and overshoot, which pose-based ML deformation does not usually capture on its own. This can be further enhanced by the use of a neural network for dynamic material properties prediction.
 
-The AdonisML Deformer allows animators to work interactively with a high-quality representation of the character deformation. Because pose-based ML deformers are trained from pose data, their output is based on the current pose and does not directly represent motion, velocity, or dynamic history.
+> [!IMPORTANT]
+> ML Deformer and Smart Tissue can be used within an Adonis FX license, however data extraction and training of Adonis ML models are allowed for Adonis ML license. See more info in [this section](licensing#adonis-bundles).
+
+The ML Deformer allows animators to work interactively with a high-quality representation of the character deformation. Because pose-based ML deformers are trained from pose data, their output is based on the current pose and does not directly represent motion, velocity, or dynamic history.
 
 AdonisML provides tools to define narrow locality for ML deformation, helping the trained model isolate local deformation behavior more effectively. Neural clustering and training workflows allow users to guide how different regions of the character are learned and evaluated.
 
-Smart tissue complements the pose-based deformer by adding dynamic behavior on top of the ML-driven result. It uses neural predictions of underlying muscle activation to drive simulation behavior without requiring artists to control complex physical parameters directly.
+Smart tissue complements the pose-based deformer by adding dynamic behavior on top of the ML-driven result. It can use neural predictions of underlying muscle activation to drive simulation behavior without requiring artists to control complex physical parameters directly.
 
-Together, the AdonisML Deformer and smart tissue provide a workflow for interactive deformation feedback and fast dynamic detail. This allows teams to enhance simulation results without always requiring a full anatomy simulation setup for every iteration or shot.
+Together, the ML Deformer and Smart Tissue provide a workflow for interactive deformation feedback and fast dynamic detail. This allows teams to enhance simulation results without always requiring a full anatomy simulation setup for every iteration or shot.
 
 ## Key Values
 
@@ -54,27 +57,27 @@ The key values of Adonis are:
 
 - **Local ML Deformation**. AdonisML provides workflows for defining local deformation regions, helping ML models learn and evaluate deformation with narrower locality where needed.
 
-- **Dynamic Detail**. Smart tissue adds dynamic behavior such as jiggle, settling, and overshoot to ML-driven deformation workflows. This helps recover motion-driven detail that pose-based neural deformation does not capture by itself.
+- **Dynamic Detail**. Smart Tissue adds dynamic behavior such as jiggle, settling, and overshoot to ML-driven deformation workflows. This helps recover motion-driven detail that pose-based neural deformation does not capture by itself.
 
 - **Pipeline Flexibility**. Adonis workflows can be integrated into animation rigs, rigging pipelines, CFX pipelines, and procedural workflows. Adonis data can also support cross-DCC workflows between Maya and Houdini where supported.
 
 ## Why Adonis?
 
-With Adonis you can:
+With Adonis, you can:
 
-- integrate simulation and deformation tools into animation rigs,
-- integrate deformation workflows into rigging, CFX, and procedural pipelines,
-- build modular physics-based character deformation setups with artist-friendly controls,
-- combine components in different ways depending on the character, shot, or pipeline,
-- use hybrid simulation workflows when only specific character regions need simulation,
-- extract data from simulation workflows for ML training,
-- train neural models from representative character motion and deformation data,
-- define local regions for ML deformation workflows,
-- use pose-based ML deformation for interactive-speed feedback,
-- use smart tissue to add fast dynamic behavior on top of ML-driven deformation,
-- enhance simulation results without requiring a full anatomy simulation setup for every iteration,
-- cache results for faster playblast and review workflows,
-- get results rapidly after feedback is received,
-- accelerate shot feedback iteration,
-- deliver finalized work sooner, and
+- integrate simulation and deformation tools into animation rigs
+- integrate deformation workflows into rigging, CFX, and procedural pipelines
+- build modular physics-based character deformation setups with artist-friendly controls
+- combine components in different ways depending on the character, shot, or pipeline
+- use hybrid simulation workflows when only specific character regions need simulation
+- extract data from simulation workflows for ML training
+- train neural models from representative character motion and deformation data
+- define local regions for ML deformation workflows
+- use pose-based ML deformation for interactive-speed feedback
+- use smart tissue to add fast dynamic behavior on top of ML-driven deformation
+- enhance simulation results without requiring a full anatomy simulation setup for every iteration
+- cache results for faster playblast and review workflows
+- get results rapidly after feedback is received
+- accelerate shot feedback iteration
+- deliver finalized work sooner
 - save time compared to standard CFX workflows.
