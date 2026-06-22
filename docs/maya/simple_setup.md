@@ -550,3 +550,63 @@ To further have a realistic depiction of facial dynamics, facial muscle activati
 Refer to this [section](solvers/simshape#muscle-activations) to see how to use Muscle Patches files. However, in this example, it is taken advantage of the AdnEdgeEvaluator Node. To create this node, select the rest mesh, then the deformation mesh, and then go to Adonis Menu > Nodes > *Edge Evaluator*. Then, once created, connect it to the AdnSimshape deformer via Adonis Menu > Simshape (on the *Edit* group) > *Connect Activations Plug*.
 
 In the attribute editor of the AdnSimshape deformer, under the *Muscles Activation* section, the *Plug Values* will be enabled as a new valid *Activation Mode* option. To better visualize activations, press the ![AdnSimshapeDebugger](images/adn_simshape_debugger.png){style="width:4%"} shelf button or go to Adonis Menu > Simshape (on the *Edit* group) > *Activations Debugger*.
+
+## AdnMLDeformer
+
+To create a basic scenario using the AdnMLDeformer, start with a scene with the following elements:
+
+- The geometry to apply the deformer to. This is the geometry deformer by a skinCluster node.
+- The Adonis ML model file (.adnm) trained with the [Neural Training Tool](tools/neural_training_tool).
+- The Maya rig joints used as inputs for the Adonis ML model trained.
+
+Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
+
+- The skinCluster node must exist in the deformable chain of the geometry to apply the AdnMLDeformer to.
+- The input geometry and the skinCluster node must be the same used in the data extraction process.
+
+<figure markdown>
+  ![Basic setup for AdnMLDeformer](images/simple_setup_ml_deformer_00.png)
+  <figcaption><b>Figure 44</b>: Basic setup for AdnMLDeformer.</figcaption>
+</figure>
+
+> [!IMPORTANT]
+> - The AdnMLDeformer can be used with an FX license. However, an Adonis ML license is required to generate the Adonis ML model required by this deformer.
+
+### Create Deformer
+
+To create the AdnMLDeformer it is required to select the mesh that has the skinCluster applied.
+
+Then press the ![AdnMLDeformer button](../../images/adn_ml_deformer.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Deformers > *ML Deformer*.
+
+A simple UI will pop up to provide try inputs: ML Model File and Joints Info File.
+
+<figure markdown>
+  ![Creation scenario AdnMLDeformer](images/simple_setup_ml_deformer_01.png)
+  <figcaption><b>Figure 45</b>: AdnMLDeformer creation scenario.</figcaption>
+</figure>
+
+Once the inputs have been provided, press the *Create* button.
+
+The ML Model File and Joints Info File can be modified through the same UI by selecting the mesh with the AdnMLDeformer applied and pressing the ![AdnMLDeformer button](../../images/adn_ml_deformer.png){style="width:4%"} button again. 
+
+Mush smoothing can be applied by increasing the Mush *Iterations* to refine the inferred shape.
+
+### Paint Weights
+
+> [!NOTE]
+> AdnSimshape requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
+
+In most cases, the default weight maps should produce satisfactory results without any additional adjustments.
+
+If the training data was extracted from an Adonis simulation rig where certain areas (such as the paws, tail, or head) were not simulated, those regions can be painted with a value of 0.0. This indicates that no ML deformation should be applied to those areas during inference.
+
+<figure markdown>
+  ![Map AdnMLDeformer](images/simple_setup_ml_deformer_02.png)
+  <figcaption><b>Figure 46</b>: Inference weights map painted to 0.0 on the areas where no deformation should be applied.</figcaption>
+</figure>
+
+To avoid visible transitions between deformed and non-deformed regions, it is recommended to smooth the boundaries of the painted map.
+
+Optionally, the *Mush Weights* can be used to control the regions where mush smoothing is applied.
+
+For more details about the AdnMLDeformer, please go to the dedicated deformer [page](deformers/ml_deformer).
