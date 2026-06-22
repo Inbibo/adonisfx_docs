@@ -149,7 +149,7 @@ The ML joints captured from each entry should represent the joint set used as ma
 
     Export requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields.
 
-    The exported `.json` file can then be used during neural training with the [AdnNeuralTrainingTool](../tools/neural_training_tool).
+    The exported `.json` file can then be used during neural training with the [Neural Training Tool](../tools/neural_training_tool).
 
     You can also use *Save to Scene* to save the current Neural Cluster entries data to the scene in a hidden node. This allows to keep the data with the Maya file and work with it across different sessions without needing to export or import JSON files.
 
