@@ -627,7 +627,7 @@ The output activation values can be debugged by checking the option *Write Out A
 
 To create a basic scenario using the AdnMLDeformer, start with a scene with the following elements:
 
-- The geometry to apply the deformer to. This is the geometry deformer by a Bone Deform node.
+- The geometry to apply the deformer to. This is the geometry deformed by a Bone Deform node.
 - The Adonis ML model file (.adnm) trained with the [Neural Training Tool](tools/neural_training_tool).
 - The geostream containing the KineFX joints. This stream must include the `name` and `localtransform` per-point attributes.
 
@@ -653,7 +653,7 @@ To create the AdnMLDeformer it is required to select first the geometry to apply
 
 Then go to the Adonis menu and click on *ML Deformer*.
 
-A simple UI will pop up to provide try inputs: ML Model File and Joints Info File.
+A simple UI will pop up to provide two inputs: ML Model File and Joints Info File.
 
 <figure markdown>
   ![Creation scenario AdnMLDeformer](images/simple_setup_ml_deformer_01.png)
@@ -672,7 +672,7 @@ To tweak the point attributes of an AdnMLDeformer SOP, an `attribpaint` is neede
 
 <figure markdown>
   ![Resulting network ML deformer](images/simple_setup_ml_deformer_02.png)
-  <figcaption><b>Figure 42</b>: Network after creating the ML deformer and using the "Make Paintable" utility. </figcaption>
+  <figcaption><b>Figure 62</b>: Network after creating the ML deformer and using the "Make Paintable" utility. </figcaption>
 </figure>
 
 In most cases, the default weight maps should produce satisfactory results without any additional adjustments.
@@ -681,7 +681,7 @@ If the training data was extracted from an Adonis simulation rig where certain a
 
 <figure markdown>
   ![Map AdnMLDeformer](images/simple_setup_ml_deformer_03.png)
-  <figcaption><b>Figure 62</b>: Inference weights map painted to 0.0 on the areas where no deformation should be applied.</figcaption>
+  <figcaption><b>Figure 63</b>: Inference weights map painted to 0.0 on the areas where no deformation should be applied.</figcaption>
 </figure>
 
 To avoid visible transitions between deformed and non-deformed regions, it is recommended to smooth the boundaries of the painted map.

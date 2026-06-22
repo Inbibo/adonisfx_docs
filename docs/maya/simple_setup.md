@@ -555,9 +555,9 @@ In the attribute editor of the AdnSimshape deformer, under the *Muscles Activati
 
 To create a basic scenario using the AdnMLDeformer, start with a scene with the following elements:
 
-- The geometry to apply the deformer to. This is the geometry deformer by a skinCluster node.
+- The geometry to apply the deformer to. This is the geometry deformed by a skinCluster node.
 - The Adonis ML model file (.adnm) trained with the [Neural Training Tool](tools/neural_training_tool).
-- The Maya rig joints used as inputs for the Adonis ML model trained.
+- The Maya rig joints used as inputs for the trained Adonis ML model.
 
 Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
 
@@ -578,7 +578,7 @@ To create the AdnMLDeformer it is required to select the mesh that has the skinC
 
 Then press the ![AdnMLDeformer button](../images/adn_ml_deformer.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Deformers > *ML Deformer*.
 
-A simple UI will pop up to provide try inputs: ML Model File and Joints Info File.
+A simple UI will pop up to provide two inputs: ML Model File and Joints Info File.
 
 <figure markdown>
   ![Creation scenario AdnMLDeformer](images/simple_setup_ml_deformer_01.png)
