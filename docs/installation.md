@@ -140,9 +140,8 @@ If they are not installed, the tool will display a dialog prompting you to insta
 
 The ML dependencies can also be installed using the standalone installation scripts located in:
 
-`Adonis/python/adnml/run.bat` on Windows, or
-
-`Adonis/python/adnml/run.sh` on Linux.
+- `Adonis/python/adnml/run.bat` on Windows.
+- `Adonis/python/adnml/run.sh` on Linux
 
 This method is particularly useful when running training through the **Training Script** outside of Maya or Houdini, or when preparing a machine for automated training workflows.
 
