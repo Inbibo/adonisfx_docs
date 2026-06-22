@@ -1,4 +1,4 @@
-# AdnMLTraining TOP HDA
+# Neural Training
 
 > [!IMPORTANT]
 > An Adonis ML license is required to use this feature.
@@ -121,10 +121,6 @@ When training with neural clusters, the following additional files are required:
 
     Press **OK** to install the dependencies from the prompt. This may take a few minutes.
 
-    Alternatively, install the dependencies manually from **Adonis > Utils > *Install ML Dependencies***. On Linux, the dependency installation will run in the DCC terminal window, while on Windows it will pop up a separate one.
-
-    For standalone dependency installation outside the DCC, use `install_dependencies.bat` on Windows or `install_dependencies.sh` on Linux.
-
 <figure style="width:90%; margin-left:5%" markdown>
   ![AdnMLTraining missing dependencies prompt](../images/training_install_ml_dependencies.png)
   <figcaption><b>Figure 4</b>: Missing dependencies prompt shown when the TOP graph is executed and the required machine learning dependencies are not installed.</figcaption>
@@ -184,13 +180,14 @@ The dependencies can be installed in one of the following ways:
 
 - From the missing dependencies prompt shown when launching training.
 - From **Adonis > Utils > *Install ML Dependencies***.
-- By running `install_dependencies.bat` on Windows outside the DCC.
-- By running `install_dependencies.sh` on Linux outside the DCC.
+- By running `Adonis/python/adnml/install_dependencies.bat` on Windows outside the DCC.
+- By running `Adonis/python/adnml/install_dependencies.sh` on Linux outside the DCC.
 
 Installing the dependencies may take a few minutes.
 
 > [!NOTE]
-> The training process checks automatically for an available Nvidia GPU and uses that to drastically accelerate training. If a supported GPU device is not available, training falls back to CPU execution, and will be significantly slower. Multi-GPU setups are currently not supported and the training will use the first available device.
+> - The training process checks automatically for an available Nvidia GPU and uses that to drastically accelerate training. If a supported GPU device is not available, training falls back to CPU execution, and will be significantly slower. Multi-GPU setups are currently not supported and the training will use the first available device.
+> - Machine learning dependencies are installed inside the Adonis installation directory rather than system-wide. As a result, the system environment remains unchanged and no global Python packages are installed.
 
 ## Output Files
 
@@ -203,12 +200,6 @@ After a successful training run, the following files are generated:
 The `<model_name>_log.txt` file can be used to inspect the training process. It contains epoch information, average loss, best loss, warnings, errors, and other training messages.
 
 The `<model_name>_config.json` file can be used to review the training configuration used to produce the model.
-
-## Result
-
-After the AdnMLTraining TOP HDA finishes successfully, an `.adnm` model file is generated at the path specified by *Model Path*.
-
-The training run also generates a `<model_name>_log.txt` file and a `<model_name>_config.json` file next to the output model so the user can inspect the training process and review the parameters used.
 
 ## Recommendations
 
@@ -252,3 +243,7 @@ If the training process fails or does not produce the expected result, check the
 6. Confirm that the learning was successful.
 
     The training process will automatically stop when the predicted outputs stop improving. If the log shows training stopped after a small number of epochs, for example fewer than `100`, try recording new data or adjusting the cluster definitions. Datasets that are too small or clusters with too many overlapping regions can be detrimental for learning.
+
+## Limitations
+
+- Multi-GPU setups are currently not supported and the training will use the first available device.
