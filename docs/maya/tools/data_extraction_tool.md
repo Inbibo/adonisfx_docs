@@ -7,6 +7,8 @@ The Adonis ML *Data Extraction Tool* is used to extract data for training Adonis
 
 Data extraction gathers the input and output data used by the AdonisML training workflow. The *Data Extraction Tool* reads the simulated skin, the rest skin, and the selected joint data, then exports the data required for training AdonisML models.
 
+Optionally, the tool can also extract muscle activation data. When enabled, this allows the extraction process to include dynamic material properties prediction for AdnSmartTissue support of the trained ML models.
+
 ## UI
 
 <figure style="width:50%;" markdown>
@@ -16,13 +18,16 @@ Data extraction gathers the input and output data used by the AdonisML training 
 
 The Data Extraction Tool (see Figure 1) provides an intuitive interface to configure the data extraction process according to specific requirements. Below is a breakdown of the available UI elements:
 
-### Skin information
+### Skin Information
 
 - **Rest skin scene path**: Specifies the Maya scene path to the rest skin. The *Get From Selection* button allows users to select the rest skin geometry in the scene and automatically populate the field with its path.
 
 - **Sim skin scene path**: Specifies the Maya scene path to the simulated skin. The *Get From Selection* button allows users to select the simulated skin geometry in the scene and automatically populate the field with its path.
 
 - **SkinCluster name**: Specifies the name of the skinCluster node associated with the animated skin. This will be used to extract the animation joint data. The animated skin must have the same topology as the rest and simulated skins.
+
+> [!NOTE]
+> The geometries specified in *Rest skin scene path* and *Sim skin scene path* must have the same topology. They must have matching point counts and matching point order so the extraction process can compute displacement data correctly.
 
 ### Joints
 
@@ -36,7 +41,7 @@ The Data Extraction Tool (see Figure 1) provides an intuitive interface to confi
 
 ### Muscles
 
-- **Extract muscle activation data**: When enabled, the data extraction process will include muscle activation data, which can be used for training AdonisML models that predict dynamic material behavior for AdnSmartTissue.
+- **Extract muscle activation data**: Enables extraction of muscle activation data. When enabled, the extracted data can support training the ML model on material properties prediction for AdnSmartTissue. If disabled, the extracted data supports training models for AdnMLDeformer only.
 
 - **Muscle group scene path**: If muscle activation data extraction is enabled, this field specifies the Maya scene path to the muscle group. The muscle group should contain the AdnMuscle and AdnRibbonMuscle nodes that will be included in the data extraction. The *Get From Selection* button allows users to select the muscle group in the scene and automatically populate the field with its path.
 
@@ -46,7 +51,7 @@ The Data Extraction Tool (see Figure 1) provides an intuitive interface to confi
 
 - **Frame windows**: This field specifies the frame windows for recording the data. Frame windows must be defined as separate frame ranges (for example: `[[1, 5], [220, 600], [1023, 1500]]`) where each range indicates the start and end frames for recording.
 
-- **Skip frames**: This field specifies the number of frames to skip between each recorded frame. For example, if set to `2`, the data extraction will record every third frame. This can be useful for reducing the redundancy of poses in the data recorded, especially for slow animations.
+- **Skip frames**: Number of frames to skip during recording. This helps reduce redundant pose data and extract more diverse samples. Lower values are recommended for fast animations, while higher values can be used for slower animations. Typical suggested values for normal animation speeds are between `2` and `5`. The skip frames will be computed from the start of each frame window, ensuring that the starting frame of each window is always recorded in the dataset.
 
 - **Stabilization frames**: This field specifies the number of times a frame should be stabilized before being recorded. This parameter damps the motion inertia in the recorded poses. Higher values make each of the recorded poses lose more dynamics and converge toward a static silhouette. Well stabilized data is required for good ML deformation training. Faster animations usually require more stabilization frames. Typical suggested values for normal animation speeds are between `5` and `10`. Increasing this value will increase the export time.
 
@@ -123,3 +128,17 @@ Once the data extraction process is launched, a progress bar will be displayed i
     ![Data Extraction Tool progress](../images/data_extraction_progress.png)
     <figcaption><b>Figure 3</b>: Data Extraction Tool progress.</figcaption>
 </figure>
+
+## Result
+
+The extraction process writes the data to the folder specified in *Export folder path*.
+
+The following files are generated in the target export folder:
+
+- `inputs.csv`: Contains the extracted input data, including the selected joint transforms.
+- `outputs.csv`: Contains the extracted output data, including the simulated skin displacement data and optional data required for AdnSmartTissue material properties prediction.
+- `joints.json`: Contains the exported joint hierarchy information used to associate the joint transform data with the extracted joints.
+- `extraction_config.json`: Contains the configuration used for the extraction process, including the input paths, joint list, frame settings, and export settings.
+
+> [!NOTE]
+> If the extraction is interrupted or fails before completion, some of these files may already exist in the export folder but contain partial data.

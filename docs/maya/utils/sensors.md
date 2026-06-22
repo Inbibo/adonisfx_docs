@@ -81,8 +81,9 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Time**   | Time | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
-| **Current Time** | Time | *Current frame* | ✓ | Current playback frame. |
+| **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
+| **Current Time**    | Time    | *Current frame* | ✓ | Current playback frame. |
+| **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -202,8 +203,9 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Time**   | Time | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
-| **Current Time** | Time | *Current frame* | ✓ | Current playback frame. |
+| **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
+| **Current Time**    | Time    | *Current frame* | ✓ | Current playback frame. |
+| **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -330,8 +332,9 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 #### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Start Time**   | Time | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
-| **Current Time** | Time | *Current frame* | ✓ | Current playback frame. |
+| **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
+| **Current Time**    | Time    | *Current frame* | ✓ | Current playback frame. |
+| **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
