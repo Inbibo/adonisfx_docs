@@ -69,7 +69,7 @@ To activate Adonis in Node-Locked Interactive mode:
 
 Deactivating a Node-Locked Interactive license is required when the same `PRODUCT KEY` needs to be activated on a different machine.
 
-Deactivation is also required when installing a new `PRODUCT KEY` on the same machine. For example, if a machine already has an FX license activated and an ML license has been purchased, the existing license must be deactivated before activating the new product key. This is because only one Node-Locked license can be installed on a machine at the same time.
+Deactivation is also required when installing a new `PRODUCT KEY` on the same machine. For example, if a machine already has an FX license activated and an ML license has been purchased, the existing license must be deactivated before activating the new product key. This is because only one Node-Locked Interactive license can be installed on a machine at the same time.
 
 To deactivate Adonis in Node-Locked Interactive mode:
 
@@ -78,7 +78,7 @@ To deactivate Adonis in Node-Locked Interactive mode:
 
 <figure style="width:80%; margin-left:10%" markdown>
       ![Deactivation Dialog](images/licensing_deactivation_dialog.png)
-      <figcaption><b>Figure 5</b>: Deativation Dialog.</figcaption>
+      <figcaption><b>Figure 5</b>: Deactivation Dialog.</figcaption>
 </figure>
 
 3. Click *Yes* to proceed.
