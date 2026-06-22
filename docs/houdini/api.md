@@ -13,7 +13,8 @@ This API enables users to:
 
 - Extract the setup from an existing Adonis rig in Houdini.
 - Rebuild the rig in another Houdini scene.
-- Export rig data in a format that can be imported into other DCCs, for example Maya.
+- Export rig data in a format that can be imported into other DCCs, such as Maya.
+- Build an entire Adonis rig programmatically.
 
 As this API is still under active development, please send feedback and feature requests to **adonis.support@inbibo.co.uk**. The support and development teams will work together to incorporate user feedback and refine the implementation.
 
@@ -155,7 +156,7 @@ Clear a specific rig component from the scene:
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">muscle.clear()
 </code></pre>
 
-In Houdini, clearing a node destroys the corresponding Houdini node. This operation is only expected to work when the network is not cooking.
+In Houdini, clearing a component deletes the corresponding Houdini node. This operation is only expected to work when the network is not cooking.
 
 ## Connections
 
@@ -218,5 +219,3 @@ The `<geo_name>` used in `ADN_IN_<geo_name>` and `ADN_OUT_<geo_name>` should mat
 
 - Subnetworks inside the Geometry context are not supported. All Adonis SOP nodes, and any SOP nodes containing geometry required by the Adonis rig, must exist at the same level inside the Geometry context, for example `/obj/geo1`.
 - Nodes used to drive attachment to transform or slide on segment constraints must live in the `/obj` context.
-- Base Matrix reconstruction is not supported in Houdini.
-- Exporting and rebuilding KineFX joint transform hierarchies is not supported by this API.

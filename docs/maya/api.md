@@ -13,7 +13,8 @@ This API enables users to:
 
 - Extract the setup from an existing Adonis rig in Maya.
 - Rebuild the rig in another Maya scene.
-- Export rig data in a format that can be imported into other DCCs, for example Houdini.
+- Export rig data in a format that can be imported into other DCCs, such as Houdini.
+- Build an entire Adonis rig programmatically.
 
 As this API is still under active development, please send feedback and feature requests to **adonis.support@inbibo.co.uk**. The support and development teams will work together to incorporate user feedback and refine the implementation.
 
@@ -169,7 +170,7 @@ Deformed geometry uses the `Shape` suffix to describe the `geometry` entry. This
 
 Data such as `geometryAttachments` is represented using the name without the `Shape` suffix. This is also important for interoperability between DCCs.
 
-If rig data is intended to be rebuilt in Houdini, the geometry names should match the equivalent Houdini deformable region names, such as the names used by `ADN_IN_<geo_name>` and `ADN_OUT_<geo_name>` Null nodes.
+If rig data is intended to be rebuilt in Houdini, the geometry names should match the equivalent Houdini deformable region names, such as those used in the `ADN_IN_<geo_name>` and `ADN_OUT_<geo_name>` Null nodes.
 
 ## Limitations
 
