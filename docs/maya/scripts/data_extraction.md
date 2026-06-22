@@ -41,7 +41,7 @@ To extract ML training data from Python, run this command in Maya Script Editor 
 
 data_extraction.extract(
     rest_skin_path="|hyena|Geometry|Body_lod200_GRP|restSkin_Geo",
-    sim_skin_path="|hyena|adonis_GRP|skinRender_GRP|skinRender_Geo",
+    sim_skin_path="|hyena|adonisfx_GRP|skinRender_GRP|skinRender_Geo",
     joint_names_list=["|hyena|DeformationSystem|Root_M|L_Hip",
                       "|hyena|DeformationSystem|Root_M|L_Hip|L_HipPart1",
                       "|hyena|DeformationSystem|Root_M|L_Hip|L_HipPart1|L_HipPart2",
@@ -62,7 +62,7 @@ Additional extraction settings can be provided to control frame sampling, stabil
 
 data_extraction.extract(
     rest_skin_path="|hyena|Geometry|Body_lod200_GRP|restSkin_Geo",
-    sim_skin_path="|hyena|adonis_GRP|skinRender_GRP|skinRender_Geo",
+    sim_skin_path="|hyena|adonisfx_GRP|skinRender_GRP|skinRender_Geo",
     joint_names_list=["|hyena|DeformationSystem|Root_M|L_Hip",
                       "|hyena|DeformationSystem|Root_M|L_Hip|L_HipPart1",
                       "|hyena|DeformationSystem|Root_M|L_Hip|L_HipPart1|L_HipPart2",
@@ -70,7 +70,7 @@ data_extraction.extract(
                       ...],
     skincluster_name="skinCluster128",
     save_directory_path="path/to/export/folder",
-    muscles_paths="|hyena|adonis_GRP|muscles_GRP",
+    muscles_paths="|hyena|adonisfx_GRP|muscles_GRP",
     skip_frames=2,
     stabilization_frames=5,
     frame_windows=[[970, 971], [1000, 1020]],
@@ -98,7 +98,7 @@ Each entry defines a frame range using the format `[start_frame, end_frame]`.
 
 data_extraction.extract(
     rest_skin_path="|hyena|Geometry|Body_lod200_GRP|restSkin_Geo",
-    sim_skin_path="|hyena|adonis_GRP|skinRender_GRP|skinRender_Geo",
+    sim_skin_path="|hyena|adonisfx_GRP|skinRender_GRP|skinRender_Geo",
     joint_names_list=["|hyena|DeformationSystem|Root_M|L_Hip",
                       "|hyena|DeformationSystem|Root_M|L_Hip|L_HipPart1",
                       "|hyena|DeformationSystem|Root_M|L_Hip|L_HipPart1|L_HipPart2",
@@ -140,7 +140,7 @@ To extract muscle activation data, provide the `muscles_paths` argument.
 
 data_extraction.extract(
     rest_skin_path="|hyena|Geometry|Body_lod200_GRP|restSkin_Geo",
-    sim_skin_path="|hyena|adonis_GRP|skinRender_GRP|skinRender_Geo",
+    sim_skin_path="|hyena|adonisfx_GRP|skinRender_GRP|skinRender_Geo",
     joint_names_list=["|hyena|DeformationSystem|Root_M|L_Hip",
                       "|hyena|DeformationSystem|Root_M|L_Hip|L_HipPart1",
                       "|hyena|DeformationSystem|Root_M|L_Hip|L_HipPart1|L_HipPart2",
@@ -148,7 +148,7 @@ data_extraction.extract(
                       ...],
     skincluster_name="skinCluster128",
     save_directory_path="path/to/export/folder",
-    muscles_paths="|hyena|adonis_GRP|muscles_GRP"
+    muscles_paths="|hyena|adonisfx_GRP|muscles_GRP"
 )
 </code></pre>
 
@@ -164,7 +164,7 @@ If `inputs.csv` or `outputs.csv` already exist in the target export folder, the 
 
 data_extraction.extract(
     rest_skin_path="|hyena|Geometry|Body_lod200_GRP|restSkin_Geo",
-    sim_skin_path="|hyena|adonis_GRP|skinRender_GRP|skinRender_Geo",
+    sim_skin_path="|hyena|adonisfx_GRP|skinRender_GRP|skinRender_Geo",
     joint_names_list=["|hyena|DeformationSystem|Root_M|L_Hip",
                       "|hyena|DeformationSystem|Root_M|L_Hip|L_HipPart1",
                       "|hyena|DeformationSystem|Root_M|L_Hip|L_HipPart1|L_HipPart2",
