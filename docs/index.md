@@ -44,6 +44,8 @@ The key values of Adonis are:
 
 - **Fast Computation**. High-quality creature and character deformation can be expensive to compute, especially when traditional simulation workflows are used throughout production. Adonis is designed to deliver high-quality results quickly, making it easier to iterate on rigs, shots, and character setups.
 
+- **Fast-Converging Simulation**. Adonis allows artists and technical directors to jump to any frame and get accurate simulation results immediately, without relying on linear playback or waiting for recalculation.
+
 - **Quick Setup**. Preparing a character for realistic deformation can be time-consuming and often requires specialized knowledge of physical parameters, rig structure, and deformation workflows. Adonis provides intuitive tools and parameters that help artists and technical directors set up complex deformation systems more efficiently.
 
 - **Modular Workflows**. AdonisFX components can be combined in different ways to support full simulation setups, targeted deformation setups, and hybrid simulation approaches. This allows teams to adapt the workflow to the needs of each character or shot.
