@@ -662,7 +662,7 @@ A simple UI will pop up to provide try inputs: ML Model File and Joints Info Fil
 
 Once the inputs have been provided, press the *Create* button.
 
-The ML Model File and Joints Info File can be modified through the same UI by selecting the mesh with the AdnMLDeformer applied and pressing the ![AdnMLDeformer button](../../images/adn_ml_deformer.png){style="width:4%"} button again. 
+The ML Model File and Joints Info File can be modified through the same UI by selecting AdnMLDeformer SOP and pressing Adonis menu > *ML Deformer* again.
 
 Mush smoothing can be applied by increasing the Mush *Iterations* to refine the inferred shape.
 

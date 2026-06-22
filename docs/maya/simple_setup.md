@@ -576,7 +576,7 @@ Apart from the inputs required, there are also other aspects to be satisfied for
 
 To create the AdnMLDeformer it is required to select the mesh that has the skinCluster applied.
 
-Then press the ![AdnMLDeformer button](../../images/adn_ml_deformer.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Deformers > *ML Deformer*.
+Then press the ![AdnMLDeformer button](../images/adn_ml_deformer.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Deformers > *ML Deformer*.
 
 A simple UI will pop up to provide try inputs: ML Model File and Joints Info File.
 
@@ -587,14 +587,14 @@ A simple UI will pop up to provide try inputs: ML Model File and Joints Info Fil
 
 Once the inputs have been provided, press the *Create* button.
 
-The ML Model File and Joints Info File can be modified through the same UI by selecting the mesh with the AdnMLDeformer applied and pressing the ![AdnMLDeformer button](../../images/adn_ml_deformer.png){style="width:4%"} button again. 
+The ML Model File and Joints Info File can be modified through the same UI by selecting the mesh with the AdnMLDeformer applied and pressing the ![AdnMLDeformer button](../images/adn_ml_deformer.png){style="width:4%"} button again. 
 
 Mush smoothing can be applied by increasing the Mush *Iterations* to refine the inferred shape.
 
 ### Paint Weights
 
 > [!NOTE]
-> AdnSimshape requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
+> AdnMLDeformer requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
 
 In most cases, the default weight maps should produce satisfactory results without any additional adjustments.
 
