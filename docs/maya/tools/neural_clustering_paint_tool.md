@@ -34,7 +34,7 @@ The Neural Clustering Paint Tool (see Figure 1) provides an interface to create,
 - **Export JSON**: Exports the current neural cluster entry data to a `.json` file. Requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields.
 - **Import JSON**: Imports neural cluster entry data from a `.json` file. This replaces the current entries in the tool with the entries from the file.
 - **Save to Scene**: Saves the current Neural Cluster entries data to the scene in a hidden node. This allows to keep the data with the Maya file and work with it across different sessions without needing to export or import JSON files.
-- **Load from Scene**: Load Neural Cluster entries data from the scene. This will replace the current entries in the tool with the ones stored in the scene hidden storage node. This replaces the current entries in the tool with the entries from the scene storage node.
+- **Load from Scene**: Loads Neural Cluster entries data from the scene hidden storage node and replaces the current entries in the tool.
 - **Mirror by**: Defines how the left and right text is matched in cluster names and joint names. Use *Prefix* when the text is at the start, *Suffix* when it is at the end, or *Token* when it can appear anywhere in the name.
 - **Left**: Left-side naming convention used for mirrored cluster names and joints. For example, use `L_` for prefix, `_L` for suffix, or `_L_` for token.
 - **Right**: Right-side naming convention used for mirrored cluster names and joints. For example, use `R_` for prefix, `_R` for suffix, or `_R_` for token.
