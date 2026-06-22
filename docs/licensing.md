@@ -27,6 +27,8 @@ Node-Locked Licensing in Adonis requires the activation of a `PRODUCT KEY` on on
 
 ### Interactive
 
+#### Activate License
+
 Whenever activating Adonis for the first time for a specific DCC in interactive mode, a series of dialogs requesting information are prompted. These dialogs allow users to enter a valid `PRODUCT KEY` or to launch Adonis in trial mode for non-commercial purposes.
 
 To activate Adonis in Node-Locked Interactive mode:
@@ -62,7 +64,28 @@ To activate Adonis in Node-Locked Interactive mode:
 
 > [!NOTE]
 > - This activation mode requires access to the internet for activating licenses.
-> - For deactivating licenses to switch to a different machine, please contact support.
+
+#### Deactivate License
+
+Deactivating a Node-Locked Interactive license is required when the same `PRODUCT KEY` needs to be activated on a different machine.
+
+Deactivation is also required when installing a new `PRODUCT KEY` on the same machine. For example, if a machine already has an FX license activated and an ML license has been purchased, the existing license must be deactivated before activating the new product key. This is because only one Node-Locked Interactive license can be installed on a machine at the same time.
+
+To deactivate Adonis in Node-Locked Interactive mode:
+
+1. Launch your DCC.
+2. Go to Adonis Menu > *Deactivate License*. A confirmation dialog will appear. This dialog informs the user that the DCC will close for the deactivation process to complete.
+
+<figure style="width:80%; margin-left:10%" markdown>
+      ![Deactivation Dialog](images/licensing_deactivation_dialog.png)
+      <figcaption><b>Figure 5</b>: Deactivation Dialog.</figcaption>
+</figure>
+
+3. Click *Yes* to proceed.
+4. The license will be deactivated and the DCC will close automatically.
+
+> [!NOTE]
+> - This deactivation process requires internet access and an active Node-Locked license.
 
 ### Batch
 
@@ -74,6 +97,10 @@ To activate Adonis in Node-Locked Batch mode:
   2. Run `ActivateBatch`.
   3. Enter the `PRODUCT KEY`.
   4. Adonis is activated and ready to be used.
+
+> [!NOTE]
+> - This activation mode requires access to the internet for activating licenses.
+> - For deactivating Batch licenses to switch to a different machine, please contact support.
 
 ### Trial
 
@@ -129,14 +156,14 @@ The first step to be able to serve leases from the lease pool is to activate, co
 3. Copy and paste the `TurboActivate.dat` file (interactive or batch, depending on the server to install) in the same location:
     - `Adonis/licensing/interactive/TurboActivate.dat` for interactive mode licenses.
     - `Adonis/licensing/batch/TurboActivate.dat` for batch mode licenses.
-4. The content after copying the files should follow the structure in Figure 5.
+4. The content after copying the files should follow the structure in Figure 6.
 5. Before running the license server and activating the license, several elements of the `TurboFloatServer-config.xml` can be tweaked. Like for example:
     - *Connection port, thread count, lease length, logs, grace periods, and proxies*. For more information visit this [page](https://wyday.com/limelm/help/turbofloat-server/#config). Write down the configured port number for when setting up the environment variables in this [section](#run-server).
     - Find the full list of customizable parameters in the `.xml` file comments.
 
 <figure style="width:80%; margin-left:10%" markdown>
   ![Turbo Float Folder](images/licensing_turbo_float_folder.png)
-  <figcaption><b>Figure 5</b>: Folder containing the TurboFloatServer (Windows) and the configuration files.</figcaption>
+  <figcaption><b>Figure 6</b>: Folder containing the TurboFloatServer (Windows) and the configuration files.</figcaption>
 </figure>
 
 ### Activate Server
@@ -337,3 +364,38 @@ Fix:
 
 > [!NOTE]
 > If any issues occur while saving the license server file, please contact support (**adonis.support@inbibo.co.uk**).
+
+## Adonis Bundles
+
+Adonis licenses can include different bundles depending on the product purchased. These bundles define which Adonis features are available under the activated license.
+
+The bundle is defined automatically at the moment of purchase and is applied to the purchased license. Users do not need to manually activate, configure or update anything to select a bundle. After activating a valid `PRODUCT KEY`, Adonis will automatically detect the bundle associated with that license.
+
+### FX Bundle
+
+The **FX Bundle** enables users to author and use Adonis rigs with all solvers and deformers, including `AdnMLDeformer` and `AdnSmartTissue`.
+
+With the **FX Bundle**, users can run Adonis rigs and use existing AdonisML models at runtime. This means that:
+
+* `AdnMLDeformer` can be used with the **FX Bundle** once an AdonisML model is available. However, the model itself must have been generated using an Adonis license with the **ML Bundle**.
+* `AdnSmartTissue` can be used with the **FX Bundle**, both with and without ML inference. Any AdonisML model used by `AdnSmartTissue` must have been generated using an Adonis license with the **ML Bundle**.
+
+The **FX Bundle** does not include the tools and workflows required to extract training data, paint neural clusters or train new AdonisML models.
+
+### ML Bundle
+
+The **ML Bundle** includes everything available in the **FX Bundle**, plus access to the machine learning tools and workflows used to prepare, train and configure AdonisML models.
+
+The **ML Bundle** is required to run the following Adonis tools and workflows:
+
+* **Data Extraction Tool:** Used to extract data for training AdonisML models.
+* **Neural Clustering Paint Tool:** Used to paint neural clusters on a static mesh. These clusters provide additional locality information for the machine learning training process, helping the model better isolate local deformations and activations.
+* **Neural Training Tool:** Used to run Adonis neural training.
+* **Training Python Script:** Used to run Adonis neural training via Python script, either within the DCC or as a standalone process.
+
+Generated AdonisML models can then be used at runtime with licenses that include the **FX Bundle**.
+
+> [!IMPORTANT]
+> - Existing purchased licenses default to the **FX Bundle**. No update or additional action is required for users with existing licenses to continue using Adonis with the FX functionality currently available to them.
+> - Trial licenses always run with the **FX Bundle**.
+> - To evaluate Adonis with **ML functionality** during a trial period, please contact **adonis.support@inbibo.co.uk**.

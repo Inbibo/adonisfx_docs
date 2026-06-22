@@ -76,6 +76,12 @@ Inference is the process of evaluating a trained Adonis Model to produce deforma
 
 Inference can run on the CPU, but GPU inference may be available when the required ML dependencies and compatible hardware are installed.
 
+## License Bundles
+
+License Bundles define which groups of Adonis features are available under an activated license. They are applied automatically according to the product purchased, so users do not need to manually select or configure a bundle during activation.
+
+Adonis currently distinguishes between the **FX Bundle** and the **ML Bundle**. The FX Bundle enables users to author and run Adonis rigs with all solvers and deformers, including runtime use of existing AdonisML models. The ML Bundle includes the FX functionality and additionally enables the tools and workflows required to extract data, prepare neural clusters, and train new AdonisML models.
+
 ## Locator
 
 Locators are intended to visualize the output of an Adonis sensor. There are three types of locators that require a specific number of inputs and adopt custom shapes in the viewport: AdnLocatorPosition (a squared box at the location of a node), AdnLocatorDistance (a parallelepiped with a line connecting two nodes) and AdnLocatorRotation (an angle with two segments connecting three nodes). Each type is associated with its homologous sensor.
