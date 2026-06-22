@@ -72,7 +72,7 @@ The AdnMLDeformer integrates the mush algorithm to apply smoothing to the shape 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Enable Inference** | Boolean | True | ✓ | Flag to enable or disable the inferred deformation. |
-| **ML Model Path**    | String  |      | ✗ | File path to the trained Adonis ML model.           |
+| **ML Model Path**    | String  |      | ✓ | File path to the trained Adonis ML model.           |
 
 ### Mush Properties
 
@@ -100,9 +100,9 @@ The AdnMLDeformer integrates the mush algorithm to apply smoothing to the shape 
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Inference Weights Attribute** | float | 1.0 | ✗ | Specifies the name of the per-point attribute used to read the weight of the inferred deformation. The expected attribute name is `adnInferenceWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\]. |
-| **Mush Weights Attribute**      | float | 1.0 | ✗ | Specifies the name of the per-point attribute used to read the weight of the mush smoothing. The expected attribute name is `adnMushWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\].            |
-| **Weights Attribute**           | float | 1.0 | ✗ | Specifies the name of the per-point attribute used to read the weight of the deformation. The expected attribute name is `adnWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\].                   |
+| **Inference Weights Attribute** | float | 1.0 | ✓ | Specifies the name of the per-point attribute used to read the weight of the inferred deformation. The expected attribute name is `adnInferenceWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\]. |
+| **Mush Weights Attribute**      | float | 1.0 | ✓ | Specifies the name of the per-point attribute used to read the weight of the mush smoothing. The expected attribute name is `adnMushWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\].            |
+| **Weights Attribute**           | float | 1.0 | ✓ | Specifies the name of the per-point attribute used to read the weight of the deformation. The expected attribute name is `adnWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\].                   |
 
 ## Parameter Template
 
