@@ -365,7 +365,7 @@ Fix:
 > [!NOTE]
 > If any issues occur while saving the license server file, please contact support (**adonis.support@inbibo.co.uk**).
 
-## FX and ML Bundles
+## Adonis Bundles
 
 Adonis licenses can include different bundles depending on the product purchased. These bundles define which Adonis features are available under the activated license.
 
