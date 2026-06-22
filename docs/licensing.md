@@ -337,3 +337,38 @@ Fix:
 
 > [!NOTE]
 > If any issues occur while saving the license server file, please contact support (**adonis.support@inbibo.co.uk**).
+
+## FX and ML Bundles
+
+Adonis licenses can include different bundles depending on the product purchased. These bundles define which Adonis features are available under the activated license.
+
+The bundle is defined automatically at the moment of purchase and is applied to the purchased license. Users do not need to manually activate, configure or update anything to select a bundle. After activating a valid `PRODUCT KEY`, Adonis will automatically detect the bundle associated with that license.
+
+### FX Bundle
+
+The **FX Bundle** enables users to author and use Adonis rigs with all solvers and deformers, including `AdnMLDeformer` and `AdnSmartTissue`.
+
+With the **FX Bundle**, users can run Adonis rigs and use existing AdonisML models at runtime. This means that:
+
+* `AdnMLDeformer` can be used with the **FX Bundle** once an AdonisML model is available. However, the model itself must have been generated using an Adonis license with the **ML Bundle**.
+* `AdnSmartTissue` can be used with the **FX Bundle**, both with and without ML inference. Any AdonisML model used by `AdnSmartTissue` must have been generated using an Adonis license with the **ML Bundle**.
+
+The **FX Bundle** does not include the tools and workflows required to extract training data, paint neural clusters or train new AdonisML models.
+
+### ML Bundle
+
+The **ML Bundle** includes everything available in the **FX Bundle**, plus access to the machine learning tools and workflows used to prepare, train and configure AdonisML models.
+
+The **ML Bundle** is required to run the following Adonis tools and workflows:
+
+* **ML Data Extraction Tool:** Used to extract data for training AdonisML models.
+* **Neural Clustering Paint Tool:** Used to paint neural clusters on a static mesh. These clusters provide additional locality information for the machine learning training process, helping the model better isolate local deformations and activations.
+* **Neural Training Tool:** Used to run Adonis neural training.
+* **Training Python Script:** Used to run Adonis neural training via Python script, either within the DCC or as a standalone process.
+
+Generated AdonisML models can then be used at runtime with licenses that include the **FX Bundle**.
+
+> [!IMPORTANT]
+> - Existing purchased licenses default to the **FX Bundle**. No update or additional action is required for users with existing licenses to continue using Adonis with the FX functionality currently available to them.
+> - Trial licenses always run with the **FX Bundle**.
+> - To evaluate Adonis with **ML functionality** during a trial period, please contact **adonis.support@inbibo.co.uk**.
