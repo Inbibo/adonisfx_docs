@@ -24,7 +24,8 @@ Dependency installation is handled by platform-specific scripts. For information
 The training script automatically checks for GPU devices to accelerate the training process. If no compatible GPU is found, training will fall back to CPU execution and can be slower.
 
 > [!NOTE]
-> Multi-GPU setups are not supported. The script automatically uses the first available device.
+> - Multi-GPU setups are not supported. The script automatically uses the first available device.
+> - Machine learning dependencies are installed inside the Adonis installation directory rather than system-wide. As a result, the system environment remains unchanged and no global Python packages are installed.
 
 The following arguments are required:
 
@@ -267,3 +268,7 @@ If the training process fails or does not produce the expected result, check the
 9. Confirm that the model converged during training.
 
     The training process stops automatically when the predicted outputs stop improving. If the log shows training stopped after a small number of epochs, for example fewer than `100`, try recording new data or adjusting the cluster definitions. Datasets that are too small or clusters with too many overlapping regions can be detrimental for learning.
+
+## Limitations
+
+- Multi-GPU setups are currently not supported and the training will use the first available device.
