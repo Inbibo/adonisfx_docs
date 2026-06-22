@@ -388,7 +388,7 @@ The **ML Bundle** includes everything available in the **FX Bundle**, plus acces
 
 The **ML Bundle** is required to run the following Adonis tools and workflows:
 
-* **ML Data Extraction Tool:** Used to extract data for training AdonisML models.
+* **Data Extraction Tool:** Used to extract data for training AdonisML models.
 * **Neural Clustering Paint Tool:** Used to paint neural clusters on a static mesh. These clusters provide additional locality information for the machine learning training process, helping the model better isolate local deformations and activations.
 * **Neural Training Tool:** Used to run Adonis neural training.
 * **Training Python Script:** Used to run Adonis neural training via Python script, either within the DCC or as a standalone process.
