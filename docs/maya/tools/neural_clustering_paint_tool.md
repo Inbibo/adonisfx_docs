@@ -153,7 +153,7 @@ The ML joints captured from each entry should represent the joint set used as ma
 
     You can also use *Save to Scene* to save the current Neural Cluster entries data to the scene in a hidden node. This allows to keep the data with the Maya file and work with it across different sessions without needing to export or import JSON files.
 
-13. Import and edit existing cluster map if needed.
+12. Import and edit existing cluster map if needed.
 
     Use *Import JSON* or *Load from Scene* to import neural cluster entry data from a `.json` file or a scene storage node. This clears the tool entries and maps and replaces them with the entries from the file.
 
