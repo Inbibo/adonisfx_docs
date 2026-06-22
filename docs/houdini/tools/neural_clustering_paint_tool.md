@@ -1,11 +1,11 @@
-# AdnNeuralClusteringPaintTool
+# Neural Clustering
 
 > [!IMPORTANT]
 > An Adonis ML license is required to use this feature.
 
-The **AdnNeuralClusteringPaintTool** is used to paint neural clusters on a static mesh. These clusters provide additional locality information for the machine learning training process, helping the model better isolate local deformations and activations.
+The **Neural Clustering Paint Tool** is used to paint neural clusters on a static mesh. These clusters provide additional locality information for the machine learning training process, helping the model better isolate local deformations and activations.
 
-The tool exports the painted cluster data to a `.json` file. This file is later used during neural training and can be provided when launching the training process with the [AdnNeuralTrainingTool](../tools/neural_training_tool).
+The tool exports the painted cluster data to a `.json` file. This file is later used during neural training and can be provided when launching the training process with the [Neural Training Tool](../tools/neural_training_tool).
 
 Neural clusters define local regions on the training mesh. These regions help the training process understand which parts of the mesh should be treated as related deformation areas, which can improve the posability of the trained rig.
 
@@ -13,8 +13,47 @@ The number and size of the clusters should be adjusted depending on the amount o
 
 If multiple clusters overlap, the cluster values can be normalized. Normalizing overlapping clusters helps keep the cluster data consistent and can improve the resulting training quality.
 
+In Houdini, this tool is presented as a TOP HDA called **AdnNeuralClusteringPaintTool**.
+
 > [!TIP]
-> The **AdnNeuralClusteringPaintTool** is intended to be used as an optional data preparation step for machine learning workflows. It provides neural clustering information that can complement the data extracted through the **AdnMLDataExtraction TOP HDA**.
+> The **Neural Clustering Paint Tool** is intended to be used as an optional data preparation step for machine learning workflows. It provides neural clustering information that can complement the data extracted through the **Data Extraction**.
+
+## UI
+
+<figure style="width:90%; margin-left:5%" markdown>
+  ![Adonis Neural Clustering Paint Tool](../images/neural_clustering_paint_tool_parameter_template.png)
+  <figcaption><b>Figure 1</b>: Adonis Neural Clustering Tool UI.</figcaption>
+</figure>
+
+The Neural Clustering Paint Tool (see Figure 1) provides an interface to create, paint, mirror, save and load neural clusters. Following there is a breakdown of the available UI elements:
+
+### Global Inputs & Buttons
+
+- **Mesh**: Name of the mesh to paint. The mesh name will be stored in the exported `.json` file. This is only used as a naming field for export, import, and cross-DCC compatibility. It does not define the actual geometry being painted.
+- **Pick Mesh from Selection**: Fills the *Mesh* parameter from the currently selected Houdini node name. This only updates the *Mesh* text field and does not change node connections or geometry.
+- **Clear Mesh**: Clears the *Mesh* parameter. This does not remove clusters, weights, imported data, or painted attributes.
+- **Add Entry**: Adds a new empty entry to the UI. It represents a new cluster to paint and capture weights from.
+- **Export JSON**: Exports the current neural cluster entry data to a `.json` file. Requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields.
+- **Import JSON**: Imports neural cluster entry data from a `.json` file. This replaces the current entries in the tool with the entries from the file and stashes the imported cluster attributes internally on the node.
+- **Clear Imported Data**: Clears imported and mirrored weight values from the internal stash. Cluster entries and painted weights remain unchanged. It is also used to clear mirrored data because the same internal stash is used for import and mirror operations.
+- **Mirror by**: Defines how the left and right text is matched in cluster names and joint names. Use *Prefix* when the text is at the start, *Suffix* when it is at the end, or *Token* when it can appear anywhere in the name.
+- **Left**: Left-side naming convention used for mirrored cluster names and joints. For example, use `L_` for prefix, `_L` for suffix, or `_L_` for token.
+- **Right**: Right-side naming convention used for mirrored cluster names and joints. For example, use `R_` for prefix, `_R` for suffix, or `_R_` for token.
+- **Entry**: Number of cluster entries being edited. Use the plus and minus icons to add or remove entries, and use *Clear* to clear all of the current multiparameter entries. |
+- **Normalize Clusters**: Normalizes the weights between `0` and `1` across all clusters. This helps keep overlapping cluster weights consistent.
+
+### Entry Inputs & Buttons
+
+- **Name**: Neural cluster name. This becomes the Houdini point attribute used for painting, import, export, mirroring, and normalization. Use a valid attribute name with no spaces or special characters.
+- **Joints**: Explicit joint selection for the current cluster entry, stored as Houdini group patterns using the `@name=...` convention. The joint geometry must contain a valid *name* point attribute. Do not use wildcards or broad patterns. On export, these selections are resolved to full joint paths using separators.
+- **Paint Cluster**: Makes this cluster the active paint target and enters the paint workflow for its mask attribute.
+- **Mirror**: Creates or updates a mirrored neural cluster entry by copying joints and weights across the X axis. The entry name and joints are mirrored using the selected *Mirror by* mode and the *Left* and *Right* naming tokens. If the selected convention does not match, the tool will try to fall back to a simple `L`/`R` token swap. A warning will be logged in case of failure.
+
+### Paint Settings
+
+The *Paint Settings* section exposes the same painting parameters available in Houdini's Attribute Paint node. These parameters control the brush behavior, stroke behavior, symmetry, and paint values used while painting cluster regions.
+
+For more information about these parameters, refer to the [Houdini Attribute Paint documentation](https://www.sidefx.com/docs/houdini/nodes/sop/attribpaint).
 
 ## Requirements
 
@@ -33,10 +72,6 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
 1. Create an **AdnNeuralClusteringPaintTool** node.
 
-<figure style="width:90%; margin-left:5%" markdown>
-  ![AdnNeuralClusteringPaintTool parameter template](../images/neural_clustering_paint_tool_parameter_template.png)
-  <figcaption><b>Figure 1</b>: AdnNeuralClusteringPaintTool parameter template.</figcaption>
-</figure>
 
 2. Connect the geometry and joints.
 
@@ -162,49 +197,6 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
     Export requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields.
 
     The exported `.json` file can then be used during neural training with the [AdnNeuralTrainingTool](../tools/neural_training_tool).
-
-## Parameters
-
-### Mesh
-
-| Name | Type | Default | Description |
-| :--- | :--- | :------ | :---------- |
-| *Mesh* | String |  | Source mesh name stored in the exported `.json` file. This is only used as a naming field for export, import, and cross-DCC compatibility. It does not define the actual geometry being painted. |
-| *Pick Mesh From Selection* | Button |  | Fills the *Mesh* parameter from the currently selected Houdini node name. This only updates the *Mesh* text field and does not change node connections or geometry. |
-| *Clear Mesh* | Button |  | Clears the *Mesh* parameter. This does not remove clusters, weights, imported data, or painted attributes. |
-
-### Import and Export
-
-| Name | Type | Default | Description |
-| :--- | :--- | :------ | :---------- |
-| *Export JSON* | Button |  | Exports the current neural cluster entry data to a `.json` file. Requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields. |
-| *Import JSON* | Button |  | Imports neural cluster entry data from a `.json` file. This replaces the current entries in the tool with the entries from the file and stashes the imported cluster attributes internally on the node. |
-| *Clear Imported Data* | Button |  | Clears imported and mirrored weight values from the internal stash. Cluster entries and painted weights remain unchanged. |
-
-### Mirror
-
-| Name | Type | Default | Description |
-| :--- | :--- | :------ | :---------- |
-| *Mirror by* | Menu | Prefix | Defines how the left and right text is matched in cluster names and joint names. Use *Prefix* when the text is at the start, *Suffix* when it is at the end, or *Token* when it can appear anywhere in the name. |
-| *Left* | String | L_ | Left-side naming convention used for mirrored cluster names and joints. For example, use `L_` for prefix, `_L` for suffix, or `_L_` for token. |
-| *Right* | String | R_ | Right-side naming convention used for mirrored cluster names and joints. For example, use `R_` for prefix, `_R` for suffix, or `_R_` for token. |
-
-### Cluster Entry
-
-| Name | Type | Default | Description |
-| :--- | :--- | :------ | :---------- |
-| *Entry* | Integer | 1 | Current cluster entry being edited. Use the plus and minus icons to add or remove entries, and use *Clear* to clear all of the current multiparameter entries. |
-| *Name* | String | Entry1 | Neural cluster name. This becomes the Houdini point attribute used for painting, import, export, mirroring, and normalization. Use a valid attribute name with no spaces or special characters. |
-| *Joints* | String |  | Explicit joint selection for the current cluster entry, stored as Houdini group patterns using the `@name=...` convention. The joint geometry must contain a valid *name* point attribute. Do not use wildcards or broad patterns. On export, these selections are resolved to full joint paths using separators. |
-| *Paint Cluster* | Button |  | Makes this cluster the active paint target and enters the paint workflow for its mask attribute. |
-| *Mirror* | Button |  | Creates or updates a mirrored neural cluster entry by copying joints and weights across the X axis. The entry name and joints are mirrored using the selected *Mirror by* mode and the *Left* and *Right* naming tokens. If the selected convention does not match, the tool will try to fall back to a simple `L`/`R` token swap. A warning will be logged in case of failure. |
-| *Normalize Clusters* | Boolean | False | Normalizes the weights between `0` and `1` across all clusters. This helps keep overlapping cluster weights consistent. |
-
-### Paint Settings
-
-The *Paint Settings* section exposes the same painting parameters available in Houdini's Attribute Paint node. These parameters control the brush behavior, stroke behavior, symmetry, and paint values used while painting cluster regions.
-
-For more information about these parameters, refer to the [Houdini Attribute Paint documentation](https://www.sidefx.com/docs/houdini/nodes/sop/attribpaint).
 
 ## Cluster JSON Overview
 
