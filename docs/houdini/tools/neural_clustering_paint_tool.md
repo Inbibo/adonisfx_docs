@@ -189,7 +189,7 @@ The joint entries assigned to each cluster must use explicit `@name=...` selecti
 
     Export requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields.
 
-    The exported `.json` file can then be used during neural training with the [AdnNeuralTrainingTool](../tools/neural_training_tool).
+    The exported `.json` file can then be used during neural training with the [Neural Training Tool](../tools/neural_training_tool).
 
 13. Import and edit existing cluster map if needed.
 
