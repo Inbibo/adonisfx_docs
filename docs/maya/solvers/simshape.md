@@ -71,9 +71,10 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*. |
-| **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
-| **Current Time**       | Time | *Current frame* | ✓ | Current playback frame. |
+| **Preroll Start Time** | Time    | *Current frame* | ✗ | Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*. |
+| **Start Time**         | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Current Time**       | Time    | *Current frame* | ✓ | Current playback frame. |
+| **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |

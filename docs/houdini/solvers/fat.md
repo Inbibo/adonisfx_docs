@@ -38,8 +38,9 @@ The process to create an AdnFat is:
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
-| **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Preroll Start Time** | Time    | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
+| **Start Time**         | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -119,6 +120,7 @@ The process to create an AdnFat is:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Global Damping Attribute**                  | float      | 1.0     | ✗ | Specifies the name of the per-point attribute to read the global damping from. The expected attribute name is `adnGlobalDamping`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Mass Attribute**                            | float      | 1.0     | ✗ | Specifies the name of the per-point attribute to read the mass values from. The expected attribute name is `adnMass`. The expected range of the per-point values is \[0.001, 1.0\]. |
+| **Mush Weights Attribute**                    | float      | 1.0     | ✗ | Specifies the name of the per-point attribute used to read the weight of the mush smoothing. The expected attribute name is `adnMushWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\]. |
 | **Hard Constraints Attribute**                | float      | 0.0     | ✗ | Specifies the name of the per-point attribute to read the hard constraints values from. The expected attribute name is `adnHardConstraints`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Volume Shape Preservation Attribute**       | float      | 1.0     | ✗ | Specifies the name of the per-point attribute to read the volume shape preservation values from. The expected attribute name is `adnVolumeShapePreservation`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Shape Preservation Attribute**              | float      | 1.0     | ✗ | Specifies the name of the per-point attribute to read the shape preservation values from. The expected attribute name is `adnShapePreservation`. The expected range of the per-point values is \[0.0, 1.0\]. |
@@ -169,6 +171,7 @@ In order to provide more artistic control, some key parameters of the AdnFat sol
 | **Global Damping**              | 1.0 | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more damping of velocities. |
 | **Hard Constraints**            | 0.0 | Weight to modulate the correction applied to the vertices and the internal virtual points to keep them at a constant transformation, local to the closest point on the base mesh at initialization. Hard Constraint maps will force the points to keep the original position.<ul><li>*Tip*: In most of the cases this map is flooded to 0.0.</li><li>*Tip*: Only if the volume between the fat mesh and the base mesh on the edges is big (e.g. wrists, ankle, neck) then it might be useful to paint a value of 1.0 in those areas.</li><li>*Tip*: Smooth the borders by using the Smooth and Flood combination to make sure that there are no discontinuities in the weights map. This will help the simulation to not produce sharp differences in the dynamics of every vertex compared to its connected vertices.</li></ul> |
 | **Masses**                      | 1.0 | Multiplier to the individual mass values per vertex in the simulated volume. |
+| **Mush Weights**                | 1.0 | Weight to modulate the mush deformation applied to the vertices. |
 | **Shape Preservation**          | 1.0 | Amount of correction to apply to a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
 | **Volume Shape Preservation**   | 1.0 | Amount of correction to apply to the volume structure to preserve the initial volumetric shape and prevent it from distortion. |
 
