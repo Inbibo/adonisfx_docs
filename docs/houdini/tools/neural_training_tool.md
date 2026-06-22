@@ -243,3 +243,7 @@ If the training process fails or does not produce the expected result, check the
 6. Confirm that the learning was successful.
 
     The training process will automatically stop when the predicted outputs stop improving. If the log shows training stopped after a small number of epochs, for example fewer than `100`, try recording new data or adjusting the cluster definitions. Datasets that are too small or clusters with too many overlapping regions can be detrimental for learning.
+
+## Limitations
+
+- Multi-GPU setups are currently not supported and the training will use the first available device.
