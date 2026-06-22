@@ -114,3 +114,37 @@ In the following sections we explain how to do this for Windows and Linux.
 > [!NOTE]
 > - If you need to configure other packages for `HOUDINI_PACKAGE_DIR`, concatenate them separated by ":" characters.
 > - For `ADN_INSTALL_PATH`, only a single installation path should be provided.
+
+## ML Dependencies
+
+Some Adonis features require additional Python machine learning dependencies to be installed. These dependencies are used for:
+
+- **Training**, when running neural network training through the **Training Script** or the **Neural Training Tool**.
+- **Inference**, when evaluating trained models through **AdnMLDeformer** or **AdnSmartTissue**.
+
+The ML dependencies are not installed by default and must be installed separately before using any of these features.
+
+### Method 1: Install from the DCC
+
+Both Maya and Houdini include a utility to install the required ML dependencies directly from the Adonis menu:
+
+**Adonis > Utils > Install ML Dependencies**
+
+### Method 2: Automatic Installation from the Neural Training Tool
+
+When launching a training session through the **Neural Training Tool**, Adonis automatically checks whether the required ML dependencies are available.
+
+If they are not installed, the tool will display a dialog prompting you to install them before the training process starts.
+
+### Method 3: Install Using the Command-Line Script
+
+The ML dependencies can also be installed using the standalone installation scripts located in:
+
+`Adonis/python/adnml/run.bat` on Windows, or
+
+`Adonis/python/adnml/run.sh` on Linux.
+
+This method is particularly useful when running training through the **Training Script** outside of Maya or Houdini, or when preparing a machine for automated training workflows.
+
+> [!NOTE]
+> Machine learning dependencies are installed inside the Adonis installation directory rather than system-wide. As a result, the system environment remains unchanged and no global Python packages are installed.
