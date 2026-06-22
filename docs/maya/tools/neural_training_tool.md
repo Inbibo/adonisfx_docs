@@ -17,7 +17,7 @@ The tool can also help manage the training dependencies. If the required machine
 
 ## UI
 
-<figure style="width:50%;" markdown>
+<figure markdown>
   ![Neural Training Tool](../images/neural_training_tool_empty.png)
   <figcaption><b>Figure 1</b>: Adonis Neural Training Tool UI. </figcaption>
 </figure>
@@ -127,7 +127,7 @@ When training with neural clusters, the following additional files are required:
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Training tool missing dependencies prompt](../images/training_install_ml_dependencies.png)
-  <figcaption><b>Figure 3</b>: Missing dependencies prompt shown when *Start training* is pressed.</figcaption>
+  <figcaption><b>Figure 3</b>: Missing dependencies prompt shown when Start training is pressed.</figcaption>
 </figure>
 
 8. Review the training output.
@@ -163,7 +163,8 @@ The dependencies can be installed in one of the following ways:
 Installing the dependencies may take a few minutes.
 
 > [!NOTE]
-> The training process checks automatically for an available Nvidia GPU and uses that to drastically accelerate training. If a supported GPU device is not available, training falls back to CPU execution, and will be significantly slower. Multi-GPU setups are currently not supported and the training will use the first available device.
+> - The training process checks automatically for an available Nvidia GPU and uses that to drastically accelerate training. If a supported GPU device is not available, training falls back to CPU execution, and will be significantly slower. Multi-GPU setups are currently not supported and the training will use the first available device.
+> - Machine learning dependencies are installed inside the Adonis installation directory rather than system-wide. As a result, the system environment remains unchanged and no global Python packages are installed.
 
 ## Output Files
 

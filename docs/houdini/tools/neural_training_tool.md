@@ -1,4 +1,4 @@
-# AdnMLTraining TOP HDA
+# Neural Training
 
 > [!IMPORTANT]
 > An Adonis ML license is required to use this feature.
@@ -186,7 +186,8 @@ The dependencies can be installed in one of the following ways:
 Installing the dependencies may take a few minutes.
 
 > [!NOTE]
-> The training process checks automatically for an available Nvidia GPU and uses that to drastically accelerate training. If a supported GPU device is not available, training falls back to CPU execution, and will be significantly slower. Multi-GPU setups are currently not supported and the training will use the first available device.
+> - The training process checks automatically for an available Nvidia GPU and uses that to drastically accelerate training. If a supported GPU device is not available, training falls back to CPU execution, and will be significantly slower. Multi-GPU setups are currently not supported and the training will use the first available device.
+> - Machine learning dependencies are installed inside the Adonis installation directory rather than system-wide. As a result, the system environment remains unchanged and no global Python packages are installed.
 
 ## Output Files
 
