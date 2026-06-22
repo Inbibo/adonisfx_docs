@@ -170,20 +170,7 @@ When training with neural clusters, the following additional files are required:
 
 ## Training Dependencies
 
-The AdnMLTraining TOP HDA requires the machine learning dependencies to be installed before training can run.
-
-If the dependencies are missing when the TOP graph is cooked, the tool displays a prompt asking whether to install them.
-
-This prompt appears as part of the TOP graph execution. The manual **Adonis > Utils > *Install ML Dependencies*** option is a separate installation workflow. On Linux, the dependency installation will run in the DCC terminal window, while on Windows it will pop up a separate one.
-
-The dependencies can be installed in one of the following ways:
-
-- From the missing dependencies prompt shown when launching training.
-- From **Adonis > Utils > *Install ML Dependencies***.
-- By running `Adonis/python/adnml/install_dependencies.bat` on Windows outside the DCC.
-- By running `Adonis/python/adnml/install_dependencies.sh` on Linux outside the DCC.
-
-Installing the dependencies may take a few minutes.
+The AdnMLTraining TOP HDA requires the machine learning dependencies to be installed before training can run. For more information about the ML dependencies installation, please refer to this [section](../../installation#ml-dependencies) on the Installation page.
 
 > [!NOTE]
 > - The training process checks automatically for an available Nvidia GPU and uses that to drastically accelerate training. If a supported GPU device is not available, training falls back to CPU execution, and will be significantly slower. Multi-GPU setups are currently not supported and the training will use the first available device.
