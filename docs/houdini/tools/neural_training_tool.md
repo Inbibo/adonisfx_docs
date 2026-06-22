@@ -1,4 +1,4 @@
-# Neural Training Tool
+# Neural Training
 
 > [!IMPORTANT]
 > An Adonis ML license is required to use this feature.

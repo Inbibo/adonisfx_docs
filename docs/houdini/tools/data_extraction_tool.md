@@ -1,4 +1,4 @@
-# Data Extraction Tool
+# Data Extraction
 
 > [!IMPORTANT]
 > An Adonis ML license is required to use this feature.
