@@ -19,7 +19,7 @@ The training script checks out an Adonis license while the training process is r
 
 To run Neural Training, the AdonisML training dependencies must be installed.
 
-Dependency installation is handled by platform-specific scripts. For information about where to find and run these scripts, refer to the [installation documentation](../../installation).
+Dependency installation is handled by platform-specific scripts. For information about where to find and run these scripts, please refer to this [section](../../installation#ml-dependencies) on the Installation page.
 
 The training script automatically checks for GPU devices to accelerate the training process. If no compatible GPU is found, training will fall back to CPU execution and can be slower.
 

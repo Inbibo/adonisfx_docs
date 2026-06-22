@@ -62,8 +62,8 @@ To create and configure the deformer:
 > - Creating the node manually is also possible in the Network View through Adonis > Deformer > AdnSmartTissue.
 > - In that case, the ML Model path and the list of ML Inputs (KineFX joints) can also be populated afterwards from the same UI by selecting the AdnSmartTissue plus the geometry with the KineFX joints and launching Adonis > ML Deformer.
 > - The use of this UI is recommended to ensure that the list of ML Inputs is consistent with the Adonis ML Model.
-> - ML inference will run on the GPU if the ML Dependencies have been previously installed. If not, the ML inference is performed on the CPU. Please, learn how to install the dependencies in the [Installation](../../installation) page.
 > - Machine learning dependencies are installed inside the Adonis installation directory rather than system-wide. As a result, the system environment remains unchanged and no global Python packages are installed.
+> - (Windows Only) ML inference will run on the GPU if the ML Dependencies have been previously installed. If not, the ML inference is performed on the CPU. Please, learn how to install the dependencies in this [section](../../installation#ml-dependencies) on the Installation page.
 
 ## Attributes
 
