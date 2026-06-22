@@ -42,9 +42,9 @@ Optionally, the AdnMLDataExtraction TOP HDA can also extract muscle activation d
 
 ### Muscles
 
-- *Extract Muscle Activation Data*: Enables extraction of muscle activation data. When enabled, the extracted data can support training the ML model on material properties prediction for AdnSmartTissue. If disabled, the extracted data supports training models for AdnMLDeformer only.
+- **Extract Muscle Activation Data**: Enables extraction of muscle activation data. When enabled, the extracted data can support training the ML model on material properties prediction for AdnSmartTissue. If disabled, the extracted data supports training models for AdnMLDeformer only.
 
-- *Muscle Op Path*: SOP path to geometries that have an **AdnMuscle** or **AdnRibbonMuscle** solver affecting them. The recommended setup is to point to a merge node containing all **ADN_OUT_** Null nodes coming from the muscle nodes. This can also point to individual muscle output nodes prefixed with **ADN_OUT_**, muscle geometry SOPs, or muscle solver SOPs.
+- **Muscle Op Path**: SOP path to geometries that have an **AdnMuscle** or **AdnRibbonMuscle** solver affecting them. The recommended setup is to point to a merge node containing all **ADN_OUT_** Null nodes coming from the muscle nodes. This can also point to individual muscle output nodes prefixed with **ADN_OUT_**, muscle geometry SOPs, or muscle solver SOPs.
 
 ### Frame Settings
 
@@ -52,7 +52,7 @@ Optionally, the AdnMLDataExtraction TOP HDA can also extract muscle activation d
 
 - **Frame Windows**: List of frame windows to record. If empty, the entire playback range is recorded. Frame windows must be defined as separate frame ranges, for example: `[[1, 5], [220, 600], [1023, 1500]]`.
 
-- **Skip Frame**: Number of frames to skip during recording. This helps reduce redundant pose data and extract more diverse samples. Lower values are recommended for fast animations, while higher values can be used for slower animations. Typical suggested values for normal animation speeds are between `2` and `5`. The skip frames will be computed from the start of each frame window, this ensures that the starting frame of each window is always recorded in the dataset.
+- **Skip Frame**: Number of frames to skip during recording. This helps reduce redundant pose data and extract more diverse samples. Lower values are recommended for fast animations, while higher values can be used for slower animations. Typical suggested values for normal animation speeds are between `2` and `5`. The skip frames will be computed from the start of each frame window, ensuring that the starting frame of each window is always recorded in the dataset.
 
 - **Stabilization Frames**: Number of times to recook a frame before recording displacement data. This parameter damps the motion inertia in the recorded poses. Higher values make each of the recorded poses lose more dynamics and converge toward a static silhouette. Well stabilized data is required for good ML deformation training. Faster animations usually require more stabilization frames. Typical suggested values for normal animation speeds are between `5` and `10`. Increasing this value will increase the export time.
 
