@@ -47,7 +47,7 @@ The Neural Clustering Paint Tool (see Figure 1) provides an interface to create,
 - **Name**: Neural cluster name. This will be the reference name of the cluster. The cluster name should avoid using spaces or special characters for cross-DCC compatibility.
 - **Joints**: Number of joints captured for this cluster.
 - **Weighted**: Number of vertices for which cluster weights are stored.
-- **Set**: Name of the associated ColorSet used by Maya to paint vertices affected of this cluster.
+- **Set**: Name of the associated ColorSet used by Maya to paint vertices affected by this cluster.
 - **Capture Joints from Selection**: Capture the currently selected joints and associate them to this Neural Cluster entry. Only objects of type *joint* or inheriting from type *joint* will be considered valid and captured.
 - **Select Stored Joints**: Select the joints currently associated to this Neural Cluster entry. This button should be used to verify the correct selection of joints for the cluster. If the selection is not correct, use *Capture Joints from Selection* to update the joint association.
 - **Paint Cluster**: Create or make active the Maya ColorSet for this Neural Cluster entry and switch to the Paint Vertex Color Tool. This will allow to paint vertex weights for this cluster directly on the mesh in the viewport.
