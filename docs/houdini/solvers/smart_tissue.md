@@ -80,11 +80,11 @@ To create and configure the deformer:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **ML Enable Inference**     | Boolean | True    | ✓ | Flag to enable or disable the inference. |
-| **ML Model Path**        | String  |         | ✗ | Path to the ML Model used for inference. |
+| **ML Model Path**           | String  |         | ✗ | Path to the ML Model used for inference. |
 | **ML Min Stiffness**        | Float   | 1000.0  | ✓ | Stiffness value to apply to vertices with zero inferred activation. Has a range of \[0.0, 1e<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
 | **ML Max Stiffness**        | Float   | 12000.0 | ✓ | Stiffness value to apply to vertices with maximum inferred activation. Has a range of \[0.0, 1e<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
 | **ML Activation Smoothing** | Integer | 0       | ✗ | Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations will be. Has a range of \[0, 10\]. The maximum value allowed is 20. |
-| **Write Out ML Activation** | Boolean | False | ✓ | If enabled, it writes the per-point ML inferred activation to the `adnOutActivation` point attribute in the geostream. The values written have the ML activation smoothing and the activation paintable weights applied. |
+| **Write Out ML Activation** | Boolean | False   | ✓ | If enabled, it writes the per-point ML inferred activation to the `adnOutActivation` point attribute in the geostream. The values written have the ML activation smoothing and the activation paintable weights applied. |
 
 ### Push Attributes
 | Name | Type | Default | Animatable | Description |
