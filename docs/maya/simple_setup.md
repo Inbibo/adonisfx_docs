@@ -668,7 +668,7 @@ Start by painting the *weights* to remove the limb extremities and head from the
 Paint the *Push Multiplier* map to modulate the push effect across the mesh. The map is flooded to 1.0 by default, meaning that the push effect will be applied uniformly across the mesh. To reduce the push effect in specific areas, paint those areas with lower values (e.g. 0.0 to completely remove the push effect). This will create a procedural tissue with varying thickness across the mesh.
 
 <figure markdown>
-  ![AdnSmartTissue Push Multiplier Map](images/simple_setup_smart_tissue_04.png)
+  ![AdnSmartTissue Push Multiplier Map](images/simple_setup_smart_tissue_03.png)
   <figcaption><b>Figure 50</b>: Smart Tissue procedural tissue simulation push multiplier map painting.</figcaption>
 </figure>
 
@@ -677,7 +677,7 @@ The push multiplier map painting can be used to retain the original skin profile
 The example result of the push effect after painting the *Push Multiplier* map can be seen in Figure 51.
 
 <figure markdown>
-  ![AdnSmartTissue Push After Painting](images/simple_setup_smart_tissue_03.png)
+  ![AdnSmartTissue Push After Painting](images/simple_setup_smart_tissue_04.png)
   <figcaption><b>Figure 51</b>: Smart Tissue procedural tissue simulation push after painting.</figcaption>
 </figure>
 
@@ -691,3 +691,7 @@ You can debug the ML material properties prediction by pressing on ![AdnSmartTis
   ![AdnSmartTissue ML Activation Debugger](images/simple_setup_smart_tissue_05.png)
   <figcaption><b>Figure 52</b>: Smart Tissue ML activation debugger.</figcaption>
 </figure>
+
+The ML material properties prediction feature will automatically adjust the material properties of the tissue simulation based on the muscle activations of the character. This allows for more realistic tissue behavior, as the material properties will change dynamically based on the character's movements. You can adjust the material stiffness values in the Maya Attribute Editor to fine-tune the tissue simulation behavior by setting the *ML Min Stiffness* and *ML Max Stiffness* attributes.
+
+The *ML Activation Smoothing* attribute can be used to smooth out the activation regions accross the mesh.
