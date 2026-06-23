@@ -782,7 +782,7 @@ The example result of the push effect after painting the *Push Multiplier* map c
 
 If the AdnSmartTissue SOP is created with the ML Model File and Joints Info File provided, the ML material properties prediction feature will be enabled. This allows the SOP to predict the material properties of the tissue simulation based on the muscle activations of the character.
 
-You can debug the ML material properties prediction by toggling the **Write Out ML Activation** checkbox in the *ML Inference Attributes* of the Smart Tissue SOP. This will write out the `adnOutActivation` point attribute to the geostream, which can be toggled for visualization in the viewport.
+You can debug the ML material properties prediction by toggling the *Write Out ML Activation* checkbox in the *ML Inference Attributes* of the Smart Tissue SOP. This will write out the `adnOutActivation` point attribute to the geostream, which can be toggled for visualization in the viewport.
 
 <figure markdown>
   ![AdnSmartTissue ML Activation Debugger](images/simple_setup_smart_tissue_07.png)
