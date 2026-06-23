@@ -30,7 +30,6 @@ The Neural Clustering Paint Tool (see Figure 1) provides an interface to create,
 - **Mesh**: Name of the mesh to paint. The mesh name will be stored in the exported `.json` file. This is only used as a naming field for export, import, and cross-DCC compatibility. It does not define the actual geometry being painted.
 - **Pick Mesh from Selection**: Fills the *Mesh* parameter from the currently selected Houdini node name. This only updates the *Mesh* text field and does not change node connections or geometry.
 - **Clear Mesh**: Clears the *Mesh* parameter. This does not remove clusters, weights, imported data, or painted attributes.
-- **Add Entry**: Adds a new empty entry to the UI. It represents a new cluster to paint and capture weights from.
 - **Export JSON**: Exports the current neural cluster entry data to a `.json` file. Requires a valid *Mesh*, valid cluster *Name* values, and valid *Joints* fields.
 - **Import JSON**: Imports neural cluster entry data from a `.json` file. This replaces the current entries in the tool with the entries from the file and stashes the imported cluster attributes internally on the node.
 - **Clear Imported Data**: Clears imported and mirrored weight values from the internal stash. Cluster entries and painted weights remain unchanged. It is also used to clear mirrored data because the same internal stash is used for import and mirror operations.
