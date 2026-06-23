@@ -791,7 +791,7 @@ You can debug the ML material properties prediction by toggling the *Write Out M
   <figcaption><b>Figure 71</b>: Smart Tissue ML activation debugger.</figcaption>
 </figure>
 
-The ML material properties prediction feature will automatically adjust the material properties of the tissue simulation based on the muscle activations of the character. This allows for more realistic tissue behavior, as the material properties will change dynamically based on the character's movements. You can adjust the material stiffness values in the Smart Tissue SOP parameters to fine-tune the tissue simulation behavior by setting the *ML Min Stiffness* and *ML Max Stiffness* parameters.
+The ML material properties prediction feature will automatically adjust the material properties of the tissue simulation based on the muscle activations of the character. This allows for more realistic tissue behavior, as the material properties will change dynamically based on the character's movements. You can adjust the material stiffness values in the Smart Tissue SOP parameters to fine-tune the tissue simulation behavior by setting the *ML Min Stiffness* and *ML Max Stiffness* parameters as well as the *ML Stiffness Multiplier*.
 
 The *ML Activation Smoothing* attribute can be used to smooth out the activation regions across the mesh.
 
