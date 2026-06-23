@@ -36,7 +36,7 @@ To create and configure the deformer easily, there is a shortcut in the Adonis m
 
 <figure markdown>
   ![Creator tool for AdnMLDeformer with values](../images/ml_deformer_creator_01.png)
-  <figcaption><b>Figure 2</b>: UI to create AdnMLDeformr with the model and joints files provided.</figcaption>
+  <figcaption><b>Figure 2</b>: UI to create AdnMLDeformer with the model and joints files provided.</figcaption>
 </figure>
 
 6. Click on the Create button.

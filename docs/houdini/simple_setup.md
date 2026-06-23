@@ -622,3 +622,70 @@ Refer to this [section](solvers/simshape#muscle-activations) to see how to use M
 </figure>
 
 The output activation values can be debugged by checking the option *Write Out Activation* and visualizing the `adnOutActivation` point attribute.
+
+## AdnMLDeformer
+
+To create a basic scenario using the AdnMLDeformer, start with a scene with the following elements:
+
+- The geometry to apply the deformer to. This is the geometry deformed by a Bone Deform node.
+- The Adonis ML model file (`.adnm`) trained with the [Neural Training Tool](tools/neural_training_tool).
+- The geostream containing the KineFX joints. This stream must include the `name` and `localtransform` per-point attributes.
+
+Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
+
+- The Bone Deform node must exist in the deformable chain of the geometry to apply the AdnMLDeformer to.
+- The name of the Bone Deform node must follow a fixed naming convention: "<GEO_NAME>_bonedeform"
+- The input geometry and the Bone Deform node must be the same used in the data extraction process.
+- The deformation mode of the Bone Deform must be Linear.
+- The *ADN_IN_* and *ADN_OUT_* null nodes must be present and encapsulate the Bone Deform node for the creator and editor utils to work properly.
+
+<figure markdown>
+  ![Basic setup for AdnMLDeformer](images/simple_setup_ml_deformer_00.png)
+  <figcaption><b>Figure 60</b>: Basic setup for AdnMLDeformer.</figcaption>
+</figure>
+
+> [!IMPORTANT]
+> - The AdnMLDeformer can be used with an FX license. However, an Adonis ML license is required to generate the Adonis ML model required by this deformer.
+
+### Create Deformer
+
+To create the AdnMLDeformer it is required to select first the geometry to apply the deformer to and the node containing the KineFX joints.
+
+Then go to the Adonis menu and click on *ML Deformer*.
+
+A simple UI will pop up to provide two inputs: ML Model File and Joints Info File.
+
+<figure markdown>
+  ![Creation scenario AdnMLDeformer](images/simple_setup_ml_deformer_01.png)
+  <figcaption><b>Figure 61</b>: AdnMLDeformer creation scenario.</figcaption>
+</figure>
+
+Once the inputs have been provided, press the *Create* button.
+
+The ML Model File and Joints Info File can be modified through the same UI by selecting AdnMLDeformer SOP and pressing Adonis menu > *ML Deformer* again.
+
+Mush smoothing can be applied by increasing the Mush *Iterations* to refine the inferred shape.
+
+### Paint Weights
+
+To tweak the point attributes of an AdnMLDeformer SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnMLDeformer SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnMLDeformer node.
+
+<figure markdown>
+  ![Resulting network ML deformer](images/simple_setup_ml_deformer_02.png)
+  <figcaption><b>Figure 62</b>: Network after creating the ML deformer and using the "Make Paintable" utility. </figcaption>
+</figure>
+
+In most cases, the default weight maps should produce satisfactory results without any additional adjustments.
+
+If the training data was extracted from an Adonis simulation rig where certain areas (such as the paws, tail, or head) were not simulated, those regions can be painted with a value of 0.0. This indicates that no ML deformation should be applied to those areas during inference.
+
+<figure markdown>
+  ![Map AdnMLDeformer](images/simple_setup_ml_deformer_03.png)
+  <figcaption><b>Figure 63</b>: Inference weights map painted to 0.0 on the areas where no deformation should be applied.</figcaption>
+</figure>
+
+To avoid visible transitions between deformed and non-deformed regions, it is recommended to smooth the boundaries of the painted map.
+
+Optionally, the *Mush Weights* can be used to control the regions where mush smoothing is applied.
+
+For more details about the AdnMLDeformer, please go to the dedicated deformer [page](deformers/ml_deformer).
