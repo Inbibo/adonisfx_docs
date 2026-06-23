@@ -685,7 +685,7 @@ The example result of the push effect after painting the *Push Multiplier* map c
 
 If the AdnSmartTissue deformer is created with the ML Model File and Joints Info File provided, the ML material properties prediction feature will be enabled. This allows the deformer to predict the material properties of the tissue simulation based on the muscle activations of the character.
 
-You can debug the ML material properties prediction by pressing on ![AdnSmartTissue Activation Debugger button](../images/adn_smart_tissue_activation_debugger.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Smart Tissue > *Activation Debugger*.
+You can debug the ML material properties prediction by pressing on ![AdnSmartTissue Activation Debugger button](images/adn_smart_tissue_activation_debugger.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Smart Tissue > *Activation Debugger*.
 
 <figure markdown>
   ![AdnSmartTissue ML Activation Debugger](images/simple_setup_smart_tissue_05.png)
