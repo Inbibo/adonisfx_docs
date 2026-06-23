@@ -628,7 +628,7 @@ The output activation values can be debugged by checking the option *Write Out A
 To create a basic scenario using the AdnMLDeformer, start with a scene with the following elements:
 
 - The geometry to apply the deformer to. This is the geometry deformed by a Bone Deform node.
-- The Adonis ML model file (.adnm) trained with the [Neural Training Tool](tools/neural_training_tool).
+- The Adonis ML model file (`.adnm`) trained with the [Neural Training Tool](tools/neural_training_tool).
 - The geostream containing the KineFX joints. This stream must include the `name` and `localtransform` per-point attributes.
 
 Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
