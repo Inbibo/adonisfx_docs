@@ -587,7 +587,7 @@ A simple UI will pop up to provide two inputs: ML Model File and Joints Info Fil
 
 Once the inputs have been provided, press the *Create* button.
 
-The ML Model File and Joints Info File can be modified through the same UI by selecting the mesh with the AdnMLDeformer applied and pressing the ![AdnMLDeformer button](../images/adn_ml_deformer.png){style="width:4%"} button again. 
+The ML Model File and Joints Info File can be modified through the same UI by selecting the mesh with the AdnMLDeformer applied and pressing the ![AdnMLDeformer button](../images/adn_ml_deformer.png){style="width:4%"} button again.
 
 Mush smoothing can be applied by increasing the Mush *Iterations* to refine the inferred shape.
 
@@ -610,3 +610,92 @@ To avoid visible transitions between deformed and non-deformed regions, it is re
 Optionally, the *Mush Weights* can be used to control the regions where mush smoothing is applied.
 
 For more details about the AdnMLDeformer, please go to the dedicated deformer [page](deformers/ml_deformer).
+
+## AdnSmartTissue
+
+To create a basic scenario using the AdnSmartTissue deformer, start with a scene with the following elements:
+
+- The animated geometry to apply the deformer to.
+
+In order to use the AdnSmartTissue ML dynamic material properties predictions, you will also need:
+
+- An `.adnm` file generated with the [Neural Training Tool](tools/neural_training_tool) trained with muscle activation data.
+- The `joints.json` file containing the Maya rig joints used for data extraction and training.
+
+> [!IMPORTANT]
+> - The AdnSmartTissue deformer can be used with an Adonis FX license but a ML license is required to generate the Adonis ML model required.
+> - If the ML model is not provided, then the solver applies the material properties configured in the Solver Settings as any other Adonis solver would do.
+> - If the ML model is provided, then the solver modulates the material properties using the ML inferred data.
+
+### Create Deformer
+
+To create the AdnSmartTissue deformer it is required to select the mesh that has the skinCluster applied.
+
+Then press the ![AdnSmartTissue button](../images/adn_smart_tissue.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Solvers > *Smart Tissue*.
+
+A simple UI will pop up to provide two optional inputs: ML Model File and Joints Info File.
+
+<figure markdown>
+  ![Creation scenario AdnSmartTissue](images/simple_setup_smart_tissue_00.png)
+  <figcaption><b>Figure 47</b>: AdnSmartTissue creation scenario.</figcaption>
+</figure>
+
+Once the desired inputs have been provided, press the *Create* button.
+
+The ML Model File and Joints Info File can be modified through the same UI by selecting the mesh with the AdnSmartTissue applied and pressing the ![AdnSmartTissue button](../images/adn_smart_tissue.png){style="width:4%"} button again.
+
+Set the global *Push Length* attribute in the *Push Attributes* section in the Maya Attribute Editor to apply a push effect to the tissue simulation. The *Push Length* attribute must be set to a negative value to apply the push effect inwards. This creates a procedural tissue between the original animated geometry and the pushed geometry. Set the global *Push Length* to a value that provides the desired maximum thickness in the regions where the tissue is supposed to be thickest (e.g. the belly). Other regions will then be adjusted by painting the *Push Multiplier* map to reduce the push effect in those areas.
+
+You can debug the push effect by enabling the Debug checkbox in the *Debug* section of the Attribute Editor with Inner Mesh feature selected. This will display the original animated geometry, and the pushed geometry.
+
+<figure markdown>
+  ![AdnSmartTissue Push](images/simple_setup_smart_tissue_01.png)
+  <figcaption><b>Figure 48</b>: Smart Tissue procedural tissue simulation push.</figcaption>
+</figure>
+
+Make sure to have Maya X-ray feature enabled to visualize the inner mesh.
+
+### Paint Weights
+
+> [!NOTE]
+> AdnSmartTissue requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
+
+Start by painting the *weights* to remove the limb extremities and head from the procedural tissue simulation.
+
+<figure markdown>
+  ![AdnSmartTissue Global Weights Map](images/simple_setup_smart_tissue_02.png)
+  <figcaption><b>Figure 49</b>: Smart Tissue procedural tissue simulation global weights map painting.</figcaption>
+</figure>
+
+Paint the *Push Multiplier* map to modulate the push effect across the mesh. The map is flooded to 1.0 by default, meaning that the push effect will be applied uniformly across the mesh. To reduce the push effect in specific areas, paint those areas with lower values (e.g. 0.0 to completely remove the push effect). This will create a procedural tissue with varying thickness across the mesh.
+
+<figure markdown>
+  ![AdnSmartTissue Push Multiplier Map](images/simple_setup_smart_tissue_03.png)
+  <figcaption><b>Figure 50</b>: Smart Tissue procedural tissue simulation push multiplier map painting.</figcaption>
+</figure>
+
+The push multiplier map painting can be used to retain the original skin profile in areas like landmarks, or to modulate the thickness in regions where more muscle mass is supposed to be present.
+
+The example result of the push effect after painting the *Push Multiplier* map can be seen in Figure 51.
+
+<figure markdown>
+  ![AdnSmartTissue Push After Painting](images/simple_setup_smart_tissue_04.png)
+  <figcaption><b>Figure 51</b>: Smart Tissue procedural tissue simulation push after painting.</figcaption>
+</figure>
+
+### ML Activations
+
+If the AdnSmartTissue deformer is created with the ML Model File and Joints Info File provided, the ML material properties prediction feature will be enabled. This allows the deformer to predict the material properties of the tissue simulation based on the muscle activations of the character.
+
+You can debug the ML material properties prediction by pressing the ![AdnSmartTissue Activation Debugger button](images/adn_smart_tissue_activation_debugger.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Smart Tissue > *Activation Debugger*.
+
+<figure markdown>
+  ![AdnSmartTissue ML Activation Debugger](images/simple_setup_smart_tissue_05.png)
+  <figcaption><b>Figure 52</b>: Smart Tissue ML activation debugger.</figcaption>
+</figure>
+
+The ML material properties prediction feature will automatically adjust the material properties of the tissue simulation based on the muscle activations of the character. This allows for more realistic tissue behavior, as the material properties will change dynamically based on the character's movements. You can adjust the material stiffness values in the Maya Attribute Editor to fine-tune the tissue simulation behavior by setting the *ML Min Stiffness* and *ML Max Stiffness* attributes as well as the *ML Stiffness Multiplier*.
+
+The *ML Activation Smoothing* attribute can be used to smooth out the activation regions across the mesh.
+
+For more details about AdnSmartTissue, please go to the dedicated [page](solvers/smart_tissue).
