@@ -744,7 +744,7 @@ You can debug the push effect by enabling the Debug checkbox in the *Debug* sect
   <figcaption><b>Figure 66</b>: Smart Tissue procedural tissue simulation push.</figcaption>
 </figure>
 
-Make sure to have Maya X-ray feature enabled to visualize the inner mesh.
+Make sure to have the geometry shown as Wireframe to visualize the inner mesh in the viewport.
 
 ### Paint Weights
 
