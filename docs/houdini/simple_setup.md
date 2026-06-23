@@ -695,12 +695,12 @@ For more details about the AdnMLDeformer, please go to the dedicated deformer [p
 To create a basic scenario using the AdnSmartTissue deformer, start with a scene with the following elements:
 
 - The geometry to apply the deformer to. This is the geometry deformed by a Bone Deform node.
-- The geostream containing the KineFX joints. This stream must include the `name` and `localtransform` per-point attributes.
 
 In order to use the AdnSmartTissue ML dynamic material properties predictions, you will also need:
 
 - The Adonis ML model file (`.adnm`) trained with the [Neural Training Tool](tools/neural_training_tool).
 - The `joints.json` file containing the Maya rig joints used for data extraction and training.
+- The geostream containing the KineFX joints. This stream must include the `name` and `localtransform` per-point attributes.
 
 Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
 
@@ -716,11 +716,13 @@ Apart from the inputs required, there are also other aspects to be satisfied for
 </figure>
 
 > [!IMPORTANT]
-> The AdnSmartTissue deformer can be used with an FX license and used without the ML material properties prediction feature. In this case the material properties will be set manually through the deformer attributes globally for the procedural tissue simulation. However, the ML material properties prediction feature is recommended for more realistic results and an Adonis ML license is required to generate the Adonis ML model required.
+> - The AdnSmartTissue deformer can be used with an Adonis FX license but a ML license is required to generate the Adonis ML model required.
+> - If the ML model is not provided, then the solver applies the material properties configured in the Solver Settings as any other Adonis solver would do.
+> - If the ML model is provided, then the solver modulates the material properties using the ML inferred data.
 
 ### Create Deformer
 
-To create the AdnSmartTissue deformer it is required to select first the geometry to apply the deformer to and the node containing the KineFX joints.
+To create the AdnSmartTissue deformer it is required to select the geometry to apply the deformer.
 
 Then go to the Adonis menu and click on *Smart Tissue*.
 
@@ -733,7 +735,7 @@ A simple UI will pop up to provide two optional inputs: ML Model File and Joints
 
 Once the desired inputs have been provided, press the *Create* button.
 
-The ML Model File and Joints Info File can be modified through the same UI by selecting AdnSmartTissue SOP and pressing Adonis menu > *Smart Tissue* again.
+The ML Model File and Joints Info File can be modified through the same UI by selecting AdnSmartTissue SOP and pressing Adonis menu > *Smart Tissue* again. In order to use the AdnSmartTissue ML dynamic material properties predictions, both files must be provided and both the geometry and the KineFX joints must be selected before launching the creation/editing UI.
 
 Set the global *Push Length* parameter in the *Push Attributes* section to apply a push effect to the tissue simulation. The *Push Length* parameter must be set to a negative value to apply the push effect inwards. This creates a procedural tissue between the original animated geometry and the pushed geometry. Set the global *Push Length* to a value that provides the desired maximum thickness in the regions where the tissue is supposed to be thickest (e.g. the belly). Other regions will then be adjusted by painting the *Push Multiplier* map to reduce the push effect in those areas.
 
