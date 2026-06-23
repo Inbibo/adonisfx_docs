@@ -694,6 +694,6 @@ You can debug the ML material properties prediction by pressing on ![AdnSmartTis
 
 The ML material properties prediction feature will automatically adjust the material properties of the tissue simulation based on the muscle activations of the character. This allows for more realistic tissue behavior, as the material properties will change dynamically based on the character's movements. You can adjust the material stiffness values in the Maya Attribute Editor to fine-tune the tissue simulation behavior by setting the *ML Min Stiffness* and *ML Max Stiffness* attributes.
 
-The *ML Activation Smoothing* attribute can be used to smooth out the activation regions accross the mesh.
+The *ML Activation Smoothing* attribute can be used to smooth out the activation regions across the mesh.
 
 For more details about AdnSmartTissue, please go to the dedicated [page](solvers/smart_tissue).
