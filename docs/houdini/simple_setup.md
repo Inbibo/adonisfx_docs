@@ -735,7 +735,7 @@ Once the desired inputs have been provided, press the *Create* button.
 
 The ML Model File and Joints Info File can be modified through the same UI by selecting AdnSmartTissue SOP and pressing Adonis menu > *Smart Tissue* again.
 
-Set the global *Push Length* attribute in the *Push Attributes* section to apply a push effect to the tissue simulation. The *Push Length* attribute can be set to a negative value to apply the push effect inwards. This creates a procedural tissue between the original animated geometry and the pushed geometry. Set the global *Push Length* to a value that provides the desired maximum thickness in the regions where the tissue is supposed to be thickest (e.g. the belly). Other regions will then be adjusted by painting the *Push Multiplier* map to reduce the push effect in those areas.
+Set the global *Push Length* parameter in the *Push Attributes* section to apply a push effect to the tissue simulation. The *Push Length* parameter can be set to a negative value to apply the push effect inwards. This creates a procedural tissue between the original animated geometry and the pushed geometry. Set the global *Push Length* to a value that provides the desired maximum thickness in the regions where the tissue is supposed to be thickest (e.g. the belly). Other regions will then be adjusted by painting the *Push Multiplier* map to reduce the push effect in those areas.
 
 You can debug the push effect by enabling the Debug checkbox in the *Debug* section of the Attribute Editor with Inner Mesh feature selected. This will display the original animated geometry, and the pushed geometry.
 
