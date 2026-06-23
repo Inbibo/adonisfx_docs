@@ -623,7 +623,9 @@ In order to use the AdnSmartTissue ML dynamic material properties predictions, y
 - The `joints.json` file containing the Maya rig joints used for data extraction and training.
 
 > [!IMPORTANT]
-> The AdnSmartTissue deformer can be used with an FX license and used without the ML material properties prediction feature. In this case the material properties will be set manually through the deformer attributes globally for the procedural tissue simulation. However, the ML material properties prediction feature is recommended for more realistic results and an Adonis ML license is required to generate the Adonis ML model required.
+> - The AdnSmartTissue deformer can be used with an Adonis FX license but a ML license is required to generate the Adonis ML model required.
+> - If the ML model is not provided, then the solver applies the material properties configured in the Solver Settings as any other Adonis solver would do.
+> - If the ML model is provided, then the solver modulates the material properties using the ML inferred data.
 
 ### Create Deformer
 
