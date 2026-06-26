@@ -1,7 +1,7 @@
 # Release Notes
 
 ## Version 2.1.0
-2026-XX-XX
+2026-06-29
 
 ### Core
 - Added support to exclude or include specific target faces in the computation of external constraints in AdnMuscle, AdnRibbonMuscle and AdnSkin solvers.
