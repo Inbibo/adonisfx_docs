@@ -2,7 +2,7 @@
 
 AdnRibbonMuscle is a Maya deformer for fast, robust and easy-to-configure muscle simulation on a surface. Thanks to the combination of internal (structural) and external (attachment and slide) constraints, this deformer can produce dynamics that allow the mesh to acquire the simulated characteristics of a ribbon with fibers activations to modulate the rigidity, and attachments to external objects to follow the global kinematics of the character.
 
-The influence these constraints have on the simulated mesh can be freely modified by painting them via the [AdonisFX Paint Tool](../tools/paint_tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behavior to a wide array of options.
+The influence these constraints have on the simulated mesh can be freely modified by painting them via the [Adonis Paint Tool](../tools/paint_tool) or by uniformly regulating their influence via multipliers in the Attribute Editor. Besides the maps and multipliers there are many other parameters to regulate the muscle's dynamics and behavior to a wide array of options.
 
 ### How To Use
 
@@ -19,7 +19,7 @@ To create an AdnRibbonMuscle deformer within a Maya scene, the following inputs 
 Follow these steps to create an AdnRibbonMuscle deformer:
 
 1. Select the **Targets** (if any) and the **Muscle Geometry** in that order.
-2. Press the ![AdnRibbonMuscle button](../../images/adn_ribbon_muscle.png){style="width:4%"} button in the AdonisFX shelf or press *Ribbon Muscle* in the *Solvers* submenu from the AdonisFX menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+2. Press the ![AdnRibbonMuscle button](../../images/adn_ribbon_muscle.png){style="width:4%"} button in the Adonis shelf or press *Ribbon Muscle* in the *Solvers* submenu from the Adonis menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
 3. AdnRibbonMuscle is ready to simulate with default settings. Check the next section to customize their configuration.
 
 ## Attributes
@@ -38,15 +38,16 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
-| **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
-| **Current Time**       | Time | *Current frame* | ✓ | Current playback frame. |
+| **Preroll Start Time** | Time    | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
+| **Start Time**         | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Current Time**       | Time    | *Current frame* | ✓ | Current playback frame. |
+| **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). Adonis interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
@@ -123,6 +124,15 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 | **Substeps Interp. Exp.**       | Float      | 1.0      | ✓ | Sets the exponential factor to weight the interpolation at each substep. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. A value of 0.0 disables the interpolation: input geometry targets and attenuation matrix are not interpolated. A value of 1.0 applies linear interpolation (input geometry targets and attenuation matrix) between previous and current frame based on a linear weight, i.e. `weight = substep / num_substeps`. A value between 0.0 and 1.0 applies exponential interpolation (input geometry targets and attenuation matrix) between previous and current frame based on an exponential weight, i.e. `weight = (substep / num_substeps) ^ exponent`. |
 | **Hard Attachments**            | Boolean    | False    | ✓ | If enabled, attachment constraints will force the vertices to stick to the target transformation completely. |
 | **Sliding Constraints Mode**    | Enumerator | Quality  | ✓ | Defines the mode of execution for the slide on geometry constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
+| **Target Faces Filter**         | Enumerator | None     | ✗ | Defines how the target faces list has to be processed for the geometry attachments and slide on geometry constraints.<ul><li>*None* uses all the faces in the target mesh for closest point queries.</li><li>*Exclude* excludes the faces listed in the target faces attribute for closest point queries.</li><li>*Include* includes the faces listed in the target faces attribute for closest point queries.</li></ul> |
+
+#### Mush Properties
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Iterations**     | Integer | 0    | ✓ | Number of smoothing iterations applied by the algorithm. Greater values produce smoother results at the expense of additional computational cost. Has a range of \[0, 20\]. The upper limit is soft, higher values can be used. |
+| **Pin**            | Boolean | True | ✓ | Flag to pin the vertices on the boundaries. |
+| **Smoothing Step** | Float   | 0.5  | ✓ | Amount of smoothing applied at each iteration. Has a range of \[0.0, 1.0\]. |
+| **Displacement**   | Float   | 1.0  | ✓ | Controls how much of the computed displacement is applied to the geometry. Has a range of \[0.0, 1.0\]. |
 
 ### Maps
 
@@ -176,7 +186,7 @@ Follow these steps to create an AdnRibbonMuscle deformer:
 
 ## Paintable Weights
 
-In order to provide more artistic control, some key parameters of the AdnRibbonMuscle solver are exposed as paintable attributes in the deformer. The [AdonisFX Paint Tool](../tools/paint_tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
+In order to provide more artistic control, some key parameters of the AdnRibbonMuscle solver are exposed as paintable attributes in the deformer. The [Adonis Paint Tool](../tools/paint_tool) must be used to paint those parameters to ensure that the values satisfy the solver requirements.
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
@@ -187,6 +197,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 | **Fibers Multiplier**           | 1.0             | Controls the area in which to concentrate the activation of the muscle. A higher value means more concentrated activation. |
 | **Global Damping**              | 1.0             | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more it will attempt to retain its previous position. |
 | **Masses**                      | 1.0             | Set individual mass values per vertex in the simulated mesh. |
+| **Mush Weights**                | 1.0             | Weights map used to control the influence of the mush deformation at each vertex.     |
 | **Shape Preservation**          | 1.0             | Amount of correction to apply to the current vertex to maintain the initial state of the shape formed with the surrounding vertices. |
 | **Slide On Geometry**           | 0.0             | Multi-influence weight to force vertices to displace only on the target geometry area defined by the *Max Sliding Distance* value. |
 | **Slide On Segment**            | 0.0             | Multi-influence weight to force vertices to displace only in the direction of a user-specified group of segments. |
@@ -210,7 +221,7 @@ In order to provide more artistic control, some key parameters of the AdnRibbonM
 </figure>
 
 > [!NOTE]
-> - The attachment weights are normalized at each vertex. This normalization is applied when a stroke is finished. The use of the AdonisFX Paint Tool is mandatory for that.
+> - The attachment weights are normalized at each vertex. This normalization is applied when a stroke is finished. The use of the Adonis Paint Tool is mandatory for that.
 > - It is recommended to paint the values for the most influent attractors at the end in order to avoid the internal normalization overriding them in further strokes.
 > - Fibers and Tendon weights should only be painted on the initialization frame, being the initialization frame the lowest value between Preroll Start Time and Start Time.
 
@@ -259,11 +270,11 @@ Once the AdnRibbonMuscle deformer is created, it is possible to add and remove n
 - **Add targets**:  
     1. Select the transform or mesh nodes (one or more) to be assigned as targets to the AdnRibbonMuscle.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press the ![Add Targets button](../images/adn_add_target.png){style="width:4%"} button in the AdonisFX shelf or press *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Add Targets button](../images/adn_add_target.png){style="width:4%"} button in the Adonis shelf or press *Add Targets* in the Adonis menu from the Edit Muscle submenu.
 - **Remove targets**:
     1. Select one or more transform or mesh nodes that are assigned as targets to the AdnRibbonMuscle.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button in the AdonisFX shelf or press *Remove Targets* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button in the Adonis shelf or press *Remove Targets* in the Adonis menu from the Edit Muscle submenu.
     4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing the ![Remove Targets button](../images/adn_remove_target.png){style="width:4%"} button, all targets will get removed (transform and mesh targets).
 
 Targets can be any transformation nodes or meshes. On one hand, transformation nodes such as joints or locators are used to create attachments to their world transformation matrices. On the other hand, meshes are used to create attachments to geometry and slide on geometry constraints. Check [A Simple Setup](../simple_setup#adnribbonmuscle) for more information on how to paint the influence maps for the mentioned constraints.
@@ -279,7 +290,7 @@ Additionally to all previously mentioned constraints, ribbon muscles can have an
 - **Add Segment**:
     1. Select the transform nodes from which a segment would be created for the muscle to slide on.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press *Add Slide On Segment Constraint* in the AdonisFX menu from the *Edit* Muscle submenu.
+    3. Press *Add Slide On Segment Constraint* in the Adonis menu from the *Edit* Muscle submenu.
 
 > [!NOTE]
 > - The transform node selection must follow a parent to child relationship in the hierarchy (like rig joints do).
@@ -289,17 +300,17 @@ Additionally to all previously mentioned constraints, ribbon muscles can have an
 - **Remove Segment**:  
     1. Select one or more transform nodes that are assigned as segment anchors to the AdnRibbonMuscle.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press *Remove Slide On Segment Constraint* in the AdonisFX menu from the *Edit* Muscle submenu.
-    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing *Remove Slide On Segment Constraint* in the AdonisFX menu, all segments will be removed.
+    3. Press *Remove Slide On Segment Constraint* in the Adonis menu from the *Edit* Muscle submenu.
+    4. Alternatively, if only the mesh with the AdnRibbonMuscle deformer is selected, when pressing *Remove Slide On Segment Constraint* in the Adonis menu, all segments will be removed.
 
 ### Rest Shape
 
-The muscle solver supports an art-directed shape to drive the fibers, shape and volume constraints. This shape is typically a sculpted version of the muscle (it must be topologically identical) that represents the muscle when it is fully activated. The artist can add and remove the custom shape from dedicated entries in the AdonisFX muscle submenu.
+The muscle solver supports an art-directed shape to drive the fibers, shape and volume constraints. This shape is typically a sculpted version of the muscle (it must be topologically identical) that represents the muscle when it is fully activated. The artist can add and remove the custom shape from dedicated entries in the Adonis muscle submenu.
 
 - **Add Rest Shape**:
     1. Select the transform or mesh node to be assigned as rest shape to the AdnRibbonMuscle.
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press *Add Rest Shape* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press *Add Rest Shape* in the Adonis menu from the Edit Muscle submenu.
 
 > [!NOTE]
 > - The topology of the rest shape and the muscle geometry must be identical (i.e. vertex count, vertex connectivity, polygonal information, etc.).
@@ -307,7 +318,7 @@ The muscle solver supports an art-directed shape to drive the fibers, shape and 
 - **Remove Rest Shape**: 
     1. Select the transform node of the rest mesh assigned to the AdnRibbonMuscle (optional).
     2. Select the mesh that has the AdnRibbonMuscle deformer applied.
-    3. Press *Remove Rest Shape* in the AdonisFX menu from the Edit Muscle submenu.
+    3. Press *Remove Rest Shape* in the Adonis menu from the Edit Muscle submenu.
 
 On top of this, if the input activation of the muscle is also connected to the *Rest Shape Weight*, then the influence of the rest shape over the final result will be coherent with the variation of the level of activation during the simulation.
 
@@ -341,4 +352,4 @@ The sensors can be connected to the activation list using the [Sensors Connectio
   <figcaption><b>Figure 11</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
 </figure>
 
-The removal of input sensors connected to the activation list can be done from the AdonisFX menu in Activation > Remove Inputs option.
+The removal of input sensors connected to the activation list can be done from the Adonis menu in Activation > Remove Inputs option.

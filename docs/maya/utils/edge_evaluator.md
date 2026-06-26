@@ -15,7 +15,7 @@ This node requires the following inputs to be provided:
 To create this node, follow these steps:
 
 1. Select the deform mesh, then the rest mesh.
-2. Go to the AdonisFX menu > Create Nodes > *Edge Evaluator*.
+2. Go to the Adonis menu > Create Nodes > *Edge Evaluator*.
 
 The evaluator node can be used to drive the activations of an AdnSimshape deformer by connecting the output map of this node to the activations plug of AdnSimshape deformer. The *Plug Values* mode (see this [section](../solvers/simshape#muscle-activations)) must be enabled.
 
@@ -27,7 +27,7 @@ The evaluator node can be used to drive the activations of an AdnSimshape deform
 A menu option is provided to recreate these steps easily:
 
 1. Select the Edge Evaluator Node, then the AdnSimshape deformer node.
-2. Go to the AdonisFX Menu > Edit Simshape > *Connect Activations Plug*.
+2. Go to the Adonis Menu > Edit Simshape > *Connect Activations Plug*.
 
 In order to disconnect the plug, repeat the selection and instead of pressing *Connect Activations Plug* press *Disconnect Activations Plug*.
 

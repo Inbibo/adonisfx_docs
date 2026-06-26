@@ -1,6 +1,6 @@
 # A Simple Setup
 
-This page is dedicated to explain, step by step, a simple process of creating and setting the main AdonisFX solvers and deformers in Maya. The scenarios presented here are intended to provide the minimum required configurations to obtain plausible results.
+This page is dedicated to explain, step by step, a simple process of creating and setting the main Adonis solvers and deformers in Maya. The scenarios presented here are intended to provide the minimum required configurations to obtain plausible results.
 
 ## AdnMuscle
 
@@ -18,7 +18,7 @@ In this case the proposed example is to simulate a biceps in an animated full bo
 
 ### Create Deformer
 
-To create the AdnMuscle deformer select the mesh of the muscle, then press the ![AdnMuscle](../images/adn_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Solvers* > *Muscle*. This will assign the AdnMuscle deformer to the selected muscle.
+To create the AdnMuscle deformer select the mesh of the muscle, then press the ![AdnMuscle](../images/adn_muscle.png){style="width:4%"} shelf button or go to Adonis Menu > *Solvers* > *Muscle*. This will assign the AdnMuscle deformer to the selected muscle.
 
 To create the AdnMuscle deformer with some initial specialization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial specialization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
@@ -27,7 +27,7 @@ To create the AdnMuscle deformer with some initial specialization, double-click 
   <figcaption><b>Figure 2</b>: AdnMuscle custom creation UI.</figcaption>
 </figure>
 
-In order to add attachment constraints to the muscle select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+In order to add attachment constraints to the muscle select the targets (joints, geometries or both), then the muscle with the AdnMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the Adonis menu from the Edit Muscle submenu.
 
 Additionally, target geometries that have been added to an AdnMuscle deformer can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to better follow the animation.
 
@@ -35,11 +35,11 @@ Additionally, target geometries that have been added to an AdnMuscle deformer ca
 > - Attachments to geometry and slide on geometry constraints are meant to simulate muscle-to-bone and muscle-to-muscle interactions.
 > - For muscle-to-muscle interactions, only unidirectional relationships are supported. This means that having muscles A and B, it is possible to assign A as target of B or B as target of A, but not the two at the same time.
 
-Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry, a pair of joints of the rig will be specified representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
+Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry, a pair of joints of the rig will be specified representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to Adonis Menu > Muscle > *Add Slide On Segment Constraint*.
 
 ### Paint Weights
 
-Once the AdnMuscle deformer is properly created it is possible now to paint its weights to correctly set up the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
+Once the AdnMuscle deformer is properly created it is possible now to paint its weights to correctly set up the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to Adonis Menu > *Paint Tool*.
 
 Start by painting attachment weights, painting the influence for each target by selecting the corresponding target from the list and painting its desired influence.
 
@@ -88,14 +88,14 @@ Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It 
 
 To have the muscle changing and responding to external inputs (i.e. the flexion of the arm), AdnSensorRotation can be added to drive the activation of the muscle. 
 
-To do this, first create a rotation locator and sensor to compute the elbow angle. Both elements can be created by selecting the three joints from which to create the rotation locator and sensor (shoulder, elbow and wrist joints) and directly click on the ![adnRotationSensor](../images/adn_angle_sensor.png){style="width:4%"} shelf button or go to AdonisFX Menu > Sensors (on the *Create* group) > *Rotation*. With this, both a locator and its corresponding sensor will get created at the same time.
+To do this, first create a rotation locator and sensor to compute the elbow angle. Both elements can be created by selecting the three joints from which to create the rotation locator and sensor (shoulder, elbow and wrist joints) and directly click on the ![adnRotationSensor](../images/adn_angle_sensor.png){style="width:4%"} shelf button or go to Adonis Menu > Sensors (on the *Create* group) > *Rotation*. With this, both a locator and its corresponding sensor will get created at the same time.
 
 <figure markdown>
   ![Rotation locator and sensor setup in elbow](images/simple_setup_muscle_06.png)
   <figcaption><b>Figure 9</b>: Rotation locator and sensor setup in elbow.</figcaption>
 </figure>
 
-Now that the sensor is created it has to be connected to the deformer. To do so, make use of the Connection Editor, which must be opened from the AdonisFX Menu > Sensors (on the *Edit* group) > *Connection Editor*.
+Now that the sensor is created it has to be connected to the deformer. To do so, make use of the Connection Editor, which must be opened from the Adonis Menu > Sensors (on the *Edit* group) > *Connection Editor*.
 
 With the Connection Editor opened, select the locator from the scene and press the *Reload Left* button, then select the simulated mesh and press the *Reload Right* button. The list widgets will refresh with the respective connectable attributes. Select the *activationAngle* attribute from the locator and the *activation* attribute from the deformer, and click *Make Connection*.
 
@@ -124,7 +124,7 @@ In this case a planar muscle will be simulated corresponding to a biceps, which 
 
 ### Create Deformer
 
-Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the mesh to deform (the biceps muscle) and then pressing the ![AdnRibbonMuscle](../images/adn_ribbon_muscle.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Solvers* > *Ribbon Muscle*.
+Similar to AdnMuscle, create the AdnRibbonMuscle deformer by selecting the mesh to deform (the biceps muscle) and then pressing the ![AdnRibbonMuscle](../images/adn_ribbon_muscle.png){style="width:4%"} shelf button or go to Adonis Menu > *Solvers* > *Ribbon Muscle*.
 
 To create the AdnRibbonMuscle deformer with some initial specialization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial specialization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
@@ -133,7 +133,7 @@ To create the AdnRibbonMuscle deformer with some initial specialization, double-
   <figcaption><b>Figure 12</b>: AdnRibbonMuscle custom creation UI.</figcaption>
 </figure>
 
-In order to add attachment constraints to the ribbon muscle select the targets (joints, geometries or both), then the muscle with the AdnRibbonMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the AdonisFX menu from the Edit Muscle submenu.
+In order to add attachment constraints to the ribbon muscle select the targets (joints, geometries or both), then the muscle with the AdnRibbonMuscle applied and finally press the ![add target](images/adn_add_target.png){style="width:4%"} button or *Add Targets* in the Adonis menu from the Edit Muscle submenu.
 
 Additionally, target geometries that have been added to an AdnRibbonMuscle deformer can also be used to define Slide On Geometry Constraints. This constraint type is recommended for muscles in the limbs of the character to better follow the animation.
 
@@ -141,11 +141,11 @@ Additionally, target geometries that have been added to an AdnRibbonMuscle defor
 > - Attachments to geometry and slide on geometry constraints are meant to simulate muscle-to-bone and muscle-to-muscle interactions.
 > - For muscle-to-muscle interactions, only unidirectional relationships are supported. This means that having muscles A and B, it is possible to assign A as target of B or B as target of A, but not the two at the same time.
 
-Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry a pair of joints of the rig can be specified representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to AdonisFX Menu > Muscle > *Add Slide On Segment Constraint*.
+Optionally, add Slide On Segment Constraints. This constraint works in a similar way to Slide On Geometry Constraints, however, instead of providing a geometry a pair of joints of the rig can be specified representing the segment the muscle will slide on. Selecting first the two joints of the rig (shoulder and elbow) and then the muscle geometry, go to Adonis Menu > Muscle > *Add Slide On Segment Constraint*.
 
 ### Paint Weights
 
-Once the ribbon muscle deformer is properly created it is possible now to paint its weights to correctly set up the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
+Once the ribbon muscle deformer is properly created it is possible now to paint its weights to correctly set up the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to Adonis Menu > *Paint Tool*.
 
 Start by painting attachment weights, painting the influence for each target by selecting the corresponding target from the list and painting its desired influence.
 
@@ -211,9 +211,9 @@ The AdnGlue node will take all the simulated muscles provided as inputs and gene
 
 ### Create Node
 
-To create the AdnGlue node, select the simulated muscles and press the ![AdnGlue](../images/adn_glue.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Solvers* > *Glue*. This will connect the selected muscles to the inputs plug of the AdnGlue node and create a combined output mesh as the result of the simulation.
+To create the AdnGlue node, select the simulated muscles and press the ![AdnGlue](../images/adn_glue.png){style="width:4%"} shelf button or go to Adonis Menu > *Solvers* > *Glue*. This will connect the selected muscles to the inputs plug of the AdnGlue node and create a combined output mesh as the result of the simulation.
 
-After the node creation, input muscles can be added or removed from the existing AdnGlue by pressing AdonisFX > Glue > *Add Inputs* or AdonisFX > Glue > *Remove Inputs* respectively.
+After the node creation, input muscles can be added or removed from the existing AdnGlue by pressing Adonis > Glue > *Add Inputs* or Adonis > Glue > *Remove Inputs* respectively.
 
 The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the glue constraints to take effect, this value must be adjusted. We recommend enabling the debugger and selecting the *Glue Constraints* option to inspect the connections created based on the specified *Max Glue Distance*.
 
@@ -225,7 +225,7 @@ The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the g
 ### Paint Weights
 
 > [!NOTE]
-> AdnGlue requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
+> AdnGlue requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
 
 Once the AdnGlue node is properly created, you can use Maya Paint Tool to paint its weights and correctly set up the node properties. With the *Max Glue Distance* previously adjusted, the default values of the paintable maps already allow the node to compute the glue constraints.
 
@@ -275,7 +275,7 @@ The AdnFat deformer will get applied to the second selected mesh which will beco
 
 ### Create Deformer
 
-To create the AdnFat deformer first select the base mesh and then the fat tissue mesh. Then press the ![AdnFat](../images/adn_fat.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Fat*.
+To create the AdnFat deformer first select the base mesh and then the fat tissue mesh. Then press the ![AdnFat](../images/adn_fat.png){style="width:4%"} shelf button or go to Adonis Menu > *Fat*.
 
 To create the AdnFat deformer with some initial specialization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial specialization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
@@ -289,7 +289,7 @@ After basic configuration, to alter the dynamics of the fat layer (e.g. adding o
 ### Paint Weights
 
 > [!NOTE]
-> AdnFat requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
+> AdnFat requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
 
 With the default paint setup provided when creating a new AdnFat, the simulation should already create plausible results. However, below we walk you through the three main maps that can be altered to modify the behavior of the fat simulation.
 
@@ -322,7 +322,7 @@ The AdnSkin deformer will get applied to the last mesh which will become the sim
 
 ### Create Deformer
 
-To create the AdnSkin deformer select one or more target meshes (optional, they can be added later) and then the skin mesh. Then press the ![AdnSkin](../images/adn_skin.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Skin*.
+To create the AdnSkin deformer select one or more target meshes (optional, they can be added later) and then the skin mesh. Then press the ![AdnSkin](../images/adn_skin.png){style="width:4%"} shelf button or go to Adonis Menu > *Skin*.
 
 To create the AdnSkin deformer with some initial specialization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial specialization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
@@ -333,7 +333,7 @@ To create the AdnSkin deformer with some initial specialization, double-click th
 
 ### Paint Weights
 
-Once the AdnSkin deformer is properly created it is possible now to paint its weights to correctly set up the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Paint Tool*.
+Once the AdnSkin deformer is properly created it is possible now to paint its weights to correctly set up the deformer properties. To do so, select the simulated mesh and press the ![paint tool](images/adn_paint_tool.png){style="width:4%"} shelf button or go to Adonis Menu > *Paint Tool*.
 
 Start by painting *Soft Constraints* by selecting the option from the attribute enumerator. Flood this map with a low value of 0.45 to have a uniform distribution of soft constraints. This will help the skin to follow the target mesh.
 
@@ -366,13 +366,13 @@ To create a basic scenario using the AdnRelax deformer, start with a scene with 
 To create the AdnRelax deformer:
 
 1. Select the mesh to apply the deformer onto.
-2. Press the ![AdnRelax](../images/adn_relax.png){style="width:4%"} shelf button or go to AdonisFX Menu > Deformers > *Relax*.
+2. Press the ![AdnRelax](../images/adn_relax.png){style="width:4%"} shelf button or go to Adonis Menu > Deformers > *Relax*.
 3. Increase the number of iterations to see the effect of the relaxation algorithm.
 
 ### Paint Weights
 
 > [!NOTE]
-> AdnRelax requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
+> AdnRelax requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
 
 The AdnRelax paintable maps are flooded to 1.0 by default because they act as multipliers for the main relax attributes (i.e., *Smooth*, *Relax*, *Push In Ratio*, and *Push Out Ratio*). Therefore, the relaxation algorithm will be applied uniformly over the entire mesh unless the maps are adjusted.
 
@@ -412,7 +412,7 @@ A good example of a use case for the AdnPush deformer is to generate the interna
 To create the AdnPush deformer:
 
 1. Select the mesh to apply the deformer onto.
-2. Press the ![AdnPush](../images/adn_push.png){style="width:4%"} shelf button or go to AdonisFX Menu > Deformers > *Push*.
+2. Press the ![AdnPush](../images/adn_push.png){style="width:4%"} shelf button or go to Adonis Menu > Deformers > *Push*.
 3. Set a negative value to the *Push Length* attribute to apply the push effect inwards (e.g. -2.0).
 
 <figure markdown>
@@ -425,7 +425,7 @@ Keeping the muscle layer visible is helpful to drive the configuration of the Ad
 ### Paint Weights
 
 > [!NOTE]
-> AdnPush requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
+> AdnPush requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
 
 The *push multiplier* and *weights* maps are flooded to 1.0 by default. The push multiplier is meant to modulate the amount of push across the entire mesh as it is the map that multiplies the global *Push Length* at each point. In the example with the muscle layer visible, this map can be tweaked to remove the intersections.
 
@@ -456,7 +456,7 @@ The AdnSkinMerge deformer will be applied to the final mesh which will be the re
 
 ### Create Deformer
 
-To create the AdnSkinMerge deformer press the ![AdnSkinMerge](../images/adn_skin_merge.png){style="width:4%"} shelf button or go to *AdonisFX Menu* > *Deformers* (on the *Create* group) > *Skin Merge*.
+To create the AdnSkinMerge deformer press the ![AdnSkinMerge](../images/adn_skin_merge.png){style="width:4%"} shelf button or go to *Adonis Menu* > *Deformers* (on the *Create* group) > *Skin Merge*.
 
 With this action the Create Skin Merge UI will open, allowing to add all the required elements to create the deformer. To add the required meshes select the mesh in the scene and press the corresponding *Add Selected* button. You may also set up a custom name and initialization time in this window before creating the deformer. Make sure the initialization time corresponds to the start time where all the geometries are in rest pose.
 
@@ -470,7 +470,7 @@ When everything has been properly set up, press the *Create* button to create th
 ### Paint Weights
 
 > [!NOTE]
-> AdnSkinMerge requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
+> AdnSkinMerge requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
 
 Once the AdnSkinMerge deformer is created the weights can be painted to blend the animation and simulation meshes into the final mesh.
 
@@ -509,7 +509,7 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 To create the AdnSimshape deformer it is required to select first the rest mesh and then the animated mesh. In this scenario, the animated mesh will be used as the simulated mesh.
 
-Press the ![AdnSimshape](../images/adn_simshape.png){style="width:4%"} shelf button or go to AdonisFX Menu > *Simshape*.
+Press the ![AdnSimshape](../images/adn_simshape.png){style="width:4%"} shelf button or go to Adonis Menu > *Simshape*.
 
 To create the AdnSimshape deformer with some initial specialization, double-click the shelf button or press the option box in the menu item. This will display a pop-up window that will allow doing some initial specialization, as well as creating the deformer with a custom name. Once all data has been provided press the *Create* button and the deformer will get created.
 
@@ -518,12 +518,12 @@ To create the AdnSimshape deformer with some initial specialization, double-clic
   <figcaption><b>Figure 42</b>: AdnSimshape deformer creation scenario.</figcaption>
 </figure>
 
-To add the deformation mesh to the deformer first select the deformation mesh, then the simulated mesh (which is the animation mesh) and then go to AdonisFX Menu > Simshape (on the *Edit* group) > Add *Deform Mesh*. A message will notify that the addition of the rest mesh has been done correctly.
+To add the deformation mesh to the deformer first select the deformation mesh, then the simulated mesh (which is the animation mesh) and then go to Adonis Menu > Simshape (on the *Edit* group) > Add *Deform Mesh*. A message will notify that the addition of the rest mesh has been done correctly.
 
 ### Paint Weights
 
 > [!NOTE]
-> AdnSimshape requires the use of the Maya Paint tool (not the AdonisFX paint tool) for the paintable weights setup.
+> AdnSimshape requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
 
 In the case of the AdnSimshape, use the Maya Paint tool to set up and paint its paintable weight attributes. The most important paintable map is the *Attraction Force* as this is the value that dictates how much of each simulated vertex should follow the animation. This value is flooded by default to 1.0, meaning that by default the simulated mesh will follow the animation completely, without displaying dynamics.
 
@@ -544,9 +544,158 @@ After painting similar weights to the ones displayed and pressing playback to ch
 
 To further have a realistic depiction of facial dynamics, facial muscle activations can be simulated. The AdnSimshape deformer has two methods of handling muscle activations:
 
- - AdonisFX Muscle Patches file.
+ - Adonis Muscle Patches file.
  - Edge Evaluator Node.
 
-Refer to this [section](solvers/simshape#muscle-activations) to see how to use Muscle Patches files. However, in this example, it is taken advantage of the AdnEdgeEvaluator Node. To create this node, select the rest mesh, then the deformation mesh, and then go to AdonisFX Menu > Nodes > *Edge Evaluator*. Then, once created, connect it to the AdnSimshape deformer via AdonisFX Menu > Simshape (on the *Edit* group) > *Connect Activations Plug*.
+Refer to this [section](solvers/simshape#muscle-activations) to see how to use Muscle Patches files. However, in this example, it is taken advantage of the AdnEdgeEvaluator Node. To create this node, select the rest mesh, then the deformation mesh, and then go to Adonis Menu > Nodes > *Edge Evaluator*. Then, once created, connect it to the AdnSimshape deformer via Adonis Menu > Simshape (on the *Edit* group) > *Connect Activations Plug*.
 
-In the attribute editor of the AdnSimshape deformer, under the *Muscles Activation* section, the *Plug Values* will be enabled as a new valid *Activation Mode* option. To better visualize activations, press the ![AdnSimshapeDebugger](images/adn_simshape_debugger.png){style="width:4%"} shelf button or go to AdonisFX Menu > Simshape (on the *Edit* group) > *Activations Debugger*.
+In the attribute editor of the AdnSimshape deformer, under the *Muscles Activation* section, the *Plug Values* will be enabled as a new valid *Activation Mode* option. To better visualize activations, press the ![AdnSimshapeDebugger](images/adn_simshape_debugger.png){style="width:4%"} shelf button or go to Adonis Menu > Simshape (on the *Edit* group) > *Activations Debugger*.
+
+## AdnMLDeformer
+
+To create a basic scenario using the AdnMLDeformer, start with a scene with the following elements:
+
+- The geometry to apply the deformer to. This is the geometry deformed by a skinCluster node.
+- The Adonis ML model file (`.adnm`) trained with the [Neural Training Tool](tools/neural_training_tool).
+- The Maya rig joints used as inputs for the trained Adonis ML model.
+
+Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
+
+- The skinCluster node must exist in the deformable chain of the geometry to apply the AdnMLDeformer to.
+- The input geometry and the skinCluster node must be the same used in the data extraction process.
+
+<figure markdown>
+  ![Basic setup for AdnMLDeformer](images/simple_setup_ml_deformer_00.png)
+  <figcaption><b>Figure 44</b>: Basic setup for AdnMLDeformer.</figcaption>
+</figure>
+
+> [!IMPORTANT]
+> - The AdnMLDeformer can be used with an FX license. However, an Adonis ML license is required to generate the Adonis ML model required by this deformer.
+
+### Create Deformer
+
+To create the AdnMLDeformer it is required to select the mesh that has the skinCluster applied.
+
+Then press the ![AdnMLDeformer button](../images/adn_ml_deformer.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Deformers > *ML Deformer*.
+
+A simple UI will pop up to provide two inputs: ML Model File and Joints Info File.
+
+<figure markdown>
+  ![Creation scenario AdnMLDeformer](images/simple_setup_ml_deformer_01.png)
+  <figcaption><b>Figure 45</b>: AdnMLDeformer creation scenario.</figcaption>
+</figure>
+
+Once the inputs have been provided, press the *Create* button.
+
+The ML Model File and Joints Info File can be modified through the same UI by selecting the mesh with the AdnMLDeformer applied and pressing the ![AdnMLDeformer button](../images/adn_ml_deformer.png){style="width:4%"} button again.
+
+Mush smoothing can be applied by increasing the Mush *Iterations* to refine the inferred shape.
+
+### Paint Weights
+
+> [!NOTE]
+> AdnMLDeformer requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
+
+In most cases, the default weight maps should produce satisfactory results without any additional adjustments.
+
+If the training data was extracted from an Adonis simulation rig where certain areas (such as the paws, tail, or head) were not simulated, those regions can be painted with a value of 0.0. This indicates that no ML deformation should be applied to those areas during inference.
+
+<figure markdown>
+  ![Map AdnMLDeformer](images/simple_setup_ml_deformer_02.png)
+  <figcaption><b>Figure 46</b>: Inference weights map painted to 0.0 on the areas where no deformation should be applied.</figcaption>
+</figure>
+
+To avoid visible transitions between deformed and non-deformed regions, it is recommended to smooth the boundaries of the painted map.
+
+Optionally, the *Mush Weights* can be used to control the regions where mush smoothing is applied.
+
+For more details about the AdnMLDeformer, please go to the dedicated deformer [page](deformers/ml_deformer).
+
+## AdnSmartTissue
+
+To create a basic scenario using the AdnSmartTissue deformer, start with a scene with the following elements:
+
+- The animated geometry to apply the deformer to.
+
+In order to use the AdnSmartTissue ML dynamic material properties predictions, you will also need:
+
+- An `.adnm` file generated with the [Neural Training Tool](tools/neural_training_tool) trained with muscle activation data.
+- The `joints.json` file containing the Maya rig joints used for data extraction and training.
+
+> [!IMPORTANT]
+> - The AdnSmartTissue deformer can be used with an Adonis FX license but a ML license is required to generate the Adonis ML model required.
+> - If the ML model is not provided, then the solver applies the material properties configured in the Solver Settings as any other Adonis solver would do.
+> - If the ML model is provided, then the solver modulates the material properties using the ML inferred data.
+
+### Create Deformer
+
+To create the AdnSmartTissue deformer it is required to select the mesh that has the skinCluster applied.
+
+Then press the ![AdnSmartTissue button](../images/adn_smart_tissue.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Solvers > *Smart Tissue*.
+
+A simple UI will pop up to provide two optional inputs: ML Model File and Joints Info File.
+
+<figure markdown>
+  ![Creation scenario AdnSmartTissue](images/simple_setup_smart_tissue_00.png)
+  <figcaption><b>Figure 47</b>: AdnSmartTissue creation scenario.</figcaption>
+</figure>
+
+Once the desired inputs have been provided, press the *Create* button.
+
+The ML Model File and Joints Info File can be modified through the same UI by selecting the mesh with the AdnSmartTissue applied and pressing the ![AdnSmartTissue button](../images/adn_smart_tissue.png){style="width:4%"} button again.
+
+Set the global *Push Length* attribute in the *Push Attributes* section in the Maya Attribute Editor to apply a push effect to the tissue simulation. The *Push Length* attribute must be set to a negative value to apply the push effect inwards. This creates a procedural tissue between the original animated geometry and the pushed geometry. Set the global *Push Length* to a value that provides the desired maximum thickness in the regions where the tissue is supposed to be thickest (e.g. the belly). Other regions will then be adjusted by painting the *Push Multiplier* map to reduce the push effect in those areas.
+
+You can debug the push effect by enabling the Debug checkbox in the *Debug* section of the Attribute Editor with Inner Mesh feature selected. This will display the original animated geometry, and the pushed geometry.
+
+<figure markdown>
+  ![AdnSmartTissue Push](images/simple_setup_smart_tissue_01.png)
+  <figcaption><b>Figure 48</b>: Smart Tissue procedural tissue simulation push.</figcaption>
+</figure>
+
+Make sure to have Maya X-ray feature enabled to visualize the inner mesh.
+
+### Paint Weights
+
+> [!NOTE]
+> AdnSmartTissue requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
+
+Start by painting the *weights* to remove the limb extremities and head from the procedural tissue simulation.
+
+<figure markdown>
+  ![AdnSmartTissue Global Weights Map](images/simple_setup_smart_tissue_02.png)
+  <figcaption><b>Figure 49</b>: Smart Tissue procedural tissue simulation global weights map painting.</figcaption>
+</figure>
+
+Paint the *Push Multiplier* map to modulate the push effect across the mesh. The map is flooded to 1.0 by default, meaning that the push effect will be applied uniformly across the mesh. To reduce the push effect in specific areas, paint those areas with lower values (e.g. 0.0 to completely remove the push effect). This will create a procedural tissue with varying thickness across the mesh.
+
+<figure markdown>
+  ![AdnSmartTissue Push Multiplier Map](images/simple_setup_smart_tissue_03.png)
+  <figcaption><b>Figure 50</b>: Smart Tissue procedural tissue simulation push multiplier map painting.</figcaption>
+</figure>
+
+The push multiplier map painting can be used to retain the original skin profile in areas like landmarks, or to modulate the thickness in regions where more muscle mass is supposed to be present.
+
+The example result of the push effect after painting the *Push Multiplier* map can be seen in Figure 51.
+
+<figure markdown>
+  ![AdnSmartTissue Push After Painting](images/simple_setup_smart_tissue_04.png)
+  <figcaption><b>Figure 51</b>: Smart Tissue procedural tissue simulation push after painting.</figcaption>
+</figure>
+
+### ML Activations
+
+If the AdnSmartTissue deformer is created with the ML Model File and Joints Info File provided, the ML material properties prediction feature will be enabled. This allows the deformer to predict the material properties of the tissue simulation based on the muscle activations of the character.
+
+You can debug the ML material properties prediction by pressing the ![AdnSmartTissue Activation Debugger button](images/adn_smart_tissue_activation_debugger.png){style="width:4%"} in the Adonis shelf or go to the Adonis > Smart Tissue > *Activation Debugger*.
+
+<figure markdown>
+  ![AdnSmartTissue ML Activation Debugger](images/simple_setup_smart_tissue_05.png)
+  <figcaption><b>Figure 52</b>: Smart Tissue ML activation debugger.</figcaption>
+</figure>
+
+The ML material properties prediction feature will automatically adjust the material properties of the tissue simulation based on the muscle activations of the character. This allows for more realistic tissue behavior, as the material properties will change dynamically based on the character's movements. You can adjust the material stiffness values in the Maya Attribute Editor to fine-tune the tissue simulation behavior by setting the *ML Min Stiffness* and *ML Max Stiffness* attributes as well as the *ML Stiffness Multiplier*.
+
+The *ML Activation Smoothing* attribute can be used to smooth out the activation regions across the mesh.
+
+For more details about AdnSmartTissue, please go to the dedicated [page](solvers/smart_tissue).

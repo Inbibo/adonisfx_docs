@@ -11,7 +11,7 @@ The AdnSimshape SOP is of great simplicity to set up and apply to a mesh within 
 To create an AdnSimshape SOP within a Houdini scene, the following inputs must be provided:
 
   - **Rest Mesh (R)**: Mesh with no deformation or animation (optional).
-  - **Deform Mesh (D)**: Mesh with deformation driven by the facial expressions (optional, only if muscle activations with AdonisFX Muscle Patches is required).
+  - **Deform Mesh (D)**: Mesh with deformation driven by the facial expressions (optional, only if muscle activations with Adonis Muscle Patches is required).
   - **Animated Mesh (A)**: Mesh with deformation driven by the facial expressions and animation result of the binding to the animation rig (optional).
   - **Simulation Mesh (S)**: Mesh to apply the SOP to. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
@@ -24,7 +24,7 @@ To create an AdnSimshape SOP within a Houdini scene, the following inputs must b
 To create an AdnSimshape, follow these steps:
 
   1. Go to the geometry context of the rig containing the input geometries.
-  2. Press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSimshape ![Simshape button](../../images/adn_simshape.png){style="width:4%"} SOP type.
+  2. Press TAB and navigate to the submenu Adonis > Solvers to find the AdnSimshape ![Simshape button](../../images/adn_simshape.png){style="width:4%"} SOP type.
   3. Create it and connect **S** to the first input.
   4. Optionally, if **A**, **R** and **D** are available, connect them to the second, third and fourth inputs respectively.
   5. The AdnSimshape is now ready to simulate with default settings. Check the next section to customize their configuration.
@@ -43,8 +43,8 @@ To create an AdnSimshape, follow these steps:
 ### Muscles Activation Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Activation Mode**          | Enumerator | No activation      | ✗ | Mode to drive the muscle activations. There are 3 different modes: <ul><li>Muscle Patches (Disabled by default): An AdonisFX Muscle Patches file (`.amp`) has to be provided to enable this option.</li><li>Plug Values (Disabled by default): The activation values will be read from the per-point `adnActivation` attribute stored in the first input geometry. </li><li>No Activation (Enabled by default): No activation is read.</li></ul> |
-| **Muscle Patches File**      | String     |                    | ✗ | Path to the AdonisFX Muscle Patches file (`.amp`). |
+| **Activation Mode**          | Enumerator | No activation      | ✗ | Mode to drive the muscle activations. There are 3 different modes: <ul><li>Muscle Patches (Disabled by default): An Adonis Muscle Patches file (`.amp`) has to be provided to enable this option.</li><li>Plug Values (Disabled by default): The activation values will be read from the per-point `adnActivation` attribute stored in the first input geometry. </li><li>No Activation (Enabled by default): No activation is read.</li></ul> |
+| **Muscle Patches File**      | String     |                    | ✗ | Path to the Adonis Muscle Patches file (`.amp`). |
 | **Activation Attribute**     | String     | `adnActivation`    | ✗ | Name of the per-point attribute to read the activation values from. The activation values will be read from this attribute when the *Activation Mode* is set to *Plug Values*. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Activation Smoothing**     | Integer    | 1                  | ✗ | Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be. Has a range of \[1, 20\]. The upper limit is soft, higher values can be used. |
 | **Bidirectional Activation** | Boolean    | False              | ✓ | Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers. |
@@ -58,14 +58,15 @@ To create an AdnSimshape, follow these steps:
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*. |
-| **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Preroll Start Time** | Time    | *Current frame* | ✗ | Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*. |
+| **Start Time**         | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Houdini), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). Adonis interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Houdini), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
@@ -163,7 +164,7 @@ To create an AdnSimshape, follow these steps:
 > - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
 > - Fixed point attribute names also ensure compatibility with the API.
 > - To copy the map names of the disabled attributes for painting (using an attribute paint node) right click on the disabled map attribute parameter, press "Copy Parameter", select the attribute paint node and on the attribute name entry right click and press "Paste Values". This allows to easily copy the attribute name for painting.
-> - The *Make Paintable* utility provided in the AdonisFX menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnSimshape SOP.
+> - The *Make Paintable* utility provided in the Adonis menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnSimshape SOP.
 > - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
 
 ### Debug Attributes
@@ -223,11 +224,11 @@ In order to provide more artistic control, some key parameters of the AdnSimshap
 
 <figure style="width: 75%;" markdown>
   ![AdnSimshape example of network](../images/simshape_net_example.png) 
-  <figcaption><b>Figure 7</b>: Example of AdnSimshape network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 7</b>: Example of AdnSimshape network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the Adonis deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 > [!NOTE]
-> To tweak the point attributes of an AdnSimshape SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSimshape SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSimshape node.
+> To tweak the point attributes of an AdnSimshape SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSimshape SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSimshape node.
 
 ## Debugger
 
@@ -237,7 +238,7 @@ To better visualize deformer constraints and attributes in the Houdini viewport 
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnSimshape deformer are:
 
  - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the *Triangulate Mesh* option is disabled the debugged lines will align with the edges of the mesh polygons. If the *Triangulate Mesh* option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
- - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
+ - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an Adonis Muscle Patches file.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider. The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
  - **Sliding Surface On Collider**: For each vertex, lines will outline the collider triangles within the reach of its *Max Sliding Distance*
@@ -275,12 +276,12 @@ AdnSimshape can emulate the behavior of facial muscles by computing the muscle a
 
 > [!NOTE = Activation Modes]
 > === Muscle Patches
-> The data in the AdonisFX Muscle Patches file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following the steps presented in the next section. The requirements for this mode to work are:
->  - AdonisFX Muscle Patches file
+> The data in the Adonis Muscle Patches file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following the steps presented in the next section. The requirements for this mode to work are:
+>  - Adonis Muscle Patches file
 >  - Deform mesh
 >
 >  === Plug Values (Point Attribute)
-> The values used to drive the level of activation at each vertex will be read from the `adnActivation` point attribute in the geostream. The [AdnEdgeEvaluator](../utils/edge_evaluator.md#adnedgeevaluator) node can be used to compute the activation values from the rest and deformation meshes.
+> The values used to drive the level of activation at each vertex will be read from the `adnActivation` point attribute in the geostream. The [AdnEdgeEvaluator](../utils/edge_evaluator#adnedgeevaluator) node can be used to compute the activation values from the rest and deformation meshes.
 >
 > **Note**
 > - The values must be provided in the range 0 to 1, where 0.0 is no activation and 1.0 is maximum activation.
@@ -311,7 +312,7 @@ The AdnLearnMusclePatches SOP allows the user to generate the AMP file:
 
 
 1. Go to the geometry context of the rig containing the neutral and target meshes.
-2. Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnLearnMusclePatches ![Learn Muscle Patches icon](../../images/adn_learn_muscle_patches.png){style="width:4%"} SOP type.
+2. Press TAB and navigate to the submenu Adonis > Utils to find the AdnLearnMusclePatches ![Learn Muscle Patches icon](../../images/adn_learn_muscle_patches.png){style="width:4%"} SOP type.
 3. Create it and connect the neutral mesh to the first input.
 4. Connect the target meshes to the second input. These geometries are the set of facial expressions produced by blendshapes or a facial rig.
 5. Specify the *Targets Piece Attribute* to be able to split the target geometries into single pieces.
@@ -365,6 +366,6 @@ The use of rest collider is recommended when the pre-roll simulation is not comp
 
 ## Connections
 
-Connections in AdonisFX for Houdini should be handled in two ways:
-  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the AdonisFX SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
-  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used to for example connect a float attribute to drive a parameter on the node.
+Connections in Adonis for Houdini should be handled in two ways:
+  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the Adonis SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
+  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used for example to connect a float attribute to drive a parameter on the node.

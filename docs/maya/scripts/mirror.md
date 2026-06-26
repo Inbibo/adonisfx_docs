@@ -1,12 +1,12 @@
 # Mirror
 
-The mirroring script is a Python script that allows the transfer of the AdonisFX muscle setup of an asset from one side to the other. For example, a user can complete the muscle rig for the left side of an asset and thanks to this script mirror the setup quickly and efficiently to the right side. 
+The mirroring script is a Python script that allows the transfer of the Adonis muscle setup of an asset from one side to the other. For example, a user can complete the muscle rig for the left side of an asset and thanks to this script mirror the setup quickly and efficiently to the right side. 
 
 Currently, the script allows to mirror:
 
 - **AdnMuscle deformers**, including their configurations, paintable maps, geometry targets, and connections to locators.​
-- The three types of **AdonisFX locators** (i.e. AdnLocatorPosition, AdnLocatorDistance, and AdnLocatorRotation).
-- The three types of **AdonisFX sensors** (i.e. AdnSensorPosition, AdnSensorDistance, and AdnSensorRotation).
+- The three types of **Adonis locators** (i.e. AdnLocatorPosition, AdnLocatorDistance, and AdnLocatorRotation).
+- The three types of **Adonis sensors** (i.e. AdnSensorPosition, AdnSensorDistance, and AdnSensorRotation).
 - **AdnActivation nodes**, including their input and output connections.
 
 Please, check this [section](#limitations) to know more about the current limitations.
@@ -44,7 +44,7 @@ In order to use the mirroring script, the rig must meet the following requiremen
 
 2. Select all geometries from the source side that have an AdnMuscle deformer applied and need to be mirrored.
 
-3. Add to the selection all the AdonisFX locators from the same source side that need to be mirrored. Note that sensors and activation nodes (as not being DAG objects) do not need to be added to the selection. The Mirror Tool will automatically handle their mirroring.
+3. Add to the selection all the Adonis locators from the same source side that need to be mirrored. Note that sensors and activation nodes (as not being DAG objects) do not need to be added to the selection. The Mirror Tool will automatically handle their mirroring.
 
 <figure style="width:90%; margin-left:5%" markdown>
   ![Mirror Script Selection](../images/mirror_tool_02.png)

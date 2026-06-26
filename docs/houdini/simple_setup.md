@@ -1,6 +1,6 @@
 # A Simple Setup
 
-This page is dedicated to explain, step by step, a simple process of creating and setting the main AdonisFX solvers and deformers SOPs in Houdini. The scenarios presented here are intended to provide the minimum required configurations to obtain plausible results.
+This page is dedicated to explain, step by step, a simple process of creating and setting the main Adonis solvers and deformers SOPs in Houdini. The scenarios presented here are intended to provide the minimum required configurations to obtain plausible results.
 
 ## AdnMuscle
 
@@ -18,11 +18,11 @@ In this case the proposed example is to simulate a biceps in an animated full bo
 
 ### Create Deformer
 
-To create the AdnMuscle SOP, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnMuscle SOP ![AdnMuscle](../images/adn_muscle.png){style="width:4%"} type. Then connect the muscle geometry to the input of the AdnMuscle node.
+To create the AdnMuscle SOP, press TAB and navigate to the submenu Adonis > Solvers to find the AdnMuscle SOP ![AdnMuscle](../images/adn_muscle.png){style="width:4%"} type. Then connect the muscle geometry to the input of the AdnMuscle node.
 
 <figure markdown>
   ![AdnMuscle SOP creation scenario](images/simple_setup_muscle_01.png)
-  <figcaption><b>Figure 2</b>: AdnMuscle SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 2</b>: AdnMuscle SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the Adonis deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 In order to add targets to the muscles, go to the *Targets* tab on the AdnMuscle node, press **+** under the *Targets* collapsible to add a new entry and provide the path to the SOP containing the target geometry. The geometries added as targets can be used to drive attachment to geometry and slide on geometry constraints.
@@ -42,7 +42,7 @@ Optionally, add Slide On Segment Constraints. This constraint works in a similar
 
 ### Paint Weights
 
-To tweak the point attributes of an AdnMuscle SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnMuscle SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnMuscle node.
+To tweak the point attributes of an AdnMuscle SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnMuscle SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnMuscle node.
 
 <figure style="width:75%" markdown>
   ![Deformable section muscle](images/simple_setup_muscle_03.png)
@@ -71,11 +71,11 @@ Then, paint the muscle tendon weights, by selecting the *Tendon* attribute from 
   <figcaption><b>Figure 7</b>: Tendon weights for biceps.</figcaption>
 </figure>
 
-Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnMuscle after the `attribpaint` node.
+Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu Adonis > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnMuscle after the `attribpaint` node.
 
 To visualize, change the fiber size or its color, go to the debug submenu in the SOP node, and customize the color and length of the drawn lines.
 
-To simplify the creation of the AdnFiberGroom HDA, AdonisFX provides *Make Groomable* utility in AdonisFX > Utils. Use this utility by providing the corresponding AdnMuscle SOP in the selection to create an AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
+To simplify the creation of the AdnFiberGroom HDA, Adonis provides *Make Groomable* utility in Adonis > Utils. Use this utility by providing the corresponding AdnMuscle SOP in the selection to create an AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
 
 <figure style="width:70%" markdown>
   ![Deformable section after using the Make Groomable utility](images/simple_setup_muscle_05.png)
@@ -103,9 +103,9 @@ Finally, paint Slide On Segment or Slide On Geometry Constraints (if added). It 
 
 To have the muscle changing and responding to external inputs (i.e. the flexion of the arm), AdnSensorRotation can be added to drive the activation of the muscle. 
 
-To do this, first create a rotation sensor to compute the elbow angle. Press TAB and navigate to the submenu AdonisFX > Sensors to find the AdnSensorRotation ![AdnSensorRotation button](../images/adn_angle_sensor.png){style="width:4%"} SOP type.
+To do this, first create a rotation sensor to compute the elbow angle. Press TAB and navigate to the submenu Adonis > Sensors to find the AdnSensorRotation ![AdnSensorRotation button](../images/adn_angle_sensor.png){style="width:4%"} SOP type.
 
-Then create a rotation locator to visualize the elbow angle. Press TAB and navigate to the submenu AdonisFX > Locators to find the AdnLocatorRotation ![AdnLocatorRotation button](../images/adn_angle_locator.png){style="width:4%"} SOP type and connect the sensor to the locator.
+Then create a rotation locator to visualize the elbow angle. Press TAB and navigate to the submenu Adonis > Locators to find the AdnLocatorRotation ![AdnLocatorRotation button](../images/adn_angle_locator.png){style="width:4%"} SOP type and connect the sensor to the locator.
 
 Once the sensor and locator are created, go to the *Input* tab of both nodes and provide the SOP paths to the transform nodes from which to extract the transformation information (e.g. shoulder, elbow and wrist joints). Alternatively, use the "Operator Chooser" in the locator and sensor UI to select the correct target nodes containing transform information. Generally these input nodes will be located on the */obj* level as a null, joint or rivet.
 
@@ -143,11 +143,11 @@ In this case a planar muscle will be simulated corresponding to a biceps, which 
 
 ### Create Deformer
 
-Similar to AdnMuscle, to create the AdnRibbonMuscle SOP, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnRibbonMuscle ![AdnRibbonMuscle](../images/adn_ribbon_muscle.png){style="width:4%"} SOP type. Then connect the planar muscle geometry to the input of the AdnRibbonMuscle node.
+Similar to AdnMuscle, to create the AdnRibbonMuscle SOP, press TAB and navigate to the submenu Adonis > Solvers to find the AdnRibbonMuscle ![AdnRibbonMuscle](../images/adn_ribbon_muscle.png){style="width:4%"} SOP type. Then connect the planar muscle geometry to the input of the AdnRibbonMuscle node.
 
 <figure markdown>
   ![AdnRibbonMuscle SOP creation scenario](images/simple_setup_ribbon_muscle_01.png)
-  <figcaption><b>Figure 15</b>: AdnRibbonMuscle SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 15</b>: AdnRibbonMuscle SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the Adonis deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 In order to add targets to the muscles, go to the *Targets* tab on the AdnRibbonMuscle node, press **+** under the *Targets* collapsible to add a new entry and provide the path to the SOP containing the target geometry. The geometries added as targets can be used to drive attachment to geometry and slide on geometry constraints.
@@ -167,7 +167,7 @@ Optionally, add Slide On Segment Constraints. This constraint works in a similar
 
 ### Paint Weights
 
-To tweak the point attributes of an AdnRibbonMuscle SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnRibbonMuscle SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnRibbonMuscle node.
+To tweak the point attributes of an AdnRibbonMuscle SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnRibbonMuscle SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnRibbonMuscle node.
 
 <figure style="width:75%" markdown>
   ![Deformable section ribbon muscle](images/simple_setup_ribbon_muscle_03.png)
@@ -198,9 +198,9 @@ In case the fiber or its color has to be manipulated, go to the debug submenu in
   <figcaption><b>Figure 20</b>: Tendon weights for biceps.</figcaption>
 </figure>
 
-Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu AdonisFX > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnRibbonMuscle after the `attribpaint` node.
+Once tendons are painted it is possible to groom the fibers making use of the AdnFiberGroom HDA. To create this node, press TAB, navigate to the submenu Adonis > Utils to find the AdnFiberGroom ![AdnFiberGroom button](../images/adn_fiber_groom.png){style="width:4%"} HDA type and connect it to the AdnRibbonMuscle after the `attribpaint` node.
 
-To simplify the creation of the AdnFiberGroom HDA, AdonisFX provides *Make Groomable* utility in AdonisFX > Utils. Use this utility by providing the corresponding AdnRibbonMuscle SOP in the selection to create an AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
+To simplify the creation of the AdnFiberGroom HDA, Adonis provides *Make Groomable* utility in Adonis > Utils. Use this utility by providing the corresponding AdnRibbonMuscle SOP in the selection to create an AdnFiberGroom node that computes the initial fiber directions based on the previously painted `adnTendons` map. It also allows to further groom and refine the fibers if additional adjustments are needed. The AdnFiberGroom node will be automatically named and properly connected to the muscle SOP node.
 
 <figure style="width:70%" markdown>
   ![Deformable section ribbon muscle after using the Make Groomable util](images/simple_setup_ribbon_muscle_05.png)
@@ -246,11 +246,11 @@ The AdnGlue node will take all the simulated muscles merged as a single input.
 
 > [!NOTE]
 > - AdnGlue requires the input geometry to contain a primitive attribute to be able to identify each muscle.
-> - If the AdnGlue input does not contain a primitive attribute, click on AdonisFX > Utils > Create Muscle PieceID by having the AdnGlue input selected. This utility will create a `connectivity` node in charge of computing the primitive attribute that will identify each muscle piece.
+> - If the AdnGlue input does not contain a primitive attribute, click on Adonis > Utils > Create Muscle PieceID by having the AdnGlue input selected. This utility will create a `connectivity` node in charge of computing the primitive attribute that will identify each muscle piece.
 
 ### Create Node
 
-To create the AdnGlue node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnGlue ![AdnGlue](../images/adn_glue.png){style="width:4%"} SOP type. Then connect the merged muscles to the AdnGlue input and select the *Piece Attribute* to allow the SOP to identify each muscle piece.
+To create the AdnGlue node, press TAB and navigate to the submenu Adonis > Solvers to find the AdnGlue ![AdnGlue](../images/adn_glue.png){style="width:4%"} SOP type. Then connect the merged muscles to the AdnGlue input and select the *Piece Attribute* to allow the SOP to identify each muscle piece.
 
 Input muscles can be added or removed from the existing AdnGlue by connecting or disconnecting them from the merge node. After that, make sure to recook the AdnGlue at preroll start time for this change to take effect.
 
@@ -266,7 +266,7 @@ The *Max Glue Distance* attribute is set to 0.0 by default. Therefore, for the g
 
 ### Paint Weights
 
-To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnGlue SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnGlue node.
+To tweak the point attributes of an AdnGlue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnGlue SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnGlue node.
 
 <figure markdown>
   ![Deformable section glue](images/simple_setup_glue_00.png)
@@ -316,18 +316,18 @@ To create a basic scenario using the AdnFat SOP, start with a scene with the fol
 
 ### Create Node
 
-To create the AdnFat SOP, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnFat ![AdnFat](../images/adn_fat.png){style="width:4%"} SOP type. Then connect the fat mesh to the first input and the base mesh (e.g. the simulated fascia) to the second input.
+To create the AdnFat SOP, press TAB and navigate to the submenu Adonis > Solvers to find the AdnFat ![AdnFat](../images/adn_fat.png){style="width:4%"} SOP type. Then connect the fat mesh to the first input and the base mesh (e.g. the simulated fascia) to the second input.
 
 <figure markdown>
   ![AdnFat SOP creation scenario](images/simple_setup_fat_01.png)
-  <figcaption><b>Figure 32</b>: AdnFat SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 32</b>: AdnFat SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the Adonis deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 After basic configuration, to alter the dynamics of the fat layer (e.g. adding or reducing the jiggle) it is advisable to tweak the main attributes like: *Iterations*, *Substeps*, *Global Damping Multiplier* or the per-constraint stiffness values in the *Override Constraint Stiffness* section.
 
 ### Paint Weights
 
-To tweak the point attributes of an AdnFat SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnFat SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnFat node.
+To tweak the point attributes of an AdnFat SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnFat SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnFat node.
 
 <figure markdown>
   ![Deformable section fat](images/simple_setup_fat_02.png)
@@ -363,18 +363,18 @@ To create a basic scenario using the AdnSkin SOP, start with a scene with the fo
 
 ### Create Deformer
 
-To create the AdnSkin node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSkin ![AdnSkin](../images/adn_skin.png){style="width:4%"} SOP type. Then connect the skin mesh to the AdnSkin input.
+To create the AdnSkin node, press TAB and navigate to the submenu Adonis > Solvers to find the AdnSkin ![AdnSkin](../images/adn_skin.png){style="width:4%"} SOP type. Then connect the skin mesh to the AdnSkin input.
 
 To add target mesh(es), go to the *Targets* tab on the AdnSkin node, press **+** to add a new target entry and set the path to the SOP node containing the target geometry to the *Target World Mesh* parameter.
 
 <figure markdown>
   ![AdnSkin SOP creation scenario](images/simple_setup_skin_01.png)
-  <figcaption><b>Figure 36</b>: AdnSkin SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 36</b>: AdnSkin SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the Adonis deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 ### Paint Weights
 
-To tweak the point attributes of an AdnSkin SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSkin SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkin node.
+To tweak the point attributes of an AdnSkin SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSkin SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkin node.
 
 <figure markdown>
   ![Deformable section skin](images/simple_setup_skin_02.png)
@@ -419,7 +419,7 @@ To create a basic scenario using the AdnRelax SOP, start with a scene with a mes
 To create the AdnRelax SOP:
 
 1. Go to the geometry context of the rig containing the geometry to apply the SOP to.
-2. Press TAB and navigate to the submenu AdonisFX > Deformers to find the AdnRelax ![Relax button](../images/adn_relax.png){style="width:4%"} SOP type.
+2. Press TAB and navigate to the submenu Adonis > Deformers to find the AdnRelax ![Relax button](../images/adn_relax.png){style="width:4%"} SOP type.
 3. Create it and connect the geometry to the input.
 4. Increase the number of iterations to see the effect of the relaxation algorithm.
 
@@ -432,7 +432,7 @@ To create the AdnRelax SOP:
 
 The AdnRelax paintable maps default to 1.0 if the point attributes are not found in the input source. They act as multipliers for the main relax parameters (i.e., *Smooth*, *Relax*, *Push In Ratio*, and *Push Out Ratio*). Therefore, the relaxation algorithm will be applied uniformly over the entire mesh unless the maps are adjusted.
 
-To tweak the point attributes of an AdnRelax SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnRelax SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnRelax node.
+To tweak the point attributes of an AdnRelax SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnRelax SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnRelax node.
 
 <figure markdown>
   ![relax network 2](images/simple_setup_relax_02.png)
@@ -472,11 +472,11 @@ A good example of a use case for the AdnPush SOP is to generate the internal fas
 
 ### Create Node
 
-To create the AdnPush SOP, press TAB and navigate to the submenu AdonisFX > Deformers to find the AdnPush ![AdnPush](../images/adn_push.png){style="width:4%"} SOP type and connect the copy of the skin mesh at rest to the AdnPush input. Then, set a negative value to the *Push Length* parameter to apply the push effect inwards (e.g. -2.0).
+To create the AdnPush SOP, press TAB and navigate to the submenu Adonis > Deformers to find the AdnPush ![AdnPush](../images/adn_push.png){style="width:4%"} SOP type and connect the copy of the skin mesh at rest to the AdnPush input. Then, set a negative value to the *Push Length* parameter to apply the push effect inwards (e.g. -2.0).
 
 <figure style="width:75%;" markdown>
   ![push SOP creation scenario](images/simple_setup_push_01.png)
-  <figcaption><b>Figure 46</b>: AdnPush SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 46</b>: AdnPush SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the Adonis deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 <figure markdown>
@@ -488,7 +488,7 @@ Keeping the muscle layer visible is helpful to drive the configuration of the Ad
 
 ### Paint Weights
 
-To tweak the point attributes of an AdnPush SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnPush SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnPush node.
+To tweak the point attributes of an AdnPush SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnPush SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnPush node.
 
 <figure style="width:75%;" markdown>
   ![Deformable section push](images/simple_setup_push_03.png)
@@ -524,16 +524,16 @@ The AdnSkinMerge SOP will be applied to the final mesh which will be the result 
 
 ### Create Node
 
-To create the AdnSkinMerge node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSkinMerge ![AdnSkinMerge](../images/adn_skin_merge.png){style="width:4%"} SOP type. Then connect the final mesh to the AdnSkinMerge input and go to the *Targets* tab to provide the *anim* and *sim* meshes. Make sure the initialization time corresponds to the start time where all the geometries are in rest pose.
+To create the AdnSkinMerge node, press TAB and navigate to the submenu Adonis > Solvers to find the AdnSkinMerge ![AdnSkinMerge](../images/adn_skin_merge.png){style="width:4%"} SOP type. Then connect the final mesh to the AdnSkinMerge input and go to the *Targets* tab to provide the *anim* and *sim* meshes. Make sure the initialization time corresponds to the start time where all the geometries are in rest pose.
 
 <figure markdown>
   ![AdnSkinMerge creation scenario](images/simple_setup_skin_merge_01.png)
-  <figcaption><b>Figure 52</b>: AdnSkinMerge SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 52</b>: AdnSkinMerge SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the Adonis deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 ### Paint Weights
 
-To tweak the point attributes of an AdnSkinMerge SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSkinMerge SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkinMerge node.
+To tweak the point attributes of an AdnSkinMerge SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSkinMerge SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSkinMerge node.
 
 <figure style="width: 70%;" markdown>
   ![Deformable section skin merge](images/simple_setup_skin_merge_02.png)
@@ -575,16 +575,16 @@ All these meshes must have the same number of vertices and correspond to the sam
 
 ### Create Node
 
-To create the AdnSimshape node, press TAB and navigate to the submenu AdonisFX > Solvers to find the AdnSimshape ![AdnSimshape](../images/adn_simshape.png){style="width:4%"} SOP type. Then connect the animated mesh to the first input, the rest mesh to the third input and the deformation mesh to the fourth input.
+To create the AdnSimshape node, press TAB and navigate to the submenu Adonis > Solvers to find the AdnSimshape ![AdnSimshape](../images/adn_simshape.png){style="width:4%"} SOP type. Then connect the animated mesh to the first input, the rest mesh to the third input and the deformation mesh to the fourth input.
 
 <figure markdown>
   ![AdnSimshape creation scenario](images/simple_setup_simshape_01.png)
-  <figcaption><b>Figure 57</b>: AdnSimshape SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the AdonisFX deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 57</b>: AdnSimshape SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the Adonis deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 ### Paint Weights
 
-To tweak the point attributes of an AdnSimshape SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSimshape SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSimshape node.
+To tweak the point attributes of an AdnSimshape SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSimshape SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSimshape node.
 
 The most important paintable map is the `adnAttractForce` as this is the value that dictates how much of each simulated vertex should follow the animation. This value is flooded by default to 1.0, meaning that by default the simulated mesh will follow the animation completely, without displaying dynamics.
 
@@ -605,12 +605,12 @@ After painting similar weights to the ones displayed and pressing playback to ch
 
 To further have a realistic depiction of facial dynamics, facial muscle activations can be simulated. The AdnSimshape SOP has two methods of handling muscle activations:
 
- - AdonisFX Muscle Patches file.
+ - Adonis Muscle Patches file.
  - Edge Evaluator Node.
 
 Refer to this [section](solvers/simshape#muscle-activations) to see how to use Muscle Patches files. However, in this example, it is taken advantage of the AdnEdgeEvaluator SOP. The process is the following:
 
-- Press TAB and navigate to the submenu AdonisFX > Utils to find the AdnEdgeEvaluator ![Edge Evaluator button](../images/adn_edge_evaluator.png){style="width:4%"} SOP type.
+- Press TAB and navigate to the submenu Adonis > Utils to find the AdnEdgeEvaluator ![Edge Evaluator button](../images/adn_edge_evaluator.png){style="width:4%"} SOP type.
 - Connect the deformation mesh to the first input and the rest mesh to the second input.
 - Cook the AdnEdgeEvaluator node and the `adnCompression` point attribute will be written into the geostream.
 - Transfer the `adnCompression` point attribute to the geostream of the first input of AdnSimshape with the name `adnActivation`.
@@ -622,3 +622,177 @@ Refer to this [section](solvers/simshape#muscle-activations) to see how to use M
 </figure>
 
 The output activation values can be debugged by checking the option *Write Out Activation* and visualizing the `adnOutActivation` point attribute.
+
+## AdnMLDeformer
+
+To create a basic scenario using the AdnMLDeformer, start with a scene with the following elements:
+
+- The geometry to apply the deformer to. This is the geometry deformed by a Bone Deform node.
+- The Adonis ML model file (`.adnm`) trained with the [Neural Training Tool](tools/neural_training_tool).
+- The geostream containing the KineFX joints. This stream must include the `name` and `localtransform` per-point attributes.
+
+Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
+
+- The Bone Deform node must exist in the deformable chain of the geometry to apply the AdnMLDeformer to.
+- The name of the Bone Deform node must follow a fixed naming convention: "<GEO_NAME>_bonedeform"
+- The input geometry and the Bone Deform node must be the same used in the data extraction process.
+- The deformation mode of the Bone Deform must be Linear.
+- The *ADN_IN_* and *ADN_OUT_* null nodes must be present and encapsulate the Bone Deform node for the creator and editor utils to work properly.
+
+<figure markdown>
+  ![Basic setup for AdnMLDeformer](images/simple_setup_ml_deformer_00.png)
+  <figcaption><b>Figure 60</b>: Basic setup for AdnMLDeformer.</figcaption>
+</figure>
+
+> [!IMPORTANT]
+> - The AdnMLDeformer can be used with an FX license. However, an Adonis ML license is required to generate the Adonis ML model required by this deformer.
+
+### Create Deformer
+
+To create the AdnMLDeformer it is required to select first the geometry to apply the deformer to and the node containing the KineFX joints.
+
+Then go to the Adonis menu and click on *ML Deformer*.
+
+A simple UI will pop up to provide two inputs: ML Model File and Joints Info File.
+
+<figure markdown>
+  ![Creation scenario AdnMLDeformer](images/simple_setup_ml_deformer_01.png)
+  <figcaption><b>Figure 61</b>: AdnMLDeformer creation scenario.</figcaption>
+</figure>
+
+Once the inputs have been provided, press the *Create* button.
+
+The ML Model File and Joints Info File can be modified through the same UI by selecting AdnMLDeformer SOP and pressing Adonis menu > *ML Deformer* again.
+
+Mush smoothing can be applied by increasing the Mush *Iterations* to refine the inferred shape.
+
+### Paint Weights
+
+To tweak the point attributes of an AdnMLDeformer SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnMLDeformer SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnMLDeformer node.
+
+<figure markdown>
+  ![Resulting network ML deformer](images/simple_setup_ml_deformer_02.png)
+  <figcaption><b>Figure 62</b>: Network after creating the ML deformer and using the "Make Paintable" utility. </figcaption>
+</figure>
+
+In most cases, the default weight maps should produce satisfactory results without any additional adjustments.
+
+If the training data was extracted from an Adonis simulation rig where certain areas (such as the paws, tail, or head) were not simulated, those regions can be painted with a value of 0.0. This indicates that no ML deformation should be applied to those areas during inference.
+
+<figure markdown>
+  ![Map AdnMLDeformer](images/simple_setup_ml_deformer_03.png)
+  <figcaption><b>Figure 63</b>: Inference weights map painted to 0.0 on the areas where no deformation should be applied.</figcaption>
+</figure>
+
+To avoid visible transitions between deformed and non-deformed regions, it is recommended to smooth the boundaries of the painted map.
+
+Optionally, the *Mush Weights* can be used to control the regions where mush smoothing is applied.
+
+For more details about the AdnMLDeformer, please go to the dedicated deformer [page](deformers/ml_deformer).
+
+## AdnSmartTissue
+
+To create a basic scenario using the AdnSmartTissue deformer, start with a scene with the following elements:
+
+- The geometry to apply the deformer to. This is the geometry deformed by a Bone Deform node.
+
+In order to use the AdnSmartTissue ML dynamic material properties predictions, you will also need:
+
+- The Adonis ML model file (`.adnm`) trained with the [Neural Training Tool](tools/neural_training_tool).
+- The `joints.json` file containing the Maya rig joints used for data extraction and training.
+- The geostream containing the KineFX joints. This stream must include the `name` and `localtransform` per-point attributes.
+
+Apart from the inputs required, there are also other aspects to be satisfied for this deformer to produce the expected results:
+
+- The Bone Deform node must exist in the deformable chain of the geometry to apply the AdnSmartTissue to.
+- The name of the Bone Deform node must follow a fixed naming convention: "<GEO_NAME>_bonedeform"
+- The input geometry and the Bone Deform node must be the same used in the data extraction process.
+- The deformation mode of the Bone Deform must be Linear.
+- The *ADN_IN_* and *ADN_OUT_* null nodes must be present and encapsulate the Bone Deform node for the creator and editor utils to work properly.
+
+<figure markdown>
+  ![Basic setup for AdnSmartTissue](images/simple_setup_smart_tissue_00.png)
+  <figcaption><b>Figure 64</b>: Basic setup for AdnSmartTissue.</figcaption>
+</figure>
+
+> [!IMPORTANT]
+> - The AdnSmartTissue deformer can be used with an Adonis FX license but a ML license is required to generate the Adonis ML model required.
+> - If the ML model is not provided, then the solver applies the material properties configured in the Solver Settings as any other Adonis solver would do.
+> - If the ML model is provided, then the solver modulates the material properties using the ML inferred data.
+
+### Create Deformer
+
+To create the AdnSmartTissue deformer it is required to select the geometry to apply the deformer.
+
+Then go to the Adonis menu and click on *Smart Tissue*.
+
+A simple UI will pop up to provide two optional inputs: ML Model File and Joints Info File.
+
+<figure markdown>
+  ![Creation scenario AdnSmartTissue](images/simple_setup_smart_tissue_01.png)
+  <figcaption><b>Figure 65</b>: AdnSmartTissue creation scenario.</figcaption>
+</figure>
+
+Once the desired inputs have been provided, press the *Create* button.
+
+The ML Model File and Joints Info File can be modified through the same UI by selecting AdnSmartTissue SOP and pressing Adonis menu > *Smart Tissue* again. In order to use the AdnSmartTissue ML dynamic material properties predictions, both files must be provided and both the geometry and the KineFX joints must be selected before launching the creation/editing UI.
+
+Set the global *Push Length* parameter in the *Push Attributes* section to apply a push effect to the tissue simulation. The *Push Length* parameter must be set to a negative value to apply the push effect inwards. This creates a procedural tissue between the original animated geometry and the pushed geometry. Set the global *Push Length* to a value that provides the desired maximum thickness in the regions where the tissue is supposed to be thickest (e.g. the belly). Other regions will then be adjusted by painting the *Push Multiplier* map to reduce the push effect in those areas.
+
+You can debug the push effect by enabling the Debug checkbox in the *Debug* section of the Smart Tissue SOP parameters with Inner Mesh feature selected. This will display the original animated geometry, and the pushed geometry.
+
+<figure markdown>
+  ![AdnSmartTissue Push](images/simple_setup_smart_tissue_03.png)
+  <figcaption><b>Figure 66</b>: Smart Tissue procedural tissue simulation push.</figcaption>
+</figure>
+
+Make sure to have the geometry shown as Wireframe to visualize the inner mesh in the viewport.
+
+### Paint Weights
+
+To tweak the point attributes of an AdnSmartTissue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSmartTissue SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSmartTissue node.
+
+<figure markdown>
+  ![Resulting network Smart Tissue](images/simple_setup_smart_tissue_02.png)
+  <figcaption><b>Figure 67</b>: Network after creating the Smart Tissue and using the "Make Paintable" utility. </figcaption>
+</figure>
+
+Start by painting the *adnWeights* to remove the limb extremities and head from the procedural tissue simulation.
+
+<figure markdown>
+  ![AdnSmartTissue Global Weights Map](images/simple_setup_smart_tissue_04.png)
+  <figcaption><b>Figure 68</b>: Smart Tissue procedural tissue simulation global weights map painting.</figcaption>
+</figure>
+
+Paint the *adnPushMultiplier* map to modulate the push effect across the mesh. The map is flooded to 1.0 by default, meaning that the push effect will be applied uniformly across the mesh. To reduce the push effect in specific areas, paint those areas with lower values (e.g. 0.0 to completely remove the push effect). This will create a procedural tissue with varying thickness across the mesh.
+
+<figure markdown>
+  ![AdnSmartTissue Push Multiplier Map](images/simple_setup_smart_tissue_05.png)
+  <figcaption><b>Figure 69</b>: Smart Tissue procedural tissue simulation push multiplier map painting.</figcaption>
+</figure>
+
+The push multiplier map painting can be used to retain the original skin profile in areas like landmarks, or to modulate the thickness in regions where more muscle mass is supposed to be present.
+
+The example result of the push effect after painting the *Push Multiplier* map can be seen in Figure 70.
+
+<figure markdown>
+  ![AdnSmartTissue Push After Painting](images/simple_setup_smart_tissue_06.png)
+  <figcaption><b>Figure 70</b>: Smart Tissue procedural tissue simulation push after painting.</figcaption>
+</figure>
+
+### ML Activations
+
+If the AdnSmartTissue SOP is created with the ML Model File and Joints Info File provided, the ML material properties prediction feature will be enabled. This allows the SOP to predict the material properties of the tissue simulation based on the muscle activations of the character.
+
+You can debug the ML material properties prediction by toggling the *Write Out ML Activation* checkbox in the *ML Inference Attributes* of the Smart Tissue SOP. This will write out the `adnOutActivation` point attribute to the geostream, which can be toggled for visualization in the viewport.
+
+<figure markdown>
+  ![AdnSmartTissue ML Activation Debugger](images/simple_setup_smart_tissue_07.png)
+  <figcaption><b>Figure 71</b>: Smart Tissue ML activation debugger.</figcaption>
+</figure>
+
+The ML material properties prediction feature will automatically adjust the material properties of the tissue simulation based on the muscle activations of the character. This allows for more realistic tissue behavior, as the material properties will change dynamically based on the character's movements. You can adjust the material stiffness values in the Smart Tissue SOP parameters to fine-tune the tissue simulation behavior by setting the *ML Min Stiffness* and *ML Max Stiffness* parameters as well as the *ML Stiffness Multiplier*.
+
+The *ML Activation Smoothing* attribute can be used to smooth out the activation regions across the mesh.
+
+For more details about AdnSmartTissue, please go to the dedicated [page](solvers/smart_tissue).

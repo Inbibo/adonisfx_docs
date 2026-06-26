@@ -2,23 +2,23 @@
 
 In `adn.scripts.maya.adnio` module, a set of Python functions are provided to allow users to:
 
-- Gather the AdonisFX nodes setup from the scene.
-- Clear the scene by removing all AdonisFX nodes.
-- Build the AdonisFX setup in the scene from a dictionary.
-- Import AdonisFX setup from a JSON file.
-- Export AdonisFX setup into a JSON file.
+- Gather the Adonis nodes setup from the scene.
+- Clear the scene by removing all Adonis nodes.
+- Build the Adonis setup in the scene from a dictionary.
+- Import Adonis setup from a JSON file.
+- Export Adonis setup into a JSON file.
 
 In the following sections, we provide a brief overview of how to use the utilities provided in this Python module.
 
 ## Gather Data
 
-To gather all AdonisFX nodes from the scene and store their setup into a dictionary, run this command in Python:
+To gather all Adonis nodes from the scene and store their setup into a dictionary, run this command in Python:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
 data = adnio.gather_from_scene(enabled_features)
 </code></pre>
 
-The argument `enabled_features` is optional and it is a dictionary where keys are feature names (i.e. AdonisFX solver nodes and other util nodes) and values are flags to determine if a feature has to be gathered or bypassed. If this is not provided, all features will be gathered.
+The argument `enabled_features` is optional and it is a dictionary where keys are feature names (i.e. Adonis solver nodes and other util nodes) and values are flags to determine if a feature has to be gathered or bypassed. If this is not provided, all features will be gathered.
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.utils.constants import IOFeaturesData
 enabled_features = {
@@ -29,17 +29,24 @@ enabled_features = {
     IOFeaturesData.SKIN: True,
     IOFeaturesData.FAT: True,
     IOFeaturesData.RELAX: True,
-    IOFeaturesData.PUSH: True,
     IOFeaturesData.SKIN_MERGE: True,
     IOFeaturesData.SIMSHAPE: True,
     IOFeaturesData.EDGE_EVALUATOR: True,
-    IOFeaturesData.REMAP: True
+    IOFeaturesData.REMAP: True,
+    IOFeaturesData.PUSH: True,
+    IOFeaturesData.MUSH: True,
+    IOFeaturesData.ML_DEFORMER: True,
+    IOFeaturesData.SMART_TISSUE: True,
+    IOFeaturesData.CLOSEST_FIT: True,
+    IOFeaturesData.RIGID_WRAP: True,
+    IOFeaturesData.SOFT_WRAP: True,
+    IOFeaturesData.RADIAL_WRAP: True,
 }</code></pre>
 
 
 ## Clear All
 
-To clear all AdonisFX related nodes from the scene, run the command below in Python. This is useful for when AdonisFX data has to be imported onto a clean version of the rig.
+To clear all Adonis related nodes from the scene, run the command below in Python. This is useful for when Adonis data has to be imported onto a clean version of the rig.
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
 adnio.clear_scene()
@@ -47,7 +54,7 @@ adnio.clear_scene()
 
 ## Build
 
-To build an AdonisFX setup in Python, it is required to provide the setup information in dictionary format. This dictionary data can be the value returned by the function `gather_from_scene` or the result of loading a JSON file exported previously with the function `export_data`. The code to build the AdonisFX setup is:
+To build an Adonis setup in Python, it is required to provide the setup information in dictionary format. This dictionary data can be the value returned by the function `gather_from_scene` or the result of loading a JSON file exported previously with the function `export_data`. The code to build the Adonis setup is:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
 adnio.build_from_data(data, enabled_features)
@@ -57,20 +64,20 @@ The first argument `data` is required and it is the dictionary with the mapped d
 
 ## Import
 
-To import an AdonisFX setup from a JSON file, run the command below:
+To import an Adonis setup from a JSON file, run the command below:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
 file_path = "path/to/source/file.json"
 adnio.import_data(file_path, enabled_features)
 </code></pre>
 
-The first argument `file_path` is required and it is the full path to the JSON file containing a valid AdonisFX setup definition. The second argument `enabled_features` is optional and corresponds to a dictionary where keys are feature names and values are flags to determine if a feature has to be imported or bypassed (same format used for gathering data).
+The first argument `file_path` is required and it is the full path to the JSON file containing a valid Adonis setup definition. The second argument `enabled_features` is optional and corresponds to a dictionary where keys are feature names and values are flags to determine if a feature has to be imported or bypassed (same format used for gathering data).
 
 Find more information about the use of the import feature in the [Import](../tools/importer) page.
 
 ## Export
 
-To export the AdonisFX setup in the current scene into a file, run this command:
+To export the Adonis setup in the current scene into a file, run this command:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
 file_path = "path/to/destination/file.json"

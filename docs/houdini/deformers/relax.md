@@ -2,12 +2,12 @@
 
 AdnRelax is a Houdini SOP designed to smooth creases and correct over-compression or over-stretching on geometry surfaces. This deformer can help refining different types of meshes, like the fascia and skin resulting from the simulation by computing an iterative algorithm that combines smoothing, relaxation, and volume corrections. The AdnRelax SOP applies smoothing and relaxation in each iteration, while the volume correction (i.e. a push in and push out adjustment in the direction of the point normals) is applied during the final iteration.
 
-## How to use
+## How To Use
 
 The AdnRelax SOP is easy to create and configure in Houdini. It only requires the mesh to apply the relaxation onto. Typically, this mesh would be the simulated fascia or skin.
 
 1. Go to the geometry context of the rig containing the geometry to apply the deformer to.
-2. Press TAB and navigate to the submenu AdonisFX > Deformers to find the AdnRelax ![Relax button](../../images/adn_relax.png){style="width:4%"} SOP type.
+2. Press TAB and navigate to the submenu Adonis > Deformers to find the AdnRelax ![Relax button](../../images/adn_relax.png){style="width:4%"} SOP type.
 3. Create it and connect the geometry to the input.
 4. Increase the number of iterations to see the effect of the deformation. Check the [Attributes](relax#attributes) section to customize their configuration.
 
@@ -16,7 +16,7 @@ The AdnRelax SOP is easy to create and configure in Houdini. It only requires th
 ### Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Iterations**         | Integer | 1      | X | Number of iterations of the relaxation algorithm. Greater values mean greater computational cost. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
+| **Iterations**         | Integer | 1      | ✗ | Number of iterations of the relaxation algorithm. Greater values mean greater computational cost. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
 | **Pin**                | Boolean | False  | ✓ | Flag to pin the vertices on the boundaries. |
 | **Smooth**             | Float   | 0.5    | ✓ | Amount of smoothing to apply. Has a range of \[0.0, 1.0\]. |
 | **Relax**              | Float   | 0.5    | ✓ | Amount of relaxation to apply. Has a range of \[0.0, 1.0\]. |
@@ -49,7 +49,7 @@ The AdnRelax SOP is easy to create and configure in Houdini. It only requires th
 > - All maps parameters are disabled in the Maps tab because the attribute names are fixed to drive specific functionalities of the solver.
 > - Fixed point attribute names also ensure compatibility with the API.
 > - To copy the map names of the disabled attributes for painting (using an attribute paint node) right click on the disabled map attribute parameter, press "Copy Parameter", select the attribute paint node and on the attribute name entry right click and press "Paste Values". This allows to easily copy the attribute name for painting.
-> - The *Make Paintable* utility provided in the AdonisFX menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnRelax SOP.
+> - The *Make Paintable* utility provided in the Adonis menu > Utils, can be used to create the attribpaint node and automatically populate the entries with the map names of the AdnRelax SOP.
 > - If a point attribute on the geostream does not match the naming convention exposed in the node, use an "Attribute Rename" node to rename the attribute to match the expected naming convention.
 
 ## Parameter Template
@@ -82,10 +82,10 @@ To provide more control, some key parameters of the AdnRelax SOP are exposed as 
 </figure>
 
 > [!NOTE]
-> To tweak the point attributes of an AdnRelax SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnRelax SOP and click on AdonisFX > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnRelax node.
+> To tweak the point attributes of an AdnRelax SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnRelax SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnRelax node.
 
 ## Connections
 
-Connections in AdonisFX for Houdini should be handled in two ways:
-  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the AdonisFX SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
-  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used to for example connect a float attribute to drive a parameter on the node.
+Connections in Adonis for Houdini should be handled in two ways:
+  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the Adonis SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
+  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used for example to connect a float attribute to drive a parameter on the node.

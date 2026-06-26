@@ -11,7 +11,7 @@ The AdnSimshape deformer is of great simplicity to set up and apply to a mesh wi
 To create an AdnSimshape deformer within a Maya scene, the following inputs must be provided:
 
   - **Rest Mesh (R)**: Mesh with no deformation or animation (optional).
-  - **Deform Mesh (D)**: Mesh with deformation driven by the facial expressions (optional, only if muscle activations with AdonisFX Muscle Patches is required).
+  - **Deform Mesh (D)**: Mesh with deformation driven by the facial expressions (optional, only if muscle activations with Adonis Muscle Patches is required).
   - **Animated Mesh (A)**: Mesh with deformation driven by the facial expressions and animation result of the binding to the animation rig (optional).
   - **Simulation Mesh (S)**: Mesh to apply the deformer to. This mesh can be the animation mesh or a separate mesh with no deformation nor animation.
 
@@ -24,10 +24,10 @@ To create an AdnSimshape deformer within a Maya scene, the following inputs must
 When initially creating an AdnSimshape deformer, it is possible to add both a **Simulated Mesh** and a **Rest Mesh**, or only add a **Simulated Mesh**. The process to create an AdnSimshape deformer is:
 
   1. Select the **Rest Mesh** (optional), then the **Simulated Mesh**.
-  2. Press the ![Simshape button](../../images/adn_simshape.png){style="width:4%"} in the AdonisFX shelf or press *Simshape* in AdonisFX menu under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
+  2. Press the ![Simshape button](../../images/adn_simshape.png){style="width:4%"} in the Adonis shelf or press *Simshape* in Adonis menu under the *Create* section. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
   3. A message in the terminal will notify that AdnSimshape has been created properly, meaning that it is ready to simulate with default settings and *Material* set to *Skin*. Check the next section to customize their configuration.
 
-In order to add or remove any of the optional meshes, a set of menu items are exposed in AdonisFX menu > Edit Simshape:
+In order to add or remove any of the optional meshes, a set of menu items are exposed in Adonis menu > Edit Simshape:
 
   - Add Rest Mesh
   - Remove Rest Mesh
@@ -39,13 +39,13 @@ In order to add or remove any of the optional meshes, a set of menu items are ex
 To add any of these meshes to AdnSimshape, follow a similar procedure to when first creating the deformer:
 
   1. First, select the **Additional Mesh**. then the **Simulated Mesh**.
-  2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
+  2. Press the corresponding menu element in Adonis menu > Edit Simshape.
   3. A message in the terminal will notify that the action has been successful.
 
 To remove any of these meshes from AdnSimshape follow this procedure:
 
   1. Select only the mesh with AdnSimshape applied.
-  2. Press the corresponding menu element in AdonisFX menu > Edit Simshape.
+  2. Press the corresponding menu element in Adonis menu > Edit Simshape.
   3. A message in the terminal will notify that the action has been successful.
 
 ## Attributes
@@ -62,8 +62,8 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 ### Muscles Activation Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Activation Mode**          | Enumerator | No activation | ✗ | Mode to drive the muscle activations. There are 3 different modes: <ul><li>Muscle Patches (Disabled by default): An AdonisFX Muscle Patches file (`.amp`) has to be provided to enable this option.</li><li>Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.</li><li>No Activation (Enabled by default): No activation is read.</li></ul> |
-| **Muscle Patches File**      | String     |               | ✗ | Path to the AdonisFX Muscle Patches file (`.amp`). |
+| **Activation Mode**          | Enumerator | No activation | ✗ | Mode to drive the muscle activations. There are 3 different modes: <ul><li>Muscle Patches (Disabled by default): An Adonis Muscle Patches file (`.amp`) has to be provided to enable this option.</li><li>Plug Values (Disabled by default): The attribute values ActivationList.Activation should be populated to enable this option. The activation data will be read from the plug values.</li><li>No Activation (Enabled by default): No activation is read.</li></ul> |
+| **Muscle Patches File**      | String     |               | ✗ | Path to the Adonis Muscle Patches file (`.amp`). |
 | **Activation Smoothing**     | Integer    | 1             | ✗ | Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations per patch will be. Has a range of \[1, 20\]. The upper limit is soft, higher values can be used. |
 | **Bidirectional Activation** | Boolean    | False         | ✓ | Flag to enable muscle activations in the positive and negative directions of the muscle patches fibers. |
 | **Write Out Activation**     | Boolean    | False         | ✓ | Flag to toggle the writing of activations into an output plug. |
@@ -71,15 +71,16 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Preroll Start Time** | Time | *Current frame* | ✗ | Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*. |
-| **Start Time**         | Time | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
-| **Current Time**       | Time | *Current frame* | ✓ | Current playback frame. |
+| **Preroll Start Time** | Time    | *Current frame* | ✗ | Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*. |
+| **Start Time**         | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Current Time**       | Time    | *Current frame* | ✓ | Current playback frame. |
+| **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). AdonisFX interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). Adonis interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
@@ -230,7 +231,7 @@ To better visualize deformer constraints and attributes in the Maya viewport the
 To enable the debugger the *Debug* checkbox must be marked. To select the specific feature to visualize, choose it from the list provided in *Features*. The features that can be visualized with the debugger in the AdnSimshape deformer are:
 
  - **Distance Constraints**: For each pair of vertices forming a constraint a line will be drawn. If the *Triangulate Mesh* option is disabled the debugged lines will align with the edges of the mesh polygons. If the *Triangulate Mesh* option is enabled the debugged lines will align with the edges of the underlying triangulation of the mesh.
- - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an AdonisFX Muscle Patches file.
+ - **Muscle Fibers**: For each vertex, a line will be drawn showing the direction of the muscle fibers. The debug lines will only be displayed in case muscle activations have been enabled with an Adonis Muscle Patches file.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Slide Collision Constraints**: For each vertex, a line will be drawn from the mesh to the closest point of a collider. The debug lines will only be displayed in case collisions are enabled and colliders have been set up.
  - **Sliding Surface On Collider**: For each vertex, lines will outline the collider triangles within the reach of its *Max Sliding Distance*
@@ -264,8 +265,8 @@ AdnSimshape can emulate the behavior of facial muscles by computing the muscle a
 
 > [!NOTE = Activation Modes]
 > === Muscle Patches
-> The data in the AdonisFX Muscle Patches file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following the steps presented in the next section. The requirements for this mode to work are:
->  - AdonisFX Muscle Patches file
+> The data in the Adonis Muscle Patches file in combination with the deformation status of the Deform Mesh are used to calculate the amount of activation at each vertex. The AMP file is the result of a Machine Learning process and can be generated following the steps presented in the next section. The requirements for this mode to work are:
+>  - Adonis Muscle Patches file
 >  - Deform mesh
 >
 >  === Plug Values
@@ -294,7 +295,7 @@ The Learn Muscle Patches tool allows the user to generate the AMP file:
   <figcaption><b>Figure 9</b>: Learn Muscle Patches UI.</figcaption>
 </figure>
 
-1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](../../images/adn_learn_muscle_patches.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Learn Muscle Patches UI*.
+1. Open the **Learn Muscle Patches UI**. Using the shelf button ![Learn Muscle Patches icon](../../images/adn_learn_muscle_patches.png){style="width:4%"} or go to the Edit Simshape submenu from the Adonis menu and press *Learn Muscle Patches UI*.
 2. Add the neutral mesh.
 3. Add the target meshes. These geometries are the set of facial expressions produced by blendshapes or a facial rig.
 4. Select the vertices on the neutral mesh that will be involved in the training for the muscle patches generation. If *Add Selected* is pressed with no selection, the tool will display a pop-up and inform that all vertices will be used for the learning process. This button has to necessarily be pressed to enable the execution of the learning process.
@@ -331,7 +332,7 @@ In order to toggle and untoggle the debug mode, follow these steps:
 
 1. Stop the simulation.
 2. Move to pre-roll time or start time.
-3. Press ![Simshape debug icon](../images/adn_simshape_debugger.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Activations Debugger*.
+3. Press ![Simshape debug icon](../images/adn_simshape_debugger.png){style="width:4%"} or go to the Edit Simshape submenu from the Adonis menu and press *Activations Debugger*.
 
 > [!NOTE]
 > - The active status of the debugger is evaluated at initialization only.
@@ -346,7 +347,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 
 1. Select the collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Press the AdonisFX Shelf > *Add Collider* Shelf Button ![Add collider icon](../images/adn_add_collider.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Add Collider*.
+3. Press the Adonis Shelf > *Add Collider* Shelf Button ![Add collider icon](../images/adn_add_collider.png){style="width:4%"} or go to the Edit Simshape submenu from the Adonis menu and press *Add Collider*.
 
 > [!NOTE]
 > - Avoid intersections between the collider and the rest/simulated mesh.
@@ -356,7 +357,7 @@ AdnSimshape supports an internal collider that has to be bound to the rig and co
 
 1. Select the collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Press the AdonisFX Shelf > *Remove Collider* Shelf Button ![Remove collider icon](../images/adn_remove_collider.png){style="width:4%"} or go to the Edit Simshape submenu from the AdonisFX menu and press *Remove Collider*.
+3. Press the Adonis Shelf > *Remove Collider* Shelf Button ![Remove collider icon](../images/adn_remove_collider.png){style="width:4%"} or go to the Edit Simshape submenu from the Adonis menu and press *Remove Collider*.
 
 #### Add Rest Collider
 
@@ -364,7 +365,7 @@ The use of rest collider is recommended when the pre-roll simulation is not comp
 
 1. Select the rest collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Go to the Edit Simshape submenu from the AdonisFX menu and press *Add Rest Collider*.
+3. Go to the Edit Simshape submenu from the Adonis menu and press *Add Rest Collider*.
 
 > [!NOTE]
 > - Avoid intersections between the collider and the rest mesh.
@@ -375,4 +376,4 @@ The use of rest collider is recommended when the pre-roll simulation is not comp
 
 1. Select the rest collider object.
 2. Select the mesh with the AdnSimshape deformer.
-3. Go to the Edit Simshape submenu from the AdonisFX menu and press *Remove Rest Collider*.
+3. Go to the Edit Simshape submenu from the Adonis menu and press *Remove Rest Collider*.

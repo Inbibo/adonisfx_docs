@@ -16,7 +16,7 @@ To create an AdnSkinMerge deformer within a Maya scene, the following inputs mus
 
 The process to create an AdnSkinMerge deformer is:
 
-1. Press ![Skin merge button](../../images/adn_skin_merge.png){style="width:4%"} in the AdonisFX shelf or *Skin Merge* in the AdonisFX menu, under the *Deformers* submenu in the *Create* section to open the following UI.
+1. Press ![Skin merge button](../../images/adn_skin_merge.png){style="width:4%"} in the Adonis shelf or *Skin Merge* in the Adonis menu, under the *Deformers* submenu in the *Create* section to open the following UI.
 
 <figure markdown>
   ![create skin merge UI](../images/skin_merge_create.png) 
@@ -41,7 +41,7 @@ The process to create an AdnSkinMerge deformer is:
 
 Once the AdnSkinMerge deformer is created, to modify its input meshes (animation mesh list, simulation mesh list or both) do the following:
 
-1. Go to *Deformers > Skin Merge* in the AdonisFX menu, under the *Edit* section.
+1. Go to *Deformers > Skin Merge* in the Adonis menu, under the *Edit* section.
 
 2. The following UI will get displayed. Here you will see listed the current animation and simulation meshes the deformer has connected. From this UI you may freely add or remove from either list. Note that at least one element must be present in each list to be able to apply the changes. 
 
@@ -53,8 +53,8 @@ Once the AdnSkinMerge deformer is created, to modify its input meshes (animation
 3. Once everything has been set up, press the *Apply changes* button. A message in the terminal will notify you that AdnSkinMerge has been edited properly.
 
 > [!NOTE]
-> - In v2.0 of AdonisFX a new *currentTime* plug has been added to the node which will be automatically connected to the *time1.outTime* plug in Maya.
-> - The *Upgrade v1.x To v2.x* or the *Reconnect Current Time* utils in the AdonisFX menu can be used to reconnect the time plug in case it is missing in the setup.
+> - In v2.0 of Adonis a new *currentTime* plug has been added to the node which will be automatically connected to the *time1.outTime* plug in Maya.
+> - The *Upgrade v1.x To v2.x* or the *Reconnect Current Time* utils in the Adonis menu can be used to reconnect the time plug in case it is missing in the setup.
 
 ## Attributes
 
