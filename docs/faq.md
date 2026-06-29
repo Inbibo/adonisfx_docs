@@ -132,6 +132,12 @@ As a final step to support the addition of the *currentTime* plug in AdnSkinMerg
 Go to Adonis menu > Utils and press *Reconnect Current Time*. This option will search for all Adonis nodes in the scene with a *currentTime* plug and connect the *time1.outTime* plug to it.
 This is necessary to ensure a correct cooking of the nodes.
 
+### What types of expressions can I use for connections in Adonis for Houdini?
+
+Connections in Adonis for Houdini should be handled in two ways:
+  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the Adonis SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
+  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used for example to connect a float attribute to drive a parameter on the node.
+
 ## Cross-DCC Support
 
 ### In which scale do I have to work when transferring a rig from Maya to Houdini?
