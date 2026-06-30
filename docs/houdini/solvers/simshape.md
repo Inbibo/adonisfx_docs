@@ -363,9 +363,3 @@ The use of rest collider is recommended when the pre-roll simulation is not comp
 > - Avoid intersections between the collider and the rest mesh.
 > - Colliders with high Level Of Detail will affect the simulation performance.
 > - Collider meshes must have the same number of vertices although it can be different from the number of vertices of the rest, deformed, animated and simulated meshes.
-
-## Connections
-
-Connections in Adonis for Houdini should be handled in two ways:
-  - Detail expression: `detail("/obj/geo1/L_adnLocatorRotation_armFlexionShape", "adnActivationRotation", 0)` where the first component should contain an API compliant naming convention and the second the detail attribute name that some of the Adonis SOP nodes output. This should be used when the requirement is for the connected geometry to cook before retrieving the detail attribute. This could be used for example to drive a parameter of the node using the activation value output from a sensor/locator.
-  - Channel expression: `ch("../AdnMuscle1/envelope")` where the first component should contain an API compliant naming convention and the second the referenced channel to the parameter name. This could be used for example to connect a float attribute to drive a parameter on the node.

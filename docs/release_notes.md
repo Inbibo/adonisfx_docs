@@ -70,8 +70,9 @@
 - Forced the Maya Paint Tool to close when the Adonis Paint Tool is opened to avoid context conflicts. *Adonis-3075*
 
 ### Known Limitations
-- Houdini *Clear* utility incorrectly clears non-Adonis nodes in complex ML setups. *AdonisFX-3386*
-- Adonis Houdini features are not currently supported in Solaris and LOP contexts. *AdonisFX-3383*.
+- Houdini *Clear* utility incorrectly clears non-Adonis nodes in complex ML setups. *Adonis-3386*
+- Adonis Houdini features are not currently supported in Solaris and LOP contexts. *Adonis-3383*.
+- The Smart Tissue *Activations Debugger* in Maya only works if the original mesh shape does not contain any color sets. *Adonis-3374*.
 
 ## Version 2.0.1
 2026-06-02
