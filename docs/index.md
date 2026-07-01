@@ -30,6 +30,7 @@ AdonisML can be used to further optimize the efficiency and complexity of an Ado
 
 > [!IMPORTANT]
 > ML Deformer and Smart Tissue can be used within an Adonis FX license, however data extraction and training of Adonis ML models are allowed for Adonis ML license. See more info in [this section](licensing#adonis-bundles).
+> 
 
 The ML Deformer allows animators to work interactively with a high-quality representation of the character deformation. Because pose-based ML deformers are trained from pose data, their output is based on the current pose and does not directly represent motion, velocity, or dynamic history.
 
