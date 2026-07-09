@@ -1,6 +1,6 @@
 # Data Extraction
 
-> [!NOTE]
+> [!IMPORTANT]
 > An Adonis ML license is required to use this feature.
 
 In the `adnml.scripts.houdini.data_extraction` module, a Python function is provided to extract data for training AdonisML models from a processed Adonis simulation setup.

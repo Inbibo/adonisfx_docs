@@ -28,7 +28,7 @@ AdonisML can be used to further optimize the efficiency and complexity of an Ado
 - **ML Deformer**: A pose-based neural deformer that provides interactive-speed feedback for high-quality skin deformation.
 - **Smart tissue**: A fast and procedural simulation layer that adds inertial detail such as jiggle, settle, and overshoot, which pose-based ML deformation does not usually capture on its own. This can be further enhanced by the use of a neural network for dynamic material properties prediction.
 
-> [!NOTE]
+> [!IMPORTANT]
 > ML Deformer and Smart Tissue can be used within an Adonis FX license, however data extraction and training of Adonis ML models are allowed for Adonis ML license. See more info in [this section](licensing#adonis-bundles).
 
 The ML Deformer allows animators to work interactively with a high-quality representation of the character deformation. Because pose-based ML deformers are trained from pose data, their output is based on the current pose and does not directly represent motion, velocity, or dynamic history.
