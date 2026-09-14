@@ -480,7 +480,7 @@ The *Blend* attribute represents the level of influence of the simulated mesh: a
 
 To have a smooth transition from the simulated mesh to the animated mesh, smooth the painting in the areas near the edges between the simulation and animation meshes.
 
-If the automatic initialization reports that no vertices are within the threshold, increase the threshold or verify that the final and simulation meshes are correctly positioned, then reinitialize the weights from *Adonis Menu* > *Deformers* (on the *Edit* group) > *Skin Merge*. Reinitialization replaces the current blend weights.
+If the automatic initialization reports that no vertices are within the threshold, increase the threshold or verify that the final and simulation meshes are correctly positioned. Then select a mesh with an *AdnSkinMerge* deformer applied and reinitialize the weights from *Adonis Menu* > *Deformers* (on the *Edit* group) > *Skin Merge*. Reinitialization replaces the current blend weights.
 
 <figure markdown>
   ![Blend weights painted map](images/simple_setup_skin_merge_02.png)
