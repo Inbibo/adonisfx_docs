@@ -45,6 +45,8 @@ To create an AdnMuscle, follow these steps:
 | **Start Time**         | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
 | **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
+**Preserve Full Frame** (Boolean, default: **False**) preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation.
+
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
@@ -118,7 +120,7 @@ To create an AdnMuscle, follow these steps:
 | **Triangulate Mesh**            | Boolean    | True     | ✗ | Use the internally triangulated mesh to build constraints. |
 | **Global Damping Multiplier**   | Float      | 0.75     | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
 | **Inertia Damper**              | Float      | 0.0      | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
-| **Rest Length Multiplier**      | Float      | 1.0      | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Rest Length Multiplier**      | Float      | 1.0      | ✓ | Sets the scaling factor applied to the edge lengths at rest. This value is multiplied by the per-vertex *Rest Length Multiplier* map read at initialization. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Max Sliding Distance**        | Float      | 0.0      | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. The higher this value is, the higher quality and the lower performance. If the value provided is considered too high for a given target mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
 | **Compression Multiplier**      | Float      | 1.0      | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Stretching Multiplier**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
@@ -128,8 +130,21 @@ To create an AdnMuscle, follow these steps:
 | **Attenuation Velocity Factor** | Float      | 1.0      | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
 | **Substeps Interp. Exp.**       | Float      | 1.0      | ✓ | Sets the exponential factor to weight the interpolation at each substep. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. A value of 0.0 disables the interpolation: input geometry targets and attenuation matrix are not interpolated. A value of 1.0 applies linear interpolation (input geometry targets and attenuation matrix) between previous and current frame based on a linear weight, i.e. `weight = substep / num_substeps`. A value between 0.0 and 1.0 applies exponential interpolation (input geometry targets and attenuation matrix) between previous and current frame based on an exponential weight, i.e. `weight = (substep / num_substeps) ^ exponent`. |
 | **Hard Attachments**            | Boolean    | False    | ✓ | If enabled, attachment constraints will force the vertices to stick to the target transformation completely. |
-| **Sliding Constraints Mode**    | Enumerator | Quality  | ✓ | Defines the mode of execution for the slide on geometry constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
+| **Sliding Constraints Mode**    | Enumerator | Quality  | ✓ | Defines the mode of execution for the slide on geometry constraints. Applies to both *Legacy* and *Closest Point* sliding algorithms.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
 | **Target Faces Filter**         | Enumerator | None     | ✗ | Defines how the target faces list is processed for geometry attachments and slide on geometry constraints.<ul><li>*None* uses all the faces in the target mesh for closest point queries.</li><li>*Exclude* excludes the faces listed in the *Target Faces* parameter for closest point queries.</li><li>*Include* includes only the faces listed in the *Target Faces* parameter for closest point queries.</li></ul> |
+
+#### Sliding Algorithm and Falloff
+
+**Sliding Algorithm** defaults to **Legacy**. **Closest Point** uses closest point queries for faster sliding evaluation and supports *Sliding Falloff* for smoother transitions at sliding boundaries than Legacy. Both algorithms support the *Quality* and *Fast* modes.
+
+**Sliding Falloff** applies only to *Closest Point* and defaults to **0.0**. Increasing it softens transitions and can reduce ridges or sharp creases at painted sliding boundaries, while reducing the overall amount of sliding. Decreasing it preserves more sliding freedom, with a sharper transition near *Max Sliding Distance*.
+
+- **0.0**: Applies a hard limit without falloff.
+- **Between 0.0 and 1.0**: Softens sliding near the limit; higher values make the falloff begin earlier.
+- **1.0**: Applies falloff across the full sliding range.
+- **Above 1.0**: Further softens the response and reduces sliding across the full range.
+
+The minimum is **0.0** (hard limit). The upper limit of **2.0** is soft; higher values can be used.
 
 #### Mush Properties
 | Name | Type | Default | Animatable | Description |
@@ -177,6 +192,7 @@ To create an AdnMuscle, follow these steps:
 | **Fibers Multiplier Attribute**               | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the fibers multiplier values from. The expected attribute name is `adnFibersMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Global Damping Attribute**                  | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the global damping from. The expected attribute name is `adnGlobalDamping`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Mass Attribute**                            | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the mass values from. The expected attribute name is `adnMass`. The expected range of the per-point values is \[0.001, 1.0\]. |
+| **Rest Length Multiplier Attribute** | float | 1.0 | ✗ | Specifies the per-point rest length weight attribute, `adnRestLengthWeight`. Values multiply the global *Rest Length Multiplier* and are read only at initialization. The supported range is \[0.0, 1.0\]. |
 | **Mush Weights Attribute**                    | float       | 1.0             | ✗            | Specifies the name of the per-point attribute used to read the weight of the mush smoothing. The expected attribute name is `adnMushWeights`. The expected range of the per-component per-point values is \[0.0, 1.0\]. |
 | **Shape Preservation Attribute**              | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the shape preservation values from. The expected attribute name is `adnShapePreservation`. The expected range of the per-point values is \[0.0, 1.0\]. |
 | **Max Sliding Distance Multiplier Attribute** | float       | 1.0             | ✗            | Specifies the name of the per-point attribute to read the maximum sliding distance multiplier from. The expected attribute name is `adnMaxSlidingDistanceMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
@@ -251,6 +267,7 @@ In order to provide more artistic control, some key parameters of the muscle sol
 | **Slide On Geometry**           | 0.0             | Multi-influence weight to force vertices to displace only on the target geometry area defined by the *Max Sliding Distance* value. |
 | **Slide On Segment**            | 0.0             | Multi-influence weight to force vertices to displace only in the direction of a user-specified group of segments. |
 | **Sliding Distance Multiplier** | 1.0             | Determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. Greater values will allow for larger sliding areas but will also increase the computational cost.<ul><li>*Tip*: For areas where sliding is not required paint to 0.0. Use values closer to 1.0 in areas where more sliding freedom should be prioritized.</li></ul> |
+| **Rest Length Multiplier** | 1.0 | Per-vertex weight (`adnRestLengthWeight`) multiplied by the global *Rest Length Multiplier*. Has a range of \[0.0, 1.0\]. A value of 1.0 preserves the global multiplier; lower values reduce the rest lengths locally. Read only at initialization; reinitialize the simulation after editing this map. |
 | **Stretching Resistance**       | 1.0             | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
 | **Tendons**                     | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
 
