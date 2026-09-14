@@ -14,24 +14,6 @@
 - Added a paintable Rest Length Weights map to control rest length per point in the AdnMuscle, AdnSkin, and AdnSimshape solvers in Maya and Houdini.
 - Added collider support to AdnPush.
 
-### Maya
-
-- Added `preserveFullFrame` to AdnMuscle, AdnRibbonMuscle, AdnSkin, AdnFat, AdnSimshape and AdnSmartTissue.
-- Added all self-collision parameters to AdnFat.
-- Added `scThickness`, `scThicknessMultiplier` map and `scIgnoreRestIntersections` to AdnSmartTissue.
-- Added `slidingAlgorithm` and `slidingFalloff` to AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape.
-- Added `restLengthMultiplier` map to AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape.
-- Added `colliders` input array to AdnPush to provide the world mesh and world matrix of the colliders.
-
-### Houdini
-
-- Added `preserveFullFrame` to AdnMuscle, AdnRibbonMuscle, AdnSkin, AdnFat, AdnSimshape and AdnSmartTissue.
-- Added all self-collision parameters to AdnFat.
-- Added `scThickness`, `scThicknessMultiplier` map and `scIgnoreRestIntersections` to AdnSmartTissue.
-- Added `slidingAlgorithm` and `slidingFalloff` to AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape.
-- Added `restLengthMultiplier` map to AdnMuscle, AdnRibbonMuscle, AdnSkin and AdnSimshape.
-- Added `colliders` input array to AdnPush to provide the world mesh and world matrix of the colliders.
-
 ### Tools
 
 - Added on-demand normalization for Uber Constraints to the Adonis Paint Tool (Maya).
