@@ -77,8 +77,7 @@ Adonis is distributed for Houdini as a **standard package** (.json). To install 
 
 The extracted package has the following layout:
 
-```text
-<package root>/
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">&lt;package root&gt;/
     Adonis.json
     Adonis/
         bin/
@@ -88,8 +87,7 @@ The extracted package has the following layout:
         menu/
         otls/
         python/
-        ...
-```
+        ...</code></pre>
 
 > [!IMPORTANT]
 > Keep `Adonis.json` and its sibling `Adonis/` directory together. The package uses `$HOUDINI_PACKAGE_PATH` to locate its contents relative to `Adonis.json`.
@@ -110,9 +108,7 @@ When Houdini starts up, it evaluates all paths pointed by the `HOUDINI_PACKAGE_D
 
 Set `HOUDINI_PACKAGE_DIR` as a system-wide or user-wide environment variable using the instructions below. Depending on your setup, you can also configure it through `houdini.env` by adding:
 
-```ini
-HOUDINI_PACKAGE_DIR=<folder containing Adonis.json>
-```
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">HOUDINI_PACKAGE_DIR=&lt;folder containing Adonis.json&gt;</code></pre>
 
 #### Windows
 
@@ -145,9 +141,7 @@ HOUDINI_PACKAGE_DIR=<folder containing Adonis.json>
 
 Loading the package through Package Browser can create an autoload reference in the Houdini user preferences, for example:
 
-```bash
-$HOUDINI_USER_PREF_DIR/packages/Adonis_autoload.json
-```
+<pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">$HOUDINI_USER_PREF_DIR/packages/Adonis_autoload.json</code></pre>
 
 The generated `Adonis_autoload.json` points to the original `Adonis.json`. When autoload/reload-on-startup is enabled, Houdini uses this reference to load Adonis automatically on startup. The actual Adonis installation is not copied into the user preferences folder, so keep the original `Adonis.json` and its sibling `Adonis/` directory in place.
 
@@ -161,12 +155,10 @@ To stop Adonis from loading automatically, disable or remove the package from Pa
 1. Copy both `Adonis.json` and its sibling `Adonis/` directory into Houdini's package directory, for example `$HOUDINI_USER_PREF_DIR/packages/`.
 2. Keep the following layout:
 
-    ```text
-    packages/
+    <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">packages/
         Adonis.json
         Adonis/
-            ...
-    ```
+            ...</code></pre>
 
 3. Adonis will be loaded the next time you launch Houdini.
 
