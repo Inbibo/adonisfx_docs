@@ -128,7 +128,7 @@ Set `HOUDINI_PACKAGE_DIR` as a system-wide or user-wide environment variable usi
 
     `export HOUDINI_PACKAGE_DIR="/path/to/Adonis/folder:${HOUDINI_PACKAGE_DIR}"`
 
-3. Adonis will be loaded the next time you launch Houdini.
+3. Open a new terminal (or run `source ~/.bashrc`) and launch Houdini from that terminal. For desktop/menu launches, configure `HOUDINI_PACKAGE_DIR` in `houdini.env` as described above.
 
 > [!NOTE]
 > If you need to configure other packages for `HOUDINI_PACKAGE_DIR`, concatenate them separated by ":" characters.
