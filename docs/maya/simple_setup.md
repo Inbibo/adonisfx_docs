@@ -458,7 +458,9 @@ The AdnSkinMerge deformer will be applied to the final mesh which will be the re
 
 To create the AdnSkinMerge deformer press the ![AdnSkinMerge](../images/adn_skin_merge.png){style="width:4%"} shelf button or go to *Adonis Menu* > *Deformers* (on the *Create* group) > *Skin Merge*.
 
-With this action the Create Skin Merge UI will open, allowing to add all the required elements to create the deformer. To add the required meshes select the mesh in the scene and press the corresponding *Add Selected* button. You may also set up a custom name and initialization time in this window before creating the deformer. Make sure the initialization time corresponds to the start time where all the geometries are in rest pose.
+This opens the Create Skin Merge UI, where you can add all the elements required to create the deformer. Select each mesh in the scene and press the corresponding *Add Selected* button. You may also set a custom name and initialization time. Make sure the initialization time corresponds to a frame where all geometries are in their rest pose.
+
+The *Blend Weights* section can automatically initialize the blend map based on proximity. Enable blend weight initialization and set a distance threshold. Final-mesh vertices within that distance of a simulation mesh receive simulation influence, while the remaining vertices keep their animation influence.
 
 When everything has been properly set up, press the *Create* button to create the AdnSkinMerge deformer.
 
@@ -472,11 +474,13 @@ When everything has been properly set up, press the *Create* button to create th
 > [!NOTE]
 > AdnSkinMerge requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
 
-Once the AdnSkinMerge deformer is created the weights can be painted to blend the animation and simulation meshes into the final mesh.
+Once the AdnSkinMerge deformer is created, the automatically initialized weights can be refined to blend the animation and simulation meshes into the final mesh. If automatic initialization was disabled, paint the blend map from its default values.
 
 The *Blend* attribute represents the level of influence of the simulated mesh: a value of 0.0 makes the vertices follow the animated inputs, while a value of 1.0 makes the vertices follow the simulated inputs.
 
 To have a smooth transition from the simulated mesh to the animated mesh, smooth the painting in the areas near the edges between the simulation and animation meshes.
+
+If the automatic initialization reports that no vertices are within the threshold, increase the threshold or verify that the final and simulation meshes are correctly positioned, then reinitialize the weights from *Adonis Menu* > *Deformers* (on the *Edit* group) > *Skin Merge*. Reinitialization replaces the current blend weights.
 
 <figure markdown>
   ![Blend weights painted map](images/simple_setup_skin_merge_02.png)

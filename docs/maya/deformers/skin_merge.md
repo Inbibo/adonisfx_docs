@@ -2,7 +2,7 @@
 
 AdnSkinMerge is a Maya deformer to blend animation and simulation together. It allows for the merging of several animation and simulation meshes into a single final mesh.
 
-The influence simulation or animation meshes will have on the final mesh can be freely painted and modified by painting a blend weights map.
+The influence simulation or animation meshes will have on the final mesh is controlled by a blend weights map. This map can be initialized automatically from the proximity between the final mesh and the simulation meshes, and then refined using Maya's paintable context.
 
 ### How To Use
 
@@ -33,24 +33,36 @@ The process to create an AdnSkinMerge deformer is:
     - If you wish to remove a single element from the list, select it in the Skin Merge UI and press the Remove Selected button.
     - You may also clear any list fully by pressing the respective Clear button.
 
-4. Set a custom name to the deformer and specify the initialization time.
+4. Set a custom name for the deformer and specify the initialization time.
 
-5. Press the *Create* button and a message in the terminal will notify you that AdnSkinMerge has been created properly. The final mesh will follow the animation mesh inputs by default.
+5. In the *Blend Weights* section, enable blend weight initialization to generate the map automatically and set the distance threshold. Final-mesh vertices within this distance of any simulation mesh receive simulation influence; vertices outside the threshold keep their animation influence.
 
-6. To modulate the influence of the simulation mesh inputs, use the maya paintable context and customize the blend weights map.
+6. Press the *Create* button. A message in the terminal will confirm that AdnSkinMerge has been created. If blend weight initialization is disabled, the final mesh follows the animation mesh inputs by default.
+
+7. To refine the influence of the simulation mesh inputs, use Maya's paintable context to customize the blend weights map.
 
 Once the AdnSkinMerge deformer is created, to modify its input meshes (animation mesh list, simulation mesh list or both) do the following:
 
 1. Go to *Deformers > Skin Merge* in the Adonis menu, under the *Edit* section.
 
-2. The following UI will get displayed. Here you will see listed the current animation and simulation meshes the deformer has connected. From this UI you may freely add or remove from either list. Note that at least one element must be present in each list to be able to apply the changes. 
+2. The following UI will be displayed. It lists the animation and simulation meshes currently connected to the deformer. From this UI, you may add or remove meshes from either list. At least one element must be present in each list to apply the changes.
 
 <figure markdown>
   ![edit skin merge UI](../images/skin_merge_edit.png) 
   <figcaption><b>Figure 2</b>: Edit Skin Merge UI.</figcaption>
 </figure>
 
-3. Once everything has been set up, press the *Apply changes* button. A message in the terminal will notify you that AdnSkinMerge has been edited properly.
+3. To regenerate the blend weights after changing the mesh lists, enable blend weight reinitialization in the *Blend Weights* section and set the distance threshold.
+
+4. Press the *Apply changes* button. A message in the terminal will confirm that AdnSkinMerge has been edited.
+
+## Automatic Blend Weight Initialization
+
+Automatic initialization computes the *Blend* map from the distance between each vertex of the final mesh and the simulation meshes. Vertices within the configured threshold are assigned simulation influence, while vertices outside it remain driven by the animation meshes.
+
+The option is available both when creating an AdnSkinMerge deformer and when editing an existing one. In edit mode, reinitialization replaces the current blend weights.
+
+If no final-mesh vertices are found within the threshold, no simulation region can be initialized and a warning is displayed. Increase the threshold or verify the positions of the final and simulation meshes, then initialize the map again.
 
 > [!NOTE]
 > - In v2.0 of Adonis a new *currentTime* plug has been added to the node which will be automatically connected to the *time1.outTime* plug in Maya.
