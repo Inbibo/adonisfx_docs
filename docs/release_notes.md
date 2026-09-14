@@ -30,7 +30,7 @@
 - Added support for custom file extensions to be available on selection (Maya).
 - Prevented invalid model files from being used.
 - Improved AdnLogger message formatting.
-- Improved clear util to safely removed API nodes from more complex graphs (Houdini).
+- Improved the clear utility to safely remove API nodes from more complex graphs (Houdini).
 
 ### Bug Fixes
 
