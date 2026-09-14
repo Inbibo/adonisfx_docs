@@ -411,23 +411,24 @@ A good example of a use case for the AdnPush deformer is to generate the interna
 
 To create the AdnPush deformer:
 
-1. Select the mesh to apply the deformer onto.
+1. Optionally, select the muscle meshes or other internal geometries to use as colliders, then select the mesh to receive AdnPush last.
 2. Press the ![AdnPush](../images/adn_push.png){style="width:4%"} shelf button or go to Adonis Menu > Deformers > *Push*.
 3. Set a negative value to the *Push Length* attribute to apply the push effect inwards (e.g. -2.0).
+4. If colliders were provided, the option *Use Colliders* will be enabled automatically.
 
 <figure markdown>
   ![push deformer applied](images/simple_setup_push_01.png)
-  <figcaption><b>Figure 34</b>: Result of applying a uniform Push Length of -2.0 to the whole input geometry.</figcaption>
+  <figcaption><b>Figure 34</b>: Result of applying a uniform Push Length of -2.0 to the whole input geometry with the muscle geometries provided as colliders.</figcaption>
 </figure>
 
-Keeping the muscle layer visible is helpful to drive the configuration of the AdnPush settings, especially the paintable maps. It is expected and intended to get intersections with the muscle layer at this point. Those intersections will be fixed by tweaking the maps.
+Keeping the muscle layer visible is helpful when configuring AdnPush. With *Use Colliders* enabled, the inward displacement of each vertex stops at the first collider hit; if multiple colliders are hit, it stops at the closest one. Use a small *Overlap Tolerance* if the input geometry initially overlaps a collider. Leave it at 0.0 when there is no overlap.
 
 ### Paint Weights
 
 > [!NOTE]
 > AdnPush requires the use of the Maya Paint tool (not the Adonis paint tool) for the paintable weights setup.
 
-The *push multiplier* and *weights* maps are flooded to 1.0 by default. The push multiplier is meant to modulate the amount of push across the entire mesh as it is the map that multiplies the global *Push Length* at each point. In the example with the muscle layer visible, this map can be tweaked to remove the intersections.
+The *push multiplier* and *weights* maps are flooded to 1.0 by default. The push multiplier is meant to modulate the amount of push across the entire mesh as it is the map that multiplies the global *Push Length* at each point. It can be painted to refine the result after colliders have limited the displacement, or to remove intersections when colliders are not used.
 
 <figure markdown>
   ![push paintable maps](images/push_weights.png)
@@ -436,7 +437,7 @@ The *push multiplier* and *weights* maps are flooded to 1.0 by default. The push
 
 <figure markdown>
   ![push example results](images/simple_setup_push_02.png)
-  <figcaption><b>Figure 36</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 35. Most of the intersections introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
+  <figcaption><b>Figure 36</b>: Example of AdnPush results with colliders, a global push of -2.0 and the push multiplier map from Figure 35.</figcaption>
 </figure>
 
 ## AdnSkinMerge

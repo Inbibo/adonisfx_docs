@@ -474,6 +474,10 @@ A good example of a use case for the AdnPush SOP is to generate the internal fas
 
 To create the AdnPush SOP, press TAB and navigate to the submenu Adonis > Deformers to find the AdnPush ![AdnPush](../images/adn_push.png){style="width:4%"} SOP type and connect the copy of the skin mesh at rest to the AdnPush input. Then, set a negative value to the *Push Length* parameter to apply the push effect inwards (e.g. -2.0).
 
+To prevent the pushed fascia from passing through muscles or other internal geometries, add each collider to the *Colliders* multiparm in the AdnPush parameter template and provide its SOP path. Enable *Use Colliders*, which is disabled by default. The displacement of each point stops at the first collider hit; if multiple colliders are hit, it stops at the closest one.
+
+Use a small *Overlap Tolerance* if the input geometry initially overlaps a collider. Leave it at 0.0 when there is no overlap. Collider entries can be added with the multiparm **+** button and removed with the **X** button or **Clear**.
+
 <figure style="width:75%;" markdown>
   ![push SOP creation scenario](images/simple_setup_push_01.png)
   <figcaption><b>Figure 46</b>: AdnPush SOP creation scenario. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the Adonis deformable section is recommended to keep the network compatible with the API.</figcaption>
@@ -481,10 +485,10 @@ To create the AdnPush SOP, press TAB and navigate to the submenu Adonis > Deform
 
 <figure markdown>
   ![push SOP applied](images/simple_setup_push_02.png)
-  <figcaption><b>Figure 47</b>: Result of applying a uniform Push Length of -2.0 to the whole input geometry.</figcaption>
+  <figcaption><b>Figure 47</b>: Result of applying a uniform Push Length of -2.0 to the whole input geometry with the muscle geometries provided as colliders.</figcaption>
 </figure>
 
-Keeping the muscle layer visible is helpful to drive the configuration of the AdnPush settings, especially the paintable maps. It is expected and intended to get intersections with the muscle layer at this point. Those intersections will be fixed by tweaking the maps.
+Keeping the muscle layer visible is helpful when configuring AdnPush. The paintable maps can be used to refine the result after colliders have limited the displacement, or to remove intersections when colliders are not used.
 
 ### Paint Weights
 
@@ -504,7 +508,7 @@ The `adnPushMultiplier` and `adnWeights` maps are flooded to 1.0 by default. The
 
 <figure markdown>
   ![push example results](images/simple_setup_push_04.png)
-  <figcaption><b>Figure 50</b>: Example of AdnPush results with a global push of -2.0 and the push multiplier map from Figure 49. Most of the intersections present are introduced by the uniform push are fixed now thanks to the painted map.</figcaption>
+  <figcaption><b>Figure 50</b>: Example of AdnPush results with colliders, a global push of -2.0 and the push multiplier map from Figure 49.</figcaption>
 </figure>
 
 ## AdnSkinMerge
