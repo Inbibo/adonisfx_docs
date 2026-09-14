@@ -39,7 +39,7 @@ The process to create an AdnSkinMerge deformer is:
 
 6. Press the *Create* button. A message in the terminal will confirm that AdnSkinMerge has been created. If blend weight initialization is disabled, the final mesh follows the animation mesh inputs by default.
 
-7. To refine the influence of the simulation mesh inputs, use Maya's paintable context to customize the blend weights map.
+7. To refine the influence of the simulation mesh inputs, use Maya's paintable context to customize the blend weights map. Smoothing the weights is advised to avoid hard transitions between the animated and simulated meshes.
 
 Once the AdnSkinMerge deformer is created, to modify its input meshes (animation mesh list, simulation mesh list or both) do the following:
 
@@ -59,6 +59,9 @@ Once the AdnSkinMerge deformer is created, to modify its input meshes (animation
 ## Automatic Blend Weight Initialization
 
 Automatic initialization computes the *Blend* map from the distance between each vertex of the final mesh and the simulation meshes. Vertices within the configured threshold are assigned simulation influence, while vertices outside it remain driven by the animation meshes.
+
+> [!WARNING]
+> Blend weight initialization times can increase significantly when using a large distance threshold or when the animation and simulation meshes are widely separated in space.
 
 The option is available both when creating an AdnSkinMerge deformer and when editing an existing one. In edit mode, reinitialization replaces the current blend weights.
 

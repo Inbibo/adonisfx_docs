@@ -462,11 +462,14 @@ This opens the Create Skin Merge UI, where you can add all the elements required
 
 The *Blend Weights* section can automatically initialize the blend map based on proximity. Enable blend weight initialization and set a distance threshold. Final-mesh vertices within that distance of a simulation mesh receive simulation influence, while the remaining vertices keep their animation influence.
 
+> [!WARNING]
+> Initialization can take significantly longer when using a large distance threshold or when the animation and simulation meshes are widely separated in space. Use the smallest threshold suitable for the setup and initialize at a frame where the meshes are positioned close to each other whenever possible.
+
 When everything has been properly set up, press the *Create* button to create the AdnSkinMerge deformer.
 
 <figure markdown>
   ![Create Skin Merge window with corresponding meshes added](images/simple_setup_skin_merge_01.png)
-  <figcaption><b>Figure 38</b>: Create Skin Merge window with corresponding meshes added.</figcaption>
+  <figcaption><b>Figure 38</b>: Create Skin Merge window with corresponding meshes, initialize blend weights enabled with a distance threshold of 0.2.</figcaption>
 </figure>
 
 ### Paint Weights
@@ -484,7 +487,7 @@ If the automatic initialization reports that no vertices are within the threshol
 
 <figure markdown>
   ![Blend weights painted map](images/simple_setup_skin_merge_02.png)
-  <figcaption><b>Figure 39</b>: Blend weights painted map.</figcaption>
+  <figcaption><b>Figure 39</b>: Blend weights painted map result of the automatic initialization plus two passes of smoothing in the whole mesh.</figcaption>
 </figure>
 
 With this basic paint setup the AdnSkinMerge deformer will now show the results of skin simulation transferred to the final mesh.
