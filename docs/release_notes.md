@@ -21,6 +21,7 @@
 - Added a toggle to prevent automatic selection of the AdnDebug node when hovering over or refreshing the selection in the Adonis Paint Tool (Maya).
 - Added selection-based export support to the Exporter.
 - Added map transfer by position or UVs to the Importer.
+- Added independent Settings and Maps options to the Importer, with an All option to select both.
 - Added automatic blend-weight generation when creating AdnSkinMerge.
 - Disabled per-vertex polygon colors while the Adonis Paint Tool is open to prevent inconsistent coloring (Maya).
 
