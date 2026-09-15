@@ -29,7 +29,7 @@ To open the tool:
 
 ## Paint Attributes
 
-If the selection provided is valid, meaning the selected mesh has one of the Adonis deformers listed before, then the paint context will get configured and the user can paint. The *Paint Attributes* group contains the following controls:
+If the selected mesh has an AdnSkin, AdnMuscle or AdnRibbonMuscle deformer, then the paint context will get configured and the user can paint. The *Paint Attributes* group contains the following controls:
 
   - **Attribute** selects the map to paint. The available attributes depend on the Adonis deformer and its current state.
   - **Value** sets the value used by the current paint operation. Enter a value in the field or adjust it with the slider.
