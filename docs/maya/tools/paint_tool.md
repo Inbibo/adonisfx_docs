@@ -204,4 +204,4 @@ The following table shows how the painted weight maps to the color gradient used
 
 ## Flood
 
-The **Flood** button applies the active *Paint operation*, *Value* and *Opacity* settings to the paintable area in a single operation instead of requiring a brush stroke. If a vertex restriction is active, unselected vertices remain unchanged. For example, use *Replace* to assign a uniform value, or *Smooth* to average the current values across the surface. Flooding with *Smooth* is also useful for aligning fibers more uniformly, as described in the *Fibers* attribute section above.
+The **Flood** button applies the active *Paint operation*, *Value* and *Opacity* settings to the paintable area in a single operation instead of requiring a brush stroke. If a vertex restriction is active, unselected vertices remain unchanged. For example, use *Replace* to assign a uniform value, or *Smooth* to soften transitions throughout the surface by averaging each value with its neighbors. Flooding with *Smooth* is also useful for aligning fibers more uniformly, as described in the *Fibers* attribute section above.
