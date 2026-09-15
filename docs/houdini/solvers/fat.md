@@ -180,17 +180,17 @@ The process to create an AdnFat is:
 
 <figure style="width: 75%;" markdown>
   ![AdnFat parameter template advanced tab 2](../images/fat_parameter_template_02.png)
-  <figcaption><b>Figure 2</b>: AdnFat Parameter Template: Advanced (Part 2).</figcaption>
+  <figcaption><b>Figure 3</b>: AdnFat Parameter Template: Advanced (Part 2).</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnFat parameter template maps tab](../images/fat_parameter_template_03.png)
-  <figcaption><b>Figure 3</b>: AdnFat Parameter Template: Maps.</figcaption>
+  <figcaption><b>Figure 4</b>: AdnFat Parameter Template: Maps.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnFat parameter template debug tab](../images/fat_parameter_template_04.png)
-  <figcaption><b>Figure 4</b>: AdnFat Parameter Template: Debug.</figcaption>
+  <figcaption><b>Figure 5</b>: AdnFat Parameter Template: Debug.</figcaption>
 </figure>
 
 ## Paintable Weights
