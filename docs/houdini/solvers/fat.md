@@ -208,12 +208,12 @@ In order to provide more artistic control, some key parameters of the AdnFat sol
 
 <figure markdown>
   ![AdnFat example weights](../images/fat_weights.png)
-  <figcaption><b>Figure 5</b>: Example of painted weights on the fat layer: on the left the map is flooded to 1.0 for global damping, mass, volume shape preservation and shape preservation; on the right the hard constraints map is painted to 1.0 on the extremities. </figcaption>
+  <figcaption><b>Figure 6</b>: Example of painted weights on the fat layer: on the left the map is flooded to 1.0 for global damping, mass, volume shape preservation and shape preservation; on the right the hard constraints map is painted to 1.0 on the extremities. </figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnFat example of network with attribpaint](../images/fat_net_example.png)
-  <figcaption><b>Figure 6</b>: Example of AdnFat network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the Adonis deformable section is recommended to keep the network compatible with the API.</figcaption>
+  <figcaption><b>Figure 7</b>: Example of AdnFat network. Using null nodes with ADN_IN_ and ADN_OUT_ prefixes to encapsulate the Adonis deformable section is recommended to keep the network compatible with the API.</figcaption>
 </figure>
 
 > [!NOTE]
@@ -232,17 +232,17 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![fat editor volume structure debug example](../images/fat_volume_structure_debug.png)
-  <figcaption><b>Figure 7</b>: Volume Structure debugging.</figcaption>
+  <figcaption><b>Figure 8</b>: Volume Structure debugging.</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor shape preservation sliding surface debug](../images/fat_shape_preservation_debug.png)
-  <figcaption><b>Figure 8</b>: Shape Preservation debugging.</figcaption>
+  <figcaption><b>Figure 9</b>: Shape Preservation debugging.</figcaption>
 </figure>
 
 <figure markdown>
   ![skin editor hard constraints debug](../images/fat_hard_constraints_debug.png)
-  <figcaption><b>Figure 9</b>: Hard Constraints debugging.</figcaption>
+  <figcaption><b>Figure 10</b>: Hard Constraints debugging.</figcaption>
 </figure>
 
 > [!NOTE]
