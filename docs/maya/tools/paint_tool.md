@@ -171,6 +171,11 @@ The *Normalization* group is enabled only when a normalizable attribute is selec
     - **On Demand** preserves the authored values until normalization is explicitly requested with *Normalize Weights*.
   - **Normalize Weights** normalizes the current component restriction and writes the normalized values back to the authored maps. If vertices are selected, only those vertices are normalized; if the Paint Tool is unrestricted, all vertices are normalized. The operation is undoable.
 
+> [!NOTE]
+> - If a paint operation creates values that would be changed by the AdnSkin automatic normalization, *Normalize Uber Weights On Init* may be turned off automatically so those painted values are preserved.
+> - Re-enable *Normalize Uber Weights On Init* on the AdnSkin deformer to restore automatic normalization.
+> - Use *Normalize Weights* button to normalize the current component restriction, or all vertices when the Paint Tool is unrestricted.
+
 ## Visualization
 
 The *Visualization* group contains the following controls:
