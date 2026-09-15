@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > Use the Adonis Paint Tool to manipulate the paintable maps of the AdnMuscle, AdnRibbonMuscle and AdnSkin solvers. For all other Adonis deformers and nodes, use Maya's standard paint context.
 
-The **Adonis Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. It also provides normalization controls for dependent attributes such as the hard, soft and slide constraints of the AdnSkin deformer.
+The **Adonis Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influencing external objects. It also provides normalization controls for dependent attributes such as the hard, soft and slide constraints of the AdnSkin deformer.
 
 <figure style="width:50%" markdown>
   ![Adonis Paint Tool](../images/tools_paint_tool.png)
@@ -24,7 +24,7 @@ To open the tool:
 
 ## Paint Attributes
 
-If the selection provided is valid, meaning the selected mesh has one of the Adonis deformers listed before, then the paint context will get configured and the user can paint. The *Paint Attributes* group contains the following controls:
+If the selected mesh has an AdnSkin, AdnMuscle or AdnRibbonMuscle deformer, then the paint context will get configured and the user can paint. The *Paint Attributes* group contains the following controls:
 
   - **Attribute** selects the map to paint. The available attributes depend on the Adonis deformer and its current state.
   - **Value** sets the value used by the current paint operation. Enter a value in the field or adjust it with the slider.
@@ -199,4 +199,4 @@ The following table shows how the painted weight maps to the color gradient used
 
 ## Flood
 
-The **Flood** button applies the active *Paint operation*, *Value* and *Opacity* settings to the paintable area in a single operation instead of requiring a brush stroke. If a vertex restriction is active, unselected vertices remain unchanged. For example, use *Replace* to assign a uniform value, or *Smooth* to average the current values across the surface. Flooding with *Smooth* is also useful for aligning fibers more uniformly, as described in the *Fibers* attribute section above.
+The **Flood** button applies the active *Paint operation*, *Value* and *Opacity* settings to the paintable area in a single operation instead of requiring a brush stroke. If a vertex restriction is active, unselected vertices remain unchanged. For example, use *Replace* to assign a uniform value, or *Smooth* to soften transitions throughout the surface by averaging each value with its neighbors. Flooding with *Smooth* is also useful for aligning fibers more uniformly, as described in the *Fibers* attribute section above.
