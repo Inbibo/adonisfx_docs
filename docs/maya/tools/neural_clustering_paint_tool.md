@@ -19,7 +19,7 @@ If multiple clusters overlap, the cluster values can be normalized. Normalizing 
 ## UI
 
 <figure markdown>
-  ![Adonis Neural Clustering Paint Tool](../images/neural_clustering_paint_tool_01.png)
+  ![Adonis Neural Clustering Paint Tool](../images/neural_clustering_paint_tool_00.png)
   <figcaption><b>Figure 1</b>: Adonis Neural Clustering Tool UI.</figcaption>
 </figure>
 
@@ -115,7 +115,7 @@ The ML joints captured from each entry should represent the joint set used as ma
     Use the *Select Weighted Vertices* button to select and visualize the stored vertices that have a weight value at or above `0.0` in the associated Maya ColorSet. This can be used to verify the painted region and ensure that the correct vertices are being affected by the cluster.
 
 <figure style="width:90%; margin-left:5%" markdown>
-  ![AdnNeuralClusteringPaintTool painted cluster](../images/neural_clustering_paint_tool_02.png)
+  ![AdnNeuralClusteringPaintTool painted cluster](../images/neural_clustering_paint_tool_01.png)
   <figcaption><b>Figure 2</b>: Example of a painted neural cluster on a training mesh. Painted values closer to <code>1</code> are displayed toward white and represent higher influence, while values closer to <code>0</code> are displayed toward black and represent lower influence. Smooth transitions between these values define the cluster falloff.</figcaption>
 </figure>
 
