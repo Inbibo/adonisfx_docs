@@ -1,6 +1,6 @@
 # Paint Tool
 
-The **Adonis Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. It also provides normalization controls for dependent attributes such as the hard, soft and slide constraints of the AdnSkin deformer.
+The **Adonis Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influencing external objects. It also provides normalization controls for dependent attributes such as the hard, soft and slide constraints of the AdnSkin deformer.
 
 <figure markdown>
   ![Adonis Paint Tool](../images/tools_paint_tool.png)
