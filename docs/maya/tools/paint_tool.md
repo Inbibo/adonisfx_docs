@@ -1,21 +1,16 @@
 # Paint Tool
 
+> [!IMPORTANT]
+> Use the Adonis Paint Tool to manipulate the paintable maps of the AdnMuscle, AdnRibbonMuscle and AdnSkin solvers. For all other Adonis deformers and nodes, use Maya's standard paint context.
+
 The **Adonis Paint Tool** is meant to be used for the manipulation of the paintable attributes of the AdnSkin, AdnMuscle and AdnRibbonMuscle deformers. Its functionalities are very similar to the standard Maya paint tool functionalities plus the ability to paint attributes with multiple influences (e.g. attachment to transform constraints) where a single vertex can adopt a different weight value for the same attribute driven by multiple influent external objects. It also provides normalization controls for dependent attributes such as the hard, soft and slide constraints of the AdnSkin deformer.
 
-<figure markdown>
+<figure style="width:50%" markdown>
   ![Adonis Paint Tool](../images/tools_paint_tool.png)
   <figcaption><b>Figure 1</b>: Adonis Paint Tool.</figcaption>
 </figure>
 
 The use of this tool is required for the correct setup of skin, muscle and ribbon muscle solvers. The internal logic processes painted maps and their dependencies to keep the solver configuration safe. For example, if the influence of one target of an AdnMuscle which has two targets assigned is painted, then the tool will update the weights of the other target to ensure that the addition of both is normalized at each vertex (the normalization process is independent for transform and geometry targets). For the hard, soft and slide constraints of an AdnSkin deformer, normalization is controlled by the mode selected in the *Normalization* group. Switching attributes or selecting influences from the Adonis Paint Tool provides immediate feedback about the current state of the maps.
-
-> [!NOTE]
-> The following Adonis solvers and deformers do not require this tool:
->
-> - **Solvers**: AdnFat, AdnGlue, AdnSimshape and AdnSmartTissue.
-> - **Deformers**: AdnClosestFit, AdnMLDeformer, AdnMush, AdnPush, AdnRadialWrap, AdnRelax, AdnRigidWrap, AdnSkinMerge and AdnSoftWrap.
->
-> When these nodes expose paintable maps, the maps can be manipulated through the standard Maya paint context.
 
 To open the tool:
 
