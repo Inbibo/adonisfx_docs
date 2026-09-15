@@ -1,1 +1,7 @@
 build*/
+
+# Local Codex configuration and instructions (including subdirectories)
+.codex/
+.agents/
+AGENTS.md
+AGENTS.override.md
