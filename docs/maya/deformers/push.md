@@ -32,6 +32,12 @@ When colliders are enabled, each vertex is displaced until its push path hits a 
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Envelope** | Float | 1.0 | ✓ | Specifies the deformation scale factor. Has a range of \[0.0, 1.0\]. The upper and lower limits are soft, values can be set in a range of \[-2.0, 2.0\]|
 
+### Connectable Attributes
+| Name | Type | Default | Animatable | Description |
+| :--- | :--- | :------ | :--------- | :---------- |
+| **Collider World Mesh**   | Mesh   |          | ✓ | List of collider meshes (from a compound attribute) used to limit the displacement of the pushed surface. |
+| **Collider World Matrix** | Matrix | Identity | ✓ | List of collider world matrices (from a compound attribute) used to evaluate the collisions in the right space. |
+
 ## Attribute Editor Template
 
 <figure markdown>
