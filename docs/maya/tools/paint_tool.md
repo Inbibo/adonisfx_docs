@@ -31,7 +31,7 @@ If the selected mesh has an AdnSkin, AdnMuscle or AdnRibbonMuscle deformer, then
   - **Pick Value** (the eyedropper button beside *Value*) samples a value from the mesh and assigns it to *Value*.
 
 > [!TIP]
-> The Paint Tool supports vertex component restrictions. Open or refresh the tool with vertices selected to restrict painting to those vertices: brush strokes and *Flood* operations will leave every unselected vertex unchanged. Open or refresh the tool with the mesh transform selected to remove the restriction and paint across the entire mesh.
+> The Paint Tool supports vertex component restrictions. Open the tool or click on the *Refresh from Selection* button with vertices selected to restrict painting to those vertices: brush strokes and *Flood* operations will leave every unselected vertex unchanged. Open the tool or click on the *Refresh from Selection* button with the mesh transform selected to remove the restriction and paint across the entire mesh.
 
 > [!NOTE]
 > - With the optimizations introduced to the Adonis Paint Tool in version 1.4.0, the AdnWeightsDisplayNode is deprecated and no longer needed.
