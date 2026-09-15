@@ -44,8 +44,7 @@ To create an AdnMuscle, follow these steps:
 | **Preroll Start Time** | Time    | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
 | **Start Time**         | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
 | **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
-
-**Preserve Full Frame** (Boolean, default: **False**) preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation.
+| **Preserve Full Frame** | Boolean | False           | ✓ | Preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -122,6 +121,7 @@ To create an AdnMuscle, follow these steps:
 | **Inertia Damper**              | Float      | 0.0      | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
 | **Rest Length Multiplier**      | Float      | 1.0      | ✓ | Sets the scaling factor applied to the edge lengths at rest. This value is multiplied by the per-vertex *Rest Length Multiplier* map read at initialization. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Max Sliding Distance**        | Float      | 0.0      | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. The higher this value is, the higher quality and the lower performance. If the value provided is considered too high for a given target mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
+| **Sliding Falloff**             | Float      | 0.0      | ✓ | Applies only when *Sliding Algorithm* is set to *Closest Point*. Increasing the value softens transitions and can reduce ridges or sharp creases at painted sliding boundaries, while reducing the overall amount of sliding. Decreasing it preserves more sliding freedom, with a sharper transition near *Max Sliding Distance*.<ul><li>0.0: Applies a hard limit without falloff.</li><li>Between 0.0 and 1.0: Softens sliding near the limit; higher values make the falloff begin earlier.</li><li>1.0: Applies falloff across the full sliding range.</li><li>Above 1.0: Further softens the response and reduces sliding across the full range.</li></ul>The minimum is 0.0. The upper limit of 2.0 is soft; higher values can be used. |
 | **Compression Multiplier**      | Float      | 1.0      | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Stretching Multiplier**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Anisotropy**                  | Float      | 0.0      | ✓ | Sets the anisotropic behavior of the fibers: 0 fully isotropic material, 1 fully anisotropic material. Has a range of \[0.0, 1.0\]. |
@@ -131,20 +131,8 @@ To create an AdnMuscle, follow these steps:
 | **Substeps Interp. Exp.**       | Float      | 1.0      | ✓ | Sets the exponential factor to weight the interpolation at each substep. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. A value of 0.0 disables the interpolation: input geometry targets and attenuation matrix are not interpolated. A value of 1.0 applies linear interpolation (input geometry targets and attenuation matrix) between previous and current frame based on a linear weight, i.e. `weight = substep / num_substeps`. A value between 0.0 and 1.0 applies exponential interpolation (input geometry targets and attenuation matrix) between previous and current frame based on an exponential weight, i.e. `weight = (substep / num_substeps) ^ exponent`. |
 | **Hard Attachments**            | Boolean    | False    | ✓ | If enabled, attachment constraints will force the vertices to stick to the target transformation completely. |
 | **Sliding Constraints Mode**    | Enumerator | Quality  | ✓ | Defines the mode of execution for the slide on geometry constraints. Applies to both *Legacy* and *Closest Point* sliding algorithms.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
+| **Sliding Algorithm**           | Enumerator | Legacy   | ✓ | Selects the algorithm used to evaluate slide on geometry constraints. *Legacy* is the default. *Closest Point* uses closest-point queries for faster evaluation and supports *Sliding Falloff* for smoother transitions at sliding boundaries. Both algorithms support the *Quality* and *Fast* modes. |
 | **Target Faces Filter**         | Enumerator | None     | ✗ | Defines how the target faces list is processed for geometry attachments and slide on geometry constraints.<ul><li>*None* uses all the faces in the target mesh for closest point queries.</li><li>*Exclude* excludes the faces listed in the *Target Faces* parameter for closest point queries.</li><li>*Include* includes only the faces listed in the *Target Faces* parameter for closest point queries.</li></ul> |
-
-#### Sliding Algorithm and Falloff
-
-**Sliding Algorithm** defaults to **Legacy**. **Closest Point** uses closest point queries for faster sliding evaluation and supports *Sliding Falloff* for smoother transitions at sliding boundaries than Legacy. Both algorithms support the *Quality* and *Fast* modes.
-
-**Sliding Falloff** applies only to *Closest Point* and defaults to **0.0**. Increasing it softens transitions and can reduce ridges or sharp creases at painted sliding boundaries, while reducing the overall amount of sliding. Decreasing it preserves more sliding freedom, with a sharper transition near *Max Sliding Distance*.
-
-- **0.0**: Applies a hard limit without falloff.
-- **Between 0.0 and 1.0**: Softens sliding near the limit; higher values make the falloff begin earlier.
-- **1.0**: Applies falloff across the full sliding range.
-- **Above 1.0**: Further softens the response and reduces sliding across the full range.
-
-The minimum is **0.0** (hard limit). The upper limit of **2.0** is soft; higher values can be used.
 
 #### Mush Properties
 | Name | Type | Default | Animatable | Description |
