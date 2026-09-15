@@ -15,7 +15,7 @@ The Import Tool offers an intuitive interface (see Figure 1), allowing users to 
 
 - **Import Data**: Selects which types of data to import:
     - All: enables or disables both *Settings* and *Maps*.
-    - Settings: imports node all non-paintable parameters together with input connections.
+    - Settings: imports all non-paintable node parameters together with input connections.
     - Maps: imports only paintable maps. If a map depends on a target that is not connected, the importer logs a warning and skips that map. This includes maps associated with transform nodes and geometry targets in AdnMuscle, AdnRibbonMuscle and AdnSkin.
 
   When either *Settings* or *Maps* is imported and the corresponding node is not present in the scene, the importer creates it.
