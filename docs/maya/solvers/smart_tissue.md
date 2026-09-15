@@ -94,6 +94,7 @@ To create and configure the deformer:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Preroll Start Time**  | Time    | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
 | **Start Time**          | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Current Time**        | Time    | *Current frame* | ✓ | Current playback frame. |
 | **Allow Subframes**     | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 | **Preserve Full Frame** | Boolean | False           | ✓ | Preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation. |
 
