@@ -102,8 +102,6 @@ The arguments are:
 
 The function returns `True` when the data is successfully built and `False` otherwise. If a node selected through `enabled_features` does not exist, it is created for either enabled data category. When a paintable map depends on a target that is not connected, the function logs a warning and skips that map.
 
-### Map Import Modes
-
 The `MapIOMode` class is available from `adn.utils.maps` and exposes the following modes:
 
 - `MapIOMode.COMPONENT_ID` (`0`): Uses the existing point IDs. This is the default.
