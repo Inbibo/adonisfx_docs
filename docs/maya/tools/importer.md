@@ -56,8 +56,8 @@ The Import Tool offers an intuitive interface (see Figure 1), allowing users to 
     - Import: executes the import process based on the selected options without closing the window.
     - Close: closes the window without importing.
 
-> [!CAUTION]
-> Importing maps by *Position* or *UVs* requires geometry data in the JSON file. The file must have been created with [Export Geometry Data](exporter.md#export-geometry-data) enabled in the Export Tool.
+> [!NOTE]
+> Importing maps by *Position* or *UVs* requires geometry data in the JSON file. The file must have been exported with *Export Geometry Data* (see this [section](../tools/exporter#ui)) enabled in the Export Tool.
 
 ## Requirements
 

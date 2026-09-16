@@ -39,7 +39,7 @@ The Export Tool offers an intuitive interface (see Figure 1), allowing users to 
     - Edge Evaluator: include AdnEdgeEvaluator nodes in the exported data.
 
 - **Advanced**: Provides optional controls for the exported data:
-    - Export Geometry Data: include the point positions and UV coordinates of paintable solver meshes. See [Export Geometry Data](#export-geometry-data) for details.
+    - Export Geometry Data: include the point positions and UV coordinates of paintable solver meshes.
     - Selection Only: limit the export to Adonis nodes represented by a non-empty current selection and their enabled upstream dependencies.
 
 - **Buttons**:
@@ -47,9 +47,10 @@ The Export Tool offers an intuitive interface (see Figure 1), allowing users to 
     - Export: executes the export process based on the selected options without closing the window.
     - Close: closes the window without exporting.
 
-### Export Geometry Data
-
-Enable **Export Geometry Data** to include point positions and UV coordinates for paintable solver meshes in the exported JSON file. This data is required to import paintable maps using the **Position** or **UVs** modes. Because it stores additional data for every point, this option may significantly increase the JSON file size.
+> [!NOTE]
+> - Enable **Export Geometry Data** to include point positions and UV coordinates for paintable solver meshes in the exported JSON file.
+> - This data is required to import paintable maps using the **Position** or **UVs** modes.
+> - Because it stores additional data for every point, this option may significantly increase the JSON file size.
 
 ## Requirements
 

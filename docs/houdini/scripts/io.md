@@ -110,7 +110,7 @@ The `MapIOMode` class is available from `adn.utils.maps` and exposes the followi
 - `MapIOMode.POSITION` (`1`): Uses the closest exported point positions and falls back to Component ID when compatible.
 - `MapIOMode.UV` (`2`): Uses UV correspondence first, then Position, and finally Component ID when compatible.
 
-`MapIOMode.ALL` contains all three supported values. Position and UV modes require the input data to contain geometry data gathered with `include_geometry_data=True`; see [Export Geometry Data](../tools/exporter.md#export-geometry-data).
+`MapIOMode.ALL` contains all three supported values. Position and UV modes require the input data to contain geometry data gathered with `include_geometry_data=True`; see *Export Geometry Data* in this [section](../tools/exporter#ui).
 
 ## Import
 
@@ -140,7 +140,7 @@ The required `file_path` argument is the full path to a JSON file containing a v
 > [!NOTE]
 > The rig will be imported into the first found geometry node with the visibility flag on. For that reason it is advisable to have one single geometry node in the */obj* context or at least only one active.
 
-Find more information about the import behavior in the [Import](../tools/importer.md) page.
+Find more information about the import behavior in the [Import](../tools/importer) page.
 
 ## Export
 
@@ -162,7 +162,7 @@ The required `file_path` argument is the full destination path for the JSON file
 > [!NOTE]
 > The rig will be exported from the first found geometry node with the visibility flag on. For that reason it is advisable to have one single geometry node in the */obj* context or at least only one active.
 
-Find more information about the export behavior in the [Export](../tools/exporter.md) page.
+Find more information about the export behavior in the [Export](../tools/exporter) page.
 
 ## Limitations
 
