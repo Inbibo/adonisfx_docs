@@ -38,10 +38,19 @@ The Export Tool offers an intuitive interface (see Figure 1), allowing users to 
     - Remap: include AdnRemap nodes in the exported data.
     - Edge Evaluator: include AdnEdgeEvaluator nodes in the exported data.
 
+- **Advanced**: Provides optional controls for the exported data:
+    - Export Geometry Data: include the point positions and UV coordinates of paintable solver meshes.
+    - Selection Only: limit the export to Adonis nodes represented by a non-empty current selection and their enabled upstream dependencies.
+
 - **Buttons**:
     - Accept: executes the export process based on the selected options and closes the window.
     - Export: executes the export process based on the selected options without closing the window.
     - Close: closes the window without exporting.
+
+> [!NOTE]
+> - Enable **Export Geometry Data** to include point positions and UV coordinates for paintable solver meshes in the exported JSON file.
+> - This data is required to import paintable maps using the **Position** or **UVs** modes.
+> - Because it stores additional data for every point, this option may significantly increase the JSON file size.
 
 ## How To Use
 
@@ -58,7 +67,9 @@ Open the scene of a fully configured Adonis rig (see Figure 2) and follow these 
 
 3. Select the features to export from the *Solvers*, *Deformers* and *Utils* sections. To export the entire rig, enable all options.
 
-4. Click *Accept* or *Export* to execute the export process.
+4. In the *Advanced* section, optionally enable *Export Geometry Data* or *Selection Only* as needed.
+
+5. Click *Accept* or *Export* to execute the export process.
 
 Depending on the complexity of the rig, the export process might take a few seconds to complete. Once finished, a JSON file containing the exported data will be created in the specified path.
 
