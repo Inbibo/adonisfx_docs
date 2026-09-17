@@ -71,11 +71,10 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Preroll Start Time** | Time    | *Current frame*  | ✗ | Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*. |
-| **Start Time**         | Time    | *Current frame*  | ✗ | Determines the frame at which the simulation starts. |
-| **Current Time**       | Time    | *Current frame*  | ✓ | Current playback frame. |
-| **Allow Subframes**    | Boolean | True             | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
-| **Preserve Full Frame** | Boolean | False           | ✓ | Preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation. |
+| **Preroll Start Time** | Time    | *Current frame* | ✗ | Sets the frame at which the pre-roll begins. The pre-roll ends at *Start Time*. |
+| **Start Time**         | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Current Time**       | Time    | *Current frame* | ✓ | Current playback frame. |
+| **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -143,8 +142,6 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 | **Compute Collisions**   | Boolean | True | ✓ | Flag to enable collision correction in the deformer. If disabled, the deformer will ignore colliders when deforming the mesh. |
 | **Keep Orientation**     | Boolean | True | ✓ | Flag to preserve the initial orientation of the vertices relative to the collider when handling collisions. If disabled, the mesh will suffer no changes if the orientation of the collider varies. |
 | **Max Sliding Distance** | Float   | 0.0  | ✗ | Maximum distance (in world units) the simulated vertex is allowed to slide relative to the collider. If the value provided is considered too high for a given collider mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
-| **Sliding Falloff**      | Float   | 0.0  | ✓ | Applies only when *Sliding Algorithm* is set to *Closest Point*. Increasing the value softens transitions and can reduce ridges or sharp creases at painted sliding boundaries, while reducing the overall amount of sliding. Decreasing it preserves more sliding freedom, with a sharper transition near *Max Sliding Distance*.<ul><li>0.0: Applies a hard limit without falloff.</li><li>Between 0.0 and 1.0: Softens sliding near the limit; higher values make the falloff begin earlier.</li><li>1.0: Applies falloff across the full sliding range.</li><li>Above 1.0: Further softens the response and reduces sliding across the full range.</li></ul>The minimum is 0.0. The upper limit of 2.0 is soft; higher values can be used. |
-| **Sliding Algorithm**    | Enumerator | Legacy | ✓ | Selects the algorithm used to evaluate slide collision constraints. *Legacy* is the default. *Closest Point* uses closest-point queries for faster evaluation and supports *Sliding Falloff* for smoother transitions at sliding boundaries. |
 
 #### Attraction Settings
 | Name | Type | Default | Animatable | Description |
@@ -199,12 +196,12 @@ To remove any of these meshes from AdnSimshape follow this procedure:
 
 <figure style="width: 75%;" markdown>
   ![simshape editor second part](../images/simshape_attribute_editor_01.png)
-  <figcaption><b>Figure 2</b>: AdnSimshape Attribute Editor (Advanced Settings I).</figcaption>
+  <figcaption><b>Figure 2</b>: AdnSimshape Attribute Editor (Advanced Settings).</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![simshape editor debug part](../images/simshape_attribute_editor_02.png)
-  <figcaption><b>Figure 3</b>: AdnSimshape Attribute Editor (Advanced Settings II and Debug menu).</figcaption>
+  <figcaption><b>Figure 3</b>: AdnSimshape Attribute Editor (Debug menu).</figcaption>
 </figure>
 
 ## Paintable Weights
