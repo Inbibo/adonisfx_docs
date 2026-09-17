@@ -62,7 +62,7 @@ The process to create an AdnSkin deformer is:
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Shape Preservation At Start Time** | Boolean | True | ✗ | Flag that forces the shape preservation constraints to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
 | **Uber At Start Time**               | Boolean | True | ✗ | Flag that forces the uber constraints (hard, soft and slide) to reinitialize at start time. This attribute has effect only if preroll start time is lower than start time. |
-| **Normalize Uber Weights On Init**   | Boolean | True | ✗ | Normalize Hard, Slide and Soft weights for the internal solver representation on initialization. The persisted painted maps are not modified. On Demand Paint Tool operations disable this setting only when committed values would otherwise require automatic normalization. |
+| **Normalize Uber Weights On Init**   | Boolean | True | ✗ | Normalizes Hard, Slide and Soft weights for the internal solver representation on initialization. The persisted painted maps are not modified. When the Adonis Paint Tool performs on-demand normalization, it disables this setting only if the committed values would otherwise require automatic normalization. Check [this section](../tools/paint_tool#normalization) to know more about the normalization functionalities of the Adonis Paint Tool. |
 
 #### Stiffness Settings
 | Name | Type | Default | Animatable | Description |
