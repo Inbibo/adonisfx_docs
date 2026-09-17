@@ -14,7 +14,7 @@ The number and size of the clusters should be adjusted depending on the amount o
 If multiple clusters overlap, the cluster values can be normalized. Normalizing overlapping clusters helps keep the cluster data consistent and can improve the resulting training quality.
 
 > [!TIP]
-> The **Neural Clustering Paint Tool** is intended to be used as an optional data preparation step for machine learning workflows. It provides neural clustering information that can complement the data extracted through the **Data Extraction**.
+> The **Neural Clustering Paint Tool** is intended to be used as an optional data preparation step for machine learning workflows. It provides neural clustering information that can complement the data extracted through the [Data Extraction](../tools/data_extraction_tool).
 
 ## UI
 

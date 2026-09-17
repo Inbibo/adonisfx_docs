@@ -106,10 +106,10 @@ To create and configure the deformer:
 ### Time Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Preroll Start Time** | Time    | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
-| **Start Time**         | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
-| **Current Time**       | Time    | *Current frame* | ✓ | Current playback frame. |
-| **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
+| **Preroll Start Time**  | Time    | *Current frame* | ✗ | Sets the frame at which the preroll begins. The preroll ends at *Start Time*. |
+| **Start Time**          | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
+| **Allow Subframes**     | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
+| **Preserve Full Frame** | Boolean | False           | ✓ | Preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -183,6 +183,7 @@ To create and configure the deformer:
 | **Self Collisions**             | Boolean    | False                 | ✓ | Toggles the self collisions on and off. |
 | **Self Collisions Mode**        | Enumerator | Triangle to Triangle  | ✓ | Determines the method used for self-collision detection and response. Only *Triangle to Triangle* mode is available. |
 | **Self Collisions Iterations**  | Integer    | 1                     | ✓ | Sets the number of iterations for the self-collision correction. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
+| **Thickness**                   | Float      | -1.0                  | ✓ | Sets the thickness value for self-collision detection. Points closer than this distance will be considered in self-collision. A value of -1.0 disables thickness for self-collisions. Has a range of \[-1.0, 3.0\]. The upper limit is soft, higher values can be used. |
 | **Min Displacement**            | Float      | -1.0                  | ✓ | Sets the minimum displacement a point must have to be considered for self-collision correction. Below this value, no correction will be applied. A value of -1.0 disables this check. Has a range of \[-1.0, 1000.0\]. The upper limit is soft, higher values can be used. |
 | **Max Displacement**            | Float      | -1.0                  | ✓ | Sets the maximum displacement a point can have to be considered for self-collision correction. Above this value, no correction will be applied. A value of -1.0 disables this check. Has a range of \[-1.0, 1000.0\]. The upper limit is soft, higher values can be used. |
 | **On Inner Mesh**               | Boolean    | True                  | ✓ | Toggles the solving of self-collisions in the inner mesh. If disabled, self-collision corrections are applied on the outer simulated mesh only. |
@@ -198,7 +199,8 @@ To create and configure the deformer:
 | **Push Out Threshold**          | Float      | -1.0                  | ✓ | Maximum correction applied by the push out adjustment for self collision affected points. The threshold will be ignored if its value is 0.0 or less. Has a range of \[-1.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Last Substep Only**           | Boolean    | False                 | ✗ | If enabled, self-collisions are only computed in the last substep of the simulation. |
 | **Last Iteration Only**         | Boolean    | False                 | ✗ | If enabled, self-collisions are only computed in the last iteration of each substep. |
-| **Quality Mode**                | Enumerator | Quality               | ✓ | Sets the quality mode for self-collision detection. <ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</
+| **Quality Mode**                | Enumerator | Quality               | ✓ | Sets the quality mode for self-collision detection. <ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
+| **Ignore Rest Intersections**   | Boolean    | True                  | ✗ | Ignore self-collision detection and correction for primitives that are intersecting in the rest pose. |
 
 #### Mush Properties
 | Name | Type | Default | Animatable | Description |
@@ -217,29 +219,30 @@ To create and configure the deformer:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Debug**       | Boolean      | False            | ✓ | Enable or Disable the debug functionalities in the viewport for the AdnSmartTissue deformer. |
-| **Feature**     | Enumerator   | Inner Mesh       | ✓ | A list of debuggable features for this deformer.<ul><li>Inner Mesh: Draw the inner mesh built by the solver.</li><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh points and the internal virtual points to the base mesh.</li><li>Volume Structure: Draw all the connections in the *Volume Structure* generated procedurally.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li></ul> |
+| **Feature**     | Enumerator   | Inner Mesh       | ✓ | A list of debuggable features for this deformer.<ul><li>Inner Mesh: Draw the inner mesh built by the solver.</li><li>Hard Constraints: Draw *Hard Constraints* connections from the simulated mesh points and the internal virtual points to the base mesh.</li><li>Shape Preservation: Draw *Shape Preservation* connections between the vertices adjacent to the vertices with this constraint.</li><li>Volume Structure: A line will be drawn for every connection between two points in the volume. A point can be either a vertex on the inner mesh, a vertex on the simulated mesh or a virtual point that belongs to an internal layer generated by the procedural construction based on the *Divisions* attribute.</li><li>Acceleration Structure: For each level in the acceleration structure used to solve self-collisions, display a box representing the bounding box encapsulating all the collision primitives in that level. If the value of *Debug Level Acceleration Structure* is -1, then all levels are displayed. Otherwise, only the specified level is displayed. If the value is greater than the number of levels, then no levels are displayed.</li><li>Rest Self Collisions: For each triangle intersecting with the mesh at rest, the 3 edges of the triangle are displayed.</li><li>Self Collisions Volume: For each vertex, a sphere will be drawn representing the volume that will collide if its *Self Collision Point Radius Multiplier* weight and the *Point Radius Scale* are greater than 0.0.</li></ul> |
 | **Color**       | Color Picker | Red              | ✓ | Selects the line color from a color wheel. Its saturation can be modified using the slider. |
 
 ### Maps
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Activations Attribute**                     | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read activation weights from. The expected attribute name is `adnActivations`. The expected range of the per-point values is \[0.0, 1.0\].  |
-| **Global Damping Attribute**                  | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the global damping values from. The expected attribute name is `adnGlobalDamping`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Hard Constraints Attribute**                | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the hard weights from. The expected attribute name is `adnHardConstraints`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Mass Attribute**                            | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the mass values from. The expected attribute name is `adnMass`. The expected range of the per-point values is \[0.001, 1.0\]. |
-| **Mush Weights Attribute**                    | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the mush weights from. The expected attribute name is `adnMushWeights`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Push Multiplier Attribute**                 | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the push multiplier values from. The expected attribute name is `adnPushMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Push Weights Attribute**                    | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the push weights from. The expected attribute name is `adnPushWeights`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Relax Multiplier Attribute**                | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the relax multiplier values from. The expected attribute name is `adnRelaxMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Relax Push In Ratio Multiplier Attribute**  | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the relax push in ratio multiplier values from. The expected attribute name is `adnRelaxPushInRatioMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Relax Push Out Ratio Multiplier Attribute** | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the relax push out ratio multiplier  from. The expected attribute name is `adnRelaxPushOutRatioMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Relax Smooth Multiplier Attribute**         | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the relax smooth multiplier values from. The expected attribute name is `adnRelaxSmoothMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Relax Weights Attribute**                   | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the relax weights from. The expected attribute name is `adnRelaxWeights`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Self Collisions Weight Attribute**          | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the self collision weights from. The expected attribute name is `adnScWeights`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Shape Preservation Attribute**              | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the shape preservation weights from. The expected attribute name is `adnShapePreservation`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Volume Shape Preservation Attribute**       | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the volume shape preservation weights from. The expected attribute name is `adnVolumeShapePreservation`. The expected range of the per-point values is \[0.0, 1.0\]. |
-| **Weights Attribute**                         | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the weights from. The expected attribute name is `adnWeights`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Activations Attribute**                             | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read activation weights from. The expected attribute name is `adnActivations`. The expected range of the per-point values is \[0.0, 1.0\].  |
+| **Global Damping Attribute**                          | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the global damping values from. The expected attribute name is `adnGlobalDamping`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Hard Constraints Attribute**                        | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the hard weights from. The expected attribute name is `adnHardConstraints`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Mass Attribute**                                    | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the mass values from. The expected attribute name is `adnMass`. The expected range of the per-point values is \[0.001, 1.0\]. |
+| **Mush Weights Attribute**                            | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the mush weights from. The expected attribute name is `adnMushWeights`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Push Multiplier Attribute**                         | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the push multiplier values from. The expected attribute name is `adnPushMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Push Weights Attribute**                            | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the push weights from. The expected attribute name is `adnPushWeights`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Relax Multiplier Attribute**                        | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the relax multiplier values from. The expected attribute name is `adnRelaxMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Relax Push In Ratio Multiplier Attribute**          | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the relax push in ratio multiplier values from. The expected attribute name is `adnRelaxPushInRatioMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Relax Push Out Ratio Multiplier Attribute**         | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the relax push out ratio multiplier  from. The expected attribute name is `adnRelaxPushOutRatioMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Relax Smooth Multiplier Attribute**                 | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the relax smooth multiplier values from. The expected attribute name is `adnRelaxSmoothMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Relax Weights Attribute**                           | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the relax weights from. The expected attribute name is `adnRelaxWeights`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Self Collisions Thickness Multiplier Attribute**    | float      | 1.0     | ✗ | Specifies the name of the per-point attribute to read the thickness multiplier values from used by the self-collisions constraints to detect intersections. The expected attribute name is `adnScThicknessMultiplier`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Self Collisions Weight Attribute**                  | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the self collision weights from. The expected attribute name is `adnScWeights`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Shape Preservation Attribute**                      | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the shape preservation weights from. The expected attribute name is `adnShapePreservation`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Volume Shape Preservation Attribute**               | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the volume shape preservation weights from. The expected attribute name is `adnVolumeShapePreservation`. The expected range of the per-point values is \[0.0, 1.0\]. |
+| **Weights Attribute**                                 | float | 1.0 | ✗ | Specifies the name of the per-point attribute to read the weights from. The expected attribute name is `adnWeights`. The expected range of the per-point values is \[0.0, 1.0\]. |
 
 ## Parameter Template
 
@@ -279,22 +282,23 @@ In order to provide more artistic control, some key parameters of the AdnSmartTi
 
 | Name | Default | Description |
 | :--- | :------ | :---------- |
-| **Activations**                     | 1.0 | Weight to modulate the effect of dynamic material properties predicted by the Adonis ML model. For example to remove their effect in regions like the face or feet of the character. |
-| **Global Damping**                  | 1.0 | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more damping of velocities. |
-| **Hard Constraints**                | 0.0 | Weight to modulate the correction applied to the vertices and the internal virtual points to keep them at a constant transformation, local to the closest point on the base mesh at initialization. Hard Constraint maps will force the points to keep the original position. |
-| **Masses**                          | 1.0 | Multiplier to the individual mass values per vertex in the simulated volume. |
-| **Mush Weights**                    | 1.0 | Weight to modulate the mush deformation applied to the vertices. |
-| **Push Multiplier**                 | 1.0 | Weight used to multiply the global Push Length to determine the amount of adjustment applied at each vertex of the inner mesh. |
-| **Push Weights**                    | 1.0 | Weight to modulate the push deformation applied to the vertices of the inner mesh. |
-| **Relax Multiplier**                | 1.0 | Weight to multiply the relaxation applied to the inner mesh surface.  |
-| **Relax Push In Ratio Multiplier**  | 1.0 | Weight to multiply the push in adjustment applied to the inner mesh surface. |
-| **Relax Push Out Ratio Multiplier** | 1.0 | Weight to multiply the push out adjustment applied to the inner mesh surface. |
-| **Relax Smooth Multiplier**         | 1.0 | Weight to multiply the smoothing applied to the inner mesh surface. |
-| **Relax Weights**                   | 1.0 | Weights to modulate the relax deformation applied to the vertices of the inner mesh. |
-| **Self Collision Weights**          | 1.0 | Amount of correction to apply to the current vertex when a collision with another vertex is detected.<ul><li>*Tip*: Paint with a value of 0.0 the areas that should not compute self collisions to reduce the computational impact.</li><li>*Tip*: Paint with a higher value the areas that should receive more correction due to self-intersections, and with a lower value the areas that should receive less correction.</li></ul> |
-| **Shape Preservation**              | 1.0 | Amount of correction to apply to a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
-| **Volume Shape Preservation**       | 1.0 | Amount of correction to apply to the volume structure to preserve the initial volumetric shape and prevent it from distortion. |
-| **Weights**                         | 1.0 | Weights map used to control the influence of the deformer at each vertex. |
+| **Activations**                            | 1.0 | Weight to modulate the effect of dynamic material properties predicted by the Adonis ML model. For example to remove their effect in regions like the face or feet of the character. |
+| **Global Damping**                         | 1.0 | Set global damping per vertex in the simulated mesh. The greater the value per vertex is the more damping of velocities. |
+| **Hard Constraints**                       | 0.0 | Weight to modulate the correction applied to the vertices and the internal virtual points to keep them at a constant transformation, local to the closest point on the base mesh at initialization. Hard Constraint maps will force the points to keep the original position. |
+| **Masses**                                 | 1.0 | Multiplier to the individual mass values per vertex in the simulated volume. |
+| **Mush Weights**                           | 1.0 | Weight to modulate the mush deformation applied to the vertices. |
+| **Push Multiplier**                        | 1.0 | Weight used to multiply the global Push Length to determine the amount of adjustment applied at each vertex of the inner mesh. |
+| **Push Weights**                           | 1.0 | Weight to modulate the push deformation applied to the vertices of the inner mesh. |
+| **Relax Multiplier**                       | 1.0 | Weight to multiply the relaxation applied to the inner mesh surface.  |
+| **Relax Push In Ratio Multiplier**         | 1.0 | Weight to multiply the push in adjustment applied to the inner mesh surface. |
+| **Relax Push Out Ratio Multiplier**        | 1.0 | Weight to multiply the push out adjustment applied to the inner mesh surface. |
+| **Relax Smooth Multiplier**                | 1.0 | Weight to multiply the smoothing applied to the inner mesh surface. |
+| **Relax Weights**                          | 1.0 | Weights to modulate the relax deformation applied to the vertices of the inner mesh. |
+| **Self Collision Thickness Multiplier**    | 1.0 | Multiply the *Thickness* of each vertex.<ul><li>*Tip*: Paint with a value of 0.0 the areas to ignore the thickness for the intersections detection process; and with a value greater than 0.0 the areas to push along the direction of the normals for the intersections detection process.</li></ul> |
+| **Self Collision Weights**                 | 1.0 | Amount of correction to apply to the current vertex when a collision with another vertex is detected.<ul><li>*Tip*: Paint with a value of 0.0 the areas that should not compute self collisions to reduce the computational impact.</li><li>*Tip*: Paint with a higher value the areas that should receive more correction due to self-intersections, and with a lower value the areas that should receive less correction.</li></ul> |
+| **Shape Preservation**                     | 1.0 | Amount of correction to apply to a vertex to maintain the initial state of the shape formed with the surrounding vertices. |
+| **Volume Shape Preservation**              | 1.0 | Amount of correction to apply to the volume structure to preserve the initial volumetric shape and prevent it from distortion. |
+| **Weights**                                | 1.0 | Weights map used to control the influence of the deformer at each vertex. |
 
 > [!NOTE]
 > To tweak the point attributes of an AdnSmartTissue SOP, an `attribpaint` is needed. To ease the creation and initial configuration of this node, select the AdnSmartTissue SOP and click on Adonis > Utils > Make Paintable. This utility will create an `attribcreate` node to define the required point attributes and assign their default values followed by an `attribpaint` node to allow these attributes to be modified. Both nodes are automatically named and properly connected to the AdnSmartTissue node.
@@ -314,6 +318,9 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
  - **Hard Constraints**: For each vertex on the simulated mesh and each virtual point that belongs to an internal layer, a line will be drawn from the point to the corresponding closest point on the base mesh if its *Hard Constraints* weight is greater than 0.0.
  - **Shape Preservation**: For each vertex with a shape preservation weight greater than 0.0, a line will be drawn from each adjacent vertex to the opposite adjacent vertex.
  - **Volume Structure**: A line will be drawn for every connection between two points in the volume. A point can be either a vertex on the inner mesh, a vertex on the simulated mesh or a virtual point that belongs to an internal layer generated by the procedural construction based on the *Divisions* attribute.
+ - **Acceleration Structure**: For each level in the acceleration structure used to solve self-collisions, display a box representing the bounding box encapsulating all the collision primitives in that level. If the value of *Debug Level Acceleration Structure* is -1, then all levels are displayed. Otherwise, only the specified level is displayed. If the value is greater than the number of levels, then no levels are displayed.
+ - **Rest Self Collisions**: For each triangle intersecting with the mesh at rest, the 3 edges of the triangle are displayed.
+ - **Self Collisions Volume**: For each vertex, a sphere will be drawn representing the volume that will collide if its *Self Collision Point Radius Multiplier* weight and the *Point Radius Scale* are greater than 0.0.
 
 <figure markdown>
   ![smart tissue editor hard constraints debug](../images/smart_tissue_debug_inner_mesh.png)
