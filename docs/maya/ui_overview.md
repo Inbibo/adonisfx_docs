@@ -185,6 +185,10 @@ Option boxes can be used to launch a UI to assign the name to the deformer and c
 #### Deformers
 
 - **Edit Skin Merge**. Launches the Edit Skin Merge UI. This tool will assist with the editing of simulation and animation meshes lists of an *AdnSkinMerge* deformer. To open this UI a mesh with an *AdnSkinMerge* applied must be selected.
+- **Push**. Provides options for editing the collider list of an *AdnPush* deformer:
+
+    - **Add Colliders**. Adds the selected collider meshes to the *AdnPush* deformer applied to the last selected mesh.
+    - **Remove Colliders**. Removes the selected collider meshes from the *AdnPush* deformer applied to the last selected mesh.
 
 #### Debug
 

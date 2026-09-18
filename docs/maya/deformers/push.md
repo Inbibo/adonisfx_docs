@@ -52,11 +52,11 @@ Collider meshes can be connected when creating AdnPush or edited afterward. Coll
 - **Add colliders**:
     1. Select one or more collider meshes to add.
     2. Select the mesh with the AdnPush deformer last.
-    3. Go to *Adonis Menu* > *Deformers* > *Edit Push* > *Add Colliders*.
+    3. In the Adonis menu, under the *Edit* section, go to *Deformers* > *Push* > *Add Colliders*.
 - **Remove colliders**:
     1. Select one or more connected collider meshes to remove.
     2. Select the mesh with the AdnPush deformer last.
-    3. Go to *Adonis Menu* > *Deformers* > *Edit Push* > *Remove Colliders*.
+    3. In the Adonis menu, under the *Edit* section, go to *Deformers* > *Push* > *Remove Colliders*.
 
 Adding colliders after creating AdnPush does not enable collision processing automatically. Enable *Use Colliders* in the Attribute Editor to make AdnPush stop vertex displacement at the closest collider hit.
 
