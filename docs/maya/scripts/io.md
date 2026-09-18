@@ -68,18 +68,18 @@ adnio.clear_scene()
 To build an Adonis setup in Python, it is required to provide the setup information in dictionary format. This dictionary data can be the value returned by the function `gather_from_scene` or the result of loading a JSON file exported previously with the function `export_data`. The code to build the Adonis setup is:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
-from adn.utils.constants import IOData
+from adn.utils.constants import IODataCategory
 from adn.utils.maps import MapIOMode
 
-enabled_data = {
-    IOData.SETTINGS: True,
-    IOData.MAPS: True,
+enabled_categories = {
+    IODataCategory.SETTINGS: True,
+    IODataCategory.MAPS: True,
 }
 success = adnio.build_from_data(
     data,
     enabled_features=enabled_features,
     map_io_mode=MapIOMode.COMPONENT_ID,
-    enabled_data=enabled_data,
+    enabled_categories=enabled_categories,
 )
 </code></pre>
 
@@ -88,7 +88,7 @@ The arguments are:
 - `data`: Required dictionary containing the mapped Adonis rig data.
 - `enabled_features`: Optional feature flags using the same format as `gather_from_scene`. All features are built when this argument is `None`.
 - `map_io_mode`: Map correspondence mode from `MapIOMode`. Defaults to `MapIOMode.COMPONENT_ID`.
-- `enabled_data`: Optional flags keyed by `IOData.SETTINGS` and `IOData.MAPS`. Settings include node parameters, input connections, and all other non-paintable attributes; maps include only paintable maps. Missing flags default to `True`, and `None` imports both categories. If both categories are disabled, the function returns `False` without changing the scene.
+- `enabled_categories`: Optional flags keyed by `IODataCategory.SETTINGS` and `IODataCategory.MAPS`. Settings include node parameters, input connections, and all other non-paintable attributes; maps include only paintable maps. Missing flags default to `True`, and `None` imports both categories. If both categories are disabled, the function returns `False` without changing the scene.
 
 The function returns `True` when the data is successfully built and `False` otherwise. If a node selected through `enabled_features` does not exist, it is created for either enabled data category. When a paintable map depends on a target that is not connected, the function logs a warning and skips that map.
 
@@ -105,23 +105,23 @@ The `MapIOMode` class is available from `adn.utils.maps` and exposes the followi
 To import an Adonis setup from a JSON file, run the command below:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.maya import adnio
-from adn.utils.constants import IOData
+from adn.utils.constants import IODataCategory
 from adn.utils.maps import MapIOMode
 
 file_path = "path/to/source/file.json"
-enabled_data = {
-    IOData.SETTINGS: True,
-    IOData.MAPS: True,
+enabled_categories = {
+    IODataCategory.SETTINGS: True,
+    IODataCategory.MAPS: True,
 }
 success = adnio.import_data(
     file_path,
     enabled_features=enabled_features,
     map_io_mode=MapIOMode.COMPONENT_ID,
-    enabled_data=enabled_data,
+    enabled_categories=enabled_categories,
 )
 </code></pre>
 
-The required `file_path` argument is the full path to a JSON file containing a valid Adonis setup. The optional `enabled_features`, `map_io_mode`, and `enabled_data` arguments behave as described for `build_from_data`. The function returns `True` when the data is successfully imported and `False` otherwise.
+The required `file_path` argument is the full path to a JSON file containing a valid Adonis setup. The optional `enabled_features`, `map_io_mode`, and `enabled_categories` arguments behave as described for `build_from_data`. The function returns `True` when the data is successfully imported and `False` otherwise.
 
 Find more information about the import behavior in the [Import](../tools/importer) page.
 
