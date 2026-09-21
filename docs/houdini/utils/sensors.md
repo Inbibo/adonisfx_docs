@@ -45,6 +45,7 @@ Only one transform will be required to create the AdnSensorPosition. To create a
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
 | **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. | 
+| **Preserve Full Frame** | Boolean | False       | ✓ | Preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -157,6 +158,7 @@ Two transforms will be required to create the AdnSensorDistance. To create an Ad
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
 | **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. | 
+| **Preserve Full Frame** | Boolean | False       | ✓ | Preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -289,6 +291,7 @@ Three transforms will be required to create the AdnSensorRotation. To create an 
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
 | **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. | 
+| **Preserve Full Frame** | Boolean | False       | ✓ | Preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |

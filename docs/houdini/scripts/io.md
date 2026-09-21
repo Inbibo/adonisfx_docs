@@ -74,12 +74,12 @@ adnio.clear_scene()
 To build an Adonis setup in Python, it is required to provide the setup information in dictionary format. This dictionary data can be the value returned by the function `gather_from_scene` or the result of loading a JSON file exported previously with the function `export_data`. The code to build the Adonis setup is:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.houdini import adnio
-from adn.utils.constants import IOData
+from adn.utils.constants import IODataCategory
 from adn.utils.maps import MapIOMode
 
-enabled_data = {
-    IOData.SETTINGS: True,
-    IOData.MAPS: True,
+enabled_categories = {
+    IODataCategory.SETTINGS: True,
+    IODataCategory.MAPS: True,
 }
 success = adnio.build_from_data(
     data,
@@ -87,7 +87,7 @@ success = adnio.build_from_data(
     context=context,
     map_io_mode=MapIOMode.COMPONENT_ID,
     layout_nodes=True,
-    enabled_data=enabled_data,
+    enabled_categories=enabled_categories,
 )
 </code></pre>
 
@@ -98,7 +98,7 @@ The arguments are:
 - `context`: Optional geometry node path where the rig is built. When this argument is `None`, the active geometry node in */obj* is used.
 - `map_io_mode`: Map correspondence mode from `MapIOMode`. Defaults to `MapIOMode.COMPONENT_ID`.
 - `layout_nodes`: Controls whether Houdini automatically lays out the node network after import. Set it to `False` to preserve existing node positions and position only newly created nodes. Defaults to `True`.
-- `enabled_data`: Optional flags keyed by `IOData.SETTINGS` and `IOData.MAPS`. Settings include node parameters, input connections, and all other non-paintable attributes; maps include only paintable maps. Missing flags default to `True`, and `None` imports both categories. If both categories are disabled, the function returns `False` without changing the scene.
+- `enabled_categories`: Optional flags keyed by `IODataCategory.SETTINGS` and `IODataCategory.MAPS`. Settings include node parameters, input connections, and all other non-paintable attributes; maps include only paintable maps. Missing flags default to `True`, and `None` imports both categories. If both categories are disabled, the function returns `False` without changing the scene.
 
 The function returns `True` when the data is successfully built and `False` otherwise. If a node selected through `enabled_features` does not exist, it is created for either enabled data category. When a paintable map depends on a target that is not connected, the function logs a warning and skips that map.
 
@@ -115,13 +115,13 @@ The `MapIOMode` class is available from `adn.utils.maps` and exposes the followi
 To import an Adonis setup from a JSON file, run the command below:
 
 <pre><code style="white-space: pre; margin: 20px 0; padding: 10px; box-sizing: border-box;">from adn.scripts.houdini import adnio
-from adn.utils.constants import IOData
+from adn.utils.constants import IODataCategory
 from adn.utils.maps import MapIOMode
 
 file_path = "path/to/source/file.json"
-enabled_data = {
-    IOData.SETTINGS: True,
-    IOData.MAPS: True,
+enabled_categories = {
+    IODataCategory.SETTINGS: True,
+    IODataCategory.MAPS: True,
 }
 success = adnio.import_data(
     file_path,
@@ -129,11 +129,11 @@ success = adnio.import_data(
     context=context,
     map_io_mode=MapIOMode.COMPONENT_ID,
     layout_nodes=True,
-    enabled_data=enabled_data,
+    enabled_categories=enabled_categories,
 )
 </code></pre>
 
-The required `file_path` argument is the full path to a JSON file containing a valid Adonis setup. The optional `enabled_features`, `context`, `map_io_mode`, `layout_nodes`, and `enabled_data` arguments behave as described for `build_from_data`. The function returns `True` when the data is successfully imported and `False` otherwise.
+The required `file_path` argument is the full path to a JSON file containing a valid Adonis setup. The optional `enabled_features`, `context`, `map_io_mode`, `layout_nodes`, and `enabled_categories` arguments behave as described for `build_from_data`. The function returns `True` when the data is successfully imported and `False` otherwise.
 
 > [!NOTE]
 > The rig will be imported into the first found geometry node with the visibility flag on. For that reason it is advisable to have one single geometry node in the */obj* context or at least only one active.
