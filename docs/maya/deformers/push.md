@@ -25,7 +25,7 @@ When colliders are enabled, each vertex is displaced until its push path hits a 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Use Colliders** | Boolean | False | ✓ | Toggles the use of colliders. If enabled, the provided colliders are processed; if disabled, they are ignored. |
-| **Input Inflation** | Float | 0.0 | ✓ | Scale factor used to inflate the input geometry when *Push Length* is negative or deflate it when *Push Length* is positive before raycasting against the colliders. A small value is recommended when the input geometry overlaps the colliders; use 0.0 otherwise. Has a range of \[0.0, 1.0\]. The upper limit is soft; higher values can be used. |
+| **Overlap Tolerance** | Float | 0.0 | ✓ | Distance used to offset the input geometry along its vertex normals before raycasting against the colliders. Use a small value to tolerate initial overlaps with the colliders; 0.0 otherwise. Has a range of \[0.0, 1.0\]. The upper limit is soft; higher values can be used. |
 
 ### Deformer Attributes
 | Name | Type | Default | Animatable | Description |
