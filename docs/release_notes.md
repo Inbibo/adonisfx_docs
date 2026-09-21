@@ -5,13 +5,13 @@
 
 ### Core
 
-- Added full-frame preservation to all solvers.
+- Added full-frame preservation to the AdnFat, AdnMuscle, AdnRibbonMuscle, AdnSkin, AdnSimshape, and AdnSmartTissue solvers.
 - Added self-collisions to the AdnFat solver.
 - Extended self-collisions in the AdnSmartTissue solver with thickness, the option to ignore rest intersections, and debugger support.
 - Added stepped interpolation for Attach to Transform and Slide on Segment constraint data in the AdnMuscle and AdnRibbonMuscle solvers.
 - Added stepped interpolation for the inner mesh and attenuation matrix in the AdnSmartTissue solver.
 - Improved and optimized the sliding method for sliding constraints by consolidating BVH closest-point sliding.
-- Added a paintable Rest Length Weights map to control rest length per point in the AdnMuscle, AdnSkin, and AdnSimshape solvers in Maya and Houdini.
+- Added a paintable Rest Length Weights map to control rest length per point in the AdnMuscle, AdnRibbonMuscle, and AdnSkin solvers in Maya and Houdini.
 - Added collider support to AdnPush.
 
 ### Tools
