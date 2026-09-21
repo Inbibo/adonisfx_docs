@@ -96,17 +96,17 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorPosition input and output attributes](../images/sensor_position_parameter_template_00.png)
-  <figcaption><b>Figure 3</b>: AdnSensorPosition Parameter Template: Input, Output and Remapped Output attributes.</figcaption>
+  <figcaption><b>Figure 3</b>: AdnSensorPosition Attribute Editor: Input, Output and Remapped Output attributes.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorPosition remap settings](../images/sensor_position_parameter_template_01.png)
-  <figcaption><b>Figure 4</b>: AdnSensorPosition Parameter Template: Velocity and Acceleration Remap Settings.</figcaption>
+  <figcaption><b>Figure 4</b>: AdnSensorPosition Attribute Editor: Velocity and Acceleration Remap Settings.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorPosition time and scale attributes](../images/sensor_position_parameter_template_02.png)
-  <figcaption><b>Figure 5</b>: AdnSensorPosition Parameter Template: Time and Scale Attributes.</figcaption>
+  <figcaption><b>Figure 5</b>: AdnSensorPosition Attribute Editor: Time and Scale Attributes.</figcaption>
 </figure>
 
 ## AdnSensorDistance
@@ -172,7 +172,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | **Selected Position**   | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
 | **Selected Value**      | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
 | **Interpolation**       | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
-| **Input Min Distance**  | Float      | 0.0    | ✓ | Lower limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
+| **Input Min Distance**  | Float      | 1.0    | ✓ | Lower limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
 | **Input Max Distance**  | Float      | 0.0    | ✓ | Upper limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
 | **Output Min Distance** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
 | **Output Max Distance** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
@@ -219,17 +219,17 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorDistance input and output attributes](../images/sensor_distance_parameter_template_00.png)
-  <figcaption><b>Figure 8</b>: AdnSensorDistance Parameter Template: Input, Output and Remapped Output attributes.</figcaption>
+  <figcaption><b>Figure 8</b>: AdnSensorDistance Attribute Editor: Input, Output and Remapped Output attributes.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorDistance remap settings](../images/sensor_distance_parameter_template_01.png)
-  <figcaption><b>Figure 9</b>: AdnSensorDistance Parameter Template: Distance, Velocity and Acceleration Remap Settings.</figcaption>
+  <figcaption><b>Figure 9</b>: AdnSensorDistance Attribute Editor: Distance, Velocity and Acceleration Remap Settings.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorDistance time and scale attributes](../images/sensor_distance_parameter_template_02.png)
-  <figcaption><b>Figure 10</b>: AdnSensorDistance Parameter Template: Time and Scale Attributes.</figcaption>
+  <figcaption><b>Figure 10</b>: AdnSensorDistance Attribute Editor: Time and Scale Attributes.</figcaption>
 </figure>
 
 ## AdnSensorRotation
@@ -343,15 +343,15 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorRotation input and output attributes](../images/sensor_rotation_parameter_template_00.png)
-  <figcaption><b>Figure 13</b>: AdnSensorRotation Parameter Template: Input, Output and Remapped Output attributes.</figcaption>
+  <figcaption><b>Figure 13</b>: AdnSensorRotation Attribute Editor: Input, Output and Remapped Output attributes.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorRotation remap settings](../images/sensor_rotation_parameter_template_01.png)
-  <figcaption><b>Figure 14</b>: AdnSensorRotation Parameter Template: Angle, Velocity and Acceleration Remap Settings.</figcaption>
+  <figcaption><b>Figure 14</b>: AdnSensorRotation Attribute Editor: Angle, Velocity and Acceleration Remap Settings.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnSensorRotation time and scale attributes](../images/sensor_rotation_parameter_template_02.png)
-  <figcaption><b>Figure 15</b>: AdnSensorRotation Parameter Template: Time and Scale Attributes.</figcaption>
+  <figcaption><b>Figure 15</b>: AdnSensorRotation Attribute Editor: Time and Scale Attributes.</figcaption>
 </figure>

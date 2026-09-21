@@ -69,18 +69,19 @@ To create and configure the deformer:
 | **ML Model Path**        | String  |         | ✗ | Path to the ML Model used for inference. |
 | **ML Min Stiffness**        | Float   | 1000.0  | ✓ | Stiffness value to apply to vertices with zero inferred activation. Has a range of \[0.0, 1e<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
 | **ML Max Stiffness**        | Float   | 12000.0 | ✓ | Stiffness value to apply to vertices with maximum inferred activation. Has a range of \[0.0, 1e<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **ML Stiffness Multiplier** | Float   | 1.0     | ✓ | Scaling factor applied to the minimum and maximum stiffness values. Has a range of \[0.0, 2.0\]. The upper limit is soft; higher values can be used. |
 | **ML Activation Smoothing** | Integer | 0       | ✗ | Number of iterations for the activation smoothing algorithm. The greater the number, the smoother the activations will be. Has a range of \[0, 10\]. The maximum value allowed is 20. |
 | **Write Out ML Activation** | Boolean | False | ✓ | If enabled, it writes the per-point ML inferred activation to the output plug `mlOutActivation`. The values written have the ML activation smoothing and the activation paintable weights applied. |
 
 ### Push Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Push Length** | Float | 0.0 | ✓ | Length of the push to apply to build the inner mesh. A positive value pushes the vertices along the direction of the normal, while a negative value pushes them in the opposite direction. Has a range of \[-1.0, 1.0\]. The upper and lower limits are soft; higher or lower values can be used. |
+| **Push Length** | Float | -1.0 | ✓ | Length of the push to apply to build the inner mesh. A positive value pushes the vertices along the direction of the normal, while a negative value pushes them in the opposite direction. Has a range of \[-1.0, 1.0\]. The upper and lower limits are soft; higher or lower values can be used. |
 
 ### Relax Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Iterations**         | Integer | 1      | ✗ | Number of iterations of the relaxation algorithm. Greater values mean greater computational cost. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
+| **Relax Iterations**   | Integer | 2      | ✗ | Number of iterations of the relaxation algorithm. Greater values mean greater computational cost. Has a range of \[0, 10\]. The upper limit is soft, higher values can be used. |
 | **Pin**                | Boolean | False  | ✓ | Flag to pin the vertices on the boundaries. |
 | **Smooth**             | Float   | 0.5    | ✓ | Amount of smoothing to apply. Has a range of \[0.0, 1.0\]. |
 | **Relax**              | Float   | 0.5    | ✓ | Amount of relaxation to apply. Has a range of \[0.0, 1.0\]. |
@@ -101,8 +102,8 @@ To create and configure the deformer:
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). Adonis interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.001, 10.0\]. The upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). Adonis interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.001, 100.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
@@ -129,9 +130,9 @@ To create and configure the deformer:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Solver Stiffness**            | Float |  0.0 | ✗ | Shows the global stiffness value currently used by the solver. |
-| **Hard Constraints**            | Float | -1.0 | ✓ | Sets the stiffness override value for hard constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
-| **Volume Shape Preservation**   | Float | -1.0 | ✓ | Sets the stiffness override value for the volume shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
-| **Shape Preservation**          | Float | -1.0 | ✓ | Sets the stiffness override value for the shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **Hard Constraints**            | Float | -1.0 | ✓ | Sets the stiffness override value for hard constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[-1.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **Volume Shape Preservation**   | Float | -1.0 | ✓ | Sets the stiffness override value for the volume shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[-1.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **Shape Preservation**          | Float | -1.0 | ✓ | Sets the stiffness override value for the shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[-1.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
 
 > [!NOTE]
 > Providing a stiffness override value of 0.0 will disable the computation of that constraint.
@@ -178,8 +179,8 @@ To create and configure the deformer:
 | **Push Out Threshold**          | Float      | -1.0                  | ✓ | Maximum correction applied by the push out adjustment for self collision affected points. The threshold will be ignored if its value is 0.0 or less. Has a range of \[-1.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Last Substep Only**           | Boolean    | False                 | ✗ | If enabled, self-collisions are only computed in the last substep of the simulation. |
 | **Last Iteration Only**         | Boolean    | False                 | ✗ | If enabled, self-collisions are only computed in the last iteration of each substep. |
-| **Quality Mode**                | Enumerator | Quality               | ✓ | Sets the quality mode for self-collision detection. <ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
-| **Ignore Rest Intersections**   | Boolean    | True                  | ✗ | Ignore self-collision detection and correction for primitives that are intersecting in the rest pose. |
+| **Quality Mode**                | Enumerator | Fast                  | ✓ | Sets the quality mode for self-collision detection. <ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
+| **Ignore Rest Intersections**   | Boolean    | False                 | ✗ | Ignore self-collision detection and correction for primitives that are intersecting in the rest pose. |
 
 #### Mush Properties
 | Name | Type | Default | Animatable | Description |

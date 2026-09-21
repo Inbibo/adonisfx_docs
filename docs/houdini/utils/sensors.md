@@ -171,7 +171,7 @@ Two transforms will be required to create the AdnSensorDistance. To create an Ad
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Distance Activation Attribute**   | float     | 0.0   | ✗ | Specifies the name of the detail attribute that is used for exporting the remapped activation value. The expected attribute name is `adnActivationDistance`. |
-| **Input Min Distance**  | Float      | 0.0    | ✓ | Lower limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
+| **Input Min Distance**  | Float      | 10.0   | ✓ | Lower limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
 | **Input Max Distance**  | Float      | 0.0    | ✓ | Upper limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
 | **Output Min Distance** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
 | **Output Max Distance** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
