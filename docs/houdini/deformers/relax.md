@@ -54,12 +54,12 @@ The AdnRelax SOP is easy to create and configure in Houdini. It only requires th
 
 ## Parameter Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![relax parameter template solver tab](../images/relax_parameter_template_00.png)
   <figcaption><b>Figure 1</b>: AdnRelax Parameter Template (Part 1): Solver.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![relax parameter template maps tab](../images/relax_parameter_template_01.png)
   <figcaption><b>Figure 2</b>: AdnRelax Parameter Template (Part 2): Maps.</figcaption>
 </figure>
