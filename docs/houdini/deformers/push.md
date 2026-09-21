@@ -60,17 +60,17 @@ When colliders are enabled, each point is displaced until its push path hits a c
 
 ## Parameter Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![push parameter template solver tab](../images/push_parameter_template_00.png)
   <figcaption><b>Figure 1</b>: AdnPush Parameter Template (Part 1): Solver.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![push parameter template colliders tab](../images/push_parameter_template_01.png)
   <figcaption><b>Figure 2</b>: AdnPush Parameter Template (Part 2): Colliders.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![push parameter template maps tab](../images/push_parameter_template_02.png)
   <figcaption><b>Figure 3</b>: AdnPush Parameter Template (Part 3): Maps.</figcaption>
 </figure>

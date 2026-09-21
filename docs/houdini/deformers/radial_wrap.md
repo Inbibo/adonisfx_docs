@@ -62,17 +62,17 @@ The AdnRadialWrap is easy to create and configure in Houdini:
 
 ## Parameter Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![radial wrap parameter template solver tab](../images/radial_wrap_parameter_template_00.png)
   <figcaption><b>Figure 1</b>: AdnRadialWrap Parameter Template (Part 1): Solver.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![radial wrap parameter template targets tab](../images/radial_wrap_parameter_template_01.png)
   <figcaption><b>Figure 2</b>: AdnRadialWrap Parameter Template (Part 2): Targets.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![radial wrap parameter template maps tab](../images/radial_wrap_parameter_template_02.png)
   <figcaption><b>Figure 3</b>: AdnRadialWrap Parameter Template (Part 3): Maps.</figcaption>
 </figure>

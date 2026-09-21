@@ -51,7 +51,7 @@ Start by painting attachment weights, painting the influence for each target by 
   <figcaption><b>Figure 3</b>: Transform Attachment influences (joints and locators).</figcaption>
 </figure>
 
-<figure style="width:75%" markdown>
+<figure markdown>
   ![Geometry Attachment influences (meshes)](images/simple_setup_muscle_paint_geometry_attach.png)
   <figcaption><b>Figure 4</b>: Geometry Attachment influences (meshes).</figcaption>
 </figure>
