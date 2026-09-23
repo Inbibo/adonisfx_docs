@@ -43,17 +43,17 @@ The AdnClosestFit is easy to create and configure in Houdini. It requires the me
 
 ## Parameter Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![closest fit parameter template solver tab](../images/closest_fit_parameter_template_00.png)
   <figcaption><b>Figure 1</b>: AdnClosestFit Parameter Template (Part 1): Solver.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![closest fit parameter template targets tab](../images/closest_fit_parameter_template_01.png)
   <figcaption><b>Figure 2</b>: AdnClosestFit Parameter Template (Part 2): Targets.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![closest fit parameter template maps tab](../images/closest_fit_parameter_template_02.png)
   <figcaption><b>Figure 3</b>: AdnClosestFit Parameter Template (Part 3): Maps.</figcaption>
 </figure>

@@ -49,17 +49,17 @@ The AdnSoftWrap is easy to create and configure in Houdini. It requires the mesh
 
 ## Parameter Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![soft wrap parameter template solver tab](../images/soft_wrap_parameter_template_00.png)
   <figcaption><b>Figure 1</b>: AdnSoftWrap Parameter Template (Part 1): Solver.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![soft wrap parameter template targets tab](../images/soft_wrap_parameter_template_01.png)
   <figcaption><b>Figure 2</b>: AdnSoftWrap Parameter Template (Part 2): Targets.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![soft wrap parameter template maps tab](../images/soft_wrap_parameter_template_02.png)
   <figcaption><b>Figure 3</b>: AdnSoftWrap Parameter Template (Part 3): Maps.</figcaption>
 </figure>

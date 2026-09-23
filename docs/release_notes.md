@@ -1,5 +1,48 @@
 # Release Notes
 
+## Version 2.2.0
+2026-09-14
+
+### Core
+
+- Added full-frame preservation to the AdnFat, AdnMuscle, AdnRibbonMuscle, AdnSkin, AdnSimshape, and AdnSmartTissue solvers.
+- Added self-collisions to the AdnFat solver.
+- Extended self-collisions in the AdnSmartTissue solver with thickness, the option to ignore rest intersections, and debugger support.
+- Added stepped interpolation for Attach to Transform and Slide on Segment constraint data in the AdnMuscle and AdnRibbonMuscle solvers.
+- Added stepped interpolation for the inner mesh and attenuation matrix in the AdnSmartTissue solver.
+- Improved and optimized the sliding method for sliding constraints by consolidating BVH closest-point sliding.
+- Added a paintable Rest Length Weights map to control rest length per point in the AdnMuscle, AdnRibbonMuscle, and AdnSkin solvers in Maya and Houdini.
+- Added collider support to AdnPush.
+
+### Tools
+
+- Added on-demand normalization for Uber Constraints to the Adonis Paint Tool (Maya).
+- Added support for painting selected vertices in the Adonis Paint Tool (Maya).
+- Added a toggle to prevent automatic selection of the AdnDebug node when hovering over or refreshing the selection in the Adonis Paint Tool (Maya).
+- Added selection-based export support to the Exporter.
+- Added map transfer by position or UVs to the Importer.
+- Added independent Settings and Maps options to the Importer, with an All option to select both.
+- Added automatic blend-weight generation when creating AdnSkinMerge.
+- Disabled per-vertex polygon colors while the Adonis Paint Tool is open to prevent inconsistent coloring (Maya).
+
+### Improvements
+
+- Added a closest-muscle interrupt to data extraction in Maya and Houdini.
+- Added support for custom file extensions to be available on selection (Maya).
+- Prevented invalid model files from being used.
+- Improved AdnLogger message formatting.
+- Improved the clear utility to safely remove API nodes from more complex graphs (Houdini).
+
+### Bug Fixes
+
+- Fixed the activations debugger in AdnSmartTissue and AdnSimshape. *Adonis-3374*
+- Fixed the sliding-distance warning in AdnSimshape when a valid collider is connected. *Adonis-3463*
+- Removed the triangle-mismatch error from the AdnSmartTissue solver. *Adonis-3446*
+- Reused the simulation mesh triangulation for the base mesh to avoid triangulation mismatches in AdnFat. *Adonis-3441*
+- Prevented Radial Wrap from changing refinement iterations when closest-point adjustment is enabled without any targets. *Adonis-3401*
+- Fixed AdnLogger so warnings and errors display correctly in Maya. *Adonis-3385*
+- Fixed behavior of the Enable toggle in AdnSmartTissue and AdnGlue SOPs in Houdini to properly pass through the input geometry to the output. *Adonis-3523*
+
 ## Version 2.1.0
 2026-07-01
 

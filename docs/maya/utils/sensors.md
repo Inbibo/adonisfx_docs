@@ -84,6 +84,7 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 | **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
 | **Current Time**    | Time    | *Current frame* | ✓ | Current playback frame. |
 | **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
+| **Preserve Full Frame** | Boolean | False       | ✓ | Preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -94,18 +95,18 @@ There are two different methods of creating an AdnSensorPosition, depending if i
 ### Attribute Editor Template
 
 <figure style="width: 75%;" markdown>
-  ![AdnSensorPosition parameter template first tab](../images/sensor_position_parameter_template_00.png) 
-  <figcaption><b>Figure 3</b>: AdnSensorPosition Parameter Template: Input, Output and Remap.</figcaption>
+  ![AdnSensorPosition input and output attributes](../images/sensor_position_parameter_template_00.png)
+  <figcaption><b>Figure 3</b>: AdnSensorPosition Attribute Editor: Input, Output and Remapped Output attributes.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnSensorPosition parameter template second tab](../images/sensor_position_parameter_template_01.png) 
-  <figcaption><b>Figure 4</b>: AdnSensorPosition Parameter Template: Remap.</figcaption>
+  ![AdnSensorPosition remap settings](../images/sensor_position_parameter_template_01.png)
+  <figcaption><b>Figure 4</b>: AdnSensorPosition Attribute Editor: Velocity and Acceleration Remap Settings.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnSensorPosition parameter template third tab](../images/sensor_position_parameter_template_02.png) 
-  <figcaption><b>Figure 5</b>: AdnSensorPosition Parameter Template: Time and Scale attributes.</figcaption>
+  ![AdnSensorPosition time and scale attributes](../images/sensor_position_parameter_template_02.png)
+  <figcaption><b>Figure 5</b>: AdnSensorPosition Attribute Editor: Time and Scale Attributes.</figcaption>
 </figure>
 
 ## AdnSensorDistance
@@ -171,7 +172,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | **Selected Position**   | Float      | 0.0    | ✓ | X-axis value of the ramp attribute. |
 | **Selected Value**      | Float      | 0.0    | ✓ | Y-axis value of the ramp attribute. |
 | **Interpolation**       | Enumerator | Linear | ✓ | Interpolation method to be used between every two consecutive points in the ramp. There are four options: None, Linear, Smooth and Spline. |
-| **Input Min Distance**  | Float      | 0.0    | ✓ | Lower limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
+| **Input Min Distance**  | Float      | 1.0    | ✓ | Lower limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
 | **Input Max Distance**  | Float      | 0.0    | ✓ | Upper limit of the range used to map the Distance value before evaluating it on the ramp attribute. |
 | **Output Min Distance** | Float      | 0.0    | ✓ | Lower limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
 | **Output Max Distance** | Float      | 1.0    | ✓ | Upper limit of the range used to map the value returned by the ramp attribute and calculate the final remapped Distance. |
@@ -206,6 +207,7 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 | **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
 | **Current Time**    | Time    | *Current frame* | ✓ | Current playback frame. |
 | **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
+| **Preserve Full Frame** | Boolean | False       | ✓ | Preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -216,23 +218,18 @@ There are two different methods of creating an AdnSensorDistance, depending if i
 ### Attribute Editor Template
 
 <figure style="width: 75%;" markdown>
-  ![AdnSensorDistance parameter template first tab](../images/sensor_distance_parameter_template_00.png) 
-  <figcaption><b>Figure 8</b>: AdnSensorDistance Parameter Template: Input, Output and Remap.</figcaption>
+  ![AdnSensorDistance input and output attributes](../images/sensor_distance_parameter_template_00.png)
+  <figcaption><b>Figure 8</b>: AdnSensorDistance Attribute Editor: Input, Output and Remapped Output attributes.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnSensorDistance parameter template second tab](../images/sensor_distance_parameter_template_01.png) 
-  <figcaption><b>Figure 9</b>: AdnSensorDistance Parameter Template: Remap Pt.1.</figcaption>
+  ![AdnSensorDistance remap settings](../images/sensor_distance_parameter_template_01.png)
+  <figcaption><b>Figure 9</b>: AdnSensorDistance Attribute Editor: Distance, Velocity and Acceleration Remap Settings.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnSensorDistance parameter template second tab](../images/sensor_distance_parameter_template_02.png) 
-  <figcaption><b>Figure 10</b>: AdnSensorDistance Parameter Template: Remap Pt.2.</figcaption>
-</figure>
-
-<figure style="width: 75%;" markdown>
-  ![AdnSensorDistance parameter template third tab](../images/sensor_distance_parameter_template_03.png) 
-  <figcaption><b>Figure 11</b>: AdnSensorDistance Parameter Template: Time and Scale attributes.</figcaption>
+  ![AdnSensorDistance time and scale attributes](../images/sensor_distance_parameter_template_02.png)
+  <figcaption><b>Figure 10</b>: AdnSensorDistance Attribute Editor: Time and Scale Attributes.</figcaption>
 </figure>
 
 ## AdnSensorRotation
@@ -245,7 +242,7 @@ An AdnSensorRotation will be in charge of computing, remapping and feeding activ
 
 <figure markdown>
   ![AdnSensorRotation angle display on AdnLocatorRotation within a scene](../images/sensors_rotation.png)
-  <figcaption><b>Figure 12</b>: AdnSensorRotation used in a human model.</figcaption>
+  <figcaption><b>Figure 11</b>: AdnSensorRotation used in a human model.</figcaption>
 </figure>
 
 There are two different methods of creating an AdnSensorRotation, depending if it is to be applied on an existing [AdnLocatorRotation](locators#adnlocatorrotation) or creating it alongside the sensor.
@@ -264,7 +261,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 
 <figure markdown>
   ![AdnSensorRotation graph](../images/rotation_sensor_locator_graph.png)
-  <figcaption><b>Figure 13</b>: AdnSensorRotation and AdnLocatorRotation in the node graph.</figcaption>
+  <figcaption><b>Figure 12</b>: AdnSensorRotation and AdnLocatorRotation in the node graph.</figcaption>
 </figure>
 
 ### Attributes
@@ -335,6 +332,7 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 | **Start Time**      | Time    | *Current frame* | ✗ | Determines the frame at which the playback/simulation starts. |
 | **Current Time**    | Time    | *Current frame* | ✓ | Current playback frame. |
 | **Allow Subframes** | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
+| **Preserve Full Frame** | Boolean | False       | ✓ | Preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation. |
 
 #### Scale Attributes
 | Name | Type | Default | Animatable | Description |
@@ -344,21 +342,16 @@ There are two different methods of creating an AdnSensorRotation, depending if i
 ### Attribute Editor Template
 
 <figure style="width: 75%;" markdown>
-  ![AdnSensorRotation parameter template first tab](../images/sensor_rotation_parameter_template_00.png) 
-  <figcaption><b>Figure 14</b>: AdnSensorRotation Parameter Template: Input, Output and Remap.</figcaption>
+  ![AdnSensorRotation input and output attributes](../images/sensor_rotation_parameter_template_00.png)
+  <figcaption><b>Figure 13</b>: AdnSensorRotation Attribute Editor: Input, Output and Remapped Output attributes.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnSensorRotation parameter template second tab](../images/sensor_rotation_parameter_template_01.png) 
-  <figcaption><b>Figure 15</b>: AdnSensorRotation Parameter Template: Remap Pt.1.</figcaption>
+  ![AdnSensorRotation remap settings](../images/sensor_rotation_parameter_template_01.png)
+  <figcaption><b>Figure 14</b>: AdnSensorRotation Attribute Editor: Angle, Velocity and Acceleration Remap Settings.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnSensorRotation parameter template second tab](../images/sensor_rotation_parameter_template_02.png) 
-  <figcaption><b>Figure 16</b>: AdnSensorRotation Parameter Template: Remap Pt.2.</figcaption>
-</figure>
-
-<figure style="width: 75%;" markdown>
-  ![AdnSensorRotation parameter template third tab](../images/sensor_rotation_parameter_template_03.png) 
-  <figcaption><b>Figure 17</b>: AdnSensorRotation Parameter Template: Time and Scale attributes.</figcaption>
+  ![AdnSensorRotation time and scale attributes](../images/sensor_rotation_parameter_template_02.png)
+  <figcaption><b>Figure 15</b>: AdnSensorRotation Attribute Editor: Time and Scale Attributes.</figcaption>
 </figure>

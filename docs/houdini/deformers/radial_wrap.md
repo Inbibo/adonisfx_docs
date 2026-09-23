@@ -33,8 +33,8 @@ The AdnRadialWrap is easy to create and configure in Houdini:
 ### Refinement
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Refinement Iterations**    | Integer | 1    | ✓ | Number of iterations for the refinement process. Higher values may produce a better quality result at the cost of performance. Has a range of \[1, 20\]. The upper limit is soft, higher values can be used. |
-| **Relax Iterations**         | Integer | 1    | ✓ | Number of relaxation iterations performed for each refinement iteration. Has a range of \[1, 20\]. The upper limit is soft, higher values can be used. |
+| **Refinement Iterations**    | Integer | 1    | ✓ | Number of iterations for the refinement process. Higher values may produce a better quality result at the cost of performance. Has a range of \[0, 20\]. The upper limit is soft, higher values can be used. |
+| **Relax Iterations**         | Integer | 1    | ✓ | Number of relaxation iterations performed for each refinement iteration. Has a range of \[0, 20\]. The upper limit is soft, higher values can be used. |
 | **Closest Point Adjustment** | Boolean | True | ✓ | Toggles the closest point adjustment performed at the end of each refinement iteration. |
 
 ### Time Attributes
@@ -62,17 +62,17 @@ The AdnRadialWrap is easy to create and configure in Houdini:
 
 ## Parameter Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![radial wrap parameter template solver tab](../images/radial_wrap_parameter_template_00.png)
   <figcaption><b>Figure 1</b>: AdnRadialWrap Parameter Template (Part 1): Solver.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![radial wrap parameter template targets tab](../images/radial_wrap_parameter_template_01.png)
   <figcaption><b>Figure 2</b>: AdnRadialWrap Parameter Template (Part 2): Targets.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![radial wrap parameter template maps tab](../images/radial_wrap_parameter_template_02.png)
   <figcaption><b>Figure 3</b>: AdnRadialWrap Parameter Template (Part 3): Maps.</figcaption>
 </figure>
