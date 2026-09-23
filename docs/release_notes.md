@@ -41,6 +41,7 @@
 - Reused the simulation mesh triangulation for the base mesh to avoid triangulation mismatches in AdnFat. *Adonis-3441*
 - Prevented Radial Wrap from changing refinement iterations when closest-point adjustment is enabled without any targets. *Adonis-3401*
 - Fixed AdnLogger so warnings and errors display correctly in Maya. *Adonis-3385*
+- Fixed behavior of the Enable toggle in AdnSmartTissue and AdnGlue SOPs in Houdini to properly pass through the input geometry to the output. *Adonis-3523*
 
 ## Version 2.1.0
 2026-07-01
