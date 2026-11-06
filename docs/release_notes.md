@@ -27,6 +27,7 @@
 
 ### Improvements
 
+- Optimized AdnSkin sliding in Fast and Quality modes by using painted Slide weights to skip closest-point queries for vertices with zero Slide weight, without changing their simulation behavior.
 - Added a closest-muscle interrupt to data extraction in Maya and Houdini.
 - Added support for custom file extensions to be available on selection (Maya).
 - Prevented invalid model files from being used.
@@ -35,6 +36,7 @@
 
 ### Bug Fixes
 
+- Fixed hard constraint stiffness in AdnSmartTissue when ML inference is enabled so that it correctly follows per-point activations. *Adonis-3534*
 - Fixed the activations debugger in AdnSmartTissue and AdnSimshape. *Adonis-3374*
 - Fixed the sliding-distance warning in AdnSimshape when a valid collider is connected. *Adonis-3463*
 - Removed the triangle-mismatch error from the AdnSmartTissue solver. *Adonis-3446*
@@ -42,6 +44,10 @@
 - Prevented Radial Wrap from changing refinement iterations when closest-point adjustment is enabled without any targets. *Adonis-3401*
 - Fixed AdnLogger so warnings and errors display correctly in Maya. *Adonis-3385*
 - Fixed behavior of the Enable toggle in AdnSmartTissue and AdnGlue SOPs in Houdini to properly pass through the input geometry to the output. *Adonis-3523*
+
+### Known Limitations
+
+- By design, Maya may evaluate hidden nodes when creating file references, triggering solver initialization at the initialization frame. See the [FAQ](faq#why-do-hidden-solvers-initialize-when-referencing-a-file-in-maya) for recommendations. *Adonis-3538*
 
 ## Version 2.1.0
 2026-07-01

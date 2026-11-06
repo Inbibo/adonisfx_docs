@@ -119,6 +119,29 @@ The second approach is to use nCloth to apply a pressured simulation. This solut
 
 As a final step for both approaches, you may want to smooth the resulting fascia geometry with sculpting tools to polish the final result.
 
+### Why do hidden solvers initialize when referencing a file in Maya?
+
+Creating a file reference invalidates Maya's evaluation graph and can trigger evaluation of hidden nodes, even when the referenced content is unrelated to the rig. This is Maya behavior by design: hiding geometry and all its downstream consumers does not guarantee that Maya will skip their evaluation.
+
+If the current time is a solver's initialization frame, this evaluation can reinitialize the solver and make referencing slower. This affects all Adonis solvers and the behavior occurs with both Serial and Parallel evaluation.
+
+Before importing or referencing new content into the scene, we recommend moving the current time to one frame before the initialization frame (`init - 1`) to avoid unnecessary initialization during the operation. The initialization frame is the earlier of *Preroll Start Time* and *Start Time*. If the scene contains solvers with different initialization frames, use a frame before the earliest one. This workflow recommendation does not prevent Maya from requesting evaluation, and necessary initialization will still occur when returning to the initialization frame.
+
+For scripted reference creation, we also suggested temporarily allowing only graph rebuilding during idle processing. Run the following in Maya's Python Script Editor before creating the reference:
+
+```python
+import maya.cmds as cmds
+cmds.evaluationManager(idleAction=1)
+```
+
+After creating the reference, restore the default idle behavior:
+
+```python
+cmds.evaluationManager(idleAction=3)
+```
+
+This setting only postpones evaluation. The next timeline change could still evaluate hidden solvers at the time when the reference was created. It should therefore not be relied on to prevent initialization entirely.
+
 ### How can I upgrade a Maya scene from Adonis v1 to v2?
 
 Go to Adonis menu > Utils and press *Upgrade v1.x To v2.x*. This option performs an upgrade to all Adonis solvers to make v1.x rigs compatible with v2.x. This upgrade affects the painted values in the maps that are affected by the *Maps Remap Mode* attribute added in v2.0.0 to all solvers (i.e., shape preservation, attachments and sliding in muscle solver, uber constraints in skin solver). Due to how this remapping modifies how the painted values from the plugs are transferred to the solver, this utility updates those values in order to get simulation results as consistent as possible with v1.x.
