@@ -62,7 +62,7 @@ In the above setup we have the following characteristics:
 
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Output Attribute** | float | 0.0 | ✗ | Specifies the name of the detail attribute that is used for exporting the remapped value. The expected attribute name is `adnOutput`. |
+| **Output Attribute** | String | `adnOutput` | ✗ | Specifies the name of the detail attribute that is used for exporting the remapped value. |
 | **Output** | Float | 0.0 | ✗ | Output remapped value. |
 
 ## Parameter Template

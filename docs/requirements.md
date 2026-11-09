@@ -3,11 +3,11 @@
 ## Software
 
 - Maya 2024, 2025, 2026, 2027
-- Houdini 20.0, 20.5, 21.0
+- Houdini 20.0, 20.5, 21.0, 22.0
 
 ## System Requirements
 
-- **OS**: Microsoft Windows 10+, Linux CentOS 7+, Linux Rocky 8+, Linux RHEL 8+ (64-bit).
+- **OS**: Microsoft Windows 10+, Linux Rocky 8+, Linux RHEL 8+ (64-bit).
 - **CPU**: 64-bit Intel or AMD multi-core processor.
 - **GPU**: NVIDIA GPU suggested for accelerated ML workflows, with 6GB of VRAM or more recommended. CPU fallback is supported when GPU execution is not available, but it can be slower.
 - **RAM**: 8GB required (16GB or more recommended).

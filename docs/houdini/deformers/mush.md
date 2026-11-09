@@ -56,12 +56,12 @@ This mode is useful when the reference state should always be derived from the o
 
 ## Parameter Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![mush parameter template solver tab](../images/mush_parameter_template_00.png)
   <figcaption><b>Figure 1</b>: AdnMush Parameter Template (Part 1): Solver.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![mush parameter template maps tab](../images/mush_parameter_template_01.png)
   <figcaption><b>Figure 2</b>: AdnMush Parameter Template (Part 2): Maps.</figcaption>
 </figure>

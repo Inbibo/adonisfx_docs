@@ -12,7 +12,7 @@ The AdnClosestFit is easy to create and configure in Maya. It requires the mesh 
 
 1. Select targets and then the mesh on which to apply the deformer.
 2. Press *Closest Fit* ![Closest fit button](../../images/adn_closest_fit.png){style="width:4%"} in the Adonis menu, under the Create Deformers section.
-3. A message in the terminal will notify that AdnClosestFit has been created properly. Check the [Attributes](closest_fit#attributes) section to customize their configuration.
+3. A message in the terminal will notify that AdnClosestFit has been created properly. Check the [Attributes](closest_fit#attributes) section to customize its configuration.
 
 ## Attributes
 

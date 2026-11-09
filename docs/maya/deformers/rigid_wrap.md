@@ -12,7 +12,7 @@ The AdnRigidWrap is easy to create and configure in Maya. It requires the mesh t
 
 1. Select targets and then the mesh on which to apply the deformer.
 2. Press *Rigid Wrap* ![Rigid wrap button](../../images/adn_rigid_wrap.png){style="width:4%"} in the Adonis menu, under the Create Deformers section.
-3. A message in the terminal will notify that AdnRigidWrap has been created properly. Check the [Attributes](rigid_wrap#attributes) section to customize their configuration.
+3. A message in the terminal will notify that AdnRigidWrap has been created properly. Check the [Attributes](rigid_wrap#attributes) section to customize its configuration.
 
 ## Attributes
 

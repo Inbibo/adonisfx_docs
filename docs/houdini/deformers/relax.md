@@ -9,14 +9,14 @@ The AdnRelax SOP is easy to create and configure in Houdini. It only requires th
 1. Go to the geometry context of the rig containing the geometry to apply the deformer to.
 2. Press TAB and navigate to the submenu Adonis > Deformers to find the AdnRelax ![Relax button](../../images/adn_relax.png){style="width:4%"} SOP type.
 3. Create it and connect the geometry to the input.
-4. Increase the number of iterations to see the effect of the deformation. Check the [Attributes](relax#attributes) section to customize their configuration.
+4. Increase the number of iterations to see the effect of the deformation. Check the [Attributes](relax#attributes) section to customize its configuration.
 
 ## Attributes
 
 ### Settings
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Iterations**         | Integer | 1      | ✗ | Number of iterations of the relaxation algorithm. Greater values mean greater computational cost. Has a range of \[1, 10\]. The upper limit is soft, higher values can be used. |
+| **Iterations**         | Integer | 1      | ✗ | Number of iterations of the relaxation algorithm. Greater values mean greater computational cost. Has a range of \[0, 20\]. The upper limit is soft, higher values can be used. |
 | **Pin**                | Boolean | False  | ✓ | Flag to pin the vertices on the boundaries. |
 | **Smooth**             | Float   | 0.5    | ✓ | Amount of smoothing to apply. Has a range of \[0.0, 1.0\]. |
 | **Relax**              | Float   | 0.5    | ✓ | Amount of relaxation to apply. Has a range of \[0.0, 1.0\]. |
@@ -54,12 +54,12 @@ The AdnRelax SOP is easy to create and configure in Houdini. It only requires th
 
 ## Parameter Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![relax parameter template solver tab](../images/relax_parameter_template_00.png)
   <figcaption><b>Figure 1</b>: AdnRelax Parameter Template (Part 1): Solver.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![relax parameter template maps tab](../images/relax_parameter_template_01.png)
   <figcaption><b>Figure 2</b>: AdnRelax Parameter Template (Part 2): Maps.</figcaption>
 </figure>

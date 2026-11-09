@@ -6,7 +6,7 @@ The influence these constraints have on the simulated mesh can be freely modifie
 
 ### How To Use
 
-The AdnMuscle deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The way this deformer works is by applying simulation on top a mesh emulating a muscle which follows the dynamics of attachment points. Those attachments mark the anchor points for the muscle, prepared to act as tendons, and will introduce a great part of the dynamics of the deformer.
+The AdnMuscle deformer is of great simplicity to set up and apply to a mesh within a Maya scene. The way this deformer works is by applying simulation on top of a mesh emulating a muscle which follows the dynamics of attachment points. Those attachments mark the anchor points for the muscle, prepared to act as tendons, and will introduce a great part of the dynamics of the deformer.
 
 An AdnMuscle requires the following inputs to be provided:
 
@@ -20,7 +20,7 @@ To create an AdnMuscle, follow these steps:
 
 1. Select the **Targets** (if any), then the **Muscle Geometry**.
 2. Press the ![Muscle button](../../images/adn_muscle.png){style="width:4%"} button in the Adonis shelf or press *Muscle* in the *Solvers* submenu from the Adonis menu. If the shelf button is double-clicked or the option box in the menu is selected a window will be displayed where a custom name and initial attribute values can be set.
-3. AdnMuscle is ready to simulate with default settings. Check the next section to customize their configuration.
+3. AdnMuscle is ready to simulate with default settings. Check the next section to customize its configuration.
 
 ## Attributes
 
@@ -45,12 +45,13 @@ To create an AdnMuscle, follow these steps:
 | **Start Time**         | Time    | *Current frame* | ✗ | Determines the frame at which the simulation starts. |
 | **Current Time**       | Time    | *Current frame* | ✓ | Current playback frame. |
 | **Allow Subframes**    | Boolean | True            | ✓ | If True, allows subframe evaluation for delta time computation when the time step is smaller than one single frame. |
+| **Preserve Full Frame** | Boolean | False           | ✓ | Preserves matching results at integer frames when evaluating subframes, providing simulation-driven interpolation between frames. For example, evaluating in steps of 0.1 frames produces the same result at frame 2 as evaluating directly from frame 1 to frame 2 with the same solver settings. It does not require *Allow Subframes* to be enabled and can be changed without restarting the simulation. |
 
 ### Scale Attributes
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
-| **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
-| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). Adonis interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Time Scale**       | Float      | 1.0             | ✓ | Sets the scaling factor applied to the simulation time step. Has a range of \[0.001, 10.0\]. The upper limit is soft, higher values can be used. |
+| **Space Scale**      | Float      | 1.0             | ✓ | Sets the scaling factor applied to the masses and/or the forces (e.g. gravity). Adonis interprets the scene units in centimeters. If modeling your creature you apply a scaling factor for whatever reason (e.g. to avoid precision issues in Maya), you will have to adjust for this scaling factor using this attribute. If your character is supposed to be 170 units tall, but you prefer to model it to be 17 units tall, then you will need to set the space scale to a value of 10. This will ensure that your 17 units creature will simulate as if it was 170 units tall. Has a range of \[0.001, 100.0\]. The upper limit is soft, higher values can be used. |
 | **Space Scale Mode** | Enumerator | Masses + Forces | ✓ | Determines if the spatial scaling affects the masses, the forces, or both. The available options are: <ul><li>Masses: The *Space Scale* only affects masses.</li><li>Forces: The *Space Scale* only affects forces.</li><li>Masses + Forces: The *Space Scale* affects masses and forces.</li></ul> |
 
 ### Gravity
@@ -87,13 +88,13 @@ To create an AdnMuscle, follow these steps:
 | Name | Type | Default | Animatable | Description |
 | :--- | :--- | :------ | :--------- | :---------- |
 | **Solver Stiffness**         | Float |  0.0 | ✗ | Shows the global stiffness value currently used by the solver. |
-| **Attachments To Geometry**  | Float | -1.0 | ✓ | Sets the stiffness override value for attachment to geometry constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
-| **Attachments To Transform** | Float | -1.0 | ✓ | Sets the stiffness override value for attachment to transform constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
-| **Fiber Constraints**        | Float | -1.0 | ✓ | Sets the stiffness override value for fiber constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
-| **Shape Preservation**       | Float | -1.0 | ✓ | Sets the stiffness override value for shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
-| **Slide On Geometry**        | Float | -1.0 | ✓ | Sets the stiffness override value for slide on geometry constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
-| **Slide On Segment**         | Float | -1.0 | ✓ | Sets the stiffness override value for slide on segment constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
-| **Volume Constraints**       | Float | -1.0 | ✓ | Sets the stiffness override value for volume constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[0.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **Attachments To Geometry**  | Float | -1.0 | ✓ | Sets the stiffness override value for attachment to geometry constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[-1.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **Attachments To Transform** | Float | -1.0 | ✓ | Sets the stiffness override value for attachment to transform constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[-1.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **Fiber Constraints**        | Float | -1.0 | ✓ | Sets the stiffness override value for fiber constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[-1.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **Shape Preservation**       | Float | -1.0 | ✓ | Sets the stiffness override value for shape preservation constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[-1.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **Slide On Geometry**        | Float | -1.0 | ✓ | Sets the stiffness override value for slide on geometry constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[-1.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **Slide On Segment**         | Float | -1.0 | ✓ | Sets the stiffness override value for slide on segment constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[-1.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
+| **Volume Constraints**       | Float | -1.0 | ✓ | Sets the stiffness override value for volume constraints. If the value is less than 0.0, the global stiffness will be used. Otherwise, this custom stiffness will override the global stiffness. Has a range of \[-1.0, 10<sup>12</sup>\]. The upper limit is soft, higher values can be used. |
 
 > [!NOTE]
 > Providing a stiffness override value of 0.0 will disable the computation of that constraint.
@@ -118,8 +119,9 @@ To create an AdnMuscle, follow these steps:
 | **Triangulate Mesh**            | Boolean    | True     | ✗ | Use the internally triangulated mesh to build constraints. |
 | **Global Damping Multiplier**   | Float      | 0.75     | ✓ | Sets the scaling factor applied to the global damping of every point. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
 | **Inertia Damper**              | Float      | 0.0      | ✓ | Sets the linear damping applied to the dynamics of every point. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
-| **Rest Length Multiplier**      | Float      | 1.0      | ✓ | Sets the scaling factor applied to the edge lengths at rest. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
+| **Rest Length Multiplier**      | Float      | 1.0      | ✓ | Sets the scaling factor applied to the edge lengths at rest. This value is multiplied by the per-vertex *Rest Length Weight* map read at initialization. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Max Sliding Distance**        | Float      | 0.0      | ✗ | Determines the size of the sliding area. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. The higher this value is, the higher quality and the lower performance. If the value provided is considered too high for a given target mesh, a warning will be displayed to the user. Has a range of \[0.0, 10.0\]. The upper limit is soft, higher values can be used. |
+| **Sliding Falloff**             | Float      | 0.0      | ✓ | Applies only when *Sliding Algorithm* is set to *Closest Point*. Increasing the value softens transitions and can reduce ridges or sharp creases at painted sliding boundaries, while reducing the overall amount of sliding. Decreasing it preserves more sliding freedom, with a sharper transition near *Max Sliding Distance*.<ul><li>0.0: Applies a hard limit without falloff.</li><li>Between 0.0 and 1.0: Softens sliding near the limit; higher values make the falloff begin earlier.</li><li>1.0: Applies falloff across the full sliding range.</li><li>Above 1.0: Further softens the response and reduces sliding across the full range.</li></ul>The minimum is 0.0. The upper limit of 2.0 is soft; higher values can be used. |
 | **Compression Multiplier**      | Float      | 1.0      | ✓ | Sets the scaling factor applied to the compression resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Stretching Multiplier**       | Float      | 1.0      | ✓ | Sets the scaling factor applied to the stretching resistance of every point. Has a range of \[0.0, 2.0\]. The upper limit is soft, higher values can be used. |
 | **Anisotropy**                  | Float      | 0.0      | ✓ | Sets the anisotropic behavior of the fibers: 0 fully isotropic material, 1 fully anisotropic material. Has a range of \[0.0, 1.0\]. |
@@ -127,7 +129,8 @@ To create an AdnMuscle, follow these steps:
 | **Attenuation Velocity Factor** | Float      | 1.0      | ✓ | Sets the weight of the attenuation applied to the velocities of the simulated vertices driven by the *Attenuation Matrix*. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. |
 | **Substeps Interp. Exp.**       | Float      | 1.0      | ✓ | Sets the exponential factor to weight the interpolation at each substep. Has a range of \[0.0, 1.0\]. The upper limit is soft, higher values can be used. A value of 0.0 disables the interpolation: input geometry targets and attenuation matrix are not interpolated. A value of 1.0 applies linear interpolation (input geometry targets and attenuation matrix) between previous and current frame based on a linear weight, i.e. `weight = substep / num_substeps`. A value between 0.0 and 1.0 applies exponential interpolation (input geometry targets and attenuation matrix) between previous and current frame based on an exponential weight, i.e. `weight = (substep / num_substeps) ^ exponent`. |
 | **Hard Attachments**            | Boolean    | False    | ✓ | If enabled, attachment constraints will force the vertices to stick to the target transformation completely. |
-| **Sliding Constraints Mode**    | Enumerator | Quality  | ✓ | Defines the mode of execution for the slide on geometry constraints.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
+| **Sliding Constraints Mode**    | Enumerator | Quality  | ✓ | Defines the mode of execution for the slide on geometry constraints. Applies to both *Legacy* and *Closest Point* sliding algorithms.<ul><li>*Quality* is more accurate, recommended for final results.</li><li>*Fast* provides higher performance, recommended for preview.</li></ul> |
+| **Sliding Algorithm**           | Enumerator | Legacy   | ✓ | Selects the algorithm used to evaluate slide on geometry constraints. *Legacy* is the default. *Closest Point* uses closest-point queries for faster evaluation and supports *Sliding Falloff* for smoother transitions at sliding boundaries. Both algorithms support the *Quality* and *Fast* modes. |
 | **Target Faces Filter**         | Enumerator | None     | ✗ | Defines how the target faces list has to be processed for the geometry attachments and slide on geometry constraints.<ul><li>*None* uses all the faces in the target mesh for closest point queries.</li><li>*Exclude* excludes the faces listed in the target faces attribute for closest point queries.</li><li>*Include* includes the faces listed in the target faces attribute for closest point queries.</li></ul> |
 
 #### Mush Properties
@@ -180,12 +183,17 @@ To create an AdnMuscle, follow these steps:
 
 <figure style="width: 75%;" markdown>
   ![AdnMuscle editor second part](../images/muscle_attribute_editor_01.png)
-  <figcaption><b>Figure 2</b>: AdnMuscle Attribute Editor (Advanced Settings).</figcaption>
+  <figcaption><b>Figure 2</b>: AdnMuscle Attribute Editor (Advanced Settings I).</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
-  ![AdnMuscle editor debug menu](../images/muscle_attribute_editor_02.png)
-  <figcaption><b>Figure 3</b>: AdnMuscle Attribute Editor (Debug menu).</figcaption>
+  ![AdnMuscle editor second part](../images/muscle_attribute_editor_02.png)
+  <figcaption><b>Figure 3</b>: AdnMuscle Attribute Editor (Advanced Settings II).</figcaption>
+</figure>
+
+<figure style="width: 75%;" markdown>
+  ![AdnMuscle editor debug menu](../images/muscle_attribute_editor_03.png)
+  <figcaption><b>Figure 4</b>: AdnMuscle Attribute Editor (Debug menu).</figcaption>
 </figure>
 
 ## Paintable Weights
@@ -206,22 +214,23 @@ In order to provide more artistic control, some key parameters of the muscle sol
 | **Slide On Geometry**           | 0.0             | Multi-influence weight to force vertices to displace only on the target geometry area defined by the *Max Sliding Distance* value. |
 | **Slide On Segment**            | 0.0             | Multi-influence weight to force vertices to displace only in the direction of a user-specified group of segments. |
 | **Sliding Distance Multiplier** | 1.0             | Determines the size of the sliding area per vertex. It corresponds to the maximum distance to the closest point on the target mesh computed on initialization. Greater values will allow for larger sliding areas but will also increase the computational cost.<ul><li>*Tip*: For areas where sliding is not required paint to 0.0. Use values closer to 1.0 in areas where more sliding freedom should be prioritized.</li></ul> |
+| **Rest Length Weight**          | 1.0             | Per-vertex weight that multiplies the global *Rest Length Multiplier*. A value of 1.0 preserves the global multiplier; lower values reduce the rest lengths locally. |
 | **Stretching Resistance**       | 1.0             | Force to correct the edge lengths if the current length is greater than the rest length. A higher value represents higher correction. |
 | **Tendons**                     | 0.0             | Floating values to indicate the source of the muscle fibers. The solver will use that information to make an estimation of the fiber direction at each vertex. It is recommended to set a value of 1.0 wherever the tendinous tissue would be in an anatomically realistic muscle and a value of 0.0 in the rest of the mesh. |
 
 <figure markdown>
   ![AdnMuscle example of attachment to geometry with 4 targets](../images/muscle_w_att_geo.png) 
-  <figcaption><b>Figure 4</b>: Example of AdnMuscle attachment to geometry maps painted on a biceps with 4 targets (front view). From left to right, the targets are the mummy, the brachialis muscle, the palmaris longus muscle and the pronator teres muscle.</figcaption>
+  <figcaption><b>Figure 5</b>: Example of AdnMuscle attachment to geometry maps painted on a biceps with 4 targets (front view). From left to right, the targets are the mummy, the brachialis muscle, the palmaris longus muscle and the pronator teres muscle.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnMuscle example of slide on geometry with 2 targets](../images/muscle_w_slide_geo.png) 
-  <figcaption><b>Figure 5</b>: Example of AdnMuscle slide on geometry maps painted on a biceps with 2 targets (back view). From left to right, the targets are the mummy and the brachialis muscle.</figcaption>
+  <figcaption><b>Figure 6</b>: Example of AdnMuscle slide on geometry maps painted on a biceps with 2 targets (back view). From left to right, the targets are the mummy and the brachialis muscle.</figcaption>
 </figure>
 
 <figure markdown>
   ![AdnMuscle example of other paintable maps](../images/muscle_weights.png) 
-  <figcaption><b>Figure 6</b>: Example of other paintable maps on a biceps. On the left, the fibers multiplier map. In the middle, the tendons map. On the right, a map flooded with a value of 1.0 corresponding to all other remaining maps (compression, stretching, masses, global damping, shape preservation and sliding distance multiplier).</figcaption>
+  <figcaption><b>Figure 7</b>: Example of other paintable maps on a biceps. On the left, the fibers multiplier map. In the middle, the tendons map. On the right, a map flooded with a value of 1.0 corresponding to all other remaining maps (compression, stretching, masses, global damping, shape preservation and sliding distance multiplier).</figcaption>
 </figure>
 
 > [!NOTE]
@@ -245,27 +254,27 @@ To enable the debugger the *Debug* checkbox must be marked. To select the specif
 
 <figure markdown>
   ![AdnMuscle debug](../images/muscle_debug.png)
-  <figcaption><b>Figure 7</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Geometry Constraints, Slide On Geometry Constraints, Fiber Constraints and Shape Preservation.</figcaption>
+  <figcaption><b>Figure 8</b>: AdnMuscle debug features. From left to right: Muscle Fibers, Attachment To Geometry Constraints, Slide On Geometry Constraints, Fiber Constraints and Shape Preservation.</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle fibers activation debug](../images/muscle_fibers_activation_debug.png)
-  <figcaption><b>Figure 8</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
+  <figcaption><b>Figure 9</b>: On the left side the Muscle Fibers mode is set and the fibers are displayed when the muscle is not activated. On the right side the Muscle Fibers mode is set and the fibers are displayed when the muscle is activated. The activated color has been changed to yellow. </figcaption>
 </figure>
 
 <figure markdown>
   ![muscle editor fiber constraint debug](../images/muscle_dist_constr_debug.png)
-  <figcaption><b>Figure 9</b>: Displaying the target and simulated meshes. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 10</b>: Displaying the target and simulated meshes. Debugger enabled displaying the <i>Fiber Constraints</i> coloured in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle editor shape preservation constraint debug](../images/muscle_shape_preserve_constr_debug.png)
-  <figcaption><b>Figure 10</b>: Displaying the target and simulated meshes. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
+  <figcaption><b>Figure 11</b>: Displaying the target and simulated meshes. Debugger enabled displaying the <i>Shape Preservation Constraints</i> coloured in blue with Triangulate Mesh option disabled (Left) and enabled (Right).</figcaption>
 </figure>
 
 <figure markdown>
   ![muscle to muscle debugger](../images/muscle_to_muscle_debugger.png)
-  <figcaption><b>Figure 11</b>: Muscle to muscle attachments to geo debugging example between biceps and brachialis.</figcaption>
+  <figcaption><b>Figure 12</b>: Muscle to muscle attachments to geo debugging example between biceps and brachialis.</figcaption>
 </figure>
 
 
@@ -339,7 +348,7 @@ Not painting the fibers multiplier map will cause the muscle to contract uniform
 
 <figure markdown>
   ![AdnMuscle fibers multiplier map example](../images/muscle_fibers_multiplier.png) 
-  <figcaption><b>Figure 12</b>: Example use case of the fibers multiplier map on a biceps muscle. Top-Left) represents the painting without concentrated activations; Top-Right) represents the painting with concentrated activations in the belly of the muscle; Bottom-Left) Shows the results of the non-concentrated activations when the muscle is fully activated; Bottom-Right) Shows the results of the concentrated activations when the muscle is fully activated.</figcaption>
+  <figcaption><b>Figure 13</b>: Example use case of the fibers multiplier map on a biceps muscle. Top-Left) represents the painting without concentrated activations; Top-Right) represents the painting with concentrated activations in the belly of the muscle; Bottom-Left) Shows the results of the non-concentrated activations when the muscle is fully activated; Bottom-Right) Shows the results of the concentrated activations when the muscle is fully activated.</figcaption>
 </figure>
 
 ### Activation Layers
@@ -364,7 +373,7 @@ The sensors can be connected to the activation list using the [Sensors Connectio
 
 <figure style="width: 75%;" markdown>
   ![sensors connection editor to connect activation layers](../images/tools_sensors_connection_editor_activation_layers.png)
-  <figcaption><b>Figure 13</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
+  <figcaption><b>Figure 14</b>: Example of the Sensors Connection Editor UI listing three plug values from the activation list.</figcaption>
 </figure>
 
 The removal of input sensors connected to the activation list can be done from the Adonis menu in Activation > Remove Inputs option.

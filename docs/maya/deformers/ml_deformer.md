@@ -80,7 +80,7 @@ The AdnMLDeformer integrates the mush algorithm to apply smoothing to the shape 
 | :--- | :--- | :------ | :--------- | :---------- |
 | **ML Inputs** | Matrix | Identity | ✓ | Local transformation matrix of the joints used as input to the Adonis ML model for inference. |
 
-## Parameter Template
+## Attribute Editor Template
 
 <figure markdown>
   ![ML deformer parameter template](../images/ml_deformer_attribute_editor.png)

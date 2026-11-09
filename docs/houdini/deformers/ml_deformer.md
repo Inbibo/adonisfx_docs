@@ -107,17 +107,17 @@ The AdnMLDeformer integrates the mush algorithm to apply smoothing to the shape 
 
 ## Parameter Template
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![ML deformer parameter template (settings tab)](../images/ml_deformer_parameter_template_00.png)
   <figcaption><b>Figure 5</b>: AdnMLDeformer Parameter Template (Part 1): Settings.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![ML deformer parameter template (ML inputs tab)](../images/ml_deformer_parameter_template_01.png)
   <figcaption><b>Figure 6</b>: AdnMLDeformer Parameter Template (Part 2): ML Inputs.</figcaption>
 </figure>
 
-<figure markdown>
+<figure style="width: 75%;" markdown>
   ![ML deformer parameter template (maps tab)](../images/ml_deformer_parameter_template_02.png)
   <figcaption><b>Figure 7</b>: AdnMLDeformer Parameter Template (Part 3): Maps.</figcaption>
 </figure>

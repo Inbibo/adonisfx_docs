@@ -85,17 +85,17 @@ Once the AdnSkinMerge SOP is created, the input meshes (animation mesh list, sim
 
 <figure style="width: 75%;" markdown>
   ![AdnSkinMerge parameter template solver](../images/skin_merge_parameter_template_00.png)
-  <figcaption><b>Figure 2</b>: AdnSkinMerge Attribute Editor: Solver.</figcaption>
+  <figcaption><b>Figure 2</b>: AdnSkinMerge Parameter Template: Solver.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnSkinMerge parameter template targets](../images/skin_merge_parameter_template_01.png)
-  <figcaption><b>Figure 3</b>: AdnSkinMerge Attribute Editor: Targets.</figcaption>
+  <figcaption><b>Figure 3</b>: AdnSkinMerge Parameter Template: Targets.</figcaption>
 </figure>
 
 <figure style="width: 75%;" markdown>
   ![AdnSkinMerge parameter template maps](../images/skin_merge_parameter_template_02.png)
-  <figcaption><b>Figure 4</b>: AdnSkinMerge Attribute Editor: Maps.</figcaption>
+  <figcaption><b>Figure 4</b>: AdnSkinMerge Parameter Template: Maps.</figcaption>
 </figure>
 
 ## Paintable Weights
